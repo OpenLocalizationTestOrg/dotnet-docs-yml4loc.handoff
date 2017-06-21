@@ -43,7 +43,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Provides properties and instance methods for the creation, copying, deletion, moving, and opening of files, and aids in the creation of <xref href="System.IO.FileStream"></xref> objects. This class cannot be inherited.
+  summary: 'Provides properties and instance methods for the creation, copying, deletion, moving, and opening of files, and aids in the creation of <xref href="System.IO.FileStream"></xref> objects. This class cannot be inherited.'
   remarks: "> [!NOTE]\n>  To view the .NET Framework source code for this type, see the [Reference Source](http://referencesource.microsoft.com/#mscorlib/system/io/fileinfo.cs#4ee673c1a4ecad41). You can browse through the source code online, download the reference for offline viewing, and step through the sources (including patches and updates) during debugging; see [instructions](http://referencesource.microsoft.com/).  \n  \n Use the <xref:System.IO.FileInfo> class for typical operations such as copying, moving, renaming, creating, opening, deleting, and appending to files.  \n  \n If you are performing multiple operations on the same file, it can be more efficient to use <xref:System.IO.FileInfo> instance methods instead of the corresponding static methods of the <xref:System.IO.File> class, because a security check will not always be necessary.  \n  \n Many of the <xref:System.IO.FileInfo> methods return other I/O types when you create or open files. You can use these other types to further manipulate a file. For more information, see specific <xref:System.IO.FileInfo> members such as <xref:System.IO.FileInfo.Open%2A>, <xref:System.IO.FileInfo.OpenRead%2A>, <xref:System.IO.FileInfo.OpenText%2A>, <xref:System.IO.FileInfo.CreateText%2A>, or <xref:System.IO.FileInfo.Create%2A>.  \n  \n By default, full read/write access to new files is granted to all users.  \n  \n The following table describes the enumerations that are used to customize the behavior of various <xref:System.IO.FileInfo> methods.  \n  \n|Enumeration|Description|  \n|-----------------|-----------------|  \n|<xref:System.IO.FileAccess>|Specifies read and write access to a file.|  \n|<xref:System.IO.FileShare>|Specifies the level of access permitted for a file that is already in use.|  \n|<xref:System.IO.FileMode>|Specifies whether the contents of an existing file are preserved or overwritten, and whether requests to create an existing file cause an exception.|  \n  \n> [!NOTE]\n>  In members that accept a path as an input string, that path must be well-formed or an exception is raised. For example, if a path is fully qualified but begins with a space, the path is not trimmed in methods of the class. Therefore, the path is malformed and an exception is raised. Similarly, a path or a combination of paths cannot be fully qualified twice. For example, \"c:\\temp c:\\windows\" also raises an exception in most cases. Ensure that your paths are well-formed when using methods that accept a path string.  \n  \n In members that accept a path, the path can refer to a file or just a directory. The specified path can also refer to a relative path or a Universal Naming Convention (UNC) path for a server and share name. For example, all the following are acceptable paths:  \n  \n-   \"c:\\\\\\MyDir\\\\\\MyFile.txt\" in C#, or \"c:\\MyDir\\MyFile.txt\" in Visual Basic.  \n  \n-   \"c:\\\\\\MyDir\" in C#, or \"c:\\MyDir\" in Visual Basic.  \n  \n-   \"MyDir\\\\\\MySubdir\" in C#, or \"MyDir\\MySubDir\" in Visual Basic.  \n  \n-   \"\\\\\\\\\\\\\\MyServer\\\\\\MyShare\" in C#, or \"\\\\\\MyServer\\MyShare\" in Visual Basic.  \n  \n The <xref:System.IO.FileInfo> class provides the following properties that enable you to retrieve information about a file. For an example of how to use each property, see the property pages.  \n  \n-   The <xref:System.IO.FileInfo.Directory%2A> property retrieves an object that represents the parent directory of a file.  \n  \n-   The <xref:System.IO.FileInfo.DirectoryName%2A> property retrieves the full path of the parent directory of a file.  \n  \n-   The <xref:System.IO.FileInfo.Exists%2A> property checks for the presence of a file before operating on it.  \n  \n-   The <xref:System.IO.FileInfo.IsReadOnly%2A> property retrieves or sets a value that specifies whether a file can be modified.  \n  \n-   The <xref:System.IO.FileInfo.Length%2A> retrieves the size of a file.  \n  \n-   The <xref:System.IO.FileInfo.Name%2A> retrieves the name of a file."
   example:
   - "The following example demonstrates some of the main members of the `FileInfo` class.  \n  \n When the properties are first retrieved, <xref:System.IO.FileInfo> calls the <xref:System.IO.FileSystemInfo.Refresh%2A> method and caches information about the file. On subsequent calls, you must call <xref:System.IO.FileSystemInfo.Refresh%2A> to get the latest copy of the information.  \n  \n [!code-cpp[FInfo Class#1](~/samples/snippets/cpp/VS_Snippets_CLR/FInfo Class/CPP/finfo class.cpp#1)]\n [!code-csharp[FInfo Class#1](~/samples/snippets/csharp/VS_Snippets_CLR/FInfo Class/CS/finfo class.cs#1)]\n [!code-vb[FInfo Class#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/FInfo Class/VB/finfo class.vb#1)]  \n  \n This example produces output similar to the following.  \n  \n```  \nHello  \nAnd  \nWelcome  \nC:\\Users\\userName\\AppData\\Local\\Temp\\tmp70AB.tmp was copied to C:\\Users\\userName\\AppData\\Local\\Temp\\tmp70CB.tmp.  \nC:\\Users\\userName\\AppData\\Local\\Temp\\tmp70CB.tmp was successfully deleted.  \n```"
@@ -139,8 +139,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Initializes a new instance of the <xref href="System.IO.FileInfo"></xref> class, which acts as a wrapper for a file path.
-  remarks: You can specify either the fully qualified or the relative file name, but the security check gets the fully qualified name.
+  summary: 'Initializes a new instance of the <xref href="System.IO.FileInfo"></xref> class, which acts as a wrapper for a file path.'
+  remarks: 'You can specify either the fully qualified or the relative file name, but the security check gets the fully qualified name.'
   example:
   - "The following example uses this constructor to create two files, which are then written to, read from, copied, and deleted.  \n  \n [!code-cpp[finfo ctor#1](~/samples/snippets/cpp/VS_Snippets_CLR/FInfo Ctor/CPP/finfo ctor.cpp#1)]\n [!code-csharp[finfo ctor#1](~/samples/snippets/csharp/VS_Snippets_CLR/FInfo Ctor/CS/finfo ctor.cs#1)]\n [!code-vb[finfo ctor#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/FInfo Ctor/VB/finfo ctor.vb#1)]  \n  \n The following example opens an existing file or creates a file, appends text to the file, and displays the results.  \n  \n [!code-cpp[fileinfomain#1](~/samples/snippets/cpp/VS_Snippets_CLR/fileinfomain/CPP/fileinfomain.cpp#1)]\n [!code-csharp[fileinfomain#1](~/samples/snippets/csharp/VS_Snippets_CLR/fileinfomain/CS/fileinfomain.cs#1)]\n [!code-vb[fileinfomain#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/fileinfomain/VB/fileinfomain.vb#1)]"
   syntax:
@@ -148,7 +148,7 @@ items:
     parameters:
     - id: fileName
       type: System.String
-      description: The fully qualified name of the new file, or the relative file name. Do not end the path with the directory separator character.
+      description: 'The fully qualified name of the new file, or the relative file name. Do not end the path with the directory separator character.'
   overload: System.IO.FileInfo.#ctor*
   exceptions:
   - type: System.ArgumentNullException
@@ -159,16 +159,16 @@ items:
     description: The caller does not have the required permission.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: The file name is empty, contains only white spaces, or contains invalid characters.
+    description: 'The file name is empty, contains only white spaces, or contains invalid characters.'
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
     description: Access to <code>fileName</code> is denied.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: <code>fileName</code> contains a colon (:) in the middle of the string.
+    description: '<code>fileName</code> contains a colon (:) in the middle of the string.'
   attributes: []
   version:
   - netcore-1.0
@@ -296,7 +296,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Copies an existing file to a new file, disallowing the overwriting of an existing file.
+  summary: 'Copies an existing file to a new file, disallowing the overwriting of an existing file.'
   remarks: "Use the <xref:System.IO.FileInfo.CopyTo%2A> method to allow overwriting of an existing file.  \n  \n> [!CAUTION]\n>  Whenever possible, avoid using short file names (such as XXXXXX~1.XXX) with this method. If two files have equivalent short file names then this method may fail and raise an exception and/or result in undesirable behavior"
   example:
   - "The following example demonstrates both overloads of the `CopyTo` method.  \n  \n [!code-cpp[finfo copyto2#1](~/samples/snippets/cpp/VS_Snippets_CLR/FInfo CopyTo2/CPP/finfo copyto2.cpp#1)]\n [!code-csharp[finfo copyto2#1](~/samples/snippets/csharp/VS_Snippets_CLR/FInfo CopyTo2/CS/program.cs#1)]\n [!code-vb[finfo copyto2#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/FInfo CopyTo2/VB/program.vb#1)]  \n  \n The following example demonstrates copying one file to another file, throwing an exception if the destination file already exists.  \n  \n [!code-cpp[FileInfoCopyTo1#1](~/samples/snippets/cpp/VS_Snippets_CLR/FileInfoCopyTo1/CPP/fileinfocopyto1.cpp#1)]\n [!code-csharp[FileInfoCopyTo1#1](~/samples/snippets/csharp/VS_Snippets_CLR/FileInfoCopyTo1/CS/fileinfocopyto1.cs#1)]\n [!code-vb[FileInfoCopyTo1#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/FileInfoCopyTo1/VB/fileinfocopyto1.vb#1)]"
@@ -313,10 +313,10 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>destFileName</code> is empty, contains only white spaces, or contains invalid characters.
+    description: '<code>destFileName</code> is empty, contains only white spaces, or contains invalid characters.'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: An error occurs, or the destination file already exists.
+    description: 'An error occurs, or the destination file already exists.'
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
     description: The caller does not have the required permission.
@@ -325,16 +325,16 @@ items:
     description: <code>destFileName</code> is `null`.
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: A directory path is passed in, or the file is being moved to a different drive.
+    description: 'A directory path is passed in, or the file is being moved to a different drive.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
     description: The directory specified in <code>destFileName</code> does not exist.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: <code>destFileName</code> contains a colon (:) within the string but does not specify the volume.
+    description: '<code>destFileName</code> contains a colon (:) within the string but does not specify the volume.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -392,7 +392,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Copies an existing file to a new file, allowing the overwriting of an existing file.
+  summary: 'Copies an existing file to a new file, allowing the overwriting of an existing file.'
   remarks: "Use this method to allow or prevent overwriting of an existing file. Use the <xref:System.IO.FileInfo.CopyTo%2A> method to prevent overwriting of an existing file by default.  \n  \n> [!CAUTION]\n>  Whenever possible, avoid using short file names (such as XXXXXX~1.XXX) with this method. If two files have equivalent short file names then this method may fail and raise an exception and/or result in undesirable behavior"
   example:
   - "The following example demonstrates both overloads of the `CopyTo` method.  \n  \n [!code-cpp[finfo copyto2#1](~/samples/snippets/cpp/VS_Snippets_CLR/FInfo CopyTo2/CPP/finfo copyto2.cpp#1)]\n [!code-csharp[finfo copyto2#1](~/samples/snippets/csharp/VS_Snippets_CLR/FInfo CopyTo2/CS/program.cs#1)]\n [!code-vb[finfo copyto2#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/FInfo CopyTo2/VB/program.vb#1)]  \n  \n The following example demonstrates copying one file to another file, specifying whether to overwrite a file that already exists.  \n  \n [!code-cpp[fileinfocopyto#1](~/samples/snippets/cpp/VS_Snippets_CLR/fileinfocopyto/CPP/fileinfocopyto.cpp#1)]\n [!code-csharp[fileinfocopyto#1](~/samples/snippets/csharp/VS_Snippets_CLR/fileinfocopyto/CS/fileinfocopyto.cs#1)]\n [!code-vb[fileinfocopyto#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/fileinfocopyto/VB/fileinfocopyto.vb#1)]"
@@ -407,15 +407,15 @@ items:
       description: '`true` to allow an existing file to be overwritten; otherwise, `false`.'
     return:
       type: System.IO.FileInfo
-      description: A new file, or an overwrite of an existing file if <code>overwrite</code> is `true`. If the file exists and <code>overwrite</code> is `false`, an <xref href="System.IO.IOException"></xref> is thrown.
+      description: 'A new file, or an overwrite of an existing file if <code>overwrite</code> is `true`. If the file exists and <code>overwrite</code> is `false`, an <xref href="System.IO.IOException"></xref> is thrown.'
   overload: System.IO.FileInfo.CopyTo*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>destFileName</code> is empty, contains only white spaces, or contains invalid characters.
+    description: '<code>destFileName</code> is empty, contains only white spaces, or contains invalid characters.'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: An error occurs, or the destination file already exists and <code>overwrite</code> is `false`.
+    description: 'An error occurs, or the destination file already exists and <code>overwrite</code> is `false`.'
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
     description: The caller does not have the required permission.
@@ -427,13 +427,13 @@ items:
     description: The directory specified in <code>destFileName</code> does not exist.
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: A directory path is passed in, or the file is being moved to a different drive.
+    description: 'A directory path is passed in, or the file is being moved to a different drive.'
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: <code>destFileName</code> contains a colon (:) in the middle of the string.
+    description: '<code>destFileName</code> contains a colon (:) in the middle of the string.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -561,7 +561,7 @@ items:
   - netstandard
   namespace: System.IO
   summary: Creates a <xref href="System.IO.StreamWriter"></xref> that writes a new text file.
-  remarks: By default, full read/write access to new files is granted to all users.
+  remarks: 'By default, full read/write access to new files is granted to all users.'
   example:
   - "The following example demonstrates the `CreateText` method.  \n  \n [!code-cpp[finfo createtext#1](~/samples/snippets/cpp/VS_Snippets_CLR/FInfo CreateText/CPP/finfo createtext.cpp#1)]\n [!code-csharp[finfo createtext#1](~/samples/snippets/csharp/VS_Snippets_CLR/FInfo CreateText/CS/finfo createtext.cs#1)]\n [!code-vb[finfo createtext#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/FInfo CreateText/VB/finfo createtext.vb#1)]"
   syntax:
@@ -718,7 +718,7 @@ items:
   - netstandard
   namespace: System.IO
   summary: Permanently deletes a file.
-  remarks: If the file does not exist, this method does nothing.
+  remarks: 'If the file does not exist, this method does nothing.'
   example:
   - "The following example demonstrates the `Delete` method.  \n  \n [!code-cpp[finfo delete#1](~/samples/snippets/cpp/VS_Snippets_CLR/FInfo Delete/CPP/finfo delete.cpp#1)]\n [!code-csharp[finfo delete#1](~/samples/snippets/csharp/VS_Snippets_CLR/FInfo Delete/CS/finfo delete.cs#1)]\n [!code-vb[finfo delete#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/FInfo Delete/VB/finfo delete.vb#1)]  \n  \n The following example creates, closes, and deletes a file.  \n  \n [!code-cpp[fileinfodelete#1](~/samples/snippets/cpp/VS_Snippets_CLR/fileinfodelete/CPP/fileinfodelete.cpp#1)]\n [!code-csharp[fileinfodelete#1](~/samples/snippets/csharp/VS_Snippets_CLR/fileinfodelete/CS/fileinfodelete.cs#1)]\n [!code-vb[fileinfodelete#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/fileinfodelete/VB/fileinfodelete.vb#1)]"
   syntax:
@@ -794,7 +794,7 @@ items:
   - netstandard
   namespace: System.IO
   summary: Gets an instance of the parent directory.
-  remarks: To get the parent directory as a string, use the <xref:System.IO.FileInfo.DirectoryName%2A> property.
+  remarks: 'To get the parent directory as a string, use the <xref:System.IO.FileInfo.DirectoryName%2A> property.'
   example:
   - "The following example opens or creates a file, determines its full path, and determines and displays the full contents of the directory.  \n  \n [!code-cpp[fileinfodirectory#1](~/samples/snippets/cpp/VS_Snippets_CLR/fileinfodirectory/CPP/fileinfodirectory.cpp#1)]\n [!code-csharp[fileinfodirectory#1](~/samples/snippets/csharp/VS_Snippets_CLR/fileinfodirectory/CS/fileinfodirectory.cs#1)]\n [!code-vb[fileinfodirectory#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/fileinfodirectory/VB/fileinfodirectory.vb#1)]"
   syntax:
@@ -806,7 +806,7 @@ items:
   exceptions:
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid, such as being on an unmapped drive.
+    description: 'The specified path is invalid, such as being on an unmapped drive.'
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
     description: The caller does not have the required permission.
@@ -1260,7 +1260,7 @@ items:
     description: "This operation is not supported on the current platform.  \n  \n -or-  \n  \n The caller does not have the required permission."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: The user does not have write permission, but attempted to set this property to `false`.
+    description: 'The user does not have write permission, but attempted to set this property to `false`.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -1318,7 +1318,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Gets the size, in bytes, of the current file.
+  summary: 'Gets the size, in bytes, of the current file.'
   remarks: "The value of the <xref:System.IO.FileInfo.Length%2A> property is pre-cached if the current instance of the <xref:System.IO.FileInfo> object was returned from any of the following <xref:System.IO.DirectoryInfo>methods:  \n  \n-   <xref:System.IO.DirectoryInfo.GetDirectories%2A>  \n  \n-   <xref:System.IO.DirectoryInfo.GetFiles%2A>  \n  \n-   <xref:System.IO.DirectoryInfo.GetFileSystemInfos%2A>  \n  \n-   <xref:System.IO.DirectoryInfo.EnumerateDirectories%2A>  \n  \n-   <xref:System.IO.DirectoryInfo.EnumerateFiles%2A>  \n  \n-   <xref:System.IO.DirectoryInfo.EnumerateFileSystemInfos%2A>  \n  \n To get the latest value, call the <xref:System.IO.FileSystemInfo.Refresh%2A> method."
   example:
   - "The following example displays the size of the specified files.  \n  \n [!code-cpp[FileLength#1](~/samples/snippets/cpp/VS_Snippets_CLR/FileLength/CPP/filelength.cpp#1)]\n [!code-csharp[FileLength#1](~/samples/snippets/csharp/VS_Snippets_CLR/FileLength/CS/filelength.cs#1)]\n [!code-vb[FileLength#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/FileLength/VB/filelength.vb#1)]"
@@ -1397,8 +1397,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Moves a specified file to a new location, providing the option to specify a new file name.
-  remarks: This method works across disk volumes. For example, the file c:\MyFile.txt can be moved to d:\public and renamed NewFile.txt.
+  summary: 'Moves a specified file to a new location, providing the option to specify a new file name.'
+  remarks: 'This method works across disk volumes. For example, the file c:\MyFile.txt can be moved to d:\public and renamed NewFile.txt.'
   example:
   - "The following example demonstrates moving a file to a different location and renaming the file.  \n  \n [!code-csharp[IO.FileInfo.MoveTo#1](~/samples/snippets/csharp/VS_Snippets_Misc/IO.FileInfo.MoveTo/CS/Program.cs#1)]\n [!code-vb[IO.FileInfo.MoveTo#1](~/samples/snippets/visualbasic/VS_Snippets_Misc/IO.FileInfo.MoveTo/VB/Program.vb#1)]"
   syntax:
@@ -1406,18 +1406,18 @@ items:
     parameters:
     - id: destFileName
       type: System.String
-      description: The path to move the file to, which can specify a different file name.
+      description: 'The path to move the file to, which can specify a different file name.'
   overload: System.IO.FileInfo.MoveTo*
   exceptions:
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: An I/O error occurs, such as the destination file already exists or the destination device is not ready.
+    description: 'An I/O error occurs, such as the destination file already exists or the destination device is not ready.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>destFileName</code> is `null`.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>destFileName</code> is empty, contains only white spaces, or contains invalid characters.
+    description: '<code>destFileName</code> is empty, contains only white spaces, or contains invalid characters.'
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
     description: The caller does not have the required permission.
@@ -1429,13 +1429,13 @@ items:
     description: The file is not found.
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid, such as being on an unmapped drive.
+    description: 'The specified path is invalid, such as being on an unmapped drive.'
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: <code>destFileName</code> contains a colon (:) in the middle of the string.
+    description: '<code>destFileName</code> contains a colon (:) in the middle of the string.'
   attributes: []
   version:
   - netcore-1.0
@@ -1571,10 +1571,10 @@ items:
     parameters:
     - id: mode
       type: System.IO.FileMode
-      description: A <xref href="System.IO.FileMode"></xref> constant specifying the mode (for example, `Open` or `Append`) in which to open the file.
+      description: 'A <xref href="System.IO.FileMode"></xref> constant specifying the mode (for example, `Open` or `Append`) in which to open the file.'
     return:
       type: System.IO.FileStream
-      description: A file opened in the specified mode, with read/write access and unshared.
+      description: 'A file opened in the specified mode, with read/write access and unshared.'
   overload: System.IO.FileInfo.Open*
   exceptions:
   - type: System.IO.FileNotFoundException
@@ -1585,7 +1585,7 @@ items:
     description: The file is read-only or is a directory.
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid, such as being on an unmapped drive.
+    description: 'The specified path is invalid, such as being on an unmapped drive.'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: The file is already open.
@@ -1646,7 +1646,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Opens a file in the specified mode with read, write, or read/write access.
+  summary: 'Opens a file in the specified mode with read, write, or read/write access.'
   remarks: ''
   example:
   - "The following example opens a file as read-only and reads from the file.  \n  \n [!code-cpp[finfo open2#1](~/samples/snippets/cpp/VS_Snippets_CLR/FInfo Open2/CPP/finfo open2.cpp#1)]\n [!code-csharp[finfo open2#1](~/samples/snippets/csharp/VS_Snippets_CLR/FInfo Open2/CS/finfo open2.cs#1)]\n [!code-vb[finfo open2#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/FInfo Open2/VB/finfo open2.vb#1)]"
@@ -1655,13 +1655,13 @@ items:
     parameters:
     - id: mode
       type: System.IO.FileMode
-      description: A <xref href="System.IO.FileMode"></xref> constant specifying the mode (for example, `Open` or `Append`) in which to open the file.
+      description: 'A <xref href="System.IO.FileMode"></xref> constant specifying the mode (for example, `Open` or `Append`) in which to open the file.'
     - id: access
       type: System.IO.FileAccess
-      description: A <xref href="System.IO.FileAccess"></xref> constant specifying whether to open the file with `Read`, `Write`, or `ReadWrite` file access.
+      description: 'A <xref href="System.IO.FileAccess"></xref> constant specifying whether to open the file with `Read`, `Write`, or `ReadWrite` file access.'
     return:
       type: System.IO.FileStream
-      description: A <xref href="System.IO.FileStream"></xref> object opened in the specified mode and access, and unshared.
+      description: 'A <xref href="System.IO.FileStream"></xref> object opened in the specified mode and access, and unshared.'
   overload: System.IO.FileInfo.Open*
   exceptions:
   - type: System.Security.SecurityException
@@ -1675,7 +1675,7 @@ items:
     description: <code>path</code> is read-only or is a directory.
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid, such as being on an unmapped drive.
+    description: 'The specified path is invalid, such as being on an unmapped drive.'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: The file is already open.
@@ -1736,7 +1736,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Opens a file in the specified mode with read, write, or read/write access and the specified sharing option.
+  summary: 'Opens a file in the specified mode with read, write, or read/write access and the specified sharing option.'
   remarks: ''
   example:
   - "The following example demonstrates opening a file for reading and writing, but disallowing access to other users or processes.  \n  \n [!code-cpp[fileinfoopen#1](~/samples/snippets/cpp/VS_Snippets_CLR/fileinfoopen/CPP/fileinfoopen.cpp#1)]\n [!code-csharp[fileinfoopen#1](~/samples/snippets/csharp/VS_Snippets_CLR/fileinfoopen/CS/fileinfoopen.cs#1)]\n [!code-vb[fileinfoopen#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/fileinfoopen/VB/fileinfoopen.vb#1)]"
@@ -1745,16 +1745,16 @@ items:
     parameters:
     - id: mode
       type: System.IO.FileMode
-      description: A <xref href="System.IO.FileMode"></xref> constant specifying the mode (for example, `Open` or `Append`) in which to open the file.
+      description: 'A <xref href="System.IO.FileMode"></xref> constant specifying the mode (for example, `Open` or `Append`) in which to open the file.'
     - id: access
       type: System.IO.FileAccess
-      description: A <xref href="System.IO.FileAccess"></xref> constant specifying whether to open the file with `Read`, `Write`, or `ReadWrite` file access.
+      description: 'A <xref href="System.IO.FileAccess"></xref> constant specifying whether to open the file with `Read`, `Write`, or `ReadWrite` file access.'
     - id: share
       type: System.IO.FileShare
       description: A <xref href="System.IO.FileShare"></xref> constant specifying the type of access other `FileStream` objects have to this file.
     return:
       type: System.IO.FileStream
-      description: A <xref href="System.IO.FileStream"></xref> object opened with the specified mode, access, and sharing options.
+      description: 'A <xref href="System.IO.FileStream"></xref> object opened with the specified mode, access, and sharing options.'
   overload: System.IO.FileInfo.Open*
   exceptions:
   - type: System.Security.SecurityException
@@ -1768,7 +1768,7 @@ items:
     description: <code>path</code> is read-only or is a directory.
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid, such as being on an unmapped drive.
+    description: 'The specified path is invalid, such as being on an unmapped drive.'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: The file is already open.
@@ -1830,7 +1830,7 @@ items:
   - netstandard
   namespace: System.IO
   summary: Creates a read-only <xref href="System.IO.FileStream"></xref>.
-  remarks: This method returns a read-only <xref:System.IO.FileStream> object with the <xref:System.IO.FileShare> mode set to <xref:System.IO.FileShare.Read>.
+  remarks: 'This method returns a read-only <xref:System.IO.FileStream> object with the <xref:System.IO.FileShare> mode set to <xref:System.IO.FileShare.Read>.'
   example:
   - "The following example opens a file as read-only and reads from it.  \n  \n [!code-cpp[finfo openread#1](~/samples/snippets/cpp/VS_Snippets_CLR/FInfo OpenRead/CPP/finfo openread.cpp#1)]\n [!code-csharp[finfo openread#1](~/samples/snippets/csharp/VS_Snippets_CLR/FInfo OpenRead/CS/finfo openread.cs#1)]\n [!code-vb[finfo openread#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/FInfo OpenRead/VB/finfo openread.vb#1)]"
   syntax:
@@ -1846,7 +1846,7 @@ items:
     description: <code>path</code> is read-only or is a directory.
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid, such as being on an unmapped drive.
+    description: 'The specified path is invalid, such as being on an unmapped drive.'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: The file is already open.
@@ -1930,7 +1930,7 @@ items:
     description: <code>path</code> is read-only or is a directory.
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid, such as being on an unmapped drive.
+    description: 'The specified path is invalid, such as being on an unmapped drive.'
   attributes: []
   version:
   - netcore-1.0
@@ -1990,7 +1990,7 @@ items:
   - netstandard
   namespace: System.IO
   summary: Creates a write-only <xref href="System.IO.FileStream"></xref>.
-  remarks: The <xref:System.IO.FileInfo.OpenWrite%2A> method opens a file if one already exists for the file path, or creates a new file if one does not exist. For an existing file, it does not append the new text to the existing text. Instead, it overwrites the existing characters with the new characters. If you overwrite a longer string (such as "This is a test of the OpenWrite method") with a shorter string (like "Second run"), the file will contain a mix of the strings ("Second runtest of the OpenWrite method").
+  remarks: 'The <xref:System.IO.FileInfo.OpenWrite%2A> method opens a file if one already exists for the file path, or creates a new file if one does not exist. For an existing file, it does not append the new text to the existing text. Instead, it overwrites the existing characters with the new characters. If you overwrite a longer string (such as "This is a test of the OpenWrite method") with a shorter string (like "Second run"), the file will contain a mix of the strings ("Second runtest of the OpenWrite method").'
   example:
   - "The following example opens a file for writing and then reads from the file.  \n  \n [!code-cpp[finfo openwrite#1](~/samples/snippets/cpp/VS_Snippets_CLR/FInfo OpenWrite/CPP/file openwrite.cpp#1)]\n [!code-csharp[finfo openwrite#1](~/samples/snippets/csharp/VS_Snippets_CLR/FInfo OpenWrite/CS/file openwrite.cs#1)]\n [!code-vb[finfo openwrite#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/FInfo OpenWrite/VB/file openwrite.vb#1)]"
   syntax:
@@ -2006,7 +2006,7 @@ items:
     description: The path specified when creating an instance of the <xref href="System.IO.FileInfo"></xref> object is read-only or is a directory.
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The path specified when creating an instance of the <xref href="System.IO.FileInfo"></xref> object is invalid, such as being on an unmapped drive.
+    description: 'The path specified when creating an instance of the <xref href="System.IO.FileInfo"></xref> object is invalid, such as being on an unmapped drive.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -2064,7 +2064,7 @@ items:
   - netstandard
   - System.IO.FileSystem
   namespace: System.IO
-  summary: Replaces the contents of a specified file with the file described by the current <xref href="System.IO.FileInfo"></xref> object, deleting the original file, and creating a backup of the replaced file.
+  summary: 'Replaces the contents of a specified file with the file described by the current <xref href="System.IO.FileInfo"></xref> object, deleting the original file, and creating a backup of the replaced file.'
   remarks: "The <xref:System.IO.FileInfo.Replace%2A> method replaces the contents of a specified file with the contents of the file described by the current <xref:System.IO.FileInfo> object.  It also creates a backup of the file that was replaced.  Finally, it returns a new <xref:System.IO.FileInfo> object that describes the overwritten file.  \n  \n> [!CAUTION]\n>  This method will succeed in Windows 2000 environments if the `destFileName` is read-only and will not raise an exception. Use the <xref:System.IO.FileInfo.IsReadOnly%2A> property to check if the destination file is read-only before attempting to replace it.  \n  \n Pass `null` to the `destBackupFileName` parameter if you do not want to create a backup of the file being replaced."
   example:
   - "The following example uses the <xref:System.IO.File.Replace%2A> method to replace a file with another file and create a backup of the replaced file.  \n  \n [!code-cpp[IO.FileInfo.Replace#1](~/samples/snippets/cpp/VS_Snippets_CLR/IO.FileInfo.Replace/cpp/sample.cpp#1)]\n [!code-csharp[IO.FileInfo.Replace#1](~/samples/snippets/csharp/VS_Snippets_CLR/IO.FileInfo.Replace/CS/sample.cs#1)]\n [!code-vb[IO.FileInfo.Replace#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/IO.FileInfo.Replace/VB/sample.vb#1)]"
@@ -2146,7 +2146,7 @@ items:
   - netstandard
   - System.IO.FileSystem
   namespace: System.IO
-  summary: Replaces the contents of a specified file with the file described by the current <xref href="System.IO.FileInfo"></xref> object, deleting the original file, and creating a backup of the replaced file.  Also specifies whether to ignore merge errors.
+  summary: 'Replaces the contents of a specified file with the file described by the current <xref href="System.IO.FileInfo"></xref> object, deleting the original file, and creating a backup of the replaced file.  Also specifies whether to ignore merge errors.'
   remarks: "The <xref:System.IO.FileInfo.Replace%2A> method replaces the contents of a specified file with the contents of the file described by the current <xref:System.IO.FileInfo> object.  It also creates a backup of the file that was replaced.  Finally, it returns a new <xref:System.IO.FileInfo> object that describes the overwritten file.  \n  \n> [!CAUTION]\n>  This method will succeed in Windows 2000 environments if the `destFileName` is read-only and will not raise an exception. Use the <xref:System.IO.FileInfo.IsReadOnly%2A> property to check if the destination file is read-only before attempting to replace it.  \n  \n Pass `null` to the `destBackupFileName` parameter if you do not want to create a backup of the file being replaced."
   example:
   - "The following example uses the <xref:System.IO.File.Replace%2A> method to replace a file with another file and create a backup of the replaced file.  \n  \n [!code-cpp[IO.FileInfo.Replace#1](~/samples/snippets/cpp/VS_Snippets_CLR/IO.FileInfo.Replace/cpp/sample.cpp#1)]\n [!code-csharp[IO.FileInfo.Replace#1](~/samples/snippets/csharp/VS_Snippets_CLR/IO.FileInfo.Replace/CS/sample.cs#1)]\n [!code-vb[IO.FileInfo.Replace#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/IO.FileInfo.Replace/VB/sample.vb#1)]"
@@ -2297,7 +2297,7 @@ items:
   - netstandard
   namespace: System.IO
   summary: Returns the path as a string.
-  remarks: The string returned by the <xref:System.IO.FileInfo.ToString%2A> method represents path that was passed to the constructor.  When you create a <xref:System.IO.FileInfo> object using the constructors, the <xref:System.IO.FileInfo.ToString%2A> method returns the fully qualified path.  However, there are cases where the string returned by the <xref:System.IO.FileInfo.ToString%2A> method does not represent the fully qualified path.  For example, when you create a <xref:System.IO.FileInfo> object using the <xref:System.IO.DirectoryInfo.GetFiles%2A> method, the <xref:System.IO.FileInfo.ToString%2A> method does not represent the fully qualified path.
+  remarks: 'The string returned by the <xref:System.IO.FileInfo.ToString%2A> method represents path that was passed to the constructor.  When you create a <xref:System.IO.FileInfo> object using the constructors, the <xref:System.IO.FileInfo.ToString%2A> method returns the fully qualified path.  However, there are cases where the string returned by the <xref:System.IO.FileInfo.ToString%2A> method does not represent the fully qualified path.  For example, when you create a <xref:System.IO.FileInfo> object using the <xref:System.IO.DirectoryInfo.GetFiles%2A> method, the <xref:System.IO.FileInfo.ToString%2A> method does not represent the fully qualified path.'
   syntax:
     content: public override string ToString ();
     parameters: []

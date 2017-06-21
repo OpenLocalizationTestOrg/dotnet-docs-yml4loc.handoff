@@ -19,7 +19,7 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Policy
-  summary: When overridden in a derived class, represents the results of the authorization policies that have been evaluated.
+  summary: 'When overridden in a derived class, represents the results of the authorization policies that have been evaluated.'
   remarks: "Claims are added to an <xref:System.IdentityModel.Policy.EvaluationContext> by authorization policies. An authorization policy takes a set of claims, such as those found in a security token, and adds additional claims based on the current set. For instance, an authorization policy might evaluate a claim that contains the date of birth and add a claim that states the user is over 21 years old and add an Over21 claim to the <xref:System.IdentityModel.Policy.EvaluationContext>.  \n  \n Classes that implement the <xref:System.IdentityModel.Policy.IAuthorizationPolicy> interface do not authorize users, but they enable the <xref:System.ServiceModel.ServiceAuthorizationManager> class to do so. The <xref:System.ServiceModel.ServiceAuthorizationManager> calls the <xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A> method for each authorization policy in effect. The <xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A> method determines whether additional claims should be added for the user based on the current claims. An authorization policy's <xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A> method may be called multiple times, as claims are added to the <xref:System.IdentityModel.Policy.EvaluationContext> by other authorization policies. When all authorization policies in effect are done, the <xref:System.ServiceModel.ServiceAuthorizationManager> class makes authorization decisions based upon the final set of claims. The <xref:System.ServiceModel.ServiceAuthorizationManager> class then creates an <xref:System.IdentityModel.Policy.AuthorizationContext> that contains an immutable set of claims that reflects these authorization decisions.  \n  \n An evaluation context contains a set of <xref:System.IdentityModel.Claims.ClaimSet> objects: an expiration time, which specifies the span of time during which the evaluation context is valid, and a unique identifier."
   syntax:
     content: public abstract class EvaluationContext
@@ -165,7 +165,7 @@ items:
   - System.IdentityModel
   namespace: System.IdentityModel.Policy
   summary: Gets a read-only collection of <xref href="System.IdentityModel.Claims.ClaimSet"></xref> objects that contains the claims added by authorization policies that have been evaluated.
-  remarks: To add claims to this collection, for example from an authorization policy, use the <xref:System.IdentityModel.Policy.EvaluationContext.AddClaimSet%2A> method.
+  remarks: 'To add claims to this collection, for example from an authorization policy, use the <xref:System.IdentityModel.Policy.EvaluationContext.AddClaimSet%2A> method.'
   syntax:
     content: public abstract System.Collections.ObjectModel.ReadOnlyCollection<System.IdentityModel.Claims.ClaimSet> ClaimSets { get; }
     return:
@@ -257,7 +257,7 @@ items:
   - System.IdentityModel
   namespace: System.IdentityModel.Policy
   summary: Gets a collection of non-claim properties associated with this <xref href="System.IdentityModel.Policy.EvaluationContext"></xref>.
-  remarks: The classes in the <xref:System.IdentityModel.Selectors> namespace that implement the <xref:System.IdentityModel.Policy.IAuthorizationPolicy> interface (authorization policies) add a property named `Identities` to the.<xref:System.IdentityModel.Policy.AuthorizationContext.Properties%2A> collection. The `Identities` property contains an object of type <xref:System.Collections.Generic.IList%601> that contains one or more <xref:System.Security.Principal.IIdentity> instances that represent identity information that is provided by the authorization policies.
+  remarks: 'The classes in the <xref:System.IdentityModel.Selectors> namespace that implement the <xref:System.IdentityModel.Policy.IAuthorizationPolicy> interface (authorization policies) add a property named `Identities` to the.<xref:System.IdentityModel.Policy.AuthorizationContext.Properties%2A> collection. The `Identities` property contains an object of type <xref:System.Collections.Generic.IList%601> that contains one or more <xref:System.Security.Principal.IIdentity> instances that represent identity information that is provided by the authorization policies.'
   syntax:
     content: public abstract System.Collections.Generic.IDictionary<string,object> Properties { get; }
     return:
@@ -303,7 +303,7 @@ items:
   - System.IdentityModel
   namespace: System.IdentityModel.Policy
   summary: Sets the date and time at which this <xref href="System.IdentityModel.Policy.EvaluationContext"></xref> is no longer valid.
-  remarks: Calling the <xref:System.IdentityModel.Policy.EvaluationContext.RecordExpirationTime%2A> method multiple times only has an effect if the `expirationTime` parameter has a value that is earlier than the previously specified value.
+  remarks: 'Calling the <xref:System.IdentityModel.Policy.EvaluationContext.RecordExpirationTime%2A> method multiple times only has an effect if the `expirationTime` parameter has a value that is earlier than the previously specified value.'
   syntax:
     content: public abstract void RecordExpirationTime (DateTime time);
     parameters:

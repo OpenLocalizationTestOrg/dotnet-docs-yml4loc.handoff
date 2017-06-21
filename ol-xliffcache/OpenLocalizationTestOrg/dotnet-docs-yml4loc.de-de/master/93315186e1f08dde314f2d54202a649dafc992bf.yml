@@ -31,7 +31,7 @@ items:
   - System.Data
   - netstandard
   namespace: System.Data.Common
-  summary: Represents a parameter to a <xref href="System.Data.Common.DbCommand"></xref> and optionally, its mapping to a <xref href="System.Data.DataSet"></xref> column. For more information on parameters, see [Configuring Parameters and Parameter Data Types](~/docs/framework/data/adonet/configuring-parameters-and-parameter-data-types.md).
+  summary: 'Represents a parameter to a <xref href="System.Data.Common.DbCommand"></xref> and optionally, its mapping to a <xref href="System.Data.DataSet"></xref> column. For more information on parameters, see [Configuring Parameters and Parameter Data Types](~/docs/framework/data/adonet/configuring-parameters-and-parameter-data-types.md).'
   syntax:
     content: 'public abstract class DbParameter : MarshalByRefObject, System.Data.IDbDataParameter'
   inheritance:
@@ -227,7 +227,7 @@ items:
   - System.Data
   - netstandard
   namespace: System.Data.Common
-  summary: Gets or sets a value that indicates whether the parameter is input-only, output-only, bidirectional, or a stored procedure return value parameter.
+  summary: 'Gets or sets a value that indicates whether the parameter is input-only, output-only, bidirectional, or a stored procedure return value parameter.'
   remarks: "If the <xref:System.Data.ParameterDirection> is output, and execution of the associated <xref:System.Data.Common.DbCommand> does not return a value, the <xref:System.Data.Common.DbParameter> contains a null value.  \n  \n `Output`, `InputOut`, and `ReturnValue` parameters returned by calling <xref:System.Data.Common.DbCommand.ExecuteReader%2A> cannot be accessed until you call <xref:System.Data.Common.DbDataReader.Close%2A> or <xref:System.Data.Common.DbDataReader.Dispose%2A> on the <xref:System.Data.Common.DbDataReader>."
   syntax:
     content: public abstract System.Data.ParameterDirection Direction { get; set; }
@@ -292,7 +292,7 @@ items:
   - netstandard
   namespace: System.Data.Common
   summary: Gets or sets a value that indicates whether the parameter accepts null values.
-  remarks: Null values are handled using the <xref:System.DBNull> class.
+  remarks: 'Null values are handled using the <xref:System.DBNull> class.'
   syntax:
     content: >-
       [System.ComponentModel.Browsable(false)]
@@ -588,13 +588,13 @@ items:
   - System.Data
   - netstandard
   namespace: System.Data.Common
-  summary: Gets or sets the maximum size, in bytes, of the data within the column.
+  summary: 'Gets or sets the maximum size, in bytes, of the data within the column.'
   remarks: "The <xref:System.Data.Common.DbParameter.Size%2A> property is used for binary and string types.  \n  \n For nonstring data types and ANSI string data, the <xref:System.Data.Common.DbParameter.Size%2A> property refers to the number of bytes. For Unicode string data, <xref:System.Data.Common.DbParameter.Size%2A> refers to the number of characters. The count for strings does not include the terminating character.  \n  \n For variable-length data types, <xref:System.Data.Common.DbParameter.Size%2A> describes the maximum amount of data to transmit to the server. For example, for a Unicode string value, <xref:System.Data.Common.DbParameter.Size%2A> could be used to limit the amount of data sent to the server to the first one hundred characters.  \n  \n For bidirectional and output parameters, and return values, you must set the value of <xref:System.Data.Common.DbParameter.Size%2A>. This is not required for input parameters, and if not explicitly set, the value is inferred from the actual size of the specified parameter when a parameterized statement is executed.  \n  \n The <xref:System.Data.Common.DbParameter.DbType%2A> and <xref:System.Data.Common.DbParameter.Size%2A> properties of a parameter can be inferred by setting <xref:System.Data.Common.DbParameter.Value%2A>. Therefore, you are not required to specify them. However, they are not exposed in <xref:System.Data.Common.DbParameter> property settings. For example, if the size of the parameter has been inferred, <xref:System.Data.Common.DbParameter.Size%2A> does not contain inferred value after statement execution.  \n  \n For fixed length data types, the value of <xref:System.Data.Common.DbParameter.Size%2A> is ignored. It can be retrieved for informational purposes, and returns the maximum amount of bytes the provider uses when transmitting the value of the parameter to the server.  \n  \n If the size of the value supplied for a <xref:System.Data.Common.DbParameter> exceeds the specified <xref:System.Data.Common.DbParameter.Size%2A>, the <xref:System.Data.Common.DbParameter.Value%2A> of the <xref:System.Data.Common.DbParameter> will contain the specified value, truncated to the Size of the <xref:System.Data.Common.DbParameter>.  \n  \n For parameters of type `DbType`.`String`, the value of <xref:System.Data.Common.DbParameter.Size%2A> is length in Unicode characters. For parameters of type `DbType`.`Xml`, <xref:System.Data.Common.DbParameter.Size%2A> is ignored."
   syntax:
     content: public abstract int Size { get; set; }
     return:
       type: System.Int32
-      description: The maximum size, in bytes, of the data within the column. The default value is inferred from the parameter value.
+      description: 'The maximum size, in bytes, of the data within the column. The default value is inferred from the parameter value.'
   overload: System.Data.Common.DbParameter.Size*
   exceptions: []
   version:
@@ -771,7 +771,7 @@ items:
   - System.Data.Common
   namespace: System.Data.Common
   summary: Gets or sets the <xref href="System.Data.DataRowVersion"></xref> to use when you load <xref href="System.Data.Common.DbParameter.Value"></xref>.
-  remarks: Used by <xref:System.Data.Common.DbDataAdapter.UpdateCommand%2A> during an <xref:System.Data.Common.DbDataAdapter.Update%2A> operation to determine whether the parameter value is set to `Current` or `Original`. This lets primary keys be updated. This property is set to the version of the <xref:System.Data.DataRow> used by the `DataRow.Item` property, or the <xref:System.Data.DataRow.GetChildRows%2A> method of the <xref:System.Data.DataRow> object.
+  remarks: 'Used by <xref:System.Data.Common.DbDataAdapter.UpdateCommand%2A> during an <xref:System.Data.Common.DbDataAdapter.Update%2A> operation to determine whether the parameter value is set to `Current` or `Original`. This lets primary keys be updated. This property is set to the version of the <xref:System.Data.DataRow> used by the `DataRow.Item` property, or the <xref:System.Data.DataRow.GetChildRows%2A> method of the <xref:System.Data.DataRow> object.'
   syntax:
     content: public virtual System.Data.DataRowVersion SourceVersion { get; set; }
     return:
@@ -926,7 +926,7 @@ items:
     content: byte System.Data.IDbDataParameter.Precision { get; set; }
     return:
       type: System.Byte
-      description: The maximum number of digits used to represent the `Value` property of a data provider `Parameter` object. The default value is 0, which indicates that a data provider sets the precision for `Value`.
+      description: 'The maximum number of digits used to represent the `Value` property of a data provider `Parameter` object. The default value is 0, which indicates that a data provider sets the precision for `Value`.'
   overload: System.Data.Common.DbParameter.System#Data#IDbDataParameter#Precision*
   exceptions: []
   version:
@@ -979,7 +979,7 @@ items:
   - System.Data
   - netstandard
   namespace: System.Data.Common
-  summary: For a description of this member, see <xref href="System.Data.IDbDataParameter.Scale"></xref>.
+  summary: 'For a description of this member, see <xref href="System.Data.IDbDataParameter.Scale"></xref>.'
   remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.Common.DbParameter> instance is cast to an <xref:System.Data.IDbDataParameter> interface.  \n  \n For more information, see <xref:System.Data.IDbDataParameter.Scale%2A>."
   syntax:
     content: byte System.Data.IDbDataParameter.Scale { get; set; }

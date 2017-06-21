@@ -48,7 +48,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: Serves as the base class for all data control field types, which represent a column of data in tabular data-bound controls such as <xref href="System.Web.UI.WebControls.DetailsView"></xref> and <xref href="System.Web.UI.WebControls.GridView"></xref>.
+  summary: 'Serves as the base class for all data control field types, which represent a column of data in tabular data-bound controls such as <xref href="System.Web.UI.WebControls.DetailsView"></xref> and <xref href="System.Web.UI.WebControls.GridView"></xref>.'
   remarks: "The <xref:System.Web.UI.WebControls.DataControlField> class serves as the base class for all data control field types. Data control fields are used by data-bound controls to represent a field of data, similar to how a <xref:System.Web.UI.WebControls.DataGridColumn> object represents a type of column in the <xref:System.Web.UI.WebControls.DataGrid> control.  \n  \n Use the classes that are derived from <xref:System.Web.UI.WebControls.DataControlField> to control how a field of data is displayed in a data-bound control such as <xref:System.Web.UI.WebControls.DetailsView> or <xref:System.Web.UI.WebControls.GridView>. The following table lists the different data control field types provided by ASP.NET.  \n  \n|Column field type|Description|  \n|-----------------------|-----------------|  \n|<xref:System.Web.UI.WebControls.BoundField>|Displays the value of a field in a data source as text.|  \n|<xref:System.Web.UI.WebControls.ButtonField>|Displays a command button in a data-bound control. Depending on the control, this allows you to display either a row or a column with a custom button control, such as an Add or a Remove button.|  \n|<xref:System.Web.UI.WebControls.CheckBoxField>|Displays a check box in a data-bound control. This data control field type is commonly used to display fields with a Boolean value.|  \n|<xref:System.Web.UI.WebControls.CommandField>|Displays built-in command buttons to perform edit, insert, or delete operations in a data-bound control.|  \n|<xref:System.Web.UI.WebControls.HyperLinkField>|Displays the value of a field in a data source as a hyperlink. This data control field type allows you to bind a second field to the hyperlink's URL.|  \n|<xref:System.Web.UI.WebControls.ImageField>|Displays an image in a data-bound control.|  \n|<xref:System.Web.UI.WebControls.TemplateField>|Displays user-defined content in a data-bound control according to a specified template.|  \n  \n You can also extend the <xref:System.Web.UI.WebControls.DataControlField> and <xref:System.Web.UI.WebControls.BoundField> classes to create your own data control field types.  \n  \n The <xref:System.Web.UI.WebControls.DataControlField> class provides many properties that determine how user interface (UI) elements are presented in the data-bound control. Not every control uses every available data control field property when rendering a UI. For example, the <xref:System.Web.UI.WebControls.DetailsView> control, which displays the data control fields as rows, includes a header item for each data control field, but no footer item. Therefore, the <xref:System.Web.UI.WebControls.DataControlField.FooterText%2A> and <xref:System.Web.UI.WebControls.DataControlField.FooterStyle%2A> properties are ignored by the <xref:System.Web.UI.WebControls.DetailsView> control. The <xref:System.Web.UI.WebControls.GridView> control, however, uses the <xref:System.Web.UI.WebControls.DataControlField.FooterText%2A> and <xref:System.Web.UI.WebControls.DataControlField.FooterStyle%2A> properties if the <xref:System.Web.UI.WebControls.GridView.ShowFooter%2A> property is set to `true`. Similarly, the data control field properties affect the presentation of UI elements depending on what the element is. The <xref:System.Web.UI.WebControls.DataControlField.ItemStyle%2A> property is always applied to the field. If the type derived from <xref:System.Web.UI.WebControls.DataControlField> contains a control, as in the <xref:System.Web.UI.WebControls.ButtonField> or <xref:System.Web.UI.WebControls.CheckBoxField> classes, the <xref:System.Web.UI.WebControls.DataControlField.ControlStyle%2A> property is applied to the field."
   example:
   - "The following code example demonstrates how to use <xref:System.Web.UI.WebControls.BoundField> and <xref:System.Web.UI.WebControls.ButtonField> objects, which are derived from <xref:System.Web.UI.WebControls.DataControlField>, to display rows in a <xref:System.Web.UI.WebControls.DetailsView> control. The <xref:System.Web.UI.WebControls.DetailsView> control has the <xref:System.Web.UI.WebControls.DetailsView.AutoGenerateRows%2A> property set to `false`, which enables it to display a subset of the data returned by the <xref:System.Web.UI.WebControls.SqlDataSource.SelectCommand%2A> property.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.UI.WebControls.DataControlField_1#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.WebControls.DataControlField_1/CS/datacontrolfield1cs.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.UI.WebControls.DataControlField_1#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.WebControls.DataControlField_1/VB/datacontrolfield1vb.aspx#1)]  -->  \n  \n The following code example demonstrates how to extend the <xref:System.Web.UI.WebControls.BoundField> class to create a custom bound field that can be used in a <xref:System.Web.UI.WebControls.GridView> control. Similar to the <xref:System.Web.UI.WebControls.CheckBoxField> class, the `RadioButtonField` class represents a column of `true` or `false` data. However, although the data that the <xref:System.Web.UI.WebControls.CheckBoxField> class is bound to can be any set of `true` or `false` values, the set of data that the `RadioButtonField` class is bound to can have only one `true` value at any given time. This example demonstrates how to implement the <xref:System.Web.UI.WebControls.DataControlField.ExtractValuesFromCell%2A> and <xref:System.Web.UI.WebControls.DataControlField.InitializeCell%2A> methods, two important methods of all classes derived from <xref:System.Web.UI.WebControls.DataControlField>.  \n  \n [!code-csharp[Samples.AspNet.RadioButtonField#1](~/samples/snippets/csharp/VS_Snippets_WebNet/Samples.AspNet.RadioButtonField/CS/radiobuttonfield.cs#1)]\n [!code-vb[Samples.AspNet.RadioButtonField#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/Samples.AspNet.RadioButtonField/VB/radiobuttonfield.vb#1)]  \n  \n The following code example demonstrates how to use the `RadioButtonField` class, which is provided in the previous example, in a <xref:System.Web.UI.WebControls.GridView> control. In this example, the <xref:System.Web.UI.WebControls.GridView> control displays data for a sports team. The player data is maintained in a data table that includes an ID column, columns for the player names, and a true or false column that identifies the captain of the team. The `RadioButtonField` class is used to display which team member is the current team captain. The <xref:System.Web.UI.WebControls.GridView> control can be edited to choose a new team captain or to change other player information.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.UI.WebControls.DataControlField_4#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.WebControls.DataControlField_4/CS/datacontrolfield4cs.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.UI.WebControls.DataControlField_4#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.WebControls.DataControlField_4/VB/datacontrolfield4vb.aspx#1)]  -->"
@@ -114,7 +114,7 @@ items:
   - System.Web
   namespace: System.Web.UI.WebControls
   summary: Initializes a new instance of the <xref href="System.Web.UI.WebControls.DataControlField"></xref> class.
-  remarks: Because the <xref:System.Web.UI.WebControls.DataControlField> class is abstract, you cannot create a <xref:System.Web.UI.WebControls.DataControlField> object directly. This constructor is commonly called by the constructor of a derived class to initialize the properties defined in the <xref:System.Web.UI.WebControls.DataControlField> class.
+  remarks: 'Because the <xref:System.Web.UI.WebControls.DataControlField> class is abstract, you cannot create a <xref:System.Web.UI.WebControls.DataControlField> object directly. This constructor is commonly called by the constructor of a derived class to initialize the properties defined in the <xref:System.Web.UI.WebControls.DataControlField> class.'
   syntax:
     content: protected DataControlField ();
     parameters: []
@@ -201,7 +201,7 @@ items:
   - System.Web
   namespace: System.Web.UI.WebControls
   summary: Creates a duplicate copy of the current <xref href="System.Web.UI.WebControls.DataControlField"></xref>-derived object.
-  remarks: The <xref:System.Web.UI.WebControls.DataControlField.CloneField%2A> method is a helper method used by the <xref:System.Web.UI.WebControls.DataControlFieldCollection.CloneFields%2A> method to create a copy of the current <xref:System.Web.UI.WebControls.DataControlField>-derived object.
+  remarks: 'The <xref:System.Web.UI.WebControls.DataControlField.CloneField%2A> method is a helper method used by the <xref:System.Web.UI.WebControls.DataControlFieldCollection.CloneFields%2A> method to create a copy of the current <xref:System.Web.UI.WebControls.DataControlField>-derived object.'
   syntax:
     content: protected System.Web.UI.WebControls.DataControlField CloneField ();
     parameters: []
@@ -246,7 +246,7 @@ items:
   - System.Web
   namespace: System.Web.UI.WebControls
   summary: Gets a reference to the data control that the <xref href="System.Web.UI.WebControls.DataControlField"></xref> object is associated with.
-  remarks: The <xref:System.Web.UI.WebControls.DataControlField.Control%2A> reference is set when the <xref:System.Web.UI.WebControls.DataControlField.Initialize%2A> method is called.
+  remarks: 'The <xref:System.Web.UI.WebControls.DataControlField.Control%2A> reference is set when the <xref:System.Web.UI.WebControls.DataControlField.Initialize%2A> method is called.'
   syntax:
     content: protected System.Web.UI.Control Control { get; }
     return:
@@ -341,7 +341,7 @@ items:
   - System.Web
   namespace: System.Web.UI.WebControls
   summary: Copies the properties of the current <xref href="System.Web.UI.WebControls.DataControlField"></xref>-derived object to the specified <xref href="System.Web.UI.WebControls.DataControlField"></xref> object.
-  remarks: The <xref:System.Web.UI.WebControls.DataControlField.CopyProperties%2A> method is a helper method used by the <xref:System.Web.UI.WebControls.DataControlField.CloneField%2A> method to copy the properties of the current <xref:System.Web.UI.WebControls.DataControlField>-derived object to the <xref:System.Web.UI.WebControls.DataControlField> object created by the method.
+  remarks: 'The <xref:System.Web.UI.WebControls.DataControlField.CopyProperties%2A> method is a helper method used by the <xref:System.Web.UI.WebControls.DataControlField.CloneField%2A> method to copy the properties of the current <xref:System.Web.UI.WebControls.DataControlField>-derived object to the <xref:System.Web.UI.WebControls.DataControlField> object created by the method.'
   syntax:
     content: protected virtual void CopyProperties (System.Web.UI.WebControls.DataControlField newField);
     parameters:
@@ -385,8 +385,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: When overridden in a derived class, creates an empty <xref href="System.Web.UI.WebControls.DataControlField"></xref>-derived object.
-  remarks: The <xref:System.Web.UI.WebControls.DataControlField.CreateField%2A> method is a helper method used by the <xref:System.Web.UI.WebControls.DataControlField.CloneField%2A> method to create an empty <xref:System.Web.UI.WebControls.DataControlField>-derived object to copy the properties of the current <xref:System.Web.UI.WebControls.DataControlField>-derived object into.
+  summary: 'When overridden in a derived class, creates an empty <xref href="System.Web.UI.WebControls.DataControlField"></xref>-derived object.'
+  remarks: 'The <xref:System.Web.UI.WebControls.DataControlField.CreateField%2A> method is a helper method used by the <xref:System.Web.UI.WebControls.DataControlField.CloneField%2A> method to create an empty <xref:System.Web.UI.WebControls.DataControlField>-derived object to copy the properties of the current <xref:System.Web.UI.WebControls.DataControlField>-derived object into.'
   syntax:
     content: protected abstract System.Web.UI.WebControls.DataControlField CreateField ();
     parameters: []
@@ -431,7 +431,7 @@ items:
   - System.Web
   namespace: System.Web.UI.WebControls
   summary: Gets a value indicating whether a data control field is currently viewed in a design-time environment.
-  remarks: The <xref:System.Web.UI.WebControls.DataControlField.DesignMode%2A> property exposes the <xref:System.Web.UI.Control.DesignMode%2A?displayProperty=fullName> property. The <xref:System.Web.UI.Control> instance that is passed to the <xref:System.Web.UI.WebControls.DataControlField.Initialize%2A> method is used.
+  remarks: 'The <xref:System.Web.UI.WebControls.DataControlField.DesignMode%2A> property exposes the <xref:System.Web.UI.Control.DesignMode%2A?displayProperty=fullName> property. The <xref:System.Web.UI.Control> instance that is passed to the <xref:System.Web.UI.WebControls.DataControlField.Initialize%2A> method is used.'
   syntax:
     content: protected bool DesignMode { get; }
     return:
@@ -672,7 +672,7 @@ items:
   - System.Web
   namespace: System.Web.UI.WebControls
   summary: Gets or sets the style of the header of the data control field.
-  remarks: The <xref:System.Web.UI.WebControls.DataControlField.HeaderStyle%2A> property governs the appearance of any text displayed in the header item of a type derived from <xref:System.Web.UI.WebControls.DataControlField>. The most common application of the <xref:System.Web.UI.WebControls.DataControlField.HeaderStyle%2A> property is to alter the style of the column headers in a <xref:System.Web.UI.WebControls.GridView> control.
+  remarks: 'The <xref:System.Web.UI.WebControls.DataControlField.HeaderStyle%2A> property governs the appearance of any text displayed in the header item of a type derived from <xref:System.Web.UI.WebControls.DataControlField>. The most common application of the <xref:System.Web.UI.WebControls.DataControlField.HeaderStyle%2A> property is to alter the style of the column headers in a <xref:System.Web.UI.WebControls.GridView> control.'
   example:
   - "The following code example demonstrates how to declaratively set the <xref:System.Web.UI.WebControls.DataControlField.HeaderStyle%2A> property of a <xref:System.Web.UI.WebControls.HyperLinkField> column, which displays a yellow background color for the column header in the <xref:System.Web.UI.WebControls.GridView> control.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.UI.WebControls.DataControlField_3#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.WebControls.DataControlField_3/CS/datacontrolfield3cs.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.UI.WebControls.DataControlField_3#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.WebControls.DataControlField_3/VB/datacontrolfield3vb.aspx#1)]  -->"
   syntax:
@@ -835,7 +835,7 @@ items:
       description: One of the <xref href="System.Web.UI.WebControls.DataControlCellType"></xref> values.
     - id: rowState
       type: System.Web.UI.WebControls.DataControlRowState
-      description: One of the <xref href="System.Web.UI.WebControls.DataControlRowState"></xref> values, specifying the state of the row that contains the <xref href="System.Web.UI.WebControls.DataControlFieldCell"></xref>.
+      description: 'One of the <xref href="System.Web.UI.WebControls.DataControlRowState"></xref> values, specifying the state of the row that contains the <xref href="System.Web.UI.WebControls.DataControlFieldCell"></xref>.'
     - id: rowIndex
       type: System.Int32
       description: The index of the row that the <xref href="System.Web.UI.WebControls.DataControlFieldCell"></xref> is contained in.
@@ -965,7 +965,7 @@ items:
   - System.Web
   namespace: System.Web.UI.WebControls
   summary: Gets the style of any text-based content displayed by a data control field.
-  remarks: The <xref:System.Web.UI.WebControls.DataControlField.ItemStyle%2A> property governs the appearance of any text data displayed by a type derived from <xref:System.Web.UI.WebControls.DataControlField>. For example, when you bind a <xref:System.Web.UI.WebControls.BoundField> control to text data, you can use the <xref:System.Web.UI.WebControls.DataControlField.ItemStyle%2A> property to alter the appearance of the text that is displayed.
+  remarks: 'The <xref:System.Web.UI.WebControls.DataControlField.ItemStyle%2A> property governs the appearance of any text data displayed by a type derived from <xref:System.Web.UI.WebControls.DataControlField>. For example, when you bind a <xref:System.Web.UI.WebControls.BoundField> control to text data, you can use the <xref:System.Web.UI.WebControls.DataControlField.ItemStyle%2A> property to alter the appearance of the text that is displayed.'
   example:
   - "The following code example demonstrates how to declaratively set the <xref:System.Web.UI.WebControls.DataControlField.ItemStyle%2A> property on the <xref:System.Web.UI.WebControls.BoundField> objects used to display `FirstName` and `LastName` data in a <xref:System.Web.UI.WebControls.DetailsView> control. The <xref:System.Web.UI.WebControls.DetailsView> control has the <xref:System.Web.UI.WebControls.DetailsView.AutoGenerateRows%2A> property set to `false`, which enables it to display a subset of the data returned by the <xref:System.Web.UI.WebControls.SqlDataSource.SelectCommand%2A> property.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.UI.WebControls.DataControlField_1#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.WebControls.DataControlField_1/CS/datacontrolfield1cs.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.UI.WebControls.DataControlField_1#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.WebControls.DataControlField_1/VB/datacontrolfield1vb.aspx#1)]  -->"
   syntax:
@@ -1109,7 +1109,7 @@ items:
     parameters: []
     return:
       type: System.Object
-      description: The object that contains the changes to the <xref href="System.Web.UI.WebControls.DataControlField"></xref> view state. If there is no view state associated with the object, this method returns `null`.
+      description: 'The object that contains the changes to the <xref href="System.Web.UI.WebControls.DataControlField"></xref> view state. If there is no view state associated with the object, this method returns `null`.'
   overload: System.Web.UI.WebControls.DataControlField.SaveViewState*
   exceptions: []
   version:
@@ -1148,7 +1148,7 @@ items:
   - System.Web
   namespace: System.Web.UI.WebControls
   summary: Gets or sets a value indicating whether the header item of a data control field is rendered.
-  remarks: Use the <xref:System.Web.UI.WebControls.DataControlField.ShowHeader%2A> property to specify whether the header item is displayed in a <xref:System.Web.UI.WebControls.DataControlField> object.
+  remarks: 'Use the <xref:System.Web.UI.WebControls.DataControlField.ShowHeader%2A> property to specify whether the header item is displayed in a <xref:System.Web.UI.WebControls.DataControlField> object.'
   syntax:
     content: public virtual bool ShowHeader { get; set; }
     return:
@@ -1244,7 +1244,7 @@ items:
   - System.Web
   namespace: System.Web.UI.WebControls
   summary: Returns a string that represents this <xref href="System.Web.UI.WebControls.DataControlField"></xref> object.
-  remarks: This method is implemented to return the value of the <xref:System.Web.UI.WebControls.DataControlField.HeaderText%2A> property, if the property is set. Otherwise, this method simply returns a string that represents the type of the data control field (for example, "BoundField").
+  remarks: 'This method is implemented to return the value of the <xref:System.Web.UI.WebControls.DataControlField.HeaderText%2A> property, if the property is set. Otherwise, this method simply returns a string that represents the type of the data control field (for example, "BoundField").'
   syntax:
     content: public override string ToString ();
     parameters: []
@@ -1372,7 +1372,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: When overridden in a derived class, signals that the controls contained by a field support callbacks.
+  summary: 'When overridden in a derived class, signals that the controls contained by a field support callbacks.'
   remarks: "The <xref:System.Web.UI.WebControls.DataControlField.ValidateSupportsCallback%2A> method is a helper method used to determine whether the controls contained in a <xref:System.Web.UI.WebControls.DataControlField> object support callbacks. The base implementation of this method has been implemented to throw a <xref:System.NotSupportedException> exception to indicate that callbacks are not supported.  \n  \n> [!NOTE]\n>  This method is used primarily by control developers."
   syntax:
     content: public virtual void ValidateSupportsCallback ();

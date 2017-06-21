@@ -24,8 +24,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: Represents a weak reference, which references an object while still allowing that object to be reclaimed by garbage collection.
-  remarks: A weak reference allows the garbage collector to collect an object while still allowing an application to access the object. If you need the object, you can still obtain a strong reference to it and prevent it from being collected. For more information about how to use short and long weak references, see [Weak References](~/docs/standard/garbage-collection/weak-references.md).
+  summary: 'Represents a weak reference, which references an object while still allowing that object to be reclaimed by garbage collection.'
+  remarks: 'A weak reference allows the garbage collector to collect an object while still allowing an application to access the object. If you need the object, you can still obtain a strong reference to it and prevent it from being collected. For more information about how to use short and long weak references, see [Weak References](~/docs/standard/garbage-collection/weak-references.md).'
   example:
   - "The following example demonstrates how you can use weak references to maintain a cache of objects as a resource for an application. The cache is constructed using an <xref:System.Collections.Generic.IDictionary%602> of <xref:System.WeakReference> objects keyed by an index value. The <xref:System.WeakReference.Target%2A> property for the <xref:System.WeakReference> objects is an object in a byte array that represents data.  \n  \n The example randomly accesses objects in the cache. If an object is reclaimed for garbage collection, a new data object is regenerated; otherwise, the object is available to access because of the weak reference.  \n  \n [!code-csharp[WeakReference#1](~/samples/snippets/csharp/VS_Snippets_CLR/WeakReference/cs/program.cs#1)]\n [!code-vb[WeakReference#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/WeakReference/vb/Module1.vb#1)]"
   syntax:
@@ -142,7 +142,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: Initializes a new instance of the <xref href="System.WeakReference"></xref> class, referencing the specified object.
+  summary: 'Initializes a new instance of the <xref href="System.WeakReference"></xref> class, referencing the specified object.'
   remarks: This constructor creates a short weak reference to `target`.
   syntax:
     content: public WeakReference (object target);
@@ -217,8 +217,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: Initializes a new instance of the <xref href="System.WeakReference"></xref> class, referencing the specified object and using the specified resurrection tracking.
-  remarks: If `trackResurrection` is `false`, a short weak reference is created. If `trackResurrection` is `true`, a long weak reference is created.
+  summary: 'Initializes a new instance of the <xref href="System.WeakReference"></xref> class, referencing the specified object and using the specified resurrection tracking.'
+  remarks: 'If `trackResurrection` is `false`, a short weak reference is created. If `trackResurrection` is `true`, a long weak reference is created.'
   example:
   - "The following example creates a cache of data objects with short weak references. This example is part of a larger example provided for the <xref:System.WeakReference> class.  \n  \n [!code-csharp[WeakReference#2](~/samples/snippets/csharp/VS_Snippets_CLR/WeakReference/cs/program.cs#2)]\n [!code-vb[WeakReference#2](~/samples/snippets/visualbasic/VS_Snippets_CLR/WeakReference/vb/Module1.vb#2)]"
   syntax:
@@ -229,7 +229,7 @@ items:
       description: An object to track.
     - id: trackResurrection
       type: System.Boolean
-      description: Indicates when to stop tracking the object. If `true`, the object is tracked after finalization; if `false`, the object is only tracked until finalization.
+      description: 'Indicates when to stop tracking the object. If `true`, the object is tracked after finalization; if `false`, the object is only tracked until finalization.'
   overload: System.WeakReference.#ctor*
   exceptions: []
   version:
@@ -297,8 +297,8 @@ items:
   - netstandard
   - System.Runtime
   namespace: System
-  summary: Initializes a new instance of the <xref href="System.WeakReference"></xref> class, using deserialized data from the specified serialization and stream objects.
-  remarks: The `context` parameter is reserved, and does not currently participate in this operation.
+  summary: 'Initializes a new instance of the <xref href="System.WeakReference"></xref> class, using deserialized data from the specified serialization and stream objects.'
+  remarks: 'The `context` parameter is reserved, and does not currently participate in this operation.'
   syntax:
     content: protected WeakReference (System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context);
     parameters:
@@ -495,7 +495,7 @@ items:
   - netstandard
   namespace: System
   summary: Gets an indication whether the object referenced by the current <xref href="System.WeakReference"></xref> object has been garbage collected.
-  remarks: Because an object could potentially be reclaimed for garbage collection immediately after the <xref:System.WeakReference.IsAlive%2A> property returns `true`, using this property is not recommended unless you are testing only for a `false` return value.
+  remarks: 'Because an object could potentially be reclaimed for garbage collection immediately after the <xref:System.WeakReference.IsAlive%2A> property returns `true`, using this property is not recommended unless you are testing only for a `false` return value.'
   syntax:
     content: public virtual bool IsAlive { get; }
     return:
@@ -569,7 +569,7 @@ items:
   - netstandard
   namespace: System
   summary: Gets or sets the object (the target) referenced by the current <xref href="System.WeakReference"></xref> object.
-  remarks: After setting this property to the target object, make sure that there are no other strong references to the object; otherwise, it will not be collected.
+  remarks: 'After setting this property to the target object, make sure that there are no other strong references to the object; otherwise, it will not be collected.'
   example:
   - "The following example tries to obtain an object from a cache of objects with weak references. If the object was reclaimed for garbage collection, a new object is generated. This example is part of a larger example provided for the <xref:System.WeakReference> class.  \n  \n [!code-csharp[WeakReference#3](~/samples/snippets/csharp/VS_Snippets_CLR/WeakReference/cs/program.cs#3)]\n [!code-vb[WeakReference#3](~/samples/snippets/visualbasic/VS_Snippets_CLR/WeakReference/vb/Module1.vb#3)]"
   syntax:
@@ -648,7 +648,7 @@ items:
   - netstandard
   namespace: System
   summary: Gets an indication whether the object referenced by the current <xref href="System.WeakReference"></xref> object is tracked after it is finalized.
-  remarks: If `true`, the weak reference is a long weak reference and `true` was specified for the `trackResurrection` parameter in the <xref:System.WeakReference> constructor.
+  remarks: 'If `true`, the weak reference is a long weak reference and `true` was specified for the `trackResurrection` parameter in the <xref:System.WeakReference> constructor.'
   syntax:
     content: public virtual bool TrackResurrection { get; }
     return:

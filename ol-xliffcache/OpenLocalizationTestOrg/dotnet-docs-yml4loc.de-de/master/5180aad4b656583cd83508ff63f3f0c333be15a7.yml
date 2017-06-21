@@ -46,7 +46,7 @@ items:
   - PresentationFramework
   namespace: System.Windows.Markup
   summary: Represents a dictionary that contains xmlns mappings for XAML namespaces in WPF.
-  remarks: "<xref:System.Windows.Markup.XmlnsDictionary> maps XAML namespace prefixes to the complete XAML namespace URI. For XAML usage in applications and XAML namespaces in general, the URI is often not a schema-style URI that includes `http://`. It is instead a user-defined mapping to a CLR namespace and assembly. That assembly contains the backing types being referred to. For details, see [XAML Namespaces and Namespace Mapping for WPF XAML](~/docs/framework/wpf/advanced/xaml-namespaces-and-namespace-mapping-for-wpf-xaml.md).  \n  \n The <xref:System.Windows.Markup.XmlnsDictionary> adds the concept of scope for a XAML namespace. A default <xref:System.Collections.IDictionary> might contain prefix keys and XML namespace URI values. The scope concept in <xref:System.Windows.Markup.XmlnsDictionary> parallels the XML concept that a prefix might be redefined. If so, the redefinition only applies at that level or below in a DOM view of the XML (the previous definition applies at higher level in the DOM). The scope concept is mostly abstracted away in the <xref:System.Windows.Markup.XmlnsDictionary> API, such that you can call APIs such as <xref:System.Windows.Markup.XmlnsDictionary.LookupNamespace%2A> without being concerned about scope. However, <xref:System.Windows.Markup.XmlnsDictionary> does expose <xref:System.Windows.Markup.XmlnsDictionary.PushScope%2A> and <xref:System.Windows.Markup.XmlnsDictionary.PopScope%2A> so that a custom <xref:System.Windows.Markup.ParserContext> implementation that changes scope can synchronize with the scope for the <xref:System.Windows.Markup.XmlnsDictionary>.  \n  \n<a name=\"xamlTextUsage_XmlnsDictionary\"></a>   \n## XAML Text Usage"
+  remarks: "<xref:System.Windows.Markup.XmlnsDictionary> maps XAML namespace prefixes to the complete XAML namespace URI. For XAML usage in applications and XAML namespaces in general, the URI is often not a schema-style URI that includes `http://`. It is instead a user-defined mapping to a CLR namespace and assembly. That assembly contains the backing types being referred to. For details, see [XAML Namespaces and Namespace Mapping for WPF XAML](~/docs/framework/wpf/advanced/xaml-namespaces-and-namespace-mapping-for-wpf-xaml.md).  \n  \n The <xref:System.Windows.Markup.XmlnsDictionary> adds the concept of scope for a XAML namespace. A default <xref:System.Collections.IDictionary> might contain prefix keys and XML namespace URI values. The scope concept in <xref:System.Windows.Markup.XmlnsDictionary> parallels the XML concept that a prefix might be redefined. If so, the redefinition only applies at that level or below in a DOM view of the XML (the previous definition applies at higher level in the DOM). The scope concept is mostly abstracted away in the <xref:System.Windows.Markup.XmlnsDictionary> API, such that you can call APIs such as <xref:System.Windows.Markup.XmlnsDictionary.LookupNamespace%2A> without being concerned about scope. However, <xref:System.Windows.Markup.XmlnsDictionary> does expose <xref:System.Windows.Markup.XmlnsDictionary.PushScope%2A> and <xref:System.Windows.Markup.XmlnsDictionary.PopScope%2A> so that a custom <xref:System.Windows.Markup.ParserContext> implementation that changes scope can synchronize with the scope for the <xref:System.Windows.Markup.XmlnsDictionary>.  \n  \n<a name=\"xamlTextUsage_XmlnsDictionary\"></a>   \n## <a name=\"xaml-text-usage\"></a>XAML Text Usage"
   syntax:
     content: 'public class XmlnsDictionary : System.Collections.IDictionary, System.Xaml.IXamlNamespaceResolver'
   inheritance:
@@ -140,7 +140,7 @@ items:
   - PresentationFramework
   namespace: System.Windows.Markup
   summary: Initializes a new instance of the <xref href="System.Windows.Markup.XmlnsDictionary"></xref> class by using the specified dictionary as a copy source.
-  remarks: All values from the source `xmlnsDictionary` including the index entries are copied except for <xref:System.Windows.Markup.XmlnsDictionary.Sealed%2A>, which is set to `false` in the new instance.
+  remarks: 'All values from the source `xmlnsDictionary` including the index entries are copied except for <xref:System.Windows.Markup.XmlnsDictionary.Sealed%2A>, which is set to `false` in the new instance.'
   syntax:
     content: public XmlnsDictionary (System.Windows.Markup.XmlnsDictionary xmlnsDictionary);
     parameters:
@@ -186,7 +186,7 @@ items:
   - PresentationFramework
   namespace: System.Windows.Markup
   summary: Adds a prefix-URI pair to this <xref href="System.Windows.Markup.XmlnsDictionary"></xref>.
-  remarks: After initial type-checking, this implementation forwards to the type-safe method <xref:System.Windows.Markup.XmlnsDictionary.Add%2A?displayProperty=fullName>.
+  remarks: 'After initial type-checking, this implementation forwards to the type-safe method <xref:System.Windows.Markup.XmlnsDictionary.Add%2A?displayProperty=fullName>.'
   syntax:
     content: public void Add (object prefix, object xmlNamespace);
     parameters:
@@ -510,13 +510,13 @@ items:
   - PresentationFramework
   namespace: System.Windows.Markup
   summary: Looks up the XAML namespace that corresponds to the default XAML namespace.
-  remarks: From a mapping perspective, the default XML namespace is the XML namespace that is mapped to empty string. In WPF XAML parsing for application purposes, the acting default namespace identifier is [!INCLUDE[TLA#tla_wpfxmlnsv1](~/includes/tlasharptla-wpfxmlnsv1-md.md)], but that value is not explicitly returned by this API.
+  remarks: 'From a mapping perspective, the default XML namespace is the XML namespace that is mapped to empty string. In WPF XAML parsing for application purposes, the acting default namespace identifier is [!INCLUDE[TLA#tla_wpfxmlnsv1](~/includes/tlasharptla-wpfxmlnsv1-md.md)], but that value is not explicitly returned by this API.'
   syntax:
     content: public string DefaultNamespace ();
     parameters: []
     return:
       type: System.String
-      description: The namespace that corresponds to the default XML namespace if one exists; otherwise, `null`.
+      description: 'The namespace that corresponds to the default XML namespace if one exists; otherwise, `null`.'
   overload: System.Windows.Markup.XmlnsDictionary.DefaultNamespace*
   exceptions: []
   version:
@@ -596,7 +596,7 @@ items:
   - PresentationFramework
   namespace: System.Windows.Markup
   summary: Returns an enumerator that iterates through this <xref href="System.Windows.Markup.XmlnsDictionary"></xref>.
-  remarks: This API exists so that derived classes can obtain an enumerator. This enumerator provides enumeration over the <xref:System.Windows.Markup.XmlnsDictionary.Keys%2A> collection.
+  remarks: 'This API exists so that derived classes can obtain an enumerator. This enumerator provides enumeration over the <xref:System.Windows.Markup.XmlnsDictionary.Keys%2A> collection.'
   syntax:
     content: protected System.Collections.IEnumerator GetEnumerator ();
     parameters: []
@@ -689,7 +689,7 @@ items:
     parameters: []
     return:
       type: System.Collections.Generic.IEnumerable{System.Xaml.NamespaceDeclaration}
-      description: An enumerable set of <xref href="System.Xaml.NamespaceDeclaration"></xref> values. To get the prefix strings specifically, get the <xref href="System.Xaml.NamespaceDeclaration.Prefix"></xref> value from each value returned.
+      description: 'An enumerable set of <xref href="System.Xaml.NamespaceDeclaration"></xref> values. To get the prefix strings specifically, get the <xref href="System.Xaml.NamespaceDeclaration.Prefix"></xref> value from each value returned.'
   overload: System.Windows.Markup.XmlnsDictionary.GetNamespacePrefixes*
   exceptions: []
   attributes: []
@@ -727,7 +727,7 @@ items:
   - PresentationFramework
   namespace: System.Windows.Markup
   summary: Gets a value that indicates whether the size of the <xref href="System.Windows.Markup.XmlnsDictionary"></xref> is fixed.
-  remarks: This implementation always returns `false`, even if <xref:System.Windows.Markup.XmlnsDictionary.IsReadOnly%2A> is `true`.
+  remarks: 'This implementation always returns `false`, even if <xref:System.Windows.Markup.XmlnsDictionary.IsReadOnly%2A> is `true`.'
   syntax:
     content: public bool IsFixedSize { get; }
     return:
@@ -769,7 +769,7 @@ items:
   - PresentationFramework
   namespace: System.Windows.Markup
   summary: Gets a value that indicates whether the <xref href="System.Windows.Markup.XmlnsDictionary"></xref> is read-only.
-  remarks: The <xref:System.Windows.Markup.XmlnsDictionary> is read-only after <xref:System.Windows.Markup.XmlnsDictionary.Seal%2A> is called.
+  remarks: 'The <xref:System.Windows.Markup.XmlnsDictionary> is read-only after <xref:System.Windows.Markup.XmlnsDictionary.Seal%2A> is called.'
   syntax:
     content: public bool IsReadOnly { get; }
     return:
@@ -852,7 +852,7 @@ items:
   - PresentationFramework
   namespace: System.Windows.Markup
   summary: Gets or sets the XAML namespace URI associated with the specified prefix.
-  remarks: "<a name=\"xamlTextUsage_Object\"></a>   \n## XAML Text Usage"
+  remarks: "<a name=\"xamlTextUsage_Object\"></a>   \n## <a name=\"xaml-text-usage\"></a>XAML Text Usage"
   syntax:
     content: public object this[object prefix] { get; set; }
     parameters:
@@ -952,7 +952,7 @@ items:
   - PresentationFramework
   namespace: System.Windows.Markup
   summary: Gets a collection of all the keys in the <xref href="System.Windows.Markup.XmlnsDictionary"></xref>.
-  remarks: "<a name=\"xamlTextUsage_Keys\"></a>   \n## XAML Text Usage"
+  remarks: "<a name=\"xamlTextUsage_Keys\"></a>   \n## <a name=\"xaml-text-usage\"></a>XAML Text Usage"
   syntax:
     content: public System.Collections.ICollection Keys { get; }
     return:
@@ -1002,7 +1002,7 @@ items:
       description: The XAML namespace prefix to look up.
     return:
       type: System.String
-      description: The XAML namespace URI that corresponds to the specified prefix if it exists in this <xref href="System.Windows.Markup.XmlnsDictionary"></xref>; otherwise, `null`.
+      description: 'The XAML namespace URI that corresponds to the specified prefix if it exists in this <xref href="System.Windows.Markup.XmlnsDictionary"></xref>; otherwise, `null`.'
   overload: System.Windows.Markup.XmlnsDictionary.LookupNamespace*
   exceptions:
   - type: System.ArgumentNullException
@@ -1042,7 +1042,7 @@ items:
   - PresentationFramework
   namespace: System.Windows.Markup
   summary: Returns the prefix that corresponds to the specified XAML namespace URI.
-  remarks: If you request the prefix for the default namespace, an empty string is returned.
+  remarks: 'If you request the prefix for the default namespace, an empty string is returned.'
   syntax:
     content: public string LookupPrefix (string xmlNamespace);
     parameters:
@@ -1051,7 +1051,7 @@ items:
       description: The XAML namespace URI to look up.
     return:
       type: System.String
-      description: The XML prefix that corresponds to the given namespace; otherwise, `null`.
+      description: 'The XML prefix that corresponds to the given namespace; otherwise, `null`.'
   overload: System.Windows.Markup.XmlnsDictionary.LookupPrefix*
   exceptions:
   - type: System.ArgumentNullException
@@ -1091,7 +1091,7 @@ items:
   - PresentationFramework
   namespace: System.Windows.Markup
   summary: Pops the scope of the <xref href="System.Windows.Markup.XmlnsDictionary"></xref>.
-  remarks: Use this method only if you are implementing a <xref:System.Windows.Markup.ParserContext> that also works at an element scope level.
+  remarks: 'Use this method only if you are implementing a <xref:System.Windows.Markup.ParserContext> that also works at an element scope level.'
   syntax:
     content: public void PopScope ();
     parameters: []
@@ -1134,7 +1134,7 @@ items:
   - PresentationFramework
   namespace: System.Windows.Markup
   summary: Pushes the scope of the <xref href="System.Windows.Markup.XmlnsDictionary"></xref>.
-  remarks: Use this method only if you are implementing a <xref:System.Windows.Markup.ParserContext> that also works at an element scope level.
+  remarks: 'Use this method only if you are implementing a <xref:System.Windows.Markup.ParserContext> that also works at an element scope level.'
   syntax:
     content: public void PushScope ();
     parameters: []
@@ -1177,7 +1177,7 @@ items:
   - PresentationFramework
   namespace: System.Windows.Markup
   summary: Removes the item with the specified prefix key from the <xref href="System.Windows.Markup.XmlnsDictionary"></xref>.
-  remarks: This implementation forwards to the type-safe method <xref:System.Windows.Markup.XmlnsDictionary.Remove%28System.String%29?displayProperty=fullName>.
+  remarks: 'This implementation forwards to the type-safe method <xref:System.Windows.Markup.XmlnsDictionary.Remove%28System.String%29?displayProperty=fullName>.'
   syntax:
     content: public void Remove (object prefix);
     parameters:
@@ -1268,7 +1268,7 @@ items:
   - PresentationFramework
   namespace: System.Windows.Markup
   summary: Locks the dictionary so that it cannot be changed.
-  remarks: This must be done before setting the <xref:System.Windows.Markup.XmlnsDictionary> to a property (typically on a <xref:System.Windows.Markup.ParserContext>). Attempting to modify the dictionary after the <xref:System.Windows.Markup.XmlnsDictionary> is sealed throws an <xref:System.InvalidOperationException>.
+  remarks: 'This must be done before setting the <xref:System.Windows.Markup.XmlnsDictionary> to a property (typically on a <xref:System.Windows.Markup.ParserContext>). Attempting to modify the dictionary after the <xref:System.Windows.Markup.XmlnsDictionary> is sealed throws an <xref:System.InvalidOperationException>.'
   syntax:
     content: public void Seal ();
     parameters: []
@@ -1308,7 +1308,7 @@ items:
   - PresentationFramework
   namespace: System.Windows.Markup
   summary: Gets a value that indicates whether the <xref href="System.Windows.Markup.XmlnsDictionary"></xref> is sealed.
-  remarks: This property is an alias for <xref:System.Windows.Markup.XmlnsDictionary.IsReadOnly%2A>.
+  remarks: 'This property is an alias for <xref:System.Windows.Markup.XmlnsDictionary.IsReadOnly%2A>.'
   syntax:
     content: public bool Sealed { get; }
     return:
@@ -1432,7 +1432,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Markup
-  summary: For a description of this member, see <xref href="System.Collections.IDictionary.GetEnumerator"></xref>.
+  summary: 'For a description of this member, see <xref href="System.Collections.IDictionary.GetEnumerator"></xref>.'
   syntax:
     content: System.Collections.IDictionaryEnumerator IDictionary.GetEnumerator ();
     parameters: []
@@ -1475,7 +1475,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Markup
-  summary: For a description of this member, see <xref href="System.Collections.IEnumerable.GetEnumerator"></xref>.
+  summary: 'For a description of this member, see <xref href="System.Collections.IEnumerable.GetEnumerator"></xref>.'
   syntax:
     content: System.Collections.IEnumerator IEnumerable.GetEnumerator ();
     parameters: []

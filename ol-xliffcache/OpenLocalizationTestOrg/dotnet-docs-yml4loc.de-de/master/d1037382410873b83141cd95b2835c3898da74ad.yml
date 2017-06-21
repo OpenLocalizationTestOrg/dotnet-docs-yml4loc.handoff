@@ -21,7 +21,7 @@ items:
   - PresentationFramework
   namespace: System.Windows.Markup
   summary: Maps a XAML element name to the appropriate CLR <xref href="System.Type"></xref> in assemblies.
-  remarks: "<xref:System.Windows.Markup.XamlTypeMapper> is part of an advanced WPF scenario that supplies alternate context for <xref:System.Windows.Markup.XamlReader> and <xref:System.Windows.Markup.XamlWriter>. For [!INCLUDE[net_v40_short](~/includes/net-v40-short-md.md)] WPF applications, you should consider overriding <xref:System.Xaml.XamlSchemaContext> for this scenario, rather than attempting to use <xref:System.Windows.Markup.XamlTypeMapper>.  \n  \n <xref:System.Windows.Markup.XamlTypeMapper> can be used to provide the XAML parser with custom mapping information through a more direct technique than the application of <xref:System.Windows.Markup.XmlnsDefinitionAttribute> values on the assembly code. This might be useful for consolidation of all CLR namespaces in an assembly, or for referencing types that are XAML-ready in an existing assembly without having to recompile it just to add <xref:System.Windows.Markup.XmlnsDefinitionAttribute> attributing.  \n  \n You typically create a <xref:System.Windows.Markup.XamlTypeMapper> instance in order to specify the <xref:System.Windows.Markup.ParserContext.XamlTypeMapper%2A> property value for a <xref:System.Windows.Markup.ParserContext>. The <xref:System.Windows.Markup.ParserContext> in turn can be used as the context for a <xref:System.Windows.Markup.XamlReader.Load%28System.IO.Stream%2CSystem.Windows.Markup.ParserContext%29?displayProperty=fullName>call.  \n  \n## Default Mapper  \n You can obtain a default mapper using the <xref:System.Windows.Markup.XamlTypeMapper.DefaultMapper%2A> static property. The default mapper only works on a default assembly list. No specific information about assemblies (as is specified in <xref:System.Windows.Markup.XamlTypeMapper> constructors) is used.  \n  \n<a name=\"xamlTextUsage_XamlTypeMapper\"></a>   \n## XAML Text Usage"
+  remarks: "<xref:System.Windows.Markup.XamlTypeMapper> is part of an advanced WPF scenario that supplies alternate context for <xref:System.Windows.Markup.XamlReader> and <xref:System.Windows.Markup.XamlWriter>. For [!INCLUDE[net_v40_short](~/includes/net-v40-short-md.md)] WPF applications, you should consider overriding <xref:System.Xaml.XamlSchemaContext> for this scenario, rather than attempting to use <xref:System.Windows.Markup.XamlTypeMapper>.  \n  \n <xref:System.Windows.Markup.XamlTypeMapper> can be used to provide the XAML parser with custom mapping information through a more direct technique than the application of <xref:System.Windows.Markup.XmlnsDefinitionAttribute> values on the assembly code. This might be useful for consolidation of all CLR namespaces in an assembly, or for referencing types that are XAML-ready in an existing assembly without having to recompile it just to add <xref:System.Windows.Markup.XmlnsDefinitionAttribute> attributing.  \n  \n You typically create a <xref:System.Windows.Markup.XamlTypeMapper> instance in order to specify the <xref:System.Windows.Markup.ParserContext.XamlTypeMapper%2A> property value for a <xref:System.Windows.Markup.ParserContext>. The <xref:System.Windows.Markup.ParserContext> in turn can be used as the context for a <xref:System.Windows.Markup.XamlReader.Load%28System.IO.Stream%2CSystem.Windows.Markup.ParserContext%29?displayProperty=fullName>call.  \n  \n## <a name=\"default-mapper\"></a>Default Mapper  \n You can obtain a default mapper using the <xref:System.Windows.Markup.XamlTypeMapper.DefaultMapper%2A> static property. The default mapper only works on a default assembly list. No specific information about assemblies (as is specified in <xref:System.Windows.Markup.XamlTypeMapper> constructors) is used.  \n  \n<a name=\"xamlTextUsage_XamlTypeMapper\"></a>   \n## <a name=\"xaml-text-usage\"></a>XAML Text Usage"
   syntax:
     content: public class XamlTypeMapper
   inheritance:
@@ -113,7 +113,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Markup
-  summary: Initializes a new instance of the <xref href="System.Windows.Markup.XamlTypeMapper"></xref> class, using the specified array of assembly names and the specified namespace maps.
+  summary: 'Initializes a new instance of the <xref href="System.Windows.Markup.XamlTypeMapper"></xref> class, using the specified array of assembly names and the specified namespace maps.'
   syntax:
     content: public XamlTypeMapper (string[] assemblyNames, System.Windows.Markup.NamespaceMapEntry[] namespaceMaps);
     parameters:
@@ -161,7 +161,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Markup
-  summary: Defines a mapping between an XML namespace and CLR namespaces in assemblies, and adds these to the <xref href="System.Windows.Markup.XamlTypeMapper"></xref> information.
+  summary: 'Defines a mapping between an XML namespace and CLR namespaces in assemblies, and adds these to the <xref href="System.Windows.Markup.XamlTypeMapper"></xref> information.'
   remarks: "<xref:System.Windows.Markup.XamlTypeMapper.AddMappingProcessingInstruction%2A> is a programmatic way to add a mapping.  For example, the different parts of the following XAML mapping instruction correspond to the parameters of the <xref:System.Windows.Markup.XamlTypeMapper.AddMappingProcessingInstruction%2A>:  \n  \n```  \n<Window xmlns:SDK=\"clr-namespace:Samples;assembly=SDKSamples\">  \n...  \n```  \n  \n The `xmlNamespace` is `SDK`, the `clrNamespace` is `Samples`, and the `assemblyName` is `SDKSamples`."
   syntax:
     content: public void AddMappingProcessingInstruction (string xmlNamespace, string clrNamespace, string assemblyName);
@@ -301,7 +301,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Markup
-  summary: Gets the CLR <xref href="System.Type"></xref> that a given XAML element is mapped to, using the specified XML namespace prefix and element name.
+  summary: 'Gets the CLR <xref href="System.Type"></xref> that a given XAML element is mapped to, using the specified XML namespace prefix and element name.'
   remarks: "If a type cannot be found that maps to the provided information, `null` is returned.  \n  \n Do not include the prefix as part of `localName`. For any prefixed XAML element information, separate it into `xmlNamespace` and `localName` components for this API call."
   syntax:
     content: public Type GetType (string xmlNamespace, string localName);
@@ -314,7 +314,7 @@ items:
       description: The "local" name of the XAML element to obtain the mapped <xref href="System.Type"></xref> for. Local in this context means as mapped versus the provided <code>xmlNamespace</code>.
     return:
       type: System.Type
-      description: The <xref href="System.Type"></xref> for the object, or `null` if no mapping could be resolved.
+      description: 'The <xref href="System.Type"></xref> for the object, or `null` if no mapping could be resolved.'
   overload: System.Windows.Markup.XamlTypeMapper.GetType*
   exceptions:
   - type: System.ArgumentNullException

@@ -397,7 +397,7 @@ items:
       description: The array of unsigned bytes from which to create this stream.
     - id: writable
       type: System.Boolean
-      description: The setting of the <xref href="System.IO.MemoryStream.CanWrite"></xref> property, which determines whether the stream supports writing.
+      description: 'The setting of the <xref href="System.IO.MemoryStream.CanWrite"></xref> property, which determines whether the stream supports writing.'
   overload: System.IO.MemoryStream.#ctor*
   exceptions:
   - type: System.ArgumentNullException
@@ -560,7 +560,7 @@ items:
   - netstandard
   - System.Runtime.Extensions
   namespace: System.IO
-  summary: Initializes a new non-resizable instance of the <xref href="System.IO.MemoryStream"></xref> class based on the specified region of a byte array, with the <xref href="System.IO.MemoryStream.CanWrite"></xref> property set as specified.
+  summary: 'Initializes a new non-resizable instance of the <xref href="System.IO.MemoryStream"></xref> class based on the specified region of a byte array, with the <xref href="System.IO.MemoryStream.CanWrite"></xref> property set as specified.'
   remarks: "The <xref:System.IO.MemoryStream.CanRead%2A> and <xref:System.IO.MemoryStream.CanSeek%2A> properties are both set to `true`. <xref:System.IO.MemoryStream.Capacity%2A> is set to `count`.  \n  \n The length of the stream cannot be set to a value greater than the initial length of the specified byte array; however, the stream can be truncated (see <xref:System.IO.MemoryStream.SetLength%2A>).  \n  \n This constructor does not expose the underlying stream. <xref:System.IO.MemoryStream.GetBuffer%2A> throws <xref:System.UnauthorizedAccessException>. However, you can write to the stream if `writable` is `true`."
   syntax:
     content: public MemoryStream (byte[] buffer, int index, int count, bool writable);
@@ -576,7 +576,7 @@ items:
       description: The length of the stream in bytes.
     - id: writable
       type: System.Boolean
-      description: The setting of the <xref href="System.IO.MemoryStream.CanWrite"></xref> property, which determines whether the stream supports writing.
+      description: 'The setting of the <xref href="System.IO.MemoryStream.CanWrite"></xref> property, which determines whether the stream supports writing.'
   overload: System.IO.MemoryStream.#ctor*
   exceptions:
   - type: System.ArgumentNullException
@@ -654,7 +654,7 @@ items:
   - netstandard
   - System.Runtime.Extensions
   namespace: System.IO
-  summary: Initializes a new instance of the <xref href="System.IO.MemoryStream"></xref> class based on the specified region of a byte array, with the <xref href="System.IO.MemoryStream.CanWrite"></xref> property set as specified, and the ability to call <xref href="System.IO.MemoryStream.GetBuffer"></xref> set as specified.
+  summary: 'Initializes a new instance of the <xref href="System.IO.MemoryStream"></xref> class based on the specified region of a byte array, with the <xref href="System.IO.MemoryStream.CanWrite"></xref> property set as specified, and the ability to call <xref href="System.IO.MemoryStream.GetBuffer"></xref> set as specified.'
   remarks: "The <xref:System.IO.MemoryStream.CanRead%2A> and <xref:System.IO.MemoryStream.CanSeek%2A> properties are both set to `true`. <xref:System.IO.MemoryStream.Capacity%2A> is set to `count`.  \n  \n The new stream instance can be written to, but the <xref:System.IO.MemoryStream.Capacity%2A> of the underlying byte array cannot be changed. The length of the stream cannot be set to a value greater than the initial length of the specified byte array; however, the stream can be truncated (see <xref:System.IO.MemoryStream.SetLength%2A>)."
   syntax:
     content: public MemoryStream (byte[] buffer, int index, int count, bool writable, bool publiclyVisible);
@@ -670,7 +670,7 @@ items:
       description: The length of the stream in bytes.
     - id: writable
       type: System.Boolean
-      description: The setting of the <xref href="System.IO.MemoryStream.CanWrite"></xref> property, which determines whether the stream supports writing.
+      description: 'The setting of the <xref href="System.IO.MemoryStream.CanWrite"></xref> property, which determines whether the stream supports writing.'
     - id: publiclyVisible
       type: System.Boolean
       description: '`true` to enable <xref href="System.IO.MemoryStream.GetBuffer"></xref>, which returns the unsigned byte array from which the stream was created; otherwise, `false`.'
@@ -1167,7 +1167,7 @@ items:
   - netstandard
   - System.Runtime.Extensions
   namespace: System.IO
-  summary: Asynchronously reads all the bytes from the current stream and writes them to another stream, using a specified buffer size and cancellation token.
+  summary: 'Asynchronously reads all the bytes from the current stream and writes them to another stream, using a specified buffer size and cancellation token.'
   syntax:
     content: public override System.Threading.Tasks.Task CopyToAsync (System.IO.Stream destination, int bufferSize, System.Threading.CancellationToken cancellationToken);
     parameters:
@@ -1176,7 +1176,7 @@ items:
       description: The stream to which the contents of the current stream will be copied.
     - id: bufferSize
       type: System.Int32
-      description: The size, in bytes, of the buffer. This value must be greater than zero.
+      description: 'The size, in bytes, of the buffer. This value must be greater than zero.'
     - id: cancellationToken
       type: System.Threading.CancellationToken
       description: The token to monitor for cancellation requests.
@@ -1196,7 +1196,7 @@ items:
     description: Either the current stream or the destination stream is disposed.
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: The current stream does not support reading, or the destination stream does not support writing.
+    description: 'The current stream does not support reading, or the destination stream does not support writing.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -1461,7 +1461,7 @@ items:
   - netstandard
   - System.Runtime.Extensions
   namespace: System.IO
-  summary: Asynchronously clears all buffers for this stream, and monitors cancellation requests.
+  summary: 'Asynchronously clears all buffers for this stream, and monitors cancellation requests.'
   remarks: "Because any data written to a <xref:System.IO.MemoryStream> object is written into RAM, this method is redundant.  \n  \n If the operation is canceled before it completes, the returned task contains the <xref:System.Threading.Tasks.TaskStatus.Canceled> value for the <xref:System.Threading.Tasks.Task.Status%2A> property.  \n  \n You can create a cancellation token by creating an instance of the <xref:System.Threading.CancellationTokenSource> class and passing the <xref:System.Threading.CancellationTokenSource.Token%2A> property as the `cancellationToken` parameter."
   syntax:
     content: >-
@@ -1554,7 +1554,7 @@ items:
     parameters: []
     return:
       type: System.Byte[]
-      description: The byte array from which this stream was created, or the underlying array if a byte array was not provided to the <xref href="System.IO.MemoryStream"></xref> constructor during construction of the current instance.
+      description: 'The byte array from which this stream was created, or the underlying array if a byte array was not provided to the <xref href="System.IO.MemoryStream"></xref> constructor during construction of the current instance.'
   overload: System.IO.MemoryStream.GetBuffer*
   exceptions:
   - type: System.UnauthorizedAccessException
@@ -1780,7 +1780,7 @@ items:
     parameters:
     - id: buffer
       type: System.Byte[]
-      description: When this method returns, contains the specified byte array with the values between <code>offset</code> and (<code>offset</code> + <code>count</code> - 1) replaced by the characters read from the current stream.
+      description: 'When this method returns, contains the specified byte array with the values between <code>offset</code> and (<code>offset</code> + <code>count</code> - 1) replaced by the characters read from the current stream.'
     - id: offset
       type: System.Int32
       description: The zero-based byte offset in <code>buffer</code> at which to begin storing data from the current stream.
@@ -1789,7 +1789,7 @@ items:
       description: The maximum number of bytes to read.
     return:
       type: System.Int32
-      description: The total number of bytes written into the buffer. This can be less than the number of bytes requested if that number of bytes are not currently available, or zero if the end of the stream is reached before any bytes are read.
+      description: 'The total number of bytes written into the buffer. This can be less than the number of bytes requested if that number of bytes are not currently available, or zero if the end of the stream is reached before any bytes are read.'
   overload: System.IO.MemoryStream.Read*
   exceptions:
   - type: System.ArgumentNullException
@@ -1870,7 +1870,7 @@ items:
   - netstandard
   - System.Runtime.Extensions
   namespace: System.IO
-  summary: Asynchronously reads a sequence of bytes from the current stream, advances the position within the stream by the number of bytes read, and monitors cancellation requests.
+  summary: 'Asynchronously reads a sequence of bytes from the current stream, advances the position within the stream by the number of bytes read, and monitors cancellation requests.'
   remarks: "If the operation is canceled before it completes, the returned task contains the <xref:System.Threading.Tasks.TaskStatus.Canceled> value for the <xref:System.Threading.Tasks.Task.Status%2A> property.  \n  \n You can create a cancellation token by creating an instance of the <xref:System.Threading.CancellationTokenSource> class and passing the <xref:System.Threading.CancellationTokenSource.Token%2A> property as the `cancellationToken` parameter."
   syntax:
     content: >-
@@ -1892,7 +1892,7 @@ items:
       description: The token to monitor for cancellation requests. The default value is <xref href="System.Threading.CancellationToken.None"></xref>.
     return:
       type: System.Threading.Tasks.Task{System.Int32}
-      description: A task that represents the asynchronous read operation. The value of the <code>TResult</code> parameter contains the total number of bytes read into the buffer. The result value can be less than the number of bytes requested if the number of bytes currently available is less than the requested number, or it can be 0 (zero) if the end of the stream has been reached.
+      description: 'A task that represents the asynchronous read operation. The value of the <code>TResult</code> parameter contains the total number of bytes read into the buffer. The result value can be less than the number of bytes requested if the number of bytes currently available is less than the requested number, or it can be 0 (zero) if the end of the stream has been reached.'
   overload: System.IO.MemoryStream.ReadAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -1990,7 +1990,7 @@ items:
     parameters: []
     return:
       type: System.Int32
-      description: The byte cast to a <xref href="System.Int32"></xref>, or -1 if the end of the stream has been reached.
+      description: 'The byte cast to a <xref href="System.Int32"></xref>, or -1 if the end of the stream has been reached.'
   overload: System.IO.MemoryStream.ReadByte*
   exceptions:
   - type: System.ObjectDisposedException
@@ -2071,13 +2071,13 @@ items:
     parameters:
     - id: offset
       type: System.Int64
-      description: The new position within the stream. This is relative to the <code>loc</code> parameter, and can be positive or negative.
+      description: 'The new position within the stream. This is relative to the <code>loc</code> parameter, and can be positive or negative.'
     - id: loc
       type: System.IO.SeekOrigin
-      description: A value of type <xref href="System.IO.SeekOrigin"></xref>, which acts as the seek reference point.
+      description: 'A value of type <xref href="System.IO.SeekOrigin"></xref>, which acts as the seek reference point.'
     return:
       type: System.Int64
-      description: The new position within the stream, calculated by combining the initial reference point and the offset.
+      description: 'The new position within the stream, calculated by combining the initial reference point and the offset.'
   overload: System.IO.MemoryStream.Seek*
   exceptions:
   - type: System.IO.IOException
@@ -2173,7 +2173,7 @@ items:
     description: "The current stream is not resizable and <code>value</code> is larger than the current capacity.  \n  \n -or-  \n  \n The current stream does not support writing."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: <code>value</code> is negative or is greater than the maximum length of the <xref href="System.IO.MemoryStream"></xref>, where the maximum length is(<xref href="System.Int32.MaxValue"></xref> - origin), and origin is the index into the underlying buffer at which the stream starts.
+    description: '<code>value</code> is negative or is greater than the maximum length of the <xref href="System.IO.MemoryStream"></xref>, where the maximum length is(<xref href="System.Int32.MaxValue"></xref> - origin), and origin is the index into the underlying buffer at which the stream starts.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -2240,7 +2240,7 @@ items:
   - netstandard
   - System.Runtime.Extensions
   namespace: System.IO
-  summary: Writes the stream contents to a byte array, regardless of the <xref href="System.IO.MemoryStream.Position"></xref> property.
+  summary: 'Writes the stream contents to a byte array, regardless of the <xref href="System.IO.MemoryStream.Position"></xref> property.'
   remarks: "This method omits unused bytes in <xref:System.IO.MemoryStream> from the array. To get the entire buffer, use the <xref:System.IO.MemoryStream.GetBuffer%2A> method.  \n  \n This method returns a copy of the contents of the <xref:System.IO.MemoryStream> as a byte array. If the current instance was constructed on a provided byte array, a copy of the section of the array to which this instance has access is returned. See the <xref:System.IO.MemoryStream.%23ctor%2A> constructor for details.  \n  \n> [!NOTE]\n>  This method works when the <xref:System.IO.MemoryStream> is closed."
   syntax:
     content: public virtual byte[] ToArray ();
@@ -2484,7 +2484,7 @@ items:
   - netstandard
   - System.Runtime.Extensions
   namespace: System.IO
-  summary: Asynchronously writes a sequence of bytes to the current stream, advances the current position within this stream by the number of bytes written, and monitors cancellation requests.
+  summary: 'Asynchronously writes a sequence of bytes to the current stream, advances the current position within this stream by the number of bytes written, and monitors cancellation requests.'
   remarks: "If the operation is canceled before it completes, the returned task contains the <xref:System.Threading.Tasks.TaskStatus.Canceled> value for the <xref:System.Threading.Tasks.Task.Status%2A> property.  \n  \n You can create a cancellation token by creating an instance of the <xref:System.Threading.CancellationTokenSource> class and passing the <xref:System.Threading.CancellationTokenSource.Token%2A> property as the `cancellationToken` parameter."
   syntax:
     content: >-
@@ -2680,7 +2680,7 @@ items:
   - System.Runtime.Extensions
   namespace: System.IO
   summary: Writes the entire contents of this memory stream to another stream.
-  remarks: When the current stream is open, this method is equivalent to calling <xref:System.IO.Stream.Write%2A?displayProperty=fullName> on the underlying buffer of this stream.
+  remarks: 'When the current stream is open, this method is equivalent to calling <xref:System.IO.Stream.Write%2A?displayProperty=fullName> on the underlying buffer of this stream.'
   syntax:
     content: public virtual void WriteTo (System.IO.Stream stream);
     parameters:

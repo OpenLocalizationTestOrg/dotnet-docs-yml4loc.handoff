@@ -213,7 +213,7 @@ items:
   - netstandard
   namespace: System.Threading.Tasks
   summary: Gets whether any iteration of the loop has called the <xref href="System.Threading.Tasks.ParallelLoopState.Stop"></xref> method.
-  remarks: For long-running iterations of the loop, you can retrieve the value of the <xref:System.Threading.Tasks.ParallelLoopState.IsStopped%2A> property to determine whether any iterations of the loop that began execution before the call to the <xref:System.Threading.Tasks.ParallelLoopState.Stop%2A> method are still executing. You can then use the value of the <xref:System.Threading.Tasks.ParallelLoopState.IsStopped%2A> property to determine whether they should return immediately or execute normally.
+  remarks: 'For long-running iterations of the loop, you can retrieve the value of the <xref:System.Threading.Tasks.ParallelLoopState.IsStopped%2A> property to determine whether any iterations of the loop that began execution before the call to the <xref:System.Threading.Tasks.ParallelLoopState.Stop%2A> method are still executing. You can then use the value of the <xref:System.Threading.Tasks.ParallelLoopState.IsStopped%2A> property to determine whether they should return immediately or execute normally.'
   example:
   - "The following example executes up to 10,000 iterations of a loop in parallel. Each iteration pauses for a random interval from 1 to 1,000 milliseconds. A randomly generated value determines on which iteration of the loop the <xref:System.Threading.Tasks.ParallelLoopState.Stop%2A> method is called. Because iterations of the loop are still likely to be executing when the <xref:System.Threading.Tasks.ParallelLoopState.Stop%2A> method is called, the lambda expression calls the <xref:System.Threading.Tasks.ParallelLoopState.IsStopped%2A> method to check whether another iteration has called the <xref:System.Threading.Tasks.ParallelLoopState.Stop%2A> method. If it returns `true`, the iteration returns immediately.  \n  \n [!code-csharp[System.Threading.Tasks.ParallelLoopState#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.threading.tasks.parallelloopstate/cs/stop1.cs#1)]\n [!code-vb[System.Threading.Tasks.ParallelLoopState#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.threading.tasks.parallelloopstate/vb/stop1.vb#1)]"
   syntax:
@@ -282,7 +282,7 @@ items:
     content: public Nullable<long> LowestBreakIteration { get; }
     return:
       type: System.Nullable{System.Int64}
-      description: The lowest iteration from which <xref href="System.Threading.Tasks.ParallelLoopState.Break"></xref> was called. In the case of a <xref href="System.Threading.Tasks.Parallel.ForEach``1(System.Collections.Concurrent.Partitioner{``0},System.Action{``0})"></xref> loop, the value is based on an internally-generated index.
+      description: 'The lowest iteration from which <xref href="System.Threading.Tasks.ParallelLoopState.Break"></xref> was called. In the case of a <xref href="System.Threading.Tasks.Parallel.ForEach``1(System.Collections.Concurrent.Partitioner{``0},System.Action{``0})"></xref> loop, the value is based on an internally-generated index.'
   overload: System.Threading.Tasks.ParallelLoopState.LowestBreakIteration*
   exceptions: []
   version:

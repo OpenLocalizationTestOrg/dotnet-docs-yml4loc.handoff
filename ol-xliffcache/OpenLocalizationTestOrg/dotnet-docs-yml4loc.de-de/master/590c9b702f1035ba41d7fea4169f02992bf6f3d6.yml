@@ -297,7 +297,7 @@ items:
   - System
   - netstandard
   namespace: System.Net.Security
-  summary: Initializes a new instance of the <xref href="System.Net.Security.SslStream"></xref> class using the specified <xref href="System.IO.Stream"></xref>, stream closure behavior and certificate validation delegate.
+  summary: 'Initializes a new instance of the <xref href="System.Net.Security.SslStream"></xref> class using the specified <xref href="System.IO.Stream"></xref>, stream closure behavior and certificate validation delegate.'
   remarks: "When you specify `true` for the `leaveStreamOpen` parameter, closing the <xref:System.Net.Security.SslStream> has no effect on the `innerStream` stream; you must explicitly close `innerStream` when you no longer need it.  \n  \n The `userCertificateValidationCallback` delegate's `certificateErrors` argument contains any Windows error codes returned by the channel Security Support Provider Interface (SSPI). The return value of the method invoked by the `userCertificateValidationCallback` delegate determines whether authentication succeeds.  \n  \n The security protocol and cryptographic algorithms are already selected when the `userCertificateValidationCallback` delegate's method is invoked. You can use the method to determine whether the selected cryptographic algorithms and strengths are sufficient for your application. If not, the method should return `false` to prevent the <xref:System.Net.Security.SslStream> from being created.  \n  \n If a value is not specified in the configuration file for encryptionpolicy, the <xref:System.Net.Security.EncryptionPolicy> defaults to <xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName> for the <xref:System.Net.Security.SslStream> instance that is constructed.  \n  \n The use of the Null cipher is required when the encryption policy is set to <xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName>.  \n  \n> [!NOTE]\n>  The Framework caches SSL sessions as they are created and attempts to reuse a cached session for a new request, if possible. When attempting to reuse an SSL session, the Framework uses the first element of <xref:System.Net.HttpWebRequest.ClientCertificates%2A> (if there is one), or tries to reuse an anonymous sessions if <xref:System.Net.HttpWebRequest.ClientCertificates%2A> is empty.  \n  \n> [!NOTE]\n>  Client certificates are not supported in the SSL version 2 protocol."
   example:
   - "The following code example creates an <xref:System.Net.Security.SslStream> and initiates the client portion of the authentication.  \n  \n [!code-cpp[NclSslClientSync#4](~/samples/snippets/cpp/VS_Snippets_Remoting/NclSslClientSync/CPP/clientsync.cpp#4)]\n [!code-csharp[NclSslClientSync#4](~/samples/snippets/csharp/VS_Snippets_Remoting/NclSslClientSync/CS/clientsync.cs#4)]"
@@ -369,7 +369,7 @@ items:
   - System
   - netstandard
   namespace: System.Net.Security
-  summary: Initializes a new instance of the <xref href="System.Net.Security.SslStream"></xref> class using the specified <xref href="System.IO.Stream"></xref>, stream closure behavior, certificate validation delegate and certificate selection delegate.
+  summary: 'Initializes a new instance of the <xref href="System.Net.Security.SslStream"></xref> class using the specified <xref href="System.IO.Stream"></xref>, stream closure behavior, certificate validation delegate and certificate selection delegate.'
   remarks: "When you specify `true` for the `leaveStreamOpen` parameter, closing the <xref:System.Net.Security.SslStream> has no effect on the `innerStream` stream; you must explicitly close `innerStream` when you no longer need it.  \n  \n The `userCertificateValidationCallback` delegate's `certificateErrors` argument contains any Windows error codes returned by the channel Security Support Provider Interface (SSPI). The return value of the method invoked by the `userCertificateValidationCallback` delegate determines whether authentication succeeds.  \n  \n The security protocol and cryptographic algorithms are already selected when the `userCertificateValidationCallback` delegate's method is invoked. You can use the method to determine whether the selected cryptographic algorithms and strengths are sufficient for your application. If not, the method should return `false` to prevent the <xref:System.Net.Security.SslStream> from being created.  \n  \n The `userCertificateSelectionCallback` delegate is useful when your application has multiple certificates and must dynamically choose a certificate. Certificates in the \"MY\" store are passed to the method invoked by the delegate.  \n  \n If a value is not specified in the configuration file for encryptionpolicy, the <xref:System.Net.Security.EncryptionPolicy> defaults to <xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName> for the <xref:System.Net.Security.SslStream> instance that is constructed.  \n  \n The use of the Null cipher is required when the encryption policy is set to <xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName>.  \n  \n> [!NOTE]\n>  The Framework caches SSL sessions as they are created and attempts to reuse a cached session for a new request, if possible. When attempting to reuse an SSL session, the Framework uses the first element of P:System.Net.HttpWebRequest.ClientCertificates (if there is one), or tries to reuse an anonymous sessions if P:System.Net.HttpWebRequest.ClientCertificates is empty."
   example:
   - "The following code example demonstrates calling this constructor. This example is part of a larger example provided for the <xref:System.Net.Security.SslStream> class.  \n  \n [!code-cpp[NclSslClientAsync#6](~/samples/snippets/cpp/VS_Snippets_Remoting/NclSslClientAsync/CPP/NclSslClientAsync.cpp#6)]\n [!code-csharp[NclSslClientAsync#6](~/samples/snippets/csharp/VS_Snippets_Remoting/NclSslClientAsync/CS/clientasync.cs#6)]"
@@ -445,7 +445,7 @@ items:
   - netstandard
   namespace: System.Net.Security
   summary: Initializes a new instance of the <xref href="System.Net.Security.SslStream"></xref> class using the specified <xref href="System.IO.Stream"></xref>
-  remarks: The use of the Null cipher is required when the `encryptionPolicy` parameter is set to <xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName>.
+  remarks: 'The use of the Null cipher is required when the `encryptionPolicy` parameter is set to <xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName>.'
   syntax:
     content: >-
       [System.MonoLimitation("encryptionPolicy is ignored")]
@@ -590,7 +590,7 @@ items:
   - System
   - System.Net.Security
   namespace: System.Net.Security
-  summary: Called by clients to authenticate the server and optionally the client in a client-server connection. The authentication process uses the specified certificate collection, and the system default SSL protocol.
+  summary: 'Called by clients to authenticate the server and optionally the client in a client-server connection. The authentication process uses the specified certificate collection, and the system default SSL protocol.'
   remarks: "When authentication succeeds, you must check the <xref:System.Net.Security.SslStream.IsEncrypted%2A> and <xref:System.Net.Security.SslStream.IsSigned%2A> properties to determine what security services are used by the <xref:System.Net.Security.SslStream>. Check the <xref:System.Net.Security.SslStream.IsMutuallyAuthenticated%2A> property to determine whether mutual authentication occurred.  \n  \n If the authentication fails, you receive a <xref:System.Security.Authentication.AuthenticationException>, and this <xref:System.Net.Security.SslStream> is no longer useable. You should close this object and remove all references to it so that it can be collected by the garbage collector.  \n  \n> [!NOTE]\n>  Client certificates are not supported in the SSL version 2 protocol."
   syntax:
     content: public virtual void AuthenticateAsClient (string targetHost, System.Security.Cryptography.X509Certificates.X509CertificateCollection clientCertificates, bool checkCertificateRevocation);
@@ -902,7 +902,7 @@ items:
     description: This object has been closed.
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: The <xref href="System.Net.Security.SslStream.AuthenticateAsServer*"></xref> method is not supported on Windows 95, Windows 98, or Windows Millennium.
+    description: 'The <xref href="System.Net.Security.SslStream.AuthenticateAsServer*"></xref> method is not supported on Windows 95, Windows 98, or Windows Millennium.'
   version:
   - netcore-2.0
   - netframework-4.5.1
@@ -946,7 +946,7 @@ items:
   - System
   - System.Net.Security
   namespace: System.Net.Security
-  summary: Called by servers to authenticate the server and optionally the client in a client-server connection using the specified certificates and requirements, and using the sytem default security protocol.
+  summary: 'Called by servers to authenticate the server and optionally the client in a client-server connection using the specified certificates and requirements, and using the sytem default security protocol.'
   remarks: "This method blocks until the operation completes. To prevent blocking until the operation completes, use one of the <xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A> method overloads.  \n  \n If the authentication fails, you receive a <xref:System.Security.Authentication.AuthenticationException>, and this <xref:System.Net.Security.SslStream> is no longer useable. You should close this object and remove all references to it so that it can be collected by the garbage collector."
   syntax:
     content: public virtual void AuthenticateAsServer (System.Security.Cryptography.X509Certificates.X509Certificate serverCertificate, bool clientCertificateRequired, bool checkCertificateRevocation);
@@ -956,7 +956,7 @@ items:
       description: The X509Certificate used to authenticate the server.
     - id: clientCertificateRequired
       type: System.Boolean
-      description: A <xref href="System.Boolean"></xref> value that specifies whether the client is asked for a certificate for authentication. Note that this is only a request -- if no certificate is provided, the server still accepts the connection request.
+      description: 'A <xref href="System.Boolean"></xref> value that specifies whether the client is asked for a certificate for authentication. Note that this is only a request -- if no certificate is provided, the server still accepts the connection request.'
     - id: checkCertificateRevocation
       type: System.Boolean
       description: A <xref href="System.Boolean"></xref> value that specifies whether the certificate revocation list is checked during authentication.
@@ -976,7 +976,7 @@ items:
     description: This object has been closed.
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: The <xref href="System.Net.Security.SslStream.AuthenticateAsServer*"></xref> method is not supported on Windows 95, Windows 98, or Windows Millennium.
+    description: 'The <xref href="System.Net.Security.SslStream.AuthenticateAsServer*"></xref> method is not supported on Windows 95, Windows 98, or Windows Millennium.'
   version:
   - netcore-2.0
   - netframework-4.7
@@ -1001,7 +1001,7 @@ items:
   - netstandard
   - System.Net.Security
   namespace: System.Net.Security
-  summary: Called by servers to authenticate the server and optionally the client in a client-server connection using the specified certificates, requirements and security protocol.
+  summary: 'Called by servers to authenticate the server and optionally the client in a client-server connection using the specified certificates, requirements and security protocol.'
   remarks: "This method blocks until the operation completes. To prevent blocking until the operation completes, use one of the <xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A> method overloads.  \n  \n If the authentication fails, you receive a <xref:System.Security.Authentication.AuthenticationException>, and this <xref:System.Net.Security.SslStream> is no longer useable. You should close this object and remove all references to it so that it can be collected by the garbage collector."
   syntax:
     content: public virtual void AuthenticateAsServer (System.Security.Cryptography.X509Certificates.X509Certificate serverCertificate, bool clientCertificateRequired, System.Security.Authentication.SslProtocols enabledSslProtocols, bool checkCertificateRevocation);
@@ -1011,7 +1011,7 @@ items:
       description: The X509Certificate used to authenticate the server.
     - id: clientCertificateRequired
       type: System.Boolean
-      description: A <xref href="System.Boolean"></xref> value that specifies whether the client is asked for a certificate for authentication. Note that this is only a request -- if no certificate is provided, the server still accepts the connection request.
+      description: 'A <xref href="System.Boolean"></xref> value that specifies whether the client is asked for a certificate for authentication. Note that this is only a request -- if no certificate is provided, the server still accepts the connection request.'
     - id: enabledSslProtocols
       type: System.Security.Authentication.SslProtocols
       description: The <xref href="System.Security.Authentication.SslProtocols"></xref> value that represents the protocol used for authentication.
@@ -1037,7 +1037,7 @@ items:
     description: This object has been closed.
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: The <xref href="System.Net.Security.SslStream.AuthenticateAsServer*"></xref> method is not supported on Windows 95, Windows 98, or Windows Millennium.
+    description: 'The <xref href="System.Net.Security.SslStream.AuthenticateAsServer*"></xref> method is not supported on Windows 95, Windows 98, or Windows Millennium.'
   version:
   - netcore-2.0
   - netframework-4.5.1
@@ -1082,8 +1082,8 @@ items:
   - System
   - netstandard
   namespace: System.Net.Security
-  summary: Called by servers to authenticate the server and optionally the client in a client-server connection using the specified certificates, requirements and security protocol as an asynchronous operation.
-  remarks: If the authentication fails, you receive a <xref:System.Security.Authentication.AuthenticationException>, and this <xref:System.Net.Security.SslStream> is no longer useable. You should close this object and remove all references to it so that it can be collected by the garbage collector.
+  summary: 'Called by servers to authenticate the server and optionally the client in a client-server connection using the specified certificates, requirements and security protocol as an asynchronous operation.'
+  remarks: 'If the authentication fails, you receive a <xref:System.Security.Authentication.AuthenticationException>, and this <xref:System.Net.Security.SslStream> is no longer useable. You should close this object and remove all references to it so that it can be collected by the garbage collector.'
   syntax:
     content: public virtual System.Threading.Tasks.Task AuthenticateAsServerAsync (System.Security.Cryptography.X509Certificates.X509Certificate serverCertificate, bool clientCertificateRequired, System.Security.Authentication.SslProtocols enabledSslProtocols, bool checkCertificateRevocation);
     parameters:
@@ -1092,7 +1092,7 @@ items:
       description: The X509Certificate used to authenticate the server.
     - id: clientCertificateRequired
       type: System.Boolean
-      description: A <xref href="System.Boolean"></xref> value that specifies whether the client is asked for a certificate for authentication. Note that this is only a request -- if no certificate is provided, the server still accepts the connection request.
+      description: 'A <xref href="System.Boolean"></xref> value that specifies whether the client is asked for a certificate for authentication. Note that this is only a request -- if no certificate is provided, the server still accepts the connection request.'
     - id: enabledSslProtocols
       type: System.Security.Authentication.SslProtocols
       description: The <xref href="System.Security.Authentication.SslProtocols"></xref> value that represents the protocol used for authentication.
@@ -1179,7 +1179,7 @@ items:
     description: This object has been closed.
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: The <xref href="System.Net.Security.SslStream.AuthenticateAsServerAsync*"></xref> method is not supported on Windows 95, Windows 98, or Windows Millennium.
+    description: 'The <xref href="System.Net.Security.SslStream.AuthenticateAsServerAsync*"></xref> method is not supported on Windows 95, Windows 98, or Windows Millennium.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -1227,8 +1227,8 @@ items:
   - System
   - System.Net.Security
   namespace: System.Net.Security
-  summary: Called by servers to authenticate the server and optionally the client in a client-server connection using the specified certificates, requirements and security protocol as an asynchronous operation.
-  remarks: If the authentication fails, you receive a <xref:System.Security.Authentication.AuthenticationException>, and this <xref:System.Net.Security.SslStream> is no longer useable. You should close this object and remove all references to it so that it can be collected by the garbage collector.
+  summary: 'Called by servers to authenticate the server and optionally the client in a client-server connection using the specified certificates, requirements and security protocol as an asynchronous operation.'
+  remarks: 'If the authentication fails, you receive a <xref:System.Security.Authentication.AuthenticationException>, and this <xref:System.Net.Security.SslStream> is no longer useable. You should close this object and remove all references to it so that it can be collected by the garbage collector.'
   syntax:
     content: public virtual System.Threading.Tasks.Task AuthenticateAsServerAsync (System.Security.Cryptography.X509Certificates.X509Certificate serverCertificate, bool clientCertificateRequired, bool checkCertificateRevocation);
     parameters:
@@ -1237,7 +1237,7 @@ items:
       description: The X509Certificate used to authenticate the server.
     - id: clientCertificateRequired
       type: System.Boolean
-      description: A <xref href="System.Boolean"></xref> value that specifies whether the client is asked for a certificate for authentication. Note that this is only a request -- if no certificate is provided, the server still accepts the connection request.
+      description: 'A <xref href="System.Boolean"></xref> value that specifies whether the client is asked for a certificate for authentication. Note that this is only a request -- if no certificate is provided, the server still accepts the connection request.'
     - id: checkCertificateRevocation
       type: System.Boolean
       description: A <xref href="System.Boolean"></xref> value that specifies whether the certificate revocation list is checked during authentication.
@@ -1525,7 +1525,7 @@ items:
     description: This object has been closed.
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: The <xref href="System.Net.Security.SslStream.BeginAuthenticateAsServer*"></xref> method is not supported on Windows 95, Windows 98, or Windows Millennium.
+    description: 'The <xref href="System.Net.Security.SslStream.BeginAuthenticateAsServer*"></xref> method is not supported on Windows 95, Windows 98, or Windows Millennium.'
   version:
   - netcore-2.0
   - netframework-4.5.1
@@ -1569,7 +1569,7 @@ items:
   - System
   - System.Net.Security
   namespace: System.Net.Security
-  summary: Called by servers to begin an asynchronous operation to authenticate the server and optionally the client using the specified certificates and requirements, and the system default security protocol.
+  summary: 'Called by servers to begin an asynchronous operation to authenticate the server and optionally the client using the specified certificates and requirements, and the system default security protocol.'
   remarks: "The asynchronous authentication operation must be completed by calling the <xref:System.Net.Security.SslStream.EndAuthenticateAsServer%2A> method. Typically, the method is invoked by the `asyncCallback` delegate.  \n  \n This method does not block while the operation completes. To block until the operation completes, use one of the <xref:System.Net.Security.SslStream.AuthenticateAsServer%2A> method overloads.  \n  \n For detailed information about using the asynchronous programming model, see [Calling Synchronous Methods Asynchronously](~/docs/standard/asynchronous-programming-patterns/calling-synchronous-methods-asynchronously.md)  \n  \n If you receive a <xref:System.Security.Authentication.AuthenticationException>, this <xref:System.Net.Security.SslStream> is no longer useable. You should close this object and remove all references to it so that it can be collected by the garbage collector."
   syntax:
     content: public virtual IAsyncResult BeginAuthenticateAsServer (System.Security.Cryptography.X509Certificates.X509Certificate serverCertificate, bool clientCertificateRequired, bool checkCertificateRevocation, AsyncCallback asyncCallback, object asyncState);
@@ -1579,7 +1579,7 @@ items:
       description: The X509Certificate used to authenticate the server.
     - id: clientCertificateRequired
       type: System.Boolean
-      description: A <xref href="System.Boolean"></xref> value that specifies whether the client is asked for a certificate for authentication. Note that this is only a request -- if no certificate is provided, the server still accepts the connection request.
+      description: 'A <xref href="System.Boolean"></xref> value that specifies whether the client is asked for a certificate for authentication. Note that this is only a request -- if no certificate is provided, the server still accepts the connection request.'
     - id: checkCertificateRevocation
       type: System.Boolean
       description: A <xref href="System.Boolean"></xref> value that specifies whether the certificate revocation list is checked during authentication.
@@ -1608,7 +1608,7 @@ items:
     description: This object has been closed.
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: The <xref href="System.Net.Security.SslStream.BeginAuthenticateAsServer*"></xref> method is not supported on Windows 95, Windows 98, or Windows Millennium.
+    description: 'The <xref href="System.Net.Security.SslStream.BeginAuthenticateAsServer*"></xref> method is not supported on Windows 95, Windows 98, or Windows Millennium.'
   version:
   - netcore-2.0
   - netframework-4.7
@@ -1633,7 +1633,7 @@ items:
   - netstandard
   - System.Net.Security
   namespace: System.Net.Security
-  summary: Called by servers to begin an asynchronous operation to authenticate the server and optionally the client using the specified certificates, requirements and security protocol.
+  summary: 'Called by servers to begin an asynchronous operation to authenticate the server and optionally the client using the specified certificates, requirements and security protocol.'
   remarks: "The asynchronous authentication operation must be completed by calling the <xref:System.Net.Security.SslStream.EndAuthenticateAsServer%2A> method. Typically, the method is invoked by the `asyncCallback` delegate.  \n  \n This method does not block while the operation completes. To block until the operation completes, use one of the <xref:System.Net.Security.SslStream.AuthenticateAsServer%2A> method overloads.  \n  \n For detailed information about using the asynchronous programming model, see [Calling Synchronous Methods Asynchronously](~/docs/standard/asynchronous-programming-patterns/calling-synchronous-methods-asynchronously.md)  \n  \n If you receive a <xref:System.Security.Authentication.AuthenticationException>, this <xref:System.Net.Security.SslStream> is no longer useable. You should close this object and remove all references to it so that it can be collected by the garbage collector."
   syntax:
     content: public virtual IAsyncResult BeginAuthenticateAsServer (System.Security.Cryptography.X509Certificates.X509Certificate serverCertificate, bool clientCertificateRequired, System.Security.Authentication.SslProtocols enabledSslProtocols, bool checkCertificateRevocation, AsyncCallback asyncCallback, object asyncState);
@@ -1643,7 +1643,7 @@ items:
       description: The X509Certificate used to authenticate the server.
     - id: clientCertificateRequired
       type: System.Boolean
-      description: A <xref href="System.Boolean"></xref> value that specifies whether the client is asked for a certificate for authentication. Note that this is only a request -- if no certificate is provided, the server still accepts the connection request.
+      description: 'A <xref href="System.Boolean"></xref> value that specifies whether the client is asked for a certificate for authentication. Note that this is only a request -- if no certificate is provided, the server still accepts the connection request.'
     - id: enabledSslProtocols
       type: System.Security.Authentication.SslProtocols
       description: The <xref href="System.Security.Authentication.SslProtocols"></xref> value that represents the protocol used for authentication.
@@ -1678,7 +1678,7 @@ items:
     description: This object has been closed.
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: The <xref href="System.Net.Security.SslStream.BeginAuthenticateAsServer*"></xref> method is not supported on Windows 95, Windows 98, or Windows Millennium.
+    description: 'The <xref href="System.Net.Security.SslStream.BeginAuthenticateAsServer*"></xref> method is not supported on Windows 95, Windows 98, or Windows Millennium.'
   version:
   - netcore-2.0
   - netframework-4.5.1
@@ -2264,7 +2264,7 @@ items:
     content: public virtual int CipherStrength { get; }
     return:
       type: System.Int32
-      description: An <xref href="System.Int32"></xref> value that specifies the strength of the algorithm, in bits.
+      description: 'An <xref href="System.Int32"></xref> value that specifies the strength of the algorithm, in bits.'
   overload: System.Net.Security.SslStream.CipherStrength*
   exceptions: []
   version:
@@ -2501,7 +2501,7 @@ items:
   - netstandard
   - System.Net.Security
   namespace: System.Net.Security
-  summary: Ends an asynchronous read operation started with a previous call to <xref href="System.Net.Security.SslStream.BeginRead(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"></xref>.
+  summary: 'Ends an asynchronous read operation started with a previous call to <xref href="System.Net.Security.SslStream.BeginRead(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"></xref>.'
   remarks: "If the operation has not completed, this method blocks until it does.  \n  \n To perform this operation synchronously, use the <xref:System.Net.Security.SslStream.Read%2A> method.  \n  \n You cannot call this method until you have successfully authenticated. To authenticate call one of the <xref:System.Net.Security.SslStream.AuthenticateAsClient%2A>, or <xref:System.Net.Security.SslStream.BeginAuthenticateAsClient%2A>, <xref:System.Net.Security.SslStream.AuthenticateAsServer%2A>, <xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A> methods."
   example:
   - "The following code example demonstrates ending an asynchronous read operation.  \n  \n [!code-cpp[NclSslClientAsync#5](~/samples/snippets/cpp/VS_Snippets_Remoting/NclSslClientAsync/CPP/NclSslClientAsync.cpp#5)]\n [!code-csharp[NclSslClientAsync#5](~/samples/snippets/csharp/VS_Snippets_Remoting/NclSslClientAsync/CS/clientasync.cs#5)]"
@@ -2510,7 +2510,7 @@ items:
     parameters:
     - id: asyncResult
       type: System.IAsyncResult
-      description: An <xref href="System.IAsyncResult"></xref> instance returned by a call to <xref href="System.Net.Security.SslStream.BeginRead(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"></xref>
+      description: 'An <xref href="System.IAsyncResult"></xref> instance returned by a call to <xref href="System.Net.Security.SslStream.BeginRead(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"></xref>'
     return:
       type: System.Int32
       description: A <xref href="System.Int32"></xref> value that specifies the number of bytes read from the underlying stream.
@@ -2521,7 +2521,7 @@ items:
     description: <code>asyncResult</code> is `null`.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>asyncResult</code> was not created by a call to <xref href="System.Net.Security.SslStream.BeginRead(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"></xref>.
+    description: '<code>asyncResult</code> was not created by a call to <xref href="System.Net.Security.SslStream.BeginRead(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"></xref>.'
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
     description: Authentication has not occurred.
@@ -2572,7 +2572,7 @@ items:
   - netstandard
   - System.Net.Security
   namespace: System.Net.Security
-  summary: Ends an asynchronous write operation started with a previous call to <xref href="System.Net.Security.SslStream.BeginWrite(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"></xref>.
+  summary: 'Ends an asynchronous write operation started with a previous call to <xref href="System.Net.Security.SslStream.BeginWrite(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"></xref>.'
   remarks: "If the operation has not completed, this method blocks until it does.  \n  \n An application cannot call this method until you have successfully authenticated. To authenticate, call one of the <xref:System.Net.Security.SslStream.AuthenticateAsClient%2A>, or <xref:System.Net.Security.SslStream.BeginAuthenticateAsClient%2A>, <xref:System.Net.Security.SslStream.AuthenticateAsServer%2A>, <xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A> methods.  \n  \n To perform this operation synchronously, use the <xref:System.Net.Security.SslStream.Write%2A> method."
   example:
   - "The following code example demonstrates ending an asynchronous write operation.  \n  \n [!code-cpp[NclSslServerAsync#4](~/samples/snippets/cpp/VS_Snippets_Remoting/NclSslServerAsync/CPP/NclSslServerAsync.cpp#4)]\n [!code-csharp[NclSslServerAsync#4](~/samples/snippets/csharp/VS_Snippets_Remoting/NclSslServerAsync/CS/serverasync.cs#4)]"
@@ -2581,7 +2581,7 @@ items:
     parameters:
     - id: asyncResult
       type: System.IAsyncResult
-      description: An <xref href="System.IAsyncResult"></xref> instance returned by a call to <xref href="System.Net.Security.SslStream.BeginWrite(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"></xref>
+      description: 'An <xref href="System.IAsyncResult"></xref> instance returned by a call to <xref href="System.Net.Security.SslStream.BeginWrite(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"></xref>'
   overload: System.Net.Security.SslStream.EndWrite*
   exceptions:
   - type: System.ArgumentNullException
@@ -2589,7 +2589,7 @@ items:
     description: <code>asyncResult</code> is `null`.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>asyncResult</code> was not created by a call to <xref href="System.Net.Security.SslStream.BeginWrite(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"></xref>.
+    description: '<code>asyncResult</code> was not created by a call to <xref href="System.Net.Security.SslStream.BeginWrite(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"></xref>.'
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
     description: Authentication has not occurred.
@@ -2641,7 +2641,7 @@ items:
   - netstandard
   namespace: System.Net.Security
   summary: Causes any buffered data to be written to the underlying device.
-  remarks: This method invokes <xref:System.IO.Stream.Flush%2A> on the underlying stream.
+  remarks: 'This method invokes <xref:System.IO.Stream.Flush%2A> on the underlying stream.'
   example:
   - "The following code example demonstrates calling this method.  \n  \n [!code-cpp[NclSslClientSync#5](~/samples/snippets/cpp/VS_Snippets_Remoting/NclSslClientSync/CPP/clientsync.cpp#5)]\n [!code-csharp[NclSslClientSync#5](~/samples/snippets/csharp/VS_Snippets_Remoting/NclSslClientSync/CS/clientsync.cs#5)]"
   syntax:
@@ -2796,7 +2796,7 @@ items:
     content: public virtual int HashStrength { get; }
     return:
       type: System.Int32
-      description: An <xref href="System.Int32"></xref> value that specifies the strength of the <xref href="System.Security.Authentication.HashAlgorithmType"></xref> algorithm, in bits. Valid values are 128 or 160.
+      description: 'An <xref href="System.Int32"></xref> value that specifies the strength of the <xref href="System.Security.Authentication.HashAlgorithmType"></xref> algorithm, in bits. Valid values are 128 or 160.'
   overload: System.Net.Security.SslStream.HashStrength*
   exceptions: []
   version:
@@ -2848,7 +2848,7 @@ items:
   - netstandard
   namespace: System.Net.Security
   summary: Gets a <xref href="System.Boolean"></xref> value that indicates whether authentication was successful.
-  remarks: Clients authenticate by calling the <xref:System.Net.Security.SslStream.AuthenticateAsClient%2A> or <xref:System.Net.Security.SslStream.BeginAuthenticateAsClient%2A> methods. Servers authenticate by calling the <xref:System.Net.Security.SslStream.AuthenticateAsServer%2A> or <xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A> methods.
+  remarks: 'Clients authenticate by calling the <xref:System.Net.Security.SslStream.AuthenticateAsClient%2A> or <xref:System.Net.Security.SslStream.BeginAuthenticateAsClient%2A> methods. Servers authenticate by calling the <xref:System.Net.Security.SslStream.AuthenticateAsServer%2A> or <xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A> methods.'
   example:
   - "The following code example demonstrates displaying the value of this property.  \n  \n [!code-cpp[NclSslServerSync#4](~/samples/snippets/cpp/VS_Snippets_Remoting/NclSslServerSync/CPP/NclSslServerSync.cpp#4)]\n [!code-csharp[NclSslServerSync#4](~/samples/snippets/csharp/VS_Snippets_Remoting/NclSslServerSync/CS/serversync.cs#4)]"
   syntax:
@@ -2907,7 +2907,7 @@ items:
   - netstandard
   namespace: System.Net.Security
   summary: Gets a <xref href="System.Boolean"></xref> value that indicates whether this <xref href="System.Net.Security.SslStream"></xref> uses data encryption.
-  remarks: Encryption helps to protect the privacy of the data, namely it helps to ensure that while data is in transit, it cannot be deciphered by third parties.
+  remarks: 'Encryption helps to protect the privacy of the data, namely it helps to ensure that while data is in transit, it cannot be deciphered by third parties.'
   example:
   - "The following code example demonstrates displaying the value of this property.  \n  \n [!code-cpp[NclSslServerSync#4](~/samples/snippets/cpp/VS_Snippets_Remoting/NclSslServerSync/CPP/NclSslServerSync.cpp#4)]\n [!code-csharp[NclSslServerSync#4](~/samples/snippets/csharp/VS_Snippets_Remoting/NclSslServerSync/CS/serversync.cs#4)]"
   syntax:
@@ -3084,7 +3084,7 @@ items:
   - netstandard
   namespace: System.Net.Security
   summary: Gets a <xref href="System.Boolean"></xref> value that indicates whether the data sent using this stream is signed.
-  remarks: Data signing helps to protect the integrity of the data, namely it helps the recipient determine whether the data has been tampered with while in transit.
+  remarks: 'Data signing helps to protect the integrity of the data, namely it helps the recipient determine whether the data has been tampered with while in transit.'
   example:
   - "The following code example demonstrates displaying the value of this property.  \n  \n [!code-cpp[NclSslServerSync#4](~/samples/snippets/cpp/VS_Snippets_Remoting/NclSslServerSync/CPP/NclSslServerSync.cpp#4)]\n [!code-csharp[NclSslServerSync#4](~/samples/snippets/csharp/VS_Snippets_Remoting/NclSslServerSync/CS/serversync.cs#4)]"
   syntax:
@@ -3209,7 +3209,7 @@ items:
     content: public virtual int KeyExchangeStrength { get; }
     return:
       type: System.Int32
-      description: An <xref href="System.Int32"></xref> value that specifies the strength of the <xref href="System.Security.Authentication.ExchangeAlgorithmType"></xref> algorithm, in bits.
+      description: 'An <xref href="System.Int32"></xref> value that specifies the strength of the <xref href="System.Security.Authentication.ExchangeAlgorithmType"></xref> algorithm, in bits.'
   overload: System.Net.Security.SslStream.KeyExchangeStrength*
   exceptions: []
   version:
@@ -3261,7 +3261,7 @@ items:
   - netstandard
   namespace: System.Net.Security
   summary: Gets the length of the underlying stream.
-  remarks: This property returns the value returned by invoking <xref:System.IO.Stream.Length%2A> on the underlying stream. If the underlying stream is not seekable, this method typically throws an exception. The run-time type of the underlying stream determines the run-time type of the exception that is thrown.
+  remarks: 'This property returns the value returned by invoking <xref:System.IO.Stream.Length%2A> on the underlying stream. If the underlying stream is not seekable, this method typically throws an exception. The run-time type of the underlying stream determines the run-time type of the exception that is thrown.'
   syntax:
     content: public override long Length { get; }
     return:
@@ -3383,7 +3383,7 @@ items:
   - netstandard
   namespace: System.Net.Security
   summary: Gets or sets the current position in the underlying stream.
-  remarks: This property returns the value returned by invoking <xref:System.IO.Stream.Position%2A> on the underlying stream. If the underlying stream is not seekable, this method typically throws an exception. The run-time type of the underlying stream determines the run-time type of the exception that is thrown.
+  remarks: 'This property returns the value returned by invoking <xref:System.IO.Stream.Position%2A> on the underlying stream. If the underlying stream is not seekable, this method typically throws an exception. The run-time type of the underlying stream determines the run-time type of the exception that is thrown.'
   syntax:
     content: public override long Position { get; set; }
     return:
@@ -3460,7 +3460,7 @@ items:
       description: A <xref href="System.Int32"></xref> that contains the maximum number of bytes to read from this stream.
     return:
       type: System.Int32
-      description: A <xref href="System.Int32"></xref> value that specifies the number of bytes read. When there is no more data to be read, returns 0.
+      description: 'A <xref href="System.Int32"></xref> value that specifies the number of bytes read. When there is no more data to be read, returns 0.'
   overload: System.Net.Security.SslStream.Read*
   exceptions:
   - type: System.ArgumentNullException
@@ -3471,7 +3471,7 @@ items:
     description: "<code>offset</code>\n    <code><</code>\n    <code>0</code>.  \n  \n <code>-or-</code><code>offset</code> > the length of <code>buffer</code>.  \n  \n -or-  \n  \n <code>offset</code> + count > the length of <code>buffer</code>."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: The read operation failed. Check the inner exception, if present to determine the cause of the failure.
+    description: 'The read operation failed. Check the inner exception, if present to determine the cause of the failure.'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
     description: There is already a read operation in progress.
@@ -3651,7 +3651,7 @@ items:
   - netstandard
   namespace: System.Net.Security
   summary: Throws a <xref href="System.NotSupportedException"></xref>.
-  remarks: Do not call this method. It is inherited, but is not supported by the <xref:System.Net.Security.SslStream> class.
+  remarks: 'Do not call this method. It is inherited, but is not supported by the <xref:System.Net.Security.SslStream> class.'
   syntax:
     content: public override long Seek (long offset, System.IO.SeekOrigin origin);
     parameters:
@@ -3718,7 +3718,7 @@ items:
   - netstandard
   namespace: System.Net.Security
   summary: Sets the length of the underlying stream.
-  remarks: This method invokes <xref:System.IO.Stream.SetLength%2A?displayProperty=fullName> on the underlying stream specified when this <xref:System.Net.Security.SslStream> was created.
+  remarks: 'This method invokes <xref:System.IO.Stream.SetLength%2A?displayProperty=fullName> on the underlying stream specified when this <xref:System.Net.Security.SslStream> was created.'
   syntax:
     content: public override void SetLength (long value);
     parameters:
@@ -3808,7 +3808,7 @@ items:
   - netstandard
   namespace: System.Net.Security
   summary: Gets a value that indicates the security protocol used to authenticate this connection.
-  remarks: The supported security protocols are specified when the <xref:System.Net.Security.SslStream> is created. If no security protocol was passed to the constructor, the instance is created using <xref:System.Security.Authentication.SslProtocols.Default>. The actual protocol used for authentication is selected based on the protocols supported by the client and server.
+  remarks: 'The supported security protocols are specified when the <xref:System.Net.Security.SslStream> is created. If no security protocol was passed to the constructor, the instance is created using <xref:System.Security.Authentication.SslProtocols.Default>. The actual protocol used for authentication is selected based on the protocols supported by the client and server.'
   example:
   - "The following example displays the security properties of the specified stream.  \n  \n [!code-cpp[NclSslServerSync#3](~/samples/snippets/cpp/VS_Snippets_Remoting/NclSslServerSync/CPP/NclSslServerSync.cpp#3)]\n [!code-csharp[NclSslServerSync#3](~/samples/snippets/csharp/VS_Snippets_Remoting/NclSslServerSync/CS/serversync.cs#3)]"
   syntax:

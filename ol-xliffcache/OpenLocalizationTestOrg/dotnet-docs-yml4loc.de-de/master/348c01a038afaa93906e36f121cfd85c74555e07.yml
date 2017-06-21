@@ -107,7 +107,7 @@ items:
   - System.Data
   namespace: System.Data.SqlTypes
   summary: Initializes a new instance of the <xref href="System.Data.SqlTypes.SqlFileStream"></xref> class.
-  remarks: If an exception is thrown, any open transactions should be rolled back. Otherwise, data loss can occur.
+  remarks: 'If an exception is thrown, any open transactions should be rolled back. Otherwise, data loss can occur.'
   syntax:
     content: public SqlFileStream (string path, byte[] transactionContext, System.IO.FileAccess access);
     parameters:
@@ -124,7 +124,7 @@ items:
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: <code>path</code> is a null reference, or <code>transactionContext</code> is null.
+    description: '<code>path</code> is a null reference, or <code>transactionContext</code> is null.'
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
     description: "<code>path</code> is an empty string (\"\"), contains only white space, or contains one or more invalid characters.  \n  \n <code>path</code> begins with \"\\\\\\\\.\\\\\", for example \"\\\\\\\\.\\PHYSICALDRIVE0 \".  \n  \n The handle returned by the call to NTCreateFile is not of type FILE_TYPE_DISK.  \n  \n <code>options</code> contains an unsupported value."
@@ -139,10 +139,10 @@ items:
     description: The caller does not have the required permission.
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified <code>path</code> is invalid, such as being on an unmapped drive.
+    description: 'The specified <code>path</code> is invalid, such as being on an unmapped drive.'
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: The access requested is not permitted by the operating system for the specified path. This occurs when Write or ReadWrite access is specified, and the file or directory is set for read-only access.
+    description: 'The access requested is not permitted by the operating system for the specified path. This occurs when Write or ReadWrite access is specified, and the file or directory is set for read-only access.'
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
     description: NtCreateFile fails with error code set to ERROR_SHARING_VIOLATION.
@@ -182,7 +182,7 @@ items:
   - System.Data
   namespace: System.Data.SqlTypes
   summary: Initializes a new instance of the <xref href="System.Data.SqlTypes.SqlFileStream"></xref> class.
-  remarks: If an exception is thrown, any open transactions should be rolled back. Otherwise, data loss can occur.
+  remarks: 'If an exception is thrown, any open transactions should be rolled back. Otherwise, data loss can occur.'
   syntax:
     content: public SqlFileStream (string path, byte[] transactionContext, System.IO.FileAccess access, System.IO.FileOptions options, long allocationSize);
     parameters:
@@ -191,21 +191,21 @@ items:
       description: The logical path to the file. The path can be retrieved by using the Transact-SQL Pathname function on the underlying FILESTREAM column in the table.
     - id: transactionContext
       type: System.Byte[]
-      description: The transaction context for the `SqlFileStream` object. When set to null, an implicit transaction will be used for the `SqlFileStream` object. Applications should return the byte array returned by calling the GET_FILESTREAM_TRANSACTION_CONTEXT method.
+      description: 'The transaction context for the `SqlFileStream` object. When set to null, an implicit transaction will be used for the `SqlFileStream` object. Applications should return the byte array returned by calling the GET_FILESTREAM_TRANSACTION_CONTEXT method.'
     - id: access
       type: System.IO.FileAccess
       description: "The access mode to use when opening the file. Supported <xref href=\"System.IO.FileAccess\"></xref> enumeration values are <xref href=\"System.IO.FileAccess.Read\"></xref>, <xref href=\"System.IO.FileAccess.Write\"></xref>, and <xref href=\"System.IO.FileAccess.ReadWrite\"></xref>.  \n  \n When using `FileAccess.Read`, the `SqlFileStream` object can be used to read all of the existing data.  \n  \n When using `FileAccess.Write`, `SqlFileStream` points to a zero byte file. Existing data will be overwritten when the object is closed and the transaction is committed.  \n  \n When using `FileAccess.ReadWrite`, the `SqlFileStream` points to a file which has all the existing data in it. The handle is positioned at the beginning of the file. You can use one of the `System.IO``Seek` methods to move the handle position within the file to write or append new data."
     - id: options
       type: System.IO.FileOptions
-      description: Specifies the option to use while opening the file. Supported <xref href="System.IO.FileOptions"></xref> values are <xref href="System.IO.FileOptions.Asynchronous"></xref>, <xref href="System.IO.FileOptions.WriteThrough"></xref>, <xref href="System.IO.FileOptions.SequentialScan"></xref>, and <xref href="System.IO.FileOptions.RandomAccess"></xref>.
+      description: 'Specifies the option to use while opening the file. Supported <xref href="System.IO.FileOptions"></xref> values are <xref href="System.IO.FileOptions.Asynchronous"></xref>, <xref href="System.IO.FileOptions.WriteThrough"></xref>, <xref href="System.IO.FileOptions.SequentialScan"></xref>, and <xref href="System.IO.FileOptions.RandomAccess"></xref>.'
     - id: allocationSize
       type: System.Int64
-      description: The allocation size to use while creating a file. If set to 0, the default value is used.
+      description: 'The allocation size to use while creating a file. If set to 0, the default value is used.'
   overload: System.Data.SqlTypes.SqlFileStream.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: <code>path</code> is a null reference, or <code>transactionContext</code> is null.
+    description: '<code>path</code> is a null reference, or <code>transactionContext</code> is null.'
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
     description: "<code>path</code> is an empty string (\"\"), contains only white space, or contains one or more invalid characters.  \n  \n <code>path</code> begins with \"\\\\\\\\.\\\\\", for example \"\\\\\\\\.\\PHYSICALDRIVE0 \".  \n  \n The handle returned by call to NTCreateFile is not of type FILE_TYPE_DISK.  \n  \n <code>options</code> contains an unsupported value."
@@ -220,10 +220,10 @@ items:
     description: The caller does not have the required permission.
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified <code>path</code> is invalid, such as being on an unmapped drive.
+    description: 'The specified <code>path</code> is invalid, such as being on an unmapped drive.'
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: The access requested is not permitted by the operating system for the specified path. This occurs when Write or ReadWrite access is specified, and the file or directory is set for read-only access.
+    description: 'The access requested is not permitted by the operating system for the specified path. This occurs when Write or ReadWrite access is specified, and the file or directory is set for read-only access.'
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
     description: NtCreateFile fails with error code set to ERROR_SHARING_VIOLATION.
@@ -263,7 +263,7 @@ items:
   - System.Data
   namespace: System.Data.SqlTypes
   summary: Begins an asynchronous read operation.
-  remarks: Use the <xref:System.Data.SqlTypes.SqlFileStream.CanRead%2A> property to determine whether the current instance supports reading.
+  remarks: 'Use the <xref:System.Data.SqlTypes.SqlFileStream.CanRead%2A> property to determine whether the current instance supports reading.'
   syntax:
     content: public override IAsyncResult BeginRead (byte[] buffer, int offset, int count, AsyncCallback callback, object state);
     parameters:
@@ -278,13 +278,13 @@ items:
       description: The maximum number of bytes to read.
     - id: callback
       type: System.AsyncCallback
-      description: An optional asynchronous callback, to be called when the read is complete.
+      description: 'An optional asynchronous callback, to be called when the read is complete.'
     - id: state
       type: System.Object
       description: A user-provided object that distinguishes this particular asynchronous read request from other requests
     return:
       type: System.IAsyncResult
-      description: An <xref href="System.IAsyncResult"></xref> that represents the asynchronous read, which could still be pending.
+      description: 'An <xref href="System.IAsyncResult"></xref> that represents the asynchronous read, which could still be pending.'
   overload: System.Data.SqlTypes.SqlFileStream.BeginRead*
   exceptions:
   - type: System.NotSupportedException
@@ -326,7 +326,7 @@ items:
   - System.Data
   namespace: System.Data.SqlTypes
   summary: Begins an asynchronous write operation.
-  remarks: Use the <xref:System.Data.SqlTypes.SqlFileStream.CanWrite%2A> property to determine whether the current instance supports writing.
+  remarks: 'Use the <xref:System.Data.SqlTypes.SqlFileStream.CanWrite%2A> property to determine whether the current instance supports writing.'
   syntax:
     content: public override IAsyncResult BeginWrite (byte[] buffer, int offset, int count, AsyncCallback callback, object state);
     parameters:
@@ -341,13 +341,13 @@ items:
       description: The maximum number of bytes to write.
     - id: callback
       type: System.AsyncCallback
-      description: An optional asynchronous callback, to be called when the write is complete.
+      description: 'An optional asynchronous callback, to be called when the write is complete.'
     - id: state
       type: System.Object
       description: A user-provided object that distinguishes this particular asynchronous write request from other requests.
     return:
       type: System.IAsyncResult
-      description: An <xref href="System.IAsyncResult"></xref> that represents the asynchronous write, which could still be pending.
+      description: 'An <xref href="System.IAsyncResult"></xref> that represents the asynchronous write, which could still be pending.'
   overload: System.Data.SqlTypes.SqlFileStream.BeginWrite*
   exceptions:
   - type: System.NotSupportedException
@@ -612,7 +612,7 @@ items:
       description: The reference to the pending asynchronous request to finish.
     return:
       type: System.Int32
-      description: The number of bytes read from the stream, between zero (0) and the number of bytes you requested. Streams return zero (0) only at the end of the stream, otherwise, they should block until at least one byte is available.
+      description: 'The number of bytes read from the stream, between zero (0) and the number of bytes you requested. Streams return zero (0) only at the end of the stream, otherwise, they should block until at least one byte is available.'
   overload: System.Data.SqlTypes.SqlFileStream.EndRead*
   exceptions:
   - type: System.ArgumentException
@@ -912,13 +912,13 @@ items:
   - System.Data
   namespace: System.Data.SqlTypes
   summary: Reads a sequence of bytes from the current stream and advances the position within the stream by the number of bytes read.
-  remarks: Use the <xref:System.Data.SqlTypes.SqlFileStream.CanRead%2A> property to determine whether the current instance supports writing.
+  remarks: 'Use the <xref:System.Data.SqlTypes.SqlFileStream.CanRead%2A> property to determine whether the current instance supports writing.'
   syntax:
     content: public override int Read (byte[] buffer, int offset, int count);
     parameters:
     - id: buffer
       type: System.Byte[]
-      description: An array of bytes. When this method returns, the buffer contains the specified byte array with the values between offset and (offset + count - 1) replaced by the bytes read from the current source.
+      description: 'An array of bytes. When this method returns, the buffer contains the specified byte array with the values between offset and (offset + count - 1) replaced by the bytes read from the current source.'
     - id: offset
       type: System.Int32
       description: The zero-based byte offset in buffer at which to begin storing the data read from the current stream.
@@ -927,7 +927,7 @@ items:
       description: The maximum number of bytes to be read from the current stream.
     return:
       type: System.Int32
-      description: The total number of bytes read into the buffer. This can be less than the number of bytes requested if that many bytes are not currently available, or zero (0) if the end of the stream has been reached.
+      description: 'The total number of bytes read into the buffer. This can be less than the number of bytes requested if that many bytes are not currently available, or zero (0) if the end of the stream has been reached.'
   overload: System.Data.SqlTypes.SqlFileStream.Read*
   exceptions:
   - type: System.NotSupportedException
@@ -968,14 +968,14 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlTypes
-  summary: Reads a byte from the stream and advances the position within the stream by one byte, or returns -1 if at the end of the stream.
-  remarks: Use the <xref:System.Data.SqlTypes.SqlFileStream.CanRead%2A> property to determine whether the current instance supports reading.
+  summary: 'Reads a byte from the stream and advances the position within the stream by one byte, or returns -1 if at the end of the stream.'
+  remarks: 'Use the <xref:System.Data.SqlTypes.SqlFileStream.CanRead%2A> property to determine whether the current instance supports reading.'
   syntax:
     content: public override int ReadByte ();
     parameters: []
     return:
       type: System.Int32
-      description: The unsigned byte cast to an <xref href="System.Int32"></xref>, or -1 if at the end of the stream.
+      description: 'The unsigned byte cast to an <xref href="System.Int32"></xref>, or -1 if at the end of the stream.'
   overload: System.Data.SqlTypes.SqlFileStream.ReadByte*
   exceptions:
   - type: System.NotSupportedException
@@ -1016,7 +1016,7 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlTypes
-  summary: Gets or sets a value, in milliseconds, that determines how long the stream will attempt to read before timing out.
+  summary: 'Gets or sets a value, in milliseconds, that determines how long the stream will attempt to read before timing out.'
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(false)]
@@ -1024,7 +1024,7 @@ items:
       public override int ReadTimeout { get; set; }
     return:
       type: System.Int32
-      description: A value, in milliseconds, that determines how long the stream will attempt to read before timing out.
+      description: 'A value, in milliseconds, that determines how long the stream will attempt to read before timing out.'
   overload: System.Data.SqlTypes.SqlFileStream.ReadTimeout*
   exceptions: []
   attributes:
@@ -1115,7 +1115,7 @@ items:
   - System.Data
   namespace: System.Data.SqlTypes
   summary: Sets the length of the current stream.
-  remarks: Use the <xref:System.Data.SqlTypes.SqlFileStream.CanRead%2A> property to determine whether the current instance supports reading.
+  remarks: 'Use the <xref:System.Data.SqlTypes.SqlFileStream.CanRead%2A> property to determine whether the current instance supports reading.'
   syntax:
     content: public override void SetLength (long value);
     parameters:
@@ -1206,7 +1206,7 @@ items:
   - System.Data
   namespace: System.Data.SqlTypes
   summary: Writes a sequence of bytes to the current stream and advances the current position within this stream by the number of bytes written.
-  remarks: Use the <xref:System.Data.SqlTypes.SqlFileStream.CanWrite%2A> property to determine whether the current instance supports writing.
+  remarks: 'Use the <xref:System.Data.SqlTypes.SqlFileStream.CanWrite%2A> property to determine whether the current instance supports writing.'
   syntax:
     content: public override void Write (byte[] buffer, int offset, int count);
     parameters:
@@ -1260,7 +1260,7 @@ items:
   - System.Data
   namespace: System.Data.SqlTypes
   summary: Writes a byte to the current position in the stream and advances the position within the stream by one byte.
-  remarks: Use the <xref:System.Data.SqlTypes.SqlFileStream.CanWrite%2A> property to determine whether the current instance supports writing.
+  remarks: 'Use the <xref:System.Data.SqlTypes.SqlFileStream.CanWrite%2A> property to determine whether the current instance supports writing.'
   syntax:
     content: public override void WriteByte (byte value);
     parameters:
@@ -1307,7 +1307,7 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlTypes
-  summary: Gets or sets a value, in milliseconds, that determines how long the stream will attempt to write before timing out.
+  summary: 'Gets or sets a value, in milliseconds, that determines how long the stream will attempt to write before timing out.'
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(false)]
@@ -1315,7 +1315,7 @@ items:
       public override int WriteTimeout { get; set; }
     return:
       type: System.Int32
-      description: A value, in milliseconds, that determines how long the stream will attempt to write before timing out.
+      description: 'A value, in milliseconds, that determines how long the stream will attempt to write before timing out.'
   overload: System.Data.SqlTypes.SqlFileStream.WriteTimeout*
   exceptions: []
   attributes:

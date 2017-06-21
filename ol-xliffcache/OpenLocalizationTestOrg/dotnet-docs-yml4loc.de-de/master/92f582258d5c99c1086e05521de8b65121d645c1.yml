@@ -49,7 +49,7 @@ items:
   - netstandard
   namespace: System
   summary: Delimits a section of a one-dimensional array.
-  remarks: "<xref:System.ArraySegment%601> is a wrapper around an array that delimits a range of elements in that array. Multiple <xref:System.ArraySegment%601> instances can refer to the same original array and can overlap. The original array must be one-dimensional and must have zero-based indexing.  \n  \n> [!NOTE]\n>  <xref:System.ArraySegment%601> implements the <xref:System.Collections.Generic.IReadOnlyCollection%601> interface starting with the [!INCLUDE[net_v46](~/includes/net-v46-md.md)]; in previous versions of the .NET Framework, the <xref:System.ArraySegment%601> structure did not implement this interface.  \n  \n The <xref:System.ArraySegment%601> structure is useful whenever the elements of an array will be manipulated in distinct segments. For example:  \n  \n-   You can pass an <xref:System.ArraySegment%601> object that represents only a portion of an array as an argument to a method, rather than call a relatively expensive method like <xref:System.Array.Copy%2A> to pass a copy of a portion of an array.  \n  \n-   In a multithreaded app, you can use the <xref:System.ArraySegment%601> structure to have each thread operate on only a portion of the array.  \n  \n-   For task-based asynchronous operations, you can use an <xref:System.ArraySegment%601> object to ensure that each task operates on a distinct segment of the array. The following example divides an array into individual segments with up to ten elements. Each element in the segment is multiplied by its segment number. The result shows that using the <xref:System.ArraySegment%601> class to manipulate elements in this way changes the values of its underlying array.  \n  \n     [!code-csharp[System.ArraySegment#2](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.ArraySegment/CS/segmentexample.cs#2)]\n     [!code-vb[System.ArraySegment#2](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.ArraySegment/VB/segmentexample.vb#2)]  \n  \n Note, however, that although the <xref:System.ArraySegment%601> structure can be used to divide an array into distinct segments, the segments are not completely independent of one another. The <xref:System.ArraySegment%601.Array%2A> property returns the entire original array, not a copy of the array; therefore, changes made to the array returned by the <xref:System.ArraySegment%601.Array%2A> property are made to the original array. If this is undesirable, you should perform operations on a copy of the array, rather than an <xref:System.ArraySegment%601> object that represents a portion of the array.  \n  \n The<xref:System.ArraySegment%601.Equals%2A> method and the equality and inequality operators test for reference equality when they compare two <xref:System.ArraySegment%601> objects. For two <xref:System.ArraySegment%601> objects to be considered equal, they must meet all of the following conditions:  \n  \n-   Reference the same array.  \n  \n-   Begin at the same index in the array.  \n  \n-   Have the same number of elements.  \n  \n If you want to retrieve an element by its index in the <xref:System.ArraySegment%601> object, you must cast it to an <xref:System.Collections.Generic.IList%601> object and retrieve it or modify it by using the <xref:System.Collections.Generic.IList%601.Item%2A?displayProperty=fullName> property. The following example retrieves the element in an <xref:System.ArraySegment%601> object that delimits a section of a string array.  \n  \n [!code-csharp[System.ArraySegment.Class#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.arraysegment.class/cs/example1.cs#1)]\n [!code-vb[System.ArraySegment.Class#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.arraysegment.class/vb/example1.vb#1)]"
+  remarks: "<xref:System.ArraySegment%601> is a wrapper around an array that delimits a range of elements in that array. Multiple <xref:System.ArraySegment%601> instances can refer to the same original array and can overlap. The original array must be one-dimensional and must have zero-based indexing.  \n  \n> [!NOTE]\n>  <xref:System.ArraySegment%601> implements the <xref:System.Collections.Generic.IReadOnlyCollection%601> interface starting with the [!INCLUDE[net_v46](~/includes/net-v46-md.md)]; in previous versions of the .NET Framework, the <xref:System.ArraySegment%601> structure did not implement this interface.  \n  \n The <xref:System.ArraySegment%601> structure is useful whenever the elements of an array will be manipulated in distinct segments. For example:  \n  \n-   You can pass an <xref:System.ArraySegment%601> object that represents only a portion of an array as an argument to a method, rather than call a relatively expensive method like <xref:System.Array.Copy%2A> to pass a copy of a portion of an array.  \n  \n-   In a multithreaded app, you can use the <xref:System.ArraySegment%601> structure to have each thread operate on only a portion of the array.  \n  \n-   For task-based asynchronous operations, you can use an <xref:System.ArraySegment%601> object to ensure that each task operates on a distinct segment of the array. The following example divides an array into individual segments with up to ten elements. Each element in the segment is multiplied by its segment number. The result shows that using the <xref:System.ArraySegment%601> class to manipulate elements in this way changes the values of its underlying array.  \n  \n     [!code-csharp[System.ArraySegment#2](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.ArraySegment/CS/segmentexample.cs#2)]  [!code-vb[System.ArraySegment#2](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.ArraySegment/VB/segmentexample.vb#2)]  \n  \n Note, however, that although the <xref:System.ArraySegment%601> structure can be used to divide an array into distinct segments, the segments are not completely independent of one another. The <xref:System.ArraySegment%601.Array%2A> property returns the entire original array, not a copy of the array; therefore, changes made to the array returned by the <xref:System.ArraySegment%601.Array%2A> property are made to the original array. If this is undesirable, you should perform operations on a copy of the array, rather than an <xref:System.ArraySegment%601> object that represents a portion of the array.  \n  \n The<xref:System.ArraySegment%601.Equals%2A> method and the equality and inequality operators test for reference equality when they compare two <xref:System.ArraySegment%601> objects. For two <xref:System.ArraySegment%601> objects to be considered equal, they must meet all of the following conditions:  \n  \n-   Reference the same array.  \n  \n-   Begin at the same index in the array.  \n  \n-   Have the same number of elements.  \n  \n If you want to retrieve an element by its index in the <xref:System.ArraySegment%601> object, you must cast it to an <xref:System.Collections.Generic.IList%601> object and retrieve it or modify it by using the <xref:System.Collections.Generic.IList%601.Item%2A?displayProperty=fullName> property. The following example retrieves the element in an <xref:System.ArraySegment%601> object that delimits a section of a string array.  \n  \n [!code-csharp[System.ArraySegment.Class#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.arraysegment.class/cs/example1.cs#1)] [!code-vb[System.ArraySegment.Class#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.arraysegment.class/vb/example1.vb#1)]"
   example:
   - "The following code example passes an <xref:System.ArraySegment%601> structure to a method.  \n  \n [!code-cpp[System.ArraySegment#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.ArraySegment/CPP/arraysegment.cpp#1)]\n [!code-csharp[System.ArraySegment#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.ArraySegment/CS/arraysegment.cs#1)]\n [!code-vb[System.ArraySegment#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.ArraySegment/VB/arraysegment.vb#1)]"
   syntax:
@@ -525,14 +525,14 @@ items:
   - netstandard
   namespace: System
   summary: Gets the original array containing the range of elements that the array segment delimits.
-  remarks: The <xref:System.ArraySegment%601.Array%2A> property returns the original array, not a copy of the array; therefore, changes made through the property are made directly to the original array.
+  remarks: 'The <xref:System.ArraySegment%601.Array%2A> property returns the original array, not a copy of the array; therefore, changes made through the property are made directly to the original array.'
   example:
   - "The following code example passes an <xref:System.ArraySegment%601> to a method.  \n  \n [!code-cpp[System.ArraySegment#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.ArraySegment/CPP/arraysegment.cpp#1)]\n [!code-csharp[System.ArraySegment#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.ArraySegment/CS/arraysegment.cs#1)]\n [!code-vb[System.ArraySegment#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.ArraySegment/VB/arraysegment.vb#1)]"
   syntax:
     content: public T[] Array { get; }
     return:
       type: T[]
-      description: The original array that was passed to the constructor, and that contains the range delimited by the <xref href="System.ArraySegment`1"></xref>.
+      description: 'The original array that was passed to the constructor, and that contains the range delimited by the <xref href="System.ArraySegment`1"></xref>.'
   overload: System.ArraySegment`1.Array*
   exceptions: []
   version:
@@ -1067,7 +1067,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: Gets the position of the first element in the range delimited by the array segment, relative to the start of the original array.
+  summary: 'Gets the position of the first element in the range delimited by the array segment, relative to the start of the original array.'
   remarks: ''
   example:
   - "The following code example passes an <xref:System.ArraySegment%601> structure to a method.  \n  \n [!code-cpp[System.ArraySegment#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.ArraySegment/CPP/arraysegment.cpp#1)]\n [!code-csharp[System.ArraySegment#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.ArraySegment/CS/arraysegment.cs#1)]\n [!code-vb[System.ArraySegment#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.ArraySegment/VB/arraysegment.vb#1)]"
@@ -1075,7 +1075,7 @@ items:
     content: public int Offset { get; }
     return:
       type: System.Int32
-      description: The position of the first element in the range delimited by the <xref href="System.ArraySegment`1"></xref>, relative to the start of the original array.
+      description: 'The position of the first element in the range delimited by the <xref href="System.ArraySegment`1"></xref>, relative to the start of the original array.'
   overload: System.ArraySegment`1.Offset*
   exceptions: []
   version:
@@ -1423,7 +1423,7 @@ items:
   - netstandard
   namespace: System
   summary: Adds an item to the array segment.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.ArraySegment%601> instance is cast to an <xref:System.Collections.Generic.ICollection%601> interface.
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.ArraySegment%601> instance is cast to an <xref:System.Collections.Generic.ICollection%601> interface.'
   syntax:
     content: void ICollection<T>.Add (T item);
     parameters:
@@ -1502,7 +1502,7 @@ items:
   - netstandard
   namespace: System
   summary: Removes all items from the array segment.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.ArraySegment%601> instance is cast to an <xref:System.Collections.Generic.ICollection%601> interface.
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.ArraySegment%601> instance is cast to an <xref:System.Collections.Generic.ICollection%601> interface.'
   syntax:
     content: void ICollection<T>.Clear ();
     parameters: []
@@ -1578,7 +1578,7 @@ items:
   - netstandard
   namespace: System
   summary: Determines whether the array segment contains a specific value.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.ArraySegment%601> instance is cast to an <xref:System.Collections.Generic.ICollection%601> interface.
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.ArraySegment%601> instance is cast to an <xref:System.Collections.Generic.ICollection%601> interface.'
   syntax:
     content: bool ICollection<T>.Contains (T item);
     parameters:
@@ -1656,8 +1656,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: Copies the elements of the array segment to an array, starting at the specified array index.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.ArraySegment%601> instance is cast to an <xref:System.Collections.Generic.ICollection%601> interface.
+  summary: 'Copies the elements of the array segment to an array, starting at the specified array index.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.ArraySegment%601> instance is cast to an <xref:System.Collections.Generic.ICollection%601> interface.'
   syntax:
     content: void ICollection<T>.CopyTo (T[] array, int arrayIndex);
     parameters:
@@ -1745,7 +1745,7 @@ items:
   - netstandard
   namespace: System
   summary: Gets a value that indicates whether the array segment  is read-only.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.ArraySegment%601> instance is cast to an <xref:System.Collections.Generic.ICollection%601> interface.
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.ArraySegment%601> instance is cast to an <xref:System.Collections.Generic.ICollection%601> interface.'
   syntax:
     content: bool System.Collections.Generic.ICollection<T>.IsReadOnly { get; }
     return:
@@ -1820,7 +1820,7 @@ items:
   - netstandard
   namespace: System
   summary: Removes the first occurrence of a specific object from the array segment.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.ArraySegment%601> instance is cast to an <xref:System.Collections.Generic.ICollection%601> interface.
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.ArraySegment%601> instance is cast to an <xref:System.Collections.Generic.ICollection%601> interface.'
   syntax:
     content: bool ICollection<T>.Remove (T item);
     parameters:
@@ -1902,7 +1902,7 @@ items:
   - netstandard
   namespace: System
   summary: Returns an enumerator that iterates through the array segment.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.ArraySegment%601> instance is cast to an <xref:System.Collections.Generic.IEnumerable%601> interface.
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.ArraySegment%601> instance is cast to an <xref:System.Collections.Generic.IEnumerable%601> interface.'
   syntax:
     content: System.Collections.Generic.IEnumerator<T> IEnumerable<T>.GetEnumerator ();
     parameters: []
@@ -1978,7 +1978,7 @@ items:
   - netstandard
   namespace: System
   summary: Determines the index of a specific item in the array segment.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.ArraySegment%601> instance is cast to an <xref:System.Collections.Generic.IList%601> interface.
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.ArraySegment%601> instance is cast to an <xref:System.Collections.Generic.IList%601> interface.'
   syntax:
     content: int IList<T>.IndexOf (T item);
     parameters:
@@ -1987,7 +1987,7 @@ items:
       description: The object to locate in the array segment.
     return:
       type: System.Int32
-      description: The index of <code>item</code> if found in the list; otherwise, -1.
+      description: 'The index of <code>item</code> if found in the list; otherwise, -1.'
   overload: System.ArraySegment`1.System#Collections#Generic#IList{T}#IndexOf*
   exceptions: []
   version:
@@ -2057,7 +2057,7 @@ items:
   - netstandard
   namespace: System
   summary: Inserts an item into the array segment at the specified index.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.ArraySegment%601> instance is cast to an <xref:System.Collections.Generic.IList%601> interface.
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.ArraySegment%601> instance is cast to an <xref:System.Collections.Generic.IList%601> interface.'
   syntax:
     content: void IList<T>.Insert (int index, T item);
     parameters:
@@ -2142,7 +2142,7 @@ items:
   - netstandard
   namespace: System
   summary: Gets or sets the element at the specified index.
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.ArraySegment%601> instance is cast to an <xref:System.Collections.Generic.IList%601> interface, as the following example shows.  \n  \n [!code-csharp[System.ArraySegment.Class#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.arraysegment.class/cs/example1.cs#1)]\n [!code-vb[System.ArraySegment.Class#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.arraysegment.class/vb/example1.vb#1)]"
+  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.ArraySegment%601> instance is cast to an <xref:System.Collections.Generic.IList%601> interface, as the following example shows.  \n  \n [!code-csharp[System.ArraySegment.Class#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.arraysegment.class/cs/example1.cs#1)] [!code-vb[System.ArraySegment.Class#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.arraysegment.class/vb/example1.vb#1)]"
   syntax:
     content: T System.Collections.Generic.IList<T>.Item[int index] { get; set; }
     parameters:
@@ -2227,7 +2227,7 @@ items:
   - netstandard
   namespace: System
   summary: Removes the array segment item at the specified index.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.ArraySegment%601> instance is cast to an <xref:System.Collections.Generic.IList%601> interface.
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.ArraySegment%601> instance is cast to an <xref:System.Collections.Generic.IList%601> interface.'
   syntax:
     content: void IList<T>.RemoveAt (int index);
     parameters:
@@ -2309,7 +2309,7 @@ items:
   - netstandard
   namespace: System
   summary: Gets the element at the specified index of the array segment.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.ArraySegment%601> instance is cast to an <xref:System.Collections.Generic.IReadOnlyList%601> interface.
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.ArraySegment%601> instance is cast to an <xref:System.Collections.Generic.IReadOnlyList%601> interface.'
   syntax:
     content: T System.Collections.Generic.IReadOnlyList<T>.Item[int index] { get; }
     parameters:
@@ -2394,7 +2394,7 @@ items:
   - netstandard
   namespace: System
   summary: Returns an enumerator that iterates through an array segment.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.ArraySegment%601> instance is cast to an <xref:System.Collections.IEnumerable> interface.
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.ArraySegment%601> instance is cast to an <xref:System.Collections.IEnumerable> interface.'
   syntax:
     content: System.Collections.IEnumerator IEnumerable.GetEnumerator ();
     parameters: []

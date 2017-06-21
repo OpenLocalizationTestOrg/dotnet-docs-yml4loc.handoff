@@ -30,7 +30,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: An abstract class that supplements the base <xref href="System.ServiceModel.Channels.TransportBindingElement"></xref> with additional properties that are common to connection-oriented transports such as TCP and named pipes.
-  remarks: This class is documented to give a more complete understanding of the transports hierarchy and is not expected to be directly called. The constructor is internal to avoid direct construction and invocation. The public properties of this binding element can be called from the derived classes <xref:System.ServiceModel.Channels.TcpTransportBindingElement> and <xref:System.ServiceModel.Channels.NamedPipeTransportBindingElement>.
+  remarks: 'This class is documented to give a more complete understanding of the transports hierarchy and is not expected to be directly called. The constructor is internal to avoid direct construction and invocation. The public properties of this binding element can be called from the derived classes <xref:System.ServiceModel.Channels.TcpTransportBindingElement> and <xref:System.ServiceModel.Channels.NamedPipeTransportBindingElement>.'
   syntax:
     content: 'public abstract class ConnectionOrientedTransportBindingElement : System.ServiceModel.Channels.TransportBindingElement, System.ServiceModel.Description.IPolicyExportExtension, System.ServiceModel.Description.IWsdlExportExtension'
   inheritance:
@@ -316,7 +316,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: Gets properties from the binding stack, if present.
+  summary: 'Gets properties from the binding stack, if present.'
   remarks: "This method receives a binding context as an input parameter, which represents the stack of binding elements.  \n  \n Each binding element in the stack can handle the inquiry itself, delegate the inquiry, or a combination of the two. Each binding element can modify the context if it delegates the inquiry. However, a transport binding element handles the inquiry itself.  \n  \n This method is implemented by binding elements as well as by the run-time objects such as <xref:System.ServiceModel.Channels.IChannelFactory>, <xref:System.ServiceModel.Channels.IChannelListener>, and <xref:System.ServiceModel.Channels.IChannel>."
   syntax:
     content: 'public override T GetProperty<T> (System.ServiceModel.Channels.BindingContext context) where T : class;'
@@ -329,7 +329,7 @@ items:
       description: Type of the property.
     return:
       type: T
-      description: A <code>T</code> object from the binding stack, if present.
+      description: 'A <code>T</code> object from the binding stack, if present.'
   overload: System.ServiceModel.Channels.ConnectionOrientedTransportBindingElement.GetProperty``1*
   exceptions: []
   version:
@@ -374,12 +374,12 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Gets or sets a value that indicates whether the hostname is used to reach the service when matching on the URI.
-  remarks: See the <xref:System.ServiceModel.HostnameComparisonMode> enumeration for further values and their descriptions.
+  remarks: 'See the <xref:System.ServiceModel.HostnameComparisonMode> enumeration for further values and their descriptions.'
   syntax:
     content: public System.ServiceModel.HostNameComparisonMode HostNameComparisonMode { get; set; }
     return:
       type: System.ServiceModel.HostNameComparisonMode
-      description: The <xref href="System.ServiceModel.HostNameComparisonMode"></xref> value that indicates whether the hostname is included when routing incoming requests to an endpoint URI. The default value is <xref href="System.ServiceModel.HostNameComparisonMode.StrongWildcard"></xref>, which ignores the hostname and port number in the comparison.
+      description: 'The <xref href="System.ServiceModel.HostNameComparisonMode"></xref> value that indicates whether the hostname is included when routing incoming requests to an endpoint URI. The default value is <xref href="System.ServiceModel.HostNameComparisonMode.StrongWildcard"></xref>, which ignores the hostname and port number in the comparison.'
   overload: System.ServiceModel.Channels.ConnectionOrientedTransportBindingElement.HostNameComparisonMode*
   exceptions:
   - type: System.ArgumentOutOfRangeException
@@ -426,13 +426,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: Gets or sets the maximum size of the buffer to use. For streamed messages, this value should be at least the maximum possible size of the message headers, which are read in buffered mode.
+  summary: 'Gets or sets the maximum size of the buffer to use. For streamed messages, this value should be at least the maximum possible size of the message headers, which are read in buffered mode.'
   remarks: "For streamed messages this property only applies to the message headers; for buffered messages it applies to the entire message.  \n  \n The value of this property must be less than or equal to <xref:System.ServiceModel.Channels.TransportBindingElement.MaxReceivedMessageSize%2A> and must be larger than the size of the headers of the message or the channel throws an exception.  \n  \n If you receive more data than you can buffer the channel throws a <xref:System.ServiceModel.CommunicationException>, which contains a <xref:System.ServiceModel.QuotaExceededException> as an inner exception."
   syntax:
     content: public int MaxBufferSize { get; set; }
     return:
       type: System.Int32
-      description: The maximum number of bytes that are used to buffer incoming messages in memory. The default value is 65,536 bytes.
+      description: 'The maximum number of bytes that are used to buffer incoming messages in memory. The default value is 65,536 bytes.'
   overload: System.ServiceModel.Channels.ConnectionOrientedTransportBindingElement.MaxBufferSize*
   exceptions:
   - type: System.ArgumentOutOfRangeException
@@ -480,12 +480,12 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Gets or sets the maximum interval of time that a chunk of a message or a full message can remain buffered in memory before being sent out.
-  remarks: If <xref:System.ServiceModel.Channels.MessageProperties.AllowOutputBatching%2A> is `false` then this property is ignored for that message.
+  remarks: 'If <xref:System.ServiceModel.Channels.MessageProperties.AllowOutputBatching%2A> is `false` then this property is ignored for that message.'
   syntax:
     content: public TimeSpan MaxOutputDelay { get; set; }
     return:
       type: System.TimeSpan
-      description: A <xref href="System.TimeSpan"></xref> that specifies the maximum interval of time that a chunk of a message or a full message can remain buffered in memory before being sent out. The default value is 2 seconds. This property is only meaningful if the <xref href="System.ServiceModel.Channels.MessageProperties.AllowOutputBatching"></xref> property of an outgoing message is set to `true`. Otherwise, this value is ignored and messages are sent immediately.
+      description: 'A <xref href="System.TimeSpan"></xref> that specifies the maximum interval of time that a chunk of a message or a full message can remain buffered in memory before being sent out. The default value is 2 seconds. This property is only meaningful if the <xref href="System.ServiceModel.Channels.MessageProperties.AllowOutputBatching"></xref> property of an outgoing message is set to `true`. Otherwise, this value is ignored and messages are sent immediately.'
   overload: System.ServiceModel.Channels.ConnectionOrientedTransportBindingElement.MaxOutputDelay*
   exceptions:
   - type: System.ArgumentOutOfRangeException
@@ -533,7 +533,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Gets or sets the maximum number of channels a service can have waiting on a listener for processing incoming connections to the service.
-  remarks: This property limits the number of channels that the server can have waiting on a listener. When MaxPendingAccepts is too low, there will be a small interval of time in which all of the waiting channels have started servicing connections, but no new channels have begun listening. A connection can arrive during this interval and will fail because nothing is waiting for it on the server. This property can be configured by setting the <xref:System.ServiceModel.Channels.ConnectionOrientedTransportBindingElement.MaxPendingConnections%2A> property to a larger number.
+  remarks: 'This property limits the number of channels that the server can have waiting on a listener. When MaxPendingAccepts is too low, there will be a small interval of time in which all of the waiting channels have started servicing connections, but no new channels have begun listening. A connection can arrive during this interval and will fail because nothing is waiting for it on the server. This property can be configured by setting the <xref:System.ServiceModel.Channels.ConnectionOrientedTransportBindingElement.MaxPendingConnections%2A> property to a larger number.'
   syntax:
     content: public int MaxPendingAccepts { get; set; }
     return:

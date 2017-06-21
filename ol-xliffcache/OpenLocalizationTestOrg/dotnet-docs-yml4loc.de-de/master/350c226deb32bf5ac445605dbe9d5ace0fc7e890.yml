@@ -137,8 +137,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Security.Cryptography
-  summary: Initializes a new instance of the <xref href="System.Security.Cryptography.CryptoStream"></xref> class with a target data stream, the transformation to use, and the mode of the stream.
-  remarks: Any object that derives from <xref:System.IO.Stream> can be passed into the `stream` parameter. Any object that implements <xref:System.Security.Cryptography.ICryptoTransform> (such as <xref:System.Security.Cryptography.HashAlgorithm>) can be passed into the `transform` parameter.
+  summary: 'Initializes a new instance of the <xref href="System.Security.Cryptography.CryptoStream"></xref> class with a target data stream, the transformation to use, and the mode of the stream.'
+  remarks: 'Any object that derives from <xref:System.IO.Stream> can be passed into the `stream` parameter. Any object that implements <xref:System.Security.Cryptography.ICryptoTransform> (such as <xref:System.Security.Cryptography.HashAlgorithm>) can be passed into the `transform` parameter.'
   syntax:
     content: public CryptoStream (System.IO.Stream stream, System.Security.Cryptography.ICryptoTransform transform, System.Security.Cryptography.CryptoStreamMode mode);
     parameters:
@@ -314,7 +314,7 @@ items:
   - netstandard
   namespace: System.Security.Cryptography
   summary: Gets a value indicating whether you can seek within the current <xref href="System.Security.Cryptography.CryptoStream"></xref>.
-  remarks: Seeking is not enabled in a <xref:System.Security.Cryptography.CryptoStream>, so this method always returns `false`.
+  remarks: 'Seeking is not enabled in a <xref:System.Security.Cryptography.CryptoStream>, so this method always returns `false`.'
   syntax:
     content: public override bool CanSeek { get; }
     return:
@@ -629,7 +629,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Security.Cryptography
-  summary: Clears all buffers for the current stream asynchronously, causes any buffered data to be written to the underlying device, and monitors cancellation requests.
+  summary: 'Clears all buffers for the current stream asynchronously, causes any buffered data to be written to the underlying device, and monitors cancellation requests.'
   remarks: "You must preface your call to <xref:System.Security.Cryptography.CryptoStream.FlushAsync%2A> with the `await` (C#) or `Await` (Visual Basic) operator to suspend execution of the method until the task is complete. For more information, see [Asynchronous Programming with Async and Await](http://msdn.microsoft.com/library/db854f91-ccef-4035-ae4d-0911fde808c7).  \n  \n If the operation is canceled before it completes, the returned task contains the <xref:System.Threading.Tasks.TaskStatus.Canceled> value for the <xref:System.Threading.Tasks.Task.Status%2A> property."
   syntax:
     content: public override System.Threading.Tasks.Task FlushAsync (System.Threading.CancellationToken cancellationToken);
@@ -702,8 +702,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Security.Cryptography
-  summary: Updates the underlying data source or repository with the current state of the buffer, then clears the buffer.
-  remarks: Calling the <xref:System.IO.Stream.Close%2A> method will call <xref:System.Security.Cryptography.CryptoStream.FlushFinalBlock%2A>. If you do not call <xref:System.IO.Stream.Close%2A>, call <xref:System.Security.Cryptography.CryptoStream.FlushFinalBlock%2A> to complete flushing the buffer. Call <xref:System.Security.Cryptography.CryptoStream.FlushFinalBlock%2A> only when all stream activity is complete.
+  summary: 'Updates the underlying data source or repository with the current state of the buffer, then clears the buffer.'
+  remarks: 'Calling the <xref:System.IO.Stream.Close%2A> method will call <xref:System.Security.Cryptography.CryptoStream.FlushFinalBlock%2A>. If you do not call <xref:System.IO.Stream.Close%2A>, call <xref:System.Security.Cryptography.CryptoStream.FlushFinalBlock%2A> to complete flushing the buffer. Call <xref:System.Security.Cryptography.CryptoStream.FlushFinalBlock%2A> only when all stream activity is complete.'
   syntax:
     content: public void FlushFinalBlock ();
     parameters: []
@@ -773,7 +773,7 @@ items:
   - netstandard
   namespace: System.Security.Cryptography
   summary: Gets a value indicating whether the final buffer block has been written to the underlying stream.
-  remarks: This property is set `true` when the <xref:System.Security.Cryptography.CryptoStream.FlushFinalBlock%2A> method is called.
+  remarks: 'This property is set `true` when the <xref:System.Security.Cryptography.CryptoStream.FlushFinalBlock%2A> method is called.'
   syntax:
     content: public bool HasFlushedFinalBlock { get; }
     return:
@@ -839,7 +839,7 @@ items:
   - netstandard
   namespace: System.Security.Cryptography
   summary: Gets the length in bytes of the stream.
-  remarks: This property exists only to support inheritance from <xref:System.IO.Stream>, and cannot be used.
+  remarks: 'This property exists only to support inheritance from <xref:System.IO.Stream>, and cannot be used.'
   syntax:
     content: public override long Length { get; }
     return:
@@ -908,7 +908,7 @@ items:
   - netstandard
   namespace: System.Security.Cryptography
   summary: Gets or sets the position within the current stream.
-  remarks: This property exists only to support inheritance from <xref:System.IO.Stream>, and cannot be used.
+  remarks: 'This property exists only to support inheritance from <xref:System.IO.Stream>, and cannot be used.'
   syntax:
     content: public override long Position { get; set; }
     return:
@@ -991,12 +991,12 @@ items:
       description: The maximum number of bytes to be read from the current stream.
     return:
       type: System.Int32
-      description: The total number of bytes read into the buffer. This can be less than the number of bytes requested if that many bytes are not currently available, or zero if the end of the stream has been reached.
+      description: 'The total number of bytes read into the buffer. This can be less than the number of bytes requested if that many bytes are not currently available, or zero if the end of the stream has been reached.'
   overload: System.Security.Cryptography.CryptoStream.Read*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: The <xref href="System.Security.Cryptography.CryptoStreamMode"></xref> associated with current <xref href="System.Security.Cryptography.CryptoStream"></xref> object does not match the underlying stream.  For example, this exception is thrown when using <xref href="System.Security.Cryptography.CryptoStreamMode.Read"></xref> with an underlying stream that is write only.
+    description: 'The <xref href="System.Security.Cryptography.CryptoStreamMode"></xref> associated with current <xref href="System.Security.Cryptography.CryptoStream"></xref> object does not match the underlying stream.  For example, this exception is thrown when using <xref href="System.Security.Cryptography.CryptoStreamMode.Read"></xref> with an underlying stream that is write only.'
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
     description: "The <code>offset</code> parameter is less than zero.  \n  \n -or-  \n  \n The <code>count</code> parameter is less than zero."
@@ -1060,7 +1060,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Security.Cryptography
-  summary: Reads a sequence of bytes from the current stream asynchronously, advances the position within the stream by the number of bytes read, and monitors cancellation requests.
+  summary: 'Reads a sequence of bytes from the current stream asynchronously, advances the position within the stream by the number of bytes read, and monitors cancellation requests.'
   remarks: "You must preface your call to <xref:System.Security.Cryptography.CryptoStream.ReadAsync%2A> with the `await` (C#) or `Await` (Visual Basic) operator to suspend execution of the method until the task is complete. For more information, see [Asynchronous Programming with Async and Await](http://msdn.microsoft.com/library/db854f91-ccef-4035-ae4d-0911fde808c7).  \n  \n If the operation is canceled before it completes, the returned task contains the <xref:System.Threading.Tasks.TaskStatus.Canceled> value for the <xref:System.Threading.Tasks.Task.Status%2A> property."
   syntax:
     content: public override System.Threading.Tasks.Task<int> ReadAsync (byte[] buffer, int offset, int count, System.Threading.CancellationToken cancellationToken);
@@ -1079,7 +1079,7 @@ items:
       description: The token to monitor for cancellation requests. The default value is <xref href="System.Threading.CancellationToken.None"></xref>.
     return:
       type: System.Threading.Tasks.Task{System.Int32}
-      description: A task that represents the asynchronous read operation. The value of the task object's <code>TResult</code> parameter contains the total number of bytes read into the buffer. The result can be less than the number of bytes requested if the number of bytes currently available is less than the requested number, or it can be 0 (zero) if the end of the stream has been reached.
+      description: 'A task that represents the asynchronous read operation. The value of the task object''s <code>TResult</code> parameter contains the total number of bytes read into the buffer. The result can be less than the number of bytes requested if the number of bytes currently available is less than the requested number, or it can be 0 (zero) if the end of the stream has been reached.'
   overload: System.Security.Cryptography.CryptoStream.ReadAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -1184,7 +1184,7 @@ items:
   - netstandard
   namespace: System.Security.Cryptography
   summary: Sets the position within the current stream.
-  remarks: This method exists only to support inheritance from <xref:System.IO.Stream>, and cannot be used.
+  remarks: 'This method exists only to support inheritance from <xref:System.IO.Stream>, and cannot be used.'
   syntax:
     content: public override long Seek (long offset, System.IO.SeekOrigin origin);
     parameters:
@@ -1260,7 +1260,7 @@ items:
   - netstandard
   namespace: System.Security.Cryptography
   summary: Sets the length of the current stream.
-  remarks: This property exists only to support inheritance from <xref:System.IO.Stream>, and cannot be used.
+  remarks: 'This property exists only to support inheritance from <xref:System.IO.Stream>, and cannot be used.'
   syntax:
     content: public override void SetLength (long value);
     parameters:
@@ -1271,7 +1271,7 @@ items:
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: This property exists only to support inheritance from <xref href="System.IO.Stream"></xref>, and cannot be used.
+    description: 'This property exists only to support inheritance from <xref href="System.IO.Stream"></xref>, and cannot be used.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -1346,7 +1346,7 @@ items:
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: The <xref href="System.Security.Cryptography.CryptoStreamMode"></xref> associated with current <xref href="System.Security.Cryptography.CryptoStream"></xref> object does not match the underlying stream.  For example, this exception is thrown when using <xref href="System.Security.Cryptography.CryptoStreamMode.Write"></xref> with an underlying stream that is read only.
+    description: 'The <xref href="System.Security.Cryptography.CryptoStreamMode"></xref> associated with current <xref href="System.Security.Cryptography.CryptoStream"></xref> object does not match the underlying stream.  For example, this exception is thrown when using <xref href="System.Security.Cryptography.CryptoStreamMode.Write"></xref> with an underlying stream that is read only.'
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
     description: "The <code>offset</code> parameter is less than zero.  \n  \n -or-  \n  \n The <code>count</code> parameter is less than zero."
@@ -1410,7 +1410,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Security.Cryptography
-  summary: Writes a sequence of bytes to the current stream asynchronously, advances the current position within the stream by the number of bytes written, and monitors cancellation requests.
+  summary: 'Writes a sequence of bytes to the current stream asynchronously, advances the current position within the stream by the number of bytes written, and monitors cancellation requests.'
   remarks: "You must preface your call to <xref:System.Security.Cryptography.CryptoStream.WriteAsync%2A> with the `await` (C#) or `Await` (Visual Basic) operator to suspend execution of the method until the task is complete. For more information, see [Asynchronous Programming with Async and Await](http://msdn.microsoft.com/library/db854f91-ccef-4035-ae4d-0911fde808c7).  \n  \n If the operation is canceled before it completes, the returned task contains the <xref:System.Threading.Tasks.TaskStatus.Canceled> value for the <xref:System.Threading.Tasks.Task.Status%2A> property."
   syntax:
     content: public override System.Threading.Tasks.Task WriteAsync (byte[] buffer, int offset, int count, System.Threading.CancellationToken cancellationToken);

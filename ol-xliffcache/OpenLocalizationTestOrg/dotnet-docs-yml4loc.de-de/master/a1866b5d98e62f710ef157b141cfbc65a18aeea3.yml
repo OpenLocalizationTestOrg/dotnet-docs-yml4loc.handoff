@@ -81,7 +81,7 @@ items:
   - System.Core
   namespace: System.Diagnostics.Eventing
   summary: Initializes a new instance of the <xref href="System.Diagnostics.Eventing.EventProvider"></xref> class.
-  remarks: Registers the provider. To remove the registration when finished, call the <xref:System.Diagnostics.Eventing.EventProvider.Close%2A> method.
+  remarks: 'Registers the provider. To remove the registration when finished, call the <xref:System.Diagnostics.Eventing.EventProvider.Close%2A> method.'
   syntax:
     content: public EventProvider (Guid providerGuid);
     parameters:
@@ -399,7 +399,7 @@ items:
   - System.Core
   namespace: System.Diagnostics.Eventing
   summary: Determines whether any session is requesting the specified event from the provider.
-  remarks: Typically, a provider does not call this method to determine whether a session requested the specified event; the provider simply writes the event, and ETW determines whether the event is logged to a session. A provider may want to call this function if the provider needs to perform extra work to generate the event. In this case, calling this function first to determine if a session requested the event or not, may save resources and time.
+  remarks: 'Typically, a provider does not call this method to determine whether a session requested the specified event; the provider simply writes the event, and ETW determines whether the event is logged to a session. A provider may want to call this function if the provider needs to perform extra work to generate the event. In this case, calling this function first to determine if a session requested the event or not, may save resources and time.'
   syntax:
     content: public bool IsEnabled (byte level, long keywords);
     parameters:
@@ -411,7 +411,7 @@ items:
       description: Bit mask that specifies the event category. This mask should be the same keyword mask that is defined in the manifest for the event.
     return:
       type: System.Boolean
-      description: Is `true` if any session is requesting the specified event; otherwise, `false`.
+      description: 'Is `true` if any session is requesting the specified event; otherwise, `false`.'
   overload: System.Diagnostics.Eventing.EventProvider.IsEnabled*
   exceptions: []
   version:
@@ -448,14 +448,14 @@ items:
   assemblies:
   - System.Core
   namespace: System.Diagnostics.Eventing
-  summary: Determines whether any session enabled the provider, regardless of the level and keyword values used to enable the provider.
-  remarks: Typically, a provider does not call this method to determine whether the provider has been enabled by a session; the provider simply writes the event, and ETW determines whether the event is logged to the session. A provider may want to call this function if the provider needs to perform extra work to generate the event. In this case, calling this function first may save resources and time.
+  summary: 'Determines whether any session enabled the provider, regardless of the level and keyword values used to enable the provider.'
+  remarks: 'Typically, a provider does not call this method to determine whether the provider has been enabled by a session; the provider simply writes the event, and ETW determines whether the event is logged to the session. A provider may want to call this function if the provider needs to perform extra work to generate the event. In this case, calling this function first may save resources and time.'
   syntax:
     content: public bool IsEnabled ();
     parameters: []
     return:
       type: System.Boolean
-      description: Is `true` if the provider is enabled to any session; otherwise, `false`.
+      description: 'Is `true` if the provider is enabled to any session; otherwise, `false`.'
   overload: System.Diagnostics.Eventing.EventProvider.IsEnabled*
   exceptions: []
   version:
@@ -556,7 +556,7 @@ items:
       description: "An array of objects that contain the event data to write. The object must be in the order specified in the manifest. The array is limited to 32 objects, of which only eight may be strings. The maximum data size for the event is limited to 64 KB minus the size of the event headers. The event size is less if the session's buffer size is less and the session includes extended data items with the event.  \n  \n This parameter can be null."
     return:
       type: System.Boolean
-      description: Is `true` if the event is written; otherwise, `false`. If false, call the <xref href="System.Diagnostics.Eventing.EventProvider.GetLastWriteEventError"></xref> method to determine the cause of the failure.
+      description: 'Is `true` if the event is written; otherwise, `false`. If false, call the <xref href="System.Diagnostics.Eventing.EventProvider.GetLastWriteEventError"></xref> method to determine the cause of the failure.'
   overload: System.Diagnostics.Eventing.EventProvider.WriteEvent*
   exceptions:
   - type: System.ArgumentException
@@ -614,7 +614,7 @@ items:
       description: The string to write as the event data.
     return:
       type: System.Boolean
-      description: Is `true` if the event is written; otherwise, `false`. If false, call the <xref href="System.Diagnostics.Eventing.EventProvider.GetLastWriteEventError"></xref> method to determine the cause of the failure.
+      description: 'Is `true` if the event is written; otherwise, `false`. If false, call the <xref href="System.Diagnostics.Eventing.EventProvider.GetLastWriteEventError"></xref> method to determine the cause of the failure.'
   overload: System.Diagnostics.Eventing.EventProvider.WriteEvent*
   exceptions:
   - type: System.ArgumentException
@@ -657,7 +657,7 @@ items:
   - System.Core
   namespace: System.Diagnostics.Eventing
   summary: Writes an event. The event data is specified as a block of memory.
-  remarks: If you call the <xref:System.Diagnostics.Eventing.EventProvider.SetActivityId%2A> method to specify an activity identifier for the event, this method retrieves the identifier from the thread context and includes it with the event.
+  remarks: 'If you call the <xref:System.Diagnostics.Eventing.EventProvider.SetActivityId%2A> method to specify an activity identifier for the event, this method retrieves the identifier from the thread context and includes it with the event.'
   syntax:
     content: >-
       [System.Security.SecurityCritical]
@@ -675,7 +675,7 @@ items:
       description: Pointer to the event data to write.
     return:
       type: System.Boolean
-      description: Is `true` if the event is written; otherwise, `false`. If false, call the <xref href="System.Diagnostics.Eventing.EventProvider.GetLastWriteEventError"></xref> method to determine the cause of the failure.
+      description: 'Is `true` if the event is written; otherwise, `false`. If false, call the <xref href="System.Diagnostics.Eventing.EventProvider.GetLastWriteEventError"></xref> method to determine the cause of the failure.'
   overload: System.Diagnostics.Eventing.EventProvider.WriteEvent*
   exceptions: []
   attributes:
@@ -726,7 +726,7 @@ items:
       description: String to write as the event data.
     return:
       type: System.Boolean
-      description: Is `true` if the event is written; otherwise, `false`. If false, call the <xref href="System.Diagnostics.Eventing.EventProvider.GetLastWriteEventError"></xref> method to determine the cause of the failure.
+      description: 'Is `true` if the event is written; otherwise, `false`. If false, call the <xref href="System.Diagnostics.Eventing.EventProvider.GetLastWriteEventError"></xref> method to determine the cause of the failure.'
   overload: System.Diagnostics.Eventing.EventProvider.WriteMessageEvent*
   exceptions:
   - type: System.ArgumentException
@@ -781,13 +781,13 @@ items:
       description: String to write as the event data.
     - id: eventLevel
       type: System.Byte
-      description: Level of detail included in the event. If the provider uses a manifest to define the event, set this value to the same level defined in the manifest.
+      description: 'Level of detail included in the event. If the provider uses a manifest to define the event, set this value to the same level defined in the manifest.'
     - id: eventKeywords
       type: System.Int64
-      description: Bit mask that specifies the event category. If the provider uses a manifest to define the event, set this value to the same keyword mask defined in the manifest.
+      description: 'Bit mask that specifies the event category. If the provider uses a manifest to define the event, set this value to the same keyword mask defined in the manifest.'
     return:
       type: System.Boolean
-      description: Is `true` if the event is written; otherwise, `false`. If false, call the <xref href="System.Diagnostics.Eventing.EventProvider.GetLastWriteEventError"></xref> method to determine the cause of the failure.
+      description: 'Is `true` if the event is written; otherwise, `false`. If false, call the <xref href="System.Diagnostics.Eventing.EventProvider.GetLastWriteEventError"></xref> method to determine the cause of the failure.'
   overload: System.Diagnostics.Eventing.EventProvider.WriteMessageEvent*
   exceptions:
   - type: System.ArgumentException
@@ -845,10 +845,10 @@ items:
       description: Activity identifier from the previous component. Use this parameter to link your component's events to the previous component's events.
     - id: eventPayload
       type: System.Object[]
-      description: An array of objects that contain the event data to write. The data must be in the order specified in the manifest. The array is limited to 32 objects, of which only eight may be strings. The maximum data size for the event is limited to 64 KB minus the size of the event headers. The event size is less if the session's buffer size is less and the session includes extended data items with the event.
+      description: 'An array of objects that contain the event data to write. The data must be in the order specified in the manifest. The array is limited to 32 objects, of which only eight may be strings. The maximum data size for the event is limited to 64 KB minus the size of the event headers. The event size is less if the session''s buffer size is less and the session includes extended data items with the event.'
     return:
       type: System.Boolean
-      description: Is `true` if the event is written; otherwise, `false`. If false, call the <xref href="System.Diagnostics.Eventing.EventProvider.GetLastWriteEventError"></xref> method to determine the cause of the failure.
+      description: 'Is `true` if the event is written; otherwise, `false`. If false, call the <xref href="System.Diagnostics.Eventing.EventProvider.GetLastWriteEventError"></xref> method to determine the cause of the failure.'
   overload: System.Diagnostics.Eventing.EventProvider.WriteTransferEvent*
   exceptions:
   - type: System.ArgumentException
@@ -891,7 +891,7 @@ items:
   - System.Core
   namespace: System.Diagnostics.Eventing
   summary: Links events together when tracing events in an end-to-end scenario. The event data is specified as a block of memory.
-  remarks: The method uses the activity ID set in the thread context to identify this component. To set the activity ID, call the <xref:System.Diagnostics.Eventing.EventProvider.SetActivityId%2A> method.
+  remarks: 'The method uses the activity ID set in the thread context to identify this component. To set the activity ID, call the <xref:System.Diagnostics.Eventing.EventProvider.SetActivityId%2A> method.'
   syntax:
     content: >-
       [System.Security.SecurityCritical]
@@ -912,7 +912,7 @@ items:
       description: Pointer to the event data to write.
     return:
       type: System.Boolean
-      description: Is `true` if the event is written; otherwise, `false`. If false, call the <xref href="System.Diagnostics.Eventing.EventProvider.GetLastWriteEventError"></xref> method to determine the cause of the failure.
+      description: 'Is `true` if the event is written; otherwise, `false`. If false, call the <xref href="System.Diagnostics.Eventing.EventProvider.GetLastWriteEventError"></xref> method to determine the cause of the failure.'
   overload: System.Diagnostics.Eventing.EventProvider.WriteTransferEvent*
   exceptions: []
   attributes:

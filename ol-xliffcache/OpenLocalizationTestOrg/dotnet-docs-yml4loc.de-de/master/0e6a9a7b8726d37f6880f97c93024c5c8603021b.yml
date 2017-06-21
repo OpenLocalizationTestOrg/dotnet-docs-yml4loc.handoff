@@ -143,7 +143,7 @@ items:
   - System
   - netstandard
   namespace: System.Threading
-  summary: Initializes a new instance of the <xref href="System.Threading.Semaphore"></xref> class, specifying the initial number of entries and the maximum number of concurrent entries.
+  summary: 'Initializes a new instance of the <xref href="System.Threading.Semaphore"></xref> class, specifying the initial number of entries and the maximum number of concurrent entries.'
   remarks: "This constructor initializes an unnamed semaphore. All threads that use an instance of such a semaphore must have references to the instance.  \n  \n If `initialCount` is less than `maximumCount`, the effect is the same as if the current thread had called <xref:System.Threading.WaitHandle.WaitOne%2A> (`maximumCount` minus `initialCount`) times. If you do not want to reserve any entries for the thread that creates the semaphore, use the same number for `maximumCount` and `initialCount`."
   example:
   - "The following example creates a semaphore with a maximum count of three and an initial count of zero. The example starts five threads, which block waiting for the semaphore. The main thread uses the <xref:System.Threading.Semaphore.Release%28System.Int32%29> method overload to increase the semaphore count to its maximum, allowing three threads to enter the semaphore. Each thread uses the <xref:System.Threading.Thread.Sleep%2A?displayProperty=fullName> method to wait for one second, to simulate work, and then calls the <xref:System.Threading.Semaphore.Release> method overload to release the semaphore. Each time the semaphore is released, the previous semaphore count is displayed. Console messages track semaphore use. The simulated work interval is increased slightly for each thread, to make the output easier to read.  \n  \n [!code-cpp[System.Threading.Semaphore2#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.Threading.Semaphore2/CPP/source.cpp#1)]\n [!code-csharp[System.Threading.Semaphore2#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Threading.Semaphore2/CS/source.cs#1)]\n [!code-vb[System.Threading.Semaphore2#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Threading.Semaphore2/VB/source.vb#1)]"
@@ -228,7 +228,7 @@ items:
   - System
   - netstandard
   namespace: System.Threading
-  summary: Initializes a new instance of the <xref href="System.Threading.Semaphore"></xref> class, specifying the initial number of entries and the maximum number of concurrent entries, and optionally specifying the name of a system semaphore object.
+  summary: 'Initializes a new instance of the <xref href="System.Threading.Semaphore"></xref> class, specifying the initial number of entries and the maximum number of concurrent entries, and optionally specifying the name of a system semaphore object.'
   remarks: "This constructor initializes a <xref:System.Threading.Semaphore> object that represents a named system semaphore. You can create multiple <xref:System.Threading.Semaphore> objects that represent the same named system semaphore.  \n  \n If the named system semaphore does not exist, it is created with the initial count and maximum count specified by `initialCount` and `maximumCount`. If the named system semaphore already exists, `initialCount` and `maximumCount` are not used, although invalid values still cause exceptions. If you need to determine whether or not a named system semaphore was created, use the <xref:System.Threading.Semaphore.%23ctor%28System.Int32%2CSystem.Int32%2CSystem.String%2CSystem.Boolean%40%29> constructor overload instead.  \n  \n> [!IMPORTANT]\n>  When you use this constructor overload, the recommended practice is to specify the same number for `initialCount` and `maximumCount`. If `initialCount` is less than `maximumCount`, and a named system semaphore is created, the effect is the same as if the current thread had called <xref:System.Threading.WaitHandle.WaitOne%2A> (`maximumCount` minus `initialCount`) times. However, with this constructor overload there is no way to determine whether a named system semaphore was created.  \n  \n If you specify `null` or an empty string for `name`, a local semaphore is created, as if you had called the <xref:System.Threading.Semaphore.%23ctor%28System.Int32%2CSystem.Int32%29> constructor overload.  \n  \n Because named semaphores are visible throughout the operating system, they can be used to coordinate resource use across process boundaries.  \n  \n If you want to find out whether a named system semaphore exists, use the <xref:System.Threading.Semaphore.OpenExisting%2A> method. The <xref:System.Threading.Semaphore.OpenExisting%2A> method attempts to open an existing named semaphore, and throws an exception if the system semaphore does not exist."
   example:
   - "The following code example demonstrates the cross-process behavior of a named semaphore. The example creates a named semaphore with a maximum count of five and an initial count of five. The program makes three calls to the <xref:System.Threading.WaitHandle.WaitOne%2A> method. Thus, if you run the compiled example from two command windows, the second copy will block on the third call to <xref:System.Threading.WaitHandle.WaitOne%2A>. Release one or more entries in the first copy of the program to unblock the second.  \n  \n [!code-cpp[System.Threading.Semaphore.ctor named 3#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.Threading.Semaphore.ctor named 3/CPP/source.cpp#1)]\n [!code-csharp[System.Threading.Semaphore.ctor named 3#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Threading.Semaphore.ctor named 3/CS/source.cs#1)]\n [!code-vb[System.Threading.Semaphore.ctor named 3#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Threading.Semaphore.ctor named 3/VB/source.vb#1)]"
@@ -257,10 +257,10 @@ items:
     description: A Win32 error occurred.
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: The named semaphore exists and has access control security, and the user does not have <xref href="System.Security.AccessControl.SemaphoreRights.FullControl"></xref>.
+    description: 'The named semaphore exists and has access control security, and the user does not have <xref href="System.Security.AccessControl.SemaphoreRights.FullControl"></xref>.'
   - type: System.Threading.WaitHandleCannotBeOpenedException
     commentId: T:System.Threading.WaitHandleCannotBeOpenedException
-    description: The named semaphore cannot be created, perhaps because a wait handle of a different type has the same name.
+    description: 'The named semaphore cannot be created, perhaps because a wait handle of a different type has the same name.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -324,7 +324,7 @@ items:
   - System
   - netstandard
   namespace: System.Threading
-  summary: Initializes a new instance of the <xref href="System.Threading.Semaphore"></xref> class, specifying the initial number of entries and the maximum number of concurrent entries, optionally specifying the name of a system semaphore object, and specifying a variable that receives a value indicating whether a new system semaphore was created.
+  summary: 'Initializes a new instance of the <xref href="System.Threading.Semaphore"></xref> class, specifying the initial number of entries and the maximum number of concurrent entries, optionally specifying the name of a system semaphore object, and specifying a variable that receives a value indicating whether a new system semaphore was created.'
   remarks: "This constructor initializes a <xref:System.Threading.Semaphore> object that represents a named system semaphore. You can create multiple <xref:System.Threading.Semaphore> objects that represent the same named system semaphore.  \n  \n If the named system semaphore does not exist, it is created with the initial count and maximum count specified by `initialCount` and `maximumCount`. If the named system semaphore already exists, `initialCount` and `maximumCount` are not used, although invalid values still cause exceptions. Use `createdNew` to determine whether the system semaphore was created.  \n  \n If `initialCount` is less than `maximumCount`, and `createdNew` is `true`, the effect is the same as if the current thread had called <xref:System.Threading.WaitHandle.WaitOne%2A> (`maximumCount` minus `initialCount`) times.  \n  \n If you specify `null` or an empty string for `name`, a local semaphore is created, as if you had called the <xref:System.Threading.Semaphore.%23ctor%28System.Int32%2CSystem.Int32%29> constructor overload. In this case, `createdNew` is always `true`.  \n  \n Because named semaphores are visible throughout the operating system, they can be used to coordinate resource use across process boundaries."
   example:
   - "The following code example demonstrates the cross-process behavior of a named semaphore. The example creates a named semaphore with a maximum count of five and an initial count of two. That is, it reserves three entries for the thread that calls the constructor. If `createNew` is `false`, the program makes three calls to the <xref:System.Threading.WaitHandle.WaitOne%2A> method. Thus, if you run the compiled example from two command windows, the second copy will block on the third call to <xref:System.Threading.WaitHandle.WaitOne%2A>. Release one or more entries in the first copy of the program to unblock the second.  \n  \n [!code-cpp[System.Threading.Semaphore.ctor named 4#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.Threading.Semaphore.ctor named 4/CPP/source.cpp#1)]\n [!code-csharp[System.Threading.Semaphore.ctor named 4#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Threading.Semaphore.ctor named 4/CS/source.cs#1)]\n [!code-vb[System.Threading.Semaphore.ctor named 4#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Threading.Semaphore.ctor named 4/VB/source.vb#1)]"
@@ -342,7 +342,7 @@ items:
       description: The name of a named system semaphore object.
     - id: createdNew
       type: System.Boolean
-      description: When this method returns, contains `true` if a local semaphore was created (that is, if <code>name</code> is `null` or an empty string) or if the specified named system semaphore was created; `false` if the specified named system semaphore already existed. This parameter is passed uninitialized.
+      description: 'When this method returns, contains `true` if a local semaphore was created (that is, if <code>name</code> is `null` or an empty string) or if the specified named system semaphore was created; `false` if the specified named system semaphore already existed. This parameter is passed uninitialized.'
   overload: System.Threading.Semaphore.#ctor*
   exceptions:
   - type: System.ArgumentException
@@ -356,10 +356,10 @@ items:
     description: A Win32 error occurred.
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: The named semaphore exists and has access control security, and the user does not have <xref href="System.Security.AccessControl.SemaphoreRights.FullControl"></xref>.
+    description: 'The named semaphore exists and has access control security, and the user does not have <xref href="System.Security.AccessControl.SemaphoreRights.FullControl"></xref>.'
   - type: System.Threading.WaitHandleCannotBeOpenedException
     commentId: T:System.Threading.WaitHandleCannotBeOpenedException
-    description: The named semaphore cannot be created, perhaps because a wait handle of a different type has the same name.
+    description: 'The named semaphore cannot be created, perhaps because a wait handle of a different type has the same name.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -421,7 +421,7 @@ items:
   assemblies:
   - System
   namespace: System.Threading
-  summary: Initializes a new instance of the <xref href="System.Threading.Semaphore"></xref> class, specifying the initial number of entries and the maximum number of concurrent entries, optionally specifying the name of a system semaphore object, specifying a variable that receives a value indicating whether a new system semaphore was created, and specifying security access control for the system semaphore.
+  summary: 'Initializes a new instance of the <xref href="System.Threading.Semaphore"></xref> class, specifying the initial number of entries and the maximum number of concurrent entries, optionally specifying the name of a system semaphore object, specifying a variable that receives a value indicating whether a new system semaphore was created, and specifying security access control for the system semaphore.'
   remarks: "Use this constructor to apply access control security to a named system semaphore when it is created, preventing other code from taking control of the semaphore.  \n  \n This constructor initializes a <xref:System.Threading.Semaphore> object that represents a named system semaphore. You can create multiple <xref:System.Threading.Semaphore> objects that represent the same named system semaphore.  \n  \n If the named system semaphore does not exist, it is created with the specified access control security. If the named semaphore exists, the specified access control security is ignored.  \n  \n> [!NOTE]\n>  The caller has full control over the newly created <xref:System.Threading.Semaphore> object even if `semaphoreSecurity` denies or fails to grant some access rights to the current user. However, if the current user attempts to get another <xref:System.Threading.Semaphore> object to represent the same named semaphore, using either a constructor or the <xref:System.Threading.Semaphore.OpenExisting%2A> method, Windows access control security is applied.  \n  \n If the named system semaphore does not exist, it is created with the initial count and maximum count specified by `initialCount` and `maximumCount`. If the named system semaphore already exists, `initialCount` and `maximumCount` are not used, although invalid values still cause exceptions. Use the `createdNew` parameter to determine whether the system semaphore was created by this constructor.  \n  \n If `initialCount` is less than `maximumCount`, and `createdNew` is `true`, the effect is the same as if the current thread had called <xref:System.Threading.WaitHandle.WaitOne%2A> (`maximumCount` minus `initialCount`) times.  \n  \n If you specify `null` or an empty string for `name`, a local semaphore is created, as if you had called the <xref:System.Threading.Semaphore.%23ctor%28System.Int32%2CSystem.Int32%29> constructor overload. In this case, `createdNew` is always `true`.  \n  \n Because named semaphores are visible throughout the operating system, they can be used to coordinate resource use across process boundaries."
   example:
   - "The following code example demonstrates the cross-process behavior of a named semaphore with access control security. The example uses the <xref:System.Threading.Semaphore.OpenExisting%28System.String%29> method overload to test for the existence of a named semaphore. If the semaphore does not exist, it is created with a maximum count of two and with access control security that denies the current user the right to use the semaphore but grants the right to read and change permissions on the semaphore. If you run the compiled example from two command windows, the second copy will throw an access violation exception on the call to the <xref:System.Threading.Semaphore.OpenExisting%28System.String%29> method. The exception is caught, and the example uses the <xref:System.Threading.Semaphore.OpenExisting%28System.String%2CSystem.Security.AccessControl.SemaphoreRights%29> method overload to open the semaphore with the rights needed to read and change the permissions.  \n  \n After the permissions are changed, the semaphore is opened with the rights required to enter and release. If you run the compiled example from a third command window, it runs using the new permissions.  \n  \n [!code-cpp[System.Threading.Semaphore.ctor named 5a#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.Threading.Semaphore.ctor named 5a/CPP/source.cpp#1)]\n [!code-csharp[System.Threading.Semaphore.ctor named 5a#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Threading.Semaphore.ctor named 5a/CS/source.cs#1)]\n [!code-vb[System.Threading.Semaphore.ctor named 5a#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Threading.Semaphore.ctor named 5a/VB/source.vb#1)]"
@@ -439,7 +439,7 @@ items:
       description: The name of a named system semaphore object.
     - id: createdNew
       type: System.Boolean
-      description: When this method returns, contains `true` if a local semaphore was created (that is, if <code>name</code> is `null` or an empty string) or if the specified named system semaphore was created; `false` if the specified named system semaphore already existed. This parameter is passed uninitialized.
+      description: 'When this method returns, contains `true` if a local semaphore was created (that is, if <code>name</code> is `null` or an empty string) or if the specified named system semaphore was created; `false` if the specified named system semaphore already existed. This parameter is passed uninitialized.'
     - id: semaphoreSecurity
       type: System.Security.AccessControl.SemaphoreSecurity
       description: A <xref href="System.Security.AccessControl.SemaphoreSecurity"></xref> object that represents the access control security to be applied to the named system semaphore.
@@ -453,13 +453,13 @@ items:
     description: "<code>maximumCount</code> is less than 1.  \n  \n -or-  \n  \n <code>initialCount</code> is less than 0."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: The named semaphore exists and has access control security, and the user does not have <xref href="System.Security.AccessControl.SemaphoreRights.FullControl"></xref>.
+    description: 'The named semaphore exists and has access control security, and the user does not have <xref href="System.Security.AccessControl.SemaphoreRights.FullControl"></xref>.'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: A Win32 error occurred.
   - type: System.Threading.WaitHandleCannotBeOpenedException
     commentId: T:System.Threading.WaitHandleCannotBeOpenedException
-    description: The named semaphore cannot be created, perhaps because a wait handle of a different type has the same name.
+    description: 'The named semaphore cannot be created, perhaps because a wait handle of a different type has the same name.'
   version:
   - netframework-4.5.1
   - netframework-4.5.2
@@ -562,7 +562,7 @@ items:
   - System
   - netstandard
   namespace: System.Threading
-  summary: Opens the specified named semaphore, if it already exists.
+  summary: 'Opens the specified named semaphore, if it already exists.'
   remarks: "The <xref:System.Threading.Semaphore.OpenExisting%2A> method tries to open the specified named semaphore. If the system semaphore does not exist, this method throws an exception instead of creating the system semaphore. To create the system semaphore when it does not already exist, use one of the <xref:System.Threading.Semaphore.%23ctor%2A> constructors that has a `name` parameter.  \n  \n Multiple calls to this method that use the same value for `name` do not necessarily return the same <xref:System.Threading.Semaphore> object, even though the objects that are returned represent the same named system semaphore.  \n  \n This method overload is equivalent to calling the <xref:System.Threading.Semaphore.OpenExisting%2A> method overload and specifying <xref:System.Security.AccessControl.SemaphoreRights?displayProperty=fullName> and <xref:System.Security.AccessControl.SemaphoreRights?displayProperty=fullName> rights, combined by using the bitwise OR operation.  \n  \n Specifying the <xref:System.Security.AccessControl.SemaphoreRights?displayProperty=fullName> flag allows a thread to enter the semaphore, and specifying the <xref:System.Security.AccessControl.SemaphoreRights?displayProperty=fullName> flag allows a thread to call the <xref:System.Threading.Semaphore.Release%2A> method."
   example:
   - "The following code example demonstrates the cross-process behavior of a named semaphore with access control security. The example uses the <xref:System.Threading.Semaphore.OpenExisting%28System.String%29> method overload to test for the existence of a named semaphore.  \n  \n If the semaphore does not exist, it is created with a maximum count of two and with access control security that denies the current user the right to use the semaphore, but which grants the right to read and change permissions on the semaphore.  \n  \n If you run the compiled example from two command windows, the second copy will throw an access violation exception on the call to the <xref:System.Threading.Semaphore.OpenExisting%28System.String%29> method overload. The exception is caught, and the example uses the <xref:System.Threading.Semaphore.OpenExisting%28System.String%2CSystem.Security.AccessControl.SemaphoreRights%29> method overload to open the semaphore with the rights needed to read and change the permissions.  \n  \n After the permissions are changed, the semaphore is opened with the rights required to enter and release it. If you run the compiled example from a third command window, it runs using the new permissions.  \n  \n [!code-cpp[System.Threading.Semaphore.ctor named 5a#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.Threading.Semaphore.ctor named 5a/CPP/source.cpp#1)]\n [!code-csharp[System.Threading.Semaphore.ctor named 5a#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Threading.Semaphore.ctor named 5a/CS/source.cs#1)]\n [!code-vb[System.Threading.Semaphore.ctor named 5a#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Threading.Semaphore.ctor named 5a/VB/source.vb#1)]"
@@ -591,7 +591,7 @@ items:
     description: A Win32 error occurred.
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: The named semaphore exists, but the user does not have the security access required to use it.
+    description: 'The named semaphore exists, but the user does not have the security access required to use it.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -653,7 +653,7 @@ items:
   assemblies:
   - System
   namespace: System.Threading
-  summary: Opens the specified named semaphore, if it already exists, with the desired security access.
+  summary: 'Opens the specified named semaphore, if it already exists, with the desired security access.'
   remarks: "The `rights` parameter must include the <xref:System.Security.AccessControl.SemaphoreRights?displayProperty=fullName> flag to allow threads to enter the semaphore, and the <xref:System.Security.AccessControl.SemaphoreRights?displayProperty=fullName> flag to allow threads to call the <xref:System.Threading.Semaphore.Release%2A> method.  \n  \n The <xref:System.Threading.Semaphore.OpenExisting%2A> method tries to open an existing named semaphore. If the system semaphore does not exist, this method throws an exception instead of creating the system semaphore. To create the system semaphore when it does not already exist, use one of the <xref:System.Threading.Semaphore.%23ctor%2A> constructors that has a `name` parameter.  \n  \n Multiple calls to this method that use the same value for `name` do not necessarily return the same <xref:System.Threading.Semaphore> object, even though the objects that are returned represent the same named system semaphore."
   example:
   - "The following code example demonstrates the cross-process behavior of a named semaphore with access control security. The example uses the <xref:System.Threading.Semaphore.OpenExisting%28System.String%29> method overload to test for the existence of a named semaphore.  \n  \n If the semaphore does not exist, it is created with a maximum count of two and with access control security that denies the current user the right to use the semaphore, but grants the right to read and change permissions on the semaphore.  \n  \n If you run the compiled example from two command windows, the second copy will throw an access violation exception on the call to the <xref:System.Threading.Semaphore.OpenExisting%28System.String%29> method. The exception is caught, and the example uses the <xref:System.Threading.Semaphore.OpenExisting%28System.String%2CSystem.Security.AccessControl.SemaphoreRights%29> method overload to open the semaphore with the rights needed to read and change the permissions.  \n  \n After the permissions are changed, the semaphore is opened with the rights required to enter and release it. If you run the compiled example from a third command window, it runs using the new permissions.  \n  \n [!code-cpp[System.Threading.Semaphore.ctor named 5a#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.Threading.Semaphore.ctor named 5a/CPP/source.cpp#1)]\n [!code-csharp[System.Threading.Semaphore.ctor named 5a#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Threading.Semaphore.ctor named 5a/CS/source.cs#1)]\n [!code-vb[System.Threading.Semaphore.ctor named 5a#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Threading.Semaphore.ctor named 5a/VB/source.vb#1)]"
@@ -685,7 +685,7 @@ items:
     description: A Win32 error occurred.
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: The named semaphore exists, but the user does not have the desired security access rights.
+    description: 'The named semaphore exists, but the user does not have the desired security access rights.'
   version:
   - netframework-4.5.1
   - netframework-4.5.2
@@ -967,7 +967,7 @@ items:
   - System
   - netstandard
   namespace: System.Threading
-  summary: Opens the specified named semaphore, if it already exists, and returns a value that indicates whether the operation succeeded.
+  summary: 'Opens the specified named semaphore, if it already exists, and returns a value that indicates whether the operation succeeded.'
   remarks: "If the named semaphore does not exist, this method does not create it. To create the system semaphore when it does not already exist, use one of the <xref:System.Threading.Semaphore.%23ctor%2A> constructors that has a `name` parameter.  \n  \n If you are uncertain whether a named semaphore exists, use this method overload instead of the <xref:System.Threading.Semaphore.OpenExisting%28System.String%29> method overload, which throws an exception if the semaphore does not exist.  \n  \n This method overload is equivalent to calling the <xref:System.Threading.Semaphore.TryOpenExisting%2A> method overload and specifying <xref:System.Security.AccessControl.SemaphoreRights?displayProperty=fullName> and <xref:System.Security.AccessControl.SemaphoreRights?displayProperty=fullName> rights, combined by using the bitwise OR operation. Specifying the <xref:System.Security.AccessControl.SemaphoreRights?displayProperty=fullName> flag allows a thread to enter the semaphore, and specifying the   <xref:System.Security.AccessControl.SemaphoreRights?displayProperty=fullName> flag allows a thread to call the <xref:System.Threading.Semaphore.Release%2A> method."
   syntax:
     content: public static bool TryOpenExisting (string name, out System.Threading.Semaphore result);
@@ -977,7 +977,7 @@ items:
       description: The name of the system semaphore to open.
     - id: result
       type: System.Threading.Semaphore
-      description: When this method returns, contains a <xref href="System.Threading.Semaphore"></xref> object that represents the named semaphore if the call succeeded, or `null` if the call failed. This parameter is treated as uninitialized.
+      description: 'When this method returns, contains a <xref href="System.Threading.Semaphore"></xref> object that represents the named semaphore if the call succeeded, or `null` if the call failed. This parameter is treated as uninitialized.'
     return:
       type: System.Boolean
       description: '`true` if the named semaphore was opened successfully; otherwise, `false`.'
@@ -994,7 +994,7 @@ items:
     description: A Win32 error occurred.
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: The named semaphore exists, but the user does not have the security access required to use it.
+    description: 'The named semaphore exists, but the user does not have the security access required to use it.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -1056,7 +1056,7 @@ items:
   assemblies:
   - System
   namespace: System.Threading
-  summary: Opens the specified named semaphore, if it already exists, with the desired security access, and returns a value that indicates whether the operation succeeded.
+  summary: 'Opens the specified named semaphore, if it already exists, with the desired security access, and returns a value that indicates whether the operation succeeded.'
   remarks: "If the named semaphore does not exist, this method does not create it. To create the system semaphore when it does not already exist, use one of the <xref:System.Threading.Semaphore.%23ctor%2A> constructors that has a `name` parameter.  \n  \n If you are uncertain whether a named semaphore exists, use this method overload instead of the <xref:System.Threading.Semaphore.OpenExisting%28System.String%2CSystem.Security.AccessControl.SemaphoreRights%29> method overload, which throws an exception if the semaphore does not exist.  \n  \n The `rights` parameter must include the <xref:System.Security.AccessControl.SemaphoreRights?displayProperty=fullName> flag to allow threads to enter the semaphore, and the <xref:System.Security.AccessControl.SemaphoreRights?displayProperty=fullName> flag to allow threads to call the <xref:System.Threading.Semaphore.Release%2A> method.  \n  \n Multiple calls to this method that use the same value for `name` do not necessarily return the same <xref:System.Threading.Semaphore> object, even though the objects that are returned represent the same named system semaphore."
   syntax:
     content: public static bool TryOpenExisting (string name, System.Security.AccessControl.SemaphoreRights rights, out System.Threading.Semaphore result);
@@ -1069,7 +1069,7 @@ items:
       description: A bitwise combination of the enumeration values that represent the desired security access.
     - id: result
       type: System.Threading.Semaphore
-      description: When this method returns, contains a <xref href="System.Threading.Semaphore"></xref> object that represents the named semaphore if the call succeeded, or `null` if the call failed. This parameter is treated as uninitialized.
+      description: 'When this method returns, contains a <xref href="System.Threading.Semaphore"></xref> object that represents the named semaphore if the call succeeded, or `null` if the call failed. This parameter is treated as uninitialized.'
     return:
       type: System.Boolean
       description: '`true` if the named semaphore was opened successfully; otherwise, `false`.'
@@ -1086,7 +1086,7 @@ items:
     description: A Win32 error occurred.
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: The named semaphore exists, but the user does not have the security access required to use it.
+    description: 'The named semaphore exists, but the user does not have the security access required to use it.'
   version:
   - netframework-4.5.1
   - netframework-4.5.2

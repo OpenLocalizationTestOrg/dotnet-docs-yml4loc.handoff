@@ -20,7 +20,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
   summary: Represents a behavior that optimizes the receive operations for transports that support transactional receives.
-  remarks: A transport that is configured with this behavior attempts to batch several receive operations into one transaction. By doing so, the relatively high cost of creating a transaction and committing it in every receive operation is avoided.
+  remarks: 'A transport that is configured with this behavior attempts to batch several receive operations into one transaction. By doing so, the relatively high cost of creating a transaction and committing it in every receive operation is avoided.'
   example:
   - "The following example shows how to add the transacted batching behavior to a service in a configuration file.  \n  \n [!code-xml[UETransactedBatchingConfig#0](~/samples/snippets/csharp/VS_Snippets_CFX/uetransactedbatchingcode/common/serviceapp.config#0)] \n  \n The following example shows how to add the transacted batching behavior to a service in code.  \n  \n [!code-csharp[UETransactedBatchingCode#0](~/samples/snippets/csharp/VS_Snippets_CFX/uetransactedbatchingcode/cs/service.cs#0)]"
   syntax:
@@ -73,7 +73,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
   summary: Initializes a new instance of the <xref href="System.ServiceModel.Description.TransactedBatchingBehavior"></xref> class with the specified batch size.
-  remarks: The `maxBatchSize` value passed into the constructor is only a hint. It is possible that all messages are received before reaching the `maxBatchSize`. When that occurs, it is unnecessary to wait indefinitely for another message to be received. To prevent this from happening, [!INCLUDE[indigo2](~/includes/indigo2-md.md)] commits the batch early and open a new batch to receive additional messages. The batch is committed if there are no messages to be received and 20 percent of the transaction time-out value has elapsed.
+  remarks: 'The `maxBatchSize` value passed into the constructor is only a hint. It is possible that all messages are received before reaching the `maxBatchSize`. When that occurs, it is unnecessary to wait indefinitely for another message to be received. To prevent this from happening, [!INCLUDE[indigo2](~/includes/indigo2-md.md)] commits the batch early and open a new batch to receive additional messages. The batch is committed if there are no messages to be received and 20 percent of the transaction time-out value has elapsed.'
   example:
   - "The following code shows how to create a new instance of <xref:System.ServiceModel.Description.TransactedBatchingBehavior> specifying the maximum number of messages to be processed in a batch.  \n  \n [!code-csharp[UETransactedBatchingCode#1](~/samples/snippets/csharp/VS_Snippets_CFX/uetransactedbatchingcode/cs/service.cs#1)]"
   syntax:
@@ -123,7 +123,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
   summary: Gets or sets the maximum number of receive operations that can be batched together in one transaction.
-  remarks: The `maxBatchSize` value is only a hint. It is possible that all messages are received before reaching the `maxBatchSize`. When that occurs, it is unnecessary to wait indefinitely for another message to be received. To prevent this from happening, [!INCLUDE[indigo2](~/includes/indigo2-md.md)] commits the batch early and open a new batch to receive additional messages. The batch is committed if there are no messages to be received and 20 percent of the transaction time-out value has elapsed.
+  remarks: 'The `maxBatchSize` value is only a hint. It is possible that all messages are received before reaching the `maxBatchSize`. When that occurs, it is unnecessary to wait indefinitely for another message to be received. To prevent this from happening, [!INCLUDE[indigo2](~/includes/indigo2-md.md)] commits the batch early and open a new batch to receive additional messages. The batch is committed if there are no messages to be received and 20 percent of the transaction time-out value has elapsed.'
   example:
   - "The following code shows how to set the <xref:System.ServiceModel.Description.TransactedBatchingBehavior.MaxBatchSize%2A> property.  \n  \n [!code-csharp[UETransactedBatchingCode#2](~/samples/snippets/csharp/VS_Snippets_CFX/uetransactedbatchingcode/cs/snippets.cs#2)]"
   syntax:
@@ -270,7 +270,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
   summary: Associates an endpoint dispatcher with the specified service endpoint. This method cannot be inherited.
-  remarks: This method is called by [!INCLUDE[indigo2](~/includes/indigo2-md.md)] to associate a service endpoint with an endpoint dispatcher.
+  remarks: 'This method is called by [!INCLUDE[indigo2](~/includes/indigo2-md.md)] to associate a service endpoint with an endpoint dispatcher.'
   syntax:
     content: void IEndpointBehavior.ApplyDispatchBehavior (System.ServiceModel.Description.ServiceEndpoint serviceEndpoint, System.ServiceModel.Dispatcher.EndpointDispatcher endpointDispatcher);
     parameters:
@@ -319,7 +319,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
   summary: Ensures that transacted batching is applicable only for the bindings that support transacted receive operation. This method cannot be inherited.
-  remarks: This method is called by [!INCLUDE[indigo2](~/includes/indigo2-md.md)] to ensure that batching is available only for bindings that support transacted receive operations.
+  remarks: 'This method is called by [!INCLUDE[indigo2](~/includes/indigo2-md.md)] to ensure that batching is available only for bindings that support transacted receive operations.'
   syntax:
     content: void IEndpointBehavior.Validate (System.ServiceModel.Description.ServiceEndpoint serviceEndpoint);
     parameters:

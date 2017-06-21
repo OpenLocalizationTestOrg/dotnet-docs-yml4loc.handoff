@@ -20,7 +20,7 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis
-  summary: Defines a style for speaking prompts that consists of settings for emphasis, rate, and volume.
+  summary: 'Defines a style for speaking prompts that consists of settings for emphasis, rate, and volume.'
   syntax:
     content: public class PromptStyle
   inheritance:
@@ -109,7 +109,7 @@ items:
   - System.Speech
   namespace: System.Speech.Synthesis
   summary: Initializes a new instance of the <xref href="System.Speech.Synthesis.PromptStyle"></xref> class and specifies the setting for the emphasis of the style.
-  remarks: The speech synthesis engines in Windows do not support variations in the emphasis of speech output at this time. Setting values for emphasis using a member of the <xref:System.Speech.Synthesis.PromptEmphasis> enumeration will produce no audible change in the synthesized speech output.
+  remarks: 'The speech synthesis engines in Windows do not support variations in the emphasis of speech output at this time. Setting values for emphasis using a member of the <xref:System.Speech.Synthesis.PromptEmphasis> enumeration will produce no audible change in the synthesized speech output.'
   syntax:
     content: public PromptStyle (System.Speech.Synthesis.PromptEmphasis emphasis);
     parameters:
@@ -199,7 +199,7 @@ items:
   - System.Speech
   namespace: System.Speech.Synthesis
   summary: Initializes a new instance of the <xref href="System.Speech.Synthesis.PromptStyle"></xref> class and specifies the setting for the speaking volume of the style.
-  remarks: The <xref:System.Speech.Synthesis.PromptVolume.Default> setting for <xref:System.Speech.Synthesis.PromptVolume> is full volume, which is the same as <xref:System.Speech.Synthesis.PromptVolume.ExtraLoud>. The other settings decrease the volume of speech output relative to full volume.
+  remarks: 'The <xref:System.Speech.Synthesis.PromptVolume.Default> setting for <xref:System.Speech.Synthesis.PromptVolume> is full volume, which is the same as <xref:System.Speech.Synthesis.PromptVolume.ExtraLoud>. The other settings decrease the volume of speech output relative to full volume.'
   example:
   - "The following example uses the <xref:System.Speech.Synthesis.PromptStyle.%23ctor%2A> constructor to specify volume settings that the <xref:System.Speech.Synthesis.SpeechSynthesizer> should apply to speech output.  \n  \n```csharp  \nusing System;  \nusing System.Speech.Synthesis;  \n  \nnamespace SampleSynthesis  \n{  \n  class Program  \n  {  \n    static void Main(string[] args)  \n    {  \n  \n      // Initialize a new instance of the SpeechSynthesizer.  \n      using (SpeechSynthesizer synth = new SpeechSynthesizer())  \n      {  \n  \n        // Configure the audio output.   \n        synth.SetOutputToDefaultAudioDevice();  \n  \n        // Build a prompt that applies different volume settings.  \n        PromptBuilder builder = new PromptBuilder();  \n        builder.StartStyle(new PromptStyle(PromptVolume.Default));  \n        builder.AppendText(\"This is the default speaking volume.\");  \n        builder.EndStyle();  \n        builder.AppendBreak();  \n        builder.StartStyle(new PromptStyle(PromptVolume.ExtraLoud));  \n        builder.AppendText(\"This is the extra-loud speaking volume.\");  \n        builder.EndStyle();  \n        builder.AppendBreak();  \n        builder.StartStyle(new PromptStyle(PromptVolume.Medium));  \n        builder.AppendText(\"This is the medium speaking volume.\");  \n        builder.EndStyle();  \n  \n        // Speak the prompt.  \n        synth.Speak(builder);  \n      }  \n  \n      Console.WriteLine();  \n      Console.WriteLine(\"Press any key to exit...\");  \n      Console.ReadKey();  \n    }  \n  }  \n}  \n  \n```"
   syntax:
@@ -245,7 +245,7 @@ items:
   - System.Speech
   namespace: System.Speech.Synthesis
   summary: Gets or sets the setting for the emphasis of the style.
-  remarks: The speech synthesis engines in Windows do not support variations in the emphasis of speech output at this time. Setting values for emphasis using a member of the <xref:System.Speech.Synthesis.PromptEmphasis> enumeration will produce no audible change in the synthesized speech output.
+  remarks: 'The speech synthesis engines in Windows do not support variations in the emphasis of speech output at this time. Setting values for emphasis using a member of the <xref:System.Speech.Synthesis.PromptEmphasis> enumeration will produce no audible change in the synthesized speech output.'
   syntax:
     content: public System.Speech.Synthesis.PromptEmphasis Emphasis { get; set; }
     return:
@@ -330,7 +330,7 @@ items:
   - System.Speech
   namespace: System.Speech.Synthesis
   summary: Gets or sets the setting for the volume (loudness) of the style.
-  remarks: The <xref:System.Speech.Synthesis.PromptVolume.Default> setting for <xref:System.Speech.Synthesis.PromptVolume> is full volume, which is the same as <xref:System.Speech.Synthesis.PromptVolume.ExtraLoud>. The other settings decrease the volume of speech output relative to full volume.
+  remarks: 'The <xref:System.Speech.Synthesis.PromptVolume.Default> setting for <xref:System.Speech.Synthesis.PromptVolume> is full volume, which is the same as <xref:System.Speech.Synthesis.PromptVolume.ExtraLoud>. The other settings decrease the volume of speech output relative to full volume.'
   syntax:
     content: public System.Speech.Synthesis.PromptVolume Volume { get; set; }
     return:

@@ -168,7 +168,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Adds required correlation data to the property.
-  remarks: When required correlation data is added, it is removed from the <xref:System.ServiceModel.Channels.CorrelationCallbackMessageProperty.NeededData%2A> list. When all required data has been added, the <xref:System.ServiceModel.Channels.CorrelationCallbackMessageProperty.NeededData%2A> list is empty and <xref:System.ServiceModel.Channels.CorrelationCallbackMessageProperty.IsFullyDefined%2A> returns `true`.
+  remarks: 'When required correlation data is added, it is removed from the <xref:System.ServiceModel.Channels.CorrelationCallbackMessageProperty.NeededData%2A> list. When all required data has been added, the <xref:System.ServiceModel.Channels.CorrelationCallbackMessageProperty.NeededData%2A> list is empty and <xref:System.ServiceModel.Channels.CorrelationCallbackMessageProperty.IsFullyDefined%2A> returns `true`.'
   syntax:
     content: public void AddData (string name, Func<string> value);
     parameters:
@@ -272,7 +272,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: When overridden in a derived class, initializes and returns a copy of the derived message property instance.
+  summary: 'When overridden in a derived class, initializes and returns a copy of the derived message property instance.'
   syntax:
     content: public abstract System.ServiceModel.Channels.IMessageProperty CreateCopy ();
     parameters: []
@@ -323,7 +323,7 @@ items:
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: The <xref href="System.IAsyncResult"></xref> that references the asynchronous <xref href="System.ServiceModel.Channels.CorrelationCallbackMessageProperty.BeginFinalizeCorrelation(System.ServiceModel.Channels.Message,System.TimeSpan,System.AsyncCallback,System.Object)"></xref> operation.
+      description: 'The <xref href="System.IAsyncResult"></xref> that references the asynchronous <xref href="System.ServiceModel.Channels.CorrelationCallbackMessageProperty.BeginFinalizeCorrelation(System.ServiceModel.Channels.Message,System.TimeSpan,System.AsyncCallback,System.Object)"></xref> operation.'
     return:
       type: System.ServiceModel.Channels.Message
       description: The message that was prepared for correlation.
@@ -365,7 +365,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Called by a correlation protocol when all of the correlation information is available to construct the correlation.
-  remarks: This method calls <xref:System.ServiceModel.Channels.CorrelationCallbackMessageProperty.OnFinalizeCorrelation%2A> to construct the correlation. Applications must provide an implementation of <xref:System.ServiceModel.Channels.CorrelationCallbackMessageProperty.OnFinalizeCorrelation%2A>, which performs the correlation calculation of the specified message.
+  remarks: 'This method calls <xref:System.ServiceModel.Channels.CorrelationCallbackMessageProperty.OnFinalizeCorrelation%2A> to construct the correlation. Applications must provide an implementation of <xref:System.ServiceModel.Channels.CorrelationCallbackMessageProperty.OnFinalizeCorrelation%2A>, which performs the correlation calculation of the specified message.'
   syntax:
     content: public System.ServiceModel.Channels.Message FinalizeCorrelation (System.ServiceModel.Channels.Message message, TimeSpan timeout);
     parameters:
@@ -416,7 +416,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Determines whether the <xref href="System.ServiceModel.Channels.CorrelationCallbackMessageProperty"></xref> has all of the required correlation data.
-  remarks: When all required data has been added, the <xref:System.ServiceModel.Channels.CorrelationCallbackMessageProperty.NeededData%2A> list is empty and <xref:System.ServiceModel.Channels.CorrelationCallbackMessageProperty.IsFullyDefined%2A> returns `true`.
+  remarks: 'When all required data has been added, the <xref:System.ServiceModel.Channels.CorrelationCallbackMessageProperty.NeededData%2A> list is empty and <xref:System.ServiceModel.Channels.CorrelationCallbackMessageProperty.IsFullyDefined%2A> returns `true`.'
   syntax:
     content: public bool IsFullyDefined { get; }
     return:
@@ -545,8 +545,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: When overridden in a derived class, asynchronously performs the correlation calculation for the specified message.
-  remarks: This method is called by <xref:System.ServiceModel.Channels.CorrelationCallbackMessageProperty.BeginFinalizeCorrelation%2A>.
+  summary: 'When overridden in a derived class, asynchronously performs the correlation calculation for the specified message.'
+  remarks: 'This method is called by <xref:System.ServiceModel.Channels.CorrelationCallbackMessageProperty.BeginFinalizeCorrelation%2A>.'
   syntax:
     content: protected abstract IAsyncResult OnBeginFinalizeCorrelation (System.ServiceModel.Channels.Message message, TimeSpan timeout, AsyncCallback callback, object state);
     parameters:
@@ -602,14 +602,14 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: When overridden in a derived class, returns the message that was prepared asynchronously for correlation.
-  remarks: This method is called by <xref:System.ServiceModel.Channels.CorrelationCallbackMessageProperty.EndFinalizeCorrelation%2A>.
+  summary: 'When overridden in a derived class, returns the message that was prepared asynchronously for correlation.'
+  remarks: 'This method is called by <xref:System.ServiceModel.Channels.CorrelationCallbackMessageProperty.EndFinalizeCorrelation%2A>.'
   syntax:
     content: protected abstract System.ServiceModel.Channels.Message OnEndFinalizeCorrelation (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: The <xref href="System.IAsyncResult"></xref> that references the asynchronous <xref href="System.ServiceModel.Channels.CorrelationCallbackMessageProperty.BeginFinalizeCorrelation(System.ServiceModel.Channels.Message,System.TimeSpan,System.AsyncCallback,System.Object)"></xref> operation.
+      description: 'The <xref href="System.IAsyncResult"></xref> that references the asynchronous <xref href="System.ServiceModel.Channels.CorrelationCallbackMessageProperty.BeginFinalizeCorrelation(System.ServiceModel.Channels.Message,System.TimeSpan,System.AsyncCallback,System.Object)"></xref> operation.'
     return:
       type: System.ServiceModel.Channels.Message
       description: The correlated message.
@@ -650,8 +650,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: When overridden in a derived class, performs the correlation calculation for the specified message.
-  remarks: This method is called by <xref:System.ServiceModel.Channels.CorrelationCallbackMessageProperty.FinalizeCorrelation%2A>.
+  summary: 'When overridden in a derived class, performs the correlation calculation for the specified message.'
+  remarks: 'This method is called by <xref:System.ServiceModel.Channels.CorrelationCallbackMessageProperty.FinalizeCorrelation%2A>.'
   syntax:
     content: protected abstract System.ServiceModel.Channels.Message OnFinalizeCorrelation (System.ServiceModel.Channels.Message message, TimeSpan timeout);
     parameters:
@@ -710,7 +710,7 @@ items:
       description: The message that contains the <xref href="System.ServiceModel.Channels.Message.Properties"></xref> to inspect.
     - id: property
       type: System.ServiceModel.Channels.CorrelationCallbackMessageProperty
-      description: When this method returns, contains the <xref href="System.ServiceModel.Channels.CorrelationCallbackMessageProperty"></xref> contained in the specified message’s <xref href="System.ServiceModel.Channels.Message.Properties"></xref>; otherwise, `null`. This parameter is passed uninitialized.
+      description: 'When this method returns, contains the <xref href="System.ServiceModel.Channels.CorrelationCallbackMessageProperty"></xref> contained in the specified message’s <xref href="System.ServiceModel.Channels.Message.Properties"></xref>; otherwise, `null`. This parameter is passed uninitialized.'
     return:
       type: System.Boolean
       description: '`true` if the message’s <xref href="System.ServiceModel.Channels.Message.Properties"></xref> contain a <xref href="System.ServiceModel.Channels.CorrelationCallbackMessageProperty"></xref>; otherwise, `false`.'
@@ -760,7 +760,7 @@ items:
       description: The message properties to inspect.
     - id: property
       type: System.ServiceModel.Channels.CorrelationCallbackMessageProperty
-      description: When this method returns, contains the <xref href="System.ServiceModel.Channels.CorrelationCallbackMessageProperty"></xref> contained in the specified message properties; otherwise, `null`. This parameter is passed uninitialized.
+      description: 'When this method returns, contains the <xref href="System.ServiceModel.Channels.CorrelationCallbackMessageProperty"></xref> contained in the specified message properties; otherwise, `null`. This parameter is passed uninitialized.'
     return:
       type: System.Boolean
       description: '`true` if the message properties contain a <xref href="System.ServiceModel.Channels.CorrelationCallbackMessageProperty"></xref>; otherwise, `false`.'

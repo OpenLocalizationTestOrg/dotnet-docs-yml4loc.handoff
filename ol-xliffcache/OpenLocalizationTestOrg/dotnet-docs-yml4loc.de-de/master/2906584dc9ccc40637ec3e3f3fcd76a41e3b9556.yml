@@ -206,7 +206,7 @@ items:
     parameters:
     - id: connectionString
       type: System.String
-      description: The connection used to open the [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] database.
+      description: 'The connection used to open the [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] database.'
   overload: System.Data.SqlClient.SqlConnection.#ctor*
   exceptions: []
   version:
@@ -256,7 +256,7 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: Initializes a new instance of the <xref href="System.Data.SqlClient.SqlConnection"></xref> class given a connection string, that does not use `Integrated Security = true` and a <xref href="System.Data.SqlClient.SqlCredential"></xref> object that contains the user ID and password.
+  summary: 'Initializes a new instance of the <xref href="System.Data.SqlClient.SqlConnection"></xref> class given a connection string, that does not use `Integrated Security = true` and a <xref href="System.Data.SqlClient.SqlCredential"></xref> object that contains the user ID and password.'
   syntax:
     content: public SqlConnection (string connectionString, System.Data.SqlClient.SqlCredential cred);
     parameters:
@@ -689,7 +689,7 @@ items:
   - netstandard
   namespace: System.Data.SqlClient
   summary: Changes the current database for an open <xref href="System.Data.SqlClient.SqlConnection"></xref>.
-  remarks: The value supplied in the `database` parameter must be a valid database name. The `database` parameter cannot contain a null value, an empty string, or a string with only blank characters.
+  remarks: 'The value supplied in the `database` parameter must be a valid database name. The `database` parameter cannot contain a null value, an empty string, or a string with only blank characters.'
   example:
   - "The following example creates a <xref:System.Data.SqlClient.SqlConnection> and displays some of its read-only properties.  \n  \n [!code-csharp[Classic WebData SqlConnection.Database Example#1](~/samples/snippets/csharp/VS_Snippets_ADO.NET/Classic WebData SqlConnection.Database Example/CS/source.cs#1)]\n [!code-vb[Classic WebData SqlConnection.Database Example#1](~/samples/snippets/visualbasic/VS_Snippets_ADO.NET/Classic WebData SqlConnection.Database Example/VB/source.vb#1)]"
   syntax:
@@ -756,7 +756,7 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: Changes the [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] password for the user indicated in the <xref href="System.Data.SqlClient.SqlCredential"></xref> object.
+  summary: 'Changes the [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] password for the user indicated in the <xref href="System.Data.SqlClient.SqlCredential"></xref> object.'
   syntax:
     content: public static void ChangePassword (string connectionString, System.Data.SqlClient.SqlCredential credential, System.Security.SecureString newSecurePassword);
     parameters:
@@ -768,7 +768,7 @@ items:
       description: A <xref href="System.Data.SqlClient.SqlCredential"></xref> object.
     - id: newSecurePassword
       type: System.Security.SecureString
-      description: The new password. <code>newSecurePassword</code> must be read only. The password must also comply with any password security policy set on the server (for example, minimum length and requirements for specific characters).
+      description: 'The new password. <code>newSecurePassword</code> must be read only. The password must also comply with any password security policy set on the server (for example, minimum length and requirements for specific characters).'
   overload: System.Data.SqlClient.SqlConnection.ChangePassword*
   exceptions:
   - type: System.ArgumentException
@@ -776,7 +776,7 @@ items:
     description: "1.  The connection string contains any combination of `UserId`, `Password`, or `Integrated Security=true`.  \n  \n2.  The connection string contains `Context Connection=true`.  \n  \n3.  <code>newSecurePassword</code> is greater than 128 characters.  \n  \n4.  <code>newSecurePassword</code> is not read only.  \n  \n5.  <code>newSecurePassword</code> is an empty string."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: One of the parameters (<code>connectionString</code>, <code>credential</code>, or <code>newSecurePassword</code>) is null.
+    description: 'One of the parameters (<code>connectionString</code>, <code>credential</code>, or <code>newSecurePassword</code>) is null.'
   version:
   - netframework-4.5.1
   - netframework-4.5.2
@@ -812,7 +812,7 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: Changes the [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] password for the user indicated in the connection string to the supplied new password.
+  summary: 'Changes the [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] password for the user indicated in the connection string to the supplied new password.'
   remarks: "When you are using [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] on Windows Server, developers can take advantage of functionality that lets the client application supply both the current and a new password in order to change the existing password. Applications can implement functionality such as prompting the user for a new password during initial login if the old one has expired, and this operation can be completed without administrator intervention.  \n  \n The <xref:System.Data.SqlClient.SqlConnection.ChangePassword%2A> method changes the [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] password for the user indicated in the supplied `connectionString` parameter to the value supplied in the `newPassword` parameter. If the connection string includes the option for integrated security (that is, \"Integrated Security=True\" or the equivalent), an exception is thrown.  \n  \n To determine that the password has expired, calling the <xref:System.Data.SqlClient.SqlConnection.Open%2A> method raises a <xref:System.Data.SqlClient.SqlException>. In order to indicate that the password that is contained within the connection string must be reset, the <xref:System.Data.SqlClient.SqlException.Number%2A> property for the exception contains the status value 18487 or 18488. The first value (18487) indicates that the password has expired and the second (18488) indicates that the password must be reset before logging in.  \n  \n This method opens its own connection to the server, requests the password change, and closes the connection as soon as it has completed. This connection is not retrieved from, nor returned to, the [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] connection pool."
   example:
   - "The following is a simple example of changing a password:  \n  \n```  \nclass Program {  \n   static void Main(string[] args) {  \n      System.Data.SqlClient.SqlConnection.ChangePassword(  \n        \"Data Source=a_server;Initial Catalog=a_database;UID=user;PWD=old_password\",   \n       \"new_password\");  \n   }  \n}  \n  \n```  \n  \n```  \nModule Module1  \n    Sub Main()  \nSystem.Data.SqlClient.SqlConnection.ChangePassword(  \n        \"Data Source=a_server;Initial Catalog=a_database;UID=user;PWD=old_password\",   \n       \"new_password\")  \n    End Sub  \nEnd Module  \n  \n```  \n  \n The following console application demonstrates the issues involved in changing a user's password because the current password has expired.  \n  \n [!code-csharp[DataWorks SqlConnection.ChangePassword#1](~/samples/snippets/csharp/VS_Snippets_ADO.NET/DataWorks SqlConnection.ChangePassword/CS/source.cs#1)]\n [!code-vb[DataWorks SqlConnection.ChangePassword#1](~/samples/snippets/visualbasic/VS_Snippets_ADO.NET/DataWorks SqlConnection.ChangePassword/VB/source.vb#1)]"
@@ -824,7 +824,7 @@ items:
       description: The connection string that contains enough information to connect to the server that you want. The connection string must contain the user ID and the current password.
     - id: newPassword
       type: System.String
-      description: The new password to set. This password must comply with any password security policy set on the server, including minimum length, requirements for specific characters, and so on.
+      description: 'The new password to set. This password must comply with any password security policy set on the server, including minimum length, requirements for specific characters, and so on.'
   overload: System.Data.SqlClient.SqlConnection.ChangePassword*
   exceptions:
   - type: System.ArgumentException
@@ -877,7 +877,7 @@ items:
   - netstandard
   namespace: System.Data.SqlClient
   summary: Empties the connection pool.
-  remarks: <xref:System.Data.SqlClient.SqlConnection.ClearAllPools%2A> resets (or empties) the connection pool. If there are connections in use at the time of the call, they are marked appropriately and will be discarded (instead of being returned to the pool) when <xref:System.Data.SqlClient.SqlConnection.Close%2A> is called on them.
+  remarks: '<xref:System.Data.SqlClient.SqlConnection.ClearAllPools%2A> resets (or empties) the connection pool. If there are connections in use at the time of the call, they are marked appropriately and will be discarded (instead of being returned to the pool) when <xref:System.Data.SqlClient.SqlConnection.Close%2A> is called on them.'
   syntax:
     content: public static void ClearAllPools ();
     parameters: []
@@ -933,7 +933,7 @@ items:
   - netstandard
   namespace: System.Data.SqlClient
   summary: Empties the connection pool associated with the specified connection.
-  remarks: <xref:System.Data.SqlClient.SqlConnection.ClearPool%2A> clears the connection pool that is associated with the `connection`. If additional connections associated with `connection` are in use at the time of the call, they are marked appropriately and are discarded (instead of being returned to the pool) when <xref:System.Data.SqlClient.SqlConnection.Close%2A> is called on them.
+  remarks: '<xref:System.Data.SqlClient.SqlConnection.ClearPool%2A> clears the connection pool that is associated with the `connection`. If additional connections associated with `connection` are in use at the time of the call, they are marked appropriately and are discarded (instead of being returned to the pool) when <xref:System.Data.SqlClient.SqlConnection.Close%2A> is called on them.'
   syntax:
     content: public static void ClearPool (System.Data.SqlClient.SqlConnection connection);
     parameters:
@@ -991,7 +991,7 @@ items:
   - System.Data
   - netstandard
   namespace: System.Data.SqlClient
-  summary: The connection ID of the most recent connection attempt, regardless of whether the attempt succeeded or failed.
+  summary: 'The connection ID of the most recent connection attempt, regardless of whether the attempt succeeded or failed.'
   remarks: "<xref:System.Data.SqlClient.SqlConnection.ClientConnectionId%2A> works regardless of which version of the server you connect to, but extended events logs and entry on connectivity ring buffer errors will not be present in [!INCLUDE[sskatmai_r2](~/includes/sskatmai-r2-md.md)] and earlier.  \n  \n You can locate the connection ID in the extended events log to see if the failure was on the server if the extended event for logging connection ID is enabled. You can also locate the connection ID in the connection ring buffer ([Connectivity troubleshooting in SQL Server 2008 with the Connectivity Ring Buffer](http://go.microsoft.com/fwlink/?LinkId=207752)) for certain connection errors. If the connection ID is not in the connection ring buffer, you can assume a network error."
   syntax:
     content: public Guid ClientConnectionId { get; }
@@ -1108,7 +1108,7 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: Gets or sets the time-to-live for column encryption key entries in the column encryption key cache for the [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) feature. The default value is 2 hours. 0 means no caching at all.
+  summary: 'Gets or sets the time-to-live for column encryption key entries in the column encryption key cache for the [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) feature. The default value is 2 hours. 0 means no caching at all.'
   syntax:
     content: public static TimeSpan ColumnEncryptionKeyCacheTtl { get; set; }
     return:
@@ -1140,7 +1140,7 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: Gets or sets a value that indicates whether query metadata caching is enabled (true) or not (false) for parameterized queries running against [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) enabled databases. The default value is true.
+  summary: 'Gets or sets a value that indicates whether query metadata caching is enabled (true) or not (false) for parameterized queries running against [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) enabled databases. The default value is true.'
   remarks: "For parameterized queries, SqlClient makes a roundtrip to SQL Server for parameter metadata, to see which parameter it needs to encrypt and how (which keys and algorithms should be used). If the application calls the same query multiple times, an extra roundtrip is made to the server each time, which degrades application performance.  \n  \n With **ColumnEncryptionQueryMetadataCacheEnabled** set to true, if the same query is called multiple times, the roundtrip to the server will be made only once. The cache has a non-configurable Max size parameter that is set to 2000 queries."
   syntax:
     content: public static bool ColumnEncryptionQueryMetadataCacheEnabled { get; set; }
@@ -1173,7 +1173,7 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: Allows you to set a list of trusted key paths for a database server. If while processing an application query the driver receives a key path that is not on the list, the query will fail. This property provides additional protection against security attacks that involve a compromised SQL Server providing fake key paths, which may lead to leaking key store credentials.
+  summary: 'Allows you to set a list of trusted key paths for a database server. If while processing an application query the driver receives a key path that is not on the list, the query will fail. This property provides additional protection against security attacks that involve a compromised SQL Server providing fake key paths, which may lead to leaking key store credentials.'
   syntax:
     content: public static System.Collections.Generic.IDictionary<string,System.Collections.Generic.IList<string>> ColumnEncryptionTrustedMasterKeyPaths { get; }
     return:
@@ -1213,7 +1213,7 @@ items:
   - System.Data
   - netstandard
   namespace: System.Data.SqlClient
-  summary: Gets or sets the string used to open a [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] database.
+  summary: 'Gets or sets the string used to open a [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] database.'
   remarks: "The <xref:System.Data.SqlClient.SqlConnection.ConnectionString%2A> is similar to an OLE DB connection string, but is not identical. Unlike OLE DB or ADO, the connection string that is returned is the same as the user-set <xref:System.Data.SqlClient.SqlConnection.ConnectionString%2A>, minus security information if the Persist Security Info value is set to `false` (default). The [!INCLUDE[dnprdnshort](~/includes/dnprdnshort-md.md)] Data Provider for [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] does not persist or return the password in a connection string unless you set Persist Security Info to `true`.  \n  \n You can use the <xref:System.Data.SqlClient.SqlConnection.ConnectionString%2A> property to connect to a database. The following example illustrates a typical connection string.  \n  \n```  \n\"Persist Security Info=False;Integrated Security=true;Initial Catalog=Northwind;server=(local)\"  \n```  \n  \n Use the new <xref:System.Data.SqlClient.SqlConnectionStringBuilder> to construct valid connection strings at run time. For more information, see [Connection String Builders](~/docs/framework/data/adonet/connection-string-builders.md).  \n  \n The <xref:System.Data.SqlClient.SqlConnection.ConnectionString%2A> property can be set only when the connection is closed. Many of the connection string values have corresponding read-only properties. When the connection string is set, these properties are updated, except when an error is detected. In this case, none of the properties are updated. <xref:System.Data.SqlClient.SqlConnection> properties return only those settings that are contained in the <xref:System.Data.SqlClient.SqlConnection.ConnectionString%2A>.  \n  \n To connect to a local computer, specify \"(local)\" for the server. If a server name is not specified, a connection will be attempted to the default instance on the local computer.  \n  \n Resetting the <xref:System.Data.SqlClient.SqlConnection.ConnectionString%2A> on a closed connection resets all connection string values (and related properties) including the password. For example, if you set a connection string that includes \"Database= AdventureWorks\", and then reset the connection string to \"Data Source=myserver;Integrated Security=true\", the <xref:System.Data.SqlClient.SqlConnection.Database%2A> property is no longer set to \"AdventureWorks\".  \n  \n The connection string is parsed immediately after being set. If errors in syntax are found when parsing, a runtime exception, such as <xref:System.ArgumentException>, is generated. Other errors can be found only when an attempt is made to open the connection.  \n  \n The basic format of a connection string includes a series of keyword/value pairs separated by semicolons. The equal sign (=) connects each keyword and its value. To include values that contain a semicolon, single-quote character, or double-quote character, the value must be enclosed in double quotation marks. If the value contains both a semicolon and a double-quote character, the value can be enclosed in single quotation marks. The single quotation mark is also useful if the value starts with a double-quote character. Conversely, the double quotation mark can be used if the value starts with a single quotation mark. If the value contains both single-quote and double-quote characters, the quotation mark character used to enclose the value must be doubled every time it occurs within the value.  \n  \n To include preceding or trailing spaces in the string value, the value must be enclosed in either single quotation marks or double quotation marks. Any leading or trailing spaces around integer, Boolean, or enumerated values are ignored, even if enclosed in quotation marks. However, spaces within a string literal keyword or value are preserved. Single or double quotation marks may be used within a connection string without using delimiters (for example, Data Source= my'Server or Data Source= my\"Server), unless a quotation mark character is the first or last character in the value.  \n  \n Keywords are not case sensitive.  \n  \n The following table lists the valid names for keyword values within the <xref:System.Data.SqlClient.SqlConnection.ConnectionString%2A>.  \n  \n  The following list contains the valid names for connection pooling values within the <xref:System.Data.SqlClient.SqlConnection.ConnectionString%2A>. For more information, see [SQL Server Connection Pooling (ADO.NET)](~/docs/framework/data/adonet/sql-server-connection-pooling.md).  \n  \n-   Connection Lifetime (or Load Balance Timeout)  \n  \n-   Enlist  \n  \n-   Max Pool Size  \n  \n-   Min Pool Size  \n  \n-   Pooling  \n  \n When you are setting keyword or connection pooling values that require a Boolean value, you can use 'yes' instead of 'true', and 'no' instead of 'false'. Integer values are represented as strings.  \n  \n> [!NOTE]\n>  The [!INCLUDE[dnprdnshort](~/includes/dnprdnshort-md.md)] Data Provider for [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] uses its own protocol to communicate with [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)]. Therefore, it does not support the use of an ODBC data source name (DSN) when connecting to [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] because it does not add an ODBC layer.  \n  \n> [!NOTE]\n>  Universal data link (UDL) files are not supported for the [!INCLUDE[dnprdnshort](~/includes/dnprdnshort-md.md)] Data Provider for [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)].  \n  \n> [!CAUTION]\n>  In this release, the application should use caution when constructing a connection string based on user input (for example when retrieving user ID and password information from a dialog box, and appending it to the connection string). The application should make sure that a user cannot embed additional connection string parameters in these values (for example, entering a password as \"validpassword;database=somedb\" in an attempt to attach to a different database). If you need to construct connection strings based on user input, use the new <xref:System.Data.SqlClient.SqlConnectionStringBuilder>, which validates the connection string and helps to eliminate this problem. See [Connection String Builders](~/docs/framework/data/adonet/connection-string-builders.md) for more information."
   example:
   - "The following example creates a <xref:System.Data.SqlClient.SqlConnection> and sets the <xref:System.Data.SqlClient.SqlConnection.ConnectionString%2A> property before opening the connection.  \n  \n [!code-csharp[Classic WebData SqlConnection.ConnectionString Example#1](~/samples/snippets/csharp/VS_Snippets_ADO.NET/Classic WebData SqlConnection.ConnectionString Example/CS/source.cs#1)]\n [!code-vb[Classic WebData SqlConnection.ConnectionString Example#1](~/samples/snippets/visualbasic/VS_Snippets_ADO.NET/Classic WebData SqlConnection.ConnectionString Example/VB/source.vb#1)]"
@@ -1221,12 +1221,12 @@ items:
     content: public override string ConnectionString { get; set; }
     return:
       type: System.String
-      description: The connection string that includes the source database name, and other parameters needed to establish the initial connection. The default value is an empty string.
+      description: 'The connection string that includes the source database name, and other parameters needed to establish the initial connection. The default value is an empty string.'
   overload: System.Data.SqlClient.SqlConnection.ConnectionString*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: An invalid connection string argument has been supplied, or a required connection string argument has not been supplied.
+    description: 'An invalid connection string argument has been supplied, or a required connection string argument has not been supplied.'
   attributes: []
   version:
   - netcore-1.0
@@ -1278,7 +1278,7 @@ items:
   - netstandard
   namespace: System.Data.SqlClient
   summary: Gets the time to wait while trying to establish a connection before terminating the attempt and generating an error.
-  remarks: You can set the amount of time a connection waits to time out by using the `Connect Timeout` or `Connection Timeout` keywords in the connection string. A value of 0 indicates no limit, and should be avoided in a <xref:System.Data.SqlClient.SqlConnection.ConnectionString%2A> because an attempt to connect waits indefinitely.
+  remarks: 'You can set the amount of time a connection waits to time out by using the `Connect Timeout` or `Connection Timeout` keywords in the connection string. A value of 0 indicates no limit, and should be avoided in a <xref:System.Data.SqlClient.SqlConnection.ConnectionString%2A> because an attempt to connect waits indefinitely.'
   example:
   - "The following example creates a <xref:System.Data.SqlClient.SqlConnection> and sets the `Connection Timeout` to 30 seconds in the connection string. The code opens the connection and displays the <xref:System.Data.SqlClient.SqlConnection.ConnectionTimeout%2A> property in the console window.  \n  \n [!code-csharp[Classic WebData SqlConnection.ConnectionTimeout Example#1](~/samples/snippets/csharp/VS_Snippets_ADO.NET/Classic WebData SqlConnection.ConnectionTimeout Example/CS/source.cs#1)]\n [!code-vb[Classic WebData SqlConnection.ConnectionTimeout Example#1](~/samples/snippets/visualbasic/VS_Snippets_ADO.NET/Classic WebData SqlConnection.ConnectionTimeout Example/VB/source.vb#1)]"
   syntax:
@@ -1535,7 +1535,7 @@ items:
   - netstandard
   namespace: System.Data.SqlClient
   summary: Gets the name of the current database or the database to be used after a connection is opened.
-  remarks: The <xref:System.Data.SqlClient.SqlConnection.Database%2A> property updates dynamically. If you change the current database using a [!INCLUDE[tsql](~/includes/tsql-md.md)] statement or the <xref:System.Data.SqlClient.SqlConnection.ChangeDatabase%2A> method, an informational message is sent and the property is updated automatically.
+  remarks: 'The <xref:System.Data.SqlClient.SqlConnection.Database%2A> property updates dynamically. If you change the current database using a [!INCLUDE[tsql](~/includes/tsql-md.md)] statement or the <xref:System.Data.SqlClient.SqlConnection.ChangeDatabase%2A> method, an informational message is sent and the property is updated automatically.'
   example:
   - "The following example creates a <xref:System.Data.SqlClient.SqlConnection> and displays some of its read-only properties.  \n  \n [!code-csharp[Classic WebData SqlConnection.Database Example#1](~/samples/snippets/csharp/VS_Snippets_ADO.NET/Classic WebData SqlConnection.Database Example/CS/source.cs#1)]\n [!code-vb[Classic WebData SqlConnection.Database Example#1](~/samples/snippets/visualbasic/VS_Snippets_ADO.NET/Classic WebData SqlConnection.Database Example/VB/source.vb#1)]"
   syntax:
@@ -1595,11 +1595,8 @@ items:
   - System.Data
   - netstandard
   namespace: System.Data.SqlClient
-  summary: Gets the name of the instance of [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] to which to connect.
-  remarks: >-
-    > [!NOTE]
-
-    >  The <xref:System.Data.SqlClient.SqlConnection.DataSource%2A> property returns `null` if the connection string for the <xref:System.Data.SqlClient.SqlConnection> is "context connection=true".
+  summary: 'Gets the name of the instance of [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] to which to connect.'
+  remarks: "> [!NOTE]\n>  The <xref:System.Data.SqlClient.SqlConnection.DataSource%2A> property returns `null` if the connection string for the <xref:System.Data.SqlClient.SqlConnection> is \"context connection=true\"."
   example:
   - "The following example creates a <xref:System.Data.SqlClient.SqlConnection> and displays some of its read-only properties.  \n  \n [!code-csharp[Classic WebData SqlConnection.DataSource Example#1](~/samples/snippets/csharp/VS_Snippets_ADO.NET/Classic WebData SqlConnection.DataSource Example/CS/source.cs#1)]\n [!code-vb[Classic WebData SqlConnection.DataSource Example#1](~/samples/snippets/visualbasic/VS_Snippets_ADO.NET/Classic WebData SqlConnection.DataSource Example/VB/source.vb#1)]"
   syntax:
@@ -1609,7 +1606,7 @@ items:
       public override string DataSource { get; }
     return:
       type: System.String
-      description: The name of the instance of [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] to which to connect. The default value is an empty string.
+      description: 'The name of the instance of [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] to which to connect. The default value is an empty string.'
   overload: System.Data.SqlClient.SqlConnection.DataSource*
   exceptions: []
   attributes:
@@ -1906,7 +1903,7 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: Returns schema information for the data source of this <xref href="System.Data.SqlClient.SqlConnection"></xref>. For more information about scheme, see [SQL Server Schema Collections](http://msdn.microsoft.com/library/ms254969.aspx).
+  summary: 'Returns schema information for the data source of this <xref href="System.Data.SqlClient.SqlConnection"></xref>. For more information about scheme, see [SQL Server Schema Collections](http://msdn.microsoft.com/library/ms254969.aspx).'
   syntax:
     content: public override System.Data.DataTable GetSchema ();
     parameters: []
@@ -2075,7 +2072,7 @@ items:
   - System.Data
   - netstandard
   namespace: System.Data.SqlClient
-  summary: Occurs when [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] returns a warning or informational message.
+  summary: 'Occurs when [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] returns a warning or informational message.'
   remarks: "Clients that want to process warnings or informational messages sent by the server should create an <xref:System.Data.SqlClient.SqlInfoMessageEventHandler> delegate to listen to this event.  \n  \n The <xref:System.Data.SqlClient.SqlConnection.InfoMessage> event occurs when a message with a severity of 10 or less is returned by [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)]. Messages that have a severity between 11 and 20 raise an error and messages that have a severity over 20 causes the connection to close. For more information on [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] error levels, see \"Database Engine Error Severities\" in [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] Books Online.  \n  \n For more information and an example, see [Connection Events](~/docs/framework/data/adonet/connection-events.md)."
   syntax:
     content: public event System.Data.SqlClient.SqlInfoMessageEventHandler InfoMessage;
@@ -2199,7 +2196,7 @@ items:
   - System.Data
   - netstandard
   namespace: System.Data.SqlClient
-  summary: An asynchronous version of <xref href="System.Data.SqlClient.SqlConnection.Open"></xref>, which opens a database connection with the property settings specified by the <xref href="System.Data.SqlClient.SqlConnection.ConnectionString"></xref>. The cancellation token can be used to request that the operation be abandoned before the connection timeout elapses.  Exceptions will be propagated via the returned Task. If the connection timeout time elapses without successfully connecting, the returned Task will be marked as faulted with an Exception. The implementation returns a Task without blocking the calling thread for both pooled and non-pooled connections.
+  summary: 'An asynchronous version of <xref href="System.Data.SqlClient.SqlConnection.Open"></xref>, which opens a database connection with the property settings specified by the <xref href="System.Data.SqlClient.SqlConnection.ConnectionString"></xref>. The cancellation token can be used to request that the operation be abandoned before the connection timeout elapses.  Exceptions will be propagated via the returned Task. If the connection timeout time elapses without successfully connecting, the returned Task will be marked as faulted with an Exception. The implementation returns a Task without blocking the calling thread for both pooled and non-pooled connections.'
   remarks: "After calling <xref:System.Data.SqlClient.SqlConnection.OpenAsync%2A>, <xref:System.Data.SqlClient.SqlConnection.State%2A> must return <xref:System.Data.ConnectionState.Connecting> until the returned <xref:System.Threading.Tasks.Task> is completed. Then, if the connection was successful, <xref:System.Data.SqlClient.SqlConnection.State%2A> must return <xref:System.Data.ConnectionState.Open>. If the connection fails, <xref:System.Data.SqlClient.SqlConnection.State%2A> must return <xref:System.Data.ConnectionState.Closed>.  \n  \n A call to <xref:System.Data.SqlClient.SqlConnection.Close%2A> will attempt to cancel or close the corresponding <xref:System.Data.SqlClient.SqlConnection.OpenAsync%2A> call.  \n  \n For more information about asynchronous programming in the [!INCLUDE[dnprdnshort](~/includes/dnprdnshort-md.md)] Data Provider for [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)], see [Asynchronous Programming](~/docs/framework/data/adonet/asynchronous-programming.md)."
   syntax:
     content: public override System.Threading.Tasks.Task OpenAsync (System.Threading.CancellationToken cancellationToken);
@@ -2217,7 +2214,7 @@ items:
     description: "Calling <xref href=\"System.Data.SqlClient.SqlConnection.OpenAsync(System.Threading.CancellationToken)\"></xref> more than once for the same instance before task completion.  \n  \n `Context Connection=true` is specified in the connection string.  \n  \n A connection was not available from the connection pool before the connection time out elapsed."
   - type: System.Data.SqlClient.SqlException
     commentId: T:System.Data.SqlClient.SqlException
-    description: Any error returned by [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] that occurred while opening the connection.
+    description: 'Any error returned by [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] that occurred while opening the connection.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -2261,7 +2258,7 @@ items:
   - System.Data
   - netstandard
   namespace: System.Data.SqlClient
-  summary: Gets the size (in bytes) of network packets used to communicate with an instance of [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)].
+  summary: 'Gets the size (in bytes) of network packets used to communicate with an instance of [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)].'
   remarks: "If an application performs bulk copy operations, or sends or receives lots of text or image data, a packet size larger than the default may improve efficiency because it causes fewer network read and write operations. If an application sends and receives small amounts of information, you can set the packet size to 512 bytes (using the Packet Size value in the <xref:System.Data.SqlClient.SqlConnection.ConnectionString%2A>), which is sufficient for most data transfer operations. For most applications, the default packet size is best.  \n  \n <xref:System.Data.SqlClient.SqlConnection.PacketSize%2A> may be a value in the range of 512 and 32767 bytes. An exception is generated if the value is outside this range.  \n  \n Setting the default value to a number greater than 8000 will cause the packets to use the MultiPage allocator on the instance of [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] instead of the much more efficient SinglePage allocator, reducing the overall scalability of the [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)]. For more information on how [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] uses memory, see [Memory Architecture](http://go.microsoft.com/fwlink/?LinkId=143705) in [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] Books Online."
   example:
   - "The following example creates a <xref:System.Data.SqlClient.SqlConnection>, including setting the `Packet Size` to 512 in the connection string. It displays the <xref:System.Data.SqlClient.SqlConnection.PacketSize%2A> and <xref:System.Data.SqlClient.SqlConnection.ServerVersion%2A> properties in the console window.  \n  \n [!code-csharp[Classic WebData SqlConnection.PacketSize Example#1](~/samples/snippets/csharp/VS_Snippets_ADO.NET/Classic WebData SqlConnection.PacketSize Example/CS/source.cs#1)]\n [!code-vb[Classic WebData SqlConnection.PacketSize Example#1](~/samples/snippets/visualbasic/VS_Snippets_ADO.NET/Classic WebData SqlConnection.PacketSize Example/VB/source.vb#1)]"
@@ -2360,8 +2357,8 @@ items:
   - System.Data
   - netstandard
   namespace: System.Data.SqlClient
-  summary: If statistics gathering is enabled, all values are reset to zero.
-  remarks: If statistics gathering is not enabled and this method is called, no error is thrown.
+  summary: 'If statistics gathering is enabled, all values are reset to zero.'
+  remarks: 'If statistics gathering is not enabled and this method is called, no error is thrown.'
   syntax:
     content: public void ResetStatistics ();
     parameters: []
@@ -2417,7 +2414,7 @@ items:
   - netstandard
   namespace: System.Data.SqlClient
   summary: Returns a name value pair collection of statistics at the point in time the method is called.
-  remarks: When this method is called, the values retrieved are those at the current point in time. If you continue using the connection, the values are incorrect. You need to re-execute the method to obtain the most current values.
+  remarks: 'When this method is called, the values retrieved are those at the current point in time. If you continue using the connection, the values are incorrect. You need to re-execute the method to obtain the most current values.'
   syntax:
     content: public System.Collections.IDictionary RetrieveStatistics ();
     parameters: []
@@ -2475,7 +2472,7 @@ items:
   - System.Data
   - netstandard
   namespace: System.Data.SqlClient
-  summary: Gets a string that contains the version of the instance of [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] to which the client is connected.
+  summary: 'Gets a string that contains the version of the instance of [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] to which the client is connected.'
   remarks: "The version is of the form *##.##.####*, where the first two digits are the major version, the next two digits are the minor version, and the last four digits are the release version. The string is of the form *major.minor.build*, where major and minor are exactly two digits and build is exactly four digits.  \n  \n <xref:System.Data.SqlClient.SqlConnection.ServerVersion%2A> was called while the returned Task was not completed and the connection was not opened after a call to <xref:System.Data.SqlClient.SqlConnection.OpenAsync%2A>."
   example:
   - "The following example creates a <xref:System.Data.SqlClient.SqlConnection> and displays the <xref:System.Data.SqlClient.SqlConnection.ServerVersion%2A> property.  \n  \n [!code-csharp[Classic WebData ISqlConnection.ServerVersion Example#1](~/samples/snippets/csharp/VS_Snippets_ADO.NET/Classic WebData ISqlConnection.ServerVersion Example/CS/source.cs#1)]\n [!code-vb[Classic WebData ISqlConnection.ServerVersion Example#1](~/samples/snippets/visualbasic/VS_Snippets_ADO.NET/Classic WebData ISqlConnection.ServerVersion Example/VB/source.vb#1)]"
@@ -2486,7 +2483,7 @@ items:
       public override string ServerVersion { get; }
     return:
       type: System.String
-      description: The version of the instance of [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)].
+      description: 'The version of the instance of [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)].'
   overload: System.Data.SqlClient.SqlConnection.ServerVersion*
   exceptions:
   - type: System.InvalidOperationException
@@ -2544,7 +2541,7 @@ items:
   - netstandard
   namespace: System.Data.SqlClient
   summary: Indicates the state of the <xref href="System.Data.SqlClient.SqlConnection"></xref> during the most recent network operation performed on the connection.
-  remarks: Returns an <xref:System.Data.ConnectionState> enumeration indicating the state of the <xref:System.Data.SqlClient.SqlConnection>. Closing and reopening the connection will refresh the value of <xref:System.Data.SqlClient.SqlConnection.State%2A>.
+  remarks: 'Returns an <xref:System.Data.ConnectionState> enumeration indicating the state of the <xref:System.Data.SqlClient.SqlConnection>. Closing and reopening the connection will refresh the value of <xref:System.Data.SqlClient.SqlConnection.State%2A>.'
   syntax:
     content: >-
       [System.ComponentModel.Browsable(false)]
@@ -2606,8 +2603,8 @@ items:
   - System.Data
   - netstandard
   namespace: System.Data.SqlClient
-  summary: When set to `true`, enables statistics gathering for the current connection.
-  remarks: Enabling statistics gathering has a minor, but measurable effect on performance and therefore should be enabled only when it is required.
+  summary: 'When set to `true`, enables statistics gathering for the current connection.'
+  remarks: 'Enabling statistics gathering has a minor, but measurable effect on performance and therefore should be enabled only when it is required.'
   syntax:
     content: public bool StatisticsEnabled { get; set; }
     return:
@@ -2666,14 +2663,14 @@ items:
   - netstandard
   namespace: System.Data.SqlClient
   summary: Gets a string that identifies the database client.
-  remarks: The string typically contains the network name of the client. The <xref:System.Data.SqlClient.SqlConnection.WorkstationId%2A> property corresponds to the `Workstation ID` connection string property.
+  remarks: 'The string typically contains the network name of the client. The <xref:System.Data.SqlClient.SqlConnection.WorkstationId%2A> property corresponds to the `Workstation ID` connection string property.'
   example:
   - "The following example creates a <xref:System.Data.SqlClient.SqlConnection> and displays the <xref:System.Data.SqlClient.SqlConnection.WorkstationId%2A> property.  \n  \n [!code-csharp[Classic WebData SqlConnection.WorkstationId Example#1](~/samples/snippets/csharp/VS_Snippets_ADO.NET/Classic WebData SqlConnection.WorkstationId Example/CS/source.cs#1)]\n [!code-vb[Classic WebData SqlConnection.WorkstationId Example#1](~/samples/snippets/visualbasic/VS_Snippets_ADO.NET/Classic WebData SqlConnection.WorkstationId Example/VB/source.vb#1)]"
   syntax:
     content: public string WorkstationId { get; }
     return:
       type: System.String
-      description: A string that identifies the database client. If not specified, the name of the client computer. If neither is specified, the value is an empty string.
+      description: 'A string that identifies the database client. If not specified, the name of the client computer. If neither is specified, the value is an empty string.'
   overload: System.Data.SqlClient.SqlConnection.WorkstationId*
   exceptions: []
   attributes: []

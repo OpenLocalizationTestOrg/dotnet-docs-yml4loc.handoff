@@ -372,7 +372,7 @@ items:
   - System.Runtime.Extensions
   namespace: System.IO
   summary: Stores the newline characters used for this `TextWriter`.
-  remarks: For a list of common I/O tasks, see [Common I/O Tasks](~/docs/standard/io/common-i-o-tasks.md).
+  remarks: 'For a list of common I/O tasks, see [Common I/O Tasks](~/docs/standard/io/common-i-o-tasks.md).'
   syntax:
     content: protected char[] CoreNewLine;
     return:
@@ -594,7 +594,7 @@ items:
   - netstandard
   - System.Runtime.Extensions
   namespace: System.IO
-  summary: When overridden in a derived class, returns the character encoding in which the output is written.
+  summary: 'When overridden in a derived class, returns the character encoding in which the output is written.'
   remarks: "This property is necessary for some XML scenarios where a header must be written containing the encoding used by the `TextWriter`. This enables the XML code to consume an arbitrary `TextWriter` and generate the correct XML header.  \n  \n For a list of common I/O tasks, see [Common I/O Tasks](~/docs/standard/io/common-i-o-tasks.md)."
   syntax:
     content: public abstract System.Text.Encoding Encoding { get; }
@@ -834,7 +834,7 @@ items:
     content: public virtual IFormatProvider FormatProvider { get; }
     return:
       type: System.IFormatProvider
-      description: An <xref href="System.IFormatProvider"></xref> object for a specific culture, or the formatting of the current culture if no other culture is specified.
+      description: 'An <xref href="System.IFormatProvider"></xref> object for a specific culture, or the formatting of the current culture if no other culture is specified.'
   overload: System.IO.TextWriter.FormatProvider*
   exceptions: []
   version:
@@ -978,7 +978,7 @@ items:
   - netstandard
   - System.Runtime.Extensions
   namespace: System.IO
-  summary: Provides a `TextWriter` with no backing store that can be written to, but not read from.
+  summary: 'Provides a `TextWriter` with no backing store that can be written to, but not read from.'
   remarks: "Use `Null` to redirect output to a stream that will not consume any operating system resources.  \n  \n When the <xref:System.IO.TextWriter.Write%2A?displayProperty=fullName> methods are invoked on `Null`, the call simply returns, and no data is actually written to any backing store.  \n  \n For a list of common I/O tasks, see [Common I/O Tasks](~/docs/standard/io/common-i-o-tasks.md)."
   syntax:
     content: public static readonly System.IO.TextWriter Null;
@@ -1115,7 +1115,7 @@ items:
   - netstandard
   - System.Runtime.Extensions
   namespace: System.IO
-  summary: Writes a formatted string to the text string or stream, using the same semantics as the <xref href="System.String.Format(System.String,System.Object,System.Object,System.Object)"></xref> method.
+  summary: 'Writes a formatted string to the text string or stream, using the same semantics as the <xref href="System.String.Format(System.String,System.Object,System.Object,System.Object)"></xref> method.'
   remarks: "This method uses composite formatting to convert the value of an object to its string representation and to embed that representation in a string. .NET provides extensive formatting support, which is described in greater detail in the following formatting topics:  \n  \n-   For more information about the composite formatting feature, see [Composite Formatting](~/docs/standard/base-types/composite-formatting.md).  \n  \n-   For more information about numeric format specifiers, see [Standard Numeric Format Strings](~/docs/standard/base-types/standard-numeric-format-strings.md) and [Custom Numeric Format Strings](~/docs/standard/base-types/custom-numeric-format-strings.md).  \n  \n-   For more information about date and time format specifiers, see [Standard Date and Time Format Strings](~/docs/standard/base-types/standard-date-and-time-format-strings.md) and [Custom Date and Time Format Strings](~/docs/standard/base-types/custom-date-and-time-format-strings.md).  \n  \n-   For more information about enumeration format specifiers, see [Enumeration Format Strings](~/docs/standard/base-types/enumeration-format-strings.md).  \n  \n-   For more information about formatting, see [Formatting Types](~/docs/standard/base-types/formatting-types.md).  \n  \n The `format` parameter consists of zero or more runs of text intermixed with zero or more indexed placeholders, called format items, that correspond to an object in the parameter list of this method. The formatting process replaces each format item with the string representation of the value of the corresponding object.  \n  \n The syntax of a format item is as follows:  \n  \n {*index*[,*length*][:*formatString*]}  \n  \n Elements in square brackets are optional. The following table describes each element. For more information about the composite formatting feature, including the syntax of a format item, see [Composite Formatting](~/docs/standard/base-types/composite-formatting.md).  \n  \n|Element|Description|  \n|-------------|-----------------|  \n|index|The zero-based position in the parameter list of the object to be formatted. If the object specified by *index* is `null`, the format item is replaced by <xref:System.String?displayProperty=fullName>. Because this overload has three objects in its parameter list, the value of *index* must always be 0, 1, or 2. If there is no parameter in the *index* position, a <xref:System.FormatException> is thrown.|  \n|,*length*|The minimum number of characters in the string representation of the parameter. If positive, the parameter is right-aligned; if negative, it is left-aligned.|  \n|:*formatString*|A standard or custom format string that is supported by the object to be formatted. Possible values for *formatString* are the same as the values supported by the object's `ToString(string format)` method. If *formatString* is not specified and the object to be formatted implements the <xref:System.IFormattable> interface, `null` is passed as the value of the `format` parameter that is used as the <xref:System.IFormattable.ToString%2A?displayProperty=fullName> format string.|  \n  \n The leading and trailing brace characters, \"{\" and \"}\", are required. To specify a single literal brace character in `format`, specify two leading or trailing brace characters; that is, \"{{\" or \"}}\".  \n  \n This method does not search the specified string  for individual newline characters (hexadecimal 0x000a) and replace them with <xref:System.IO.TextWriter.NewLine%2A?displayProperty=fullName>.  \n  \n If a specified object is not referenced in the format string, it is ignored.  \n  \n For a list of common I/O tasks, see [Common I/O Tasks](~/docs/standard/io/common-i-o-tasks.md)."
   syntax:
     content: public virtual void Write (string format, object arg0, object arg1, object arg2);
@@ -1303,7 +1303,7 @@ items:
   - netstandard
   - System.Runtime.Extensions
   namespace: System.IO
-  summary: Writes a formatted string to the text string or stream, using the same semantics as the <xref href="System.String.Format(System.String,System.Object[])"></xref> method.
+  summary: 'Writes a formatted string to the text string or stream, using the same semantics as the <xref href="System.String.Format(System.String,System.Object[])"></xref> method.'
   remarks: "This method uses composite formatting to convert the value of an object to its string representation and to embed that representation in a string. .NET provides extensive formatting support, which is described in greater detail in the following formatting topics:  \n  \n-   For more information about the composite formatting feature, see [Composite Formatting](~/docs/standard/base-types/composite-formatting.md).  \n  \n-   For more information about numeric format specifiers, see [Standard Numeric Format Strings](~/docs/standard/base-types/standard-numeric-format-strings.md) and [Custom Numeric Format Strings](~/docs/standard/base-types/custom-numeric-format-strings.md).  \n  \n-   For more information about date and time format specifiers, see [Standard Date and Time Format Strings](~/docs/standard/base-types/standard-date-and-time-format-strings.md) and [Custom Date and Time Format Strings](~/docs/standard/base-types/custom-date-and-time-format-strings.md).  \n  \n-   For more information about enumeration format specifiers, see [Enumeration Format Strings](~/docs/standard/base-types/enumeration-format-strings.md).  \n  \n-   For more information about formatting, see [Formatting Types](~/docs/standard/base-types/formatting-types.md).  \n  \n The `format` parameter consists of zero or more runs of text intermixed with zero or more indexed placeholders, called format items, that correspond to an object in the parameter list of this method. The formatting process replaces each format item with the string representation of the value of the corresponding object.  \n  \n The syntax of a format item is as follows:  \n  \n {*index*[,*length*][:*formatString*]}  \n  \n Elements in square brackets are optional. The following table describes each element. For more information about the composite formatting feature, including the syntax of a format item, see [Composite Formatting](~/docs/standard/base-types/composite-formatting.md).  \n  \n|Element|Description|  \n|-------------|-----------------|  \n|index|The zero-based position in the parameter list of the object to be formatted. If the object specified by *index* is `null`, the format item is replaced by <xref:System.String?displayProperty=fullName>. Because this overload has an array in its parameter list, the value of *index* must always be less than the length of the array. If there is no parameter in the *index* position, a <xref:System.FormatException> is thrown.|  \n|,*length*|The minimum number of characters in the string representation of the parameter. If positive, the parameter is right-aligned; if negative, it is left-aligned.|  \n|:*formatString*|A standard or custom format string that is supported by the object to be formatted. Possible values for *formatString* are the same as the values supported by the object's `ToString(string format)` method. If *formatString* is not specified and the object to be formatted implements the <xref:System.IFormattable> interface, `null` is passed as the value of the `format` parameter that is used as the <xref:System.IFormattable.ToString%2A?displayProperty=fullName> format string.|  \n  \n The leading and trailing brace characters, \"{\" and \"}\", are required. To specify a single literal brace character in `format`, specify two leading or trailing brace characters; that is, \"{{\" or \"}}\".  \n  \n This method does not search the specified string for individual newline characters (hexadecimal 0x000a) and replace them with <xref:System.IO.TextWriter.NewLine%2A?displayProperty=fullName>.  \n  \n If a specified object is not referenced in the format string, it is ignored.  \n  \n For a list of common I/O tasks, see [Common I/O Tasks](~/docs/standard/io/common-i-o-tasks.md)."
   syntax:
     content: public virtual void Write (string format, object[] arg);
@@ -1394,7 +1394,7 @@ items:
   - netstandard
   - System.Runtime.Extensions
   namespace: System.IO
-  summary: Writes a formatted string to the text string or stream, using the same semantics as the <xref href="System.String.Format(System.String,System.Object)"></xref> method.
+  summary: 'Writes a formatted string to the text string or stream, using the same semantics as the <xref href="System.String.Format(System.String,System.Object)"></xref> method.'
   remarks: "This method uses composite formatting to convert the value of an object to its string representation and to embed that representation in a string. .NET provides extensive formatting support, which is described in greater detail in the following formatting topics:  \n  \n-   For more information about the composite formatting feature, see [Composite Formatting](~/docs/standard/base-types/composite-formatting.md).  \n  \n-   For more information about numeric format specifiers, see [Standard Numeric Format Strings](~/docs/standard/base-types/standard-numeric-format-strings.md) and [Custom Numeric Format Strings](~/docs/standard/base-types/custom-numeric-format-strings.md).  \n  \n-   For more information about date and time format specifiers, see [Standard Date and Time Format Strings](~/docs/standard/base-types/standard-date-and-time-format-strings.md) and [Custom Date and Time Format Strings](~/docs/standard/base-types/custom-date-and-time-format-strings.md).  \n  \n-   For more information about enumeration format specifiers, see [Enumeration Format Strings](~/docs/standard/base-types/enumeration-format-strings.md).  \n  \n-   For more information about formatting, see [Formatting Types](~/docs/standard/base-types/formatting-types.md).  \n  \n The `format` parameter consists of zero or more runs of text intermixed with zero or more indexed placeholders, called format items, that correspond to an object in the parameter list of this method. The formatting process replaces each format item with the string representation of the value of the corresponding object.  \n  \n The syntax of a format item is as follows:  \n  \n {*index*[,*length*][:*formatString*]}  \n  \n Elements in square brackets are optional. The following table describes each element. For more information about the composite formatting feature, including the syntax of a format item, see [Composite Formatting](~/docs/standard/base-types/composite-formatting.md).  \n  \n|Element|Description|  \n|-------------|-----------------|  \n|index|The zero-based position in the parameter list of the object to be formatted. If the object specified by *index* is `null`, the format item is replaced by <xref:System.String?displayProperty=fullName>. Because this overload has only a single object in its parameter list, the value of *index* must always be 0. If there is no parameter in the *index* position, a <xref:System.FormatException> is thrown.|  \n|,*length*|The minimum number of characters in the string representation of the parameter. If positive, the parameter is right-aligned; if negative, it is left-aligned.|  \n|:*formatString*|A standard or custom format string that is supported by the object to be formatted. Possible values for *formatString* are the same as the values supported by the object's `ToString(string format)` method. If *formatString* is not specified and the object to be formatted implements the <xref:System.IFormattable> interface, `null` is passed as the value of the `format` parameter that is used as the <xref:System.IFormattable.ToString%2A?displayProperty=fullName> format string.|  \n  \n The leading and trailing brace characters, \"{\" and \"}\", are required. To specify a single literal brace character in `format`, specify two leading or trailing brace characters; that is, \"{{\" or \"}}\".  \n  \n . This method does not search the specified string for individual newline characters (hexadecimal 0x000a) and replace them with <xref:System.IO.TextWriter.NewLine%2A?displayProperty=fullName>.  \n  \n If a specified object is not referenced in the format string, it is ignored.  \n  \n For a list of common I/O tasks, see [Common I/O Tasks](~/docs/standard/io/common-i-o-tasks.md)."
   syntax:
     content: public virtual void Write (string format, object arg0);
@@ -1817,7 +1817,7 @@ items:
   - netstandard
   - System.Runtime.Extensions
   namespace: System.IO
-  summary: Writes a formatted string to the text string or stream, using the same semantics as the <xref href="System.String.Format(System.String,System.Object,System.Object)"></xref> method.
+  summary: 'Writes a formatted string to the text string or stream, using the same semantics as the <xref href="System.String.Format(System.String,System.Object,System.Object)"></xref> method.'
   remarks: "This method uses composite formatting to convert the value of an object to its string representation and to embed that representation in a string. .NET provides extensive formatting support, which is described in greater detail in the following formatting topics:  \n  \n-   For more information about the composite formatting feature, see [Composite Formatting](~/docs/standard/base-types/composite-formatting.md).  \n  \n-   For more information about numeric format specifiers, see [Standard Numeric Format Strings](~/docs/standard/base-types/standard-numeric-format-strings.md) and [Custom Numeric Format Strings](~/docs/standard/base-types/custom-numeric-format-strings.md).  \n  \n-   For more information about date and time format specifiers, see [Standard Date and Time Format Strings](~/docs/standard/base-types/standard-date-and-time-format-strings.md) and [Custom Date and Time Format Strings](~/docs/standard/base-types/custom-date-and-time-format-strings.md).  \n  \n-   For more information about enumeration format specifiers, see [Enumeration Format Strings](~/docs/standard/base-types/enumeration-format-strings.md).  \n  \n-   For more information about formatting, see [Formatting Types](~/docs/standard/base-types/formatting-types.md).  \n  \n The `format` parameter consists of zero or more runs of text intermixed with zero or more indexed placeholders, called format items, that correspond to an object in the parameter list of this method. The formatting process replaces each format item with the string representation of the value of the corresponding object.  \n  \n The syntax of a format item is as follows:  \n  \n {*index*[,*length*][:*formatString*]}  \n  \n Elements in square brackets are optional. The following table describes each element. For more information about the composite formatting feature, including the syntax of a format item, see [Composite Formatting](~/docs/standard/base-types/composite-formatting.md).  \n  \n|Element|Description|  \n|-------------|-----------------|  \n|index|The zero-based position in the parameter list of the object to be formatted. If the object specified by *index* is `null`, the format item is replaced by <xref:System.String?displayProperty=fullName>. Because this overload has two objects in its parameter list, the value of *index* must always be 0 or 1. If there is no parameter in the *index* position, a <xref:System.FormatException> is thrown.|  \n|,*length*|The minimum number of characters in the string representation of the parameter. If positive, the parameter is right-aligned; if negative, it is left-aligned.|  \n|:*formatString*|A standard or custom format string that is supported by the object to be formatted. Possible values for *formatString* are the same as the values supported by the object's `ToString(string format)` method. If *formatString* is not specified and the object to be formatted implements the <xref:System.IFormattable> interface, `null` is passed as the value of the `format` parameter that is used as the <xref:System.IFormattable.ToString%2A?displayProperty=fullName> format string.|  \n  \n The leading and trailing brace characters, \"{\" and \"}\", are required. To specify a single literal brace character in `format`, specify two leading or trailing brace characters; that is, \"{{\" or \"}}\".  \n  \n This method does not search the specified string for individual newline characters (hexadecimal 0x000a) and replace them with <xref:System.IO.TextWriter.NewLine%2A?displayProperty=fullName>.  \n  \n If a specified object is not referenced in the format string, it is ignored.  \n  \n For a list of common I/O tasks, see [Common I/O Tasks](~/docs/standard/io/common-i-o-tasks.md)."
   syntax:
     content: public virtual void Write (string format, object arg0, object arg1);
@@ -2152,7 +2152,7 @@ items:
   - System.Runtime.Extensions
   namespace: System.IO
   summary: Writes the text representation of a decimal value to the text string or stream.
-  remarks: The <xref:System.IO.TextWriter.FormatProvider%2A> property, if not `null`, specifies the culture-specific formatting.
+  remarks: 'The <xref:System.IO.TextWriter.FormatProvider%2A> property, if not `null`, specifies the culture-specific formatting.'
   syntax:
     content: public virtual void Write (decimal value);
     parameters:
@@ -2562,7 +2562,7 @@ items:
   - System.Runtime.Extensions
   namespace: System.IO
   summary: Writes a subarray of characters to the text string or stream asynchronously.
-  remarks: The <xref:System.IO.TextWriter> class is an abstract class. Therefore, you do not instantiate it in your code. For an example of using the <xref:System.IO.TextWriter.WriteAsync%2A> method, see the <xref:System.IO.StreamWriter.WriteAsync%2A?displayProperty=fullName> method.
+  remarks: 'The <xref:System.IO.TextWriter> class is an abstract class. Therefore, you do not instantiate it in your code. For an example of using the <xref:System.IO.TextWriter.WriteAsync%2A> method, see the <xref:System.IO.StreamWriter.WriteAsync%2A?displayProperty=fullName> method.'
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(false)]
@@ -2667,7 +2667,7 @@ items:
   - System.Runtime.Extensions
   namespace: System.IO
   summary: Writes a string to the text string or stream asynchronously.
-  remarks: The <xref:System.IO.TextWriter> class is an abstract class. Therefore, you do not instantiate it in your code. For an example of using the <xref:System.IO.TextWriter.WriteAsync%2A> method, see the <xref:System.IO.StreamWriter.WriteAsync%2A?displayProperty=fullName> method.
+  remarks: 'The <xref:System.IO.TextWriter> class is an abstract class. Therefore, you do not instantiate it in your code. For an example of using the <xref:System.IO.TextWriter.WriteAsync%2A> method, see the <xref:System.IO.StreamWriter.WriteAsync%2A?displayProperty=fullName> method.'
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(false)]
@@ -2676,7 +2676,7 @@ items:
     parameters:
     - id: value
       type: System.String
-      description: The string to write. If <code>value</code> is `null`, nothing is written to the text stream.
+      description: 'The string to write. If <code>value</code> is `null`, nothing is written to the text stream.'
     return:
       type: System.Threading.Tasks.Task
       description: A task that represents the asynchronous write operation.
@@ -2757,7 +2757,7 @@ items:
   - System.Runtime.Extensions
   namespace: System.IO
   summary: Writes a character to the text string or stream asynchronously.
-  remarks: The <xref:System.IO.TextWriter> class is an abstract class. Therefore, you do not instantiate it in your code. For an example of using the <xref:System.IO.TextWriter.WriteAsync%2A> method, see the <xref:System.IO.StreamWriter.WriteAsync%2A?displayProperty=fullName> method.
+  remarks: 'The <xref:System.IO.TextWriter> class is an abstract class. Therefore, you do not instantiate it in your code. For an example of using the <xref:System.IO.TextWriter.WriteAsync%2A> method, see the <xref:System.IO.StreamWriter.WriteAsync%2A?displayProperty=fullName> method.'
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(false)]
@@ -2855,7 +2855,7 @@ items:
     parameters:
     - id: buffer
       type: System.Char[]
-      description: The character array to write to the text stream. If <code>buffer</code> is `null`, nothing is written.
+      description: 'The character array to write to the text stream. If <code>buffer</code> is `null`, nothing is written.'
     return:
       type: System.Threading.Tasks.Task
       description: A task that represents the asynchronous write operation.
@@ -2942,7 +2942,7 @@ items:
     parameters:
     - id: value
       type: System.String
-      description: The string to write. If <code>value</code> is `null`, only the line terminator is written.
+      description: 'The string to write. If <code>value</code> is `null`, only the line terminator is written.'
   overload: System.IO.TextWriter.WriteLine*
   exceptions:
   - type: System.ObjectDisposedException
@@ -3017,7 +3017,7 @@ items:
   - netstandard
   - System.Runtime.Extensions
   namespace: System.IO
-  summary: Writes a formatted string and a new line to the text string or stream, using the same semantics as the <xref href="System.String.Format(System.String,System.Object,System.Object)"></xref> method.
+  summary: 'Writes a formatted string and a new line to the text string or stream, using the same semantics as the <xref href="System.String.Format(System.String,System.Object,System.Object)"></xref> method.'
   remarks: "This method uses composite formatting to convert the value of an object to its string representation and to embed that representation in a string. .NET provides extensive formatting support, which is described in greater detail in the following formatting topics:  \n  \n-   For more information about the composite formatting feature, see [Composite Formatting](~/docs/standard/base-types/composite-formatting.md).  \n  \n-   For more information about numeric format specifiers, see [Standard Numeric Format Strings](~/docs/standard/base-types/standard-numeric-format-strings.md) and [Custom Numeric Format Strings](~/docs/standard/base-types/custom-numeric-format-strings.md).  \n  \n-   For more information about date and time format specifiers, see [Standard Date and Time Format Strings](~/docs/standard/base-types/standard-date-and-time-format-strings.md) and [Custom Date and Time Format Strings](~/docs/standard/base-types/custom-date-and-time-format-strings.md).  \n  \n-   For more information about enumeration format specifiers, see [Enumeration Format Strings](~/docs/standard/base-types/enumeration-format-strings.md).  \n  \n-   For more information about formatting, see [Formatting Types](~/docs/standard/base-types/formatting-types.md).  \n  \n The `format` parameter consists of zero or more runs of text intermixed with zero or more indexed placeholders, called format items, that correspond to an object in the parameter list of this method. The formatting process replaces each format item with the string representation of the value of the corresponding object.  \n  \n The syntax of a format item is as follows:  \n  \n {*index*[,*length*][:*formatString*]}  \n  \n Elements in square brackets are optional. The following table describes each element. For more information about the composite formatting feature, including the syntax of a format item, see [Composite Formatting](~/docs/standard/base-types/composite-formatting.md).  \n  \n|Element|Description|  \n|-------------|-----------------|  \n|index|The zero-based position in the parameter list of the object to be formatted. If the object specified by *index* is `null`, the format item is replaced by <xref:System.String?displayProperty=fullName>. Because this overload has two objects in its parameter list, the value of *index* must always be 0 or 1. If there is no parameter in the *index* position, a <xref:System.FormatException> is thrown.|  \n|,*length*|The minimum number of characters in the string representation of the parameter. If positive, the parameter is right-aligned; if negative, it is left-aligned.|  \n|:*formatString*|A standard or custom format string that is supported by the object to be formatted. Possible values for *formatString* are the same as the values supported by the object's `ToString(string format)` method. If *formatString* is not specified and the object to be formatted implements the <xref:System.IFormattable> interface, `null` is passed as the value of the `format` parameter that is used as the <xref:System.IFormattable.ToString%2A?displayProperty=fullName> format string.|  \n  \n The leading and trailing brace characters, \"{\" and \"}\", are required. To specify a single literal brace character in `format`, specify two leading or trailing brace characters; that is, \"{{\" or \"}}\".  \n  \n This method does not search the specified string for individual newline characters (hexadecimal 0x000a) and replace them with <xref:System.IO.TextWriter.NewLine%2A>.  \n  \n If a specified object is not referenced in the format string, it is ignored.  \n  \n The line terminator is defined by the <xref:System.IO.TextWriter.CoreNewLine> field.  \n  \n For a list of common I/O tasks, see [Common I/O Tasks](~/docs/standard/io/common-i-o-tasks.md)."
   syntax:
     content: public virtual void WriteLine (string format, object arg0, object arg1);
@@ -3202,7 +3202,7 @@ items:
   - netstandard
   - System.Runtime.Extensions
   namespace: System.IO
-  summary: Writes out a formatted string and a new line, using the same semantics as <xref href="System.String.Format(System.String,System.Object)"></xref>.
+  summary: 'Writes out a formatted string and a new line, using the same semantics as <xref href="System.String.Format(System.String,System.Object)"></xref>.'
   remarks: "This method uses composite formatting to convert the value of an object to its string representation and to embed that representation in a string. .NET provides extensive formatting support, which is described in greater detail in the following formatting topics:  \n  \n-   For more information about the composite formatting feature, see [Composite Formatting](~/docs/standard/base-types/composite-formatting.md).  \n  \n-   For more information about numeric format specifiers, see [Standard Numeric Format Strings](~/docs/standard/base-types/standard-numeric-format-strings.md) and [Custom Numeric Format Strings](~/docs/standard/base-types/custom-numeric-format-strings.md).  \n  \n-   For more information about date and time format specifiers, see [Standard Date and Time Format Strings](~/docs/standard/base-types/standard-date-and-time-format-strings.md) and [Custom Date and Time Format Strings](~/docs/standard/base-types/custom-date-and-time-format-strings.md).  \n  \n-   For more information about enumeration format specifiers, see [Enumeration Format Strings](~/docs/standard/base-types/enumeration-format-strings.md).  \n  \n-   For more information about formatting, see [Formatting Types](~/docs/standard/base-types/formatting-types.md).  \n  \n The `format` parameter consists of zero or more runs of text intermixed with zero or more indexed placeholders, called format items, that correspond to an object in the parameter list of this method. The formatting process replaces each format item with the string representation of the value of the corresponding object.  \n  \n The syntax of a format item is as follows:  \n  \n {*index*[,*length*][:*formatString*]}  \n  \n Elements in square brackets are optional. The following table describes each element. For more information about the composite formatting feature, including the syntax of a format item, see [Composite Formatting](~/docs/standard/base-types/composite-formatting.md).  \n  \n|Element|Description|  \n|-------------|-----------------|  \n|index|The zero-based position in the parameter list of the object to be formatted. If the object specified by *index* is `null`, the format item is replaced by <xref:System.String?displayProperty=fullName>. Because this overload has an array in its parameter list, the value of *index* must always be less than the length of the array. If there is no parameter in the *index* position, a <xref:System.FormatException> is thrown.|  \n|,*length*|The minimum number of characters in the string representation of the parameter. If positive, the parameter is right-aligned; if negative, it is left-aligned.|  \n|:*formatString*|A standard or custom format string that is supported by the object to be formatted. Possible values for *formatString* are the same as the values supported by the object's `ToString(string format)` method. If *formatString* is not specified and the object to be formatted implements the <xref:System.IFormattable> interface, `null` is passed as the value of the `format` parameter that is used as the <xref:System.IFormattable.ToString%2A?displayProperty=fullName> format string.|  \n  \n The leading and trailing brace characters, \"{\" and \"}\", are required. To specify a single literal brace character in `format`, specify two leading or trailing brace characters; that is, \"{{\" or \"}}\".  \n  \n This method does not search the specified string for individual newline characters (hexadecimal 0x000a) and replace them with <xref:System.IO.TextWriter.NewLine%2A>.  \n  \n If a specified object is not referenced in the format string, it is ignored.  \n  \n The line terminator is defined by the <xref:System.IO.TextWriter.CoreNewLine> field.  \n  \n For a list of common I/O tasks, see [Common I/O Tasks](~/docs/standard/io/common-i-o-tasks.md)."
   syntax:
     content: public virtual void WriteLine (string format, object[] arg);
@@ -3293,7 +3293,7 @@ items:
   - netstandard
   - System.Runtime.Extensions
   namespace: System.IO
-  summary: Writes a formatted string and a new line to the text string or stream, using the same semantics as the <xref href="System.String.Format(System.String,System.Object)"></xref> method.
+  summary: 'Writes a formatted string and a new line to the text string or stream, using the same semantics as the <xref href="System.String.Format(System.String,System.Object)"></xref> method.'
   remarks: "This method uses composite formatting to convert the value of an object to its string representation and to embed that representation in a string. .NET provides extensive formatting support, which is described in greater detail in the following formatting topics:  \n  \n-   For more information about the composite formatting feature, see [Composite Formatting](~/docs/standard/base-types/composite-formatting.md).  \n  \n-   For more information about numeric format specifiers, see [Standard Numeric Format Strings](~/docs/standard/base-types/standard-numeric-format-strings.md) and [Custom Numeric Format Strings](~/docs/standard/base-types/custom-numeric-format-strings.md).  \n  \n-   For more information about date and time format specifiers, see [Standard Date and Time Format Strings](~/docs/standard/base-types/standard-date-and-time-format-strings.md) and [Custom Date and Time Format Strings](~/docs/standard/base-types/custom-date-and-time-format-strings.md).  \n  \n-   For more information about enumeration format specifiers, see [Enumeration Format Strings](~/docs/standard/base-types/enumeration-format-strings.md).  \n  \n-   For more information about formatting, see [Formatting Types](~/docs/standard/base-types/formatting-types.md).  \n  \n The `format` parameter consists of zero or more runs of text intermixed with zero or more indexed placeholders, called format items, that correspond to an object in the parameter list of this method. The formatting process replaces each format item with the string representation of the value of the corresponding object.  \n  \n The syntax of a format item is as follows:  \n  \n {*index*[,*length*][:*formatString*]}  \n  \n Elements in square brackets are optional. The following table describes each element. For more information about the composite formatting feature, including the syntax of a format item, see [Composite Formatting](~/docs/standard/base-types/composite-formatting.md).  \n  \n|Element|Description|  \n|-------------|-----------------|  \n|index|The zero-based position in the parameter list of the object to be formatted. If the object specified by *index* is `null`, the format item is replaced by <xref:System.String?displayProperty=fullName>. Because this overload has only a single object in its parameter list, the value of *index* must always be 0. If there is no parameter in the *index* position, a <xref:System.FormatException> is thrown.|  \n|,*length*|The minimum number of characters in the string representation of the parameter. If positive, the parameter is right-aligned; if negative, it is left-aligned.|  \n|:*formatString*|A standard or custom format string that is supported by the object to be formatted. Possible values for *formatString* are the same as the values supported by the object's `ToString(string format)` method. If *formatString* is not specified and the object to be formatted implements the <xref:System.IFormattable> interface, `null` is passed as the value of the `format` parameter that is used as the <xref:System.IFormattable.ToString%2A?displayProperty=fullName> format string.|  \n  \n The leading and trailing brace characters, \"{\" and \"}\", are required. To specify a single literal brace character in `format`, specify two leading or trailing brace characters; that is, \"{{\" or \"}}\".  \n  \n This method does not search the specified string for individual newline characters (hexadecimal 0x000a) and replace them with <xref:System.IO.TextWriter.NewLine%2A>.  \n  \n If a specified object is not referenced in the format string, it is ignored.  \n  \n The line terminator is defined by the <xref:System.IO.TextWriter.CoreNewLine> field.  \n  \n For a list of common I/O tasks, see [Common I/O Tasks](~/docs/standard/io/common-i-o-tasks.md)."
   syntax:
     content: public virtual void WriteLine (string format, object arg0);
@@ -3465,7 +3465,7 @@ items:
   - netstandard
   - System.Runtime.Extensions
   namespace: System.IO
-  summary: Writes out a formatted string and a new line, using the same semantics as <xref href="System.String.Format(System.String,System.Object)"></xref>.
+  summary: 'Writes out a formatted string and a new line, using the same semantics as <xref href="System.String.Format(System.String,System.Object)"></xref>.'
   remarks: "This method uses composite formatting to convert the value of an object to its string representation and to embed that representation in a string. .NET provides extensive formatting support, which is described in greater detail in the following formatting topics:  \n  \n-   For more information about the composite formatting feature, see [Composite Formatting](~/docs/standard/base-types/composite-formatting.md).  \n  \n-   For more information about numeric format specifiers, see [Standard Numeric Format Strings](~/docs/standard/base-types/standard-numeric-format-strings.md) and [Custom Numeric Format Strings](~/docs/standard/base-types/custom-numeric-format-strings.md).  \n  \n-   For more information about date and time format specifiers, see [Standard Date and Time Format Strings](~/docs/standard/base-types/standard-date-and-time-format-strings.md) and [Custom Date and Time Format Strings](~/docs/standard/base-types/custom-date-and-time-format-strings.md).  \n  \n-   For more information about enumeration format specifiers, see [Enumeration Format Strings](~/docs/standard/base-types/enumeration-format-strings.md).  \n  \n-   For more information about formatting, see [Formatting Types](~/docs/standard/base-types/formatting-types.md).  \n  \n The `format` parameter consists of zero or more runs of text intermixed with zero or more indexed placeholders, called format items, that correspond to an object in the parameter list of this method. The formatting process replaces each format item with the string representation of the value of the corresponding object.  \n  \n The syntax of a format item is as follows:  \n  \n {*index*[,*length*][:*formatString*]}  \n  \n Elements in square brackets are optional. The following table describes each element. For more information about the composite formatting feature, including the syntax of a format item, see [Composite Formatting](~/docs/standard/base-types/composite-formatting.md).  \n  \n|Element|Description|  \n|-------------|-----------------|  \n|index|The zero-based position in the parameter list of the object to be formatted. If the object specified by *index* is `null`, the format item is replaced by <xref:System.String?displayProperty=fullName>. Because this overload has three objects in its parameter list, the value of *index* must always be 0, 1, or 2. If there is no parameter in the *index* position, a <xref:System.FormatException> is thrown.|  \n|,*length*|The minimum number of characters in the string representation of the parameter. If positive, the parameter is right-aligned; if negative, it is left-aligned.|  \n|:*formatString*|A standard or custom format string that is supported by the object to be formatted. Possible values for *formatString* are the same as the values supported by the object's `ToString(string format)` method. If *formatString* is not specified and the object to be formatted implements the <xref:System.IFormattable> interface, `null` is passed as the value of the `format` parameter that is used as the <xref:System.IFormattable.ToString%2A?displayProperty=fullName> format string.|  \n  \n The leading and trailing brace characters, \"{\" and \"}\", are required. To specify a single literal brace character in `format`, specify two leading or trailing brace characters; that is, \"{{\" or \"}}\".  \n  \n This method does not search the specified string for individual newline characters (hexadecimal 0x000a) and replace them with <xref:System.IO.TextWriter.NewLine%2A>.  \n  \n If a specified object is not referenced in the format string, it is ignored.  \n  \n The line terminator is defined by the <xref:System.IO.TextWriter.CoreNewLine> field.  \n  \n For a list of common I/O tasks, see [Common I/O Tasks](~/docs/standard/io/common-i-o-tasks.md)."
   syntax:
     content: public virtual void WriteLine (string format, object arg0, object arg1, object arg2);
@@ -4378,14 +4378,14 @@ items:
   - netstandard
   - System.Runtime.Extensions
   namespace: System.IO
-  summary: Writes the text representation of an object by calling the `ToString` method on that object, followed by a line terminator to the text string or stream.
+  summary: 'Writes the text representation of an object by calling the `ToString` method on that object, followed by a line terminator to the text string or stream.'
   remarks: "This overload is equivalent to the <xref:System.IO.TextWriter.Write%28System.String%2CSystem.Object%29> overload. The <xref:System.IO.TextWriter.FormatProvider%2A> property, if not `null`, specifies the culture-specific formatting.  \n  \n The line terminator is defined by the <xref:System.IO.TextWriter.CoreNewLine> field.  \n  \n For a list of common I/O tasks, see [Common I/O Tasks](~/docs/standard/io/common-i-o-tasks.md)."
   syntax:
     content: public virtual void WriteLine (object value);
     parameters:
     - id: value
       type: System.Object
-      description: The object to write. If <code>value</code> is `null`, only the line terminator is written.
+      description: 'The object to write. If <code>value</code> is `null`, only the line terminator is written.'
   overload: System.IO.TextWriter.WriteLine*
   exceptions:
   - type: System.ObjectDisposedException
@@ -4470,7 +4470,7 @@ items:
     parameters:
     - id: value
       type: System.String
-      description: The string to write. If the value is `null`, only a line terminator is written.
+      description: 'The string to write. If the value is `null`, only a line terminator is written.'
     return:
       type: System.Threading.Tasks.Task
       description: A task that represents the asynchronous write operation.
@@ -4551,7 +4551,7 @@ items:
   - System.Runtime.Extensions
   namespace: System.IO
   summary: Writes a line terminator asynchronously to the text string or stream.
-  remarks: The line terminator is defined by the <xref:System.IO.TextWriter.CoreNewLine> field.
+  remarks: 'The line terminator is defined by the <xref:System.IO.TextWriter.CoreNewLine> field.'
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(false)]
@@ -4728,7 +4728,7 @@ items:
   - System.Runtime.Extensions
   namespace: System.IO
   summary: Writes an array of characters followed by a line terminator asynchronously to the text string or stream.
-  remarks: The line terminator is defined by the <xref:System.IO.TextWriter.CoreNewLine> field.
+  remarks: 'The line terminator is defined by the <xref:System.IO.TextWriter.CoreNewLine> field.'
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(false)]
@@ -4737,7 +4737,7 @@ items:
     parameters:
     - id: buffer
       type: System.Char[]
-      description: The character array to write to the text stream. If the character array is `null`, only the line terminator is written.
+      description: 'The character array to write to the text stream. If the character array is `null`, only the line terminator is written.'
     return:
       type: System.Threading.Tasks.Task
       description: A task that represents the asynchronous write operation.

@@ -108,7 +108,7 @@ items:
   - netstandard
   namespace: System.Runtime.InteropServices
   summary: Retrieves the address of an object in a <xref href="System.Runtime.InteropServices.GCHandleType.Pinned"></xref> handle.
-  remarks: This method is used to get a stable pointer to the object. Pinning an object prevents the garbage collector from moving it around in memory, thereby reducing the efficiency of the garbage collector.
+  remarks: 'This method is used to get a stable pointer to the object. Pinning an object prevents the garbage collector from moving it around in memory, thereby reducing the efficiency of the garbage collector.'
   syntax:
     content: public IntPtr AddrOfPinnedObject ();
     parameters: []
@@ -184,7 +184,7 @@ items:
   - netstandard
   namespace: System.Runtime.InteropServices
   summary: Allocates a <xref href="System.Runtime.InteropServices.GCHandleType.Normal"></xref> handle for the specified object.
-  remarks: <xref:System.Runtime.InteropServices.GCHandleType.Normal> handles are opaque, which means that you cannot resolve the address of the object it contains through the handle.
+  remarks: '<xref:System.Runtime.InteropServices.GCHandleType.Normal> handles are opaque, which means that you cannot resolve the address of the object it contains through the handle.'
   example:
   - "The following example shows an `App` class that creates a handle to a managed object using the `GCHandle.Alloc` method, which prevents the managed object from being collected. A call to the `EnumWindows` method passes a delegate and a managed object (both declared as managed types, but not shown), and casts the handle to an <xref:System.IntPtr>. The unmanaged function passes the type back to the caller as a parameter of the callback function.  \n  \n [!code-csharp[System.Runtime.InteropServices.GCHandle#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Runtime.InteropServices.GCHandle/cs/sample.cs#1)]\n [!code-vb[System.Runtime.InteropServices.GCHandle#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Runtime.InteropServices.GCHandle/vb/sample.vb#1)]"
   syntax:
@@ -273,7 +273,7 @@ items:
       description: The object that uses the <xref href="System.Runtime.InteropServices.GCHandle"></xref>.
     - id: type
       type: System.Runtime.InteropServices.GCHandleType
-      description: One of the <xref href="System.Runtime.InteropServices.GCHandleType"></xref> values, indicating the type of <xref href="System.Runtime.InteropServices.GCHandle"></xref> to create.
+      description: 'One of the <xref href="System.Runtime.InteropServices.GCHandleType"></xref> values, indicating the type of <xref href="System.Runtime.InteropServices.GCHandle"></xref> to create.'
     return:
       type: System.Runtime.InteropServices.GCHandle
       description: A new <xref href="System.Runtime.InteropServices.GCHandle"></xref> of the specified type. This <xref href="System.Runtime.InteropServices.GCHandle"></xref> must be released with <xref href="System.Runtime.InteropServices.GCHandle.Free"></xref> when it is no longer needed.
@@ -346,7 +346,7 @@ items:
   - netstandard
   namespace: System.Runtime.InteropServices
   summary: Determines whether the specified <xref href="System.Runtime.InteropServices.GCHandle"></xref> object is equal to the current <xref href="System.Runtime.InteropServices.GCHandle"></xref> object.
-  remarks: Two <xref:System.Runtime.InteropServices.GCHandle> objects are equal if they point to the same memory handle.
+  remarks: 'Two <xref:System.Runtime.InteropServices.GCHandle> objects are equal if they point to the same memory handle.'
   syntax:
     content: public override bool Equals (object o);
     parameters:
@@ -422,7 +422,7 @@ items:
   - netstandard
   namespace: System.Runtime.InteropServices
   summary: Releases a <xref href="System.Runtime.InteropServices.GCHandle"></xref>.
-  remarks: The caller must ensure that for a given handle, <xref:System.Runtime.InteropServices.GCHandle.Free%2A> is called only once.
+  remarks: 'The caller must ensure that for a given handle, <xref:System.Runtime.InteropServices.GCHandle.Free%2A> is called only once.'
   example:
   - "The following example shows an `App` class that creates a handle to a managed object using the `GCHandle.Alloc` method, which prevents the managed object from being collected. A call to the `EnumWindows` method passes a delegate and a managed object (both declared as managed types, but not shown), and casts the handle to an <xref:System.IntPtr>. The unmanaged function passes the type back to the caller as a parameter of the callback function.  \n  \n [!code-csharp[System.Runtime.InteropServices.GCHandle#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Runtime.InteropServices.GCHandle/cs/sample.cs#1)]\n [!code-vb[System.Runtime.InteropServices.GCHandle#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Runtime.InteropServices.GCHandle/vb/sample.vb#1)]"
   syntax:
@@ -578,7 +578,7 @@ items:
   - netstandard
   namespace: System.Runtime.InteropServices
   summary: Returns an identifier for the current <xref href="System.Runtime.InteropServices.GCHandle"></xref> object.
-  remarks: The <xref:System.Runtime.InteropServices.GCHandle.GetHashCode%2A> method returns an integer representation of the internal memory handle encapsulated by the <xref:System.Runtime.InteropServices.GCHandle> structure.
+  remarks: 'The <xref:System.Runtime.InteropServices.GCHandle.GetHashCode%2A> method returns an integer representation of the internal memory handle encapsulated by the <xref:System.Runtime.InteropServices.GCHandle> structure.'
   syntax:
     content: public override int GetHashCode ();
     parameters: []
@@ -651,7 +651,7 @@ items:
   - netstandard
   namespace: System.Runtime.InteropServices
   summary: Gets a value indicating whether the handle is allocated.
-  remarks: Use this property when using <xref:System.Runtime.InteropServices.GCHandleType.Weak> handles to determine if the <xref:System.Runtime.InteropServices.GCHandle> is still available. When the garbage collector collects the object, the <xref:System.Runtime.InteropServices.GCHandleType.Weak> handle can still be resurrected in the finalizer. In that case, the handle is not allocated (it is lost when the garbage collector attempts to collect the object), even though the target object is valid.
+  remarks: 'Use this property when using <xref:System.Runtime.InteropServices.GCHandleType.Weak> handles to determine if the <xref:System.Runtime.InteropServices.GCHandle> is still available. When the garbage collector collects the object, the <xref:System.Runtime.InteropServices.GCHandleType.Weak> handle can still be resurrected in the finalizer. In that case, the handle is not allocated (it is lost when the garbage collector attempts to collect the object), even though the target object is valid.'
   syntax:
     content: public bool IsAllocated { get; }
     return:
@@ -723,7 +723,7 @@ items:
   - netstandard
   namespace: System.Runtime.InteropServices
   summary: Returns a value indicating whether two <xref href="System.Runtime.InteropServices.GCHandle"></xref> objects are equal.
-  remarks: The equivalent method for this operator is <xref:System.Runtime.InteropServices.GCHandle.Equals%28System.Runtime.InteropServices.GCHandle%2CSystem.Runtime.InteropServices.GCHandle%29?displayProperty=fullName>
+  remarks: 'The equivalent method for this operator is <xref:System.Runtime.InteropServices.GCHandle.Equals%28System.Runtime.InteropServices.GCHandle%2CSystem.Runtime.InteropServices.GCHandle%29?displayProperty=fullName>'
   syntax:
     content: public static bool op_Equality (System.Runtime.InteropServices.GCHandle a, System.Runtime.InteropServices.GCHandle b);
     parameters:
@@ -940,7 +940,7 @@ items:
   - netstandard
   namespace: System.Runtime.InteropServices
   summary: Returns a value indicating whether two <xref href="System.Runtime.InteropServices.GCHandle"></xref> objects are not equal.
-  remarks: The equivalent method for this operator is <xref:System.Runtime.InteropServices.GCHandle.Compare%28System.Runtime.InteropServices.GCHandle%2CSystem.Runtime.InteropServices.GCHandle%29?displayProperty=fullName>
+  remarks: 'The equivalent method for this operator is <xref:System.Runtime.InteropServices.GCHandle.Compare%28System.Runtime.InteropServices.GCHandle%2CSystem.Runtime.InteropServices.GCHandle%29?displayProperty=fullName>'
   syntax:
     content: public static bool op_Inequality (System.Runtime.InteropServices.GCHandle a, System.Runtime.InteropServices.GCHandle b);
     parameters:
@@ -1031,7 +1031,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The handle was freed, or never initialized.
+    description: 'The handle was freed, or never initialized.'
   version:
   - netcore-1.0
   - netcore-1.1

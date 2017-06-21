@@ -35,7 +35,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls
-  summary: Generates the user interface (UI) on behalf of its host, such as an <xref href="System.Windows.Controls.ItemsControl"></xref>.
+  summary: 'Generates the user interface (UI) on behalf of its host, such as an <xref href="System.Windows.Controls.ItemsControl"></xref>.'
   remarks: "<xref:System.Windows.Controls.ItemContainerGenerator> implements <xref:System.Windows.Controls.Primitives.IItemContainerGenerator>, which is the interface that defines a type which:  \n  \n-   Maintains an association between the data view of a multiple-item control, such as <xref:System.Windows.Controls.ItemsControl.ContainerFromElement%2A> and the corresponding <xref:System.Windows.UIElement> items.  \n  \n-   Generates <xref:System.Windows.UIElement> items on behalf of a multiple-item control.  \n  \n Each <xref:System.Windows.Controls.ItemsControl> type has a corresponding container type. Container elements are the objects that contain the data items in the item collection. For example, for <xref:System.Windows.Controls.ListBox>, the generated containers are <xref:System.Windows.Controls.ListBoxItem> controls; for <xref:System.Windows.Controls.ComboBox>, they are <xref:System.Windows.Controls.ComboBoxItem> controls.  \n  \n The <xref:System.Windows.Controls.ItemsControl> generates its items through the <xref:System.Windows.Controls.Primitives.IItemContainerGenerator> interface. The <xref:System.Windows.Controls.ItemsControl.ItemContainerGenerator%2A> property of the <xref:System.Windows.Controls.ItemsControl> is of type <xref:System.Windows.Controls.ItemContainerGenerator>, which implements the <xref:System.Windows.Controls.Primitives.IItemContainerGenerator> interface. Therefore, you can access the <xref:System.Windows.Controls.ItemContainerGenerator> object associated with your <xref:System.Windows.Controls.ItemsControl> using the <xref:System.Windows.Controls.ItemsControl.ItemContainerGenerator%2A> property. For example, if you have a data-bound <xref:System.Windows.Controls.TreeView>, and you want to get a <xref:System.Windows.Controls.TreeViewItem> based on its index or its associated data item, you can use the <xref:System.Windows.Controls.ItemContainerGenerator.ContainerFromIndex%2A?displayProperty=fullName> or the <xref:System.Windows.Controls.ItemContainerGenerator.ContainerFromItem%2A?displayProperty=fullName> method. Alternatively, you can use the <xref:System.Windows.Controls.ItemContainerGenerator.IndexFromContainer%2A?displayProperty=fullName> or the <xref:System.Windows.Controls.ItemContainerGenerator.ItemFromContainer%2A?displayProperty=fullName> method to get the index or data item associated with a given generated container element.  \n  \n Apart from those usages, the <xref:System.Windows.Controls.Primitives.IItemContainerGenerator> interface is used in advanced scenarios. Typically, advanced applications that have their own implementation of a virtualizing panel call members of the interface."
   syntax:
     content: 'public sealed class ItemContainerGenerator : System.Windows.Controls.Primitives.IRecyclingItemContainerGenerator, System.Windows.IWeakEventListener'
@@ -143,7 +143,7 @@ items:
       description: The <xref href="System.Object"></xref> item to find the <xref href="System.Windows.UIElement"></xref> for.
     return:
       type: System.Windows.DependencyObject
-      description: A <xref href="System.Windows.UIElement"></xref> that corresponds to the given item. Returns `null` if the item does not belong to the item collection, or if a <xref href="System.Windows.UIElement"></xref> has not been generated for it.
+      description: 'A <xref href="System.Windows.UIElement"></xref> that corresponds to the given item. Returns `null` if the item does not belong to the item collection, or if a <xref href="System.Windows.UIElement"></xref> has not been generated for it.'
   overload: System.Windows.Controls.ItemContainerGenerator.ContainerFromItem*
   exceptions: []
   version:
@@ -182,7 +182,7 @@ items:
   - PresentationFramework
   namespace: System.Windows.Controls
   summary: Returns an object that manages the <xref href="System.Windows.Controls.ItemContainerGenerator.Status"></xref> property.
-  remarks: A class that inherits from <xref:System.Windows.Controls.VirtualizingPanel> can use this method to get an object that will properly set the generated property.  When the <xref:System.Windows.Controls.ItemContainerGenerator.GenerateBatches%2A> method returns, <xref:System.Windows.Controls.ItemContainerGenerator.Status%2A> property is set to <xref:System.Windows.Controls.Primitives.GeneratorStatus.GeneratingContainers>.  When the object is disposed, <xref:System.Windows.Controls.ItemContainerGenerator.Status%2A> is set to <xref:System.Windows.Controls.Primitives.GeneratorStatus.ContainersGenerated>.  You can pass the object to a `using` statement that encapsulates your logic that generates item containers.  When the object returned from <xref:System.Windows.Controls.ItemContainerGenerator.GenerateBatches%2A> goes out of scope, the <xref:System.Windows.Controls.ItemContainerGenerator.Status%2A> property will be properly set.
+  remarks: 'A class that inherits from <xref:System.Windows.Controls.VirtualizingPanel> can use this method to get an object that will properly set the generated property.  When the <xref:System.Windows.Controls.ItemContainerGenerator.GenerateBatches%2A> method returns, <xref:System.Windows.Controls.ItemContainerGenerator.Status%2A> property is set to <xref:System.Windows.Controls.Primitives.GeneratorStatus.GeneratingContainers>.  When the object is disposed, <xref:System.Windows.Controls.ItemContainerGenerator.Status%2A> is set to <xref:System.Windows.Controls.Primitives.GeneratorStatus.ContainersGenerated>.  You can pass the object to a `using` statement that encapsulates your logic that generates item containers.  When the object returned from <xref:System.Windows.Controls.ItemContainerGenerator.GenerateBatches%2A> goes out of scope, the <xref:System.Windows.Controls.ItemContainerGenerator.Status%2A> property will be properly set.'
   syntax:
     content: public IDisposable GenerateBatches ();
     parameters: []
@@ -226,8 +226,8 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls
-  summary: Returns the index to an item that corresponds to the specified, generated <xref href="System.Windows.UIElement"></xref>.
-  remarks: Calling this method is identical to calling the <xref:System.Windows.Controls.ItemContainerGenerator.IndexFromContainer%28System.Windows.DependencyObject%2CSystem.Boolean%29?displayProperty=fullName> method and passing `false` to the `returnLocalIndex` parameter.
+  summary: 'Returns the index to an item that corresponds to the specified, generated <xref href="System.Windows.UIElement"></xref>.'
+  remarks: 'Calling this method is identical to calling the <xref:System.Windows.Controls.ItemContainerGenerator.IndexFromContainer%28System.Windows.DependencyObject%2CSystem.Boolean%29?displayProperty=fullName> method and passing `false` to the `returnLocalIndex` parameter.'
   syntax:
     content: public int IndexFromContainer (System.Windows.DependencyObject container);
     parameters:
@@ -236,7 +236,7 @@ items:
       description: The <xref href="System.Windows.DependencyObject"></xref> that corresponds to the item to the index to be returned.
     return:
       type: System.Int32
-      description: An <xref href="System.Int32"></xref> index to an item that corresponds to the specified, generated <xref href="System.Windows.UIElement"></xref> or -1 if <code>container</code> is not found.
+      description: 'An <xref href="System.Int32"></xref> index to an item that corresponds to the specified, generated <xref href="System.Windows.UIElement"></xref> or -1 if <code>container</code> is not found.'
   overload: System.Windows.Controls.ItemContainerGenerator.IndexFromContainer*
   exceptions:
   - type: System.ArgumentException
@@ -276,7 +276,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls
-  summary: Returns the index to an item that corresponds to the specified, generated <xref href="System.Windows.UIElement"></xref>, optionally recursively searching hierarchical items.
+  summary: 'Returns the index to an item that corresponds to the specified, generated <xref href="System.Windows.UIElement"></xref>, optionally recursively searching hierarchical items.'
   syntax:
     content: public int IndexFromContainer (System.Windows.DependencyObject container, bool returnLocalIndex);
     parameters:
@@ -288,7 +288,7 @@ items:
       description: '`true` to search the current level of hierarchical items; `false` to recursively search hierarchical items.'
     return:
       type: System.Int32
-      description: An <xref href="System.Int32"></xref> index to an item that corresponds to the specified, generated <xref href="System.Windows.UIElement"></xref> or -1 if <code>container</code> is not found.
+      description: 'An <xref href="System.Int32"></xref> index to an item that corresponds to the specified, generated <xref href="System.Windows.UIElement"></xref> or -1 if <code>container</code> is not found.'
   overload: System.Windows.Controls.ItemContainerGenerator.IndexFromContainer*
   exceptions: []
   version:
@@ -326,7 +326,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls
-  summary: Returns the item that corresponds to the specified, generated <xref href="System.Windows.UIElement"></xref>.
+  summary: 'Returns the item that corresponds to the specified, generated <xref href="System.Windows.UIElement"></xref>.'
   syntax:
     content: public object ItemFromContainer (System.Windows.DependencyObject container);
     parameters:
@@ -335,7 +335,7 @@ items:
       description: The <xref href="System.Windows.DependencyObject"></xref> that corresponds to the item to be returned.
     return:
       type: System.Object
-      description: A <xref href="System.Windows.DependencyObject"></xref> that is the item which corresponds to the specified, generated <xref href="System.Windows.UIElement"></xref>. If the <xref href="System.Windows.UIElement"></xref> has not been generated, <xref href="System.Windows.DependencyProperty.UnsetValue"></xref> is returned.
+      description: 'A <xref href="System.Windows.DependencyObject"></xref> that is the item which corresponds to the specified, generated <xref href="System.Windows.UIElement"></xref>. If the <xref href="System.Windows.UIElement"></xref> has not been generated, <xref href="System.Windows.DependencyProperty.UnsetValue"></xref> is returned.'
   overload: System.Windows.Controls.ItemContainerGenerator.ItemFromContainer*
   exceptions:
   - type: System.ArgumentException
@@ -377,7 +377,7 @@ items:
   - PresentationFramework
   namespace: System.Windows.Controls
   summary: Gets the collection of items that belong to this <xref href="System.Windows.Controls.ItemContainerGenerator"></xref>.
-  remarks: This property frequently updates, so do not save its value.
+  remarks: 'This property frequently updates, so do not save its value.'
   syntax:
     content: public System.Collections.ObjectModel.ReadOnlyCollection<object> Items { get; }
     return:
@@ -421,7 +421,7 @@ items:
   - PresentationFramework
   namespace: System.Windows.Controls
   summary: The <xref href="System.Windows.Controls.ItemContainerGenerator.ItemsChanged"></xref> event is raised by a <xref href="System.Windows.Controls.ItemContainerGenerator"></xref> to inform layouts that the items collection has changed.
-  remarks: The items collection changes when an item is either added, removed, moved, or the <xref:System.Windows.Controls.ItemContainerGenerator> is refreshed.
+  remarks: 'The items collection changes when an item is either added, removed, moved, or the <xref:System.Windows.Controls.ItemContainerGenerator> is refreshed.'
   syntax:
     content: public event System.Windows.Controls.Primitives.ItemsChangedEventHandler ItemsChanged;
     return:
@@ -549,13 +549,13 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls
-  summary: Returns the container element used to display the next item, and whether the container element has been newly generated (realized).
+  summary: 'Returns the container element used to display the next item, and whether the container element has been newly generated (realized).'
   syntax:
     content: System.Windows.DependencyObject IItemContainerGenerator.GenerateNext (out bool isNewlyRealized);
     parameters:
     - id: isNewlyRealized
       type: System.Boolean
-      description: Is true if the returned DependencyObject is newly generated (realized); otherwise, false.
+      description: 'Is true if the returned DependencyObject is newly generated (realized); otherwise, false.'
     return:
       type: System.Windows.DependencyObject
       description: A DependencyObject that is the container element which is used to display the next item.
@@ -791,7 +791,7 @@ items:
     parameters:
     - id: container
       type: System.Windows.DependencyObject
-      description: The container to prepare. Normally, container is the result of the previous call to GenerateNext.
+      description: 'The container to prepare. Normally, container is the result of the previous call to GenerateNext.'
   overload: System.Windows.Controls.ItemContainerGenerator.System#Windows#Controls#Primitives#IItemContainerGenerator#PrepareItemContainer*
   exceptions: []
   version:
@@ -830,7 +830,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls
-  summary: This member supports the [!INCLUDE[TLA#tla_winclient](~/includes/tlasharptla-winclient-md.md)] infrastructure and is not intended to be used directly from your code.
+  summary: 'This member supports the [!INCLUDE[TLA#tla_winclient](~/includes/tlasharptla-winclient-md.md)] infrastructure and is not intended to be used directly from your code.'
   syntax:
     content: void IItemContainerGenerator.Remove (System.Windows.Controls.Primitives.GeneratorPosition position, int count);
     parameters:
@@ -839,7 +839,7 @@ items:
       description: Removes one or more generated (realized) items.
     - id: count
       type: System.Int32
-      description: The Int32 number of elements to remove, starting at <code>position</code>.
+      description: 'The Int32 number of elements to remove, starting at <code>position</code>.'
   overload: System.Windows.Controls.ItemContainerGenerator.System#Windows#Controls#Primitives#IItemContainerGenerator#Remove*
   exceptions: []
   version:
@@ -920,7 +920,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls
-  summary: Prepares the generator to generate items, starting at the specified GeneratorPosition, and in the specified GeneratorDirection.
+  summary: 'Prepares the generator to generate items, starting at the specified GeneratorPosition, and in the specified GeneratorDirection.'
   syntax:
     content: IDisposable IItemContainerGenerator.StartAt (System.Windows.Controls.Primitives.GeneratorPosition position, System.Windows.Controls.Primitives.GeneratorDirection direction);
     parameters:
@@ -971,7 +971,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls
-  summary: Prepares the generator to generate items, starting at the specified GeneratorPosition, and in the specified GeneratorDirection, and controlling whether or not to start at a generated (realized) item.
+  summary: 'Prepares the generator to generate items, starting at the specified GeneratorPosition, and in the specified GeneratorDirection, and controlling whether or not to start at a generated (realized) item.'
   syntax:
     content: IDisposable IItemContainerGenerator.StartAt (System.Windows.Controls.Primitives.GeneratorPosition position, System.Windows.Controls.Primitives.GeneratorDirection direction, bool allowStartAtRealizedItem);
     parameters:
@@ -1025,7 +1025,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls
-  summary: This member supports the [!INCLUDE[TLA#tla_winclient](~/includes/tlasharptla-winclient-md.md)] infrastructure and is not intended to be used directly from your code.
+  summary: 'This member supports the [!INCLUDE[TLA#tla_winclient](~/includes/tlasharptla-winclient-md.md)] infrastructure and is not intended to be used directly from your code.'
   syntax:
     content: void IRecyclingItemContainerGenerator.Recycle (System.Windows.Controls.Primitives.GeneratorPosition position, int count);
     parameters:
@@ -1034,7 +1034,7 @@ items:
       description: The index of the first element to reuse. <code>position</code> must refer to a previously generated (realized) item.
     - id: count
       type: System.Int32
-      description: The number of elements to reuse, starting at <code>position</code>.
+      description: 'The number of elements to reuse, starting at <code>position</code>.'
   overload: System.Windows.Controls.ItemContainerGenerator.System#Windows#Controls#Primitives#IRecyclingItemContainerGenerator#Recycle*
   exceptions: []
   version:
@@ -1072,7 +1072,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls
-  summary: This member supports the [!INCLUDE[TLA#tla_winclient](~/includes/tlasharptla-winclient-md.md)] infrastructure and is not intended to be used directly from your code.
+  summary: 'This member supports the [!INCLUDE[TLA#tla_winclient](~/includes/tlasharptla-winclient-md.md)] infrastructure and is not intended to be used directly from your code.'
   syntax:
     content: bool IWeakEventListener.ReceiveWeakEvent (Type managerType, object sender, EventArgs e);
     parameters:

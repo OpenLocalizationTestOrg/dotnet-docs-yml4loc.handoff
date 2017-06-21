@@ -31,7 +31,7 @@ items:
   - WindowsBase
   namespace: System.Windows
   summary: Provides a built-in collection list for storing listeners for a <xref href="System.Windows.WeakEventManager"></xref>.
-  remarks: "Although this list contains members that resemble those defined by <xref:System.Collections.IList> and <xref:System.Collections.ICollection>, and provide similar functionality, this class implements neither of those interfaces.  \n  \n Most <xref:System.Windows.WeakEventManager> derived classes do not need to use any members on <xref:System.Windows.WeakEventManager.ListenerList>. The <xref:System.Windows.WeakEventManager> methods <xref:System.Windows.WeakEventManager.ProtectedAddListener%2A> and <xref:System.Windows.WeakEventManager.ProtectedRemoveListener%2A>use a default <xref:System.Windows.WeakEventManager.ListenerList> internally, one list for each `source`.  \n  \n You only need to call <xref:System.Windows.WeakEventManager.ListenerList> methods if your <xref:System.Windows.WeakEventManager> class maintains multiple lists for the same event-source combination, with each list created to account for different conditions of the event. In this case, you would not use <xref:System.Windows.WeakEventManager.ProtectedAddListener%2A> and <xref:System.Windows.WeakEventManager.ProtectedRemoveListener%2A> and would instead implement `AddListener` or `RemoveListener` to act upon listeners in just one of the internal listener lists, typically based on a parameter that you add to `AddListener` or `RemoveListener`. Also, the handler implementation that receives the raw event cannot simply call <xref:System.Windows.WeakEventManager.DeliverEvent%2A>; you must instead keep track of the specifics of the event and deliver the event only to the appropriate list using <xref:System.Windows.WeakEventManager.DeliverEventToList%2A>.  \n  \n The various methods of <xref:System.Windows.WeakEventManager.ListenerList> are provided so that you can work with your internal lists and so that you can prevent modification of the list during actual delivery of the event.  \n  \n An example class that used this implementation technique is <xref:System.ComponentModel.PropertyChangedEventManager>, which maintains separate listener lists for `PropertyChanged` based on which property changed.  \n  \n<a name=\"xamlTextUsage_ListenerList\"></a>   \n## XAML Text Usage  \n You cannot use this class in [!INCLUDE[TLA2#tla_xaml](~/includes/tla2sharptla-xaml-md.md)]."
+  remarks: "Although this list contains members that resemble those defined by <xref:System.Collections.IList> and <xref:System.Collections.ICollection>, and provide similar functionality, this class implements neither of those interfaces.  \n  \n Most <xref:System.Windows.WeakEventManager> derived classes do not need to use any members on <xref:System.Windows.WeakEventManager.ListenerList>. The <xref:System.Windows.WeakEventManager> methods <xref:System.Windows.WeakEventManager.ProtectedAddListener%2A> and <xref:System.Windows.WeakEventManager.ProtectedRemoveListener%2A>use a default <xref:System.Windows.WeakEventManager.ListenerList> internally, one list for each `source`.  \n  \n You only need to call <xref:System.Windows.WeakEventManager.ListenerList> methods if your <xref:System.Windows.WeakEventManager> class maintains multiple lists for the same event-source combination, with each list created to account for different conditions of the event. In this case, you would not use <xref:System.Windows.WeakEventManager.ProtectedAddListener%2A> and <xref:System.Windows.WeakEventManager.ProtectedRemoveListener%2A> and would instead implement `AddListener` or `RemoveListener` to act upon listeners in just one of the internal listener lists, typically based on a parameter that you add to `AddListener` or `RemoveListener`. Also, the handler implementation that receives the raw event cannot simply call <xref:System.Windows.WeakEventManager.DeliverEvent%2A>; you must instead keep track of the specifics of the event and deliver the event only to the appropriate list using <xref:System.Windows.WeakEventManager.DeliverEventToList%2A>.  \n  \n The various methods of <xref:System.Windows.WeakEventManager.ListenerList> are provided so that you can work with your internal lists and so that you can prevent modification of the list during actual delivery of the event.  \n  \n An example class that used this implementation technique is <xref:System.ComponentModel.PropertyChangedEventManager>, which maintains separate listener lists for `PropertyChanged` based on which property changed.  \n  \n<a name=\"xamlTextUsage_ListenerList\"></a>   \n## <a name=\"xaml-text-usage\"></a>XAML Text Usage  \n You cannot use this class in [!INCLUDE[TLA2#tla_xaml](~/includes/tla2sharptla-xaml-md.md)]."
   syntax:
     content: protected class WeakEventManager.ListenerList
   inheritance:
@@ -255,7 +255,7 @@ items:
   - WindowsBase
   namespace: System.Windows
   summary: Declares the list to be in use. This prevents direct changes to the list during iterations of the list items.
-  remarks: A <xref:System.Windows.WeakEventManager> implementation should call <xref:System.Windows.WeakEventManager.ListenerList.BeginUse%2A> before iterating through the list to deliver an event to the listeners, and should call <xref:System.Windows.WeakEventManager.ListenerList.EndUse%2A> when it is done. This prevents another caller from modifying the list while the iteration for purposes of event delivery is in progress. If the list is modified during this time, then the list is cloned. If the list is cloned, then <xref:System.Windows.WeakEventManager.ListenerList.PrepareForWriting%2A> returns `true`, which means that you have missed a recent listener change in the last delivery.
+  remarks: 'A <xref:System.Windows.WeakEventManager> implementation should call <xref:System.Windows.WeakEventManager.ListenerList.BeginUse%2A> before iterating through the list to deliver an event to the listeners, and should call <xref:System.Windows.WeakEventManager.ListenerList.EndUse%2A> when it is done. This prevents another caller from modifying the list while the iteration for purposes of event delivery is in progress. If the list is modified during this time, then the list is cloned. If the list is cloned, then <xref:System.Windows.WeakEventManager.ListenerList.PrepareForWriting%2A> returns `true`, which means that you have missed a recent listener change in the last delivery.'
   syntax:
     content: public bool BeginUse ();
     parameters: []
@@ -566,7 +566,7 @@ items:
   - WindowsBase
   namespace: System.Windows
   summary: Gets a value that declares whether this <xref href="System.Windows.WeakEventManager.ListenerList"></xref> is empty.
-  remarks: This method is equivalent to checking whether the <xref:System.Windows.WeakEventManager.ListenerList.Count%2A> is zero, and does not check whether any of the references in the list are now stale. If you want to assure that all references are still valid, call <xref:System.Windows.WeakEventManager.ListenerList.Purge%2A> just prior to checking the empty status of the list.
+  remarks: 'This method is equivalent to checking whether the <xref:System.Windows.WeakEventManager.ListenerList.Count%2A> is zero, and does not check whether any of the references in the list are now stale. If you want to assure that all references are still valid, call <xref:System.Windows.WeakEventManager.ListenerList.Purge%2A> just prior to checking the empty status of the list.'
   syntax:
     content: public bool IsEmpty { get; }
     return:
@@ -618,7 +618,7 @@ items:
       description: The zero-based index of the listener in the list.
     return:
       type: System.Windows.IWeakEventListener
-      description: The item at that index, or a null reference if no item was at that index.
+      description: 'The item at that index, or a null reference if no item was at that index.'
   overload: System.Windows.WeakEventManager.ListenerList.Item*
   exceptions: []
   version:
@@ -656,7 +656,7 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows
-  summary: Checks to see whether the provided list is in use, and if so, sets the list reference parameter to a copy of that list rather than the original.
+  summary: 'Checks to see whether the provided list is in use, and if so, sets the list reference parameter to a copy of that list rather than the original.'
   remarks: "If the given list is in use (which means an event is currently being delivered), calling this method will replace the input `list` with a clone.  The existing users will finish delivering the event to the original list, without interference from changes to the new list.  \n  \n If the method returns `true`, callers may want to insert the new list in their own data structures, since this indicates the possibility that the provided list is no longer current.  \n  \n This method calls <xref:System.Windows.WeakEventManager.ListenerList.BeginUse%2A> internally and then immediately calls <xref:System.Windows.WeakEventManager.ListenerList.EndUse%2A>. Therefore calling <xref:System.Windows.WeakEventManager.ListenerList.PrepareForWriting%2A> does not itself introduce a lock on the list. Even the clone copy is done as a secondary operation after calling <xref:System.Windows.WeakEventManager.ListenerList.EndUse%2A>."
   syntax:
     content: public static bool PrepareForWriting (ref System.Windows.WeakEventManager.ListenerList list);
@@ -709,7 +709,7 @@ items:
     parameters: []
     return:
       type: System.Boolean
-      description: Returns `true` if any entries were purged; otherwise, `false`.
+      description: 'Returns `true` if any entries were purged; otherwise, `false`.'
   overload: System.Windows.WeakEventManager.ListenerList.Purge*
   exceptions: []
   version:
@@ -748,7 +748,7 @@ items:
   - WindowsBase
   namespace: System.Windows
   summary: Removes the first occurrence of a listener item from the <xref href="System.Windows.WeakEventManager.ListenerList"></xref>.
-  remarks: You should always call <xref:System.Windows.WeakEventManager.ListenerList.PrepareForWriting%2A> before changing the list contents. Otherwise, the list may be in process of delivering events and therefore the original is locked. Calling <xref:System.Windows.WeakEventManager.ListenerList.PrepareForWriting%2A> changes the input `list` to be a clone so that your <xref:System.Windows.WeakEventManager.ListenerList.Remove%2A> call can still work on the clone. If <xref:System.Windows.WeakEventManager.ListenerList.PrepareForWriting%2A> returns `true`, you might need to update any private references to the list that you maintain in other areas of your code.
+  remarks: 'You should always call <xref:System.Windows.WeakEventManager.ListenerList.PrepareForWriting%2A> before changing the list contents. Otherwise, the list may be in process of delivering events and therefore the original is locked. Calling <xref:System.Windows.WeakEventManager.ListenerList.PrepareForWriting%2A> changes the input `list` to be a clone so that your <xref:System.Windows.WeakEventManager.ListenerList.Remove%2A> call can still work on the clone. If <xref:System.Windows.WeakEventManager.ListenerList.PrepareForWriting%2A> returns `true`, you might need to update any private references to the list that you maintain in other areas of your code.'
   syntax:
     content: public void Remove (System.Windows.IWeakEventListener listener);
     parameters:

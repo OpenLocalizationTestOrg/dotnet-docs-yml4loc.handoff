@@ -56,7 +56,7 @@ items:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching.Hosting
   summary: Registers a file path to monitor with the host environment.
-  remarks: This method is used by custom cache objects and custom change monitors that implement the host environment's <xref:System.Runtime.Caching.Hosting.IFileChangeNotificationSystem> interface in order to register file paths for monitoring with the host environment. The <xref:System.Runtime.Caching.Hosting.IFileChangeNotificationSystem.StartMonitoring%2A> method is called by implementers of the <xref:System.Runtime.Caching.Hosting.IFileChangeNotificationSystem> interface in order to register a file or directory for change monitoring.
+  remarks: 'This method is used by custom cache objects and custom change monitors that implement the host environment''s <xref:System.Runtime.Caching.Hosting.IFileChangeNotificationSystem> interface in order to register file paths for monitoring with the host environment. The <xref:System.Runtime.Caching.Hosting.IFileChangeNotificationSystem.StartMonitoring%2A> method is called by implementers of the <xref:System.Runtime.Caching.Hosting.IFileChangeNotificationSystem> interface in order to register a file or directory for change monitoring.'
   syntax:
     content: public void StartMonitoring (string filePath, System.Runtime.Caching.OnChangedCallback onChangedCallback, out object state, out DateTimeOffset lastWriteTime, out long fileSize);
     parameters:
@@ -65,16 +65,16 @@ items:
       description: The fully qualified physical path of a directory or file to monitor for changes.
     - id: onChangedCallback
       type: System.Runtime.Caching.OnChangedCallback
-      description: A reference to a method that implements the <xref href="System.Runtime.Caching.OnChangedCallback"></xref> delegate. When the monitored file or directory changes, the host environment's implementation of the <xref href="System.Runtime.Caching.Hosting.IFileChangeNotificationSystem"></xref> interface raises an event by calling the <xref href="System.Runtime.Caching.OnChangedCallback"></xref> class.
+      description: 'A reference to a method that implements the <xref href="System.Runtime.Caching.OnChangedCallback"></xref> delegate. When the monitored file or directory changes, the host environment''s implementation of the <xref href="System.Runtime.Caching.Hosting.IFileChangeNotificationSystem"></xref> interface raises an event by calling the <xref href="System.Runtime.Caching.OnChangedCallback"></xref> class.'
     - id: state
       type: System.Object
-      description: The state that is supplied by the host environment. Cache implementations and custom change monitors should treat the state value as opaque. However, the state must be stored so that it can be sent to the host environment when the cache implementation calls the <xref href="System.Runtime.Caching.Hosting.IFileChangeNotificationSystem.StopMonitoring(System.String,System.Object)"></xref> method.
+      description: 'The state that is supplied by the host environment. Cache implementations and custom change monitors should treat the state value as opaque. However, the state must be stored so that it can be sent to the host environment when the cache implementation calls the <xref href="System.Runtime.Caching.Hosting.IFileChangeNotificationSystem.StopMonitoring(System.String,System.Object)"></xref> method.'
     - id: lastWriteTime
       type: System.DateTimeOffset
-      description: When this method returns, contains the last date and time that a write operation occurred on <code>filePath</code>. This parameter is passed uninitialized. This parameter is returned from the host environment.
+      description: 'When this method returns, contains the last date and time that a write operation occurred on <code>filePath</code>. This parameter is passed uninitialized. This parameter is returned from the host environment.'
     - id: fileSize
       type: System.Int64
-      description: When this method returns, contains the total size of the monitored <code>filePath</code>. This parameter is passed uninitialized. This parameter is returned from the host environment.
+      description: 'When this method returns, contains the total size of the monitored <code>filePath</code>. This parameter is passed uninitialized. This parameter is returned from the host environment.'
   overload: System.Runtime.Caching.Hosting.IFileChangeNotificationSystem.StartMonitoring*
   exceptions: []
   version:
@@ -113,16 +113,16 @@ items:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching.Hosting
   summary: Ends change monitoring.
-  remarks: The <xref:System.Runtime.Caching.Hosting.IFileChangeNotificationSystem.StopMonitoring%2A> method must be called by custom caches and custom change monitors that are being disposed by the host environment in order to stop monitoring file paths and directories.
+  remarks: 'The <xref:System.Runtime.Caching.Hosting.IFileChangeNotificationSystem.StopMonitoring%2A> method must be called by custom caches and custom change monitors that are being disposed by the host environment in order to stop monitoring file paths and directories.'
   syntax:
     content: public void StopMonitoring (string filePath, object state);
     parameters:
     - id: filePath
       type: System.String
-      description: The path of the file or folder to stop monitoring. This should match a file path value that was passed in an earlier call to the <xref href="System.Runtime.Caching.Hosting.IFileChangeNotificationSystem.StartMonitoring(System.String,System.Runtime.Caching.OnChangedCallback,System.Object@,System.DateTimeOffset@,System.Int64@)"></xref> method.
+      description: 'The path of the file or folder to stop monitoring. This should match a file path value that was passed in an earlier call to the <xref href="System.Runtime.Caching.Hosting.IFileChangeNotificationSystem.StartMonitoring(System.String,System.Runtime.Caching.OnChangedCallback,System.Object@,System.DateTimeOffset@,System.Int64@)"></xref> method.'
     - id: state
       type: System.Object
-      description: The state information that was originally supplied by the host environment during an earlier call to the <xref href="System.Runtime.Caching.Hosting.IFileChangeNotificationSystem.StartMonitoring(System.String,System.Runtime.Caching.OnChangedCallback,System.Object@,System.DateTimeOffset@,System.Int64@)"></xref> method.
+      description: 'The state information that was originally supplied by the host environment during an earlier call to the <xref href="System.Runtime.Caching.Hosting.IFileChangeNotificationSystem.StartMonitoring(System.String,System.Runtime.Caching.OnChangedCallback,System.Object@,System.DateTimeOffset@,System.Int64@)"></xref> method.'
   overload: System.Runtime.Caching.Hosting.IFileChangeNotificationSystem.StopMonitoring*
   exceptions: []
   version:

@@ -69,7 +69,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Changes the control's user interface (UI) to be consistent with the specified cell style.
-  remarks: Typically, an implementation of this method will set UI properties for the editing control, such as font, background color, and foreground color, to the values of corresponding properties in the `dataGridViewCellStyle`, which is the style used for the cell hosting the control.
+  remarks: 'Typically, an implementation of this method will set UI properties for the editing control, such as font, background color, and foreground color, to the values of corresponding properties in the `dataGridViewCellStyle`, which is the style used for the cell hosting the control.'
   example:
   - "The following code example provides an implementation of this member. This example is part of a larger example available in [How to: Host Controls in Windows Forms DataGridView Cells](~/docs/framework/winforms/controls/how-to-host-controls-in-windows-forms-datagridview-cells.md).  \n  \n [!code-csharp[System.Windows.Forms.DataGridViewCalendarColumn#303](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.DataGridViewCalendarColumn/CS/datagridviewcalendarcolumn.cs#303)]\n [!code-vb[System.Windows.Forms.DataGridViewCalendarColumn#303](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.DataGridViewCalendarColumn/VB/datagridviewcalendarcolumn.vb#303)]"
   syntax:
@@ -204,12 +204,12 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets the index of the hosting cell's parent row.
-  remarks: The <xref:System.Windows.Forms.IDataGridViewEditingControl> interface does not define a corresponding `ColumnIndex` property. You can use the <xref:System.Windows.Forms.IDataGridViewEditingControl.EditingControlDataGridView%2A> property to retrieve the parent <xref:System.Windows.Forms.DataGridView> control and use the <xref:System.Windows.Forms.DataGridView.CurrentCellAddress%2A?displayProperty=fullName> property to determine the row and column indexes of the active cell.
+  remarks: 'The <xref:System.Windows.Forms.IDataGridViewEditingControl> interface does not define a corresponding `ColumnIndex` property. You can use the <xref:System.Windows.Forms.IDataGridViewEditingControl.EditingControlDataGridView%2A> property to retrieve the parent <xref:System.Windows.Forms.DataGridView> control and use the <xref:System.Windows.Forms.DataGridView.CurrentCellAddress%2A?displayProperty=fullName> property to determine the row and column indexes of the active cell.'
   syntax:
     content: public int EditingControlRowIndex { get; set; }
     return:
       type: System.Int32
-      description: The index of the row that contains the cell, or –1 if there is no parent row.
+      description: 'The index of the row that contains the cell, or –1 if there is no parent row.'
   overload: System.Windows.Forms.IDataGridViewEditingControl.EditingControlRowIndex*
   exceptions: []
   version:
@@ -248,7 +248,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets a value indicating whether the value of the editing control differs from the value of the hosting cell.
-  remarks: The <xref:System.Windows.Forms.IDataGridViewEditingControl.EditingControlValueChanged%2A> property is set to `true` to indicate that the hosting cell's state has changed and its user interface (UI) needs to be updated to reflect this change in value. The owning cell or table will reset this property to `false` after an update.
+  remarks: 'The <xref:System.Windows.Forms.IDataGridViewEditingControl.EditingControlValueChanged%2A> property is set to `true` to indicate that the hosting cell''s state has changed and its user interface (UI) needs to be updated to reflect this change in value. The owning cell or table will reset this property to `false` after an update.'
   syntax:
     content: public bool EditingControlValueChanged { get; set; }
     return:
@@ -345,7 +345,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets the cursor used when the mouse pointer is over the <xref href="System.Windows.Forms.DataGridView.EditingPanel"></xref> but not over the editing control.
-  remarks: The editing panel is the <xref:System.Windows.Forms.Panel> that hosts the editing control when the <xref:System.Windows.Forms.DataGridView> control is in edit mode. The actual editing control may not cover the entire area of the editing panel. In this case, the <xref:System.Windows.Forms.IDataGridViewEditingControl.EditingPanelCursor%2A> implementation should return the cursor to use when the mouse pointer is over the panel but not over the control. Typically, you will want to return the same cursor that the control uses. If you want to change the cursor that appears when the pointer is over the control, you must set the <xref:System.Windows.Forms.Control.Cursor%2A> property. You can set this in the constructor of the <xref:System.Windows.Forms.IDataGridViewEditingControl> implementation, or you can set it in the <xref:System.Windows.Forms.IDataGridViewEditingControl.PrepareEditingControlForEdit%2A> implementation.
+  remarks: 'The editing panel is the <xref:System.Windows.Forms.Panel> that hosts the editing control when the <xref:System.Windows.Forms.DataGridView> control is in edit mode. The actual editing control may not cover the entire area of the editing panel. In this case, the <xref:System.Windows.Forms.IDataGridViewEditingControl.EditingPanelCursor%2A> implementation should return the cursor to use when the mouse pointer is over the panel but not over the control. Typically, you will want to return the same cursor that the control uses. If you want to change the cursor that appears when the pointer is over the control, you must set the <xref:System.Windows.Forms.Control.Cursor%2A> property. You can set this in the constructor of the <xref:System.Windows.Forms.IDataGridViewEditingControl> implementation, or you can set it in the <xref:System.Windows.Forms.IDataGridViewEditingControl.PrepareEditingControlForEdit%2A> implementation.'
   example:
   - "The following code example provides an implementation of this member. This example is part of a larger example available in [How to: Host Controls in Windows Forms DataGridView Cells](~/docs/framework/winforms/controls/how-to-host-controls-in-windows-forms-datagridview-cells.md).  \n  \n [!code-csharp[System.Windows.Forms.DataGridViewCalendarColumn#311](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.DataGridViewCalendarColumn/CS/datagridviewcalendarcolumn.cs#311)]\n [!code-vb[System.Windows.Forms.DataGridViewCalendarColumn#311](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.DataGridViewCalendarColumn/VB/datagridviewcalendarcolumn.vb#311)]"
   syntax:
@@ -438,13 +438,13 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Prepares the currently selected cell for editing.
-  remarks: The purpose of this method is to prepare the control and its contents for editing. For example, you might want to put the insertion point at the end of the contents, or change how the contents are aligned.
+  remarks: 'The purpose of this method is to prepare the control and its contents for editing. For example, you might want to put the insertion point at the end of the contents, or change how the contents are aligned.'
   syntax:
     content: public void PrepareEditingControlForEdit (bool selectAll);
     parameters:
     - id: selectAll
       type: System.Boolean
-      description: "`true` to select all of the cell's content; otherwise, `false`."
+      description: '`true` to select all of the cell''s content; otherwise, `false`.'
   overload: System.Windows.Forms.IDataGridViewEditingControl.PrepareEditingControlForEdit*
   exceptions: []
   version:
@@ -483,7 +483,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets a value indicating whether the cell contents need to be repositioned whenever the value changes.
-  remarks: Some situations require that cell contents reposition when the value changes. For example, cell contents may need to reposition when a cell wraps text and the contents become larger.
+  remarks: 'Some situations require that cell contents reposition when the value changes. For example, cell contents may need to reposition when a cell wraps text and the contents become larger.'
   syntax:
     content: public bool RepositionEditingControlOnValueChange { get; }
     return:

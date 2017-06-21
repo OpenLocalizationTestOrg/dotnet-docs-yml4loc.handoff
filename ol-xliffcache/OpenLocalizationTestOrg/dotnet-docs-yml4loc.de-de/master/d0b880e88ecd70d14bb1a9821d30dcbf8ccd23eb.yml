@@ -15,7 +15,7 @@ items:
   assemblies:
   - Microsoft.JScript
   namespace: Microsoft.JScript
-  summary: Defines methods that evaluate expressions and parse strings. This interface is typically implemented by an object that represents a code block, and it is typically called by a debugger. This interface provides extra functionality that is needed by an IActiveScript host.
+  summary: 'Defines methods that evaluate expressions and parse strings. This interface is typically implemented by an object that represents a code block, and it is typically called by a debugger. This interface provides extra functionality that is needed by an IActiveScript host.'
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -59,14 +59,14 @@ items:
   assemblies:
   - Microsoft.JScript
   namespace: Microsoft.JScript
-  summary: When implemented in a class, evaluates the block, expression, or statement represented by the code item and returns the value. It is typically called by a debugger that needs to evaluate an expression (in a Watch window, for example). For expressions, the value is the result of the expression. For blocks and statements, the resulting expression is the last expression calculated by the block or statement.
-  remarks: Note that the <xref:Microsoft.JScript.IDebugVsaScriptCodeItem.Evaluate%2A> method is functionally identical to the <xref:Microsoft.JScript.IVsaScriptCodeItem.Execute%2A> method. Only the marshaling attributes differ. This version of the interface allows an unmanaged debugger to obtain the return value as an `IUnknown` pointer rather than a `VARIANT`.
+  summary: 'When implemented in a class, evaluates the block, expression, or statement represented by the code item and returns the value. It is typically called by a debugger that needs to evaluate an expression (in a Watch window, for example). For expressions, the value is the result of the expression. For blocks and statements, the resulting expression is the last expression calculated by the block or statement.'
+  remarks: 'Note that the <xref:Microsoft.JScript.IDebugVsaScriptCodeItem.Evaluate%2A> method is functionally identical to the <xref:Microsoft.JScript.IVsaScriptCodeItem.Execute%2A> method. Only the marshaling attributes differ. This version of the interface allows an unmanaged debugger to obtain the return value as an `IUnknown` pointer rather than a `VARIANT`.'
   syntax:
     content: public object Evaluate ();
     parameters: []
     return:
       type: System.Object
-      description: Returns a value that represents the evaluation of the statement, expression, or block.
+      description: 'Returns a value that represents the evaluation of the statement, expression, or block.'
   overload: Microsoft.JScript.IDebugVsaScriptCodeItem.Evaluate*
   exceptions: []
   version:
@@ -107,25 +107,25 @@ items:
     parameters:
     - id: input
       type: System.String
-      description: A well-formed named breakpoint string giving a function, optional argument list, and optional IL offset.
+      description: 'A well-formed named breakpoint string giving a function, optional argument list, and optional IL offset.'
     - id: functionName
       type: System.String
-      description: Out parameter returning the name of the function parsed out of the input string, or the empty string if the input string is not well formed.
+      description: 'Out parameter returning the name of the function parsed out of the input string, or the empty string if the input string is not well formed.'
     - id: nargs
       type: System.Int32
       description: Out parameter returning the number of arguments in the optional argument list. Returns zero if there is no arguments list or if the string is not well formed.
     - id: arguments
       type: System.String
-      description: Out parameter returning a space-separated list of the names of the types of all the arguments in the arguments list, or an empty string if the arguments list was missing or the input string was not well formed.
+      description: 'Out parameter returning a space-separated list of the names of the types of all the arguments in the arguments list, or an empty string if the arguments list was missing or the input string was not well formed.'
     - id: returnType
       type: System.String
-      description: Out parameter returning a string containing the return type of the function named in the input, or the empty string if the return type was missing or the input string was not well formed.
+      description: 'Out parameter returning a string containing the return type of the function named in the input, or the empty string if the return type was missing or the input string was not well formed.'
     - id: offset
       type: System.UInt64
-      description: Unsigned long integer giving the IL offset from the input string, or zero if there was no IL offset or the string was not well formed.
+      description: 'Unsigned long integer giving the IL offset from the input string, or zero if there was no IL offset or the string was not well formed.'
     return:
       type: System.Boolean
-      description: Returns `true` if the named breakpoint is successfully parsed, `false` otherwise.
+      description: 'Returns `true` if the named breakpoint is successfully parsed, `false` otherwise.'
   overload: Microsoft.JScript.IDebugVsaScriptCodeItem.ParseNamedBreakPoint*
   exceptions: []
   version:

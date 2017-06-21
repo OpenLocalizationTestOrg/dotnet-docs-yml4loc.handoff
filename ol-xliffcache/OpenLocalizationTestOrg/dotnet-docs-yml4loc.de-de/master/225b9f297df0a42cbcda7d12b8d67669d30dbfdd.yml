@@ -32,7 +32,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Represents the binding element used to specify Windows stream security settings.
-  remarks: "Transports that use a stream-oriented protocol such as TCP and named pipes support stream-based transport upgrades. Specifically, [!INCLUDE[indigo2](~/includes/indigo2-md.md)] provides security upgrades. The configuration of this transport security is encapsulated by this class as well as by <xref:System.ServiceModel.Channels.SslStreamSecurityBindingElement>, which can be configured and added to a custom binding. In addition, a third party can write its own custom `StreamSecurityBindingElement`. These binding elements extend the <xref:System.ServiceModel.Channels.StreamUpgradeBindingElement> class that is called to build the client and server stream upgrade providers.  \n  \n A custom binding contains a collection of binding elements arranged in a specific order: the element representing the top of the binding stack is added first, the next element down in the binding stack is added second, and so on.  \n  \n### To add this class to a binding  \n  \n1.  Create a <xref:System.ServiceModel.Channels.BindingElementCollection>.  \n  \n2.  Create any required custom binding elements that are above this binding element in the binding stack, such as the optional <xref:System.ServiceModel.Channels.TransactionFlowBindingElement> and <xref:System.ServiceModel.Channels.ReliableSessionBindingElement>.  \n  \n3.  Add the created elements in the order described previously to the <xref:System.ServiceModel.Channels.BindingElementCollection> using the <xref:System.ServiceModel.Channels.BindingElementCollection.InsertItem%2A> method.  \n  \n4.  Create an instance of <xref:System.ServiceModel.Channels.WindowsStreamSecurityBindingElement> and add it to the collection.  \n  \n5.  Add any additional custom binding elements to the collection, such as <xref:System.ServiceModel.Channels.TcpTransportBindingElement>."
+  remarks: "Transports that use a stream-oriented protocol such as TCP and named pipes support stream-based transport upgrades. Specifically, [!INCLUDE[indigo2](~/includes/indigo2-md.md)] provides security upgrades. The configuration of this transport security is encapsulated by this class as well as by <xref:System.ServiceModel.Channels.SslStreamSecurityBindingElement>, which can be configured and added to a custom binding. In addition, a third party can write its own custom `StreamSecurityBindingElement`. These binding elements extend the <xref:System.ServiceModel.Channels.StreamUpgradeBindingElement> class that is called to build the client and server stream upgrade providers.  \n  \n A custom binding contains a collection of binding elements arranged in a specific order: the element representing the top of the binding stack is added first, the next element down in the binding stack is added second, and so on.  \n  \n### <a name=\"to-add-this-class-to-a-binding\"></a>To add this class to a binding  \n  \n1.  Create a <xref:System.ServiceModel.Channels.BindingElementCollection>.  \n  \n2.  Create any required custom binding elements that are above this binding element in the binding stack, such as the optional <xref:System.ServiceModel.Channels.TransactionFlowBindingElement> and <xref:System.ServiceModel.Channels.ReliableSessionBindingElement>.  \n  \n3.  Add the created elements in the order described previously to the <xref:System.ServiceModel.Channels.BindingElementCollection> using the <xref:System.ServiceModel.Channels.BindingElementCollection.InsertItem%2A> method.  \n  \n4.  Create an instance of <xref:System.ServiceModel.Channels.WindowsStreamSecurityBindingElement> and add it to the collection.  \n  \n5.  Add any additional custom binding elements to the collection, such as <xref:System.ServiceModel.Channels.TcpTransportBindingElement>."
   syntax:
     content: 'public class WindowsStreamSecurityBindingElement : System.ServiceModel.Channels.BindingElement, System.ServiceModel.Channels.ISecurityCapabilities, System.ServiceModel.Channels.ITransportTokenAssertionProvider, System.ServiceModel.Description.IPolicyExportExtension'
   inheritance:
@@ -190,13 +190,13 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Creates a channel factory that can be used to create a channel.
-  remarks: This method creates a channel factory, which is used to create a channel that processes outgoing messages for this binding.
+  remarks: 'This method creates a channel factory, which is used to create a channel that processes outgoing messages for this binding.'
   syntax:
     content: public override System.ServiceModel.Channels.IChannelFactory<TChannel> BuildChannelFactory<TChannel> (System.ServiceModel.Channels.BindingContext context);
     parameters:
     - id: context
       type: System.ServiceModel.Channels.BindingContext
-      description: <xref href="System.ServiceModel.Channels.BindingContext"></xref> members that describe bindings, behaviors, contracts, and other information required to create the channel factory.
+      description: '<xref href="System.ServiceModel.Channels.BindingContext"></xref> members that describe bindings, behaviors, contracts, and other information required to create the channel factory.'
     typeParameters:
     - id: TChannel
       description: Type of channel factory.
@@ -250,13 +250,13 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Creates a channel listener of the specified type.
-  remarks: This method creates a channel listener, which is used to create a channel that processes incoming messages for this binding.
+  remarks: 'This method creates a channel listener, which is used to create a channel that processes incoming messages for this binding.'
   syntax:
     content: 'public override System.ServiceModel.Channels.IChannelListener<TChannel> BuildChannelListener<TChannel> (System.ServiceModel.Channels.BindingContext context) where TChannel : class, System.ServiceModel.Channels.IChannel;'
     parameters:
     - id: context
       type: System.ServiceModel.Channels.BindingContext
-      description: <xref href="System.ServiceModel.Channels.BindingContext"></xref> members that describe bindings, behaviors, contracts, and other information required to create the channel listener.
+      description: '<xref href="System.ServiceModel.Channels.BindingContext"></xref> members that describe bindings, behaviors, contracts, and other information required to create the channel listener.'
     typeParameters:
     - id: TChannel
       description: Type of channel listener.
@@ -400,7 +400,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Determines whether a channel factory of the specified type can be built.
-  remarks: A channel factory is used to create a channel that processes outgoing messages for this binding. This method delegates to the <xref:System.ServiceModel.Channels.BindingContext.CanBuildInnerChannelFactory%2A> method.
+  remarks: 'A channel factory is used to create a channel that processes outgoing messages for this binding. This method delegates to the <xref:System.ServiceModel.Channels.BindingContext.CanBuildInnerChannelFactory%2A> method.'
   syntax:
     content: public override bool CanBuildChannelFactory<TChannel> (System.ServiceModel.Channels.BindingContext context);
     parameters:
@@ -460,7 +460,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Determines whether a channel listener of the specified type can be built.
-  remarks: A channel listener is used to create a channel that processes incoming messages for this binding. This method delegates to the <xref:System.ServiceModel.Channels.BindingContext.CanBuildInnerChannelListener%2A> method.
+  remarks: 'A channel listener is used to create a channel that processes incoming messages for this binding. This method delegates to the <xref:System.ServiceModel.Channels.BindingContext.CanBuildInnerChannelListener%2A> method.'
   syntax:
     content: 'public override bool CanBuildChannelListener<TChannel> (System.ServiceModel.Channels.BindingContext context) where TChannel : class, System.ServiceModel.Channels.IChannel;'
     parameters:

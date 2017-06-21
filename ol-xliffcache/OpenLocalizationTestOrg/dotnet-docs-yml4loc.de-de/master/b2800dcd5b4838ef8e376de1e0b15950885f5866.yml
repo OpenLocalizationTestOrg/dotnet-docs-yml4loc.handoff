@@ -18,7 +18,7 @@ items:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
   summary: Provides methods used for security and transport sinks.
-  remarks: Channel sinks provide a plug-in point that allows access to the underlying messages flowing through the channel as well as the stream used by the transport mechanism to send messages to a remote object. Channel sinks are linked together in a chain of channel sink providers, and all channel messages flow through this chain of sinks before the message is serialized and transported.
+  remarks: 'Channel sinks provide a plug-in point that allows access to the underlying messages flowing through the channel as well as the stream used by the transport mechanism to send messages to a remote object. Channel sinks are linked together in a chain of channel sink providers, and all channel messages flow through this chain of sinks before the message is serialized and transported.'
   example:
   - "The following code example illustrates an implementation of the <xref:System.Runtime.Remoting.Channels.IServerChannelSink> interface.  \n  \n [!code-cpp[Remoting_Sinks#60](~/samples/snippets/cpp/VS_Snippets_Remoting/Remoting_Sinks/CPP/serversink.cpp#60)]\n [!code-csharp[Remoting_Sinks#60](~/samples/snippets/csharp/VS_Snippets_Remoting/Remoting_Sinks/CS/serversink.cs#60)]  \n  \n See the <xref:System.Runtime.Remoting.Channels.IServerChannelSinkProvider> interface documentation for an example of the corresponding server sink provider implementation."
   syntax:
@@ -207,7 +207,7 @@ items:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
   summary: Gets the next server channel sink in the server sink chain.
-  remarks: Channel sinks are linked together in a chain of sink providers, and all channel messages flow through this chain before the message is serialized and transported.
+  remarks: 'Channel sinks are linked together in a chain of sink providers, and all channel messages flow through this chain before the message is serialized and transported.'
   syntax:
     content: public System.Runtime.Remoting.Channels.IServerChannelSink NextChannelSink { get; }
     return:
@@ -258,7 +258,7 @@ items:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
   summary: Requests message processing from the current sink.
-  remarks: The job of a proxy is to convert a method call invoked on it into a message object. This message object, which implements the <xref:System.Runtime.Remoting.Messaging.IMessage> interface, is passed from the client end to the server end by invoking <xref:System.Runtime.Remoting.Channels.IServerChannelSink.ProcessMessage%2A> on message sink objects. Message sinks are chained together in the sense that every message sink is responsible for calling <xref:System.Runtime.Remoting.Channels.IServerChannelSink.ProcessMessage%2A> on the next message sink after it has performed its work. For instance, a synchronization-related message sink can cause a lock to be acquired or released, and then delegated further to the downstream message sink.
+  remarks: 'The job of a proxy is to convert a method call invoked on it into a message object. This message object, which implements the <xref:System.Runtime.Remoting.Messaging.IMessage> interface, is passed from the client end to the server end by invoking <xref:System.Runtime.Remoting.Channels.IServerChannelSink.ProcessMessage%2A> on message sink objects. Message sinks are chained together in the sense that every message sink is responsible for calling <xref:System.Runtime.Remoting.Channels.IServerChannelSink.ProcessMessage%2A> on the next message sink after it has performed its work. For instance, a synchronization-related message sink can cause a lock to be acquired or released, and then delegated further to the downstream message sink.'
   syntax:
     content: public System.Runtime.Remoting.Channels.ServerProcessing ProcessMessage (System.Runtime.Remoting.Channels.IServerChannelSinkStack sinkStack, System.Runtime.Remoting.Messaging.IMessage requestMsg, System.Runtime.Remoting.Channels.ITransportHeaders requestHeaders, System.IO.Stream requestStream, out System.Runtime.Remoting.Messaging.IMessage responseMsg, out System.Runtime.Remoting.Channels.ITransportHeaders responseHeaders, out System.IO.Stream responseStream);
     parameters:
@@ -276,13 +276,13 @@ items:
       description: The stream that needs to be to processed and passed on to the deserialization sink.
     - id: responseMsg
       type: System.Runtime.Remoting.Messaging.IMessage
-      description: When this method returns, contains a <xref href="System.Runtime.Remoting.Messaging.IMessage"></xref> that holds the response message. This parameter is passed uninitialized.
+      description: 'When this method returns, contains a <xref href="System.Runtime.Remoting.Messaging.IMessage"></xref> that holds the response message. This parameter is passed uninitialized.'
     - id: responseHeaders
       type: System.Runtime.Remoting.Channels.ITransportHeaders
-      description: When this method returns, contains a <xref href="System.Runtime.Remoting.Channels.ITransportHeaders"></xref> that holds the headers that are to be added to return message heading to the client. This parameter is passed uninitialized.
+      description: 'When this method returns, contains a <xref href="System.Runtime.Remoting.Channels.ITransportHeaders"></xref> that holds the headers that are to be added to return message heading to the client. This parameter is passed uninitialized.'
     - id: responseStream
       type: System.IO.Stream
-      description: When this method returns, contains a <xref href="System.IO.Stream"></xref> that is heading back to the transport sink. This parameter is passed uninitialized.
+      description: 'When this method returns, contains a <xref href="System.IO.Stream"></xref> that is heading back to the transport sink. This parameter is passed uninitialized.'
     return:
       type: System.Runtime.Remoting.Channels.ServerProcessing
       description: A <xref href="System.Runtime.Remoting.Channels.ServerProcessing"></xref> status value that provides information about how message was processed.

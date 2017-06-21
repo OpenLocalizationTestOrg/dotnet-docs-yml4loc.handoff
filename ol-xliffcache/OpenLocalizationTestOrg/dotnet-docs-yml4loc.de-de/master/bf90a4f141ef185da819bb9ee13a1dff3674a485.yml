@@ -32,7 +32,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Documents
   summary: Provides an abstract base class that supports creation of multiple-page elements from a single document.
-  remarks: If you need automatic background repagination in response to events such as changing the page size of a <xref:System.Windows.Documents.FlowDocument>, then use <xref:System.Windows.Documents.DynamicDocumentPaginator> as your base class.
+  remarks: 'If you need automatic background repagination in response to events such as changing the page size of a <xref:System.Windows.Documents.FlowDocument>, then use <xref:System.Windows.Documents.DynamicDocumentPaginator> as your base class.'
   syntax:
     content: public abstract class DocumentPaginator
   inheritance:
@@ -125,13 +125,13 @@ items:
   - PresentationCore
   namespace: System.Windows.Documents
   summary: Cancels a previous <xref href="System.Windows.Documents.DocumentPaginator.GetPageAsync*"></xref> or <xref href="System.Windows.Documents.DynamicDocumentPaginator.GetPageNumberAsync*"></xref> operation.
-  remarks: If `userState` is `null`, then all asynchronous tasks are cancelled.
+  remarks: 'If `userState` is `null`, then all asynchronous tasks are cancelled.'
   syntax:
     content: public virtual void CancelAsync (object userState);
     parameters:
     - id: userState
       type: System.Object
-      description: The original <code>userState</code> passed to <xref href="System.Windows.Documents.DocumentPaginator.GetPageAsync*"></xref>, <xref href="System.Windows.Documents.DynamicDocumentPaginator.GetPageNumberAsync*"></xref>, or <xref href="System.Windows.Documents.DocumentPaginator.ComputePageCountAsync*"></xref> that identifies the asynchronous task to cancel.
+      description: 'The original <code>userState</code> passed to <xref href="System.Windows.Documents.DocumentPaginator.GetPageAsync*"></xref>, <xref href="System.Windows.Documents.DynamicDocumentPaginator.GetPageNumberAsync*"></xref>, or <xref href="System.Windows.Documents.DocumentPaginator.ComputePageCountAsync*"></xref> that identifies the asynchronous task to cancel.'
   overload: System.Windows.Documents.DocumentPaginator.CancelAsync*
   exceptions: []
   version:
@@ -168,8 +168,8 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Documents
-  summary: Forces a pagination of the content, updates <xref href="System.Windows.Documents.DocumentPaginator.PageCount"></xref> with the new total, and sets <xref href="System.Windows.Documents.DocumentPaginator.IsPageCountValid"></xref> to `true`.
-  remarks: <xref:System.Windows.Documents.DocumentPaginator.IsPageCountValid%2A> will be `true` immediately after this is called. If content is modified or <xref:System.Windows.Documents.DocumentPaginator.PageSize%2A> is changed after this method is called, <xref:System.Windows.Documents.DocumentPaginator.IsPageCountValid%2A> will likely revert to `false`.
+  summary: 'Forces a pagination of the content, updates <xref href="System.Windows.Documents.DocumentPaginator.PageCount"></xref> with the new total, and sets <xref href="System.Windows.Documents.DocumentPaginator.IsPageCountValid"></xref> to `true`.'
+  remarks: '<xref:System.Windows.Documents.DocumentPaginator.IsPageCountValid%2A> will be `true` immediately after this is called. If content is modified or <xref:System.Windows.Documents.DocumentPaginator.PageSize%2A> is changed after this method is called, <xref:System.Windows.Documents.DocumentPaginator.IsPageCountValid%2A> will likely revert to `false`.'
   syntax:
     content: public virtual void ComputePageCount ();
     parameters: []
@@ -210,7 +210,7 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Documents
-  summary: Asynchronously, forces a pagination of the content, updates <xref href="System.Windows.Documents.DocumentPaginator.PageCount"></xref> with the new total, and sets <xref href="System.Windows.Documents.DocumentPaginator.IsPageCountValid"></xref> to `true`.
+  summary: 'Asynchronously, forces a pagination of the content, updates <xref href="System.Windows.Documents.DocumentPaginator.PageCount"></xref> with the new total, and sets <xref href="System.Windows.Documents.DocumentPaginator.IsPageCountValid"></xref> to `true`.'
   remarks: 'The only way to cancel the asynchronous operation of this method is to cancel all asynchronous operations. Contrast this with the other overload of this method: <xref:System.Windows.Documents.DocumentPaginator.ComputePageCountAsync%28System.Object%29>.'
   syntax:
     content: public virtual void ComputePageCountAsync ();
@@ -252,7 +252,7 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Documents
-  summary: Asynchronously, forces a pagination of the content, updates <xref href="System.Windows.Documents.DocumentPaginator.PageCount"></xref> with the new total, sets <xref href="System.Windows.Documents.DocumentPaginator.IsPageCountValid"></xref> to `true`.
+  summary: 'Asynchronously, forces a pagination of the content, updates <xref href="System.Windows.Documents.DocumentPaginator.PageCount"></xref> with the new total, sets <xref href="System.Windows.Documents.DocumentPaginator.IsPageCountValid"></xref> to `true`.'
   remarks: "The specified ID is assigned to the asynchronous task.  \n  \n This overload of the method makes it possible to cancel this asynchronous operation without cancelling all asynchronous operations."
   syntax:
     content: public virtual void ComputePageCountAsync (object userState);
@@ -339,7 +339,7 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Documents
-  summary: When overridden in a derived class, gets the <xref href="System.Windows.Documents.DocumentPage"></xref> for the specified page number.
+  summary: 'When overridden in a derived class, gets the <xref href="System.Windows.Documents.DocumentPage"></xref> for the specified page number.'
   remarks: "If pages prior to `pageNumber` have not been formatted, they will be paginated synchronously prior to returning the requested page.  \n  \n <xref:System.Windows.Documents.DocumentPaginator.GetPageAsync%2A> provides similar functionality as <xref:System.Windows.Documents.DocumentPaginator.GetPage%2A>, but for asynchronous operation."
   syntax:
     content: public abstract System.Windows.Documents.DocumentPage GetPage (int pageNumber);
@@ -349,7 +349,7 @@ items:
       description: The zero-based page number of the document page that is needed.
     return:
       type: System.Windows.Documents.DocumentPage
-      description: The <xref href="System.Windows.Documents.DocumentPage"></xref> for the specified <code>pageNumber</code>, or <xref href="System.Windows.Documents.DocumentPage.Missing"></xref> if the page does not exist.
+      description: 'The <xref href="System.Windows.Documents.DocumentPage"></xref> for the specified <code>pageNumber</code>, or <xref href="System.Windows.Documents.DocumentPage.Missing"></xref> if the page does not exist.'
   overload: System.Windows.Documents.DocumentPaginator.GetPage*
   exceptions:
   - type: System.ArgumentOutOfRangeException
@@ -530,7 +530,7 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Documents
-  summary: When overridden in a derived class, gets a value indicating whether <xref href="System.Windows.Documents.DocumentPaginator.PageCount"></xref> is the total number of pages.
+  summary: 'When overridden in a derived class, gets a value indicating whether <xref href="System.Windows.Documents.DocumentPaginator.PageCount"></xref> is the total number of pages.'
   syntax:
     content: public abstract bool IsPageCountValid { get; }
     return:
@@ -705,7 +705,7 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Documents
-  summary: When overridden in a derived class, gets a count of the number of pages currently formatted
+  summary: 'When overridden in a derived class, gets a count of the number of pages currently formatted'
   remarks: "If <xref:System.Windows.Documents.DocumentPaginator.IsPageCountValid%2A> is `true`, pagination is complete and <xref:System.Windows.Documents.DocumentPaginator.PageCount%2A> is the total number of pages in the document.  \n  \n If <xref:System.Windows.Documents.DocumentPaginator.IsPageCountValid%2A> is `false`, pagination is in process and <xref:System.Windows.Documents.DocumentPaginator.PageCount%2A> is the number of pages currently formatted (not the total).  \n  \n This value may change if <xref:System.Windows.Documents.DocumentPaginator.PageSize%2A> or content changes, because those events would force a repagination."
   syntax:
     content: public abstract int PageCount { get; }
@@ -790,8 +790,8 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Documents
-  summary: When overridden in a derived class, gets or sets the suggested width and height of each page.
-  remarks: The <xref:System.Windows.Documents.DocumentPaginator> may override the value of this property. Users should check <xref:System.Windows.Documents.DocumentPage.Size%2A?displayProperty=fullName>.
+  summary: 'When overridden in a derived class, gets or sets the suggested width and height of each page.'
+  remarks: 'The <xref:System.Windows.Documents.DocumentPaginator> may override the value of this property. Users should check <xref:System.Windows.Documents.DocumentPage.Size%2A?displayProperty=fullName>.'
   example:
   - "The following example shows how to set the <xref:System.Windows.Documents.DocumentPaginator.PageSize%2A>.  \n  \n [!code-csharp[XpsSave#CreateFixedDocument](~/samples/snippets/csharp/VS_Snippets_Wpf/XpsSave/CSharp/XpfContent.cs#createfixeddocument)]\n [!code-vb[XpsSave#CreateFixedDocument](~/samples/snippets/visualbasic/VS_Snippets_Wpf/XpsSave/visualbasic/xpfcontent.vb#createfixeddocument)]"
   syntax:
@@ -836,8 +836,8 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Documents
-  summary: When overridden in a derived class, returns the element being paginated.
-  remarks: The object returned has this <xref:System.Windows.Documents.DocumentPaginator> as the value of its <xref:System.Windows.Documents.IDocumentPaginatorSource.DocumentPaginator%2A> property. It is guaranteed to have such a property because it implements <xref:System.Windows.Documents.IDocumentPaginatorSource>.
+  summary: 'When overridden in a derived class, returns the element being paginated.'
+  remarks: 'The object returned has this <xref:System.Windows.Documents.DocumentPaginator> as the value of its <xref:System.Windows.Documents.IDocumentPaginatorSource.DocumentPaginator%2A> property. It is guaranteed to have such a property because it implements <xref:System.Windows.Documents.IDocumentPaginatorSource>.'
   syntax:
     content: public abstract System.Windows.Documents.IDocumentPaginatorSource Source { get; }
     return:

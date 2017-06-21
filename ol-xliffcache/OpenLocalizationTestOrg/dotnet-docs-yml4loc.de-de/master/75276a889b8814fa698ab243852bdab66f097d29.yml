@@ -91,7 +91,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml
   summary: "Represents a reader that provides fast, non-cached, forward-only access to XML data.  \n  \n Starting with the .NET Framework 2.0, we recommend that you use the <xref href=\"System.Xml.XmlReader\"></xref> class instead."
-  remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality.  \n  \n <xref:System.Xml.XmlTextReader> provides forward-only, read-only access to a stream of XML data. The current node refers to the node on which the reader is positioned. The reader is advanced using any of the read methods and properties reflect the value of the current node.  \n  \n This class implements <xref:System.Xml.XmlReader> and conforms to the W3C Extensible Markup Language (XML) 1.0 and the Namespaces in XML recommendations. `XmlTextReader` provides the following functionality:  \n  \n-   Enforces the rules of well-formed XML.  \n  \n-   `XmlTextReader` does not provide data validation.  \n  \n-   Checks that `DocumentType` nodes are well-formed. `XmlTextReader` checks the DTD for well-formedness, but does not validate using the DTD.  \n  \n-   For nodes where <xref:System.Xml.XmlTextReader.NodeType%2A> is `XmlNodeType.EntityReference`, a single empty `EntityReference` node is returned (that is, the <xref:System.Xml.XmlTextReader.Value%2A> property is `String.Empty`).  \n  \n> [!NOTE]\n>  The actual declarations of entities in the DTD are called `Entity` nodes. When you refer to these nodes in your data, they are called `EntityReference` nodes.  \n  \n-   Does not expand default attributes.  \n  \n Because the `XmlTextReader` does not perform the extra checks required for data validation, it provides a fast well-formedness parser.  \n  \n To perform data validation, use a validating <xref:System.Xml.XmlReader>.  \n  \n To read XML data from an <xref:System.Xml.XmlDocument>, use <xref:System.Xml.XmlNodeReader>.  \n  \n `XmlTextReader` throws an <xref:System.Xml.XmlException> on XML parse errors. After an exception is thrown the state of the reader is not predictable. For example, the reported node type may be different than the actual node type of the current node. Use the <xref:System.Xml.XmlTextReader.ReadState%2A> property to check whether a reader is in error state.  \n  \n## Security Considerations  \n The following are things to consider when using the <xref:System.Xml.XmlTextReader> class.  \n  \n-   Exceptions thrown the <xref:System.Xml.XmlTextReader> can disclose path information that you do not want bubbled up to the application. Your applications must catch exceptions and process them appropriately.  \n  \n-   DTD processing is enabled by default. Disable DTD processing if you are concerned about Denial of Service issues or if you are dealing with untrusted sources. Set the <xref:System.Xml.XmlTextReader.DtdProcessing%2A> property to <xref:System.Xml.DtdProcessing.Prohibit> to disable DTD processing.  \n  \n     If you have DTD processing enabled, you can use the <xref:System.Xml.XmlSecureResolver> to restrict the resources that the <xref:System.Xml.XmlTextReader> can access. You can also design your application so that the XML processing is memory and time constrained. For example, configure time-out limits in your ASP.NET application.  \n  \n-   XML data can include references to external resources such as a DTD file. By default external resources are resolved using an <xref:System.Xml.XmlUrlResolver> object with no user credentials. You can secure this further by doing one of the following:  \n  \n    -   Restrict the resources that the <xref:System.Xml.XmlTextReader> can access by setting the <xref:System.Xml.XmlTextReader.XmlResolver%2A> property to an <xref:System.Xml.XmlSecureResolver> object.  \n  \n    -   Do not allow the <xref:System.Xml.XmlReader> to open any external resources by setting the <xref:System.Xml.XmlTextReader.XmlResolver%2A> property to `null`.  \n  \n-   XML data can contain a large number of attributes, namespace declarations, nested elements and so on that require a substantial amount of time to process. To limit the size of the input that is sent to the <xref:System.Xml.XmlTextReader>, create a custom IStream implementation and supply it the <xref:System.Xml.XmlTextReader>.  \n  \n-   The <xref:System.Xml.XmlReader.ReadValueChunk%2A> method can be used to handle large streams of data. This method reads a small number of characters at a time instead of allocating a single string for the whole value.  \n  \n-   By default general entities are not expanded. General entities are expanded when you call the <xref:System.Xml.XmlTextReader.ResolveEntity%2A> method."
+  remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality.  \n  \n <xref:System.Xml.XmlTextReader> provides forward-only, read-only access to a stream of XML data. The current node refers to the node on which the reader is positioned. The reader is advanced using any of the read methods and properties reflect the value of the current node.  \n  \n This class implements <xref:System.Xml.XmlReader> and conforms to the W3C Extensible Markup Language (XML) 1.0 and the Namespaces in XML recommendations. `XmlTextReader` provides the following functionality:  \n  \n-   Enforces the rules of well-formed XML.  \n  \n-   `XmlTextReader` does not provide data validation.  \n  \n-   Checks that `DocumentType` nodes are well-formed. `XmlTextReader` checks the DTD for well-formedness, but does not validate using the DTD.  \n  \n-   For nodes where <xref:System.Xml.XmlTextReader.NodeType%2A> is `XmlNodeType.EntityReference`, a single empty `EntityReference` node is returned (that is, the <xref:System.Xml.XmlTextReader.Value%2A> property is `String.Empty`).  \n  \n> [!NOTE]\n>  The actual declarations of entities in the DTD are called `Entity` nodes. When you refer to these nodes in your data, they are called `EntityReference` nodes.  \n  \n-   Does not expand default attributes.  \n  \n Because the `XmlTextReader` does not perform the extra checks required for data validation, it provides a fast well-formedness parser.  \n  \n To perform data validation, use a validating <xref:System.Xml.XmlReader>.  \n  \n To read XML data from an <xref:System.Xml.XmlDocument>, use <xref:System.Xml.XmlNodeReader>.  \n  \n `XmlTextReader` throws an <xref:System.Xml.XmlException> on XML parse errors. After an exception is thrown the state of the reader is not predictable. For example, the reported node type may be different than the actual node type of the current node. Use the <xref:System.Xml.XmlTextReader.ReadState%2A> property to check whether a reader is in error state.  \n  \n## <a name=\"security-considerations\"></a>Security Considerations  \n The following are things to consider when using the <xref:System.Xml.XmlTextReader> class.  \n  \n-   Exceptions thrown the <xref:System.Xml.XmlTextReader> can disclose path information that you do not want bubbled up to the application. Your applications must catch exceptions and process them appropriately.  \n  \n-   DTD processing is enabled by default. Disable DTD processing if you are concerned about Denial of Service issues or if you are dealing with untrusted sources. Set the <xref:System.Xml.XmlTextReader.DtdProcessing%2A> property to <xref:System.Xml.DtdProcessing.Prohibit> to disable DTD processing.  \n  \n     If you have DTD processing enabled, you can use the <xref:System.Xml.XmlSecureResolver> to restrict the resources that the <xref:System.Xml.XmlTextReader> can access. You can also design your application so that the XML processing is memory and time constrained. For example, configure time-out limits in your ASP.NET application.  \n  \n-   XML data can include references to external resources such as a DTD file. By default external resources are resolved using an <xref:System.Xml.XmlUrlResolver> object with no user credentials. You can secure this further by doing one of the following:  \n  \n    -   Restrict the resources that the <xref:System.Xml.XmlTextReader> can access by setting the <xref:System.Xml.XmlTextReader.XmlResolver%2A> property to an <xref:System.Xml.XmlSecureResolver> object.  \n  \n    -   Do not allow the <xref:System.Xml.XmlReader> to open any external resources by setting the <xref:System.Xml.XmlTextReader.XmlResolver%2A> property to `null`.  \n  \n-   XML data can contain a large number of attributes, namespace declarations, nested elements and so on that require a substantial amount of time to process. To limit the size of the input that is sent to the <xref:System.Xml.XmlTextReader>, create a custom IStream implementation and supply it the <xref:System.Xml.XmlTextReader>.  \n  \n-   The <xref:System.Xml.XmlReader.ReadValueChunk%2A> method can be used to handle large streams of data. This method reads a small number of characters at a time instead of allocating a single string for the whole value.  \n  \n-   By default general entities are not expanded. General entities are expanded when you call the <xref:System.Xml.XmlTextReader.ResolveEntity%2A> method."
   syntax:
     content: 'public class XmlTextReader : System.Xml.XmlReader, System.Xml.IXmlLineInfo, System.Xml.IXmlNamespaceResolver'
   inheritance:
@@ -301,7 +301,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml
-  summary: Initializes a new instance of the <xref href="System.Xml.XmlTextReader"></xref> class with the specified string, <xref href="System.Xml.XmlNodeType"></xref>, and <xref href="System.Xml.XmlParserContext"></xref>.
+  summary: 'Initializes a new instance of the <xref href="System.Xml.XmlTextReader"></xref> class with the specified string, <xref href="System.Xml.XmlNodeType"></xref>, and <xref href="System.Xml.XmlParserContext"></xref>.'
   remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality.  \n  \n This constructor parses the given string as a fragment of XML. If the XML fragment is an element or attribute, you can bypass the root level rules for well-formed XML documents. This constructor can handle strings returned from <xref:System.Xml.XmlReader.ReadInnerXml%2A>.  \n  \n The following table lists valid values for `fragType` and how the reader parses each of the different node types.  \n  \n|XmlNodeType|Fragment May Contain|  \n|-----------------|--------------------------|  \n|Element|Any valid element content (for example, any combination of elements, comments, processing instructions, CDATA sections, text, and entity references).<br /><br /> An XML declaration can also be supplied. This allows you to specify the encoding for the XML fragment, rather than having to set it on the <xref:System.Xml.XmlParserContext> object.|  \n|Attribute|The value of an attribute (the part inside the quotes).|  \n|Document|The contents of an entire XML document. This enforces document level rules.|"
   example:
   - "The following example parses an XML fragment. It uses the `XmlParserContext` and its <xref:System.Xml.XmlNamespaceManager> to handle namespace resolution.  \n  \n [!code-cpp[XmlTextReader.Cctor#1](~/samples/snippets/cpp/VS_Snippets_Data/XmlTextReader.Cctor/CPP/readfrag.cpp#1)]\n [!code-csharp[XmlTextReader.Cctor#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlTextReader.Cctor/CS/readfrag.cs#1)]\n [!code-vb[XmlTextReader.Cctor#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlTextReader.Cctor/VB/readfrag.vb#1)]"
@@ -316,12 +316,12 @@ items:
       description: The <xref href="System.Xml.XmlNodeType"></xref> of the XML fragment. This also determines what the fragment string can contain. (See table below.)
     - id: context
       type: System.Xml.XmlParserContext
-      description: The <xref href="System.Xml.XmlParserContext"></xref> in which the <code>xmlFragment</code> is to be parsed. This includes the <xref href="System.Xml.XmlNameTable"></xref> to use, encoding, namespace scope, the current <code>xml:lang</code>, and the <code>xml:space</code> scope.
+      description: 'The <xref href="System.Xml.XmlParserContext"></xref> in which the <code>xmlFragment</code> is to be parsed. This includes the <xref href="System.Xml.XmlNameTable"></xref> to use, encoding, namespace scope, the current <code>xml:lang</code>, and the <code>xml:space</code> scope.'
   overload: System.Xml.XmlTextReader.#ctor*
   exceptions:
   - type: System.Xml.XmlException
     commentId: T:System.Xml.XmlException
-    description: <code>fragType</code> is not an `Element`, `Attribute`, or `Document``XmlNodeType`.
+    description: '<code>fragType</code> is not an `Element`, `Attribute`, or `Document``XmlNodeType`.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>xmlFragment</code> is `null`.
@@ -372,14 +372,14 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml
-  summary: Initializes a new instance of the <xref href="System.Xml.XmlTextReader"></xref> class with the specified URL, <xref href="System.IO.TextReader"></xref> and <xref href="System.Xml.XmlNameTable"></xref>.
+  summary: 'Initializes a new instance of the <xref href="System.Xml.XmlTextReader"></xref> class with the specified URL, <xref href="System.IO.TextReader"></xref> and <xref href="System.Xml.XmlNameTable"></xref>.'
   remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality.  \n  \n It is assumed that the `TextReader` is already set to the correct encoding. This is used by clients that have already read some things from the stream in a multi-part MIME scenario."
   syntax:
     content: public XmlTextReader (string url, System.IO.TextReader input, System.Xml.XmlNameTable nt);
     parameters:
     - id: url
       type: System.String
-      description: The URL to use for resolving external resources. The <xref href="System.Xml.XmlTextReader.BaseURI"></xref> is set to this value. If <code>url</code> is `null`, `BaseURI` is set to `String.Empty`.
+      description: 'The URL to use for resolving external resources. The <xref href="System.Xml.XmlTextReader.BaseURI"></xref> is set to this value. If <code>url</code> is `null`, `BaseURI` is set to `String.Empty`.'
     - id: input
       type: System.IO.TextReader
       description: The `TextReader` containing the XML data to read.
@@ -438,17 +438,14 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml
-  summary: Initializes a new instance of the <xref href="System.Xml.XmlTextReader"></xref> class with the specified URL, stream and <xref href="System.Xml.XmlNameTable"></xref>.
-  remarks: >-
-    > [!NOTE]
-
-    >  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality.
+  summary: 'Initializes a new instance of the <xref href="System.Xml.XmlTextReader"></xref> class with the specified URL, stream and <xref href="System.Xml.XmlNameTable"></xref>.'
+  remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality."
   syntax:
     content: public XmlTextReader (string url, System.IO.Stream input, System.Xml.XmlNameTable nt);
     parameters:
     - id: url
       type: System.String
-      description: The URL to use for resolving external resources. The <xref href="System.Xml.XmlTextReader.BaseURI"></xref> is set to this value. If <code>url</code> is `null`, `BaseURI` is set to `String.Empty`.
+      description: 'The URL to use for resolving external resources. The <xref href="System.Xml.XmlTextReader.BaseURI"></xref> is set to this value. If <code>url</code> is `null`, `BaseURI` is set to `String.Empty`.'
     - id: input
       type: System.IO.Stream
       description: The stream containing the XML data to read.
@@ -507,7 +504,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml
-  summary: Initializes a new instance of the <xref href="System.Xml.XmlTextReader"></xref> class with the specified stream, <xref href="System.Xml.XmlNodeType"></xref>, and <xref href="System.Xml.XmlParserContext"></xref>.
+  summary: 'Initializes a new instance of the <xref href="System.Xml.XmlTextReader"></xref> class with the specified stream, <xref href="System.Xml.XmlNodeType"></xref>, and <xref href="System.Xml.XmlParserContext"></xref>.'
   remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality.  \n  \n This constructor parses the given string as a fragment of XML. If the XML fragment is an element or attribute, you can bypass the root level rules for well-formed XML documents.  \n  \n The following table lists valid values for `fragType`.  \n  \n|XmlNodeType|Fragment May Contain|  \n|-----------------|--------------------------|  \n|`Element`|Any valid element content (for example, any combination of elements, comments, processing instructions, CDATA sections, text, and entity references).<br /><br /> An XML declaration can also be supplied. This allows you to specify the encoding for the XML fragment, rather than having to set it on the <xref:System.Xml.XmlParserContext> object.|  \n|`Attribute`|The value of an attribute (the part inside the quotes).|  \n|`Document`|The contents of an entire XML document. This enforces document level rules.|  \n  \n The reader uses the following to determine the encoding of the stream.  \n  \n1.  Checks the <xref:System.Xml.XmlParserContext.Encoding%2A?displayProperty=fullName> property to determine the encoding.  \n  \n2.  If the `Encoding` property is `null`, the reader checks for a byte-order mark at the beginning of the stream.  \n  \n3.  If the `Encoding` property is `null`, and no byte-order mark is found, the reader assumes the stream is encoded in UTF-8."
   syntax:
     content: public XmlTextReader (System.IO.Stream xmlFragment, System.Xml.XmlNodeType fragType, System.Xml.XmlParserContext context);
@@ -520,12 +517,12 @@ items:
       description: The <xref href="System.Xml.XmlNodeType"></xref> of the XML fragment. This also determines what the fragment can contain. (See table below.)
     - id: context
       type: System.Xml.XmlParserContext
-      description: The <xref href="System.Xml.XmlParserContext"></xref> in which the <code>xmlFragment</code> is to be parsed. This includes the <xref href="System.Xml.XmlNameTable"></xref> to use, encoding, namespace scope, the current <code>xml:lang</code>, and the <code>xml:space</code> scope.
+      description: 'The <xref href="System.Xml.XmlParserContext"></xref> in which the <code>xmlFragment</code> is to be parsed. This includes the <xref href="System.Xml.XmlNameTable"></xref> to use, encoding, namespace scope, the current <code>xml:lang</code>, and the <code>xml:space</code> scope.'
   overload: System.Xml.XmlTextReader.#ctor*
   exceptions:
   - type: System.Xml.XmlException
     commentId: T:System.Xml.XmlException
-    description: <code>fragType</code> is not an Element, Attribute, or Document `XmlNodeType`.
+    description: '<code>fragType</code> is not an Element, Attribute, or Document `XmlNodeType`.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>xmlFragment</code> is `null`.
@@ -577,10 +574,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml
   summary: Initializes a new instance of the <xref href="System.Xml.XmlTextReader"></xref> class with the specified file and <xref href="System.Xml.XmlNameTable"></xref>.
-  remarks: >-
-    > [!NOTE]
-
-    >  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality.
+  remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality."
   syntax:
     content: public XmlTextReader (string url, System.Xml.XmlNameTable nt);
     parameters:
@@ -658,10 +652,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml
   summary: Initializes a new instance of the <xref href="System.Xml.XmlTextReader"></xref> class with the specified URL and stream.
-  remarks: >-
-    > [!NOTE]
-
-    >  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality.
+  remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality."
   syntax:
     content: public XmlTextReader (string url, System.IO.Stream input);
     parameters:
@@ -847,10 +838,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml
   summary: Initializes a new instance of the <xref href="System.Xml.XmlTextReader"></xref> class with the specified <xref href="System.Xml.XmlNameTable"></xref>.
-  remarks: >-
-    > [!NOTE]
-
-    >  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality.
+  remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality."
   syntax:
     content: protected XmlTextReader (System.Xml.XmlNameTable nt);
     parameters:
@@ -1334,7 +1322,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml
-  summary: Gets a value indicating whether the <xref href="System.Xml.XmlTextReader"></xref> implements the <xref href="System.Xml.XmlReader.ReadValueChunk(System.Char[],System.Int32,System.Int32)"></xref> method.
+  summary: 'Gets a value indicating whether the <xref href="System.Xml.XmlTextReader"></xref> implements the <xref href="System.Xml.XmlReader.ReadValueChunk(System.Char[],System.Int32,System.Int32)"></xref> method.'
   remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality.  \n  \n The <xref:System.Xml.XmlTextReader> throws a <xref:System.NotSupportedException> if the <xref:System.Xml.XmlReader.ReadValueChunk%2A> method is called."
   syntax:
     content: public override bool CanReadValueChunk { get; }
@@ -1501,10 +1489,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml
   summary: Gets the depth of the current node in the XML document.
-  remarks: >-
-    > [!NOTE]
-
-    >  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality.
+  remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality."
   example:
   - "The following example displays each node including its depth, line number, and line position.  \n  \n [!code-cpp[XmlTextReader.LineNum#1](~/samples/snippets/cpp/VS_Snippets_Data/XmlTextReader.LineNum/CPP/readlinenum.cpp#1)]\n [!code-csharp[XmlTextReader.LineNum#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlTextReader.LineNum/CS/readlinenum.cs#1)]\n [!code-vb[XmlTextReader.LineNum#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlTextReader.LineNum/VB/readlinenum.vb#1)]"
   syntax:
@@ -1623,7 +1608,7 @@ items:
     content: public System.Text.Encoding Encoding { get; }
     return:
       type: System.Text.Encoding
-      description: The encoding value. If no encoding attribute exists, and there is no byte-order mark, this defaults to UTF-8.
+      description: 'The encoding value. If no encoding attribute exists, and there is no byte-order mark, this defaults to UTF-8.'
   overload: System.Xml.XmlTextReader.Encoding*
   exceptions: []
   version:
@@ -1679,7 +1664,7 @@ items:
     content: public System.Xml.EntityHandling EntityHandling { get; set; }
     return:
       type: System.Xml.EntityHandling
-      description: One of the <xref href="System.Xml.EntityHandling"></xref> values. If no `EntityHandling` is specified, it defaults to `EntityHandling.ExpandCharEntities`.
+      description: 'One of the <xref href="System.Xml.EntityHandling"></xref> values. If no `EntityHandling` is specified, it defaults to `EntityHandling.ExpandCharEntities`.'
   overload: System.Xml.XmlTextReader.EntityHandling*
   exceptions: []
   version:
@@ -1730,10 +1715,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml
   summary: Gets a value indicating whether the reader is positioned at the end of the stream.
-  remarks: >-
-    > [!NOTE]
-
-    >  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality.
+  remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality."
   syntax:
     content: public override bool EOF { get; }
     return:
@@ -1800,7 +1782,7 @@ items:
       description: The qualified name of the attribute.
     return:
       type: System.String
-      description: The value of the specified attribute. If the attribute is not found, `null` is returned.
+      description: 'The value of the specified attribute. If the attribute is not found, `null` is returned.'
   overload: System.Xml.XmlTextReader.GetAttribute*
   exceptions: []
   version:
@@ -1863,7 +1845,7 @@ items:
       description: The namespace URI of the attribute.
     return:
       type: System.String
-      description: The value of the specified attribute. If the attribute is not found, `null` is returned. This method does not move the reader.
+      description: 'The value of the specified attribute. If the attribute is not found, `null` is returned. This method does not move the reader.'
   overload: System.Xml.XmlTextReader.GetAttribute*
   exceptions: []
   version:
@@ -1986,7 +1968,7 @@ items:
       description: An <xref href="System.Xml.XmlNamespaceScope"></xref> value that specifies the type of namespace nodes to return.
     return:
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: An <xref href="System.Collections.IDictionary"></xref> object that contains all the current in-scope namespaces. If the reader is not positioned on an element, an empty dictionary (no namespaces) is returned.
+      description: 'An <xref href="System.Collections.IDictionary"></xref> object that contains all the current in-scope namespaces. If the reader is not positioned on an element, an empty dictionary (no namespaces) is returned.'
   overload: System.Xml.XmlTextReader.GetNamespacesInScope*
   exceptions: []
   version:
@@ -2096,10 +2078,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml
   summary: Gets a value indicating whether the class can return line information.
-  remarks: >-
-    > [!NOTE]
-
-    >  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality.
+  remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality."
   syntax:
     content: public bool HasLineInfo ();
     parameters: []
@@ -2269,7 +2248,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml
-  summary: Gets a value indicating whether the current node is an empty element (for example, <code><MyElement/></code>).
+  summary: 'Gets a value indicating whether the current node is an empty element (for example, <code><MyElement/></code>).'
   remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality.  \n  \n This property enables you to determine the difference between the following:  \n  \n `<item num=\"123\"/>` (`IsEmptyElement` is `true`).  \n  \n `<item num=\"123\">` (`IsEmptyElement` is `false`, although element content is empty).  \n  \n A corresponding `EndElement` node is not generated for empty elements.  \n  \n `IsEmptyElement` simply reports whether or not the element in the source document had an end element tag."
   example:
   - "The following example displays the text content of each element.  \n  \n [!code-cpp[Classic WebData XmlReader.IsStartElement Example#1](~/samples/snippets/cpp/VS_Snippets_Data/Classic WebData XmlReader.IsStartElement Example/CPP/source.cpp#1)]\n [!code-csharp[Classic WebData XmlReader.IsStartElement Example#1](~/samples/snippets/csharp/VS_Snippets_Data/Classic WebData XmlReader.IsStartElement Example/CS/source.cs#1)]\n [!code-vb[Classic WebData XmlReader.IsStartElement Example#1](~/samples/snippets/visualbasic/VS_Snippets_Data/Classic WebData XmlReader.IsStartElement Example/VB/source.vb#1)]  \n  \n The example uses the file, `elems.xml`, as input.  \n  \n [!code-xml[Classic WebData XmlReader.IsStartElement Example#2](~/samples/snippets/xml/VS_Snippets_Data/Classic WebData XmlReader.IsStartElement Example/XML/source.xml#2)]"
@@ -2444,10 +2423,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml
   summary: Gets the local name of the current node.
-  remarks: >-
-    > [!NOTE]
-
-    >  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality.
+  remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality."
   example:
   - "The following example displays the local name of each node, and, if they exist, the prefix and namespace URI.  \n  \n [!code-cpp[Classic WebData XmlTextReader.LocalName Example#1](~/samples/snippets/cpp/VS_Snippets_Data/Classic WebData XmlTextReader.LocalName Example/CPP/source.cpp#1)]\n [!code-csharp[Classic WebData XmlTextReader.LocalName Example#1](~/samples/snippets/csharp/VS_Snippets_Data/Classic WebData XmlTextReader.LocalName Example/CS/source.cs#1)]\n [!code-vb[Classic WebData XmlTextReader.LocalName Example#1](~/samples/snippets/visualbasic/VS_Snippets_Data/Classic WebData XmlTextReader.LocalName Example/VB/source.vb#1)]  \n  \n The example uses the file, `book2.xml`, as input.  \n  \n [!code-xml[Classic WebData XmlTextReader.LocalName Example#2](~/samples/snippets/xml/VS_Snippets_Data/Classic WebData XmlTextReader.LocalName Example/XML/source.xml#2)]"
   syntax:
@@ -2511,7 +2487,7 @@ items:
     parameters:
     - id: prefix
       type: System.String
-      description: The prefix whose namespace URI you want to resolve. To match the default namespace, pass an empty string. This string does not have to be atomized.
+      description: 'The prefix whose namespace URI you want to resolve. To match the default namespace, pass an empty string. This string does not have to be atomized.'
     return:
       type: System.String
       description: The namespace URI to which the prefix maps or `null` if no matching prefix is found.
@@ -2568,10 +2544,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml
   summary: Moves to the attribute with the specified index.
-  remarks: >-
-    > [!NOTE]
-
-    >  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality.
+  remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality."
   example:
   - "The following example displays all attributes on the current node.  \n  \n [!code-cpp[Classic WebData XmlTextReader.MoveToElement Example#1](~/samples/snippets/cpp/VS_Snippets_Data/Classic WebData XmlTextReader.MoveToElement Example/CPP/source.cpp#1)]\n [!code-csharp[Classic WebData XmlTextReader.MoveToElement Example#1](~/samples/snippets/csharp/VS_Snippets_Data/Classic WebData XmlTextReader.MoveToElement Example/CS/source.cs#1)]\n [!code-vb[Classic WebData XmlTextReader.MoveToElement Example#1](~/samples/snippets/visualbasic/VS_Snippets_Data/Classic WebData XmlTextReader.MoveToElement Example/VB/source.vb#1)]"
   syntax:
@@ -2642,7 +2615,7 @@ items:
       description: The qualified name of the attribute.
     return:
       type: System.Boolean
-      description: "`true` if the attribute is found; otherwise, `false`. If `false`, the reader's position does not change."
+      description: '`true` if the attribute is found; otherwise, `false`. If `false`, the reader''s position does not change.'
   overload: System.Xml.XmlTextReader.MoveToAttribute*
   exceptions: []
   version:
@@ -2705,7 +2678,7 @@ items:
       description: The namespace URI of the attribute.
     return:
       type: System.Boolean
-      description: "`true` if the attribute is found; otherwise, `false`. If `false`, the reader's position does not change."
+      description: '`true` if the attribute is found; otherwise, `false`. If `false`, the reader''s position does not change.'
   overload: System.Xml.XmlTextReader.MoveToAttribute*
   exceptions: []
   version:
@@ -2815,10 +2788,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml
   summary: Moves to the first attribute.
-  remarks: >-
-    > [!NOTE]
-
-    >  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality.
+  remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality."
   example:
   - "The following example gets the value of the first attribute of the root node.  \n  \n [!code-cpp[Classic WebData XmlTextReader.MoveToFirstAttribute Example#1](~/samples/snippets/cpp/VS_Snippets_Data/Classic WebData XmlTextReader.MoveToFirstAttribute Example/CPP/source.cpp#1)]\n [!code-csharp[Classic WebData XmlTextReader.MoveToFirstAttribute Example#1](~/samples/snippets/csharp/VS_Snippets_Data/Classic WebData XmlTextReader.MoveToFirstAttribute Example/CS/source.cs#1)]\n [!code-vb[Classic WebData XmlTextReader.MoveToFirstAttribute Example#1](~/samples/snippets/visualbasic/VS_Snippets_Data/Classic WebData XmlTextReader.MoveToFirstAttribute Example/VB/source.vb#1)]  \n  \n The example uses the file, `attrs.xml`, as input.  \n  \n [!code-xml[Classic WebData XmlTextReader.MoveToFirstAttribute Example#2](~/samples/snippets/xml/VS_Snippets_Data/Classic WebData XmlTextReader.MoveToFirstAttribute Example/XML/source.xml#2)]"
   syntax:
@@ -2936,17 +2906,14 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml
   summary: Gets the qualified name of the current node.
-  remarks: >-
-    > [!NOTE]
-
-    >  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality.
+  remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality."
   example:
   - "The following example reads an XML file and displays each of the nodes.  \n  \n [!code-cpp[Classic WebData XmlTextReader.Name Example#1](~/samples/snippets/cpp/VS_Snippets_Data/Classic WebData XmlTextReader.Name Example/CPP/source.cpp#1)]\n [!code-csharp[Classic WebData XmlTextReader.Name Example#1](~/samples/snippets/csharp/VS_Snippets_Data/Classic WebData XmlTextReader.Name Example/CS/source.cs#1)]\n [!code-vb[Classic WebData XmlTextReader.Name Example#1](~/samples/snippets/visualbasic/VS_Snippets_Data/Classic WebData XmlTextReader.Name Example/VB/source.vb#1)]  \n  \n The sample uses the file `items.xml`.  \n  \n [!code-xml[Classic WebData XmlTextReader.Name Example#2](~/samples/snippets/xml/VS_Snippets_Data/Classic WebData XmlTextReader.Name Example/XML/source.xml#2)]"
   syntax:
     content: public override string Name { get; }
     return:
       type: System.String
-      description: "The qualified name of the current node. For example, `Name` is `bk:book` for the element <code><bk:book></code>.  \n  \n The name returned is dependent on the <xref href=\"System.Xml.XmlTextReader.NodeType\"></xref> of the node. The following node types return the listed values. All other node types return an empty string.  \n  \n <table><thead><tr><th> Node Type  \n  \n </th><th> Name  \n  \n </th></tr></thead><tbody><tr><td>`Attribute`</td><td> The name of the attribute.  \n  \n </td></tr><tr><td>`DocumentType`</td><td> The document type name.  \n  \n </td></tr><tr><td>`Element`</td><td> The tag name.  \n  \n </td></tr><tr><td>`EntityReference`</td><td> The name of the entity referenced.  \n  \n </td></tr><tr><td>`ProcessingInstruction`</td><td> The target of the processing instruction.  \n  \n </td></tr><tr><td>`XmlDeclaration`</td><td> The literal string `xml`.  \n  \n </td></tr></tbody></table>"
+      description: "The qualified name of the current node. For example, `Name` is `bk:book` for the element <code><bk:book></code>.  \n  \n The name returned is dependent on the <xref href=\"System.Xml.XmlTextReader.NodeType\"></xref> of the node. The following node types return the listed values. All other node types return an empty string.  \n  \n <table><thead><tr><th> Node Type\n </th><th> Name\n </th></tr></thead><tbody><tr><td>`Attribute`</td><td> The name of the attribute.  \n  \n </td></tr><tr><td>`DocumentType`</td><td> The document type name.  \n  \n </td></tr><tr><td>`Element`</td><td> The tag name.  \n  \n </td></tr><tr><td>`EntityReference`</td><td> The name of the entity referenced.  \n  \n </td></tr><tr><td>`ProcessingInstruction`</td><td> The target of the processing instruction.  \n  \n </td></tr><tr><td>`XmlDeclaration`</td><td> The literal string `xml`.  \n  \n </td></tr></tbody></table>"
   overload: System.Xml.XmlTextReader.Name*
   exceptions: []
   version:
@@ -3289,10 +3256,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml
   summary: Gets the namespace prefix associated with the current node.
-  remarks: >-
-    > [!NOTE]
-
-    >  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality.
+  remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality."
   example:
   - "The following example displays the local name of each node, and, if they exist, the prefix and namespace URI.  \n  \n [!code-cpp[Classic WebData XmlTextReader.LocalName Example#1](~/samples/snippets/cpp/VS_Snippets_Data/Classic WebData XmlTextReader.LocalName Example/CPP/source.cpp#1)]\n [!code-csharp[Classic WebData XmlTextReader.LocalName Example#1](~/samples/snippets/csharp/VS_Snippets_Data/Classic WebData XmlTextReader.LocalName Example/CS/source.cs#1)]\n [!code-vb[Classic WebData XmlTextReader.LocalName Example#1](~/samples/snippets/visualbasic/VS_Snippets_Data/Classic WebData XmlTextReader.LocalName Example/VB/source.vb#1)]  \n  \n The example uses the file, `book2.xml`, as input.  \n  \n [!code-xml[Classic WebData XmlTextReader.LocalName Example#2](~/samples/snippets/xml/VS_Snippets_Data/Classic WebData XmlTextReader.LocalName Example/XML/source.xml#2)]"
   syntax:
@@ -3528,7 +3492,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml
-  summary: Parses the attribute value into one or more `Text`, `EntityReference`, or `EndEntity` nodes.
+  summary: 'Parses the attribute value into one or more `Text`, `EntityReference`, or `EndEntity` nodes.'
   remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality.  \n  \n Use this method after calling `MoveToAttribute` to read through the text or entity reference nodes that make up the attribute value. The <xref:System.Xml.XmlReader.Depth%2A> of the attribute value nodes is one plus the depth of the attribute node; it increments and decrements by one when you step into and out of general entity references."
   example:
   - "The following example reads an attribute with text and entity nodes.  \n  \n [!code-cpp[XmlTextReader.ReadAttributeValue#1](~/samples/snippets/cpp/VS_Snippets_Data/XmlTextReader.ReadAttributeValue/CPP/readattrval.cpp#1)]\n [!code-csharp[XmlTextReader.ReadAttributeValue#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlTextReader.ReadAttributeValue/CS/readattrval.cs#1)]\n [!code-vb[XmlTextReader.ReadAttributeValue#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlTextReader.ReadAttributeValue/VB/readattrval.vb#1)]"
@@ -3616,7 +3580,7 @@ items:
     description: The value of <code>array</code> is `null`.
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: <code>offset</code> < 0, or <code>len</code> < 0, or <code>len</code> > <code>array</code>.Length- <code>offset</code>.
+    description: '<code>offset</code> < 0, or <code>len</code> < 0, or <code>len</code> > <code>array</code>.Length- <code>offset</code>.'
   version:
   - netcore-2.0
   - netframework-4.5.1
@@ -3693,7 +3657,7 @@ items:
     description: The value of <code>array</code> is `null`.
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: <code>offset</code> < 0, or <code>len</code> < 0, or <code>len</code> > <code>array</code>.Length- <code>offset</code>.
+    description: '<code>offset</code> < 0, or <code>len</code> < 0, or <code>len</code> > <code>array</code>.Length- <code>offset</code>.'
   version:
   - netcore-2.0
   - netframework-4.5.1
@@ -3770,9 +3734,7 @@ items:
     description: The <code>buffer</code> value is `null`.
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: >-
-      <code>index</code>
-          `< 0` or <code>count</code>`< 0`.
+    description: "<code>index</code>\n    `< 0` or <code>count</code>`< 0`."
   version:
   - netcore-2.0
   - netframework-4.5.1
@@ -3844,7 +3806,7 @@ items:
     description: The <code>buffer</code> value is `null`.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: <xref href="System.Xml.XmlTextReader.ReadContentAsBase64(System.Byte[],System.Int32,System.Int32)"></xref> is not supported in the current node.
+    description: '<xref href="System.Xml.XmlTextReader.ReadContentAsBase64(System.Byte[],System.Int32,System.Int32)"></xref> is not supported in the current node.'
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
     description: The index into the buffer or index + count is larger than the allocated buffer size.
@@ -3919,7 +3881,7 @@ items:
     description: The <code>buffer</code> value is `null`.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: <xref href="System.Xml.XmlTextReader.ReadContentAsBinHex(System.Byte[],System.Int32,System.Int32)"></xref> is not supported on the current node.
+    description: '<xref href="System.Xml.XmlTextReader.ReadContentAsBinHex(System.Byte[],System.Int32,System.Int32)"></xref> is not supported on the current node.'
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
     description: The index into the buffer or index + count is larger than the allocated buffer size.
@@ -4146,10 +4108,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml
   summary: Gets the state of the reader.
-  remarks: >-
-    > [!NOTE]
-
-    >  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality.
+  remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality."
   syntax:
     content: public override System.Xml.ReadState ReadState { get; }
     return:
@@ -4440,17 +4399,14 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml
   summary: Gets the text value of the current node.
-  remarks: >-
-    > [!NOTE]
-
-    >  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality.
+  remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality."
   example:
   - "The following example reads an XML file and displays each node.  \n  \n [!code-cpp[Classic WebData XmlTextReader.Name Example#1](~/samples/snippets/cpp/VS_Snippets_Data/Classic WebData XmlTextReader.Name Example/CPP/source.cpp#1)]\n [!code-csharp[Classic WebData XmlTextReader.Name Example#1](~/samples/snippets/csharp/VS_Snippets_Data/Classic WebData XmlTextReader.Name Example/CS/source.cs#1)]\n [!code-vb[Classic WebData XmlTextReader.Name Example#1](~/samples/snippets/visualbasic/VS_Snippets_Data/Classic WebData XmlTextReader.Name Example/VB/source.vb#1)]  \n  \n The sample uses the file `items.xml`.  \n  \n [!code-xml[Classic WebData XmlTextReader.Name Example#2](~/samples/snippets/xml/VS_Snippets_Data/Classic WebData XmlTextReader.Name Example/XML/source.xml#2)]"
   syntax:
     content: public override string Value { get; }
     return:
       type: System.String
-      description: "The value returned depends on the <xref href=\"System.Xml.XmlTextReader.NodeType\"></xref> of the node. The following table lists node types that have a value to return. All other node types return `String.Empty`.  \n  \n <table><thead><tr><th> Node Type  \n  \n </th><th> Value  \n  \n </th></tr></thead><tbody><tr><td>`Attribute`</td><td> The value of the attribute.  \n  \n </td></tr><tr><td>`CDATA`</td><td> The content of the CDATA section.  \n  \n </td></tr><tr><td>`Comment`</td><td> The content of the comment.  \n  \n </td></tr><tr><td>`DocumentType`</td><td> The internal subset.  \n  \n </td></tr><tr><td>`ProcessingInstruction`</td><td> The entire content, excluding the target.  \n  \n </td></tr><tr><td>`SignificantWhitespace`</td><td> The white space within an `xml:space`= 'preserve' scope.  \n  \n </td></tr><tr><td>`Text`</td><td> The content of the text node.  \n  \n </td></tr><tr><td>`Whitespace`</td><td> The white space between markup.  \n  \n </td></tr><tr><td>`XmlDeclaration`</td><td> The content of the declaration.  \n  \n </td></tr></tbody></table>"
+      description: "The value returned depends on the <xref href=\"System.Xml.XmlTextReader.NodeType\"></xref> of the node. The following table lists node types that have a value to return. All other node types return `String.Empty`.  \n  \n <table><thead><tr><th> Node Type\n </th><th> Value\n </th></tr></thead><tbody><tr><td>`Attribute`</td><td> The value of the attribute.  \n  \n </td></tr><tr><td>`CDATA`</td><td> The content of the CDATA section.  \n  \n </td></tr><tr><td>`Comment`</td><td> The content of the comment.  \n  \n </td></tr><tr><td>`DocumentType`</td><td> The internal subset.  \n  \n </td></tr><tr><td>`ProcessingInstruction`</td><td> The entire content, excluding the target.  \n  \n </td></tr><tr><td>`SignificantWhitespace`</td><td> The white space within an `xml:space`= 'preserve' scope.  \n  \n </td></tr><tr><td>`Text`</td><td> The content of the text node.  \n  \n </td></tr><tr><td>`Whitespace`</td><td> The white space between markup.  \n  \n </td></tr><tr><td>`XmlDeclaration`</td><td> The content of the declaration.  \n  \n </td></tr></tbody></table>"
   overload: System.Xml.XmlTextReader.Value*
   exceptions: []
   version:
@@ -4564,7 +4520,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml
-  summary: Gets the current `xml:lang` scope.
+  summary: 'Gets the current `xml:lang` scope.'
   remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality.  \n  \n This property represents the `xml:lang` scope within which the current node resides. For example, here is an XML fragment with `xml:lang` set to US English in the root element:  \n  \n \\<root xml:lang=\"en-us\">  \n  \n \\<name>Fred\\</name>  \n  \n \\</root>  \n  \n When the reader is positioned on the `name` element, you can use this property to find that it is in the scope of a US English `xml:lang` attribute."
   example:
   - "The following example displays the `xml:lang` value for each of the nodes.  \n  \n [!code-cpp[XmlTextReader.XmlLang#1](~/samples/snippets/cpp/VS_Snippets_Data/XmlTextReader.XmlLang/CPP/readlang.cpp#1)]\n [!code-csharp[XmlTextReader.XmlLang#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlTextReader.XmlLang/CS/readlang.cs#1)]\n [!code-vb[XmlTextReader.XmlLang#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlTextReader.XmlLang/VB/readlang.vb#1)]"
@@ -4572,7 +4528,7 @@ items:
     content: public override string XmlLang { get; }
     return:
       type: System.String
-      description: The current `xml:lang` scope.
+      description: 'The current `xml:lang` scope.'
   overload: System.Xml.XmlTextReader.XmlLang*
   exceptions: []
   version:
@@ -4680,18 +4636,15 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml
-  summary: Gets the current `xml:space` scope.
-  remarks: >-
-    > [!NOTE]
-
-    >  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality.
+  summary: 'Gets the current `xml:space` scope.'
+  remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlReader> instances by using the <xref:System.Xml.XmlReader.Create%2A?displayProperty=fullName> method to take advantage of new functionality."
   example:
   - "The following example parses a file and returns significant white space if an `xml:space='preserve'` scope is found.  \n  \n [!code-cpp[XmlTextReader.XmlSpace#1](~/samples/snippets/cpp/VS_Snippets_Data/XmlTextReader.XmlSpace/CPP/readspace.cpp#1)]\n [!code-csharp[XmlTextReader.XmlSpace#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlTextReader.XmlSpace/CS/readspace.cs#1)]\n [!code-vb[XmlTextReader.XmlSpace#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlTextReader.XmlSpace/VB/readspace.vb#1)]  \n  \n The example uses the file, `authors.xml`, as input."
   syntax:
     content: public override System.Xml.XmlSpace XmlSpace { get; }
     return:
       type: System.Xml.XmlSpace
-      description: One of the <xref href="System.Xml.XmlSpace"></xref> values. If no `xml:space` scope exists, this property defaults to `XmlSpace.None`.
+      description: 'One of the <xref href="System.Xml.XmlSpace"></xref> values. If no `xml:space` scope exists, this property defaults to `XmlSpace.None`.'
   overload: System.Xml.XmlTextReader.XmlSpace*
   exceptions: []
   version:
@@ -4742,8 +4695,8 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml
-  summary: For a description of this member, see <xref href="System.Xml.IXmlNamespaceResolver.GetNamespacesInScope(System.Xml.XmlNamespaceScope)"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Xml.XmlTextReader> instance is cast to an <xref:System.Xml.IXmlNamespaceResolver> interface.
+  summary: 'For a description of this member, see <xref href="System.Xml.IXmlNamespaceResolver.GetNamespacesInScope(System.Xml.XmlNamespaceScope)"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Xml.XmlTextReader> instance is cast to an <xref:System.Xml.IXmlNamespaceResolver> interface.'
   syntax:
     content: System.Collections.Generic.IDictionary<string,string> IXmlNamespaceResolver.GetNamespacesInScope (System.Xml.XmlNamespaceScope scope);
     parameters:
@@ -4803,8 +4756,8 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml
-  summary: For a description of this member, see <xref href="System.Xml.IXmlNamespaceResolver.LookupNamespace(System.String)"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Xml.XmlTextReader> instance is cast to an <xref:System.Xml.IXmlNamespaceResolver> interface.
+  summary: 'For a description of this member, see <xref href="System.Xml.IXmlNamespaceResolver.LookupNamespace(System.String)"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Xml.XmlTextReader> instance is cast to an <xref:System.Xml.IXmlNamespaceResolver> interface.'
   syntax:
     content: string IXmlNamespaceResolver.LookupNamespace (string prefix);
     parameters:
@@ -4864,7 +4817,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml
-  summary: For a description of this member, see <xref href="System.Xml.IXmlNamespaceResolver.LookupPrefix(System.String)"></xref>.
+  summary: 'For a description of this member, see <xref href="System.Xml.IXmlNamespaceResolver.LookupPrefix(System.String)"></xref>.'
   syntax:
     content: string IXmlNamespaceResolver.LookupPrefix (string namespaceName);
     parameters:

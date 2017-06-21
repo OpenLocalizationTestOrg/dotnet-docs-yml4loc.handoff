@@ -104,7 +104,7 @@ items:
   - netstandard
   namespace: System.Threading
   summary: Initializes a new instance of the <xref href="System.Threading.SpinLock"></xref> structure with the option to track thread IDs to improve debugging.
-  remarks: The default constructor for <xref:System.Threading.SpinLock> tracks thread ownership.
+  remarks: 'The default constructor for <xref:System.Threading.SpinLock> tracks thread ownership.'
   example:
   - "The following example demonstrates how a SpinLock may be used.  \n  \n```  \n// C#  \npublic class MyType  \n{  \n    private SpinLock _spinLock = new SpinLock();  \n  \n    public void DoWork()  \n    {  \n        bool lockTaken = false;   \n        try  \n        {  \n           _spinLock.Enter(ref lockTaken);  \n           // do work here protected by the lock  \n        }  \n        finally  \n        {  \n            if (lockTaken) _spinLock.Exit();  \n        }  \n    }  \n}  \n```  \n  \n```  \n' Visual Basic  \n  \nClass MyType  \n   Private _spinLock As New SpinLock()  \n  \n   Public Sub DoWork()  \n      Dim lockTaken As Boolean = False  \n      Try  \n         _spinLock.Enter(lockTaken)  \n         ' do work here protected by the lock  \n      Finally  \n         If lockTaken Then _spinLock.Exit()  \n      End Try  \n   End Sub  \nEnd Class  \n```"
   syntax:
@@ -178,14 +178,14 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Acquires the lock in a reliable manner, such that even if an exception occurs within the method call, <code>lockTaken</code> can be examined reliably to determine whether the lock was acquired.
+  summary: 'Acquires the lock in a reliable manner, such that even if an exception occurs within the method call, <code>lockTaken</code> can be examined reliably to determine whether the lock was acquired.'
   remarks: "<xref:System.Threading.SpinLock> is a non-reentrant lock, meaning that if a thread holds the lock, it is not allowed to enter the lock again. If thread ownership tracking is enabled (whether it's enabled is available through <xref:System.Threading.SpinLock.IsThreadOwnerTrackingEnabled%2A>), an exception will be thrown when a thread tries to re-enter a lock it already holds. However, if thread ownership tracking is disabled, attempting to enter a lock already held will result in deadlock.  \n  \n If you call <xref:System.Threading.SpinLock.Exit%2A> without having first called <xref:System.Threading.SpinLock.Enter%2A> the internal state of the <xref:System.Threading.SpinLock> can become corrupted."
   syntax:
     content: public void Enter (ref bool lockTaken);
     parameters:
     - id: lockTaken
       type: System.Boolean
-      description: True if the lock is acquired; otherwise, false. <code>lockTaken</code> must be initialized to false prior to calling this method.
+      description: 'True if the lock is acquired; otherwise, false. <code>lockTaken</code> must be initialized to false prior to calling this method.'
   overload: System.Threading.SpinLock.Enter*
   exceptions:
   - type: System.ArgumentException
@@ -193,7 +193,7 @@ items:
     description: The <code>lockTaken</code> argument must be initialized to false prior to calling Enter.
   - type: System.Threading.LockRecursionException
     commentId: T:System.Threading.LockRecursionException
-    description: Thread ownership tracking is enabled, and the current thread has already acquired this lock.
+    description: 'Thread ownership tracking is enabled, and the current thread has already acquired this lock.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -266,7 +266,7 @@ items:
   exceptions:
   - type: System.Threading.SynchronizationLockException
     commentId: T:System.Threading.SynchronizationLockException
-    description: Thread ownership tracking is enabled, and the current thread is not the owner of this lock.
+    description: 'Thread ownership tracking is enabled, and the current thread is not the owner of this lock.'
   attributes: []
   version:
   - netcore-1.0
@@ -343,7 +343,7 @@ items:
   exceptions:
   - type: System.Threading.SynchronizationLockException
     commentId: T:System.Threading.SynchronizationLockException
-    description: Thread ownership tracking is enabled, and the current thread is not the owner of this lock.
+    description: 'Thread ownership tracking is enabled, and the current thread is not the owner of this lock.'
   attributes: []
   version:
   - netcore-1.0
@@ -485,7 +485,7 @@ items:
   - netstandard
   namespace: System.Threading
   summary: Gets whether the lock is held by the current thread.
-  remarks: If the lock was initialized to track owner threads, this will return whether the lock is acquired by the current thread. It is invalid to use this property when the lock was initialized to not track thread ownership.
+  remarks: 'If the lock was initialized to track owner threads, this will return whether the lock is acquired by the current thread. It is invalid to use this property when the lock was initialized to not track thread ownership.'
   syntax:
     content: >-
       [get: System.Runtime.ConstrainedExecution.ReliabilityContract(System.Runtime.ConstrainedExecution.Consistency.WillNotCorruptState, System.Runtime.ConstrainedExecution.Cer.Success)]
@@ -640,14 +640,14 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Attempts to acquire the lock in a reliable manner, such that even if an exception occurs within the method call, <code>lockTaken</code> can be examined reliably to determine whether the lock was acquired.
-  remarks: Unlike <xref:System.Threading.SpinLock.Enter%2A>, TryEnter will not block waiting for the lock to be available. If the lock is not available when TryEnter is called, it will return immediately without any further spinning.
+  summary: 'Attempts to acquire the lock in a reliable manner, such that even if an exception occurs within the method call, <code>lockTaken</code> can be examined reliably to determine whether the lock was acquired.'
+  remarks: 'Unlike <xref:System.Threading.SpinLock.Enter%2A>, TryEnter will not block waiting for the lock to be available. If the lock is not available when TryEnter is called, it will return immediately without any further spinning.'
   syntax:
     content: public void TryEnter (ref bool lockTaken);
     parameters:
     - id: lockTaken
       type: System.Boolean
-      description: True if the lock is acquired; otherwise, false. <code>lockTaken</code> must be initialized to false prior to calling this method.
+      description: 'True if the lock is acquired; otherwise, false. <code>lockTaken</code> must be initialized to false prior to calling this method.'
   overload: System.Threading.SpinLock.TryEnter*
   exceptions:
   - type: System.ArgumentException
@@ -655,7 +655,7 @@ items:
     description: The <code>lockTaken</code> argument must be initialized to false prior to calling TryEnter.
   - type: System.Threading.LockRecursionException
     commentId: T:System.Threading.LockRecursionException
-    description: Thread ownership tracking is enabled, and the current thread has already acquired this lock.
+    description: 'Thread ownership tracking is enabled, and the current thread has already acquired this lock.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -719,28 +719,28 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Attempts to acquire the lock in a reliable manner, such that even if an exception occurs within the method call, <code>lockTaken</code> can be examined reliably to determine whether the lock was acquired.
-  remarks: Unlike <xref:System.Threading.SpinLock.Enter%2A>, TryEnter will not block indefinitely waiting for the lock to be available. It will block until either the lock is available or until the `millisecondsTimeout` has expired.
+  summary: 'Attempts to acquire the lock in a reliable manner, such that even if an exception occurs within the method call, <code>lockTaken</code> can be examined reliably to determine whether the lock was acquired.'
+  remarks: 'Unlike <xref:System.Threading.SpinLock.Enter%2A>, TryEnter will not block indefinitely waiting for the lock to be available. It will block until either the lock is available or until the `millisecondsTimeout` has expired.'
   syntax:
     content: public void TryEnter (int millisecondsTimeout, ref bool lockTaken);
     parameters:
     - id: millisecondsTimeout
       type: System.Int32
-      description: The number of milliseconds to wait, or <xref href="System.Threading.Timeout.Infinite"></xref> (-1) to wait indefinitely.
+      description: 'The number of milliseconds to wait, or <xref href="System.Threading.Timeout.Infinite"></xref> (-1) to wait indefinitely.'
     - id: lockTaken
       type: System.Boolean
-      description: True if the lock is acquired; otherwise, false. <code>lockTaken</code> must be initialized to false prior to calling this method.
+      description: 'True if the lock is acquired; otherwise, false. <code>lockTaken</code> must be initialized to false prior to calling this method.'
   overload: System.Threading.SpinLock.TryEnter*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: <code>millisecondsTimeout</code> is a negative number other than -1, which represents an infinite time-out.
+    description: '<code>millisecondsTimeout</code> is a negative number other than -1, which represents an infinite time-out.'
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
     description: The <code>lockTaken</code> argument must be initialized to false prior to calling TryEnter.
   - type: System.Threading.LockRecursionException
     commentId: T:System.Threading.LockRecursionException
-    description: Thread ownership tracking is enabled, and the current thread has already acquired this lock.
+    description: 'Thread ownership tracking is enabled, and the current thread has already acquired this lock.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -804,28 +804,28 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Attempts to acquire the lock in a reliable manner, such that even if an exception occurs within the method call, <code>lockTaken</code> can be examined reliably to determine whether the lock was acquired.
-  remarks: Unlike <xref:System.Threading.SpinLock.Enter%2A>, TryEnter will not block indefinitely waiting for the lock to be available. It will block until either the lock is available or until the `timeout` has expired.
+  summary: 'Attempts to acquire the lock in a reliable manner, such that even if an exception occurs within the method call, <code>lockTaken</code> can be examined reliably to determine whether the lock was acquired.'
+  remarks: 'Unlike <xref:System.Threading.SpinLock.Enter%2A>, TryEnter will not block indefinitely waiting for the lock to be available. It will block until either the lock is available or until the `timeout` has expired.'
   syntax:
     content: public void TryEnter (TimeSpan timeout, ref bool lockTaken);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: A <xref href="System.TimeSpan"></xref> that represents the number of milliseconds to wait, or a <xref href="System.TimeSpan"></xref> that represents -1 milliseconds to wait indefinitely.
+      description: 'A <xref href="System.TimeSpan"></xref> that represents the number of milliseconds to wait, or a <xref href="System.TimeSpan"></xref> that represents -1 milliseconds to wait indefinitely.'
     - id: lockTaken
       type: System.Boolean
-      description: True if the lock is acquired; otherwise, false. <code>lockTaken</code> must be initialized to false prior to calling this method.
+      description: 'True if the lock is acquired; otherwise, false. <code>lockTaken</code> must be initialized to false prior to calling this method.'
   overload: System.Threading.SpinLock.TryEnter*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: <code>timeout</code> is a negative number other than -1 milliseconds, which represents an infinite time-out -or- timeout is greater than <xref href="System.Int32.MaxValue"></xref> milliseconds.
+    description: '<code>timeout</code> is a negative number other than -1 milliseconds, which represents an infinite time-out -or- timeout is greater than <xref href="System.Int32.MaxValue"></xref> milliseconds.'
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
     description: The <code>lockTaken</code> argument must be initialized to false prior to calling TryEnter.
   - type: System.Threading.LockRecursionException
     commentId: T:System.Threading.LockRecursionException
-    description: Thread ownership tracking is enabled, and the current thread has already acquired this lock.
+    description: 'Thread ownership tracking is enabled, and the current thread has already acquired this lock.'
   version:
   - netcore-1.0
   - netcore-1.1

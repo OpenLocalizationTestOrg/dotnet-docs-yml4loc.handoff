@@ -97,7 +97,7 @@ items:
   - System
   - System.Diagnostics.PerformanceCounter
   namespace: System.Diagnostics
-  summary: A base counter that is used in the calculation of time or count averages, such as `AverageTimer32` and `AverageCount64`. Stores the denominator for calculating a counter to present "time per operation" or "count per operation".
+  summary: 'A base counter that is used in the calculation of time or count averages, such as `AverageTimer32` and `AverageCount64`. Stores the denominator for calculating a counter to present "time per operation" or "count per operation".'
   syntax:
     content: AverageBase
     return:
@@ -139,7 +139,7 @@ items:
   - System
   - System.Diagnostics.PerformanceCounter
   namespace: System.Diagnostics
-  summary: An average counter that shows how many items are processed, on average, during an operation. Counters of this type display a ratio of the items processed to the number of operations completed. The ratio is calculated by comparing the number of items processed during the last interval to the number of operations completed during the last interval.
+  summary: 'An average counter that shows how many items are processed, on average, during an operation. Counters of this type display a ratio of the items processed to the number of operations completed. The ratio is calculated by comparing the number of items processed during the last interval to the number of operations completed during the last interval.'
   remarks: "Formula: (N 1 -N 0)/(B 1 -B 0), where N 1 and N 0 are performance counter readings, and the B 1 and B 0 are their corresponding `AverageBase` values. Thus, the numerator represents the numbers of items processed during the sample interval, and the denominator represents the number of operations completed during the sample interval.  \n  \n Counters of this type include PhysicalDisk\\ Avg. Disk Bytes/Transfer."
   syntax:
     content: AverageCount64
@@ -182,7 +182,7 @@ items:
   - System
   - System.Diagnostics.PerformanceCounter
   namespace: System.Diagnostics
-  summary: An average counter that measures the time it takes, on average, to complete a process or operation. Counters of this type display a ratio of the total elapsed time of the sample interval to the number of processes or operations completed during that time. This counter type measures time in ticks of the system clock.
+  summary: 'An average counter that measures the time it takes, on average, to complete a process or operation. Counters of this type display a ratio of the total elapsed time of the sample interval to the number of processes or operations completed during that time. This counter type measures time in ticks of the system clock.'
   remarks: "Formula: ((N 1 -N 0)/F)/(B 1 -B 0), where N 1 and N 0 are performance counter readings, B 1 and B 0 are their corresponding `AverageBase` values, and F is the number of ticks per second. The value of F is factored into the equation so that the result can be displayed in seconds. Thus, the numerator represents the numbers of ticks counted during the last sample interval, F represents the frequency of the ticks, and the denominator represents the number of operations completed during the last sample interval.  \n  \n Counters of this type include PhysicalDisk\\ Avg. Disk sec/Transfer."
   syntax:
     content: AverageTimer32
@@ -311,7 +311,7 @@ items:
   - System
   - System.Diagnostics.PerformanceCounter
   namespace: System.Diagnostics
-  summary: A base counter that indicates the number of items sampled. It is used as the denominator in the calculations to get an average among the items sampled when taking timings of multiple, but similar items. Used with `CounterMultiTimer`, `CounterMultiTimerInverse`, `CounterMultiTimer100Ns`, and `CounterMultiTimer100NsInverse`.
+  summary: 'A base counter that indicates the number of items sampled. It is used as the denominator in the calculations to get an average among the items sampled when taking timings of multiple, but similar items. Used with `CounterMultiTimer`, `CounterMultiTimerInverse`, `CounterMultiTimer100Ns`, and `CounterMultiTimer100NsInverse`.'
   syntax:
     content: CounterMultiBase
     return:
@@ -353,7 +353,7 @@ items:
   - System
   - System.Diagnostics.PerformanceCounter
   namespace: System.Diagnostics
-  summary: A percentage counter that displays the active time of one or more components as a percentage of the total time of the sample interval. Because the numerator records the active time of components operating simultaneously, the resulting percentage can exceed 100 percent.
+  summary: 'A percentage counter that displays the active time of one or more components as a percentage of the total time of the sample interval. Because the numerator records the active time of components operating simultaneously, the resulting percentage can exceed 100 percent.'
   remarks: "This counter is a multitimer. Multitimers collect data from more than one instance of a component, such as a processor or disk. This counter type differs from `CounterMultiTimer100Ns` in that it measures time in units of ticks of the system performance timer, rather than in 100 nanosecond units.  \n  \n Formula: ((N 1 - N 0) / (D 1 - D 0)) x 100 / B, where N 1 and N 0 are performance counter readings, D 1 and D 0 are their corresponding time readings in ticks of the system performance timer, and the variable B denotes the base count for the monitored components (using a base counter of type `CounterMultiBase`). Thus, the numerator represents the portions of the sample interval during which the monitored components were active, and the denominator represents the total elapsed time of the sample interval."
   syntax:
     content: CounterMultiTimer
@@ -654,7 +654,7 @@ items:
   - System
   - System.Diagnostics.PerformanceCounter
   namespace: System.Diagnostics
-  summary: An average counter that monitors the average length of a queue to a resource over time. Counters of this type display the difference between the queue lengths observed during the last two sample intervals, divided by the duration of the interval. This counter type is the same as `CountPerTimeInterval32` except that it uses larger fields to accommodate larger values. This type of counter is typically used to track a high-volume or very large number of items that are queued or waiting.
+  summary: 'An average counter that monitors the average length of a queue to a resource over time. Counters of this type display the difference between the queue lengths observed during the last two sample intervals, divided by the duration of the interval. This counter type is the same as `CountPerTimeInterval32` except that it uses larger fields to accommodate larger values. This type of counter is typically used to track a high-volume or very large number of items that are queued or waiting.'
   remarks: 'Formula: (N 1 - N 0) / (D 1 - D 0), where the numerator represents the number of items in a queue and the denominator represents the time elapsed during the sample interval.'
   syntax:
     content: CountPerTimeInterval64
@@ -740,7 +740,7 @@ items:
   - System
   - System.Diagnostics.PerformanceCounter
   namespace: System.Diagnostics
-  summary: An instantaneous counter that shows the most recently observed value. Used, for example, to maintain a simple count of items or operations.
+  summary: 'An instantaneous counter that shows the most recently observed value. Used, for example, to maintain a simple count of items or operations.'
   remarks: "Formula: None. Does not display an average, but shows the raw data as it is collected.  \n  \n Counters of this type include Memory\\Available Bytes."
   syntax:
     content: NumberOfItems32
@@ -783,7 +783,7 @@ items:
   - System
   - System.Diagnostics.PerformanceCounter
   namespace: System.Diagnostics
-  summary: An instantaneous counter that shows the most recently observed value. Used, for example, to maintain a simple count of a very large number of items or operations. It is the same as `NumberOfItems32` except that it uses larger fields to accommodate larger values.
+  summary: 'An instantaneous counter that shows the most recently observed value. Used, for example, to maintain a simple count of a very large number of items or operations. It is the same as `NumberOfItems32` except that it uses larger fields to accommodate larger values.'
   remarks: 'Formula: None. Does not display an average, but shows the raw data as it is collected.'
   syntax:
     content: NumberOfItems64
@@ -826,7 +826,7 @@ items:
   - System
   - System.Diagnostics.PerformanceCounter
   namespace: System.Diagnostics
-  summary: An instantaneous counter that shows the most recently observed value in hexadecimal format. Used, for example, to maintain a simple count of items or operations.
+  summary: 'An instantaneous counter that shows the most recently observed value in hexadecimal format. Used, for example, to maintain a simple count of items or operations.'
   remarks: 'Formula: None. Does not display an average, but shows the raw data as it is collected.'
   syntax:
     content: NumberOfItemsHEX32
@@ -869,7 +869,7 @@ items:
   - System
   - System.Diagnostics.PerformanceCounter
   namespace: System.Diagnostics
-  summary: An instantaneous counter that shows the most recently observed value. Used, for example, to maintain a simple count of a very large number of items or operations. It is the same as `NumberOfItemsHEX32` except that it uses larger fields to accommodate larger values.
+  summary: 'An instantaneous counter that shows the most recently observed value. Used, for example, to maintain a simple count of a very large number of items or operations. It is the same as `NumberOfItemsHEX32` except that it uses larger fields to accommodate larger values.'
   remarks: 'Formula: None. Does not display an average, but shows the raw data as it is collected'
   syntax:
     content: NumberOfItemsHEX64
@@ -955,7 +955,7 @@ items:
   - System
   - System.Diagnostics.PerformanceCounter
   namespace: System.Diagnostics
-  summary: A difference counter that shows the average number of operations completed during each second of the sample interval. Counters of this type measure time in ticks of the system clock. This counter type is the same as the `RateOfCountsPerSecond32` type, but it uses larger fields to accommodate larger values to track a high-volume number of items or operations per second, such as a byte-transmission rate.
+  summary: 'A difference counter that shows the average number of operations completed during each second of the sample interval. Counters of this type measure time in ticks of the system clock. This counter type is the same as the `RateOfCountsPerSecond32` type, but it uses larger fields to accommodate larger values to track a high-volume number of items or operations per second, such as a byte-transmission rate.'
   remarks: "Formula: (N 1 - N 0) / ((D 1 -D 0) / F), where N 1 and N 0 are performance counter readings, D 1 and D 0 are their corresponding time readings, and F represents the number of ticks per second. Thus, the numerator represents the number of operations performed during the last sample interval, the denominator represents the number of ticks elapsed during the last sample interval, and F is the frequency of the ticks. The value of F is factored into the equation so that the result can be displayed in seconds.  \n  \n Counters of this type include System\\ File Read Bytes/sec."
   syntax:
     content: RateOfCountsPerSecond64
@@ -1040,7 +1040,7 @@ items:
   - System
   - System.Diagnostics.PerformanceCounter
   namespace: System.Diagnostics
-  summary: An instantaneous percentage counter that shows the ratio of a subset to its set as a percentage. For example, it compares the number of bytes in use on a disk to the total number of bytes on the disk. Counters of this type display the current percentage only, not an average over time.
+  summary: 'An instantaneous percentage counter that shows the ratio of a subset to its set as a percentage. For example, it compares the number of bytes in use on a disk to the total number of bytes on the disk. Counters of this type display the current percentage only, not an average over time.'
   remarks: "Formula: (N 0 / D 0) x 100, where D 0 represents a measured attribute (using a base counter of type `RawBase`) and N 0 represents one component of that attribute.  \n  \n Counters of this type include Paging File\\\\% Usage Peak."
   syntax:
     content: RawFraction
@@ -1125,7 +1125,7 @@ items:
   - System
   - System.Diagnostics.PerformanceCounter
   namespace: System.Diagnostics
-  summary: An average counter that shows the average number of operations completed in one second. When a counter of this type samples the data, each sampling interrupt returns one or zero. The counter data is the number of ones that were sampled. It measures time in units of ticks of the system performance timer.
+  summary: 'An average counter that shows the average number of operations completed in one second. When a counter of this type samples the data, each sampling interrupt returns one or zero. The counter data is the number of ones that were sampled. It measures time in units of ticks of the system performance timer.'
   remarks: 'Formula: (N 1 – N 0) / ((D 1 – D 0) / F), where the numerator (N) represents the number of operations completed, the denominator (D) represents elapsed time in units of ticks of the system performance timer, and F represents the number of ticks that elapse in one second. F is factored into the equation so that the result can be displayed in seconds.'
   syntax:
     content: SampleCounter

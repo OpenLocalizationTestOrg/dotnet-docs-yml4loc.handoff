@@ -334,12 +334,12 @@ items:
   - netstandard
   namespace: System.Data.SqlClient
   summary: Gets the number of columns in the current row.
-  remarks: Executing a query that, by its nature, does not return rows (such as a DELETE query), sets <xref:System.Data.SqlClient.SqlDataReader.FieldCount%2A> to 0. However. this should not be confused with a query that returns 0 rows (such as SELECT * FROM *table* WHERE 1 = 2) in which case <xref:System.Data.SqlClient.SqlDataReader.FieldCount%2A> returns the number of columns in the table, including hidden fields. Use <xref:System.Data.SqlClient.SqlDataReader.VisibleFieldCount%2A> to exclude hidden fields.
+  remarks: 'Executing a query that, by its nature, does not return rows (such as a DELETE query), sets <xref:System.Data.SqlClient.SqlDataReader.FieldCount%2A> to 0. However. this should not be confused with a query that returns 0 rows (such as SELECT * FROM *table* WHERE 1 = 2) in which case <xref:System.Data.SqlClient.SqlDataReader.FieldCount%2A> returns the number of columns in the table, including hidden fields. Use <xref:System.Data.SqlClient.SqlDataReader.VisibleFieldCount%2A> to exclude hidden fields.'
   syntax:
     content: public override int FieldCount { get; }
     return:
       type: System.Int32
-      description: When not positioned in a valid recordset, 0; otherwise the number of columns in the current row. The default is -1.
+      description: 'When not positioned in a valid recordset, 0; otherwise the number of columns in the current row. The default is -1.'
   overload: System.Data.SqlClient.SqlDataReader.FieldCount*
   exceptions:
   - type: System.NotSupportedException
@@ -599,7 +599,7 @@ items:
   - netstandard
   namespace: System.Data.SqlClient
   summary: Gets the value of the specified column as a single character.
-  remarks: Not supported for <xref:System.Data.SqlClient>.
+  remarks: 'Not supported for <xref:System.Data.SqlClient>.'
   syntax:
     content: public override char GetChar (int i);
     parameters:
@@ -1061,7 +1061,7 @@ items:
   - netstandard
   namespace: System.Data.SqlClient
   summary: Returns an <xref href="System.Collections.IEnumerator"></xref> that iterates through the <xref href="System.Data.SqlClient.SqlDataReader"></xref>.
-  remarks: Although you can use this method to retrieve an explicit enumerator, in languages that support a `foreach` construct, it is simpler to use the looping construct directly in order to iterate through the rows in the data reader.
+  remarks: 'Although you can use this method to retrieve an explicit enumerator, in languages that support a `foreach` construct, it is simpler to use the looping construct directly in order to iterate through the rows in the data reader.'
   syntax:
     content: public override System.Collections.IEnumerator GetEnumerator ();
     parameters: []
@@ -1128,7 +1128,7 @@ items:
       description: The zero-based column ordinal.
     return:
       type: System.Type
-      description: The <xref href="System.Type"></xref> that is the data type of the object. If the type does not exist on the client, in the case of a User-Defined Type (UDT) returned from the database, **GetFieldType** returns null.
+      description: 'The <xref href="System.Type"></xref> that is the data type of the object. If the type does not exist on the client, in the case of a User-Defined Type (UDT) returned from the database, **GetFieldType** returns null.'
   overload: System.Data.SqlClient.SqlDataReader.GetFieldType*
   exceptions: []
   version:
@@ -1180,7 +1180,7 @@ items:
   - System.Data
   - netstandard
   namespace: System.Data.SqlClient
-  summary: Synchronously gets the value of the specified column as a type. <xref href="System.Data.SqlClient.SqlDataReader.GetFieldValueAsync``1(System.Int32,System.Threading.CancellationToken)"></xref> is the asynchronous version of this method.
+  summary: 'Synchronously gets the value of the specified column as a type. <xref href="System.Data.SqlClient.SqlDataReader.GetFieldValueAsync``1(System.Int32,System.Threading.CancellationToken)"></xref> is the asynchronous version of this method.'
   remarks: "`T` can be one of the following types:  \n  \n|||||  \n|-|-|-|-|  \n|Boolean|Byte|Char|DateTime|  \n|DateTimeOffset|Decimal|Double|Float|  \n|Guid|Int16|Int32|Int64|  \n|SqlBoolean|SqlByte|SqlDateTime|SqlDecimal|  \n|SqlDouble|SqlGuid|SqlInt16|SqlInt32|  \n|SqlInt64|SqlMoney|SqlSingle|SqlString|  \n|String|UDT, which can be any CLR type marked with <xref:Microsoft.SqlServer.Server.SqlUserDefinedTypeAttribute>.|||  \n  \n For more information, see [SqlClient Streaming Support](~/docs/framework/data/adonet/sqlclient-streaming-support.md)."
   syntax:
     content: public override T GetFieldValue<T> (int i);
@@ -1204,10 +1204,10 @@ items:
     description: Trying to read a column that does not exist.
   - type: System.Data.SqlTypes.SqlNullValueException
     commentId: T:System.Data.SqlTypes.SqlNullValueException
-    description: The value of the column was null (<xref href="System.Data.SqlClient.SqlDataReader.IsDBNull(System.Int32)"></xref> == `true`), retrieving a non-SQL type.
+    description: 'The value of the column was null (<xref href="System.Data.SqlClient.SqlDataReader.IsDBNull(System.Int32)"></xref> == `true`), retrieving a non-SQL type.'
   - type: System.InvalidCastException
     commentId: T:System.InvalidCastException
-    description: <code>T</code> doesn’t match the type returned by [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] or cannot be cast.
+    description: '<code>T</code> doesn’t match the type returned by [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] or cannot be cast.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -1267,7 +1267,7 @@ items:
       description: The column to be retrieved.
     - id: cancellationToken
       type: System.Threading.CancellationToken
-      description: The cancellation instruction, which propagates a notification that operations should be canceled. This does not guarantee the cancellation. A setting of `CancellationToken.None` makes this method equivalent to <xref href="System.Data.SqlClient.SqlDataReader.IsDBNull(System.Int32)"></xref>. The returned task must be marked as cancelled.
+      description: 'The cancellation instruction, which propagates a notification that operations should be canceled. This does not guarantee the cancellation. A setting of `CancellationToken.None` makes this method equivalent to <xref href="System.Data.SqlClient.SqlDataReader.IsDBNull(System.Int32)"></xref>. The returned task must be marked as cancelled.'
     typeParameters:
     - id: T
       description: The type of the value to be returned.
@@ -1284,10 +1284,10 @@ items:
     description: Trying to read a column that does not exist.
   - type: System.Data.SqlTypes.SqlNullValueException
     commentId: T:System.Data.SqlTypes.SqlNullValueException
-    description: The value of the column was null (<xref href="System.Data.SqlClient.SqlDataReader.IsDBNull(System.Int32)"></xref> == `true`), retrieving a non-SQL type.
+    description: 'The value of the column was null (<xref href="System.Data.SqlClient.SqlDataReader.IsDBNull(System.Int32)"></xref> == `true`), retrieving a non-SQL type.'
   - type: System.InvalidCastException
     commentId: T:System.InvalidCastException
-    description: <code>T</code> doesn’t match the type returned by [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] or cannot be cast.
+    description: '<code>T</code> doesn’t match the type returned by [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] or cannot be cast.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -1723,7 +1723,7 @@ items:
   - System.Data
   - netstandard
   namespace: System.Data.SqlClient
-  summary: Gets the column ordinal, given the name of the column.
+  summary: 'Gets the column ordinal, given the name of the column.'
   remarks: "`GetOrdinal` performs a case-sensitive lookup first. If it fails, a second, case-insensitive search occurs (a case-insensitive comparison is done using the database collation). Unexpected results can occur when comparisons are affected by culture-specific casing rules. For example, in Turkish, the following example yields the wrong results because the file system in Turkish does not use linguistic casing rules for the letter 'i' in \"file\". The method throws an `IndexOutOfRange` exception if the zero-based column ordinal is not found.  \n  \n `GetOrdinal` is kana-width insensitive.  \n  \n Because ordinal-based lookups are more efficient than named lookups, it is inefficient to call `GetOrdinal` within a loop. Save time by calling `GetOrdinal` once and assigning the results to an integer variable for use within the loop."
   example:
   - "The following example demonstrates how to use the <xref:System.Data.SqlClient.SqlDataReader.GetOrdinal%2A> method.  \n  \n [!code-csharp[Classic WebData SqlDataReader.GetOrdinal#1](~/samples/snippets/csharp/VS_Snippets_ADO.NET/Classic WebData SqlDataReader.GetOrdinal/CS/source.cs#1)]\n [!code-vb[Classic WebData SqlDataReader.GetOrdinal#1](~/samples/snippets/visualbasic/VS_Snippets_ADO.NET/Classic WebData SqlDataReader.GetOrdinal/VB/source.vb#1)]"
@@ -2090,7 +2090,7 @@ items:
   - netstandard
   namespace: System.Data.SqlClient
   summary: Gets the value of the specified column as a <xref href="System.Data.SqlTypes.SqlBoolean"></xref>.
-  remarks: No conversions are performed; therefore, the data retrieved must already be a Boolean or an exception is generated.
+  remarks: 'No conversions are performed; therefore, the data retrieved must already be a Boolean or an exception is generated.'
   syntax:
     content: public virtual System.Data.SqlTypes.SqlBoolean GetSqlBoolean (int i);
     parameters:
@@ -2152,7 +2152,7 @@ items:
   - netstandard
   namespace: System.Data.SqlClient
   summary: Gets the value of the specified column as a <xref href="System.Data.SqlTypes.SqlByte"></xref>.
-  remarks: No conversions are performed; therefore the data retrieved must already be a byte, or an exception is generated.
+  remarks: 'No conversions are performed; therefore the data retrieved must already be a byte, or an exception is generated.'
   syntax:
     content: public virtual System.Data.SqlTypes.SqlByte GetSqlByte (int i);
     parameters:
@@ -2336,7 +2336,7 @@ items:
   - netstandard
   namespace: System.Data.SqlClient
   summary: Gets the value of the specified column as a <xref href="System.Data.SqlTypes.SqlDateTime"></xref>.
-  remarks: No conversions are performed; therefore, the data retrieved must already be a date/time value, or an exception is generated.
+  remarks: 'No conversions are performed; therefore, the data retrieved must already be a date/time value, or an exception is generated.'
   syntax:
     content: public virtual System.Data.SqlTypes.SqlDateTime GetSqlDateTime (int i);
     parameters:
@@ -2398,7 +2398,7 @@ items:
   - netstandard
   namespace: System.Data.SqlClient
   summary: Gets the value of the specified column as a <xref href="System.Data.SqlTypes.SqlDecimal"></xref>.
-  remarks: No conversions are performed; therefore, the data retrieved must already be a decimal value, or an exception is generated.
+  remarks: 'No conversions are performed; therefore, the data retrieved must already be a decimal value, or an exception is generated.'
   syntax:
     content: public virtual System.Data.SqlTypes.SqlDecimal GetSqlDecimal (int i);
     parameters:
@@ -2460,7 +2460,7 @@ items:
   - netstandard
   namespace: System.Data.SqlClient
   summary: Gets the value of the specified column as a <xref href="System.Data.SqlTypes.SqlDouble"></xref>.
-  remarks: No conversions are performed; therefore, the data retrieved must already be a double-precision floating-point number, or an exception is generated.
+  remarks: 'No conversions are performed; therefore, the data retrieved must already be a double-precision floating-point number, or an exception is generated.'
   syntax:
     content: public virtual System.Data.SqlTypes.SqlDouble GetSqlDouble (int i);
     parameters:
@@ -2522,7 +2522,7 @@ items:
   - netstandard
   namespace: System.Data.SqlClient
   summary: Gets the value of the specified column as a <xref href="System.Data.SqlTypes.SqlGuid"></xref>.
-  remarks: No conversions are performed; therefore, the data retrieved must already be a GUID, or an exception is generated.
+  remarks: 'No conversions are performed; therefore, the data retrieved must already be a GUID, or an exception is generated.'
   syntax:
     content: public virtual System.Data.SqlTypes.SqlGuid GetSqlGuid (int i);
     parameters:
@@ -2584,7 +2584,7 @@ items:
   - netstandard
   namespace: System.Data.SqlClient
   summary: Gets the value of the specified column as a <xref href="System.Data.SqlTypes.SqlInt16"></xref>.
-  remarks: No conversions are performed; therefore, the data retrieved must already be a 16-bit signed integer, or an exception is generated.
+  remarks: 'No conversions are performed; therefore, the data retrieved must already be a 16-bit signed integer, or an exception is generated.'
   syntax:
     content: public virtual System.Data.SqlTypes.SqlInt16 GetSqlInt16 (int i);
     parameters:
@@ -2646,7 +2646,7 @@ items:
   - netstandard
   namespace: System.Data.SqlClient
   summary: Gets the value of the specified column as a <xref href="System.Data.SqlTypes.SqlInt32"></xref>.
-  remarks: No conversions are performed; therefore the data retrieved must already be a 32-bit signed integer, or an exception is generated.
+  remarks: 'No conversions are performed; therefore the data retrieved must already be a 32-bit signed integer, or an exception is generated.'
   syntax:
     content: public virtual System.Data.SqlTypes.SqlInt32 GetSqlInt32 (int i);
     parameters:
@@ -2708,7 +2708,7 @@ items:
   - netstandard
   namespace: System.Data.SqlClient
   summary: Gets the value of the specified column as a <xref href="System.Data.SqlTypes.SqlInt64"></xref>.
-  remarks: No conversions are performed; therefore, the data retrieved must already be a 64-bit signed integer, or an exception is generated.
+  remarks: 'No conversions are performed; therefore, the data retrieved must already be a 64-bit signed integer, or an exception is generated.'
   syntax:
     content: public virtual System.Data.SqlTypes.SqlInt64 GetSqlInt64 (int i);
     parameters:
@@ -2770,7 +2770,7 @@ items:
   - netstandard
   namespace: System.Data.SqlClient
   summary: Gets the value of the specified column as a <xref href="System.Data.SqlTypes.SqlMoney"></xref>.
-  remarks: No conversions are performed; therefore, the data retrieved must already be a decimal value, or an exception is generated.
+  remarks: 'No conversions are performed; therefore, the data retrieved must already be a decimal value, or an exception is generated.'
   syntax:
     content: public virtual System.Data.SqlTypes.SqlMoney GetSqlMoney (int i);
     parameters:
@@ -2832,7 +2832,7 @@ items:
   - netstandard
   namespace: System.Data.SqlClient
   summary: Gets the value of the specified column as a <xref href="System.Data.SqlTypes.SqlSingle"></xref>.
-  remarks: No conversions are performed; therefore, the data retrieved must already be a single precision floating point number, or an exception is generated.
+  remarks: 'No conversions are performed; therefore, the data retrieved must already be a single precision floating point number, or an exception is generated.'
   syntax:
     content: public virtual System.Data.SqlTypes.SqlSingle GetSqlSingle (int i);
     parameters:
@@ -2894,7 +2894,7 @@ items:
   - netstandard
   namespace: System.Data.SqlClient
   summary: Gets the value of the specified column as a <xref href="System.Data.SqlTypes.SqlString"></xref>.
-  remarks: No conversions are performed; therefore, the data retrieved must already be a string, or an exception is generated.
+  remarks: 'No conversions are performed; therefore, the data retrieved must already be a string, or an exception is generated.'
   syntax:
     content: public virtual System.Data.SqlTypes.SqlString GetSqlString (int i);
     parameters:
@@ -2956,7 +2956,7 @@ items:
   - netstandard
   namespace: System.Data.SqlClient
   summary: Returns the data value in the specified column as a SQL Server type.
-  remarks: <xref:System.Data.SqlClient.SqlDataReader.GetSqlValue%2A> returns data using the native SQL Server types. To retrieve data using the .NET Framework types, see <xref:System.Data.SqlClient.SqlDataReader.GetValue%2A>.
+  remarks: '<xref:System.Data.SqlClient.SqlDataReader.GetSqlValue%2A> returns data using the native SQL Server types. To retrieve data using the .NET Framework types, see <xref:System.Data.SqlClient.SqlDataReader.GetValue%2A>.'
   syntax:
     content: public virtual object GetSqlValue (int i);
     parameters:
@@ -3017,8 +3017,8 @@ items:
   - System.Data
   - netstandard
   namespace: System.Data.SqlClient
-  summary: Fills an array of <xref href="System.Object"></xref> that contains the values for all the columns in the record, expressed as SQL Server types.
-  remarks: Returns the values for all the columns in the record in a single call, using the SQL type system instead of the CLR type system. The length of the <xref:System.Object> array does not need to match the number of columns in the record. You can pass an <xref:System.Object> array that contains fewer than the number of columns contained in the record. Only the amount of data the <xref:System.Object> array holds is copied to the array, starting at the column with ordinal 0. You can also pass an <xref:System.Object> array whose length is more than the number of columns contained in the resulting row. Any remaining columns are untouched.
+  summary: 'Fills an array of <xref href="System.Object"></xref> that contains the values for all the columns in the record, expressed as SQL Server types.'
+  remarks: 'Returns the values for all the columns in the record in a single call, using the SQL type system instead of the CLR type system. The length of the <xref:System.Object> array does not need to match the number of columns in the record. You can pass an <xref:System.Object> array that contains fewer than the number of columns contained in the record. Only the amount of data the <xref:System.Object> array holds is copied to the array, starting at the column with ordinal 0. You can also pass an <xref:System.Object> array whose length is more than the number of columns contained in the resulting row. Any remaining columns are untouched.'
   syntax:
     content: public virtual int GetSqlValues (object[] values);
     parameters:
@@ -3153,7 +3153,7 @@ items:
   - System.Data
   - netstandard
   namespace: System.Data.SqlClient
-  summary: Retrieves binary, image, varbinary, UDT, and variant data types as a <xref href="System.IO.Stream"></xref>.
+  summary: 'Retrieves binary, image, varbinary, UDT, and variant data types as a <xref href="System.IO.Stream"></xref>.'
   remarks: "<xref:System.IO.Stream.ReadTimeout%2A> defaults to the value of <xref:System.Data.SqlClient.SqlCommand.CommandTimeout%2A>; but you can modify <xref:System.IO.Stream.ReadTimeout%2A> via <xref:System.Data.SqlClient.SqlDataReader.GetStream%2A>.  \n  \n Null values will be returned as an empty (zero bytes) <xref:System.IO.Stream>.  \n  \n <xref:System.Data.SqlClient.SqlDataReader.GetBytes%2A> will raise an <xref:System.InvalidOperationException> exception when used on an object returned by <xref:System.Data.SqlClient.SqlDataReader.GetStream%2A> when <xref:System.Data.CommandBehavior.SequentialAccess> is in effect.  \n  \n <xref:System.Data.SqlClient.SqlException> exceptions raised from <xref:System.IO.Stream> are thrown as <xref:System.IO.IOException> exceptions; check the inner exception for the <xref:System.Data.SqlClient.SqlException>.  \n  \n The following <xref:System.IO.Stream> members are not available for objects returned by <xref:System.Data.SqlClient.SqlDataReader.GetStream%2A>:  \n  \n-   BeginWrite  \n  \n-   EndWrite  \n  \n-   Length  \n  \n-   Position  \n  \n-   Seek  \n  \n-   SetLength  \n  \n-   Write  \n  \n-   WriteByte  \n  \n-   WriteTimeout  \n  \n When the connection property `ContextConnection=true`, <xref:System.Data.SqlClient.SqlDataReader.GetStream%2A> only supports synchronous data retrieval for both sequential (<xref:System.Data.CommandBehavior.SequentialAccess>) and non-sequential (<xref:System.Data.CommandBehavior.Default>) access.  \n  \n For more information, see [SqlClient Streaming Support](~/docs/framework/data/adonet/sqlclient-streaming-support.md)."
   syntax:
     content: public override System.IO.Stream GetStream (int i);
@@ -3289,7 +3289,7 @@ items:
   - System.Data
   - netstandard
   namespace: System.Data.SqlClient
-  summary: Retrieves Char, NChar, NText, NVarChar, text, varChar, and Variant data types as a <xref href="System.IO.TextReader"></xref>.
+  summary: 'Retrieves Char, NChar, NText, NVarChar, text, varChar, and Variant data types as a <xref href="System.IO.TextReader"></xref>.'
   remarks: "<xref:System.Data.SqlClient.SqlException> exceptions raised from <xref:System.IO.TextReader> are thrown as <xref:System.IO.IOException> exceptions; check the inner exception for the <xref:System.Data.SqlClient.SqlException>.  \n  \n Null values will be returned as an empty (zero bytes) <xref:System.IO.TextReader>.  \n  \n <xref:System.Data.SqlClient.SqlDataReader.GetChars%2A> will raise an <xref:System.InvalidOperationException> exception when used on an object returned by <xref:System.Data.SqlClient.SqlDataReader.GetTextReader%2A> when <xref:System.Data.CommandBehavior.SequentialAccess> is in effect.  \n  \n When the connection property `ContextConnection=true`, <xref:System.Data.SqlClient.SqlDataReader.GetTextReader%2A> only supports synchronous data retrieval for both sequential (<xref:System.Data.CommandBehavior.SequentialAccess>) and non-sequential (<xref:System.Data.CommandBehavior.Default>) access.  \n  \n For more information, see [SqlClient Streaming Support](~/docs/framework/data/adonet/sqlclient-streaming-support.md)."
   syntax:
     content: public override System.IO.TextReader GetTextReader (int i);
@@ -3426,7 +3426,7 @@ items:
   - netstandard
   namespace: System.Data.SqlClient
   summary: Gets the value of the specified column in its native format.
-  remarks: <xref:System.Data.SqlClient.SqlDataReader.GetValue%2A> returns data using the .NET Framework types.
+  remarks: '<xref:System.Data.SqlClient.SqlDataReader.GetValue%2A> returns data using the .NET Framework types.'
   syntax:
     content: public override object GetValue (int i);
     parameters:
@@ -3680,7 +3680,7 @@ items:
   - netstandard
   namespace: System.Data.SqlClient
   summary: Retrieves a Boolean value that indicates whether the specified <xref href="System.Data.SqlClient.SqlDataReader"></xref> instance has been closed.
-  remarks: It is not possible to read from a <xref:System.Data.SqlClient.SqlDataReader> instance that is closed.
+  remarks: 'It is not possible to read from a <xref:System.Data.SqlClient.SqlDataReader> instance that is closed.'
   syntax:
     content: public override bool IsClosed { get; }
     return:
@@ -3792,7 +3792,7 @@ items:
   - netstandard
   namespace: System.Data.SqlClient
   summary: Gets a value that indicates whether the column contains non-existent or missing values.
-  remarks: "Call this method to check for null column values before calling the typed get methods (for example, <xref:System.Data.SqlClient.SqlDataReader.GetByte%2A>, <xref:System.Data.SqlClient.SqlDataReader.GetChar%2A>, and so on) to avoid raising an error.  \n  \n [!code-csharp[SqlDataReader_IsDbNull#1](~/samples/snippets/csharp/VS_Snippets_ADO.NET/sqldatareader_isdbnull/cs/source.cs#1)]\n [!code-vb[SqlDataReader_IsDbNull#1](~/samples/snippets/visualbasic/VS_Snippets_ADO.NET/sqldatareader_isdbnull/vb/source.vb#1)]"
+  remarks: "Call this method to check for null column values before calling the typed get methods (for example, <xref:System.Data.SqlClient.SqlDataReader.GetByte%2A>, <xref:System.Data.SqlClient.SqlDataReader.GetChar%2A>, and so on) to avoid raising an error.  \n  \n [!code-csharp[SqlDataReader_IsDbNull#1](~/samples/snippets/csharp/VS_Snippets_ADO.NET/sqldatareader_isdbnull/cs/source.cs#1)] [!code-vb[SqlDataReader_IsDbNull#1](~/samples/snippets/visualbasic/VS_Snippets_ADO.NET/sqldatareader_isdbnull/vb/source.vb#1)]"
   syntax:
     content: public override bool IsDBNull (int i);
     parameters:
@@ -3854,7 +3854,7 @@ items:
   - netstandard
   namespace: System.Data.SqlClient
   summary: "An asynchronous version of <xref href=\"System.Data.SqlClient.SqlDataReader.IsDBNull(System.Int32)\"></xref>, which gets a value that indicates whether the column contains non-existent or missing values.  \n  \n The cancellation token can be used to request that the operation be abandoned before the command timeout elapses. Exceptions will be reported via the returned Task object."
-  remarks: For more information, see [SqlClient Streaming Support](~/docs/framework/data/adonet/sqlclient-streaming-support.md).
+  remarks: 'For more information, see [SqlClient Streaming Support](~/docs/framework/data/adonet/sqlclient-streaming-support.md).'
   syntax:
     content: public override System.Threading.Tasks.Task<bool> IsDBNullAsync (int i, System.Threading.CancellationToken cancellationToken);
     parameters:
@@ -3863,7 +3863,7 @@ items:
       description: The zero-based column to be retrieved.
     - id: cancellationToken
       type: System.Threading.CancellationToken
-      description: The cancellation instruction, which propagates a notification that operations should be canceled. This does not guarantee the cancellation. A setting of `CancellationToken.None` makes this method equivalent to <xref href="System.Data.SqlClient.SqlDataReader.IsDBNull(System.Int32)"></xref>. The returned task must be marked as cancelled.
+      description: 'The cancellation instruction, which propagates a notification that operations should be canceled. This does not guarantee the cancellation. A setting of `CancellationToken.None` makes this method equivalent to <xref href="System.Data.SqlClient.SqlDataReader.IsDBNull(System.Int32)"></xref>. The returned task must be marked as cancelled.'
     return:
       type: System.Threading.Tasks.Task{System.Boolean}
       description: '`true` if the specified column value is equivalent to `DBNull` otherwise `false`.'
@@ -4053,7 +4053,7 @@ items:
   - System.Data
   - netstandard
   namespace: System.Data.SqlClient
-  summary: Advances the data reader to the next result, when reading the results of batch Transact-SQL statements.
+  summary: 'Advances the data reader to the next result, when reading the results of batch Transact-SQL statements.'
   remarks: "Used to process multiple results, which can be generated by executing batch Transact-SQL statements.  \n  \n By default, the data reader is positioned on the first result."
   syntax:
     content: public override bool NextResult ();
@@ -4113,7 +4113,7 @@ items:
   - netstandard
   namespace: System.Data.SqlClient
   summary: "An asynchronous version of <xref href=\"System.Data.SqlClient.SqlDataReader.NextResult\"></xref>, which advances the data reader to the next result, when reading the results of batch [!INCLUDE[tsql](~/includes/tsql-md.md)] statements.  \n  \n The cancellation token can be used to request that the operation be abandoned before the command timeout elapses.  Exceptions will be reported via the returned Task object."
-  remarks: For more information about asynchronous programming in the [!INCLUDE[dnprdnshort](~/includes/dnprdnshort-md.md)] Data Provider for [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)], see [Asynchronous Programming](~/docs/framework/data/adonet/asynchronous-programming.md).
+  remarks: 'For more information about asynchronous programming in the [!INCLUDE[dnprdnshort](~/includes/dnprdnshort-md.md)] Data Provider for [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)], see [Asynchronous Programming](~/docs/framework/data/adonet/asynchronous-programming.md).'
   syntax:
     content: public override System.Threading.Tasks.Task<bool> NextResultAsync (System.Threading.CancellationToken cancellationToken);
     parameters:
@@ -4300,13 +4300,13 @@ items:
   - System.Data
   - netstandard
   namespace: System.Data.SqlClient
-  summary: Gets the number of rows changed, inserted, or deleted by execution of the Transact-SQL statement.
+  summary: 'Gets the number of rows changed, inserted, or deleted by execution of the Transact-SQL statement.'
   remarks: "The <xref:System.Data.SqlClient.SqlDataReader.RecordsAffected%2A> property is not set until all rows are read and you close the <xref:System.Data.SqlClient.SqlDataReader>.  \n  \n The value of this property is cumulative. For example, if two records are inserted in batch mode, the value of `RecordsAffected` will be two.  \n  \n <xref:System.Data.SqlClient.SqlDataReader.IsClosed%2A> and <xref:System.Data.SqlClient.SqlDataReader.RecordsAffected%2A> are the only properties that you can call after the <xref:System.Data.SqlClient.SqlDataReader> is closed."
   syntax:
     content: public override int RecordsAffected { get; }
     return:
       type: System.Int32
-      description: The number of rows changed, inserted, or deleted; 0 if no rows were affected or the statement failed; and -1 for SELECT statements.
+      description: 'The number of rows changed, inserted, or deleted; 0 if no rows were affected or the statement failed; and -1 for SELECT statements.'
   overload: System.Data.SqlClient.SqlDataReader.RecordsAffected*
   exceptions: []
   version:
@@ -4359,7 +4359,7 @@ items:
   - netstandard
   namespace: System.Data.SqlClient
   summary: Gets the number of fields in the <xref href="System.Data.SqlClient.SqlDataReader"></xref> that are not hidden.
-  remarks: This value is used to determine how many fields in the <xref:System.Data.SqlClient.SqlDataReader> are visible. For example, a SELECT on a partial primary key returns the remaining parts of the key as hidden fields. The hidden fields are always appended behind the visible fields.
+  remarks: 'This value is used to determine how many fields in the <xref:System.Data.SqlClient.SqlDataReader> are visible. For example, a SELECT on a partial primary key returns the remaining parts of the key as hidden fields. The hidden fields are always appended behind the visible fields.'
   syntax:
     content: public override int VisibleFieldCount { get; }
     return:
@@ -4416,7 +4416,7 @@ items:
   - System.Data
   namespace: System.Data.SqlClient
   summary: Returns an <xref href="System.Data.IDataReader"></xref> for the specified column ordinal.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.SqlClient.SqlDataReader> instance is cast to an <xref:System.IDataRecord> interface.
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.SqlClient.SqlDataReader> instance is cast to an <xref:System.IDataRecord> interface.'
   syntax:
     content: System.Data.IDataReader IDataRecord.GetData (int i);
     parameters:

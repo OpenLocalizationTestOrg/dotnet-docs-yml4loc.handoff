@@ -19,7 +19,7 @@ items:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
   summary: An abstract WCF extension class for specifying a custom discovery service or for getting the published endpoints.
-  remarks: Derive a class from <xref:System.ServiceModel.Discovery.DiscoveryServiceExtension> and override the <xref:System.ServiceModel.Discovery.DiscoveryServiceExtension.GetDiscoveryService%2A> method to return your custom discovery service. Add your derived class to the <xref:System.ServiceModel.ServiceHost> extensions that host your discoverable service. When the <xref:System.ServiceModel.ServiceBehaviorAttribute.System%23ServiceModel%23Description%23IServiceBehavior%23Validate%2A> is called the behavior iterates through the extensions in the service host and looks for a <xref:System.ServiceModel.Discovery.DiscoveryServiceExtension>. If one is found its <xref:System.ServiceModel.Discovery.DiscoveryServiceExtension.GetDiscoveryService%2A> is called to get the custom discovery service. If an extension is not found the default discovery service implementation is used.
+  remarks: 'Derive a class from <xref:System.ServiceModel.Discovery.DiscoveryServiceExtension> and override the <xref:System.ServiceModel.Discovery.DiscoveryServiceExtension.GetDiscoveryService%2A> method to return your custom discovery service. Add your derived class to the <xref:System.ServiceModel.ServiceHost> extensions that host your discoverable service. When the <xref:System.ServiceModel.ServiceBehaviorAttribute.System%23ServiceModel%23Description%23IServiceBehavior%23Validate%2A> is called the behavior iterates through the extensions in the service host and looks for a <xref:System.ServiceModel.Discovery.DiscoveryServiceExtension>. If one is found its <xref:System.ServiceModel.Discovery.DiscoveryServiceExtension.GetDiscoveryService%2A> is called to get the custom discovery service. If an extension is not found the default discovery service implementation is used.'
   syntax:
     content: 'public abstract class DiscoveryServiceExtension : System.ServiceModel.IExtension<System.ServiceModel.ServiceHostBase>'
   inheritance:
@@ -111,7 +111,7 @@ items:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
   summary: Override this method to return your custom <xref href="System.ServiceModel.Discovery.DiscoveryService"></xref> implementation.
-  remarks: An <xref:System.InvalidOperationException> is thrown while opening the service host if this method returns `null`
+  remarks: 'An <xref:System.InvalidOperationException> is thrown while opening the service host if this method returns `null`'
   syntax:
     content: protected abstract System.ServiceModel.Discovery.DiscoveryService GetDiscoveryService ();
     parameters: []
@@ -156,7 +156,7 @@ items:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
   summary: Gets a read-only collection of published endpoints.
-  remarks: The property should be accessed only after the <xref:System.ServiceModel.ServiceHost> has successfully opened. When the <xref:System.ServiceModel.ServiceHost> is in <xref:System.ServiceModel.CommunicationState.Opening> state, the <xref:System.ServiceModel.Discovery.EndpointDiscoveryMetadata> is being generated and added to the collection.
+  remarks: 'The property should be accessed only after the <xref:System.ServiceModel.ServiceHost> has successfully opened. When the <xref:System.ServiceModel.ServiceHost> is in <xref:System.ServiceModel.CommunicationState.Opening> state, the <xref:System.ServiceModel.Discovery.EndpointDiscoveryMetadata> is being generated and added to the collection.'
   syntax:
     content: public System.Collections.ObjectModel.ReadOnlyCollection<System.ServiceModel.Discovery.EndpointDiscoveryMetadata> PublishedEndpoints { get; }
     return:
@@ -246,7 +246,7 @@ items:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
   summary: Overload this method to allow the extension to be detached from its service host.
-  remarks: The base class implementation of this method throws an <xref:System.InvalidOperationException> that indicates discovery service extensions cannot be detached.
+  remarks: 'The base class implementation of this method throws an <xref:System.InvalidOperationException> that indicates discovery service extensions cannot be detached.'
   syntax:
     content: void IExtension<ServiceHostBase>.Detach (System.ServiceModel.ServiceHostBase owner);
     parameters:

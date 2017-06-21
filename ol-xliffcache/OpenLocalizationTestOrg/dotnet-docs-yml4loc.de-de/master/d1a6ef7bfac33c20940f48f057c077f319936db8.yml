@@ -38,7 +38,7 @@ items:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
   summary: Wraps an evaluated item for build purposes.
-  remarks: Does not store item element information, because all evaluation and verification has already been performed.
+  remarks: 'Does not store item element information, because all evaluation and verification has already been performed.'
   syntax:
     content: 'public class ProjectItemInstance : Microsoft.Build.Framework.ITaskItem2'
   inheritance:
@@ -135,7 +135,7 @@ items:
       public string EvaluatedInclude { get; set; }
     return:
       type: System.String
-      description: Returns the evaluated Include attribute value, which may be empty string.
+      description: 'Returns the evaluated Include attribute value, which may be empty string.'
   overload: Microsoft.Build.Execution.ProjectItemInstance.EvaluatedInclude*
   exceptions: []
   attributes:
@@ -173,7 +173,7 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: Get the metadata with the given name, including metadata inherited from item definitions.
+  summary: 'Get the metadata with the given name, including metadata inherited from item definitions.'
   remarks: Does not include any built-in metadata.
   syntax:
     content: public Microsoft.Build.Execution.ProjectMetadataInstance GetMetadata (string name);
@@ -218,7 +218,7 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: Gets the value of the metadata with the given name, including metadata inherited from item definitions.
+  summary: 'Gets the value of the metadata with the given name, including metadata inherited from item definitions.'
   remarks: "Includes built-in metadata.  \n  \n To determine whether a piece of metadata is actually present but with an empty value, use <xref:Microsoft.Build.Execution.ProjectItemInstance.HasMetadata%2A>."
   syntax:
     content: public string GetMetadataValue (string name);
@@ -228,7 +228,7 @@ items:
       description: The name of the metadata.
     return:
       type: System.String
-      description: Gets the value of the metadata with the given name, including metadata inherited from item definitions. Returns an empty string if no metadata exists with that name.
+      description: 'Gets the value of the metadata with the given name, including metadata inherited from item definitions. Returns an empty string if no metadata exists with that name.'
   overload: Microsoft.Build.Execution.ProjectItemInstance.GetMetadataValue*
   exceptions: []
   version:
@@ -264,7 +264,7 @@ items:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
   summary: Determines whether the metadata with the given name is defined on this item (even if its value is empty string).
-  remarks: This searches built-in metadata and metadata from item definitions, because this method is used for batching, where it doesn't matter where the metadata originated.
+  remarks: 'This searches built-in metadata and metadata from item definitions, because this method is used for batching, where it doesn''t matter where the metadata originated.'
   syntax:
     content: public bool HasMetadata (string name);
     parameters:
@@ -308,8 +308,8 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: Gets the item type, for example "Compile".
-  remarks: This cannot be set, as it is used as the key into the project's items table.
+  summary: 'Gets the item type, for example "Compile".'
+  remarks: 'This cannot be set, as it is used as the key into the project''s items table.'
   syntax:
     content: >-
       [get: System.Diagnostics.DebuggerStepThrough]
@@ -317,7 +317,7 @@ items:
       public string ItemType { get; }
     return:
       type: System.String
-      description: Returns the item type, for example "Compile".
+      description: 'Returns the item type, for example "Compile".'
   overload: Microsoft.Build.Execution.ProjectItemInstance.ItemType*
   exceptions: []
   attributes:
@@ -395,13 +395,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: Gets the number of metadata entries, including metadata inherited from item definitions.
+  summary: 'Gets the number of metadata entries, including metadata inherited from item definitions.'
   remarks: Includes both custom and built-in metadata.
   syntax:
     content: public int MetadataCount { get; }
     return:
       type: System.Int32
-      description: Returns the number of metadata entries, including metadata inherited from item definitions
+      description: 'Returns the number of metadata entries, including metadata inherited from item definitions'
   overload: Microsoft.Build.Execution.ProjectItemInstance.MetadataCount*
   exceptions: []
   version:
@@ -436,13 +436,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: Gets all metadata names of this item, including metadata inherited from item definitions.
+  summary: 'Gets all metadata names of this item, including metadata inherited from item definitions.'
   remarks: Includes names of built-in metadata.
   syntax:
     content: public System.Collections.Generic.ICollection<string> MetadataNames { get; }
     return:
       type: System.Collections.Generic.ICollection{System.String}
-      description: Returns all metadata names of this item, including metadata inherited from item definitions.
+      description: 'Returns all metadata names of this item, including metadata inherited from item definitions.'
   overload: Microsoft.Build.Execution.ProjectItemInstance.MetadataNames*
   exceptions: []
   version:
@@ -958,7 +958,7 @@ items:
     parameters: []
     return:
       type: System.Collections.IDictionary
-      description: Returns the cloned metadata, with values' escaping preserved.
+      description: 'Returns the cloned metadata, with values'' escaping preserved.'
   overload: Microsoft.Build.Execution.ProjectItemInstance.Microsoft#Build#Framework#ITaskItem2#CloneCustomMetadataEscaped*
   exceptions: []
   version:
@@ -994,8 +994,8 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: ITaskItem2 implementation. Evaluated include value, escaped as necessary. May be empty string. Gets or sets the item include value e.g. for disk-based items this would be the file path.
-  remarks: Taking the opportunity to fix the property name, although this doesn't make it obvious it's an improvement on ItemSpec.
+  summary: 'ITaskItem2 implementation. Evaluated include value, escaped as necessary. May be empty string. Gets or sets the item include value e.g. for disk-based items this would be the file path.'
+  remarks: 'Taking the opportunity to fix the property name, although this doesn''t make it obvious it''s an improvement on ItemSpec.'
   syntax:
     content: >-
       [get: System.Diagnostics.DebuggerStepThrough]
@@ -1042,7 +1042,7 @@ items:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
   summary: ITaskItem2 implementation. Allows the values of metadata on the item to be queried.
-  remarks: Taking the opportunity to fix the property name, although this doesn't make it obvious it's an improvement on GetMetadata.
+  remarks: 'Taking the opportunity to fix the property name, although this doesn''t make it obvious it''s an improvement on GetMetadata.'
   syntax:
     content: string ITaskItem2.GetMetadataValueEscaped (string name);
     parameters:
@@ -1087,8 +1087,8 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: ITaskItem2 implementation. Allows a piece of custom metadata to be set on the item. Assumes that the value passed in is unescaped, and escapes the value as necessary in order to maintain its value.
-  remarks: Taking the opportunity to fix the property name, although this doesn't make it obvious it's an improvement on SetMetadata.
+  summary: 'ITaskItem2 implementation. Allows a piece of custom metadata to be set on the item. Assumes that the value passed in is unescaped, and escapes the value as necessary in order to maintain its value.'
+  remarks: 'Taking the opportunity to fix the property name, although this doesn''t make it obvious it''s an improvement on SetMetadata.'
   syntax:
     content: void ITaskItem2.SetMetadataValueLiteral (string metadataName, string metadataValue);
     parameters:

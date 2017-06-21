@@ -23,7 +23,7 @@ items:
   assemblies:
   - System.Net
   namespace: System.Net.Sockets
-  summary: A client receiver for multicast traffic from a single source, also known as Source Specific Multicast (SSM).
+  summary: 'A client receiver for multicast traffic from a single source, also known as Source Specific Multicast (SSM).'
   remarks: "The multicast group address and sender source address must be known.  \n  \n In addition to receiving multicast data from a specific sender, the <xref:System.Net.Sockets.UdpSingleSourceMulticastClient> client can also send unicast data back to the sender.  \n  \n To receive multicast from multiple sources, or when the sources aren't known in advance, use the <xref:System.Net.Sockets.UdpSingleSourceMulticastClient> class instead."
   syntax:
     content: >-
@@ -216,7 +216,7 @@ items:
       description: The buffer to store the received data.
     - id: offset
       type: System.Int32
-      description: The offset, in bytes, from the beginning of the <code>buffer</code> where the data should be stored.
+      description: 'The offset, in bytes, from the beginning of the <code>buffer</code> where the data should be stored.'
     - id: count
       type: System.Int32
       description: The maximum number of bytes to receive and store in the <code>buffer</code>.
@@ -293,13 +293,13 @@ items:
       description: The buffer that contains the data to send.
     - id: offset
       type: System.Int32
-      description: The offset, in bytes, from the beginning of the <code>buffer</code> to read the data to be sent.
+      description: 'The offset, in bytes, from the beginning of the <code>buffer</code> to read the data to be sent.'
     - id: count
       type: System.Int32
       description: The number of bytes to send from the <code>buffer</code>.
     - id: remotePort
       type: System.Int32
-      description: The remote port to which the packet is to be sent. The remote address is specified by the <xref href="System.Net.Sockets.UdpSingleSourceMulticastClient.#ctor(System.Net.IPAddress,System.Net.IPAddress,System.Int32)"></xref> constructor.
+      description: 'The remote port to which the packet is to be sent. The remote address is specified by the <xref href="System.Net.Sockets.UdpSingleSourceMulticastClient.#ctor(System.Net.IPAddress,System.Net.IPAddress,System.Int32)"></xref> constructor.'
     - id: callback
       type: System.AsyncCallback
       description: The callback method to invoke when the operation completes.
@@ -584,7 +584,7 @@ items:
   assemblies:
   - System.Net
   namespace: System.Net.Sockets
-  summary: Gets or sets the size, in bytes, of the receive buffer of the <xref href="System.Net.Sockets.Socket"></xref> used for multicast receive operations on this <xref href="System.Net.Sockets.UdpSingleSourceMulticastClient"></xref> instance.
+  summary: 'Gets or sets the size, in bytes, of the receive buffer of the <xref href="System.Net.Sockets.Socket"></xref> used for multicast receive operations on this <xref href="System.Net.Sockets.UdpSingleSourceMulticastClient"></xref> instance.'
   remarks: "The `ReceiveBufferSize` property gets or sets the size, in bytes, of the receive buffer of the underlying <xref:System.Net.Sockets.Socket> used for multicast receive operations on this <xref:System.Net.Sockets.UdpSingleSourceMulticastClient> instance. Specifically, the `ReceiveBufferSize` property controls the size of the buffer used by the stack when a packet arrives, but the application has not yet called the <xref:System.Net.Sockets.UdpSingleSourceMulticastClient.BeginReceiveFromSource%2A> method. If this buffer gets filled up and packets keep coming before the application calls the <xref:System.Net.Sockets.UdpSingleSourceMulticastClient.BeginReceiveFromSource%2A> and <xref:System.Net.Sockets.UdpSingleSourceMulticastClient.EndReceiveFromSource%2A> methods, old packets will get dropped. The application will never be able to receive the old packets, and will instead receive newer packets when it calls the <xref:System.Net.Sockets.UdpSingleSourceMulticastClient.BeginReceiveFromSource%2A> method.  \n  \n The default size of the receive buffer on Windows is 8,192."
   syntax:
     content: >-
@@ -639,7 +639,7 @@ items:
   assemblies:
   - System.Net
   namespace: System.Net.Sockets
-  summary: Gets or sets the size, in bytes, of the send buffer of the <xref href="System.Net.Sockets.Socket"></xref> used for multicast send operations on this <xref href="System.Net.Sockets.UdpSingleSourceMulticastClient"></xref> instance.
+  summary: 'Gets or sets the size, in bytes, of the send buffer of the <xref href="System.Net.Sockets.Socket"></xref> used for multicast send operations on this <xref href="System.Net.Sockets.UdpSingleSourceMulticastClient"></xref> instance.'
   remarks: "The SendBufferSize property gets or sets the size, in bytes, of the send buffer of the underlying <xref:System.Net.Sockets.Socket> used for multicast send operations on this <xref:System.Net.Sockets.UdpSingleSourceMulticastClient> instance.  \n  \n On Mac OS X, the <xref:System.Net.Sockets.UdpSingleSourceMulticastClient.SendBufferSize%2A> property controls how many bytes can be in the network stack's waiting-to-be-sent buffer before additional calls to the <xref:System.Net.Sockets.UdpSingleSourceMulticastClient.BeginSendToSource%2A> method start failing. Applications on Mac OS X may need to be concerned with this property if they are sending a large number of UDP packets in a short timeframe.  \n  \n On Windows, calls to the <xref:System.Net.Sockets.UdpSingleSourceMulticastClient.BeginSendToSource%2A> method will take longer to call the callback depending on the value of the <xref:System.Net.Sockets.UdpSingleSourceMulticastClient.SendBufferSize%2A> property if the send buffer is full. The <xref:System.Net.Sockets.UdpSingleSourceMulticastClient.SendBufferSize%2A> property only controls whether the user's buffer stays locked in physical memory until the send completes.  \n  \n The default size of the send buffer on Windows is 8,192."
   syntax:
     content: >-

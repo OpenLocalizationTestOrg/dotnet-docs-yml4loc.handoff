@@ -564,7 +564,7 @@ items:
   - System.Data.Entity
   namespace: System.Data.Objects.DataClasses
   summary: Determines whether a specific object exists in the collection.
-  remarks: Uses the <xref:System.Object.Equals> method to compare the specified object with the objects already in the collection.
+  remarks: 'Uses the <xref:System.Object.Equals> method to compare the specified object with the objects already in the collection.'
   example:
   - "This example is based on the . To run the code in this example, you must have already added the AdventureWorks Sales Model to your project and configured your project to use the Entity Framework. To do this, complete the procedures in [How to: Manually Configure an Entity Framework Project](http://msdn.microsoft.com/en-us/73f6ae1d-b3b2-4577-aebd-ad5a75954e9e) and [How to: Manually Define the Model and Mapping Files](http://msdn.microsoft.com/en-us/d4fd6864-f2a1-48f0-aa32-1e318775a99a).  \n  \n This example does the following:  \n  \n1.  Creates two new `SalesOrderHeader` entities and adds them to the `Contact` entity.  \n  \n2.  Gets all related ends from the <xref:System.Data.Objects.DataClasses.RelationshipManager> that is associated with the Contact entity.  \n  \n3.  Iterates through the collection of <xref:System.Data.Objects.DataClasses.IRelatedEnd>s.  \n  \n4.  Gets the <xref:System.Data.Objects.DataClasses.EntityCollection%601> for each related end.  \n  \n5.  Uses the <xref:System.Data.Objects.DataClasses.EntityCollection%601.Remove%2A> method to remove one of the entities from the collection.  \n  \n6.  Calls the <xref:System.Data.Objects.DataClasses.EntityCollection%601.Contains%2A> method to determine whether the object was removed from the collection.  \n  \n7.  Uses the <xref:System.Data.Objects.DataClasses.EntityCollection%601.Add%2A> method to add the entity back.  \n  \n [!code-csharp[DP ObjectServices Concepts#IRelatedEnd_Add](~/samples/snippets/csharp/VS_Snippets_Data/DP ObjectServices Concepts/CS/Source.cs#irelatedend_add)]\n [!code-vb[DP ObjectServices Concepts#IRelatedEnd_Add](~/samples/snippets/visualbasic/VS_Snippets_Data/DP ObjectServices Concepts/VB/Source.vb#irelatedend_add)]"
   syntax:
@@ -613,7 +613,7 @@ items:
   assemblies:
   - System.Data.Entity
   namespace: System.Data.Objects.DataClasses
-  summary: Copies all the contents of the collection to an array, starting at the specified index of the target array.
+  summary: 'Copies all the contents of the collection to an array, starting at the specified index of the target array.'
   syntax:
     content: public void CopyTo (TEntity[] array, int arrayIndex);
     parameters:
@@ -661,7 +661,7 @@ items:
   - System.Data.Entity
   namespace: System.Data.Objects.DataClasses
   summary: Gets the number of objects that are contained in the collection.
-  remarks: The <xref:System.Data.Objects.DataClasses.EntityCollection%601.Count%2A> property gets the number of entities currently in the local collection and does not reflect the size of the collection in the data source. A count of zero does not necessarily indicate that the related collection is empty. To determine the collection size in the data source, call the <xref:System.Data.Objects.DataClasses.EntityCollection%601.Load%2A> method or include the related object in the query path. For more information, see [Loading Related Objects](http://msdn.microsoft.com/en-us/452347d2-7b3b-44cd-9001-231299a28cb1).
+  remarks: 'The <xref:System.Data.Objects.DataClasses.EntityCollection%601.Count%2A> property gets the number of entities currently in the local collection and does not reflect the size of the collection in the data source. A count of zero does not necessarily indicate that the related collection is empty. To determine the collection size in the data source, call the <xref:System.Data.Objects.DataClasses.EntityCollection%601.Load%2A> method or include the related object in the query path. For more information, see [Loading Related Objects](http://msdn.microsoft.com/en-us/452347d2-7b3b-44cd-9001-231299a28cb1).'
   syntax:
     content: public int Count { get; }
     return:
@@ -704,7 +704,7 @@ items:
   assemblies:
   - System.Data.Entity
   namespace: System.Data.Objects.DataClasses
-  summary: Returns an object query that, when it is executed, returns the same set of objects that exists in the current collection.
+  summary: 'Returns an object query that, when it is executed, returns the same set of objects that exists in the current collection.'
   remarks: "This property is used to obtain a new instance of <xref:System.Data.Objects.ObjectQuery%601> that returns the same set of objects. This is useful as the starting point for a more complex join, union, or filtered query, or to return the same objects in a detached state by using the <xref:System.Data.Objects.MergeOption.NoTracking> option.  \n  \n <xref:System.Data.Objects.DataClasses.EntityCollection%601.CreateSourceQuery%2A> is used to filter objects in an <xref:System.Data.Objects.DataClasses.EntityCollection%601> to enable you to bind only objects of a specific type. For more information, see [Binding Objects to Controls](http://msdn.microsoft.com/en-us/2fd34855-929b-4303-a91e-4bb69d958f2b)."
   example:
   - "This example is based on a modified version of the . This version supports table-per-type inheritance with `Course` as an abstract type. Complete the  walkthrough to modify the School model to support the table-per-type inheritance example used in this topic.  \n  \n This example shows how to use <xref:System.Data.Objects.DataClasses.EntityCollection%601.CreateSourceQuery%2A> to filter objects in an <xref:System.Data.Objects.DataClasses.EntityCollection%601> and bind only to objects of a specific type. For a complete version of this example, see [How to: Bind Controls to Derived Types](http://msdn.microsoft.com/en-us/09730c14-3b7b-4563-af4a-7ecfa4e34bd5)."
@@ -841,7 +841,7 @@ items:
   assemblies:
   - System.Data.Entity
   namespace: System.Data.Objects.DataClasses
-  summary: Loads related objects into the collection, using the specified merge option.
+  summary: 'Loads related objects into the collection, using the specified merge option.'
   remarks: "This method calls the <xref:System.Data.Objects.DataClasses.RelatedEnd.ValidateLoad%2A> method before loading the collection. See this method for a list of possible exceptions.  \n  \n When objects in the collection are already loaded into the <xref:System.Data.Objects.ObjectContext>, the <xref:System.Data.Objects.DataClasses.EntityCollection%601.Load%2A> method enforces the <xref:System.Data.Objects.MergeOption> specified by the `mergeOption` parameter. For more information, see [Identity Resolution, State Management, and Change Tracking](http://msdn.microsoft.com/en-us/3bd49311-0e72-4ea4-8355-38fe57036ba0).  \n  \n To explicitly load related objects, you must call the `Load` method on the related end returned by the navigation property. For a one-to-many relationship, call the <xref:System.Data.Objects.DataClasses.EntityCollection%601.Load%2A> method on <xref:System.Data.Objects.DataClasses.EntityCollection%601>. For a one-to-one relationship, call the <xref:System.Data.Objects.DataClasses.EntityReference%601.Load%2A> on <xref:System.Data.Objects.DataClasses.EntityReference%601>. This loads the related object data into the object context. You can enumerate through the collection of returned results using a `foreach` loop (`For Each...Next` in Visual Basic) and conditionally call the `Load` method on <xref:System.Data.Objects.DataClasses.EntityReference%601> and <xref:System.Data.Objects.DataClasses.EntityCollection%601> properties for each entity in the results.  \n  \n The <xref:System.Data.Objects.DataClasses.EntityCollection%601.Load%2A> method loads related objects from the data source whether or not <xref:System.Data.Objects.DataClasses.RelatedEnd.IsLoaded%2A> is `true`.  \n  \n> [!NOTE]\n>  When you call the <xref:System.Data.Objects.DataClasses.EntityCollection%601.Load%2A> method during a `foreach` (C#) or `For Each` (Visual Basic) enumeration, Object Services tries to open a new data reader. This operation will fail unless you have enabled multiple active results sets by specifying `multipleactiveresultsets=true` in the connection string. You can also load the result of the query into a <xref:System.Collections.Generic.List%601> collection. This closes the data reader and enables you to enumerate over the collection to load referenced objects.  \n  \n The <xref:System.Data.Objects.DataClasses.EntityCollection%601.Load%2A?displayProperty=fullName> method is synchronized with the <xref:System.Data.Objects.DataClasses.EntityReference%601.Load%2A?displayProperty=fullName> method."
   example:
   - "This example is based on the . To run the code in this example, you must have already added the AdventureWorks Sales Model to your project and configured your project to use the Entity Framework. To do this, complete the procedures in [How to: Manually Configure an Entity Framework Project](http://msdn.microsoft.com/en-us/73f6ae1d-b3b2-4577-aebd-ad5a75954e9e) and [How to: Manually Define the Model and Mapping Files](http://msdn.microsoft.com/en-us/d4fd6864-f2a1-48f0-aa32-1e318775a99a).  \n  \n This example loads the related `SalesOrderHeader` objects for the `Contact` entity.  \n  \n [!code-csharp[DP ObjectServices Concepts#QueryWithLoad](~/samples/snippets/csharp/VS_Snippets_Data/DP ObjectServices Concepts/CS/Source.cs#querywithload)]\n [!code-vb[DP ObjectServices Concepts#QueryWithLoad](~/samples/snippets/visualbasic/VS_Snippets_Data/DP ObjectServices Concepts/VB/Source.vb#querywithload)]"
@@ -1095,7 +1095,7 @@ items:
   - System.Data.Entity
   namespace: System.Data.Objects.DataClasses
   summary: Gets a value that indicates whether the related entity collection consists of collection objects.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.Objects.DataClasses.EntityCollection%601> instance is cast to an <xref:System.ComponentModel.IListSource> interface.
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.Objects.DataClasses.EntityCollection%601> instance is cast to an <xref:System.ComponentModel.IListSource> interface.'
   syntax:
     content: bool System.ComponentModel.IListSource.ContainsListCollection { get; }
     return:

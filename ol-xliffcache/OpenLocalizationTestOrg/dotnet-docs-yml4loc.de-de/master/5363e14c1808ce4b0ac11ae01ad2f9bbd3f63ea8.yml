@@ -148,7 +148,7 @@ items:
     content: public System.ServiceModel.DeadLetterQueue DeadLetterQueue { get; set; }
     return:
       type: System.ServiceModel.DeadLetterQueue
-      description: The type of dead-letter queue to use, if any.
+      description: 'The type of dead-letter queue to use, if any.'
   overload: System.ServiceModel.Channels.MsmqBindingElementBase.DeadLetterQueue*
   exceptions:
   - type: System.ArgumentOutOfRangeException
@@ -190,7 +190,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Gets or sets a value that specifies whether messages sent with this binding are durable or volatile.
-  remarks: If this property is set to `true`, messages are durable; otherwise, messages are volatile. Durable messages are not lost if the queue manager crashes. The default value for this property is `true`. When exactly once assurances are required (<xref:System.ServiceModel.Channels.MsmqBindingElementBase.ExactlyOnce%2A> is set to `true`), this property must be set to `true`.
+  remarks: 'If this property is set to `true`, messages are durable; otherwise, messages are volatile. Durable messages are not lost if the queue manager crashes. The default value for this property is `true`. When exactly once assurances are required (<xref:System.ServiceModel.Channels.MsmqBindingElementBase.ExactlyOnce%2A> is set to `true`), this property must be set to `true`.'
   syntax:
     content: public bool Durable { get; set; }
     return:
@@ -234,7 +234,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Gets or sets a value that specifies whether messages sent with this binding have exactly once assurances.
-  remarks: <xref:System.ServiceModel.Channels.MsmqBindingElementBase.ExactlyOnce%2A>, when set to `true`, indicates that Message Queuing (MSMQ) ensures that a sent message is delivered to the receiving message queue once and only once, and, if delivery fails, the message is sent to the dead-letter queue, depending on the `DeadLetterQueue` property setting. Setting <xref:System.ServiceModel.Channels.MsmqBindingElementBase.ExactlyOnce%2A> to `true` requires the queue to be transactional.
+  remarks: '<xref:System.ServiceModel.Channels.MsmqBindingElementBase.ExactlyOnce%2A>, when set to `true`, indicates that Message Queuing (MSMQ) ensures that a sent message is delivered to the receiving message queue once and only once, and, if delivery fails, the message is sent to the dead-letter queue, depending on the `DeadLetterQueue` property setting. Setting <xref:System.ServiceModel.Channels.MsmqBindingElementBase.ExactlyOnce%2A> to `true` requires the queue to be transactional.'
   syntax:
     content: public bool ExactlyOnce { get; set; }
     return:
@@ -277,7 +277,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: When overridden in a derived class, retrieves a specified type of object for the binding context provided.
+  summary: 'When overridden in a derived class, retrieves a specified type of object for the binding context provided.'
   remarks: Provides the functionality to retrieve capabilities and protection requirements from the element.
   syntax:
     content: 'public override T GetProperty<T> (System.ServiceModel.Channels.BindingContext context) where T : class;'
@@ -332,7 +332,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Gets or sets the maximum number of retry cycles to attempt delivery of messages to the receiving application.
-  remarks: A retry cycle is when a message is transferred from the retry queue to the application queue to attempt delivery to the application. Messages are placed in the retry queue after failing a number of immediate retries as specified by <xref:System.ServiceModel.Configuration.MsmqBindingElementBase.ReceiveRetryCount%2A>. `MaxRetryCycles` specifies the number of retry cycles and does not include the initial attempt to send the message. An attempt to deliver a message is made a maximum of (1 + MaxRetryCycles) * (ReceiveRetryCount + 1) times. For example, if ReceiveRetryCount = 0 and MaxRetryCycles is 1, there is a maximum of two attempts to deliver the message. This property is used only on operating systems starting with [!INCLUDE[wv](~/includes/wv-md.md)].
+  remarks: 'A retry cycle is when a message is transferred from the retry queue to the application queue to attempt delivery to the application. Messages are placed in the retry queue after failing a number of immediate retries as specified by <xref:System.ServiceModel.Configuration.MsmqBindingElementBase.ReceiveRetryCount%2A>. `MaxRetryCycles` specifies the number of retry cycles and does not include the initial attempt to send the message. An attempt to deliver a message is made a maximum of (1 + MaxRetryCycles) * (ReceiveRetryCount + 1) times. For example, if ReceiveRetryCount = 0 and MaxRetryCycles is 1, there is a maximum of two attempts to deliver the message. This property is used only on operating systems starting with [!INCLUDE[wv](~/includes/wv-md.md)].'
   syntax:
     content: public int MaxRetryCycles { get; set; }
     return:
@@ -379,7 +379,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Gets the <xref href="System.ServiceModel.MsmqTransportSecurity"></xref> that is associated with this binding element.
-  remarks: <xref:System.ServiceModel.MsmqTransportSecurity> encapsulates the security settings for the MSMQ integration transport. The settings are the same for both the MSMQ integration and queued transports. <xref:System.ServiceModel.MsmqTransportSecurity> allows you to set the authentication mode, encryption algorithm, secure hash algorithm, and protection level.
+  remarks: '<xref:System.ServiceModel.MsmqTransportSecurity> encapsulates the security settings for the MSMQ integration transport. The settings are the same for both the MSMQ integration and queued transports. <xref:System.ServiceModel.MsmqTransportSecurity> allows you to set the authentication mode, encryption algorithm, secure hash algorithm, and protection level.'
   syntax:
     content: public System.ServiceModel.MsmqTransportSecurity MsmqTransportSecurity { get; }
     return:
@@ -560,7 +560,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Gets or sets a value that specifies how long to wait before attempting another retry cycle when attempting to deliver a message that could not be delivered.
-  remarks: A single retry cycle makes repeated attempts to deliver a message to the receiving application (specified by the <xref:System.ServiceModel.Configuration.MsmqBindingElementBase.MaxRetryCycles%2A> property). If all attempts fail, the message is placed back in the retry queue. This property specifies how long the message remains in the retry queue before it is transferred to the application queue for another retry cycle. This property can only be used on operating systems starting with [!INCLUDE[wv](~/includes/wv-md.md)].
+  remarks: 'A single retry cycle makes repeated attempts to deliver a message to the receiving application (specified by the <xref:System.ServiceModel.Configuration.MsmqBindingElementBase.MaxRetryCycles%2A> property). If all attempts fail, the message is placed back in the retry queue. This property specifies how long the message remains in the retry queue before it is transferred to the application queue for another retry cycle. This property can only be used on operating systems starting with [!INCLUDE[wv](~/includes/wv-md.md)].'
   syntax:
     content: public TimeSpan RetryCycleDelay { get; set; }
     return:
@@ -607,7 +607,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Gets or sets a value that specifies how long messages are valid. When this time has elapsed the message is placed in a dead-letter queue depending on the `DeadLetterQueue` setting.
-  remarks: Queued applications work in a disconnected manner. This means that the sending and receiving applications may not be running at the same time; therefore, a message sent by the sending application may not be processed immediately by the receiving application. Some messages contain information that is valid only for a certain period of time. If such a message is not delivered within that period of time, it no longer contains useful information and should be dropped. This property enables you to specify a time limit for how long a message is kept prior to delivery to the application queue. If this time limit elapses prior to the message being delivered to the application queue, the message is placed in the dead-letter queue if one is available (determined by the <xref:System.ServiceModel.Configuration.MsmqBindingElementBase.DeadLetterQueue%2A> property); otherwise, the message is dropped.
+  remarks: 'Queued applications work in a disconnected manner. This means that the sending and receiving applications may not be running at the same time; therefore, a message sent by the sending application may not be processed immediately by the receiving application. Some messages contain information that is valid only for a certain period of time. If such a message is not delivered within that period of time, it no longer contains useful information and should be dropped. This property enables you to specify a time limit for how long a message is kept prior to delivery to the application queue. If this time limit elapses prior to the message being delivered to the application queue, the message is placed in the dead-letter queue if one is available (determined by the <xref:System.ServiceModel.Configuration.MsmqBindingElementBase.DeadLetterQueue%2A> property); otherwise, the message is dropped.'
   syntax:
     content: public TimeSpan TimeToLive { get; set; }
     return:
@@ -698,7 +698,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Gets or sets a value that enables or disables the Message Queuing (MSMQ) built-in message tracing facility.
-  remarks: When <xref:System.ServiceModel.Configuration.MsmqBindingElementBase.UseMsmqTracing%2A> is set to `true`, the queued channel uses the Message Queuing built-in message tracing facility. Through this facility a report message is sent to a specified report queue each time a message enters and leaves a queue manager.
+  remarks: 'When <xref:System.ServiceModel.Configuration.MsmqBindingElementBase.UseMsmqTracing%2A> is set to `true`, the queued channel uses the Message Queuing built-in message tracing facility. Through this facility a report message is sent to a specified report queue each time a message enters and leaves a queue manager.'
   syntax:
     content: public bool UseMsmqTracing { get; set; }
     return:
@@ -742,7 +742,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Gets or sets a value that indicates whether copies of messages processed by this binding should be stored in the source journal queue.
-  remarks: Queued applications that keep a record of messages that have left the source computer's outgoing queue can have the messages copied to a journal queue. After a message leaves the outgoing queue and an acknowledgment is received that the message was received on the destination computer, a copy of the message is kept in the sending computer's system journal queue.
+  remarks: 'Queued applications that keep a record of messages that have left the source computer''s outgoing queue can have the messages copied to a journal queue. After a message leaves the outgoing queue and an acknowledgment is received that the message was received on the destination computer, a copy of the message is kept in the sending computer''s system journal queue.'
   syntax:
     content: public bool UseSourceJournal { get; set; }
     return:

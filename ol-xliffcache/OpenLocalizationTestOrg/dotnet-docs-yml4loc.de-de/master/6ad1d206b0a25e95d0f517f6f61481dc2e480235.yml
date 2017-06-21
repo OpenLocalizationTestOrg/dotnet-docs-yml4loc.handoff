@@ -27,7 +27,7 @@ items:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services.Configuration
   summary: Exposes properties that contain federation settings that control the behavior of the WS-Federation Authentication Module (<xref href="System.IdentityModel.Services.WSFederationAuthenticationModule"></xref>) and the Session Authentication Module (<xref href="System.IdentityModel.Services.SessionAuthenticationModule"></xref>) in web applications.
-  remarks: By default web applications have a single <xref:System.IdentityModel.Services.Configuration.FederationConfiguration> object that is accessed through the <xref:System.IdentityModel.Services.FederatedAuthentication.FederationConfiguration?displayProperty=fullName> property. The first time the property is accessed a new <xref:System.IdentityModel.Services.Configuration.FederationConfiguration> instance is initialized from settings in the configuration file and the <xref:System.IdentityModel.Services.FederatedAuthentication.FederationConfigurationCreated?displayProperty=fullName> event is raised. You can use the properties and methods exposed by the <xref:System.IdentityModel.Services.Configuration.FederationConfiguration> class to modify or replace the object initialized from configuration in an event handler. This object is available through the <xref:System.IdentityModel.Services.Configuration.FederationConfigurationCreatedEventArgs.FederationConfiguration%2A?displayProperty=fullName> property inside the event handler.
+  remarks: 'By default web applications have a single <xref:System.IdentityModel.Services.Configuration.FederationConfiguration> object that is accessed through the <xref:System.IdentityModel.Services.FederatedAuthentication.FederationConfiguration?displayProperty=fullName> property. The first time the property is accessed a new <xref:System.IdentityModel.Services.Configuration.FederationConfiguration> instance is initialized from settings in the configuration file and the <xref:System.IdentityModel.Services.FederatedAuthentication.FederationConfigurationCreated?displayProperty=fullName> event is raised. You can use the properties and methods exposed by the <xref:System.IdentityModel.Services.Configuration.FederationConfiguration> class to modify or replace the object initialized from configuration in an event handler. This object is available through the <xref:System.IdentityModel.Services.Configuration.FederationConfigurationCreatedEventArgs.FederationConfiguration%2A?displayProperty=fullName> property inside the event handler.'
   syntax:
     content: public class FederationConfiguration
   inheritance:
@@ -163,7 +163,7 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services.Configuration
-  summary: Initializes a new instance of the <xref href="System.IdentityModel.Services.Configuration.FederationConfiguration"></xref> class from the [\<federationConfiguration\>](~/docs/framework/configure-apps/file-schema/windows-identity-foundation/federationconfiguration.md) element with the specified name.
+  summary: 'Initializes a new instance of the <xref href="System.IdentityModel.Services.Configuration.FederationConfiguration"></xref> class from the [\<federationConfiguration\>](~/docs/framework/configure-apps/file-schema/windows-identity-foundation/federationconfiguration.md) element with the specified name.'
   remarks: "> [!WARNING]\n>  Before the new <xref:System.IdentityModel.Services.Configuration.FederationConfiguration> instance is used by any of the configured HTTP modules, call the <xref:System.IdentityModel.Services.Configuration.FederationConfiguration.Initialize%2A> method to ensure that the instance is properly initialized.  \n  \n If this constructor is called then a `<system.identityModel.services>` configuration section with a `<federationConfiguration>` element that has the specified name must exist in the configuration file.  \n  \n Both the `system.identityModel` section and the `system.identityModel.services` must be specified in a `<section>` elements under the `<configSections>` element in the configuration file or an exception is thrown.  \n  \n```  \n<configSections>  \n  <section name=\"system.identityModel\" type=\"System.IdentityModel.Configuration.SystemIdentityModelSection, System.IdentityModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089\" />  \n  <section name=\"system.identityModel.services\" type=\"System.IdentityModel.Services.Configuration.SystemIdentityModelServicesSection, System.IdentityModel.Services, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089\" />  \n</configSections>  \n```"
   syntax:
     content: public FederationConfiguration (string federationConfigurationName);
@@ -256,7 +256,7 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services.Configuration
-  summary: Gets or sets the custom XML element, if any, present in this configuration.
+  summary: 'Gets or sets the custom XML element, if any, present in this configuration.'
   syntax:
     content: public System.Xml.XmlElement CustomElement { get; set; }
     return:
@@ -298,7 +298,7 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services.Configuration
-  summary: Defines the name of the default [\<federationConfiguration\>](~/docs/framework/configure-apps/file-schema/windows-identity-foundation/federationconfiguration.md) element from which settings should be loaded. This is an empty string as the default element is unnamed.
+  summary: 'Defines the name of the default [\<federationConfiguration\>](~/docs/framework/configure-apps/file-schema/windows-identity-foundation/federationconfiguration.md) element from which settings should be loaded. This is an empty string as the default element is unnamed.'
   syntax:
     content: public static readonly string DefaultFederationConfigurationName;
     return:
@@ -340,7 +340,7 @@ items:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services.Configuration
   summary: Gets or sets the <xref href="System.IdentityModel.Configuration.IdentityConfiguration"></xref> object associated with this instance.
-  remarks: When initialized from a configuration file, this property is set by the [\&lt;identityConfiguration\&gt;](~/docs/framework/configure-apps/file-schema/windows-identity-foundation/identityconfiguration.md) element.
+  remarks: 'When initialized from a configuration file, this property is set by the [\&lt;identityConfiguration\&gt;](~/docs/framework/configure-apps/file-schema/windows-identity-foundation/identityconfiguration.md) element.'
   syntax:
     content: public System.IdentityModel.Configuration.IdentityConfiguration IdentityConfiguration { get; set; }
     return:
@@ -517,7 +517,7 @@ items:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services.Configuration
   summary: Gets the name associated with this instance.
-  remarks: Corresponds to the `name` attribute of a [\&lt;federationConfiguration\&gt;](~/docs/framework/configure-apps/file-schema/windows-identity-foundation/federationconfiguration.md) element.
+  remarks: 'Corresponds to the `name` attribute of a [\&lt;federationConfiguration\&gt;](~/docs/framework/configure-apps/file-schema/windows-identity-foundation/federationconfiguration.md) element.'
   syntax:
     content: public string Name { get; }
     return:
@@ -560,7 +560,7 @@ items:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services.Configuration
   summary: Gets or sets the X.509 certificate used to sign WS-Federation protocol messages.
-  remarks: When initialized from a configuration file, this property is set by the [\&lt;serviceCertificate\&gt;](~/docs/framework/configure-apps/file-schema/windows-identity-foundation/servicecertificate.md) element.
+  remarks: 'When initialized from a configuration file, this property is set by the [\&lt;serviceCertificate\&gt;](~/docs/framework/configure-apps/file-schema/windows-identity-foundation/servicecertificate.md) element.'
   syntax:
     content: public System.Security.Cryptography.X509Certificates.X509Certificate2 ServiceCertificate { get; set; }
     return:
@@ -603,7 +603,7 @@ items:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services.Configuration
   summary: Gets or sets the configuration settings for the WS-Federation Authentication Module (<xref href="System.IdentityModel.Services.WSFederationAuthenticationModule"></xref>).
-  remarks: When initialized from a configuration file, this property is set by the [\&lt;wsFederation\&gt;](~/docs/framework/configure-apps/file-schema/windows-identity-foundation/wsfederation.md) element.
+  remarks: 'When initialized from a configuration file, this property is set by the [\&lt;wsFederation\&gt;](~/docs/framework/configure-apps/file-schema/windows-identity-foundation/wsfederation.md) element.'
   syntax:
     content: public System.IdentityModel.Services.Configuration.WsFederationConfiguration WsFederationConfiguration { get; set; }
     return:

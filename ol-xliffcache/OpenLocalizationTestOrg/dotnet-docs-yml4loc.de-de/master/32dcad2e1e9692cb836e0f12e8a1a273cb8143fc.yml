@@ -320,7 +320,7 @@ items:
     parameters:
     - id: isolevel
       type: System.Data.IsolationLevel
-      description: The transaction isolation level for this connection. If you do not specify an isolation level, the default isolation level for the driver is used.
+      description: 'The transaction isolation level for this connection. If you do not specify an isolation level, the default isolation level for the driver is used.'
     return:
       type: System.Data.Odbc.OdbcTransaction
       description: An object representing the new transaction.
@@ -370,7 +370,7 @@ items:
   - System.Data.Odbc
   namespace: System.Data.Odbc
   summary: Changes the current database associated with an open <xref href="System.Data.Odbc.OdbcConnection"></xref>.
-  remarks: The `value` parameter must contain a valid database name, and cannot contain a null value, an empty string (""), or a string with only blank characters.
+  remarks: 'The `value` parameter must contain a valid database name, and cannot contain a null value, an empty string (""), or a string with only blank characters.'
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcConnection> and changes the current database.  \n  \n [!code-csharp[Classic WebData OdbcConnection.Database#1](~/samples/snippets/csharp/VS_Snippets_ADO.NET/Classic WebData OdbcConnection.Database/CS/source.cs#1)]\n [!code-vb[Classic WebData OdbcConnection.Database#1](~/samples/snippets/visualbasic/VS_Snippets_ADO.NET/Classic WebData OdbcConnection.Database/VB/source.vb#1)]"
   syntax:
@@ -488,7 +488,7 @@ items:
       public override string ConnectionString { get; set; }
     return:
       type: System.String
-      description: The ODBC driver connection string that includes settings, such as the data source name, needed to establish the initial connection. The default value is an empty string (""). The maximum length is 1024 characters.
+      description: 'The ODBC driver connection string that includes settings, such as the data source name, needed to establish the initial connection. The default value is an empty string (""). The maximum length is 1024 characters.'
   overload: System.Data.Odbc.OdbcConnection.ConnectionString*
   exceptions: []
   attributes:
@@ -534,7 +534,7 @@ items:
   - System.Data.Odbc
   namespace: System.Data.Odbc
   summary: Gets or sets the time to wait while trying to establish a connection before terminating the attempt and generating an error.
-  remarks: Unlike the .NET Framework data providers for SQL Server and OLE DB, the .NET Framework Data Provider for ODBC does not support setting this property as a connection string value, because it is not a valid ODBC connection keyword. To specify a connection time-out, set the <xref:System.Data.Odbc.OdbcConnection.ConnectionTimeout%2A> property before calling <xref:System.Data.Odbc.OdbcConnection.Open%2A>. This is equivalent to setting the ODBC `SQLSetConnectAttr` SQL_ATTR_LOGIN_TIMOUT attribute.
+  remarks: 'Unlike the .NET Framework data providers for SQL Server and OLE DB, the .NET Framework Data Provider for ODBC does not support setting this property as a connection string value, because it is not a valid ODBC connection keyword. To specify a connection time-out, set the <xref:System.Data.Odbc.OdbcConnection.ConnectionTimeout%2A> property before calling <xref:System.Data.Odbc.OdbcConnection.Open%2A>. This is equivalent to setting the ODBC `SQLSetConnectAttr` SQL_ATTR_LOGIN_TIMOUT attribute.'
   syntax:
     content: public int ConnectionTimeout { get; set; }
     return:
@@ -731,7 +731,7 @@ items:
   - System.Data.Odbc
   namespace: System.Data.Odbc
   summary: Gets the server name or file name of the data source.
-  remarks: Retrieving the <xref:System.Data.Odbc.OdbcConnection.DataSource%2A> property is equivalent to calling the ODBC function `SQLGetInfo` with the `InfoType` parameter set to SQL_SERVER_NAME.
+  remarks: 'Retrieving the <xref:System.Data.Odbc.OdbcConnection.DataSource%2A> property is equivalent to calling the ODBC function `SQLGetInfo` with the `InfoType` parameter set to SQL_SERVER_NAME.'
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcConnection> and displays the backend data source name.  \n  \n [!code-csharp[Classic WebData OdbcConnection.DataSource#1](~/samples/snippets/csharp/VS_Snippets_ADO.NET/Classic WebData OdbcConnection.DataSource/CS/source.cs#1)]\n [!code-vb[Classic WebData OdbcConnection.DataSource#1](~/samples/snippets/visualbasic/VS_Snippets_ADO.NET/Classic WebData OdbcConnection.DataSource/VB/source.vb#1)]"
   syntax:
@@ -830,7 +830,7 @@ items:
   - System.Data.Odbc
   namespace: System.Data.Odbc
   summary: Gets the name of the ODBC driver specified for the current connection.
-  remarks: Retrieving the <xref:System.Data.Odbc.OdbcConnection.Driver%2A> property is equivalent to calling the ODBC function `SQLGetInfo` with the `InfoType` parameter set to SQL_DRIVER_NAME.
+  remarks: 'Retrieving the <xref:System.Data.Odbc.OdbcConnection.Driver%2A> property is equivalent to calling the ODBC function `SQLGetInfo` with the `InfoType` parameter set to SQL_DRIVER_NAME.'
   syntax:
     content: >-
       [System.ComponentModel.Browsable(false)]
@@ -838,7 +838,7 @@ items:
       public string Driver { get; }
     return:
       type: System.String
-      description: The name of the ODBC driver. This typically is the DLL name (for example, Sqlsrv32.dll). The default value is an empty string ("") until the connection is opened.
+      description: 'The name of the ODBC driver. This typically is the DLL name (for example, Sqlsrv32.dll). The default value is an empty string ("") until the connection is opened.'
   overload: System.Data.Odbc.OdbcConnection.Driver*
   exceptions: []
   attributes:
@@ -1127,7 +1127,7 @@ items:
   - System.Data.Odbc
   namespace: System.Data.Odbc
   summary: Occurs when the ODBC driver sends a warning or an informational message.
-  remarks: Clients that want to process warnings or informational messages sent by the server should create an <xref:System.Data.Odbc.OdbcInfoMessageEventHandler> delegate to listen to this event.
+  remarks: 'Clients that want to process warnings or informational messages sent by the server should create an <xref:System.Data.Odbc.OdbcInfoMessageEventHandler> delegate to listen to this event.'
   syntax:
     content: public event System.Data.Odbc.OdbcInfoMessageEventHandler InfoMessage;
     return:
@@ -1383,8 +1383,8 @@ items:
   - System.Data
   - System.Data.Odbc
   namespace: System.Data.Odbc
-  summary: For a description of this member, see <xref href="System.ICloneable.Clone"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.Odbc.OdbcConnection> instance is cast to an <xref:System.ICloneable> interface.
+  summary: 'For a description of this member, see <xref href="System.ICloneable.Clone"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.Odbc.OdbcConnection> instance is cast to an <xref:System.ICloneable> interface.'
   syntax:
     content: object ICloneable.Clone ();
     parameters: []

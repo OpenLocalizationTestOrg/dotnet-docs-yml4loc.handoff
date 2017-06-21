@@ -130,7 +130,7 @@ items:
   assemblies:
   - System.Device
   namespace: System.Device.Location
-  summary: Initializes a new instance of <xref href="System.Device.Location.GeoCoordinateWatcher"></xref>, given an accuracy level.
+  summary: 'Initializes a new instance of <xref href="System.Device.Location.GeoCoordinateWatcher"></xref>, given an accuracy level.'
   remarks: "**Note** In versions of Windows prior to Windows 7, the following conditions apply:  \n  \n-   All <xref:System.Device.Location> objects that have constructors can be created, but the <xref:System.Device.Location.GeoCoordinateWatcher.Status%2A> property will always have the value <xref:System.Device.Location.GeoPositionStatus.Disabled>.  \n  \n-   The location indicated by the <xref:System.Device.Location.GeoPosition%601.Location%2A> property of <xref:System.Device.Location.GeoCoordinateWatcher.Position%2A> will always be <xref:System.Device.Location.GeoCoordinate.Unknown>.  \n  \n-   No location events will be raised."
   syntax:
     content: public GeoCoordinateWatcher (System.Device.Location.GeoPositionAccuracy desiredAccuracy);
@@ -179,7 +179,7 @@ items:
     content: public System.Device.Location.GeoPositionAccuracy DesiredAccuracy { get; }
     return:
       type: System.Device.Location.GeoPositionAccuracy
-      description: <xref href="System.Device.Location.GeoPositionAccuracy"></xref>, which indicates the requested accuracy level of the location provider.
+      description: '<xref href="System.Device.Location.GeoPositionAccuracy"></xref>, which indicates the requested accuracy level of the location provider.'
   overload: System.Device.Location.GeoCoordinateWatcher.DesiredAccuracy*
   exceptions: []
   version:
@@ -339,13 +339,13 @@ items:
   assemblies:
   - System.Device
   namespace: System.Device.Location
-  summary: The distance that must be moved, in meters, relative to the coordinate from the last <xref href="System.Device.Location.GeoCoordinateWatcher.PositionChanged"></xref> event, before the location provider raises another <xref href="System.Device.Location.GeoCoordinateWatcher.PositionChanged"></xref> event.
+  summary: 'The distance that must be moved, in meters, relative to the coordinate from the last <xref href="System.Device.Location.GeoCoordinateWatcher.PositionChanged"></xref> event, before the location provider raises another <xref href="System.Device.Location.GeoCoordinateWatcher.PositionChanged"></xref> event.'
   remarks: "The default movement threshold is zero, which means that any change in location detected by the current location provider causes a <xref:System.Device.Location.GeoCoordinateWatcher.PositionChanged> event and an update in the <xref:System.Device.Location.GeoCoordinateWatcher.Position%2A> property.  \n  \n> [!NOTE]\n>  The movement threshold does not guarantee that events will be received at the requested threshold. The platform attempts to honor requests for a particular movement threshold, but in some cases, the events will not be raised at the requested threshold.  \n  \n **Note** In versions of Windows prior to Windows 7, the following conditions apply:  \n  \n-   All <xref:System.Device.Location> objects that have constructors can be created, but the <xref:System.Device.Location.GeoCoordinateWatcher.Status%2A> property will always have the value <xref:System.Device.Location.GeoPositionStatus.Disabled>.  \n  \n-   The location indicated by the <xref:System.Device.Location.GeoPosition%601.Location%2A> property of <xref:System.Device.Location.GeoCoordinateWatcher.Position%2A> will always be <xref:System.Device.Location.GeoCoordinate.Unknown>.  \n  \n-   No location events will be raised.  \n  \n The following diagram represents location coordinates that the location provider (for example, a GPS device) supplies to the computer. P1, in the diagram, represents the location data included in a <xref:System.Device.Location.GeoCoordinateWatcher.PositionChanged> event, and P2, P3, and P4 represent points within the movement threshold. So when the location provider supplies data indicating a location at those points (P1, P2, P3, and P4), no <xref:System.Device.Location.GeoCoordinateWatcher.PositionChanged> events are raised, and <xref:System.Device.Location.GeoCoordinateWatcher.Position%2A> returns P1. The point P5 is outside of the <xref:System.Device.Location.GeoCoordinateWatcher.MovementThreshold%2A> distance, so at that point, <xref:System.Device.Location.GeoLocationProvider.Location%2A> is updated and a <xref:System.Device.Location.GeoLocationProvider.LocationChanged> event is raised.  \n  \n ![Diagram illustrating MovementThreshold](~/add/media/ndp-movementthreshold.png \"Diagram illustrating MovementThreshold\")"
   syntax:
     content: public double MovementThreshold { get; set; }
     return:
       type: System.Double
-      description: Distance, in meters.
+      description: 'Distance, in meters.'
   overload: System.Device.Location.GeoCoordinateWatcher.MovementThreshold*
   exceptions: []
   version:
@@ -780,7 +780,7 @@ items:
   - System.Device
   namespace: System.Device.Location
   summary: Indicates that the status of the <xref href="System.Device.Location.GeoCoordinateWatcher"></xref> object has changed.
-  remarks: The <xref:System.Device.Location.GeoCoordinateWatcher.StatusChanged> event is raised on the same thread that the <xref:System.Device.Location.GeoCoordinateWatcher> object was created on.
+  remarks: 'The <xref:System.Device.Location.GeoCoordinateWatcher.StatusChanged> event is raised on the same thread that the <xref:System.Device.Location.GeoCoordinateWatcher> object was created on.'
   example:
   - "The following example demonstrates how to handle <xref:System.Device.Location.GeoCoordinateWatcher.StatusChanged> events.  \n  \n [!code-csharp[System.Device.Location.ShowStatusUpdates#1](~/samples/snippets/csharp/VS_Snippets_Misc/system.device.location.showstatusupdates/cs/showstatusupdates.cs#1)]\n [!code-vb[System.Device.Location.ShowStatusUpdates#1](~/samples/snippets/visualbasic/VS_Snippets_Misc/system.device.location.showstatusupdates/vb/ShowStatusUpdates.vb#1)]"
   syntax:
@@ -864,7 +864,7 @@ items:
   - System.Device
   namespace: System.Device.Location
   summary: Initiates the acquisition of data from the current location provider. This method returns synchronously.
-  remarks: This method blocks execution of the calling thread during the time period specified by `timeout`. Use caution when calling <xref:System.Device.Location.GeoCoordinateWatcher.TryStart%2A> from the user interface thread of your application.
+  remarks: 'This method blocks execution of the calling thread during the time period specified by `timeout`. Use caution when calling <xref:System.Device.Location.GeoCoordinateWatcher.TryStart%2A> from the user interface thread of your application.'
   example:
   - "The following example demonstrates how to call <xref:System.Device.Location.GeoCoordinateWatcher.TryStart%2A>.  \n  \n [!code-csharp[System.Device.Location.GetLocationDataSync1#1](~/samples/snippets/csharp/VS_Snippets_Misc/system.device.location.getlocationdatasync1/cs/getlocationdatasync.cs#1)]\n [!code-vb[System.Device.Location.GetLocationDataSync1#1](~/samples/snippets/visualbasic/VS_Snippets_Misc/system.device.location.getlocationdatasync1/vb/GetLocationDataSync.vb#1)]"
   syntax:

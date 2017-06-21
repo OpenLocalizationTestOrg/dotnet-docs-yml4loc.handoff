@@ -114,8 +114,8 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: Represents a writer that provides a fast, non-cached, forward-only way to generate streams or files that contain XML data.
-  remarks: "The <xref:System.Xml.XmlWriter> class writes XML data to a stream, file, text reader, or string. It supports the W3C [Extensible Markup Language (XML) 1.0 (fourth edition)](http://www.w3.org/TR/2006/REC-xml-20060816/) and [Namespaces in XML 1.0 (third edition)](http://www.w3.org/TR/REC-xml-names/) recommendations.  \n  \n The members of the <xref:System.Xml.XmlWriter> class enable you to:  \n  \n-   Verify that the characters are legal XML characters and that element and attribute names are valid XML names.  \n  \n-   Verify that the XML document is well-formed.  \n  \n-   Encode binary bytes as Base64 or BinHex, and write out the resulting text.  \n  \n-   Pass values by using common language runtime types instead of strings, to avoid having to manually perform value conversions.  \n  \n-   Write multiple documents to one output stream.  \n  \n-   Write valid names, qualified names, and name tokens.  \n  \n In this section:  \n  \n [Creating an XML writer](#create)   \n [Specifying the output format](#output)   \n [Data conformance](#conformance)   \n [Writing elements](#writing_elements)   \n [Writing attributes](#writing_attributes)   \n [Handling namespaces](#handling_ns)   \n [Writing typed data](#writing_types)   \n [Closing the XML writer](#close)   \n [Asynchronous programming](#async)   \n [Security considerations](#security)  \n  \n<a name=\"create\"></a>   \n## Creating an XML writer  \n To create an <xref:System.Xml.XmlWriter> instance, use the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method. To specify the set of features you want to enable on the XML writer, pass an <xref:System.Xml.XmlWriterSettings> to the <xref:System.Xml.XmlWriter.Create%2A> method. Otherwise, default settings are used. See the <xref:System.Xml.XmlWriter.Create%2A> reference pages for details.  \n  \n<a name=\"output\"></a>   \n## Specifying the output format  \n The <xref:System.Xml.XmlWriterSettings> class includes several properties that control how <xref:System.Xml.XmlWriter> output is formatted:  \n  \n|Property|Description|  \n|--------------|-----------------|  \n|<xref:System.Xml.XmlWriterSettings.Encoding%2A>|Specifies the text encoding to use. The default is `Encoding.UTF8`.|  \n|<xref:System.Xml.XmlWriterSettings.Indent%2A>|Indicates whether to indent elements. The default is `false` (no indentation).|  \n|<xref:System.Xml.XmlWriterSettings.IndentChars%2A>|Specifies the character string to use when indenting. The default is two spaces.|  \n|<xref:System.Xml.XmlWriterSettings.NewLineChars%2A>|Specifies the character string to use for line breaks. The default is `\\r\\n` (carriage return, line feed).|  \n|<xref:System.Xml.XmlWriterSettings.NewLineHandling%2A>|Specifies how to handle newline characters.|  \n|<xref:System.Xml.XmlWriterSettings.NewLineOnAttributes%2A>|Indicates whether to write attributes on a new line. <xref:System.Xml.XmlWriterSettings.Indent%2A> should be set to `true` when using this property. The default is `false`.|  \n|<xref:System.Xml.XmlWriterSettings.OmitXmlDeclaration%2A>|Indicates whether to write an XML declaration. The default is `false`.|  \n  \n The <xref:System.Xml.XmlWriterSettings.Indent%2A> and <xref:System.Xml.XmlWriterSettings.IndentChars%2A> properties control how insignificant white space is formatted. For example, to indent element nodes:  \n  \n [!code-csharp[XmlWriter_v2#8](~/samples/snippets/csharp/VS_Snippets_Data/XmlWriter_v2/CS/writer_v2.cs#8)]\n [!code-vb[XmlWriter_v2#8](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlWriter_v2/VB/writer_v2.vb#8)]  \n  \n Use the <xref:System.Xml.XmlWriterSettings.NewLineOnAttributes%2A> to write each attribute on a new line with one extra level of indentation:  \n  \n [!code-csharp[XmlWriter_v2#9](~/samples/snippets/csharp/VS_Snippets_Data/XmlWriter_v2/CS/writer_v2.cs#9)]\n [!code-vb[XmlWriter_v2#9](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlWriter_v2/VB/writer_v2.vb#9)]  \n  \n<a name=\"conformance\"></a>   \n## Data conformance  \n An XML writer uses two properties from the <xref:System.Xml.XmlWriterSettings> class to check for data conformance:  \n  \n-   The <xref:System.Xml.XmlWriterSettings.CheckCharacters%2A> property instructs the XML writer to check characters and throw an <xref:System.Xml.XmlException> exception if any characters are outside the legal range, as defined by the W3C.  \n  \n-   The <xref:System.Xml.XmlWriterSettings.ConformanceLevel%2A> property configures the XML writer to check that the stream being written complies with the rules for a well-formed XML 1.0 document or document fragment, as defined by the W3C. The three conformance levels are described in the following table. The default is <xref:System.Xml.ConformanceLevel.Document>. For details, see the <xref:System.Xml.XmlWriterSettings.ConformanceLevel%2A?displayProperty=fullName> property and the <xref:System.Xml.ConformanceLevel?displayProperty=fullName> enumeration.  \n  \n    |Level|Description|  \n    |-----------|-----------------|  \n    |<xref:System.Xml.ConformanceLevel.Document>|The XML output conforms to the rules for a well-formed XML 1.0 document and can be processed by any conforming processor.|  \n    |<xref:System.Xml.ConformanceLevel.Fragment>|The XML output conforms to the rules for a well-formed XML 1.0 document fragment.|  \n    |<xref:System.Xml.ConformanceLevel.Auto>|The XML writer determines which level of conformation checking to apply (document or fragment) based on the incoming data.|  \n  \n<a name=\"writing_elements\"></a>   \n## Writing elements  \n You can use the following <xref:System.Xml.XmlWriter> methods to write element nodes. For examples, see the methods listed.  \n  \n|Use|To|  \n|---------|--------|  \n|<xref:System.Xml.XmlWriter.WriteElementString%2A>|Write an entire element  node, including a string value.|  \n|<xref:System.Xml.XmlWriter.WriteStartElement%2A>|To write an element value by using multiple method calls.  For example, you can call <xref:System.Xml.XmlWriter.WriteValue%2A> to write a typed value, <xref:System.Xml.XmlWriter.WriteCharEntity%2A> to write a character entity, <xref:System.Xml.XmlWriter.WriteAttributeString%2A> to write an attribute, or you can write a child element. This is a more sophisticated version of the <xref:System.Xml.XmlWriter.WriteElementString%2A> method.<br /><br /> To close the element, you call the <xref:System.Xml.XmlWriter.WriteEndElement%2A> or <xref:System.Xml.XmlWriter.WriteFullEndElement%2A> method.|  \n|<xref:System.Xml.XmlWriter.WriteNode%2A>|To copy an element node found at the current position of an <xref:System.Xml.XmlReader> or <xref:System.Xml.XPath.XPathNavigator> object. When called, it copies everything from the source object to the <xref:System.Xml.XmlWriter> instance.|  \n  \n<a name=\"writing_attributes\"></a>   \n## Writing attributes  \n You can use the following <xref:System.Xml.XmlWriter> methods to write attributes on element nodes. These methods can also be used to create namespace declarations on an element, as discussed in the next section.  \n  \n|Use|To|  \n|---------|--------|  \n|<xref:System.Xml.XmlWriter.WriteAttributeString%2A>|To write an entire attribute node, including a string value.|  \n|<xref:System.Xml.XmlWriter.WriteStartAttribute%2A>|To write the attribute value using multiple method calls. For example, you can call <xref:System.Xml.XmlWriter.WriteValue%2A> to write a typed value. This is a more sophisticated version of the <xref:System.Xml.XmlWriter.WriteElementString%2A> method.<br /><br /> To close the element, you call the <xref:System.Xml.XmlWriter.WriteEndAttribute%2A> method.|  \n|<xref:System.Xml.XmlWriter.WriteAttributes%2A>|To copy all the attributes found at the current position of an <xref:System.Xml.XmlReader> object. The attributes that are written depend on the type of node the reader is currently positioned on:<br /><br /> -   For an attribute node, it writes the current attribute, and then the rest of the attributes until the element closing tag.<br />-   For an element node, it writes all attributes contained by the element.<br />-   For an XML declaration node, it writes all the attributes in the declaration.<br />-   For all other node types, the method throws an exception.|  \n  \n<a name=\"handling_ns\"></a>   \n## Handling namespaces  \n Namespaces are used to qualify element and attribute names in an XML document. Namespace prefixes associate elements and attributes with namespaces, which are in turn associated with URI references. Namespaces create element and attribute name uniqueness in an XML document.  \n  \n The <xref:System.Xml.XmlWriter> maintains a namespace stack that corresponds to all the namespaces defined in the current namespace scope. When writing elements and attributes you can utilize namespaces in the following ways:  \n  \n-   Declare namespaces manually by using the <xref:System.Xml.XmlWriter.WriteAttributeString%2A> method. This can be useful when you know how to best optimize the number of namespace declarations. For an example, see the <xref:System.Xml.XmlWriter.WriteAttributeString%28System.String%2CSystem.String%2CSystem.String%2CSystem.String%29> method.  \n  \n-   Override the current namespace declaration with a new namespace. In the following code, the <xref:System.Xml.XmlWriter.WriteAttributeString%2A> method changes the namespace URI for the `\"x\"` prefix from `\"123\"` to `\"abc\"`.  \n  \n     [!code-csharp[XmlWriter_v2#18](~/samples/snippets/csharp/VS_Snippets_Data/XmlWriter_v2/CS/writer_v2.cs#18)]\n     [!code-vb[XmlWriter_v2#18](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlWriter_v2/VB/writer_v2.vb#18)]  \n  \n     The code generates the following XML string:  \n  \n    ```  \n    <x:root xmlns:x=\"123\">  \n      <item xmlns:x=\"abc\" />  \n    </x:root>  \n    ```  \n  \n-   Specify a namespace prefix when writing attributes or elements. Many of the methods used to write element and attributes enable you to do this. For example, the <xref:System.Xml.XmlWriter.WriteStartElement%28System.String%2CSystem.String%2CSystem.String%29> method writes a start tag and associates it with a specified namespace and prefix.  \n  \n<a name=\"writing_types\"></a>   \n## Writing typed data  \n The <xref:System.Xml.XmlWriter.WriteValue%2A> method accepts a common language runtime (CLR) object, converts the input value to its string representation according to XML schema definition language (XSD) data type conversion rules, and writes it out by using the <xref:System.Xml.XmlWriter.WriteString%2A> method. This is easier than using the methods in the <xref:System.Xml.XmlConvert> class to convert the typed data to a string value before writing it out.  \n  \n When writing to text, the typed value is serialized to text by using the <xref:System.Xml.XmlConvert> rules for that schema type.  \n  \n For default XSD data types that correspond to CLR types, see the <xref:System.Xml.XmlWriter.WriteValue%2A> method.  \n  \n The <xref:System.Xml.XmlWriter> can also be used to write to an XML data store. For example, the <xref:System.Xml.XPath.XPathNavigator> class can create an <xref:System.Xml.XmlWriter> object to create nodes for an <xref:System.Xml.XmlDocument> object. If the data store has schema information available to it, the <xref:System.Xml.XmlWriter.WriteValue%2A> method throws an exception if you try to convert to a type that is not allowed.If the data store does not have schema information available to it, the <xref:System.Xml.XmlWriter.WriteValue%2A> method treats all values as an `xsd:anySimpleType` type.  \n  \n<a name=\"close\"></a>   \n## Closing the XML writer  \n When you use <xref:System.Xml.XmlWriter> methods to output XML, the elements and attributes are not written until you call the <xref:System.Xml.XmlWriter.Close%2A> method. For example, if you are using <xref:System.Xml.XmlWriter> to populate an <xref:System.Xml.XmlDocument> object, you won't be able to see the written elements and attributes in the target document until you close the <xref:System.Xml.XmlWriter> instance.  \n  \n<a name=\"async\"></a>   \n## Asynchronous programming  \n Most of the <xref:System.Xml.XmlWriter> methods have asynchronous counterparts that have \"Async\" at the end of their method names. For example, the asynchronous equivalent of <xref:System.Xml.XmlWriter.WriteAttributeString%2A> is <xref:System.Xml.XmlWriter.WriteAttributeStringAsync%2A>.  \n  \n For the <xref:System.Xml.XmlWriter.WriteValue%2A> method, which doesn't have an asynchronous counterpart, convert the return value to a string and use the <xref:System.Xml.XmlWriter.WriteStringAsync%2A> method instead.  \n  \n<a name=\"security\"></a>   \n## Security considerations  \n Consider the following when working with the <xref:System.Xml.XmlWriter> class:  \n  \n-   Exceptions thrown by the <xref:System.Xml.XmlWriter> can disclose path information that you do not want bubbled up to the app. Your app must catch exceptions and process them appropriately.  \n  \n-   <xref:System.Xml.XmlWriter> does not validate any data that is passed to the <xref:System.Xml.XmlWriter.WriteDocType%2A> or <xref:System.Xml.XmlWriter.WriteRaw%2A> method. You should not pass arbitrary data to these methods."
+  summary: 'Represents a writer that provides a fast, non-cached, forward-only way to generate streams or files that contain XML data.'
+  remarks: "The <xref:System.Xml.XmlWriter> class writes XML data to a stream, file, text reader, or string. It supports the W3C [Extensible Markup Language (XML) 1.0 (fourth edition)](http://www.w3.org/TR/2006/REC-xml-20060816/) and [Namespaces in XML 1.0 (third edition)](http://www.w3.org/TR/REC-xml-names/) recommendations.  \n  \n The members of the <xref:System.Xml.XmlWriter> class enable you to:  \n  \n-   Verify that the characters are legal XML characters and that element and attribute names are valid XML names.  \n  \n-   Verify that the XML document is well-formed.  \n  \n-   Encode binary bytes as Base64 or BinHex, and write out the resulting text.  \n  \n-   Pass values by using common language runtime types instead of strings, to avoid having to manually perform value conversions.  \n  \n-   Write multiple documents to one output stream.  \n  \n-   Write valid names, qualified names, and name tokens.  \n  \n In this section:  \n  \n [Creating an XML writer](#create)   \n [Specifying the output format](#output)   \n [Data conformance](#conformance)   \n [Writing elements](#writing_elements)   \n [Writing attributes](#writing_attributes)   \n [Handling namespaces](#handling_ns)   \n [Writing typed data](#writing_types)   \n [Closing the XML writer](#close)   \n [Asynchronous programming](#async)   \n [Security considerations](#security)  \n  \n<a name=\"create\"></a>   \n## <a name=\"creating-an-xml-writer\"></a>Creating an XML writer  \n To create an <xref:System.Xml.XmlWriter> instance, use the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method. To specify the set of features you want to enable on the XML writer, pass an <xref:System.Xml.XmlWriterSettings> to the <xref:System.Xml.XmlWriter.Create%2A> method. Otherwise, default settings are used. See the <xref:System.Xml.XmlWriter.Create%2A> reference pages for details.  \n  \n<a name=\"output\"></a>   \n## <a name=\"specifying-the-output-format\"></a>Specifying the output format  \n The <xref:System.Xml.XmlWriterSettings> class includes several properties that control how <xref:System.Xml.XmlWriter> output is formatted:  \n  \n|Property|Description|  \n|--------------|-----------------|  \n|<xref:System.Xml.XmlWriterSettings.Encoding%2A>|Specifies the text encoding to use. The default is `Encoding.UTF8`.|  \n|<xref:System.Xml.XmlWriterSettings.Indent%2A>|Indicates whether to indent elements. The default is `false` (no indentation).|  \n|<xref:System.Xml.XmlWriterSettings.IndentChars%2A>|Specifies the character string to use when indenting. The default is two spaces.|  \n|<xref:System.Xml.XmlWriterSettings.NewLineChars%2A>|Specifies the character string to use for line breaks. The default is `\\r\\n` (carriage return, line feed).|  \n|<xref:System.Xml.XmlWriterSettings.NewLineHandling%2A>|Specifies how to handle newline characters.|  \n|<xref:System.Xml.XmlWriterSettings.NewLineOnAttributes%2A>|Indicates whether to write attributes on a new line. <xref:System.Xml.XmlWriterSettings.Indent%2A> should be set to `true` when using this property. The default is `false`.|  \n|<xref:System.Xml.XmlWriterSettings.OmitXmlDeclaration%2A>|Indicates whether to write an XML declaration. The default is `false`.|  \n  \n The <xref:System.Xml.XmlWriterSettings.Indent%2A> and <xref:System.Xml.XmlWriterSettings.IndentChars%2A> properties control how insignificant white space is formatted. For example, to indent element nodes:  \n  \n [!code-csharp[XmlWriter_v2#8](~/samples/snippets/csharp/VS_Snippets_Data/XmlWriter_v2/CS/writer_v2.cs#8)] [!code-vb[XmlWriter_v2#8](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlWriter_v2/VB/writer_v2.vb#8)]  \n  \n Use the <xref:System.Xml.XmlWriterSettings.NewLineOnAttributes%2A> to write each attribute on a new line with one extra level of indentation:  \n  \n [!code-csharp[XmlWriter_v2#9](~/samples/snippets/csharp/VS_Snippets_Data/XmlWriter_v2/CS/writer_v2.cs#9)] [!code-vb[XmlWriter_v2#9](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlWriter_v2/VB/writer_v2.vb#9)]  \n  \n<a name=\"conformance\"></a>   \n## <a name=\"data-conformance\"></a>Data conformance  \n An XML writer uses two properties from the <xref:System.Xml.XmlWriterSettings> class to check for data conformance:  \n  \n-   The <xref:System.Xml.XmlWriterSettings.CheckCharacters%2A> property instructs the XML writer to check characters and throw an <xref:System.Xml.XmlException> exception if any characters are outside the legal range, as defined by the W3C.  \n  \n-   The <xref:System.Xml.XmlWriterSettings.ConformanceLevel%2A> property configures the XML writer to check that the stream being written complies with the rules for a well-formed XML 1.0 document or document fragment, as defined by the W3C. The three conformance levels are described in the following table. The default is <xref:System.Xml.ConformanceLevel.Document>. For details, see the <xref:System.Xml.XmlWriterSettings.ConformanceLevel%2A?displayProperty=fullName> property and the <xref:System.Xml.ConformanceLevel?displayProperty=fullName> enumeration.  \n  \n    |Level|Description|  \n    |-----------|-----------------|  \n    |<xref:System.Xml.ConformanceLevel.Document>|The XML output conforms to the rules for a well-formed XML 1.0 document and can be processed by any conforming processor.|  \n    |<xref:System.Xml.ConformanceLevel.Fragment>|The XML output conforms to the rules for a well-formed XML 1.0 document fragment.|  \n    |<xref:System.Xml.ConformanceLevel.Auto>|The XML writer determines which level of conformation checking to apply (document or fragment) based on the incoming data.|  \n  \n<a name=\"writing_elements\"></a>   \n## <a name=\"writing-elements\"></a>Writing elements  \n You can use the following <xref:System.Xml.XmlWriter> methods to write element nodes. For examples, see the methods listed.  \n  \n|Use|To|  \n|---------|--------|  \n|<xref:System.Xml.XmlWriter.WriteElementString%2A>|Write an entire element  node, including a string value.|  \n|<xref:System.Xml.XmlWriter.WriteStartElement%2A>|To write an element value by using multiple method calls.  For example, you can call <xref:System.Xml.XmlWriter.WriteValue%2A> to write a typed value, <xref:System.Xml.XmlWriter.WriteCharEntity%2A> to write a character entity, <xref:System.Xml.XmlWriter.WriteAttributeString%2A> to write an attribute, or you can write a child element. This is a more sophisticated version of the <xref:System.Xml.XmlWriter.WriteElementString%2A> method.<br /><br /> To close the element, you call the <xref:System.Xml.XmlWriter.WriteEndElement%2A> or <xref:System.Xml.XmlWriter.WriteFullEndElement%2A> method.|  \n|<xref:System.Xml.XmlWriter.WriteNode%2A>|To copy an element node found at the current position of an <xref:System.Xml.XmlReader> or <xref:System.Xml.XPath.XPathNavigator> object. When called, it copies everything from the source object to the <xref:System.Xml.XmlWriter> instance.|  \n  \n<a name=\"writing_attributes\"></a>   \n## <a name=\"writing-attributes\"></a>Writing attributes  \n You can use the following <xref:System.Xml.XmlWriter> methods to write attributes on element nodes. These methods can also be used to create namespace declarations on an element, as discussed in the next section.  \n  \n|Use|To|  \n|---------|--------|  \n|<xref:System.Xml.XmlWriter.WriteAttributeString%2A>|To write an entire attribute node, including a string value.|  \n|<xref:System.Xml.XmlWriter.WriteStartAttribute%2A>|To write the attribute value using multiple method calls. For example, you can call <xref:System.Xml.XmlWriter.WriteValue%2A> to write a typed value. This is a more sophisticated version of the <xref:System.Xml.XmlWriter.WriteElementString%2A> method.<br /><br /> To close the element, you call the <xref:System.Xml.XmlWriter.WriteEndAttribute%2A> method.|  \n|<xref:System.Xml.XmlWriter.WriteAttributes%2A>|To copy all the attributes found at the current position of an <xref:System.Xml.XmlReader> object. The attributes that are written depend on the type of node the reader is currently positioned on:<br /><br /> -   For an attribute node, it writes the current attribute, and then the rest of the attributes until the element closing tag.<br />-   For an element node, it writes all attributes contained by the element.<br />-   For an XML declaration node, it writes all the attributes in the declaration.<br />-   For all other node types, the method throws an exception.|  \n  \n<a name=\"handling_ns\"></a>   \n## <a name=\"handling-namespaces\"></a>Handling namespaces  \n Namespaces are used to qualify element and attribute names in an XML document. Namespace prefixes associate elements and attributes with namespaces, which are in turn associated with URI references. Namespaces create element and attribute name uniqueness in an XML document.  \n  \n The <xref:System.Xml.XmlWriter> maintains a namespace stack that corresponds to all the namespaces defined in the current namespace scope. When writing elements and attributes you can utilize namespaces in the following ways:  \n  \n-   Declare namespaces manually by using the <xref:System.Xml.XmlWriter.WriteAttributeString%2A> method. This can be useful when you know how to best optimize the number of namespace declarations. For an example, see the <xref:System.Xml.XmlWriter.WriteAttributeString%28System.String%2CSystem.String%2CSystem.String%2CSystem.String%29> method.  \n  \n-   Override the current namespace declaration with a new namespace. In the following code, the <xref:System.Xml.XmlWriter.WriteAttributeString%2A> method changes the namespace URI for the `\"x\"` prefix from `\"123\"` to `\"abc\"`.  \n  \n     [!code-csharp[XmlWriter_v2#18](~/samples/snippets/csharp/VS_Snippets_Data/XmlWriter_v2/CS/writer_v2.cs#18)]  [!code-vb[XmlWriter_v2#18](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlWriter_v2/VB/writer_v2.vb#18)]  \n  \n     The code generates the following XML string:  \n  \n    ```  \n    <x:root xmlns:x=\"123\">  \n      <item xmlns:x=\"abc\" />  \n    </x:root>  \n    ```  \n  \n-   Specify a namespace prefix when writing attributes or elements. Many of the methods used to write element and attributes enable you to do this. For example, the <xref:System.Xml.XmlWriter.WriteStartElement%28System.String%2CSystem.String%2CSystem.String%29> method writes a start tag and associates it with a specified namespace and prefix.  \n  \n<a name=\"writing_types\"></a>   \n## <a name=\"writing-typed-data\"></a>Writing typed data  \n The <xref:System.Xml.XmlWriter.WriteValue%2A> method accepts a common language runtime (CLR) object, converts the input value to its string representation according to XML schema definition language (XSD) data type conversion rules, and writes it out by using the <xref:System.Xml.XmlWriter.WriteString%2A> method. This is easier than using the methods in the <xref:System.Xml.XmlConvert> class to convert the typed data to a string value before writing it out.  \n  \n When writing to text, the typed value is serialized to text by using the <xref:System.Xml.XmlConvert> rules for that schema type.  \n  \n For default XSD data types that correspond to CLR types, see the <xref:System.Xml.XmlWriter.WriteValue%2A> method.  \n  \n The <xref:System.Xml.XmlWriter> can also be used to write to an XML data store. For example, the <xref:System.Xml.XPath.XPathNavigator> class can create an <xref:System.Xml.XmlWriter> object to create nodes for an <xref:System.Xml.XmlDocument> object. If the data store has schema information available to it, the <xref:System.Xml.XmlWriter.WriteValue%2A> method throws an exception if you try to convert to a type that is not allowed.If the data store does not have schema information available to it, the <xref:System.Xml.XmlWriter.WriteValue%2A> method treats all values as an `xsd:anySimpleType` type.  \n  \n<a name=\"close\"></a>   \n## <a name=\"closing-the-xml-writer\"></a>Closing the XML writer  \n When you use <xref:System.Xml.XmlWriter> methods to output XML, the elements and attributes are not written until you call the <xref:System.Xml.XmlWriter.Close%2A> method. For example, if you are using <xref:System.Xml.XmlWriter> to populate an <xref:System.Xml.XmlDocument> object, you won't be able to see the written elements and attributes in the target document until you close the <xref:System.Xml.XmlWriter> instance.  \n  \n<a name=\"async\"></a>   \n## <a name=\"asynchronous-programming\"></a>Asynchronous programming  \n Most of the <xref:System.Xml.XmlWriter> methods have asynchronous counterparts that have \"Async\" at the end of their method names. For example, the asynchronous equivalent of <xref:System.Xml.XmlWriter.WriteAttributeString%2A> is <xref:System.Xml.XmlWriter.WriteAttributeStringAsync%2A>.  \n  \n For the <xref:System.Xml.XmlWriter.WriteValue%2A> method, which doesn't have an asynchronous counterpart, convert the return value to a string and use the <xref:System.Xml.XmlWriter.WriteStringAsync%2A> method instead.  \n  \n<a name=\"security\"></a>   \n## <a name=\"security-considerations\"></a>Security considerations  \n Consider the following when working with the <xref:System.Xml.XmlWriter> class:  \n  \n-   Exceptions thrown by the <xref:System.Xml.XmlWriter> can disclose path information that you do not want bubbled up to the app. Your app must catch exceptions and process them appropriately.  \n  \n-   <xref:System.Xml.XmlWriter> does not validate any data that is passed to the <xref:System.Xml.XmlWriter.WriteDocType%2A> or <xref:System.Xml.XmlWriter.WriteRaw%2A> method. You should not pass arbitrary data to these methods."
   example:
   - "The following example code shows how to use the asynchronous API to generate XML.  \n  \n```  \nasync Task TestWriter(Stream stream)   \n{  \n    XmlWriterSettings settings = new XmlWriterSettings();  \n    settings.Async = true;  \n  \n    using (XmlWriter writer = XmlWriter.Create(stream, settings)) {  \n        await writer.WriteStartElementAsync(\"pf\", \"root\", \"http://ns\");  \n        await writer.WriteStartElementAsync(null, \"sub\", null);  \n        await writer.WriteAttributeStringAsync(null, \"att\", null, \"val\");  \n        await writer.WriteStringAsync(\"text\");  \n        await writer.WriteEndElementAsync();  \n        await writer.WriteProcessingInstructionAsync(\"pName\", \"pValue\");  \n        await writer.WriteCommentAsync(\"cValue\");  \n        await writer.WriteCDataAsync(\"cdata value\");  \n        await writer.WriteEndElementAsync();  \n        await writer.FlushAsync();  \n    }  \n}  \n```"
   syntax:
@@ -268,7 +268,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml
-  summary: When overridden in a derived class, closes this stream and the underlying stream.
+  summary: 'When overridden in a derived class, closes this stream and the underlying stream.'
   remarks: "Any elements or attributes left open are automatically closed.  \n  \n> [!NOTE]\n>  When you use the <xref:System.Xml.XmlWriter> methods to output XML, the elements and attributes will not be written until you call the <xref:System.Xml.XmlWriter.Close%2A> method. For example, if you are using the XmlWriter to populate an <xref:System.Xml.XmlDocument>, until you close the <xref:System.Xml.XmlWriter>, you will not be able to observe the written elements and attributes in the target document."
   example:
   - "The following example writes an XML node.  \n  \n [!code-cpp[XmlWriter.Close#1](~/samples/snippets/cpp/VS_Snippets_Data/XmlWriter.Close/CPP/XmlWriter.Close.cpp#1)]\n [!code-csharp[XmlWriter.Close#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlWriter.Close/CS/writeelems.cs#1)]\n [!code-vb[XmlWriter.Close#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlWriter.Close/VB/writeelems.vb#1)]"
@@ -279,7 +279,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-2.0
   - netframework-4.5.1
@@ -561,7 +561,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Creates a new <xref href="System.Xml.XmlWriter"></xref> instance using the stream and <xref href="System.Xml.XmlWriterSettings"></xref> object.
-  remarks: XmlWriter always writes a Byte Order Mark (BOM) to the underlying data stream; however, some streams must not have a BOM. To omit the BOM, create a new <xref:System.Xml.XmlWriterSettings> object and set the Encoding property to be a new <xref:System.Text.UTF8Encoding> object with the Boolean value in the constructor set to false.
+  remarks: 'XmlWriter always writes a Byte Order Mark (BOM) to the underlying data stream; however, some streams must not have a BOM. To omit the BOM, create a new <xref:System.Xml.XmlWriterSettings> object and set the Encoding property to be a new <xref:System.Text.UTF8Encoding> object with the Boolean value in the constructor set to false.'
   example:
   - "The following example writes an XML fragment to a memory stream.  \n  \n [!code-csharp[XmlWriterSettings.CloseOutput#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlWriterSettings.CloseOutput/CS/writestream2.cs#1)]\n [!code-vb[XmlWriterSettings.CloseOutput#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlWriterSettings.CloseOutput/VB/writestream2.vb#1)]"
   syntax:
@@ -645,7 +645,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Creates a new <xref href="System.Xml.XmlWriter"></xref> instance using the specified <xref href="System.Xml.XmlWriter"></xref> and <xref href="System.Xml.XmlWriterSettings"></xref> objects.
-  remarks: This method allows you add additional features to an underlying <xref:System.Xml.XmlWriter> object. The underlying <xref:System.Xml.XmlWriter> object can be an object created by the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method, or an object created using the <xref:System.Xml.XmlTextWriter> implementation.
+  remarks: 'This method allows you add additional features to an underlying <xref:System.Xml.XmlWriter> object. The underlying <xref:System.Xml.XmlWriter> object can be an object created by the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method, or an object created using the <xref:System.Xml.XmlTextWriter> implementation.'
   syntax:
     content: public static System.Xml.XmlWriter Create (System.Xml.XmlWriter output, System.Xml.XmlWriterSettings settings);
     parameters:
@@ -1119,7 +1119,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -1194,7 +1194,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -1258,7 +1258,7 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, flushes whatever is in the buffer to the underlying streams and also flushes the underlying stream.
+  summary: 'When overridden in a derived class, flushes whatever is in the buffer to the underlying streams and also flushes the underlying stream.'
   remarks: "This is called instead of <xref:System.Xml.XmlWriter.Close%2A> when you want to write more to the underlying stream without losing what is still in the buffer.  \n  \n For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.FlushAsync%2A>."
   example:
   - "The following example writes two XML fragments.  \n  \n [!code-cpp[XmlWriter.Flush#1](~/samples/snippets/cpp/VS_Snippets_Data/XmlWriter.Flush/CPP/write2docs_v2.cpp#1)]\n [!code-csharp[XmlWriter.Flush#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlWriter.Flush/CS/write2docs_v2.cs#1)]\n [!code-vb[XmlWriter.Flush#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlWriter.Flush/VB/write2docs_v2.vb#1)]"
@@ -1269,7 +1269,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -1334,7 +1334,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Asynchronously flushes whatever is in the buffer to the underlying streams and also flushes the underlying stream.
-  remarks: This is the asynchronous version of <xref:System.Xml.XmlWriter.Flush%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.
+  remarks: 'This is the asynchronous version of <xref:System.Xml.XmlWriter.Flush%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.'
   syntax:
     content: public virtual System.Threading.Tasks.Task FlushAsync ();
     parameters: []
@@ -1345,7 +1345,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -1409,7 +1409,7 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, returns the closest prefix defined in the current namespace scope for the namespace URI.
+  summary: 'When overridden in a derived class, returns the closest prefix defined in the current namespace scope for the namespace URI.'
   remarks: ''
   example:
   - "The following example writes out a book.  \n  \n [!code-cpp[XmlWriter.WriteElementString#1](~/samples/snippets/cpp/VS_Snippets_Data/XmlWriter.WriteElementString/CPP/writeelemstring_v2.cpp#1)]\n [!code-csharp[XmlWriter.WriteElementString#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlWriter.WriteElementString/CS/writeelemstring_v2.cs#1)]\n [!code-vb[XmlWriter.WriteElementString#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlWriter.WriteElementString/VB/writeelemstring_v2.vb#1)]"
@@ -1429,7 +1429,7 @@ items:
     description: <code>ns</code> is either `null` or `String.Empty`.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -1494,17 +1494,17 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Gets the <xref href="System.Xml.XmlWriterSettings"></xref> object used to create this <xref href="System.Xml.XmlWriter"></xref> instance.
-  remarks: The <xref:System.Xml.XmlWriterSettings> class is used to specify the set of features to support on the created writer instance. The <xref:System.Xml.XmlWriterSettings> object returned by the <xref:System.Xml.XmlWriter.Settings%2A> property cannot be modified. Any attempt to change individual settings results in an exception being thrown.
+  remarks: 'The <xref:System.Xml.XmlWriterSettings> class is used to specify the set of features to support on the created writer instance. The <xref:System.Xml.XmlWriterSettings> object returned by the <xref:System.Xml.XmlWriter.Settings%2A> property cannot be modified. Any attempt to change individual settings results in an exception being thrown.'
   syntax:
     content: public virtual System.Xml.XmlWriterSettings Settings { get; }
     return:
       type: System.Xml.XmlWriterSettings
-      description: The <xref href="System.Xml.XmlWriterSettings"></xref> object used to create this writer instance. If this writer was not created using the <xref href="System.Xml.XmlWriter.Create*"></xref> method, this property returns `null`.
+      description: 'The <xref href="System.Xml.XmlWriterSettings"></xref> object used to create this writer instance. If this writer was not created using the <xref href="System.Xml.XmlWriter.Create*"></xref> method, this property returns `null`.'
   overload: System.Xml.XmlWriter.Settings*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -1568,7 +1568,7 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, writes out all the attributes found at the current position in the <xref href="System.Xml.XmlReader"></xref>.
+  summary: 'When overridden in a derived class, writes out all the attributes found at the current position in the <xref href="System.Xml.XmlReader"></xref>.'
   remarks: "If the reader is positioned on an `element` node `WriteAttributes` copies all the contained attributes. If the reader is positioned on an `attribute` node, this method writes the current attribute, then the rest of the attributes until the element closing tag. If the reader is positioned on an `XmlDeclaration` node, this method writes all the attributes in the declaration. If the reader is positioned on any other node type this method throws an <xref:System.Xml.XmlException>.  \n  \n If this method is called using <xref:System.Xml.XmlValidatingReader>, to ensure well-formed XML any content (which has been expanded from the entities) that could result in an invalid document is replaced when written. For example, if an attribute includes an `&gt;` entity that has been expanded, to ensure a well-formed document the expanded > is replaced when written out with `&gt;`.  \n  \n For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteAttributesAsync%2A>."
   example:
   - "The following example copies all the elements to the output, changes the tag names to upper case, and copies all the attributes unchanged.  \n  \n [!code-cpp[XmlWriter.WriteAttributes#1](~/samples/snippets/cpp/VS_Snippets_Data/XmlWriter.WriteAttributes/CPP/writeattrs_v2.cpp#1)]\n [!code-csharp[XmlWriter.WriteAttributes#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlWriter.WriteAttributes/CS/writeattrs_v2.cs#1)]\n [!code-vb[XmlWriter.WriteAttributes#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlWriter.WriteAttributes/VB/writeattrs_v2.vb#1)]  \n  \n The example uses the file, `test1.xml`, as input.  \n  \n [!code-xml[XmlWriter.WriteAttributes#2](~/samples/snippets/xml/VS_Snippets_Data/XmlWriter.WriteAttributes/XML/test1.xml#2)]"
@@ -1588,10 +1588,10 @@ items:
     description: <code>reader</code> is `null`.
   - type: System.Xml.XmlException
     commentId: T:System.Xml.XmlException
-    description: The reader is not positioned on an `element`, `attribute` or `XmlDeclaration` node.
+    description: 'The reader is not positioned on an `element`, `attribute` or `XmlDeclaration` node.'
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -1656,7 +1656,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Asynchronously writes out all the attributes found at the current position in the <xref href="System.Xml.XmlReader"></xref>.
-  remarks: This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteAttributes%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.
+  remarks: 'This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteAttributes%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.'
   syntax:
     content: public virtual System.Threading.Tasks.Task WriteAttributesAsync (System.Xml.XmlReader reader, bool defattr);
     parameters:
@@ -1673,7 +1673,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."'
   attributes: []
   version:
   - netcore-1.0
@@ -1738,7 +1738,7 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, writes out the attribute with the specified local name and value.
+  summary: 'When overridden in a derived class, writes out the attribute with the specified local name and value.'
   remarks: "`WriteAttributeString` does the following:  \n  \n-   If the attribute value includes double or single quotes, they are replaced with `&quot;` and `&apos;` respectively.  \n  \n-   If writing an `xml:space` attribute, the writer verifies the attribute value is valid. (Valid values are `preserve` or `default`.)  \n  \n-   If writing an `xml:lang` attribute, the writer does not verify that the attribute value is valid according to the W3C XML 1.0 recommendation.  \n  \n For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteAttributeStringAsync%2A>."
   example:
   - "The following example writes out a book.  \n  \n [!code-cpp[XmlWriter.WriteElementString#1](~/samples/snippets/cpp/VS_Snippets_Data/XmlWriter.WriteElementString/CPP/writeelemstring_v2.cpp#1)]\n [!code-csharp[XmlWriter.WriteElementString#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlWriter.WriteElementString/CS/writeelemstring_v2.cs#1)]\n [!code-vb[XmlWriter.WriteElementString#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlWriter.WriteElementString/VB/writeelemstring_v2.vb#1)]"
@@ -1755,10 +1755,10 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: The `xml:space` or `xml:lang` attribute value is invalid.
+    description: 'The `xml:space` or `xml:lang` attribute value is invalid.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -1822,7 +1822,7 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, writes an attribute with the specified local name, namespace URI, and value.
+  summary: 'When overridden in a derived class, writes an attribute with the specified local name, namespace URI, and value.'
   remarks: "This method writes out the attribute with a user defined namespace prefix and associates it with the given namespace. If `localName` is \"xmlns\" then this method also treats this as a namespace declaration. In this case, the `ns` argument can be `null`.  \n  \n `WriteAttributeString` does the following:  \n  \n-   If the attribute value includes double or single quotes, they are replaced with `&quot;` and `&apos;` respectively.  \n  \n-   If writing an `xml:space` attribute, the writer verifies the attribute value is valid. (Valid values are `preserve` or `default`.)  \n  \n-   If writing an `xml:lang` attribute, the writer does not verify that the attribute value is valid according to the W3C XML 1.0 recommendation.  \n  \n For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteAttributeStringAsync%2A>."
   example:
   - "The following example uses the <xref:System.Xml.XmlWriter.WriteAttributeString%2A> method to write a namespace declaration.  \n  \n [!code-cpp[XmlWriter.WriteAttributeString#1](~/samples/snippets/cpp/VS_Snippets_Data/XmlWriter.WriteAttributeString/CPP/writeattrstring.cpp#1)]\n [!code-csharp[XmlWriter.WriteAttributeString#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlWriter.WriteAttributeString/CS/writeattrstring.cs#1)]\n [!code-vb[XmlWriter.WriteAttributeString#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlWriter.WriteAttributeString/VB/writeattrstring.vb#1)]"
@@ -1842,10 +1842,10 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: The `xml:space` or `xml:lang` attribute value is invalid.
+    description: 'The `xml:space` or `xml:lang` attribute value is invalid.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -1909,7 +1909,7 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, writes out the attribute with the specified prefix, local name, namespace URI, and value.
+  summary: 'When overridden in a derived class, writes out the attribute with the specified prefix, local name, namespace URI, and value.'
   remarks: "This method writes out the attribute with a user defined namespace prefix and associates it with the given namespace. If the prefix is \"xmlns\" then this method also treats this as a namespace declaration and associates the declared prefix with the namespace URI provided in the given attribute value. In this case the `ns` argument can be `null`.  \n  \n `WriteAttributeString` does the following:  \n  \n-   If the attribute value includes double or single quotes, they are replaced with `&quot;` and `&apos;` respectively.  \n  \n-   If writing an `xml:space` attribute, the writer verifies the attribute value is valid. (Valid values are `preserve` or `default`.)  \n  \n-   If writing an `xml:lang` attribute, the writer does not verify that the attribute value is valid according to the W3C XML 1.0 recommendation.  \n  \n For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteAttributeStringAsync%2A>."
   example:
   - "The following example uses the <xref:System.Xml.XmlWriter.WriteAttributeString%2A> method to write a namespace declaration.  \n  \n [!code-cpp[XmlWriter.WriteAttributeString#1](~/samples/snippets/cpp/VS_Snippets_Data/XmlWriter.WriteAttributeString/CPP/writeattrstring.cpp#1)]\n [!code-csharp[XmlWriter.WriteAttributeString#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlWriter.WriteAttributeString/CS/writeattrstring.cs#1)]\n [!code-vb[XmlWriter.WriteAttributeString#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlWriter.WriteAttributeString/VB/writeattrstring.vb#1)]"
@@ -1932,10 +1932,10 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: The `xml:space` or `xml:lang` attribute value is invalid.
+    description: 'The `xml:space` or `xml:lang` attribute value is invalid.'
   - type: System.Xml.XmlException
     commentId: T:System.Xml.XmlException
     description: The <code>localName</code> or <code>ns</code> is `null`.
@@ -2002,8 +2002,8 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: Asynchronously writes out the attribute with the specified prefix, local name, namespace URI, and value.
-  remarks: This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteAttributeString%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.
+  summary: 'Asynchronously writes out the attribute with the specified prefix, local name, namespace URI, and value.'
+  remarks: 'This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteAttributeString%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.'
   syntax:
     content: public System.Threading.Tasks.Task WriteAttributeStringAsync (string prefix, string localName, string ns, string value);
     parameters:
@@ -2026,7 +2026,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -2090,7 +2090,7 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, encodes the specified binary bytes as Base64 and writes out the resulting text.
+  summary: 'When overridden in a derived class, encodes the specified binary bytes as Base64 and writes out the resulting text.'
   remarks: "For example, the byte buffer may contain the binary contents of a GIF image. This clearly would not be valid XML. The `Base64` encoding is designed to represent arbitrary byte sequences in a text form comprised of the 65 US-ASCII characters ([A-Za-z0-9+/=]) where each character encodes 6 bits of the binary data. For more information, see Requests for Comments (RFC) 1521 located on the Request for Comments Web site at http://www.rfc-editor.org/.  \n  \n For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteBase64Async%2A>."
   example:
   - "The following example uses the <xref:System.Xml.XmlWriter.WriteBase64%2A> method to write `Base64` data. The `Base64` data is embedded within an `<image>` element.  \n  \n [!code-csharp[XmlReader_Read_Write_Binary#3](~/samples/snippets/csharp/VS_Snippets_Data/XmlReader_Read_Write_Binary/CS/readBinary.cs#3)]\n [!code-vb[XmlReader_Read_Write_Binary#3](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlReader_Read_Write_Binary/VB/readBinary.vb#3)]"
@@ -2116,7 +2116,7 @@ items:
     description: "<code>index</code> or <code>count</code> is less than zero.  \n  \n -or-  \n  \n The buffer length minus <code>index</code> is less than <code>count</code>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -2181,7 +2181,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Asynchronously encodes the specified binary bytes as Base64 and writes out the resulting text.
-  remarks: This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteBase64%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.
+  remarks: 'This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteBase64%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.'
   syntax:
     content: public virtual System.Threading.Tasks.Task WriteBase64Async (byte[] buffer, int index, int count);
     parameters:
@@ -2201,7 +2201,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -2265,8 +2265,8 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, encodes the specified binary bytes as `BinHex` and writes out the resulting text.
-  remarks: For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteBinHexAsync%2A>.
+  summary: 'When overridden in a derived class, encodes the specified binary bytes as `BinHex` and writes out the resulting text.'
+  remarks: 'For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteBinHexAsync%2A>.'
   example:
   - "The following example uses the <xref:System.Xml.XmlWriter.WriteBinHex%2A> method to write `BinHex` data. The `BinHex` data is embedded within an `<image>` element.  \n  \n [!code-csharp[XmlReader_Read_Write_Binary#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlReader_Read_Write_Binary/CS/readBinary.cs#1)]\n [!code-vb[XmlReader_Read_Write_Binary#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlReader_Read_Write_Binary/VB/readBinary.vb#1)]"
   syntax:
@@ -2288,7 +2288,7 @@ items:
     description: <code>buffer</code> is `null`.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
     description: "<code>index</code> or <code>count</code> is less than zero.  \n  \n -or-  \n  \n The buffer length minus <code>index</code> is less than <code>count</code>."
@@ -2356,7 +2356,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Asynchronously encodes the specified binary bytes as `BinHex` and writes out the resulting text.
-  remarks: This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteBinHex%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.
+  remarks: 'This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteBinHex%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.'
   syntax:
     content: public virtual System.Threading.Tasks.Task WriteBinHexAsync (byte[] buffer, int index, int count);
     parameters:
@@ -2376,7 +2376,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -2440,7 +2440,7 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, writes out a <![CDATA[...]]> block containing the specified text.
+  summary: 'When overridden in a derived class, writes out a <![CDATA[...]]> block containing the specified text.'
   remarks: "If `text` is either `null` or `String.Empty`, this method writes an empty CDATA block, for example \\<![CDATA[]]>.  \n  \n For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteCDataAsync%2A>."
   example:
   - "The following example writes an XML file representing a book.  \n  \n [!code-csharp[XmlWriter.WriteStartDocument#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlWriter.WriteStartDocument/CS/writerbook_v2.cs#1)]\n [!code-vb[XmlWriter.WriteStartDocument#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlWriter.WriteStartDocument/VB/writerbook_v2.vb#1)]"
@@ -2457,7 +2457,7 @@ items:
     description: The text would result in a non-well formed XML document.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -2521,8 +2521,8 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: Asynchronously writes out a <![CDATA[...]]> block containing the specified text.
-  remarks: This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteCData%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.
+  summary: 'Asynchronously writes out a <![CDATA[...]]> block containing the specified text.'
+  remarks: 'This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteCData%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.'
   syntax:
     content: public virtual System.Threading.Tasks.Task WriteCDataAsync (string text);
     parameters:
@@ -2536,7 +2536,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -2600,7 +2600,7 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, forces the generation of a character entity for the specified Unicode character value.
+  summary: 'When overridden in a derived class, forces the generation of a character entity for the specified Unicode character value.'
   remarks: "This method writes the Unicode character in hexadecimal character entity reference format.  \n  \n For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteCharEntityAsync%2A>."
   example:
   - See <xref:System.Xml.XmlTextWriter.WriteCharEntity%2A?displayProperty=fullName> for an example using this method.
@@ -2614,10 +2614,10 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: The character is in the surrogate pair character range, `0xd800` - `0xdfff`.
+    description: 'The character is in the surrogate pair character range, `0xd800` - `0xdfff`.'
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -2682,7 +2682,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Asynchronously forces the generation of a character entity for the specified Unicode character value.
-  remarks: This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteCharEntity%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.
+  remarks: 'This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteCharEntity%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.'
   syntax:
     content: public virtual System.Threading.Tasks.Task WriteCharEntityAsync (char ch);
     parameters:
@@ -2696,7 +2696,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -2760,7 +2760,7 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, writes text one buffer at a time.
+  summary: 'When overridden in a derived class, writes text one buffer at a time.'
   remarks: "This method can be used to write large amounts of text one buffer at a time.  \n  \n Special handling must be done to ensure the `WriteChars` method does not split surrogate pair characters across multiple buffer writes. The XML specification defines the valid ranges for surrogate pairs.  \n  \n For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteCharsAsync%2A>."
   example:
   - '[!code-csharp[XmlWriter.WriteChars#1](~/samples/snippets/csharp/VS_Snippets_Data/xmlwriter.writechars/cs/xmlwriterwritecharsexample.cs#1)]'
@@ -2789,7 +2789,7 @@ items:
     description: The <code>buffer</code> parameter value is not valid.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -2854,7 +2854,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Asynchronously writes text one buffer at a time.
-  remarks: This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteChars%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.
+  remarks: 'This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteChars%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.'
   syntax:
     content: public virtual System.Threading.Tasks.Task WriteCharsAsync (char[] buffer, int index, int count);
     parameters:
@@ -2874,7 +2874,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -2938,7 +2938,7 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, writes out a comment <!--...--> containing the specified text.
+  summary: 'When overridden in a derived class, writes out a comment <!--...--> containing the specified text.'
   remarks: "If `text` is either `null` or `String.Empty`, this method writes a comment with no data content, for example \\<!---->.  \n  \n If `text` contains an invalid sequence of two dashes \"--\" the <xref:System.Xml.XmlWriter> can either throw an <xref:System.ArgumentException> (<xref:System.Xml.XmlTextWriter> objects) or insert a space between the dashes \"- -\" so that the text is a valid XML comment (<xref:System.Xml.XmlWriter> objects created by the <xref:System.Xml.XmlWriter.Create%2A> method).  \n  \n For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteCommentAsync%2A>."
   example:
   - "The following example writes an XML file representing a book.  \n  \n [!code-csharp[XmlWriter.WriteStartDocument#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlWriter.WriteStartDocument/CS/writerbook_v2.cs#1)]\n [!code-vb[XmlWriter.WriteStartDocument#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlWriter.WriteStartDocument/VB/writerbook_v2.vb#1)]"
@@ -2955,7 +2955,7 @@ items:
     description: The text would result in a non-well-formed XML document.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -3020,7 +3020,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Asynchronously writes out a comment <!--...--> containing the specified text.
-  remarks: This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteComment%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.
+  remarks: 'This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteComment%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.'
   syntax:
     content: public virtual System.Threading.Tasks.Task WriteCommentAsync (string text);
     parameters:
@@ -3034,7 +3034,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -3098,7 +3098,7 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, writes the DOCTYPE declaration with the specified name and optional attributes.
+  summary: 'When overridden in a derived class, writes the DOCTYPE declaration with the specified name and optional attributes.'
   remarks: "This method does not check for invalid characters in `pubid`, `sysid` or `subset`. It also does not check that the internal subset is well-formed.  \n  \n> [!IMPORTANT]\n>  The <xref:System.Xml.XmlWriter> does not validate the data that is passed to the <xref:System.Xml.XmlWriter.WriteDocType%2A> method. You should not pass arbitrary data to this method.  \n  \n For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteDocTypeAsync%2A>."
   example:
   - "The following example writes an XML file representing a book.  \n  \n [!code-csharp[XmlWriter.WriteStartDocument#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlWriter.WriteStartDocument/CS/writerbook_v2.cs#1)]\n [!code-vb[XmlWriter.WriteStartDocument#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlWriter.WriteStartDocument/VB/writerbook_v2.vb#1)]"
@@ -3116,12 +3116,12 @@ items:
       description: If <code>pubid</code> is `null` and <code>sysid</code> is non-null it writes SYSTEM "sysid" where <code>sysid</code> is replaced with the value of this argument.
     - id: subset
       type: System.String
-      description: If non-null it writes [subset] where subset is replaced with the value of this argument.
+      description: 'If non-null it writes [subset] where subset is replaced with the value of this argument.'
   overload: System.Xml.XmlWriter.WriteDocType*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
     description: The value for <code>name</code> would result in invalid XML.
@@ -3189,7 +3189,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Asynchronously writes the DOCTYPE declaration with the specified name and optional attributes.
-  remarks: This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteDocType%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.
+  remarks: 'This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteDocType%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.'
   syntax:
     content: public virtual System.Threading.Tasks.Task WriteDocTypeAsync (string name, string pubid, string sysid, string subset);
     parameters:
@@ -3204,7 +3204,7 @@ items:
       description: If <code>pubid</code> is `null` and <code>sysid</code> is non-null it writes SYSTEM "sysid" where <code>sysid</code> is replaced with the value of this argument.
     - id: subset
       type: System.String
-      description: If non-null it writes [subset] where subset is replaced with the value of this argument.
+      description: 'If non-null it writes [subset] where subset is replaced with the value of this argument.'
     return:
       type: System.Threading.Tasks.Task
       description: The task that represents the asynchronous `WriteDocType` operation.
@@ -3212,7 +3212,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -3277,7 +3277,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Writes an element with the specified local name and value.
-  remarks: For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteElementStringAsync%2A>.
+  remarks: 'For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteElementStringAsync%2A>.'
   example:
   - "The following example uses several write methods to create an XML fragment.  \n  \n [!code-cpp[XmlWriter.WriteElementString#1](~/samples/snippets/cpp/VS_Snippets_Data/XmlWriter.WriteElementString/CPP/writeelemstring_v2.cpp#1)]\n [!code-csharp[XmlWriter.WriteElementString#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlWriter.WriteElementString/CS/writeelemstring_v2.cs#1)]\n [!code-vb[XmlWriter.WriteElementString#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlWriter.WriteElementString/VB/writeelemstring_v2.vb#1)]"
   syntax:
@@ -3296,10 +3296,10 @@ items:
     description: "The <code>localName</code> value is `null` or an empty string.  \n  \n -or-  \n  \n The parameter values are not valid."
   - type: System.Text.EncoderFallbackException
     commentId: T:System.Text.EncoderFallbackException
-    description: There is a character in the buffer that is a valid XML character but is not valid for the output encoding. For example, if the output encoding is ASCII, you should only use characters from the range of 0 to 127 for element and attribute names. The invalid character might be in the argument of this method or in an argument of previous methods that were writing to the buffer. Such characters are escaped by character entity references when possible (for example, in text nodes or attribute values). However, the character entity reference is not allowed in element and attribute names, comments, processing instructions, or CDATA sections.
+    description: 'There is a character in the buffer that is a valid XML character but is not valid for the output encoding. For example, if the output encoding is ASCII, you should only use characters from the range of 0 to 127 for element and attribute names. The invalid character might be in the argument of this method or in an argument of previous methods that were writing to the buffer. Such characters are escaped by character entity references when possible (for example, in text nodes or attribute values). However, the character entity reference is not allowed in element and attribute names, comments, processing instructions, or CDATA sections.'
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -3363,8 +3363,8 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: Writes an element with the specified local name, namespace URI, and value.
-  remarks: For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteElementStringAsync%2A>.
+  summary: 'Writes an element with the specified local name, namespace URI, and value.'
+  remarks: 'For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteElementStringAsync%2A>.'
   example:
   - "The following example uses several write methods to create an XML fragment.  \n  \n [!code-cpp[XmlWriter.WriteElementString#1](~/samples/snippets/cpp/VS_Snippets_Data/XmlWriter.WriteElementString/CPP/writeelemstring_v2.cpp#1)]\n [!code-csharp[XmlWriter.WriteElementString#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlWriter.WriteElementString/CS/writeelemstring_v2.cs#1)]\n [!code-vb[XmlWriter.WriteElementString#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlWriter.WriteElementString/VB/writeelemstring_v2.vb#1)]"
   syntax:
@@ -3386,10 +3386,10 @@ items:
     description: "The <code>localName</code> value is `null` or an empty string.  \n  \n -or-  \n  \n The parameter values are not valid."
   - type: System.Text.EncoderFallbackException
     commentId: T:System.Text.EncoderFallbackException
-    description: There is a character in the buffer that is a valid XML character but is not valid for the output encoding. For example, if the output encoding is ASCII, you should only use characters from the range of 0 to 127 for element and attribute names. The invalid character might be in the argument of this method or in an argument of previous methods that were writing to the buffer. Such characters are escaped by character entity references when possible (for example, in text nodes or attribute values). However, the character entity reference is not allowed in element and attribute names, comments, processing instructions, or CDATA sections.
+    description: 'There is a character in the buffer that is a valid XML character but is not valid for the output encoding. For example, if the output encoding is ASCII, you should only use characters from the range of 0 to 127 for element and attribute names. The invalid character might be in the argument of this method or in an argument of previous methods that were writing to the buffer. Such characters are escaped by character entity references when possible (for example, in text nodes or attribute values). However, the character entity reference is not allowed in element and attribute names, comments, processing instructions, or CDATA sections.'
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -3453,8 +3453,8 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: Writes an element with the specified prefix, local name, namespace URI, and value.
-  remarks: For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteElementStringAsync%2A>.
+  summary: 'Writes an element with the specified prefix, local name, namespace URI, and value.'
+  remarks: 'For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteElementStringAsync%2A>.'
   syntax:
     content: public void WriteElementString (string prefix, string localName, string ns, string value);
     parameters:
@@ -3477,10 +3477,10 @@ items:
     description: "The <code>localName</code> value is `null` or an empty string.  \n  \n -or-  \n  \n The parameter values are not valid."
   - type: System.Text.EncoderFallbackException
     commentId: T:System.Text.EncoderFallbackException
-    description: There is a character in the buffer that is a valid XML character but is not valid for the output encoding. For example, if the output encoding is ASCII, you should only use characters from the range of 0 to 127 for element and attribute names. The invalid character might be in the argument of this method or in an argument of previous methods that were writing to the buffer. Such characters are escaped by character entity references when possible (for example, in text nodes or attribute values). However, the character entity reference is not allowed in element and attribute names, comments, processing instructions, or CDATA sections.
+    description: 'There is a character in the buffer that is a valid XML character but is not valid for the output encoding. For example, if the output encoding is ASCII, you should only use characters from the range of 0 to 127 for element and attribute names. The invalid character might be in the argument of this method or in an argument of previous methods that were writing to the buffer. Such characters are escaped by character entity references when possible (for example, in text nodes or attribute values). However, the character entity reference is not allowed in element and attribute names, comments, processing instructions, or CDATA sections.'
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -3544,8 +3544,8 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: Asynchronously writes an element with the specified prefix, local name, namespace URI, and value.
-  remarks: This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteElementString%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.
+  summary: 'Asynchronously writes an element with the specified prefix, local name, namespace URI, and value.'
+  remarks: 'This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteElementString%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.'
   syntax:
     content: public System.Threading.Tasks.Task WriteElementStringAsync (string prefix, string localName, string ns, string value);
     parameters:
@@ -3568,7 +3568,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."'
   attributes: []
   version:
   - netcore-1.0
@@ -3633,7 +3633,7 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, closes the previous <xref href="System.Xml.XmlWriter.WriteStartAttribute(System.String,System.String)"></xref> call.
+  summary: 'When overridden in a derived class, closes the previous <xref href="System.Xml.XmlWriter.WriteStartAttribute(System.String,System.String)"></xref> call.'
   remarks: "If you call `WriteStartAttribute`, you can close the attribute with this method.  \n  \n You can also close the attribute by calling `WriteStartAttribute` again, calling <xref:System.Xml.XmlWriter.WriteAttributeString%2A>, or calling <xref:System.Xml.XmlWriter.WriteEndElement%2A>.  \n  \n> [!NOTE]\n>  When you use the <xref:System.Xml.XmlWriter> methods to output XML, the elements and attributes will not be written until you call the <xref:System.Xml.XmlWriter.Close%2A> method. For example, if you are using the XmlWriter to populate an <xref:System.Xml.XmlDocument>, until you close the <xref:System.Xml.XmlWriter>, you will not be able to observe the written elements and attributes in the target document.  \n  \n For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteEndAttributeAsync%2A>."
   syntax:
     content: public abstract void WriteEndAttribute ();
@@ -3642,7 +3642,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -3706,8 +3706,8 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: Asynchronously closes the previous <xref href="System.Xml.XmlWriter.WriteStartAttribute(System.String,System.String)"></xref> call.
-  remarks: This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteEndAttribute%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.
+  summary: 'Asynchronously closes the previous <xref href="System.Xml.XmlWriter.WriteStartAttribute(System.String,System.String)"></xref> call.'
+  remarks: 'This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteEndAttribute%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.'
   syntax:
     content: protected virtual System.Threading.Tasks.Task WriteEndAttributeAsync ();
     parameters: []
@@ -3718,7 +3718,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -3782,7 +3782,7 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, closes any open elements or attributes and puts the writer back in the Start state.
+  summary: 'When overridden in a derived class, closes any open elements or attributes and puts the writer back in the Start state.'
   remarks: "> [!NOTE]\n>  When you use the <xref:System.Xml.XmlWriter> methods to output XML, the elements and attributes will not be written until you call the <xref:System.Xml.XmlWriter.Close%2A> method. For example, if you are using the XmlWriter to populate an <xref:System.Xml.XmlDocument>, until you close the <xref:System.Xml.XmlWriter>, you will not be able to observe the written elements and attributes in the target document.  \n  \n For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteEndDocumentAsync%2A>."
   example:
   - "The following example writes an XML file representing a book.  \n  \n [!code-csharp[XmlWriter.WriteStartDocument#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlWriter.WriteStartDocument/CS/writerbook_v2.cs#1)]\n [!code-vb[XmlWriter.WriteStartDocument#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlWriter.WriteStartDocument/VB/writerbook_v2.vb#1)]"
@@ -3796,7 +3796,7 @@ items:
     description: The XML document is invalid.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -3861,7 +3861,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Asynchronously closes any open elements or attributes and puts the writer back in the Start state.
-  remarks: This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteEndDocument%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.
+  remarks: 'This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteEndDocument%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.'
   syntax:
     content: public virtual System.Threading.Tasks.Task WriteEndDocumentAsync ();
     parameters: []
@@ -3872,7 +3872,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -3936,7 +3936,7 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, closes one element and pops the corresponding namespace scope.
+  summary: 'When overridden in a derived class, closes one element and pops the corresponding namespace scope.'
   remarks: "If the element contains no content, a short end tag \"/>\" is written; otherwise, a full end tag is written.  \n  \n> [!NOTE]\n>  When you use the <xref:System.Xml.XmlWriter> methods to output XML, the elements and attributes will not be written until you call the <xref:System.Xml.XmlWriter.Close%2A> method. For example, if you are using the XmlWwriter to populate an <xref:System.Xml.XmlDocument>, until you close the <xref:System.Xml.XmlWriter>, you will not be able to observe the written elements and attributes in the target document.  \n  \n For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteEndElementAsync%2A>."
   example:
   - "The following example uses the <xref:System.Xml.XmlWriter.WriteEndElement%2A> and the <xref:System.Xml.XmlWriter.WriteFullEndElement%2A> methods.  \n  \n [!code-csharp[XmlWriter.WriteFullEndElement#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlWriter.WriteFullEndElement/CS/writerfullend_v2.cs#1)]\n [!code-vb[XmlWriter.WriteFullEndElement#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlWriter.WriteFullEndElement/VB/writerfullend_v2.vb#1)]"
@@ -3947,7 +3947,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -4012,7 +4012,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Asynchronously closes one element and pops the corresponding namespace scope.
-  remarks: This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteEndElement%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.
+  remarks: 'This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteEndElement%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.'
   syntax:
     content: public virtual System.Threading.Tasks.Task WriteEndElementAsync ();
     parameters: []
@@ -4023,7 +4023,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -4087,8 +4087,8 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, writes out an entity reference as `&name;`.
-  remarks: For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteEntityRefAsync%2A>.
+  summary: 'When overridden in a derived class, writes out an entity reference as `&name;`.'
+  remarks: 'For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteEntityRefAsync%2A>.'
   example:
   - "The following example writes an XML file representing a book.  \n  \n [!code-csharp[XmlWriter.WriteStartDocument#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlWriter.WriteStartDocument/CS/writerbook_v2.cs#1)]\n [!code-vb[XmlWriter.WriteStartDocument#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlWriter.WriteStartDocument/VB/writerbook_v2.vb#1)]"
   syntax:
@@ -4104,7 +4104,7 @@ items:
     description: <code>name</code> is either `null` or `String.Empty`.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -4169,7 +4169,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Asynchronously writes out an entity reference as `&name;`.
-  remarks: This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteEntityRef%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.
+  remarks: 'This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteEntityRef%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.'
   syntax:
     content: public virtual System.Threading.Tasks.Task WriteEntityRefAsync (string name);
     parameters:
@@ -4183,7 +4183,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -4247,7 +4247,7 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, closes one element and pops the corresponding namespace scope.
+  summary: 'When overridden in a derived class, closes one element and pops the corresponding namespace scope.'
   remarks: "This method always writes the full end tag. This is useful when dealing with elements that must include a full end tag. For example, browsers expect HTML script blocks to be closed with \"\\</script>\".  \n  \n For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteFullEndElementAsync%2A>."
   example:
   - "The following example uses the <xref:System.Xml.XmlWriter.WriteEndElement%2A> and the <xref:System.Xml.XmlWriter.WriteFullEndElement%2A> methods.  \n  \n [!code-csharp[XmlWriter.WriteFullEndElement#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlWriter.WriteFullEndElement/CS/writerfullend_v2.cs#1)]\n [!code-vb[XmlWriter.WriteFullEndElement#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlWriter.WriteFullEndElement/VB/writerfullend_v2.vb#1)]"
@@ -4258,7 +4258,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -4323,7 +4323,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Asynchronously closes one element and pops the corresponding namespace scope.
-  remarks: This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteFullEndElement%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.
+  remarks: 'This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteFullEndElement%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.'
   syntax:
     content: public virtual System.Threading.Tasks.Task WriteFullEndElementAsync ();
     parameters: []
@@ -4334,7 +4334,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -4398,7 +4398,7 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, writes out the specified name, ensuring it is a valid name according to the W3C XML 1.0 recommendation (http://www.w3.org/TR/1998/REC-xml-19980210#NT-Name).
+  summary: 'When overridden in a derived class, writes out the specified name, ensuring it is a valid name according to the W3C XML 1.0 recommendation (http://www.w3.org/TR/1998/REC-xml-19980210#NT-Name).'
   remarks: "If <xref:System.Xml.XmlTextWriter.Namespaces%2A> is set to `true`, `WriteName` also checks that the name is also valid according to the W3C Namespaces in XML recommendation.  \n  \n For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteNameAsync%2A>."
   syntax:
     content: public virtual void WriteName (string name);
@@ -4413,7 +4413,7 @@ items:
     description: <code>name</code> is not a valid XML name; or <code>name</code> is either `null` or `String.Empty`.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -4477,8 +4477,8 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: Asynchronously writes out the specified name, ensuring it is a valid name according to the W3C XML 1.0 recommendation (http://www.w3.org/TR/1998/REC-xml-19980210#NT-Name).
-  remarks: This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteName%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.
+  summary: 'Asynchronously writes out the specified name, ensuring it is a valid name according to the W3C XML 1.0 recommendation (http://www.w3.org/TR/1998/REC-xml-19980210#NT-Name).'
+  remarks: 'This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteName%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.'
   syntax:
     content: public virtual System.Threading.Tasks.Task WriteNameAsync (string name);
     parameters:
@@ -4492,7 +4492,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -4556,8 +4556,8 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, writes out the specified name, ensuring it is a valid NmToken according to the W3C XML 1.0 recommendation (http://www.w3.org/TR/1998/REC-xml-19980210#NT-Name).
-  remarks: For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteNmTokenAsync%2A>.
+  summary: 'When overridden in a derived class, writes out the specified name, ensuring it is a valid NmToken according to the W3C XML 1.0 recommendation (http://www.w3.org/TR/1998/REC-xml-19980210#NT-Name).'
+  remarks: 'For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteNmTokenAsync%2A>.'
   syntax:
     content: public virtual void WriteNmToken (string name);
     parameters:
@@ -4571,7 +4571,7 @@ items:
     description: <code>name</code> is not a valid NmToken; or <code>name</code> is either `null` or `String.Empty`.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -4635,8 +4635,8 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: Asynchronously writes out the specified name, ensuring it is a valid NmToken according to the W3C XML 1.0 recommendation (http://www.w3.org/TR/1998/REC-xml-19980210#NT-Name).
-  remarks: This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteNmToken%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.
+  summary: 'Asynchronously writes out the specified name, ensuring it is a valid NmToken according to the W3C XML 1.0 recommendation (http://www.w3.org/TR/1998/REC-xml-19980210#NT-Name).'
+  remarks: 'This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteNmToken%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.'
   syntax:
     content: public virtual System.Threading.Tasks.Task WriteNmTokenAsync (string name);
     parameters:
@@ -4650,7 +4650,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -4714,7 +4714,7 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, copies everything from the reader to the writer and moves the reader to the start of the next sibling.
+  summary: 'When overridden in a derived class, copies everything from the reader to the writer and moves the reader to the start of the next sibling.'
   remarks: "The following table shows the supported node types for this method.  \n  \n|NodeType|WriteNode Behavior|  \n|--------------|------------------------|  \n|`None`|Writes out all the nodes irrespective of type. That is, the writer consumes the <xref:System.Xml.XmlReader> and writes out all the nodes read including attributes, processing instructions, comments, and so on.<br /><br /> This situation occurs when the <xref:System.Xml.XmlReader> is in an initial state. (The <xref:System.Xml.XmlReader.ReadState%2A?displayProperty=fullName> property returns `ReaderState.Initial`).|  \n|`Element`|Writes out the element node and any attribute nodes.|  \n|`Attribute`|No operation. Use <xref:System.Xml.XmlWriter.WriteStartAttribute%2A> or <xref:System.Xml.XmlWriter.WriteAttributeString%2A> instead.|  \n|`Text`|Writes out the text node.|  \n|`CDATA`|Writes out the CDATA section node.|  \n|`EntityReference`|Writes out the entity reference node.|  \n|`ProcessingInstruction`|Writes out the processing instruction node.|  \n|`Comment`|Writes out the comment node.|  \n|`DocumentType`|Writes out the document type node.|  \n|`SignificantWhitespace`|Writes out the significant white space node.|  \n|`Whitespace`|Writes out the white space node.|  \n|`EndElement`|Writes out the end element tag.|  \n|`EndEntity`|No operation.|  \n|`XmlDeclaration`|Writes out the XML declaration node.|  \n  \n If the reader is in the initial state, this method moves the reader to the end of file. If the reader is already at the end of file or in a closed state, this method is non-operational.  \n  \n The following C# code copies an entire XML input document to the console:  \n  \n```  \nXmlReader reader = XmlReader.Create(myfile);  \nXmlWriter writer = XmlWriter.Create(Console.Out);  \nwriter.WriteNode(reader, false);  \n```  \n  \n If you have moved off the root node and are positioned elsewhere in the document the following C# example correctly writes out the nodes.  \n  \n```  \nXmlReader reader = XmlReader.Create(myfile);  \nreader.Read(); // Read PI  \nreader.Read(); // Read Comment  \nreader.Read(); // Read DOCType  \nXmlWriter writer = XmlWriter.Create(Console.Out);  \nwhile (!reader.EOF){  \n  writer.WriteNode(reader, false);  \n }  \n```  \n  \n If the reader is configured to return white space and the writer has is configured to indent output, `WriteNode` may produce strange output. You will essentially be getting double formatting.  \n  \n For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteNodeAsync%2A>."
   example:
   - "The following example writes the first and last book nodes out to the console.  \n  \n [!code-cpp[XmlWriter.WriteNode#1](~/samples/snippets/cpp/VS_Snippets_Data/XmlWriter.WriteNode/CPP/writenode.cpp#1)]\n [!code-csharp[XmlWriter.WriteNode#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlWriter.WriteNode/CS/writenode.cs#1)]\n [!code-vb[XmlWriter.WriteNode#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlWriter.WriteNode/VB/writenode.vb#1)]  \n  \n The example uses the file, `books.xml`, as input.  \n  \n [!code-xml[XmlWriter.WriteNode#2](~/samples/snippets/xml/VS_Snippets_Data/XmlWriter.WriteNode/XML/books.xml#2)]"
@@ -4737,7 +4737,7 @@ items:
     description: <code>reader</code> contains invalid characters.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -4821,7 +4821,7 @@ items:
     description: <code>navigator</code> is `null`.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-2.0
   - netframework-4.5.1
@@ -4870,7 +4870,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Asynchronously copies everything from the reader to the writer and moves the reader to the start of the next sibling.
-  remarks: This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteNode%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.
+  remarks: 'This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteNode%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.'
   syntax:
     content: public virtual System.Threading.Tasks.Task WriteNodeAsync (System.Xml.XmlReader reader, bool defattr);
     parameters:
@@ -4887,7 +4887,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -4952,7 +4952,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml
   summary: Asynchronously copies everything from the <xref href="System.Xml.XPath.XPathNavigator"></xref> object to the writer. The position of the <xref href="System.Xml.XPath.XPathNavigator"></xref> remains unchanged.
-  remarks: This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteNode%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.
+  remarks: 'This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteNode%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.'
   syntax:
     content: public virtual System.Threading.Tasks.Task WriteNodeAsync (System.Xml.XPath.XPathNavigator navigator, bool defattr);
     parameters:
@@ -4969,7 +4969,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."'
   attributes: []
   version:
   - netcore-2.0
@@ -5038,7 +5038,7 @@ items:
     description: "The text would result in a non-well formed XML document.  \n  \n <code>name</code> is either `null` or `String.Empty`.  \n  \n This method is being used to create an XML declaration after <xref href=\"System.Xml.XmlWriter.WriteStartDocument\"></xref> has already been called."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -5103,7 +5103,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: 'Asynchronously writes out a processing instruction with a space between the name and text as follows: <?name text?>.'
-  remarks: This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteProcessingInstruction%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.
+  remarks: 'This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteProcessingInstruction%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.'
   syntax:
     content: public virtual System.Threading.Tasks.Task WriteProcessingInstructionAsync (string name, string text);
     parameters:
@@ -5120,7 +5120,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -5184,7 +5184,7 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, writes out the namespace-qualified name. This method looks up the prefix that is in scope for the given namespace.
+  summary: 'When overridden in a derived class, writes out the namespace-qualified name. This method looks up the prefix that is in scope for the given namespace.'
   remarks: "If `ns` maps to the current default namespace, no prefix is generated.  \n  \n When writing attribute values, this method generates a prefix if `ns` is not found. When writing element content, it throws an exception if `ns` is not found.  \n  \n> [!NOTE]\n>  If a class derived from the <xref:System.Xml.XmlWriter> does not override this method `localName` is not checked to be a valid W3C XML name. In such case, before calling this method, the validity of the string can be checked by <xref:System.Xml.XmlReader.IsName%2A> method.  \n  \n For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteQualifiedNameAsync%2A>."
   example:
   - "The example writes the following element:  \n  \n```  \n<root xmlns:x=\"urn:abc\">  \n  <item href=\"#x:test\"/>  \n</root>  \n```  \n  \n [!code-csharp[XmlWriter_v2#5](~/samples/snippets/csharp/VS_Snippets_Data/XmlWriter_v2/CS/writer_v2.cs#5)]\n [!code-vb[XmlWriter_v2#5](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlWriter_v2/VB/writer_v2.vb#5)]"
@@ -5204,7 +5204,7 @@ items:
     description: "<code>localName</code> is either `null` or `String.Empty`.  \n  \n <code>localName</code> is not a valid name."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -5269,7 +5269,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Asynchronously writes out the namespace-qualified name. This method looks up the prefix that is in scope for the given namespace.
-  remarks: This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteQualifiedName%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.
+  remarks: 'This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteQualifiedName%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.'
   syntax:
     content: public virtual System.Threading.Tasks.Task WriteQualifiedNameAsync (string localName, string ns);
     parameters:
@@ -5286,7 +5286,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."'
   attributes: []
   version:
   - netcore-1.0
@@ -5351,7 +5351,7 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, writes raw markup manually from a string.
+  summary: 'When overridden in a derived class, writes raw markup manually from a string.'
   remarks: "This method does not escape special characters.  \n  \n> [!IMPORTANT]\n>  The <xref:System.Xml.XmlWriter> does not validate the data that is passed to the <xref:System.Xml.XmlWriter.WriteRaw%2A> method. You should not pass arbitrary data to this method.  \n  \n For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteRawAsync%2A>."
   example:
   - See <xref:System.Xml.XmlTextWriter.WriteRaw%2A?displayProperty=fullName> for an example using this method.
@@ -5368,7 +5368,7 @@ items:
     description: <code>data</code> is either `null` or `String.Empty`.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -5432,7 +5432,7 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, writes raw markup manually from a character buffer.
+  summary: 'When overridden in a derived class, writes raw markup manually from a character buffer.'
   remarks: "This method does not escape special characters.  \n  \n> [!IMPORTANT]\n>  The <xref:System.Xml.XmlWriter> does not validate the data that is passed to the <xref:System.Xml.XmlWriter.WriteRaw%2A> method. You should not pass arbitrary data to this method.  \n  \n For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteRawAsync%2A>."
   syntax:
     content: public abstract void WriteRaw (char[] buffer, int index, int count);
@@ -5456,7 +5456,7 @@ items:
     description: "<code>index</code> or <code>count</code> is less than zero.  \n  \n -or-  \n  \n The buffer length minus <code>index</code> is less than <code>count</code>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -5521,7 +5521,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Asynchronously writes raw markup manually from a string.
-  remarks: This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteRaw%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.
+  remarks: 'This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteRaw%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.'
   syntax:
     content: public virtual System.Threading.Tasks.Task WriteRawAsync (string data);
     parameters:
@@ -5535,7 +5535,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -5600,7 +5600,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Asynchronously writes raw markup manually from a character buffer.
-  remarks: This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteRaw%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.
+  remarks: 'This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteRaw%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.'
   syntax:
     content: public virtual System.Threading.Tasks.Task WriteRawAsync (char[] buffer, int index, int count);
     parameters:
@@ -5620,7 +5620,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -5696,10 +5696,10 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   - type: System.Text.EncoderFallbackException
     commentId: T:System.Text.EncoderFallbackException
-    description: There is a character in the buffer that is a valid XML character but is not valid for the output encoding. For example, if the output encoding is ASCII, you should only use characters from the range of 0 to 127 for element and attribute names. The invalid character might be in the argument of this method or in an argument of previous methods that were writing to the buffer. Such characters are escaped by character entity references when possible (for example, in text nodes or attribute values). However, the character entity reference is not allowed in element and attribute names, comments, processing instructions, or CDATA sections.
+    description: 'There is a character in the buffer that is a valid XML character but is not valid for the output encoding. For example, if the output encoding is ASCII, you should only use characters from the range of 0 to 127 for element and attribute names. The invalid character might be in the argument of this method or in an argument of previous methods that were writing to the buffer. Such characters are escaped by character entity references when possible (for example, in text nodes or attribute values). However, the character entity reference is not allowed in element and attribute names, comments, processing instructions, or CDATA sections.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -5780,10 +5780,10 @@ items:
   exceptions:
   - type: System.Text.EncoderFallbackException
     commentId: T:System.Text.EncoderFallbackException
-    description: There is a character in the buffer that is a valid XML character but is not valid for the output encoding. For example, if the output encoding is ASCII, you should only use characters from the range of 0 to 127 for element and attribute names. The invalid character might be in the argument of this method or in an argument of previous methods that were writing to the buffer. Such characters are escaped by character entity references when possible (for example, in text nodes or attribute values). However, the character entity reference is not allowed in element and attribute names, comments, processing instructions, or CDATA sections.
+    description: 'There is a character in the buffer that is a valid XML character but is not valid for the output encoding. For example, if the output encoding is ASCII, you should only use characters from the range of 0 to 127 for element and attribute names. The invalid character might be in the argument of this method or in an argument of previous methods that were writing to the buffer. Such characters are escaped by character entity references when possible (for example, in text nodes or attribute values). However, the character entity reference is not allowed in element and attribute names, comments, processing instructions, or CDATA sections.'
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -5847,7 +5847,7 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, writes the start of an attribute with the specified prefix, local name, and namespace URI.
+  summary: 'When overridden in a derived class, writes the start of an attribute with the specified prefix, local name, and namespace URI.'
   remarks: "This method enables you to write a value using multiple Write methods.  \n  \n For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteStartAttributeAsync%2A>."
   syntax:
     content: public abstract void WriteStartAttribute (string prefix, string localName, string ns);
@@ -5865,10 +5865,10 @@ items:
   exceptions:
   - type: System.Text.EncoderFallbackException
     commentId: T:System.Text.EncoderFallbackException
-    description: There is a character in the buffer that is a valid XML character but is not valid for the output encoding. For example, if the output encoding is ASCII, you should only use characters from the range of 0 to 127 for element and attribute names. The invalid character might be in the argument of this method or in an argument of previous methods that were writing to the buffer. Such characters are escaped by character entity references when possible (for example, in text nodes or attribute values). However, the character entity reference is not allowed in element and attribute names, comments, processing instructions, or CDATA sections.
+    description: 'There is a character in the buffer that is a valid XML character but is not valid for the output encoding. For example, if the output encoding is ASCII, you should only use characters from the range of 0 to 127 for element and attribute names. The invalid character might be in the argument of this method or in an argument of previous methods that were writing to the buffer. Such characters are escaped by character entity references when possible (for example, in text nodes or attribute values). However, the character entity reference is not allowed in element and attribute names, comments, processing instructions, or CDATA sections.'
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -5932,8 +5932,8 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: Asynchronously writes the start of an attribute with the specified prefix, local name, and namespace URI.
-  remarks: This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteStartAttribute%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.
+  summary: 'Asynchronously writes the start of an attribute with the specified prefix, local name, and namespace URI.'
+  remarks: 'This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteStartAttribute%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.'
   syntax:
     content: protected virtual System.Threading.Tasks.Task WriteStartAttributeAsync (string prefix, string localName, string ns);
     parameters:
@@ -5953,7 +5953,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -6017,7 +6017,7 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, writes the XML declaration with the version "1.0".
+  summary: 'When overridden in a derived class, writes the XML declaration with the version "1.0".'
   remarks: "The encoding level of the document is determined by how the writer is implemented. For example, if an <xref:System.Text.Encoding> object is specified in the `XmlTextWriter` constructor, this determines the value of the encoding attribute. This method does not create a standalone attribute.  \n  \n When `WriteStartDocument` is called the writer validates that what you are writing is a well-formed XML document. For example, it checks that the XML declaration is the first node, that one and only one root-level element exists, and so on. If this method is not called, the writer assumes an XML fragment is being written and applies no root level rules.  \n  \n If `WriteStartDocument` has been called and then the <xref:System.Xml.XmlWriter.WriteProcessingInstruction%2A> method is used to create another XML declaration, an exception will be thrown.  \n  \n For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteStartDocumentAsync%2A>."
   syntax:
     content: public abstract void WriteStartDocument ();
@@ -6026,7 +6026,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -6090,19 +6090,19 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, writes the XML declaration with the version "1.0" and the standalone attribute.
+  summary: 'When overridden in a derived class, writes the XML declaration with the version "1.0" and the standalone attribute.'
   remarks: "The encoding level of the document is determined by how the writer is implemented. For example, if an <xref:System.Text.Encoding> object is specified in the `XmlTextWriter` constructor, this determines the value of the encoding attribute.  \n  \n When `WriteStartDocument` is called, the writer validates that what you are writing is a well-formed XML document. For example, it checks that the XML declaration is the first node, that one and only one root-level element exists, and so on. If this method is not called, the writer assumes an XML fragment is being written and applies no root level rules.  \n  \n If `WriteStartDocument` has been called and then the <xref:System.Xml.XmlWriter.WriteProcessingInstruction%2A> method is used to create another XML declaration, an exception will be thrown.  \n  \n For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteStartDocumentAsync%2A>."
   syntax:
     content: public abstract void WriteStartDocument (bool standalone);
     parameters:
     - id: standalone
       type: System.Boolean
-      description: If `true`, it writes "standalone=yes"; if `false`, it writes "standalone=no".
+      description: 'If `true`, it writes "standalone=yes"; if `false`, it writes "standalone=no".'
   overload: System.Xml.XmlWriter.WriteStartDocument*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -6167,13 +6167,13 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Asynchronously writes the XML declaration with the version "1.0" and the standalone attribute.
-  remarks: This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteStartDocument%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.
+  remarks: 'This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteStartDocument%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.'
   syntax:
     content: public virtual System.Threading.Tasks.Task WriteStartDocumentAsync (bool standalone);
     parameters:
     - id: standalone
       type: System.Boolean
-      description: If `true`, it writes "standalone=yes"; if `false`, it writes "standalone=no".
+      description: 'If `true`, it writes "standalone=yes"; if `false`, it writes "standalone=no".'
     return:
       type: System.Threading.Tasks.Task
       description: The task that represents the asynchronous `WriteStartDocument` operation.
@@ -6181,7 +6181,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -6246,7 +6246,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Asynchronously writes the XML declaration with the version "1.0".
-  remarks: This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteStartDocument%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.
+  remarks: 'This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteStartDocument%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.'
   syntax:
     content: public virtual System.Threading.Tasks.Task WriteStartDocumentAsync ();
     parameters: []
@@ -6257,7 +6257,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -6321,8 +6321,8 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, writes out a start tag with the specified local name.
-  remarks: For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteStartElementAsync%2A>.
+  summary: 'When overridden in a derived class, writes out a start tag with the specified local name.'
+  remarks: 'For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteStartElementAsync%2A>.'
   example:
   - "The following example writes an XML node.  \n  \n [!code-cpp[XmlWriter.Close#1](~/samples/snippets/cpp/VS_Snippets_Data/XmlWriter.Close/CPP/XmlWriter.Close.cpp#1)]\n [!code-csharp[XmlWriter.Close#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlWriter.Close/CS/writeelems.cs#1)]\n [!code-vb[XmlWriter.Close#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlWriter.Close/VB/writeelems.vb#1)]"
   syntax:
@@ -6335,10 +6335,10 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   - type: System.Text.EncoderFallbackException
     commentId: T:System.Text.EncoderFallbackException
-    description: There is a character in the buffer that is a valid XML character but is not valid for the output encoding. For example, if the output encoding is ASCII, you should only use characters from the range of 0 to 127 for element and attribute names. The invalid character might be in the argument of this method or in an argument of previous methods that were writing to the buffer. Such characters are escaped by character entity references when possible (for example, in text nodes or attribute values). However, the character entity reference is not allowed in element and attribute names, comments, processing instructions, or CDATA sections.
+    description: 'There is a character in the buffer that is a valid XML character but is not valid for the output encoding. For example, if the output encoding is ASCII, you should only use characters from the range of 0 to 127 for element and attribute names. The invalid character might be in the argument of this method or in an argument of previous methods that were writing to the buffer. Such characters are escaped by character entity references when possible (for example, in text nodes or attribute values). However, the character entity reference is not allowed in element and attribute names, comments, processing instructions, or CDATA sections.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -6402,7 +6402,7 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, writes the specified start tag and associates it with the given namespace.
+  summary: 'When overridden in a derived class, writes the specified start tag and associates it with the given namespace.'
   remarks: "After calling this method you can either write attributes, or create content using <xref:System.Xml.XmlWriter.WriteComment%2A>, <xref:System.Xml.XmlWriter.WriteString%2A>, or `WriteStartElement` for child elements. You can close the element with either <xref:System.Xml.XmlWriter.WriteEndElement%2A> or <xref:System.Xml.XmlWriter.WriteFullEndElement%2A>. For example, the following C# code:  \n  \n```  \nwriter.WriteStartElement(\"item\",null);  \nwriter.WriteString(\"some text\");  \nwriter.WriteEndElement();  \n```  \n  \n Generates the following output:  \n  \n```  \n<item>some text</item>  \n```  \n  \n For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteStartElementAsync%2A>."
   syntax:
     content: public void WriteStartElement (string localName, string ns);
@@ -6412,15 +6412,15 @@ items:
       description: The local name of the element.
     - id: ns
       type: System.String
-      description: The namespace URI to associate with the element. If this namespace is already in scope and has an associated prefix, the writer automatically writes that prefix also.
+      description: 'The namespace URI to associate with the element. If this namespace is already in scope and has an associated prefix, the writer automatically writes that prefix also.'
   overload: System.Xml.XmlWriter.WriteStartElement*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   - type: System.Text.EncoderFallbackException
     commentId: T:System.Text.EncoderFallbackException
-    description: There is a character in the buffer that is a valid XML character but is not valid for the output encoding. For example, if the output encoding is ASCII, you should only use characters from the range of 0 to 127 for element and attribute names. The invalid character might be in the argument of this method or in an argument of previous methods that were writing to the buffer. Such characters are escaped by character entity references when possible (for example, in text nodes or attribute values). However, the character entity reference is not allowed in element and attribute names, comments, processing instructions, or CDATA sections.
+    description: 'There is a character in the buffer that is a valid XML character but is not valid for the output encoding. For example, if the output encoding is ASCII, you should only use characters from the range of 0 to 127 for element and attribute names. The invalid character might be in the argument of this method or in an argument of previous methods that were writing to the buffer. Such characters are escaped by character entity references when possible (for example, in text nodes or attribute values). However, the character entity reference is not allowed in element and attribute names, comments, processing instructions, or CDATA sections.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -6484,8 +6484,8 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, writes the specified start tag and associates it with the given namespace and prefix.
-  remarks: For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteStartElementAsync%2A>.
+  summary: 'When overridden in a derived class, writes the specified start tag and associates it with the given namespace and prefix.'
+  remarks: 'For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteStartElementAsync%2A>.'
   example:
   - "The following example writes out an XML fragment.  \n  \n [!code-cpp[XmlWriter.WriteElementString#1](~/samples/snippets/cpp/VS_Snippets_Data/XmlWriter.WriteElementString/CPP/writeelemstring_v2.cpp#1)]\n [!code-csharp[XmlWriter.WriteElementString#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlWriter.WriteElementString/CS/writeelemstring_v2.cs#1)]\n [!code-vb[XmlWriter.WriteElementString#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlWriter.WriteElementString/VB/writeelemstring_v2.vb#1)]"
   syntax:
@@ -6504,10 +6504,10 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   - type: System.Text.EncoderFallbackException
     commentId: T:System.Text.EncoderFallbackException
-    description: There is a character in the buffer that is a valid XML character but is not valid for the output encoding. For example, if the output encoding is ASCII, you should only use characters from the range of 0 to 127 for element and attribute names. The invalid character might be in the argument of this method or in an argument of previous methods that were writing to the buffer. Such characters are escaped by character entity references when possible (for example, in text nodes or attribute values). However, the character entity reference is not allowed in element and attribute names, comments, processing instructions, or CDATA sections.
+    description: 'There is a character in the buffer that is a valid XML character but is not valid for the output encoding. For example, if the output encoding is ASCII, you should only use characters from the range of 0 to 127 for element and attribute names. The invalid character might be in the argument of this method or in an argument of previous methods that were writing to the buffer. Such characters are escaped by character entity references when possible (for example, in text nodes or attribute values). However, the character entity reference is not allowed in element and attribute names, comments, processing instructions, or CDATA sections.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -6572,7 +6572,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Asynchronously writes the specified start tag and associates it with the given namespace and prefix.
-  remarks: This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteStartElement%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.
+  remarks: 'This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteStartElement%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.'
   syntax:
     content: public virtual System.Threading.Tasks.Task WriteStartElementAsync (string prefix, string localName, string ns);
     parameters:
@@ -6592,7 +6592,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -6656,7 +6656,7 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, gets the state of the writer.
+  summary: 'When overridden in a derived class, gets the state of the writer.'
   syntax:
     content: public abstract System.Xml.WriteState WriteState { get; }
     return:
@@ -6666,7 +6666,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -6730,7 +6730,7 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, writes the given text content.
+  summary: 'When overridden in a derived class, writes the given text content.'
   remarks: "`WriteString` does the following:  \n  \n-   The characters `&`, `<`, and `>` are replaced with `&amp;`, `&lt;`, and `&gt;`, respectively.  \n  \n-   The default behavior of an <xref:System.Xml.XmlWriter> created using <xref:System.Xml.XmlWriter.Create%2A> is to throw an <xref:System.ArgumentException> when attempting to write character values in the range 0x-0x1F (excluding white space characters 0x9, 0xA, and 0xD). These invalid XML characters can be written by creating the <xref:System.Xml.XmlWriter> with the <xref:System.Xml.XmlWriterSettings.CheckCharacters%2A> property set to `false`. Doing so will result in the characters being replaced with numeric character entities (&\\#0; through &#0x1F). Additionally, an <xref:System.Xml.XmlTextWriter> created with the `new` operator will replace the invalid characters with numeric character entities by default.  \n  \n **Note** Microsoft does not encourage the practice of writing invalid XML characters since many applications that consume XML are not designed to handle invalid characters.  \n  \n-   If `WriteString` is called in the context of an attribute value, double and single quotes are replaced with `&quot;` and `&apos;` respectively.  \n  \n For example, this input string `test<item>test` is written out as  \n  \n```  \ntest&lt;item&gt;test  \n```  \n  \n If `text` is either `null` or `String.Empty`, this method writes a text node with no data content.  \n  \n For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteStringAsync%2A>."
   example:
   - "The following example writes an XML node.  \n  \n [!code-cpp[XmlWriter.Close#1](~/samples/snippets/cpp/VS_Snippets_Data/XmlWriter.Close/CPP/XmlWriter.Close.cpp#1)]\n [!code-csharp[XmlWriter.Close#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlWriter.Close/CS/writeelems.cs#1)]\n [!code-vb[XmlWriter.Close#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlWriter.Close/VB/writeelems.vb#1)]"
@@ -6747,7 +6747,7 @@ items:
     description: The text string contains an invalid surrogate pair.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -6812,7 +6812,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Asynchronously writes the given text content.
-  remarks: This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteString%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.
+  remarks: 'This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteString%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.'
   syntax:
     content: public virtual System.Threading.Tasks.Task WriteStringAsync (string text);
     parameters:
@@ -6826,7 +6826,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -6890,7 +6890,7 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, generates and writes the surrogate character entity for the surrogate character pair.
+  summary: 'When overridden in a derived class, generates and writes the surrogate character entity for the surrogate character pair.'
   remarks: "This method is only applicable on systems that use UTF-16 encoding.  \n  \n The surrogate character entity is written in hexadecimal format. The range for surrogate characters is #x10000 to #x10FFFF. The following formula is used to generate the surrogate character entity: (`highChar` -0xD800) * 0x400 + (`lowChar` -0xDC00) + 0x10000  \n  \n For both HTML and XML, the document character set (and therefore the notation of numeric character references) is based on UCS [ISO-10646]. A single numeric character reference in a source document may therefore in some cases correspond to two 16-bit units in a string (a high surrogate and a low surrogate). These 16-bit units are referred to as a surrogate pair.  \n  \n For more information regarding surrogates or characters, refer to section 3.7 of the Unicode 3.0/Unicode 2.0 standard located at http://www.unicode.org, or section 2.2 of the W3C XML 1.0 Recommendation located at http://www.w3.org/TR/REC-xml#charsets.  \n  \n For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteSurrogateCharEntityAsync%2A>."
   syntax:
     content: public abstract void WriteSurrogateCharEntity (char lowChar, char highChar);
@@ -6908,7 +6908,7 @@ items:
     description: An invalid surrogate character pair was passed.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -6973,7 +6973,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Asynchronously generates and writes the surrogate character entity for the surrogate character pair.
-  remarks: This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteSurrogateCharEntity%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.
+  remarks: 'This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteSurrogateCharEntity%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.'
   syntax:
     content: public virtual System.Threading.Tasks.Task WriteSurrogateCharEntityAsync (char lowChar, char highChar);
     parameters:
@@ -6990,7 +6990,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -7069,7 +7069,7 @@ items:
     description: An invalid value was specified.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -7148,7 +7148,7 @@ items:
     description: An invalid value was specified.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -7230,7 +7230,7 @@ items:
     description: The <code>value</code> is `null`.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -7309,7 +7309,7 @@ items:
     description: An invalid value was specified.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -7388,7 +7388,7 @@ items:
     description: An invalid value was specified.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -7453,7 +7453,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Writes a <xref href="System.DateTimeOffset"></xref> value.
-  remarks: For asynchronous operations, convert the return value of this method to a string and use the <xref:System.Xml.XmlWriter.WriteStringAsync%2A> method.
+  remarks: 'For asynchronous operations, convert the return value of this method to a string and use the <xref:System.Xml.XmlWriter.WriteStringAsync%2A> method.'
   syntax:
     content: public virtual void WriteValue (DateTimeOffset value);
     parameters:
@@ -7464,7 +7464,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -7543,7 +7543,7 @@ items:
     description: An invalid value was specified.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -7624,7 +7624,7 @@ items:
     description: An invalid value was specified.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.1
   - netcore-2.0
@@ -7695,7 +7695,7 @@ items:
     description: An invalid value was specified.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -7776,7 +7776,7 @@ items:
     description: An invalid value was specified.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -7840,7 +7840,7 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, writes out the given white space.
+  summary: 'When overridden in a derived class, writes out the given white space.'
   remarks: "This method is used to manually format your document.  \n  \n For the asynchronous version of this method, see <xref:System.Xml.XmlWriter.WriteWhitespaceAsync%2A>."
   syntax:
     content: public abstract void WriteWhitespace (string ws);
@@ -7855,7 +7855,7 @@ items:
     description: The string contains non-white space characters.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -7920,7 +7920,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Asynchronously writes out the given white space.
-  remarks: This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteWhitespace%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.
+  remarks: 'This is the asynchronous version of <xref:System.Xml.XmlWriter.WriteWhitespace%2A>, with the same functionality. To use this method, you must set the <xref:System.Xml.XmlWriterSettings.Async%2A> flag to `true`.'
   syntax:
     content: public virtual System.Threading.Tasks.Task WriteWhitespaceAsync (string ws);
     parameters:
@@ -7934,7 +7934,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> asynchronous method was called without setting the <xref href="System.Xml.XmlWriterSettings.Async"></xref> flag to `true`. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "Set XmlWriterSettings.Async to true if you want to use Async Methods."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -7998,18 +7998,18 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, gets the current `xml:lang` scope.
-  remarks: This property allows one component to find out in what state another component has left the writer. For example, perhaps one component wants to tell another which language help text to generate. The language information is communicated by writing an `xml:lang` attribute.
+  summary: 'When overridden in a derived class, gets the current `xml:lang` scope.'
+  remarks: 'This property allows one component to find out in what state another component has left the writer. For example, perhaps one component wants to tell another which language help text to generate. The language information is communicated by writing an `xml:lang` attribute.'
   syntax:
     content: public virtual string XmlLang { get; }
     return:
       type: System.String
-      description: The current `xml:lang` scope.
+      description: 'The current `xml:lang` scope.'
   overload: System.Xml.XmlWriter.XmlLang*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -8073,18 +8073,18 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: When overridden in a derived class, gets an <xref href="System.Xml.XmlSpace"></xref> representing the current `xml:space` scope.
+  summary: 'When overridden in a derived class, gets an <xref href="System.Xml.XmlSpace"></xref> representing the current `xml:space` scope.'
   remarks: This allows one component to find out what state another component has left the writer in.
   syntax:
     content: public virtual System.Xml.XmlSpace XmlSpace { get; }
     return:
       type: System.Xml.XmlSpace
-      description: "An `XmlSpace` representing the current `xml:space` scope.  \n  \n <table><thead><tr><th> Value  \n  \n </th><th> Meaning  \n  \n </th></tr></thead><tbody><tr><td>`None`</td><td> This is the default if no `xml:space` scope exists.  \n  \n </td></tr><tr><td>`Default`</td><td> The current scope is `xml:space`=\"default\".  \n  \n </td></tr><tr><td>`Preserve`</td><td> The current scope is `xml:space`=\"preserve\".  \n  \n </td></tr></tbody></table>"
+      description: "An `XmlSpace` representing the current `xml:space` scope.  \n  \n <table><thead><tr><th> Value\n </th><th> Meaning\n </th></tr></thead><tbody><tr><td>`None`</td><td> This is the default if no `xml:space` scope exists.  \n  \n </td></tr><tr><td>`Default`</td><td> The current scope is `xml:space`=\"default\".  \n  \n </td></tr><tr><td>`Preserve`</td><td> The current scope is `xml:space`=\"preserve\".  \n  \n </td></tr></tbody></table>"
   overload: System.Xml.XmlWriter.XmlSpace*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."
+    description: 'An <xref href="System.Xml.XmlWriter"></xref> method was called before a previous asynchronous operation finished. In this case, <xref href="System.InvalidOperationException"></xref> is thrown with the message "An asynchronous operation is already in progress."'
   version:
   - netcore-1.0
   - netcore-1.1

@@ -20,7 +20,7 @@ items:
   - System.Xaml
   namespace: System.Windows.Markup
   summary: Implements a markup extension that returns a <xref href="System.Type"></xref> based on a string input.
-  remarks: "For [!INCLUDE[TLA2#tla_xaml](~/includes/tla2sharptla-xaml-md.md)] usage information, see [x:Type Markup Extension](~/docs/framework/xaml-services/x-type-markup-extension.md).  \n  \n> [!NOTE]\n>  The `{x:Type}` functionality is generally for user code invocation from markup. For code that is implementing XAML support, type resolution services come from <xref:System.Windows.Markup.IXamlTypeResolver> and are related to the implementation of the acting XAML schema context. Do not attempt to reference <xref:System.Windows.Markup.TypeExtension.ProvideValue%2A> as a substitute for a <xref:System.Windows.Markup.IXamlTypeResolver> service provider; the context you pass in might not be valid for a type resolution, and attempts to call without valid services will fail.  \n  \n## WPF Usage Notes  \n Type references are commonly used for style, template, and databinding feature areas in [!INCLUDE[TLA2#tla_winclient](~/includes/tla2sharptla-winclient-md.md)], when these features are referenced by XAML.  \n  \n<a name=\"xamlTextUsage_TypeExtension\"></a>   \n## XAML Text Usage"
+  remarks: "For [!INCLUDE[TLA2#tla_xaml](~/includes/tla2sharptla-xaml-md.md)] usage information, see [x:Type Markup Extension](~/docs/framework/xaml-services/x-type-markup-extension.md).  \n  \n> [!NOTE]\n>  The `{x:Type}` functionality is generally for user code invocation from markup. For code that is implementing XAML support, type resolution services come from <xref:System.Windows.Markup.IXamlTypeResolver> and are related to the implementation of the acting XAML schema context. Do not attempt to reference <xref:System.Windows.Markup.TypeExtension.ProvideValue%2A> as a substitute for a <xref:System.Windows.Markup.IXamlTypeResolver> service provider; the context you pass in might not be valid for a type resolution, and attempts to call without valid services will fail.  \n  \n## <a name=\"wpf-usage-notes\"></a>WPF Usage Notes  \n Type references are commonly used for style, template, and databinding feature areas in [!INCLUDE[TLA2#tla_winclient](~/includes/tla2sharptla-winclient-md.md)], when these features are referenced by XAML.  \n  \n<a name=\"xamlTextUsage_TypeExtension\"></a>   \n## <a name=\"xaml-text-usage\"></a>XAML Text Usage"
   syntax:
     content: >-
       [System.ComponentModel.TypeConverter(typeof(System.Windows.Markup.TypeExtensionConverter))]
@@ -115,14 +115,14 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Windows.Markup
-  summary: Initializes a new instance of the <xref href="System.Windows.Markup.TypeExtension"></xref> class, initializing the <xref href="System.Windows.Markup.TypeExtension.TypeName"></xref> value based on the provided <code>typeName</code> string.
-  remarks: This value is not evaluated when you set it in the constructor. If the value is not `null`, the value will be initially accepted. The actual parsing and evaluation of the value is deferred until <xref:System.Windows.Markup.TypeExtension.ProvideValue%2A> is called on this extension, when XAML is parsed and with available service contexts active. At this time the `typeName` is expected to be resolvable as a type within a XAML schema context, and that type is returned.
+  summary: 'Initializes a new instance of the <xref href="System.Windows.Markup.TypeExtension"></xref> class, initializing the <xref href="System.Windows.Markup.TypeExtension.TypeName"></xref> value based on the provided <code>typeName</code> string.'
+  remarks: 'This value is not evaluated when you set it in the constructor. If the value is not `null`, the value will be initially accepted. The actual parsing and evaluation of the value is deferred until <xref:System.Windows.Markup.TypeExtension.ProvideValue%2A> is called on this extension, when XAML is parsed and with available service contexts active. At this time the `typeName` is expected to be resolvable as a type within a XAML schema context, and that type is returned.'
   syntax:
     content: public TypeExtension (string typeName);
     parameters:
     - id: typeName
       type: System.String
-      description: A string that identifies the type to make a reference to. This string uses the format <code>prefix:className</code>. <code>prefix</code> is the mapping prefix for a XAML namespace, and is only required to reference types that are not mapped to the default XAML namespace.
+      description: 'A string that identifies the type to make a reference to. This string uses the format <code>prefix:className</code>. <code>prefix</code> is the mapping prefix for a XAML namespace, and is only required to reference types that are not mapped to the default XAML namespace.'
   overload: System.Windows.Markup.TypeExtension.#ctor*
   exceptions:
   - type: System.ArgumentNullException
@@ -161,8 +161,8 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Windows.Markup
-  summary: Initializes a new instance of the <xref href="System.Windows.Markup.TypeExtension"></xref> class, declaring the type directly.
-  remarks: This is a helper method for run time code usages of <xref:System.Windows.Markup.TypeExtension> and is not part of the normal implementation pattern for a markup extension.
+  summary: 'Initializes a new instance of the <xref href="System.Windows.Markup.TypeExtension"></xref> class, declaring the type directly.'
+  remarks: 'This is a helper method for run time code usages of <xref:System.Windows.Markup.TypeExtension> and is not part of the normal implementation pattern for a markup extension.'
   syntax:
     content: public TypeExtension (Type type);
     parameters:
@@ -207,8 +207,8 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Windows.Markup
-  summary: Returns an object that should be set on the property where this extension is applied. For <xref href="System.Windows.Markup.TypeExtension"></xref> , this is the <xref href="System.Type"></xref> value as evaluated for the requested type name.
-  remarks: You can pass `null` for `serviceProvider`, but only if this <xref:System.Windows.Markup.TypeExtension> instance was established with an initial true type in the constructor rather than a `typeName`. Otherwise, this markup extension implementation relies on services based on the passed `serviceProvider`. It must not be `null`. The `serviceProvider` is expected to provide a service for <xref:System.Windows.Markup.IXamlTypeResolver>.
+  summary: 'Returns an object that should be set on the property where this extension is applied. For <xref href="System.Windows.Markup.TypeExtension"></xref> , this is the <xref href="System.Type"></xref> value as evaluated for the requested type name.'
+  remarks: 'You can pass `null` for `serviceProvider`, but only if this <xref:System.Windows.Markup.TypeExtension> instance was established with an initial true type in the constructor rather than a `typeName`. Otherwise, this markup extension implementation relies on services based on the passed `serviceProvider`. It must not be `null`. The `serviceProvider` is expected to provide a service for <xref:System.Windows.Markup.IXamlTypeResolver>.'
   syntax:
     content: public override object ProvideValue (IServiceProvider serviceProvider);
     parameters:
@@ -263,12 +263,12 @@ items:
   - System.Xaml
   namespace: System.Windows.Markup
   summary: Gets or sets the type information for this extension.
-  remarks: "Unless this instance was deliberately instantiated with the <xref:System.Windows.Markup.TypeExtension.%23ctor%28System.Type%29> signature constructor, this value will be `null`. This property will not be reset when <xref:System.Windows.Markup.TypeExtension.ProvideValue%2A> is called. If you want the true type represented you should always call <xref:System.Windows.Markup.TypeExtension.ProvideValue%2A> rather than check this property.  \n  \n This property is settable per usual rules regarding markup extension usage. However, if you are setting with a <xref:System.Type>, then the purpose of this markup extension is irrelevant, because the same <xref:System.Type> is returned from a <xref:System.Windows.Markup.TypeExtension.ProvideValue%2A> call.  \n  \n<a name=\"xamlTextUsage_Type\"></a>   \n## XAML Text Usage"
+  remarks: "Unless this instance was deliberately instantiated with the <xref:System.Windows.Markup.TypeExtension.%23ctor%28System.Type%29> signature constructor, this value will be `null`. This property will not be reset when <xref:System.Windows.Markup.TypeExtension.ProvideValue%2A> is called. If you want the true type represented you should always call <xref:System.Windows.Markup.TypeExtension.ProvideValue%2A> rather than check this property.  \n  \n This property is settable per usual rules regarding markup extension usage. However, if you are setting with a <xref:System.Type>, then the purpose of this markup extension is irrelevant, because the same <xref:System.Type> is returned from a <xref:System.Windows.Markup.TypeExtension.ProvideValue%2A> call.  \n  \n<a name=\"xamlTextUsage_Type\"></a>   \n## <a name=\"xaml-text-usage\"></a>XAML Text Usage"
   syntax:
     content: public Type Type { get; set; }
     return:
       type: System.Type
-      description: The established type. For runtime purposes, this may be `null` for get access, but cannot be set to `null`.
+      description: 'The established type. For runtime purposes, this may be `null` for get access, but cannot be set to `null`.'
   overload: System.Windows.Markup.TypeExtension.Type*
   exceptions:
   - type: System.ArgumentNullException
@@ -309,12 +309,12 @@ items:
   - System.Xaml
   namespace: System.Windows.Markup
   summary: Gets or sets the type name represented by this markup extension.
-  remarks: "<a name=\"xamlTextUsage_TypeName\"></a>   \n## XAML Text Usage"
+  remarks: "<a name=\"xamlTextUsage_TypeName\"></a>   \n## <a name=\"xaml-text-usage\"></a>XAML Text Usage"
   syntax:
     content: public string TypeName { get; set; }
     return:
       type: System.String
-      description: A string that identifies the type. This string uses the format *prefix*<code>:</code>*className*. (*prefix* is the mapping prefix for an XML namespace, and is only required to reference types that are not mapped to the default XML namespace for WPF ([!INCLUDE[TLA#tla_wpfxmlnsv1](~/includes/tlasharptla-wpfxmlnsv1-md.md)]).
+      description: 'A string that identifies the type. This string uses the format *prefix*<code>:</code>*className*. (*prefix* is the mapping prefix for an XML namespace, and is only required to reference types that are not mapped to the default XML namespace for WPF ([!INCLUDE[TLA#tla_wpfxmlnsv1](~/includes/tlasharptla-wpfxmlnsv1-md.md)]).'
   overload: System.Windows.Markup.TypeExtension.TypeName*
   exceptions:
   - type: System.ArgumentNullException

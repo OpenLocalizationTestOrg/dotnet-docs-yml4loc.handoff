@@ -209,7 +209,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: Allows a build provider to create a temporary source file, and include the source file in the assembly compilation.
+  summary: 'Allows a build provider to create a temporary source file, and include the source file in the assembly compilation.'
   remarks: "A <xref:System.Web.Compilation.BuildProvider> implementation calls the <xref:System.Web.Compilation.AssemblyBuilder.CreateCodeFile%2A> method when generating a source file for a virtual path. Source code added with <xref:System.Web.Compilation.AssemblyBuilder.CreateCodeFile%2A> is included in the assembly compilation.  \n  \n Typically, a build provider <xref:System.Web.Compilation.BuildProvider.GenerateCode%2A> method implementation reads the <xref:System.Web.Compilation.BuildProvider.VirtualPath%2A> property, parses the contents, and then adds the generated source code to the specified <xref:System.Web.Compilation.AssemblyBuilder> object. The build provider uses the <xref:System.Web.Compilation.AssemblyBuilder.CreateCodeFile%2A> method to add source code as a physical file to the assembly. Alternately, the build provider can use the <xref:System.Web.Compilation.AssemblyBuilder.AddCodeCompileUnit%2A> method to add source code as a CodeDOM graph to the assembly.  \n  \n After calling <xref:System.Web.Compilation.AssemblyBuilder.CreateCodeFile%2A>, the build provider writes the source file contents using the returned <xref:System.IO.TextWriter> object. After writing the source file, the <xref:System.Web.Compilation.BuildProvider> object must use the <xref:System.IO.TextWriter.Close%2A> method to close the <xref:System.IO.TextWriter> object and free associated system resources."
   example:
   - "The following code example illustrates a simple build provider implementation, inheriting from the abstract <xref:System.Web.Compilation.BuildProvider> base class. The build provider overrides the <xref:System.Web.Compilation.BuildProvider.CodeCompilerType%2A>, <xref:System.Web.Compilation.BuildProvider.GetGeneratedType%2A>, and <xref:System.Web.Compilation.BuildProvider.GenerateCode%2A> members of the base class.  \n  \n In the <xref:System.Web.Compilation.BuildProvider.GenerateCode%2A> method implementation, the build provider adds the generated code for the assembly compilation using the <xref:System.Web.Compilation.AssemblyBuilder.CreateCodeFile%2A> method. The example does not include the implementation of the `SampleClassGenerator` class. For more information, see <xref:System.CodeDom.CodeCompileUnit>.  \n  \n [!code-csharp[System.Web.Compilation_SampleBuildProvider#2](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.Compilation_SampleBuildProvider/CS/samplebuildprovider.cs#2)]\n [!code-vb[System.Web.Compilation_SampleBuildProvider#2](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.Compilation_SampleBuildProvider/VB/samplebuildprovider.vb#2)]"
@@ -260,7 +260,7 @@ items:
   - System.Web
   namespace: System.Web.Compilation
   summary: Allows a build provider to create a resource file to include in the assembly compilation.
-  remarks: After calling the <xref:System.Web.Compilation.AssemblyBuilder.CreateEmbeddedResource%2A> method, a <xref:System.Web.Compilation.BuildProvider> object writes the resource file contents using the returned <xref:System.IO.Stream> object. For example, the build provider can write the resources using a <xref:System.Resources.ResourceWriter> object. After writing the resource file, the build provider must use the <xref:System.IO.Stream.Close%2A> method to close the <xref:System.IO.Stream> object and free associated system resources.
+  remarks: 'After calling the <xref:System.Web.Compilation.AssemblyBuilder.CreateEmbeddedResource%2A> method, a <xref:System.Web.Compilation.BuildProvider> object writes the resource file contents using the returned <xref:System.IO.Stream> object. For example, the build provider can write the resources using a <xref:System.Resources.ResourceWriter> object. After writing the resource file, the build provider must use the <xref:System.IO.Stream.Close%2A> method to close the <xref:System.IO.Stream> object and free associated system resources.'
   syntax:
     content: public System.IO.Stream CreateEmbeddedResource (System.Web.Compilation.BuildProvider buildProvider, string name);
     parameters:
@@ -272,7 +272,7 @@ items:
       description: The name of the resource file to be created.
     return:
       type: System.IO.Stream
-      description: An open <xref href="System.IO.Stream"></xref> that can be used to write resources, which are included in the assembly compilation.
+      description: 'An open <xref href="System.IO.Stream"></xref> that can be used to write resources, which are included in the assembly compilation.'
   overload: System.Web.Compilation.AssemblyBuilder.CreateEmbeddedResource*
   exceptions:
   - type: System.ArgumentException
@@ -314,7 +314,7 @@ items:
   - System.Web
   namespace: System.Web.Compilation
   summary: Inserts a fast object factory template for a type into the compiled assembly.
-  remarks: A <xref:System.Web.Compilation.BuildProvider> implementation calls the <xref:System.Web.Compilation.AssemblyBuilder.GenerateTypeFactory%2A> method to optimize performance for frequent creations of type instances.
+  remarks: 'A <xref:System.Web.Compilation.BuildProvider> implementation calls the <xref:System.Web.Compilation.AssemblyBuilder.GenerateTypeFactory%2A> method to optimize performance for frequent creations of type instances.'
   syntax:
     content: public void GenerateTypeFactory (string typeName);
     parameters:
@@ -368,7 +368,7 @@ items:
       description: The file extension to use for the temporary file.
     return:
       type: System.String
-      description: A path to a temporary file, with the specified file extension.
+      description: 'A path to a temporary file, with the specified file extension.'
   overload: System.Web.Compilation.AssemblyBuilder.GetTempFilePhysicalPath*
   exceptions: []
   version:

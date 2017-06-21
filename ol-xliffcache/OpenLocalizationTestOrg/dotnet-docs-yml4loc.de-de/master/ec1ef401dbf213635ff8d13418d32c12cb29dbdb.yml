@@ -47,7 +47,7 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: <xref href="System.Activities.Hosting.WorkflowInstance"></xref> is a lightweight, per-instance runtime for executing a workflow program. It can be constructed to create a new workflow instance or from existing instance state. The APIs that <xref href="System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl"></xref> exposes are the minimal set of runtime controls from which higher level operations can be implemented. This API set represents the entire breadth of functionality of the runtime. <xref href="System.Activities.Hosting.WorkflowInstance"></xref> is an abstract class and relies on a host’s implementation of its abstract methods in order to provide host functionality such as synchronization, persistence, tracking, and extensions.
+  summary: '<xref href="System.Activities.Hosting.WorkflowInstance"></xref> is a lightweight, per-instance runtime for executing a workflow program. It can be constructed to create a new workflow instance or from existing instance state. The APIs that <xref href="System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl"></xref> exposes are the minimal set of runtime controls from which higher level operations can be implemented. This API set represents the entire breadth of functionality of the runtime. <xref href="System.Activities.Hosting.WorkflowInstance"></xref> is an abstract class and relies on a host’s implementation of its abstract methods in order to provide host functionality such as synchronization, persistence, tracking, and extensions.'
   remarks: "<xref:System.Activities.Hosting.WorkflowInstance> is single threaded and assumes that the host synchronizes all access to it. An attempt to call multiple APIs simultaneously will result in an <xref:System.InvalidOperationException> being thrown.  \n  \n Internally, a <xref:System.Activities.Hosting.WorkflowInstance> has two states: Running and Paused. The only way to cause the runtime to transition from paused to running is to call <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.Run%2A>. All actions (except Pause) can only be taken while the runtime is Paused. The runtime will become spontaneously Paused in the following situations:  \n  \n-   An error fatal to the runtime has occurred. The host will be signaled through <xref:System.Activities.Hosting.WorkflowInstance.OnRequestAbort%2A> (which does not signal a transition to Paused) and then notified through <xref:System.Activities.Hosting.WorkflowInstance.OnNotifyPaused%2A>.  \n  \n-   An exception in the workflow was uncaught and escaped the root. The host will be notified through the <xref:System.Activities.Hosting.WorkflowInstance.OnNotifyUnhandledException%2A> method.  \n  \n-   The scheduler has run out of work items and is now <xref:System.Activities.Hosting.WorkflowInstanceState.Idle>. The host will be notified through the <xref:System.Activities.Hosting.WorkflowInstance.OnNotifyPaused%2A> method. Note that the scheduler could have run out of work items because the instance is idle or because the instance is complete. The <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.State%2A> value of the <xref:System.Activities.Hosting.WorkflowInstance.Controller%2A> property can be used to differentiate between the two.  \n  \n The host can request a change from Running to Paused by calling the <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.RequestPause%2A> or <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.PauseWhenPersistable%2A> methods of the <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl> instance returned by the <xref:System.Activities.Hosting.WorkflowInstance.Controller%2A> property. This request should not be considered to have a specific response meaning that the host should not attempt to correlate an OnNotify* or <xref:System.Activities.Hosting.WorkflowInstance.OnRequestAbort%2A> with a specific call to pause. In response to a pause request, the runtime may transition to Paused and call <xref:System.Activities.Hosting.WorkflowInstance.OnNotifyPaused%2A> while the scheduler still has pending work items. The <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.State%2A> value of the <xref:System.Activities.Hosting.WorkflowInstance.Controller%2A> property can be used to determine whether the scheduler has no more work or was interrupted by a request to pause.  \n  \n The <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.RequestPause%2A> method of the <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl> instance returned by the <xref:System.Activities.Hosting.WorkflowInstance.Controller%2A> property is the only method which can be called while the <xref:System.Activities.Hosting.WorkflowInstance> is in the Running state. All other methods will throw an <xref:System.InvalidOperationException> if called.Given the rules for how <xref:System.Activities.Hosting.WorkflowInstance> transitions from one state to another, the public notion of Running and Paused can be defined as follows:  \n  \n-   Running – The state between a call to <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.Run%2A> and the next WorkflowInstance.OnNotify*.  \n  \n-   Paused – The state between the last WorkflowInstance.OnNotify* and the next call to <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.Run%2A>."
   syntax:
     content: public abstract class WorkflowInstance
@@ -603,7 +603,7 @@ items:
   - System.Activities
   namespace: System.Activities.Hosting
   summary: Gets or sets the root environment for the workflow instance’s arguments and variables.
-  remarks: If this property is set after the workflow instance is initialized and <xref:System.Activities.Hosting.WorkflowInstance.IsReadOnly%2A> returns `true`, an <xref:System.InvalidOperationException> is thrown.
+  remarks: 'If this property is set after the workflow instance is initialized and <xref:System.Activities.Hosting.WorkflowInstance.IsReadOnly%2A> returns `true`, an <xref:System.InvalidOperationException> is thrown.'
   syntax:
     content: public System.Activities.LocationReferenceEnvironment HostEnvironment { get; set; }
     return:
@@ -739,7 +739,7 @@ items:
     parameters:
     - id: workflowArgumentValues
       type: System.Collections.Generic.IDictionary{System.String,System.Object}
-      description: The input parameters to the workflow, keyed by argument name.
+      description: 'The input parameters to the workflow, keyed by argument name.'
     - id: workflowExecutionProperties
       type: System.Collections.Generic.IList{System.Activities.Handle}
       description: The list of workflow execution properties.
@@ -1397,7 +1397,7 @@ items:
   - System.Activities
   namespace: System.Activities.Hosting
   summary: Called by the workflow runtime to notify the host that an abort operation has been requested for the workflow instance.
-  remarks: Once <xref:System.Activities.Hosting.WorkflowInstance.OnRequestAbort%2A> is called, most <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl> APIs except <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.Abort%2A> will throw an <xref:System.InvalidOperationException>. It is expected that after <xref:System.Activities.Hosting.WorkflowInstance.OnRequestAbort%2A> is called a host will trend toward a state in which it can satisfy the abort.
+  remarks: 'Once <xref:System.Activities.Hosting.WorkflowInstance.OnRequestAbort%2A> is called, most <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl> APIs except <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.Abort%2A> will throw an <xref:System.InvalidOperationException>. It is expected that after <xref:System.Activities.Hosting.WorkflowInstance.OnRequestAbort%2A> is called a host will trend toward a state in which it can satisfy the abort.'
   syntax:
     content: protected abstract void OnRequestAbort (Exception reason);
     parameters:
@@ -1441,8 +1441,8 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: Called by the host to register the specified extension manager, validate that all required extensions are present, and to initialize the collection of extensions to be used.
-  remarks: Extensions are keyed by type, and a host provided extension will always be used if provided. Extensions added through <xref:System.Activities.Hosting.WorkflowInstanceExtensionManager.Add%2A> use the runtime type of the object as the type key. Extensions providers added through <xref:System.Activities.Hosting.WorkflowInstanceExtensionManager.Add%2A> use the decared type T of the Func\<T> as the type key. Extension providers contributed by activities through the various *ActivityMetadata.AddDefaultExtensionProvider methods are dropped if a host extension exists for the declared type or if there is a broader type provided through AddDefaultExtensionProvider (ex. if Func\<StreamWriter> is provided and Func\<TextWriter> is provided, only Func\<StreamWriter> will be kept). If an extension does not exist in the collection that is required by an activity (expressed by calling *ActivityMetadata.RequireExtension) a <xref:System.Activities.ValidationException> is thrown.
+  summary: 'Called by the host to register the specified extension manager, validate that all required extensions are present, and to initialize the collection of extensions to be used.'
+  remarks: 'Extensions are keyed by type, and a host provided extension will always be used if provided. Extensions added through <xref:System.Activities.Hosting.WorkflowInstanceExtensionManager.Add%2A> use the runtime type of the object as the type key. Extensions providers added through <xref:System.Activities.Hosting.WorkflowInstanceExtensionManager.Add%2A> use the decared type T of the Func\<T> as the type key. Extension providers contributed by activities through the various *ActivityMetadata.AddDefaultExtensionProvider methods are dropped if a host extension exists for the declared type or if there is a broader type provided through AddDefaultExtensionProvider (ex. if Func\<StreamWriter> is provided and Func\<TextWriter> is provided, only Func\<StreamWriter> will be kept). If an extension does not exist in the collection that is required by an activity (expressed by calling *ActivityMetadata.RequireExtension) a <xref:System.Activities.ValidationException> is thrown.'
   syntax:
     content: protected void RegisterExtensionManager (System.Activities.Hosting.WorkflowInstanceExtensionManager extensionManager);
     parameters:
@@ -1530,7 +1530,7 @@ items:
   - System.Activities
   namespace: System.Activities.Hosting
   summary: Gets or sets the <xref href="System.Threading.SynchronizationContext"></xref> used for scheduling the workflow instance.
-  remarks: If this property is set after the workflow instance is initialized and <xref:System.Activities.Hosting.WorkflowInstance.IsReadOnly%2A> returns `true`, an <xref:System.InvalidOperationException> is thrown.
+  remarks: 'If this property is set after the workflow instance is initialized and <xref:System.Activities.Hosting.WorkflowInstance.IsReadOnly%2A> returns `true`, an <xref:System.InvalidOperationException> is thrown.'
   syntax:
     content: public System.Threading.SynchronizationContext SynchronizationContext { get; set; }
     return:
@@ -1573,8 +1573,8 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: Throws an <xref href="System.InvalidOperationException"></xref> if the workflow instance has been initialized, as determined by <xref href="System.Activities.Hosting.WorkflowInstance.IsReadOnly"></xref>.
-  remarks: If <xref:System.Activities.Hosting.WorkflowInstance.IsReadOnly%2A> returns `true`, then an <xref:System.InvalidOperationException> is thrown.
+  summary: 'Throws an <xref href="System.InvalidOperationException"></xref> if the workflow instance has been initialized, as determined by <xref href="System.Activities.Hosting.WorkflowInstance.IsReadOnly"></xref>.'
+  remarks: 'If <xref:System.Activities.Hosting.WorkflowInstance.IsReadOnly%2A> returns `true`, then an <xref:System.InvalidOperationException> is thrown.'
   syntax:
     content: protected void ThrowIfReadOnly ();
     parameters: []

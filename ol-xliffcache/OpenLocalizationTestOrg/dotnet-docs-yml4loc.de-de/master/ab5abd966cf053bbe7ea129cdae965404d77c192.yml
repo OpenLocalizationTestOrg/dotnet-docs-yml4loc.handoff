@@ -370,7 +370,7 @@ items:
   - netstandard
   namespace: System.Collections.Concurrent
   summary: Initializes a new instance of the <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> class without an upper-bound.
-  remarks: The default underlying collection is a <xref:System.Collections.Concurrent.ConcurrentQueue%601> object, which provides first in, first out (FIFO) behavior.
+  remarks: 'The default underlying collection is a <xref:System.Collections.Concurrent.ConcurrentQueue%601> object, which provides first in, first out (FIFO) behavior.'
   syntax:
     content: public BlockingCollection ();
     parameters: []
@@ -511,7 +511,7 @@ items:
   - netstandard
   namespace: System.Collections.Concurrent
   summary: Initializes a new instance of the <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> class with the specified upper-bound.
-  remarks: The default underlying collection is a <xref:System.Collections.Concurrent.ConcurrentQueue%601>.
+  remarks: 'The default underlying collection is a <xref:System.Collections.Concurrent.ConcurrentQueue%601>.'
   syntax:
     content: public BlockingCollection (int boundedCapacity);
     parameters:
@@ -667,7 +667,7 @@ items:
   - netstandard
   namespace: System.Collections.Concurrent
   summary: Adds the item to the <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref>.
-  remarks: If a bounded capacity was specified when this instance of <xref:System.Collections.Concurrent.BlockingCollection%601> was initialized, a call to Add may block until space is available to store the provided item.
+  remarks: 'If a bounded capacity was specified when this instance of <xref:System.Collections.Concurrent.BlockingCollection%601> was initialized, a call to Add may block until space is available to store the provided item.'
   syntax:
     content: public void Add (T item);
     parameters:
@@ -827,7 +827,7 @@ items:
   - netstandard
   namespace: System.Collections.Concurrent
   summary: Adds the specified item to any one of the specified <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> instances.
-  remarks: If a bounded capacity was specified when all of the <xref:System.Collections.Concurrent.BlockingCollection%601> instances were initialized, a call to AddToAny may block until space is available in one of the collections to store the provided item.
+  remarks: 'If a bounded capacity was specified when all of the <xref:System.Collections.Concurrent.BlockingCollection%601> instances were initialized, a call to AddToAny may block until space is available in one of the collections to store the provided item.'
   syntax:
     content: public static int AddToAny (System.Collections.Concurrent.BlockingCollection<T>[] collections, T item);
     parameters:
@@ -853,7 +853,7 @@ items:
     description: The count of <code>collections</code> is greater than the maximum size of 62 for STA and 63 for MTA.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: The <code>collections</code> argument is a 0-length array or contains a null element, or at least one of collections has been marked as complete for adding.
+    description: 'The <code>collections</code> argument is a 0-length array or contains a null element, or at least one of collections has been marked as complete for adding.'
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
     description: At least one underlying collection didn't accept the item.
@@ -919,7 +919,7 @@ items:
   - netstandard
   namespace: System.Collections.Concurrent
   summary: Adds the specified item to any one of the specified <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> instances.
-  remarks: If a bounded capacity was specified when all of the <xref:System.Collections.Concurrent.BlockingCollection%601> instances were initialized, a call to AddToAny may block until space is available in one of the collections to store the provided item. This method may return before the item is added to any collection if the `cancellationToken` is canceled before space is available.
+  remarks: 'If a bounded capacity was specified when all of the <xref:System.Collections.Concurrent.BlockingCollection%601> instances were initialized, a call to AddToAny may block until space is available in one of the collections to store the provided item. This method may return before the item is added to any collection if the `cancellationToken` is canceled before space is available.'
   syntax:
     content: public static int AddToAny (System.Collections.Concurrent.BlockingCollection<T>[] collections, T item, System.Threading.CancellationToken cancellationToken);
     parameters:
@@ -951,10 +951,10 @@ items:
     description: The count of <code>collections</code> is greater than the maximum size of 62 for STA and 63 for MTA.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: The <code>collections</code> argument is a 0-length array or contains a null element, or at least one of collections has been marked as complete for adding.
+    description: 'The <code>collections</code> argument is a 0-length array or contains a null element, or at least one of collections has been marked as complete for adding.'
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: At least one of the <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> instances has been disposed, or the <xref href="System.Threading.CancellationTokenSource"></xref> that created <code>cancellationToken</code> has been disposed.
+    description: 'At least one of the <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> instances has been disposed, or the <xref href="System.Threading.CancellationTokenSource"></xref> that created <code>cancellationToken</code> has been disposed.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -1021,7 +1021,7 @@ items:
     content: public int BoundedCapacity { get; }
     return:
       type: System.Int32
-      description: The bounded capacity of this collection, or int.MaxValue if no bound was supplied.
+      description: 'The bounded capacity of this collection, or int.MaxValue if no bound was supplied.'
   overload: System.Collections.Concurrent.BlockingCollection`1.BoundedCapacity*
   exceptions:
   - type: System.ObjectDisposedException
@@ -1089,7 +1089,7 @@ items:
   - netstandard
   namespace: System.Collections.Concurrent
   summary: Marks the <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> instances as not accepting any more additions.
-  remarks: After a collection has been marked as complete for adding, adding to the collection is not permitted and attempts to remove from the collection will not wait when the collection is empty.
+  remarks: 'After a collection has been marked as complete for adding, adding to the collection is not permitted and attempts to remove from the collection will not wait when the collection is empty.'
   syntax:
     content: public void CompleteAdding ();
     parameters: []
@@ -1159,8 +1159,8 @@ items:
   - System
   - netstandard
   namespace: System.Collections.Concurrent
-  summary: Copies all of the items in the <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> instance to a compatible one-dimensional array, starting at the specified index of the target array.
-  remarks: CopyTo represents a snapshot of the collection at a precise point in time. If other threads are adding or removing items while CopyTo is executing, then the elements returned by CopyTo might not represent the state of the collection.
+  summary: 'Copies all of the items in the <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> instance to a compatible one-dimensional array, starting at the specified index of the target array.'
+  remarks: 'CopyTo represents a snapshot of the collection at a precise point in time. If other threads are adding or removing items while CopyTo is executing, then the elements returned by CopyTo might not represent the state of the collection.'
   syntax:
     content: public void CopyTo (T[] array, int index);
     parameters:
@@ -1246,7 +1246,7 @@ items:
   - netstandard
   namespace: System.Collections.Concurrent
   summary: Gets the number of items contained in the <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref>.
-  remarks: If any method in BlockingCollection is executing while the Count property is being accessd, the return value is approximate. Count may reflect a number that is either greater than or less than the actual number of items in the BlockingCollection.
+  remarks: 'If any method in BlockingCollection is executing while the Count property is being accessd, the return value is approximate. Count may reflect a number that is either greater than or less than the actual number of items in the BlockingCollection.'
   syntax:
     content: public int Count { get; }
     return:
@@ -1457,7 +1457,7 @@ items:
   - netstandard
   namespace: System.Collections.Concurrent
   summary: Provides a consuming <xref href="System.Collections.Generic.IEnumerable`1"></xref> for items in the collection.
-  remarks: This method enables client code to remove items from the collection by using a foreach loop (For Each in Visual Basic), or <xref:System.Threading.Tasks.Parallel.ForEach%2A?displayProperty=fullName> or a PLINQ query. The enumerator will continue to provide items (if any exist) until <xref:System.Collections.Concurrent.BlockingCollection%601.IsCompleted%2A> returns true, and if <xref:System.Collections.Concurrent.BlockingCollection%601.IsCompleted%2A> is false the loop blocks until an item becomes available or until the <xref:System.Threading.CancellationToken> is cancelled.
+  remarks: 'This method enables client code to remove items from the collection by using a foreach loop (For Each in Visual Basic), or <xref:System.Threading.Tasks.Parallel.ForEach%2A?displayProperty=fullName> or a PLINQ query. The enumerator will continue to provide items (if any exist) until <xref:System.Collections.Concurrent.BlockingCollection%601.IsCompleted%2A> returns true, and if <xref:System.Collections.Concurrent.BlockingCollection%601.IsCompleted%2A> is false the loop blocks until an item becomes available or until the <xref:System.Threading.CancellationToken> is cancelled.'
   syntax:
     content: public System.Collections.Generic.IEnumerable<T> GetConsumingEnumerable (System.Threading.CancellationToken cancellationToken);
     parameters:
@@ -1771,7 +1771,7 @@ items:
     description: The <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> has been disposed.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The underlying collection was modified outside of this <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> instance, or the <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> is empty and the collection has been marked as complete for adding.
+    description: 'The underlying collection was modified outside of this <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> instance, or the <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> is empty and the collection has been marked as complete for adding.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -1854,7 +1854,7 @@ items:
     description: The <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> has been disposed or the <xref href="System.Threading.CancellationTokenSource"></xref> that created the token was canceled.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The underlying collection was modified outside of this <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> instance or the BlockingCollection is marked as complete for adding, or the <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> is empty.
+    description: 'The underlying collection was modified outside of this <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> instance or the BlockingCollection is marked as complete for adding, or the <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> is empty.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -2041,7 +2041,7 @@ items:
     description: The count of <code>collections</code> is greater than the maximum size of 62 for STA and 63 for MTA.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: The <code>collections</code> argument is a 0-length array or contains a null element, or <xref href="System.Collections.Concurrent.BlockingCollection`1.CompleteAdding"></xref> has been called on the collection.
+    description: 'The <code>collections</code> argument is a 0-length array or contains a null element, or <xref href="System.Collections.Concurrent.BlockingCollection`1.CompleteAdding"></xref> has been called on the collection.'
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
     description: At least one of the <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> instances has been disposed.
@@ -2189,10 +2189,10 @@ items:
       description: The item to be added to the collection.
     - id: millisecondsTimeout
       type: System.Int32
-      description: The number of milliseconds to wait, or <xref href="System.Threading.Timeout.Infinite"></xref> (-1) to wait indefinitely.
+      description: 'The number of milliseconds to wait, or <xref href="System.Threading.Timeout.Infinite"></xref> (-1) to wait indefinitely.'
     return:
       type: System.Boolean
-      description: true if the <code>item</code> could be added to the collection within the specified time; otherwise, false. If the item is a duplicate, and the underlying collection does not accept duplicate items, then an <xref href="System.InvalidOperationException"></xref> is thrown.
+      description: 'true if the <code>item</code> could be added to the collection within the specified time; otherwise, false. If the item is a duplicate, and the underlying collection does not accept duplicate items, then an <xref href="System.InvalidOperationException"></xref> is thrown.'
   overload: System.Collections.Concurrent.BlockingCollection`1.TryAdd*
   exceptions:
   - type: System.ObjectDisposedException
@@ -2200,7 +2200,7 @@ items:
     description: The <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> has been disposed.
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: <code>millisecondsTimeout</code> is a negative number other than -1, which represents an infinite time-out.
+    description: '<code>millisecondsTimeout</code> is a negative number other than -1, which represents an infinite time-out.'
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
     description: "The <xref href=\"System.Collections.Concurrent.BlockingCollection`1\"></xref> has been marked as complete with regards to additions.  \n  \n -or-  \n  \n The underlying collection didn't accept the item."
@@ -2265,7 +2265,7 @@ items:
   - System
   - netstandard
   namespace: System.Collections.Concurrent
-  summary: Tries to add the specified item to the <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> within the specified time period, while observing a cancellation token.
+  summary: 'Tries to add the specified item to the <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> within the specified time period, while observing a cancellation token.'
   syntax:
     content: public bool TryAdd (T item, int millisecondsTimeout, System.Threading.CancellationToken cancellationToken);
     parameters:
@@ -2274,13 +2274,13 @@ items:
       description: The item to be added to the collection.
     - id: millisecondsTimeout
       type: System.Int32
-      description: The number of milliseconds to wait, or <xref href="System.Threading.Timeout.Infinite"></xref> (-1) to wait indefinitely.
+      description: 'The number of milliseconds to wait, or <xref href="System.Threading.Timeout.Infinite"></xref> (-1) to wait indefinitely.'
     - id: cancellationToken
       type: System.Threading.CancellationToken
       description: A cancellation token to observe.
     return:
       type: System.Boolean
-      description: true if the <code>item</code> could be added to the collection within the specified time; otherwise, false. If the item is a duplicate, and the underlying collection does not accept duplicate items, then an <xref href="System.InvalidOperationException"></xref> is thrown.
+      description: 'true if the <code>item</code> could be added to the collection within the specified time; otherwise, false. If the item is a duplicate, and the underlying collection does not accept duplicate items, then an <xref href="System.InvalidOperationException"></xref> is thrown.'
   overload: System.Collections.Concurrent.BlockingCollection`1.TryAdd*
   exceptions:
   - type: System.OperationCanceledException
@@ -2291,7 +2291,7 @@ items:
     description: The <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> has been disposed or the underlying <xref href="System.Threading.CancellationTokenSource"></xref> has been disposed.
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: <code>millisecondsTimeout</code> is a negative number other than -1, which represents an infinite time-out.
+    description: '<code>millisecondsTimeout</code> is a negative number other than -1, which represents an infinite time-out.'
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
     description: "The <xref href=\"System.Collections.Concurrent.BlockingCollection`1\"></xref> has been marked as complete with regards to additions.  \n  \n -or-  \n  \n The underlying collection didn't accept the item."
@@ -2357,7 +2357,7 @@ items:
   - netstandard
   namespace: System.Collections.Concurrent
   summary: Tries to add the specified item to the <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref>.
-  remarks: If the collection is a bounded collection, and is full, this method immediately returns false without adding the item.
+  remarks: 'If the collection is a bounded collection, and is full, this method immediately returns false without adding the item.'
   syntax:
     content: public bool TryAdd (T item);
     parameters:
@@ -2366,7 +2366,7 @@ items:
       description: The item to be added to the collection.
     return:
       type: System.Boolean
-      description: true if <code>item</code> could be added; otherwise false. If the item is a duplicate, and the underlying collection does not accept duplicate items, then an <xref href="System.InvalidOperationException"></xref> is thrown.
+      description: 'true if <code>item</code> could be added; otherwise false. If the item is a duplicate, and the underlying collection does not accept duplicate items, then an <xref href="System.InvalidOperationException"></xref> is thrown.'
   overload: System.Collections.Concurrent.BlockingCollection`1.TryAdd*
   exceptions:
   - type: System.ObjectDisposedException
@@ -2445,10 +2445,10 @@ items:
       description: The item to be added to the collection.
     - id: timeout
       type: System.TimeSpan
-      description: A <xref href="System.TimeSpan"></xref> that represents the number of milliseconds to wait, or a <xref href="System.TimeSpan"></xref> that represents -1 milliseconds to wait indefinitely.
+      description: 'A <xref href="System.TimeSpan"></xref> that represents the number of milliseconds to wait, or a <xref href="System.TimeSpan"></xref> that represents -1 milliseconds to wait indefinitely.'
     return:
       type: System.Boolean
-      description: true if the <code>item</code> could be added to the collection within the specified time span; otherwise, false.
+      description: 'true if the <code>item</code> could be added to the collection within the specified time span; otherwise, false.'
   overload: System.Collections.Concurrent.BlockingCollection`1.TryAdd*
   exceptions:
   - type: System.ObjectDisposedException
@@ -2456,7 +2456,7 @@ items:
     description: The <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> has been disposed.
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: <code>timeout</code> is a negative number other than -1 milliseconds, which represents an infinite time-out -or- timeout is greater than <xref href="System.Int32.MaxValue"></xref>.
+    description: '<code>timeout</code> is a negative number other than -1 milliseconds, which represents an infinite time-out -or- timeout is greater than <xref href="System.Int32.MaxValue"></xref>.'
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
     description: "The <xref href=\"System.Collections.Concurrent.BlockingCollection`1\"></xref> has been marked as complete with regards to additions.  \n  \n -or-  \n  \n The underlying collection didn't accept the item."
@@ -2533,13 +2533,13 @@ items:
       description: The item to be added to one of the collections.
     - id: millisecondsTimeout
       type: System.Int32
-      description: The number of milliseconds to wait, or <xref href="System.Threading.Timeout.Infinite"></xref> (-1) to wait indefinitely.
+      description: 'The number of milliseconds to wait, or <xref href="System.Threading.Timeout.Infinite"></xref> (-1) to wait indefinitely.'
     - id: cancellationToken
       type: System.Threading.CancellationToken
       description: A cancellation token to observe.
     return:
       type: System.Int32
-      description: The index of the collection in the <code>collections</code> array to which the item was added, or -1 if the item could not be added.
+      description: 'The index of the collection in the <code>collections</code> array to which the item was added, or -1 if the item could not be added.'
   overload: System.Collections.Concurrent.BlockingCollection`1.TryAddToAny*
   exceptions:
   - type: System.OperationCanceledException
@@ -2556,7 +2556,7 @@ items:
     description: "<code>millisecondsTimeout</code> is a negative number other than -1, which represents an infinite time-out.  \n  \n -or-  \n  \n The count of <code>collections</code> is greater than the maximum size of 62 for STA and 63 for MTA."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: The <code>collections</code> argument is a 0-length array or contains a null element, or at least one of collections has been marked as complete for adding.
+    description: 'The <code>collections</code> argument is a 0-length array or contains a null element, or at least one of collections has been marked as complete for adding.'
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
     description: At least one of the <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> instances has been disposed.
@@ -2634,10 +2634,10 @@ items:
       description: The item to be added to one of the collections.
     - id: timeout
       type: System.TimeSpan
-      description: A <xref href="System.TimeSpan"></xref> that represents the number of milliseconds to wait, or a <xref href="System.TimeSpan"></xref> that represents -1 milliseconds to wait indefinitely.
+      description: 'A <xref href="System.TimeSpan"></xref> that represents the number of milliseconds to wait, or a <xref href="System.TimeSpan"></xref> that represents -1 milliseconds to wait indefinitely.'
     return:
       type: System.Int32
-      description: The index of the collection in the <code>collections</code> array to which the item was added, or -1 if the item could not be added.
+      description: 'The index of the collection in the <code>collections</code> array to which the item was added, or -1 if the item could not be added.'
   overload: System.Collections.Concurrent.BlockingCollection`1.TryAddToAny*
   exceptions:
   - type: System.ObjectDisposedException
@@ -2651,7 +2651,7 @@ items:
     description: "<code>timeout</code> is a negative number other than -1 milliseconds, which represents an infinite time-out -or- timeout is greater than <xref href=\"System.Int32.MaxValue\"></xref>.  \n  \n -or-  \n  \n The count of <code>collections</code> is greater than the maximum size of 62 for STA and 63 for MTA."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: The <code>collections</code> argument is a 0-length array or contains a null element, or at least one of collections has been marked as complete for adding.
+    description: 'The <code>collections</code> argument is a 0-length array or contains a null element, or at least one of collections has been marked as complete for adding.'
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
     description: At least one underlying collection didn't accept the item.
@@ -2728,10 +2728,10 @@ items:
       description: The item to be added to one of the collections.
     - id: millisecondsTimeout
       type: System.Int32
-      description: The number of milliseconds to wait, or <xref href="System.Threading.Timeout.Infinite"></xref> (-1) to wait indefinitely.
+      description: 'The number of milliseconds to wait, or <xref href="System.Threading.Timeout.Infinite"></xref> (-1) to wait indefinitely.'
     return:
       type: System.Int32
-      description: The index of the collection in the <code>collections</code> array to which the item was added, or -1 if the item could not be added.
+      description: 'The index of the collection in the <code>collections</code> array to which the item was added, or -1 if the item could not be added.'
   overload: System.Collections.Concurrent.BlockingCollection`1.TryAddToAny*
   exceptions:
   - type: System.ObjectDisposedException
@@ -2745,7 +2745,7 @@ items:
     description: "<code>millisecondsTimeout</code> is a negative number other than -1, which represents an infinite time-out.  \n  \n -or-  \n  \n The count of <code>collections</code> is greater than the maximum size of 62 for STA and 63 for MTA."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: The <code>collections</code> argument is a 0-length array or contains a null element, or at least one of collections has been marked as complete for adding.
+    description: 'The <code>collections</code> argument is a 0-length array or contains a null element, or at least one of collections has been marked as complete for adding.'
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
     description: At least one underlying collection didn't accept the item.
@@ -2822,7 +2822,7 @@ items:
       description: The item to be added to one of the collections.
     return:
       type: System.Int32
-      description: The index of the collection in the <code>collections</code> array to which the item was added, or -1 if the item could not be added.
+      description: 'The index of the collection in the <code>collections</code> array to which the item was added, or -1 if the item could not be added.'
   overload: System.Collections.Concurrent.BlockingCollection`1.TryAddToAny*
   exceptions:
   - type: System.ObjectDisposedException
@@ -2836,7 +2836,7 @@ items:
     description: The count of <code>collections</code> is greater than the maximum size of 62 for STA and 63 for MTA.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: The <code>collections</code> argument is a 0-length array or contains a null element, or at least one of collections has been marked as complete for adding.
+    description: 'The <code>collections</code> argument is a 0-length array or contains a null element, or at least one of collections has been marked as complete for adding.'
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
     description: At least one underlying collection didn't accept the item.
@@ -2982,7 +2982,7 @@ items:
   - netstandard
   namespace: System.Collections.Concurrent
   summary: Tries to remove an item from the <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> in the specified time period.
-  remarks: The order in which an item is removed depends on the type of collection used to create the <xref:System.Collections.Concurrent.BlockingCollection%601> instance. When you create a <xref:System.Collections.Concurrent.BlockingCollection%601> object, you can specify the type of collection to use. For example, you could specify a <xref:System.Collections.Concurrent.ConcurrentQueue%601> object for first in, first out (FIFO) behavior, or a <xref:System.Collections.Concurrent.ConcurrentStack%601> object for last in, first out (LIFO) behavior. You can use any collection class that implements the <xref:System.Collections.Concurrent.IProducerConsumerCollection%601> interface. The default collection type for <xref:System.Collections.Concurrent.BlockingCollection%601> is <xref:System.Collections.Concurrent.ConcurrentQueue%601>.
+  remarks: 'The order in which an item is removed depends on the type of collection used to create the <xref:System.Collections.Concurrent.BlockingCollection%601> instance. When you create a <xref:System.Collections.Concurrent.BlockingCollection%601> object, you can specify the type of collection to use. For example, you could specify a <xref:System.Collections.Concurrent.ConcurrentQueue%601> object for first in, first out (FIFO) behavior, or a <xref:System.Collections.Concurrent.ConcurrentStack%601> object for last in, first out (LIFO) behavior. You can use any collection class that implements the <xref:System.Collections.Concurrent.IProducerConsumerCollection%601> interface. The default collection type for <xref:System.Collections.Concurrent.BlockingCollection%601> is <xref:System.Collections.Concurrent.ConcurrentQueue%601>.'
   syntax:
     content: public bool TryTake (out T item, TimeSpan timeout);
     parameters:
@@ -2991,7 +2991,7 @@ items:
       description: The item to be removed from the collection.
     - id: timeout
       type: System.TimeSpan
-      description: An object that represents the number of milliseconds to wait, or an object that represents -1 milliseconds to wait indefinitely.
+      description: 'An object that represents the number of milliseconds to wait, or an object that represents -1 milliseconds to wait indefinitely.'
     return:
       type: System.Boolean
       description: '`true` if an item could be removed from the collection within the specified  time; otherwise, `false`.'
@@ -3068,7 +3068,7 @@ items:
   - netstandard
   namespace: System.Collections.Concurrent
   summary: Tries to remove an item from the <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> in the specified time period while observing a cancellation token.
-  remarks: The order in which an item is removed depends on the type of collection used to create the <xref:System.Collections.Concurrent.BlockingCollection%601> instance. When you create a <xref:System.Collections.Concurrent.BlockingCollection%601> object, you can specify the type of collection to use. For example, you could specify a <xref:System.Collections.Concurrent.ConcurrentQueue%601> object for first in, first out (FIFO) behavior, or a <xref:System.Collections.Concurrent.ConcurrentStack%601> object for last in, first out (LIFO) behavior. You can use any collection class that implements the <xref:System.Collections.Concurrent.IProducerConsumerCollection%601> interface. The default collection type for <xref:System.Collections.Concurrent.BlockingCollection%601> is <xref:System.Collections.Concurrent.ConcurrentQueue%601>.
+  remarks: 'The order in which an item is removed depends on the type of collection used to create the <xref:System.Collections.Concurrent.BlockingCollection%601> instance. When you create a <xref:System.Collections.Concurrent.BlockingCollection%601> object, you can specify the type of collection to use. For example, you could specify a <xref:System.Collections.Concurrent.ConcurrentQueue%601> object for first in, first out (FIFO) behavior, or a <xref:System.Collections.Concurrent.ConcurrentStack%601> object for last in, first out (LIFO) behavior. You can use any collection class that implements the <xref:System.Collections.Concurrent.IProducerConsumerCollection%601> interface. The default collection type for <xref:System.Collections.Concurrent.BlockingCollection%601> is <xref:System.Collections.Concurrent.ConcurrentQueue%601>.'
   syntax:
     content: public bool TryTake (out T item, int millisecondsTimeout, System.Threading.CancellationToken cancellationToken);
     parameters:
@@ -3077,7 +3077,7 @@ items:
       description: The item to be removed from the collection.
     - id: millisecondsTimeout
       type: System.Int32
-      description: The number of milliseconds to wait, or <xref href="System.Threading.Timeout.Infinite"></xref> (-1) to wait indefinitely.
+      description: 'The number of milliseconds to wait, or <xref href="System.Threading.Timeout.Infinite"></xref> (-1) to wait indefinitely.'
     - id: cancellationToken
       type: System.Threading.CancellationToken
       description: A cancellation token to observe.
@@ -3094,7 +3094,7 @@ items:
     description: The <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> has been disposed or the underlying <xref href="System.Threading.CancellationTokenSource"></xref> has been disposed.
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: <code>millisecondsTimeout</code> is a negative number other than -1, which represents an infinite time-out.
+    description: '<code>millisecondsTimeout</code> is a negative number other than -1, which represents an infinite time-out.'
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
     description: The underlying collection was modified outside this <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> instance.
@@ -3160,7 +3160,7 @@ items:
   - netstandard
   namespace: System.Collections.Concurrent
   summary: Tries to remove an item from the <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> in the specified time period.
-  remarks: The order in which an item is removed depends on the type of collection used to create the <xref:System.Collections.Concurrent.BlockingCollection%601> instance. When you create a <xref:System.Collections.Concurrent.BlockingCollection%601>, you can specify the type of collection to use. For example, you could specify a <xref:System.Collections.Concurrent.ConcurrentQueue%601> object for first in, first out (FIFO) behavior, or a <xref:System.Collections.Concurrent.ConcurrentStack%601> object for last in, first out (LIFO) behavior. You can use any collection class that implements the <xref:System.Collections.Concurrent.IProducerConsumerCollection%601> interface. The default collection type for <xref:System.Collections.Concurrent.BlockingCollection%601> is <xref:System.Collections.Concurrent.ConcurrentQueue%601>.
+  remarks: 'The order in which an item is removed depends on the type of collection used to create the <xref:System.Collections.Concurrent.BlockingCollection%601> instance. When you create a <xref:System.Collections.Concurrent.BlockingCollection%601>, you can specify the type of collection to use. For example, you could specify a <xref:System.Collections.Concurrent.ConcurrentQueue%601> object for first in, first out (FIFO) behavior, or a <xref:System.Collections.Concurrent.ConcurrentStack%601> object for last in, first out (LIFO) behavior. You can use any collection class that implements the <xref:System.Collections.Concurrent.IProducerConsumerCollection%601> interface. The default collection type for <xref:System.Collections.Concurrent.BlockingCollection%601> is <xref:System.Collections.Concurrent.ConcurrentQueue%601>.'
   syntax:
     content: public bool TryTake (out T item, int millisecondsTimeout);
     parameters:
@@ -3169,7 +3169,7 @@ items:
       description: The item to be removed from the collection.
     - id: millisecondsTimeout
       type: System.Int32
-      description: The number of milliseconds to wait, or <xref href="System.Threading.Timeout.Infinite"></xref> (-1) to wait indefinitely.
+      description: 'The number of milliseconds to wait, or <xref href="System.Threading.Timeout.Infinite"></xref> (-1) to wait indefinitely.'
     return:
       type: System.Boolean
       description: '`true` if an item could be removed from the collection within the specified  time; otherwise, `false`.'
@@ -3180,7 +3180,7 @@ items:
     description: The <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> has been disposed.
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: <code>millisecondsTimeout</code> is a negative number other than -1, which represents an infinite time-out.
+    description: '<code>millisecondsTimeout</code> is a negative number other than -1, which represents an infinite time-out.'
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
     description: The underlying collection was modified outside of this <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> instance.
@@ -3260,7 +3260,7 @@ items:
       description: The item removed from one of the collections.
     return:
       type: System.Int32
-      description: The index of the collection in the <code>collections</code> array from which the item was removed, or -1 if an item could not be removed.
+      description: 'The index of the collection in the <code>collections</code> array from which the item was removed, or -1 if an item could not be removed.'
   overload: System.Collections.Concurrent.BlockingCollection`1.TryTakeFromAny*
   exceptions:
   - type: System.ObjectDisposedException
@@ -3352,10 +3352,10 @@ items:
       description: The item removed from one of the collections.
     - id: millisecondsTimeout
       type: System.Int32
-      description: The number of milliseconds to wait, or <xref href="System.Threading.Timeout.Infinite"></xref> (-1) to wait indefinitely.
+      description: 'The number of milliseconds to wait, or <xref href="System.Threading.Timeout.Infinite"></xref> (-1) to wait indefinitely.'
     return:
       type: System.Int32
-      description: The index of the collection in the <code>collections</code> array from which the item was removed, or -1 if an item could not be removed.
+      description: 'The index of the collection in the <code>collections</code> array from which the item was removed, or -1 if an item could not be removed.'
   overload: System.Collections.Concurrent.BlockingCollection`1.TryTakeFromAny*
   exceptions:
   - type: System.ObjectDisposedException
@@ -3447,13 +3447,13 @@ items:
       description: The item removed from one of the collections.
     - id: millisecondsTimeout
       type: System.Int32
-      description: The number of milliseconds to wait, or <xref href="System.Threading.Timeout.Infinite"></xref> (-1) to wait indefinitely.
+      description: 'The number of milliseconds to wait, or <xref href="System.Threading.Timeout.Infinite"></xref> (-1) to wait indefinitely.'
     - id: cancellationToken
       type: System.Threading.CancellationToken
       description: A cancellation token to observe.
     return:
       type: System.Int32
-      description: The index of the collection in the <code>collections</code> array from which the item was removed, or -1 if an item could not be removed.
+      description: 'The index of the collection in the <code>collections</code> array from which the item was removed, or -1 if an item could not be removed.'
   overload: System.Collections.Concurrent.BlockingCollection`1.TryTakeFromAny*
   exceptions:
   - type: System.OperationCanceledException
@@ -3548,10 +3548,10 @@ items:
       description: The item removed from one of the collections.
     - id: timeout
       type: System.TimeSpan
-      description: A <xref href="System.TimeSpan"></xref> that represents the number of milliseconds to wait, or a <xref href="System.TimeSpan"></xref> that represents -1 milliseconds to wait indefinitely.
+      description: 'A <xref href="System.TimeSpan"></xref> that represents the number of milliseconds to wait, or a <xref href="System.TimeSpan"></xref> that represents -1 milliseconds to wait indefinitely.'
     return:
       type: System.Int32
-      description: The index of the collection in the <code>collections</code> array from which the item was removed, or -1 if an item could not be removed.
+      description: 'The index of the collection in the <code>collections</code> array from which the item was removed, or -1 if an item could not be removed.'
   overload: System.Collections.Concurrent.BlockingCollection`1.TryTakeFromAny*
   exceptions:
   - type: System.ObjectDisposedException
@@ -3632,7 +3632,7 @@ items:
   - netstandard
   namespace: System.Collections.Concurrent
   summary: Provides an <xref href="System.Collections.Generic.IEnumerator`1"></xref> for items in the collection.
-  remarks: Unlike <xref:System.Collections.Concurrent.BlockingCollection%601.GetConsumingEnumerable%2A>, <xref:System.Collections.Concurrent.BlockingCollection%601.System%23Collections%23Generic%23IEnumerable%7BT%7D%23GetEnumerator%2A?displayProperty=fullName> returns a standard enumerator that does not modify the underlying collection. If other threads are adding or removing elements concurrently when GetEnumerator is called, then the elements returned by the enumerator might not represent the current state of the collection.
+  remarks: 'Unlike <xref:System.Collections.Concurrent.BlockingCollection%601.GetConsumingEnumerable%2A>, <xref:System.Collections.Concurrent.BlockingCollection%601.System%23Collections%23Generic%23IEnumerable%7BT%7D%23GetEnumerator%2A?displayProperty=fullName> returns a standard enumerator that does not modify the underlying collection. If other threads are adding or removing elements concurrently when GetEnumerator is called, then the elements returned by the enumerator might not represent the current state of the collection.'
   syntax:
     content: System.Collections.Generic.IEnumerator<T> IEnumerable<T>.GetEnumerator ();
     parameters: []
@@ -3706,7 +3706,7 @@ items:
   - System
   - netstandard
   namespace: System.Collections.Concurrent
-  summary: Copies all of the items in the <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> instance to a compatible one-dimensional array, starting at the specified index of the target array.
+  summary: 'Copies all of the items in the <xref href="System.Collections.Concurrent.BlockingCollection`1"></xref> instance to a compatible one-dimensional array, starting at the specified index of the target array.'
   syntax:
     content: void ICollection.CopyTo (Array array, int index);
     parameters:
@@ -3729,7 +3729,7 @@ items:
     description: The <code>index</code> argument is less than zero.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: The <code>index</code> argument is equal to or greater than the length of the <code>array</code>, the array is multidimensional, or the type parameter for the collection cannot be cast automatically to the type of the destination array.
+    description: 'The <code>index</code> argument is equal to or greater than the length of the <code>array</code>, the array is multidimensional, or the type parameter for the collection cannot be cast automatically to the type of the destination array.'
   version:
   - netcore-1.0
   - netcore-1.1

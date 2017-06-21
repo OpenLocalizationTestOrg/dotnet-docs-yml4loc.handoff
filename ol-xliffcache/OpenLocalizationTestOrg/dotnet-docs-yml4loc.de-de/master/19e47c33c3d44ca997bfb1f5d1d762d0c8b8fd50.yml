@@ -24,7 +24,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: Provides static methods to aid with remoting channel registration, resolution, and URL discovery. This class cannot be inherited.
+  summary: 'Provides static methods to aid with remoting channel registration, resolution, and URL discovery. This class cannot be inherited.'
   remarks: "Channels transport messages between applications across such remoting boundaries as application domains, processes, and computers. These crossings can be inbound and outbound. A channel can listen on an endpoint for inbound messages, send to an endpoint for outbound messages, or both. This provides an extensibility point in the runtime to plug in a wide range of protocols, even though the runtime might not be at the other end of the channel. Run-time objects can be used to expose a wide range of semantics and entities. The channel provides the extensibility point to convert the messages to and from the specific protocols.  \n  \n Channels must expose the <xref:System.Runtime.Remoting.Channels.IChannel> interface, which provides informational properties such as the <xref:System.Runtime.Remoting.Channels.IChannel.ChannelName%2A> and <xref:System.Runtime.Remoting.Channels.IChannel.ChannelPriority%2A>. Channels are registered using the <xref:System.Runtime.Remoting.Channels.ChannelServices.RegisterChannel%2A?displayProperty=fullName> method. Channels can also be loaded from the remoting configuration. (See [\\<channel> Element (Template)](http://msdn.microsoft.com/en-us/73399d48-f0fd-46e9-828b-6cdafde5ffce) for details.)  \n  \n On the client side, messages are handed off to the client channel sink chain after they traverse the client <xref:System.Runtime.Remoting.Contexts.Context> chain. The first channel sink is typically a <xref:System.Runtime.Remoting.Channels.IClientFormatterSink>, which serializes the message into a stream that is passed down the channel sink chain to the client transport sink. The client transport sink then writes this stream out to the wire.  \n  \n On the server side, the server transport sink reads requests off the wire and passes the request stream to the server channel sink chain. The server formatter sink at the end of this chain will deserialize the request into a message. It will then hand this message off to the remoting infrastructure, which will dispatch it to the server <xref:System.Runtime.Remoting.Contexts.Context> chain."
   syntax:
     content: >-
@@ -84,7 +84,7 @@ items:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
   summary: Asynchronously dispatches the given message to the server-side chain(s) based on the URI embedded in the message.
-  remarks: The current method returns immediately, whether the server processed the specified message or not.
+  remarks: 'The current method returns immediately, whether the server processed the specified message or not.'
   syntax:
     content: public static System.Runtime.Remoting.Messaging.IMessageCtrl AsyncDispatchMessage (System.Runtime.Remoting.Messaging.IMessage msg, System.Runtime.Remoting.Messaging.IMessageSink replySink);
     parameters:
@@ -214,7 +214,7 @@ items:
       description: The message to dispatch.
     - id: replyMsg
       type: System.Runtime.Remoting.Messaging.IMessage
-      description: When this method returns, contains a <xref href="System.Runtime.Remoting.Messaging.IMessage"></xref> that holds the reply from the server to the message that is contained in the <code>msg</code> parameter. This parameter is passed uninitialized.
+      description: 'When this method returns, contains a <xref href="System.Runtime.Remoting.Messaging.IMessage"></xref> that holds the reply from the server to the message that is contained in the <code>msg</code> parameter. This parameter is passed uninitialized.'
     return:
       type: System.Runtime.Remoting.Channels.ServerProcessing
       description: A <xref href="System.Runtime.Remoting.Channels.ServerProcessing"></xref> that gives the status of the server message processing.
@@ -280,7 +280,7 @@ items:
       description: The channel name.
     return:
       type: System.Runtime.Remoting.Channels.IChannel
-      description: An interface to a registered channel, or `null` if the channel is not registered.
+      description: 'An interface to a registered channel, or `null` if the channel is not registered.'
   overload: System.Runtime.Remoting.Channels.ChannelServices.GetChannel*
   exceptions:
   - type: System.Security.SecurityException
@@ -340,7 +340,7 @@ items:
       description: The proxy to retrieve properties for.
     return:
       type: System.Collections.IDictionary
-      description: An interface to the dictionary of properties, or `null` if no properties were found.
+      description: 'An interface to the dictionary of properties, or `null` if no properties were found.'
   overload: System.Runtime.Remoting.Channels.ChannelServices.GetChannelSinkProperties*
   exceptions:
   - type: System.Security.SecurityException
@@ -400,7 +400,7 @@ items:
       description: The object to retrieve the URL array for.
     return:
       type: System.String[]
-      description: An array of strings that contains the URLs that can be used to remotely identify the object, or `null` if none were found.
+      description: 'An array of strings that contains the URLs that can be used to remotely identify the object, or `null` if none were found.'
   overload: System.Runtime.Remoting.Channels.ChannelServices.GetUrlsForObject*
   exceptions:
   - type: System.Security.SecurityException
@@ -445,7 +445,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: Registers a channel with the channel services. <xref href="System.Runtime.Remoting.Channels.ChannelServices.RegisterChannel(System.Runtime.Remoting.Channels.IChannel)"></xref> is obsolete. Please use <xref href="System.Runtime.Remoting.Channels.ChannelServices.RegisterChannel(System.Runtime.Remoting.Channels.IChannel,System.Boolean)"></xref> instead.
+  summary: 'Registers a channel with the channel services. <xref href="System.Runtime.Remoting.Channels.ChannelServices.RegisterChannel(System.Runtime.Remoting.Channels.IChannel)"></xref> is obsolete. Please use <xref href="System.Runtime.Remoting.Channels.ChannelServices.RegisterChannel(System.Runtime.Remoting.Channels.IChannel,System.Boolean)"></xref> instead.'
   remarks: "> [!NOTE]\n>  <xref:System.Runtime.Remoting.Channels.ChannelServices.RegisterChannel%28System.Runtime.Remoting.Channels.IChannel%29> is obsolete. Please use <xref:System.Runtime.Remoting.Channels.ChannelServices.RegisterChannel%28System.Runtime.Remoting.Channels.IChannel%2CSystem.Boolean%29> instead.  \n  \n The <xref:System.Runtime.Remoting.Channels.ChannelServices.RegisterChannel%2A> method takes in the <xref:System.Runtime.Remoting.Channels.IChannel> interface from a channel object. The channel's <xref:System.Runtime.Remoting.Channels.IChannel.ChannelName%2A> must be unique, or the channel must be anonymous. A channel is anonymous if the <xref:System.Runtime.Remoting.Channels.IChannel.ChannelName%2A?displayProperty=fullName> is set to either `null` or <xref:System.String.Empty> by using the `name` configuration property.  \n  \n You cannot register two channels with the same name in a <xref:System.AppDomain>. By default, the name of a <xref:System.Runtime.Remoting.Channels.Http.HttpChannel> is \"http\" and the name of a <xref:System.Runtime.Remoting.Channels.Tcp.TcpChannel> is \"tcp.\" Therefore, if you want to register two channels of the same type, you must specify a different name for one of them through configuration properties.  \n  \n For more information about channel configuration properties, see <xref:System.Runtime.Remoting.Channels.Http.HttpChannel>, and [\\<channel> Element (Template)](http://msdn.microsoft.com/en-us/73399d48-f0fd-46e9-828b-6cdafde5ffce)."
   example:
   - >-

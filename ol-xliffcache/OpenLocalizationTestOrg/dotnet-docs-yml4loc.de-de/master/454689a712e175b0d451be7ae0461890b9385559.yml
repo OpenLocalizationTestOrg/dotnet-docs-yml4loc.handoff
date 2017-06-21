@@ -67,7 +67,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Encapsulates all HTTP-specific information about an individual HTTP request.
-  remarks: Classes that inherit the <xref:System.Web.IHttpModule> and <xref:System.Web.IHttpHandler> interfaces are provided a reference to an <xref:System.Web.HttpContext> object for the current HTTP request. The object provides access to the intrinsic <xref:System.Web.HttpContext.Request%2A>, <xref:System.Web.HttpContext.Response%2A>, and <xref:System.Web.HttpContext.Server%2A> properties for the request.
+  remarks: 'Classes that inherit the <xref:System.Web.IHttpModule> and <xref:System.Web.IHttpHandler> interfaces are provided a reference to an <xref:System.Web.HttpContext> object for the current HTTP request. The object provides access to the intrinsic <xref:System.Web.HttpContext.Request%2A>, <xref:System.Web.HttpContext.Response%2A>, and <xref:System.Web.HttpContext.Server%2A> properties for the request.'
   example:
   - "A Visual Studio Web site project with source code is available to accompany this topic: [Download](http://go.microsoft.com/fwlink/?LinkId=192422).  \n  \n The following example demonstrates how to access and display properties of the <xref:System.Web.HttpContext> object. The context of the current HTTP request is accessed by using the <xref:System.Web.UI.Page.Context%2A> property of the <xref:System.Web.UI.Page> object.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.HttpContext#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.HttpContext/cs/httpcontextcs.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.HttpContext#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.HttpContext/vb/httpcontextvb.aspx#1)]  -->"
   syntax:
@@ -211,7 +211,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Accepts an <xref href="System.Web.WebSockets.AspNetWebSocket"></xref> request using the specified user function.
-  remarks: Calling this method is equivalent to calling the <xref:System.Web.HttpContext.AcceptWebSocketRequest%2A> method overload and passing `null` for the `options` parameter.
+  remarks: 'Calling this method is equivalent to calling the <xref:System.Web.HttpContext.AcceptWebSocketRequest%2A> method overload and passing `null` for the `options` parameter.'
   syntax:
     content: public void AcceptWebSocketRequest (Func<System.Web.WebSockets.AspNetWebSocketContext,System.Threading.Tasks.Task> userFunc);
     parameters:
@@ -359,7 +359,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Raises a virtual event that occurs when the HTTP part of the request is ending.
-  remarks: This event occurs before the <xref:System.Web.WebSockets.AspNetWebSocket> connection begins.
+  remarks: 'This event occurs before the <xref:System.Web.WebSockets.AspNetWebSocket> connection begins.'
   syntax:
     content: public System.Web.ISubscriptionToken AddOnRequestCompleted (Action<System.Web.HttpContext> callback);
     parameters:
@@ -453,7 +453,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets or sets a value that indicates whether asynchronous operations are allowed during parts of ASP.NET request processing when they are not expected.
-  remarks: If this flag is not set to `true`, ASP.NET will throw an exception when it detects the application misusing the async API. This can occur if you try to call an asynchronous method during a part of the request processing pipeline where asynchronous operations are not expected, or if there is still outstanding asynchronous work when an asynchronous module or handler signals completion. This behavior is meant as a safety net to let you know early on if you're writing async code that doesn't fit expected patterns and might have negative side effects.
+  remarks: 'If this flag is not set to `true`, ASP.NET will throw an exception when it detects the application misusing the async API. This can occur if you try to call an asynchronous method during a part of the request processing pipeline where asynchronous operations are not expected, or if there is still outstanding asynchronous work when an asynchronous module or handler signals completion. This behavior is meant as a safety net to let you know early on if you''re writing async code that doesn''t fit expected patterns and might have negative side effects.'
   syntax:
     content: public bool AllowAsyncDuringSyncStages { get; set; }
     return:
@@ -550,7 +550,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The Web application is running under IIS 7.0 in Integrated mode, and an attempt was made to change the property value from a non-null value to `null`.
+    description: 'The Web application is running under IIS 7.0 in Integrated mode, and an attempt was made to change the property value from a non-null value to `null`.'
   version:
   - netframework-4.5.1
   - netframework-4.5.2
@@ -631,7 +631,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets the <xref href="System.Web.Caching.Cache"></xref> object for the current application domain.
-  remarks: There is one instance of the <xref:System.Web.Caching.Cache> class per application domain. As a result, the <xref:System.Web.Caching.Cache> object that is returned by the <xref:System.Web.HttpContext.Cache%2A> property is the <xref:System.Web.Caching.Cache> object for all requests in the application domain.
+  remarks: 'There is one instance of the <xref:System.Web.Caching.Cache> class per application domain. As a result, the <xref:System.Web.Caching.Cache> object that is returned by the <xref:System.Web.HttpContext.Cache%2A> property is the <xref:System.Web.Caching.Cache> object for all requests in the application domain.'
   syntax:
     content: public System.Web.Caching.Cache Cache { get; }
     return:
@@ -762,7 +762,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets the <xref href="System.Web.IHttpHandler"></xref> object that represents the currently executing handler.
-  remarks: The currently executing handler that is referenced by the <xref:System.Web.HttpContext.CurrentHandler%2A> property might be different than the handler that is referenced by the <xref:System.Web.HttpContext.Handler%2A> property. This can occur when another handler was requested by using the <xref:System.Web.HttpServerUtility.Execute%2A> method or the <xref:System.Web.HttpServerUtility.Transfer%2A> method. When the currently executing handler finishes processing, the previously determined handler is restored.
+  remarks: 'The currently executing handler that is referenced by the <xref:System.Web.HttpContext.CurrentHandler%2A> property might be different than the handler that is referenced by the <xref:System.Web.HttpContext.Handler%2A> property. This can occur when another handler was requested by using the <xref:System.Web.HttpServerUtility.Execute%2A> method or the <xref:System.Web.HttpServerUtility.Transfer%2A> method. When the currently executing handler finishes processing, the previously determined handler is restored.'
   syntax:
     content: public System.Web.IHttpHandler CurrentHandler { get; }
     return:
@@ -818,7 +818,7 @@ items:
   exceptions:
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: The operation requires integrated pipeline mode in [!INCLUDE[iisver](~/includes/iisver-md.md)] and at least the .NET Framework version 3.0.
+    description: 'The operation requires integrated pipeline mode in [!INCLUDE[iisver](~/includes/iisver-md.md)] and at least the .NET Framework version 3.0.'
   version:
   - netframework-4.5.1
   - netframework-4.5.2
@@ -855,7 +855,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Enables an object's <xref href="System.IDisposable.Dispose"></xref> method to be called when the <xref href="System.Web.WebSockets.AspNetWebSocket"></xref> connection part of this request is completed.
-  remarks: The <xref:System.IDisposable.Dispose%2A> method of the target object is called after both the HTTP part of the request and the <xref:System.Web.WebSockets.AspNetWebSocket> connection have ended. The <xref:System.Web.HttpContext> object is not available for inspection.
+  remarks: 'The <xref:System.IDisposable.Dispose%2A> method of the target object is called after both the HTTP part of the request and the <xref:System.Web.WebSockets.AspNetWebSocket> connection have ended. The <xref:System.Web.HttpContext> object is not available for inspection.'
   syntax:
     content: public System.Web.ISubscriptionToken DisposeOnPipelineCompleted (IDisposable target);
     parameters:
@@ -907,7 +907,7 @@ items:
     content: public Exception Error { get; }
     return:
       type: System.Exception
-      description: The first <xref href="System.Exception"></xref> for the current HTTP request/response process; otherwise, `null` if no errors were accumulated during the HTTP request processing. The default is `null`.
+      description: 'The first <xref href="System.Exception"></xref> for the current HTTP request/response process; otherwise, `null` if no errors were accumulated during the HTTP request processing. The default is `null`.'
   overload: System.Web.HttpContext.Error*
   exceptions: []
   version:
@@ -946,7 +946,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Returns requested configuration information for the current application.
-  remarks: The <xref:System.Web.HttpContext.GetAppConfig%2A> method has been deprecated. Use the <xref:System.Web.Configuration.WebConfigurationManager.GetWebApplicationSection%2A> method of the <xref:System.Web.Configuration.WebConfigurationManager> class to get configuration information for the current application.
+  remarks: 'The <xref:System.Web.HttpContext.GetAppConfig%2A> method has been deprecated. Use the <xref:System.Web.Configuration.WebConfigurationManager.GetWebApplicationSection%2A> method of the <xref:System.Web.Configuration.WebConfigurationManager> class to get configuration information for the current application.'
   syntax:
     content: >-
       [System.Obsolete("The recommended alternative is System.Web.Configuration.WebConfigurationManager.GetWebApplicationSection in System.Web.dll. http://go.microsoft.com/fwlink/?linkid=14202")]
@@ -999,7 +999,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Returns requested configuration information for the current HTTP request.
-  remarks: The <xref:System.Web.HttpContext.GetConfig%2A> method has been deprecated. Use the <xref:System.Web.HttpContext.GetSection%2A> method to get configuration information for the current HTTP request.
+  remarks: 'The <xref:System.Web.HttpContext.GetConfig%2A> method has been deprecated. Use the <xref:System.Web.HttpContext.GetSection%2A> method to get configuration information for the current HTTP request.'
   syntax:
     content: >-
       [System.Obsolete("The recommended alternative is System.Web.HttpContext.GetSection in System.Web.dll. http://go.microsoft.com/fwlink/?linkid=14202")]
@@ -1011,7 +1011,7 @@ items:
       description: The configuration tag for which information is requested.
     return:
       type: System.Object
-      description: The specified <xref href="System.Configuration.ConfigurationSection"></xref>, `null` if the section does not exist, or an internal object if the section is not accessible at run time. (Cast the returned object to the appropriate configuration type before use.)
+      description: 'The specified <xref href="System.Configuration.ConfigurationSection"></xref>, `null` if the section does not exist, or an internal object if the section is not accessible at run time. (Cast the returned object to the appropriate configuration type before use.)'
   overload: System.Web.HttpContext.GetConfig*
   exceptions: []
   attributes:
@@ -1064,7 +1064,7 @@ items:
       description: A string that represents the <xref href="System.Web.Compilation.ResourceExpressionFields.ResourceKey"></xref> property of the requested resource object.
     return:
       type: System.Object
-      description: An <xref href="System.Object"></xref> that represents the requested application-level resource object; otherwise, null if a resource object is not found or if a resource object is found but it does not have the requested property.
+      description: 'An <xref href="System.Object"></xref> that represents the requested application-level resource object; otherwise, null if a resource object is not found or if a resource object is found but it does not have the requested property.'
   overload: System.Web.HttpContext.GetGlobalResourceObject*
   exceptions:
   - type: System.Resources.MissingManifestResourceException
@@ -1105,7 +1105,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Gets an application-level resource object based on the specified <xref href="System.Web.Compilation.ResourceExpressionFields.ClassKey"></xref> and <xref href="System.Web.Compilation.ResourceExpressionFields.ResourceKey"></xref> properties, and on the <xref href="System.Globalization.CultureInfo"></xref> object.
+  summary: 'Gets an application-level resource object based on the specified <xref href="System.Web.Compilation.ResourceExpressionFields.ClassKey"></xref> and <xref href="System.Web.Compilation.ResourceExpressionFields.ResourceKey"></xref> properties, and on the <xref href="System.Globalization.CultureInfo"></xref> object.'
   remarks: "The <xref:System.Globalization.CultureInfo> object represents the culture for which the resource was localized. If the resource is not localized for this culture, the lookup will follow a fallback process to locate an appropriate resource. For more information, see [Packaging and Deploying Resources](~/docs/framework/resources/packaging-and-deploying-resources-in-desktop-apps.md).  \n  \n> [!NOTE]\n>  In some editing environments, such as Visual Web Developer, the editor might throw a design-time <xref:System.Resources.MissingManifestResourceException> exception if you use a period (.) in the global resource-key name. However, this does not affect your ability to edit or save the file, and you can ignore the error."
   syntax:
     content: public static object GetGlobalResourceObject (string classKey, string resourceKey, System.Globalization.CultureInfo culture);
@@ -1121,7 +1121,7 @@ items:
       description: A string that represents the <xref href="System.Globalization.CultureInfo"></xref> object of the requested resource.
     return:
       type: System.Object
-      description: An <xref href="System.Object"></xref> that represents the requested application-level resource object, which is localized for the specified culture; otherwise, `null` if a resource object is not found or if a resource object is found but it does not have the requested property.
+      description: 'An <xref href="System.Object"></xref> that represents the requested application-level resource object, which is localized for the specified culture; otherwise, `null` if a resource object is not found or if a resource object is found but it does not have the requested property.'
   overload: System.Web.HttpContext.GetGlobalResourceObject*
   exceptions:
   - type: System.Resources.MissingManifestResourceException
@@ -1163,7 +1163,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets a page-level resource object based on the specified <xref href="System.Web.Compilation.ExpressionBuilderContext.VirtualPath"></xref> and <xref href="System.Web.Compilation.ResourceExpressionFields.ResourceKey"></xref> properties.
-  remarks: The <xref:System.Web.HttpContext.GetLocalResourceObject%2A> method returns a local resource by using the culture that is specified in the <xref:System.Globalization.CultureInfo.CurrentUICulture%2A> property.
+  remarks: 'The <xref:System.Web.HttpContext.GetLocalResourceObject%2A> method returns a local resource by using the culture that is specified in the <xref:System.Globalization.CultureInfo.CurrentUICulture%2A> property.'
   syntax:
     content: public static object GetLocalResourceObject (string virtualPath, string resourceKey);
     parameters:
@@ -1175,7 +1175,7 @@ items:
       description: A string that represents a <xref href="System.Web.Compilation.ResourceExpressionFields.ResourceKey"></xref> property of the requested resource object
     return:
       type: System.Object
-      description: An <xref href="System.Object"></xref> that represents the requested page-level resource object; otherwise, `null` if a matching resource object is found but not a <code>resourceKey</code> parameter.
+      description: 'An <xref href="System.Object"></xref> that represents the requested page-level resource object; otherwise, `null` if a matching resource object is found but not a <code>resourceKey</code> parameter.'
   overload: System.Web.HttpContext.GetLocalResourceObject*
   exceptions:
   - type: System.Resources.MissingManifestResourceException
@@ -1222,8 +1222,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Gets a page-level resource object based on the specified <xref href="System.Web.Compilation.ExpressionBuilderContext.VirtualPath"></xref> and <xref href="System.Web.Compilation.ResourceExpressionFields.ResourceKey"></xref> properties, and on the <xref href="System.Globalization.CultureInfo"></xref> object.
-  remarks: If the resource is not localized for this culture, the lookup will follow a fallback process to locate an appropriate resource. For more information, see [Packaging and Deploying Resources](~/docs/framework/resources/packaging-and-deploying-resources-in-desktop-apps.md).
+  summary: 'Gets a page-level resource object based on the specified <xref href="System.Web.Compilation.ExpressionBuilderContext.VirtualPath"></xref> and <xref href="System.Web.Compilation.ResourceExpressionFields.ResourceKey"></xref> properties, and on the <xref href="System.Globalization.CultureInfo"></xref> object.'
+  remarks: 'If the resource is not localized for this culture, the lookup will follow a fallback process to locate an appropriate resource. For more information, see [Packaging and Deploying Resources](~/docs/framework/resources/packaging-and-deploying-resources-in-desktop-apps.md).'
   syntax:
     content: public static object GetLocalResourceObject (string virtualPath, string resourceKey, System.Globalization.CultureInfo culture);
     parameters:
@@ -1238,7 +1238,7 @@ items:
       description: A string that represents the <xref href="System.Globalization.CultureInfo"></xref> object of the requested resource object.
     return:
       type: System.Object
-      description: An <xref href="System.Object"></xref> that represents the requested local resource object, which is localized for the specified culture; otherwise `null` if a matching resource object is found but not a <code>resourceKey</code> parameter.
+      description: 'An <xref href="System.Object"></xref> that represents the requested local resource object, which is localized for the specified culture; otherwise `null` if a matching resource object is found but not a <code>resourceKey</code> parameter.'
   overload: System.Web.HttpContext.GetLocalResourceObject*
   exceptions:
   - type: System.Resources.MissingManifestResourceException
@@ -1294,7 +1294,7 @@ items:
       description: The configuration section path (in XPath format) and the configuration element name.
     return:
       type: System.Object
-      description: The specified <xref href="System.Configuration.ConfigurationSection"></xref>, `null` if the section does not exist, or an internal object if the section is not accessible at run time.
+      description: 'The specified <xref href="System.Configuration.ConfigurationSection"></xref>, `null` if the section does not exist, or an internal object if the section is not accessible at run time.'
   overload: System.Web.HttpContext.GetSection*
   exceptions: []
   version:
@@ -1475,7 +1475,7 @@ items:
   exceptions:
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: The operation requires the integrated pipeline mode in [!INCLUDE[iisver](~/includes/iisver-md.md)] and at least the .NET Framework 3.0.
+    description: 'The operation requires the integrated pipeline mode in [!INCLUDE[iisver](~/includes/iisver-md.md)] and at least the .NET Framework 3.0.'
   version:
   - netframework-4.5.1
   - netframework-4.5.2
@@ -1512,7 +1512,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets a value that indicates whether the request is an <xref href="System.Web.WebSockets.AspNetWebSocket"></xref> request.
-  remarks: This method returns `true` if the request contains the initial <xref:System.Web.WebSockets.AspNetWebSocket> handshake and the `WebSocket` module of IIS is active.
+  remarks: 'This method returns `true` if the request contains the initial <xref:System.Web.WebSockets.AspNetWebSocket> handshake and the `WebSocket` module of IIS is active.'
   syntax:
     content: public bool IsWebSocketRequest { get; }
     return:
@@ -1685,12 +1685,12 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets the <xref href="System.Web.IHttpHandler"></xref> object for the parent handler.
-  remarks: The <xref:System.Web.HttpContext.PreviousHandler%2A> property corresponds to the last handler before the current request was executed.
+  remarks: 'The <xref:System.Web.HttpContext.PreviousHandler%2A> property corresponds to the last handler before the current request was executed.'
   syntax:
     content: public System.Web.IHttpHandler PreviousHandler { get; }
     return:
       type: System.Web.IHttpHandler
-      description: An <xref href="System.Web.IHttpHandler"></xref> instance, or `null` if no previous handler was found.
+      description: 'An <xref href="System.Web.IHttpHandler"></xref> instance, or `null` if no previous handler was found.'
   overload: System.Web.HttpContext.PreviousHandler*
   exceptions: []
   version:
@@ -1729,12 +1729,12 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets the <xref href="System.Web.Profile.ProfileBase"></xref> object for the current user profile.
-  remarks: A <xref:System.Web.HttpContext.Profile%2A> property is used for persistent storage of structured data using a type-safe API. When a <xref:System.Web.HttpContext.Profile%2A> property is accessed but no value is present, an empty instance is returned; `null` is not returned.
+  remarks: 'A <xref:System.Web.HttpContext.Profile%2A> property is used for persistent storage of structured data using a type-safe API. When a <xref:System.Web.HttpContext.Profile%2A> property is accessed but no value is present, an empty instance is returned; `null` is not returned.'
   syntax:
     content: public System.Web.Profile.ProfileBase Profile { get; }
     return:
       type: System.Web.Profile.ProfileBase
-      description: A <xref href="System.Web.Profile.ProfileBase"></xref> if the application configuration file contains a definition for the profile's properties; otherwise, `null`.
+      description: 'A <xref href="System.Web.Profile.ProfileBase"></xref> if the application configuration file contains a definition for the profile''s properties; otherwise, `null`.'
   overload: System.Web.HttpContext.Profile*
   exceptions: []
   version:
@@ -1773,7 +1773,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Enables you to specify a handler for the request.
-  remarks: If you set `handler` to `null`, the default handler is used to process the request. You can set `handler` to either an asynchronous handler or to an synchronous handler. The handler must implement the <xref:System.Web.IHttpHandler> interface.
+  remarks: 'If you set `handler` to `null`, the default handler is used to process the request. You can set `handler` to either an asynchronous handler or to an synchronous handler. The handler must implement the <xref:System.Web.IHttpHandler> interface.'
   syntax:
     content: public void RemapHandler (System.Web.IHttpHandler handler);
     parameters:
@@ -1868,7 +1868,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets the <xref href="System.Web.HttpResponse"></xref> object for the current HTTP response.
-  remarks: The <xref:System.Web.HttpContext.Response%2A> property provides programmatic access to the properties and methods of the <xref:System.Web.HttpResponse> class. Because ASP.NET pages contain a default reference to the <xref:System.Web> namespace (which contains the <xref:System.Web.HttpContext> class), you can reference the members of <xref:System.Web.HttpContext> on an .aspx page without using the fully qualified class reference to <xref:System.Web.HttpContext>. For example, you can use `Response.Write("some output")` to write output to an HTTP output stream. However, if you want to use the members of <xref:System.Web.HttpResponse> from an ASP.NET code-behind module, you must include a reference to the <xref:System.Web> namespace in the module and a fully qualified reference to the currently active request/response context and the class in <xref:System.Web> that you want to use. For example, in a code-behind page you must specify the fully qualified name `HttpContext.Current.Response.Write("some output")`.
+  remarks: 'The <xref:System.Web.HttpContext.Response%2A> property provides programmatic access to the properties and methods of the <xref:System.Web.HttpResponse> class. Because ASP.NET pages contain a default reference to the <xref:System.Web> namespace (which contains the <xref:System.Web.HttpContext> class), you can reference the members of <xref:System.Web.HttpContext> on an .aspx page without using the fully qualified class reference to <xref:System.Web.HttpContext>. For example, you can use `Response.Write("some output")` to write output to an HTTP output stream. However, if you want to use the members of <xref:System.Web.HttpResponse> from an ASP.NET code-behind module, you must include a reference to the <xref:System.Web> namespace in the module and a fully qualified reference to the currently active request/response context and the class in <xref:System.Web> that you want to use. For example, in a code-behind page you must specify the fully qualified name `HttpContext.Current.Response.Write("some output")`.'
   syntax:
     content: public System.Web.HttpResponse Response { get; }
     return:
@@ -1914,7 +1914,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Rewrites the URL using the given virtual path, path information, query string information, and a Boolean value that specifies whether the client file path is set to the rewrite path.
+  summary: 'Rewrites the URL using the given virtual path, path information, query string information, and a Boolean value that specifies whether the client file path is set to the rewrite path.'
   remarks: "The `filePath` parameter does not include the content of the `pathInfo` parameter. For the URL http://www.microsoft.com/virdir/page.html/tail, the `filePath` parameter is http://www.microsoft.com/virdir/page.html, and the `pathInfo` parameter is tail.  \n  \n To ensure that the virtual path that is used to construct paths to resources is not modified, set the `setClientFilePath` parameter to `false`. A common scenario in which you might want to set `setClientFilePath` to `false` is when you need to rewrite the URL, and you are using themes and redirecting the URL to a resource located in a different folder than the requested resource.  \n  \n URL rewriting is useful when you want to restructure the pages in your Web application, and you want to make sure that people who have bookmarked old URLs can still use them after you have moved pages. URL rewriting enables you to transparently forward requests to the new page location.  \n  \n If you want to enable a site to use URLs that are more user-friendly and are optimized for search engines, a more robust alternative is to use ASP.NET routing. For more information, see [ASP.NET Routing](http://msdn.microsoft.com/library/892441af-8f1d-483e-ab5f-b82c23576f5a)."
   example:
   - For a code example, see the <xref:System.Web.HttpContext.RewritePath%28System.String%29> method overload.
@@ -1926,7 +1926,7 @@ items:
       description: The virtual path to the resource that services the request.
     - id: pathInfo
       type: System.String
-      description: Additional path information to use for the URL redirect. For more information, see <xref href="System.Web.HttpRequest.PathInfo"></xref>.
+      description: 'Additional path information to use for the URL redirect. For more information, see <xref href="System.Web.HttpRequest.PathInfo"></xref>.'
     - id: queryString
       type: System.String
       description: The request query string to use for the URL redirect.
@@ -1976,7 +1976,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Rewrites the URL by using the given path, path information, and query string information.
+  summary: 'Rewrites the URL by using the given path, path information, and query string information.'
   remarks: "The <xref:System.Web.HttpContext.RewritePath%2A> method redirects a request for a resource to another resource without changing the URL.  \n  \n The `filePath` parameter does not include the `pathInfo` parameter content. For the URL http://www.microsoft.com/virdir/page.html/tail, the `filePath` parameter is http://www.microsoft.com/virdir/page.html, and the `pathInfo` parameter is tail.  \n  \n URL rewriting is useful when you want to restructure the pages in your Web application, and you want to make sure that people who have bookmarked old URLs can still use them after you have moved pages. URL rewriting enables you to transparently forward requests to the new page location.  \n  \n If you want to enable a site to use URLs that are more user-friendly and are optimized for search engines, a more robust alternative is to use ASP.NET routing. For more information, see [ASP.NET Routing](http://msdn.microsoft.com/library/892441af-8f1d-483e-ab5f-b82c23576f5a)."
   example:
   - For a code example, including an example of this method overload, see the <xref:System.Web.HttpContext.RewritePath%28System.String%29> method overload.
@@ -1988,7 +1988,7 @@ items:
       description: The internal rewrite path.
     - id: pathInfo
       type: System.String
-      description: Additional path information for a resource. For more information, see <xref href="System.Web.HttpRequest.PathInfo"></xref>.
+      description: 'Additional path information for a resource. For more information, see <xref href="System.Web.HttpRequest.PathInfo"></xref>.'
     - id: queryString
       type: System.String
       description: The request query string.
@@ -2145,7 +2145,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets the <xref href="System.Web.HttpServerUtility"></xref> object that provides methods used in processing Web requests.
-  remarks: The <xref:System.Web.HttpContext.Server%2A> property provides programmatic access to the properties and methods of the <xref:System.Web.HttpServerUtility> class. Because ASP.NET pages contain a default reference to the <xref:System.Web> namespace (which contains the <xref:System.Web.HttpContext> class), you can reference the members of <xref:System.Web.HttpContext> on an .aspx page without using the fully qualified class reference to <xref:System.Web.HttpContext>. For example, you can use `Server.CreateObject("MyCOMComponent")` to create an instance of a COM object on the server. However, if you want to use the members of <xref:System.Web.HttpServerUtility> from an ASP.NET code-behind module, you must include a reference to the <xref:System.Web> namespace in the module and a fully qualified reference to both the currently active request/response context and the class in <xref:System.Web> that you want to use. For example, in a code-behind page you must specify the fully qualified name `HttpContext.Current.Server.CreateObject("MyCOMComponent")`.
+  remarks: 'The <xref:System.Web.HttpContext.Server%2A> property provides programmatic access to the properties and methods of the <xref:System.Web.HttpServerUtility> class. Because ASP.NET pages contain a default reference to the <xref:System.Web> namespace (which contains the <xref:System.Web.HttpContext> class), you can reference the members of <xref:System.Web.HttpContext> on an .aspx page without using the fully qualified class reference to <xref:System.Web.HttpContext>. For example, you can use `Server.CreateObject("MyCOMComponent")` to create an instance of a COM object on the server. However, if you want to use the members of <xref:System.Web.HttpServerUtility> from an ASP.NET code-behind module, you must include a reference to the <xref:System.Web> namespace in the module and a fully qualified reference to both the currently active request/response context and the class in <xref:System.Web> that you want to use. For example, in a code-behind page you must specify the fully qualified name `HttpContext.Current.Server.CreateObject("MyCOMComponent")`.'
   syntax:
     content: public System.Web.HttpServerUtility Server { get; }
     return:
@@ -2283,7 +2283,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets or sets a value that specifies whether the <xref href="System.Web.Security.UrlAuthorizationModule"></xref> object should skip the authorization check for the current request.
-  remarks: The <xref:System.Web.HttpContext.SkipAuthorization%2A> property is intended for advanced use by authentication modules that need to redirect to a page that allows anonymous connections. The Forms authentication module and Passport authentication module both set <xref:System.Web.HttpContext.SkipAuthorization%2A> when redirecting to a configured logon page. Setting <xref:System.Web.HttpContext.SkipAuthorization%2A> requires the `ControlPrincipal` flag to be set. For information about the `ControlPrincipal` flag, see <xref:System.Security.Permissions.SecurityPermissionFlag>.
+  remarks: 'The <xref:System.Web.HttpContext.SkipAuthorization%2A> property is intended for advanced use by authentication modules that need to redirect to a page that allows anonymous connections. The Forms authentication module and Passport authentication module both set <xref:System.Web.HttpContext.SkipAuthorization%2A> when redirecting to a configured logon page. Setting <xref:System.Web.HttpContext.SkipAuthorization%2A> requires the `ControlPrincipal` flag to be set. For information about the `ControlPrincipal` flag, see <xref:System.Security.Permissions.SecurityPermissionFlag>.'
   syntax:
     content: public bool SkipAuthorization { get; set; }
     return:
@@ -2371,7 +2371,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets the initial timestamp of the current HTTP request.
-  remarks: The timestamp returned from the <xref:System.Web.HttpContext.Timestamp%2A> property is the local time of the server and is set during the instantiation of the <xref:System.Web.HttpContext> object. The local time is equal to the UTC time plus the UTC offset.
+  remarks: 'The timestamp returned from the <xref:System.Web.HttpContext.Timestamp%2A> property is the local time of the server and is set during the instantiation of the <xref:System.Web.HttpContext> object. The local time is equal to the UTC time plus the UTC offset.'
   syntax:
     content: public DateTime Timestamp { get; }
     return:
@@ -2551,7 +2551,7 @@ items:
     content: public System.Collections.Generic.IList<string> WebSocketRequestedProtocols { get; }
     return:
       type: System.Collections.Generic.IList{System.String}
-      description: The requested protocols, or `null` if this is not an <xref href="System.Web.WebSockets.AspNetWebSocket"></xref> request or if no list is present.
+      description: 'The requested protocols, or `null` if this is not an <xref href="System.Web.WebSockets.AspNetWebSocket"></xref> request or if no list is present.'
   overload: System.Web.HttpContext.WebSocketRequestedProtocols*
   exceptions: []
   version:
@@ -2591,7 +2591,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Returns an object for the current service type.
-  remarks: This method is useful to gain access to the underlying <xref:System.Web.HttpWorkerRequest> object.
+  remarks: 'This method is useful to gain access to the underlying <xref:System.Web.HttpWorkerRequest> object.'
   syntax:
     content: object IServiceProvider.GetService (Type service);
     parameters:
@@ -2600,7 +2600,7 @@ items:
       description: A type of <xref href="System.Web.HttpContext"></xref> service to set the service provider to.
     return:
       type: System.Object
-      description: A <xref href="System.Web.HttpContext"></xref>; otherwise, `null` if no service is found.
+      description: 'A <xref href="System.Web.HttpContext"></xref>; otherwise, `null` if no service is found.'
   overload: System.Web.HttpContext.System#IServiceProvider#GetService*
   exceptions: []
   version:

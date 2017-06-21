@@ -265,7 +265,7 @@ items:
   - System.Data
   - System.Data.Odbc
   namespace: System.Data.Odbc
-  summary: Initializes a new instance of the <xref href="System.Data.Odbc.OdbcCommand"></xref> class with the text of the query, an <xref href="System.Data.Odbc.OdbcConnection"></xref> object, and the <xref href="System.Data.Odbc.OdbcCommand.Transaction"></xref>.
+  summary: 'Initializes a new instance of the <xref href="System.Data.Odbc.OdbcCommand"></xref> class with the text of the query, an <xref href="System.Data.Odbc.OdbcConnection"></xref> object, and the <xref href="System.Data.Odbc.OdbcCommand.Transaction"></xref>.'
   remarks: "The following table shows initial property values for an instance of this implementation of the <xref:System.Data.Odbc.OdbcCommand>.  \n  \n|Properties|Initial Value|  \n|----------------|-------------------|  \n|<xref:System.Data.Odbc.OdbcCommand.CommandText%2A>|`cmdText`|  \n|<xref:System.Data.Odbc.OdbcCommand.CommandTimeout%2A>|30|  \n|<xref:System.Data.Odbc.OdbcCommand.CommandType%2A>|`Text`|  \n|<xref:System.Data.Odbc.OdbcCommand.Connection%2A>|A new <xref:System.Data.Odbc.OdbcConnection> that is the value for the `connection` parameter.|  \n  \n You can change the value for any one of these parameters by setting the related property."
   syntax:
     content: public OdbcCommand (string cmdText, System.Data.Odbc.OdbcConnection connection, System.Data.Odbc.OdbcTransaction transaction);
@@ -419,7 +419,7 @@ items:
   - System.Data.Odbc
   namespace: System.Data.Odbc
   summary: Gets or sets the wait time before terminating an attempt to execute a command and generating an error.
-  remarks: A value of zero (0) specifies no limit to the wait time, instead of no wait time, and therefore should be avoided.
+  remarks: 'A value of zero (0) specifies no limit to the wait time, instead of no wait time, and therefore should be avoided.'
   syntax:
     content: public override int CommandTimeout { get; set; }
     return:
@@ -617,7 +617,7 @@ items:
   - System.Data.Odbc
   namespace: System.Data.Odbc
   summary: Creates a new instance of an <xref href="System.Data.Odbc.OdbcParameter"></xref> object.
-  remarks: The <xref:System.Data.Odbc.OdbcCommand.CreateParameter%2A> method is a strongly-typed version of <xref:System.Data.IDbCommand.CreateParameter%2A>.
+  remarks: 'The <xref:System.Data.Odbc.OdbcCommand.CreateParameter%2A> method is a strongly-typed version of <xref:System.Data.IDbCommand.CreateParameter%2A>.'
   syntax:
     content: public System.Data.Odbc.OdbcParameter CreateParameter ();
     parameters: []
@@ -941,7 +941,7 @@ items:
     parameters: []
     return:
       type: System.Int32
-      description: For UPDATE, INSERT, and DELETE statements, the return value is the number of rows affected by the command. For all other types of statements, the return value is -1.
+      description: 'For UPDATE, INSERT, and DELETE statements, the return value is the number of rows affected by the command. For all other types of statements, the return value is -1.'
   overload: System.Data.Odbc.OdbcCommand.ExecuteNonQuery*
   exceptions:
   - type: System.InvalidOperationException
@@ -1037,7 +1037,7 @@ items:
   - System.Data
   - System.Data.Odbc
   namespace: System.Data.Odbc
-  summary: Sends the <xref href="System.Data.Odbc.OdbcCommand.CommandText"></xref> to the <xref href="System.Data.Odbc.OdbcCommand.Connection"></xref>, and builds an <xref href="System.Data.Odbc.OdbcDataReader"></xref> using one of the `CommandBehavior` values.
+  summary: 'Sends the <xref href="System.Data.Odbc.OdbcCommand.CommandText"></xref> to the <xref href="System.Data.Odbc.OdbcCommand.Connection"></xref>, and builds an <xref href="System.Data.Odbc.OdbcDataReader"></xref> using one of the `CommandBehavior` values.'
   remarks: "If you expect your SQL statement to return only a single row, specifying `SingleRow` as the <xref:System.Data.CommandBehavior> value may improve application performance.  \n  \n You should set the <xref:System.Data.Odbc.OdbcCommand.CommandText%2A> property to the full ODBC call syntax for stored procedures. The command executes this stored procedure when you call <xref:System.Data.Odbc.OdbcCommand.ExecuteReader%2A>.  \n  \n The <xref:System.Data.Odbc.OdbcDataReader> supports a special mode that enables large binary values to be read efficiently. For more information, see the `SequentialAccess` setting for <xref:System.Data.CommandBehavior>.  \n  \n> [!NOTE]\n>  The `SequentialAccess` value of <xref:System.Data.CommandBehavior> is not a limiting setting; it just means that you will have at least sequential access to the <xref:System.Data.Odbc.OdbcDataReader>. For example, when you use the SQL Server ODBC Driver in `SequentialAccess` mode, you can still move to the first column of an <xref:System.Data.Odbc.OdbcDataReader> row after having read through all the other columns sequentially.  \n  \n While the <xref:System.Data.Odbc.OdbcDataReader> is used, the associated <xref:System.Data.Odbc.OdbcConnection> is busy serving the <xref:System.Data.Odbc.OdbcDataReader>. While in this state, no other operations can be performed on the <xref:System.Data.Odbc.OdbcConnection> other than closing it. This is the case until you call the <xref:System.Data.Odbc.OdbcDataReader.Close%2A?displayProperty=fullName> method. If the <xref:System.Data.Odbc.OdbcDataReader> is created with <xref:System.Data.CommandBehavior> set to `CloseConnection`, closing the <xref:System.Data.Odbc.OdbcDataReader> closes the connection automatically."
   syntax:
     content: public System.Data.Odbc.OdbcDataReader ExecuteReader (System.Data.CommandBehavior behavior);
@@ -1090,14 +1090,14 @@ items:
   - System.Data
   - System.Data.Odbc
   namespace: System.Data.Odbc
-  summary: Executes the query, and returns the first column of the first row in the result set returned by the query. Additional columns or rows are ignored.
-  remarks: Use the <xref:System.Data.Odbc.OdbcCommand.ExecuteScalar%2A> method to retrieve a single value (for example, an aggregate value) from a data source. This requires less code than using the <xref:System.Data.Odbc.OdbcCommand.ExecuteReader%2A> method, and then performing the operations required to generate the single value from the data returned by an <xref:System.Data.Odbc.OdbcDataReader>.
+  summary: 'Executes the query, and returns the first column of the first row in the result set returned by the query. Additional columns or rows are ignored.'
+  remarks: 'Use the <xref:System.Data.Odbc.OdbcCommand.ExecuteScalar%2A> method to retrieve a single value (for example, an aggregate value) from a data source. This requires less code than using the <xref:System.Data.Odbc.OdbcCommand.ExecuteReader%2A> method, and then performing the operations required to generate the single value from the data returned by an <xref:System.Data.Odbc.OdbcDataReader>.'
   syntax:
     content: public override object ExecuteScalar ();
     parameters: []
     return:
       type: System.Object
-      description: The first column of the first row in the result set, or a null reference if the result set is empty.
+      description: 'The first column of the first row in the result set, or a null reference if the result set is empty.'
   overload: System.Data.Odbc.OdbcCommand.ExecuteScalar*
   exceptions: []
   version:
@@ -1241,7 +1241,7 @@ items:
   - System.Data.Odbc
   namespace: System.Data.Odbc
   summary: Resets the <xref href="System.Data.Odbc.OdbcCommand.CommandTimeout"></xref> property to the default value.
-  remarks: The default value of the <xref:System.Data.Odbc.OdbcCommand.CommandTimeout%2A> is 30 seconds.
+  remarks: 'The default value of the <xref:System.Data.Odbc.OdbcCommand.CommandTimeout%2A> is 30 seconds.'
   syntax:
     content: public void ResetCommandTimeout ();
     parameters: []
@@ -1288,7 +1288,7 @@ items:
   - System.Data.Odbc
   namespace: System.Data.Odbc
   summary: Gets or sets the <xref href="System.Data.Odbc.OdbcTransaction"></xref> within which the <xref href="System.Data.Odbc.OdbcCommand"></xref> executes.
-  remarks: You cannot set the <xref:System.Data.Odbc.OdbcCommand.Transaction%2A> property if it is already set to a specific value, and the command is in the process of executing. If you set the transaction property to an <xref:System.Data.Odbc.OdbcTransaction> object that is not connected to the same <xref:System.Data.Odbc.OdbcConnection> as the <xref:System.Data.Odbc.OdbcCommand> object, an exception will be thrown the next time that you try to execute a statement.
+  remarks: 'You cannot set the <xref:System.Data.Odbc.OdbcCommand.Transaction%2A> property if it is already set to a specific value, and the command is in the process of executing. If you set the transaction property to an <xref:System.Data.Odbc.OdbcTransaction> object that is not connected to the same <xref:System.Data.Odbc.OdbcConnection> as the <xref:System.Data.Odbc.OdbcCommand> object, an exception will be thrown the next time that you try to execute a statement.'
   syntax:
     content: >-
       [System.ComponentModel.Browsable(false)]
@@ -1392,8 +1392,8 @@ items:
   - System.Data
   - System.Data.Odbc
   namespace: System.Data.Odbc
-  summary: For a description of this member, see <xref href="System.ICloneable.Clone"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.Odbc.OdbcCommand> instance is cast to an <xref:InterfaceName> interface.
+  summary: 'For a description of this member, see <xref href="System.ICloneable.Clone"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.Odbc.OdbcCommand> instance is cast to an <xref:InterfaceName> interface.'
   syntax:
     content: object ICloneable.Clone ();
     parameters: []

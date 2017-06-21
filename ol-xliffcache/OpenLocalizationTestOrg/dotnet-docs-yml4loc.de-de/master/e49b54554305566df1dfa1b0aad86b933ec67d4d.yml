@@ -74,7 +74,7 @@ items:
   - System.Web
   namespace: System.Web.UI
   summary: Initializes a new instance of the <xref href="System.Web.UI.PageAsyncTask"></xref> class using an event handler that enables the task to be canceled.
-  remarks: This constructor wraps a <xref:System.Web.TaskEventHandler> delegate so that the <xref:System.Web.UI.PageAsyncTask> object can integrate asynchronous code (based on <xref:System.Threading.Tasks.Task> objects) with the existing ASP.NET Web Forms asynchronous pages feature. ASP.NET will signal the <xref:System.Threading.CancellationToken> object that is passed to a <xref:System.Web.TaskEventHandler> delegate for cancellation based on the <xref:System.Web.UI.Page.AsyncTimeout%2A> attribute set in the `@ Page` directive of the Web page. When the <xref:System.Web.UI.Page.AsyncTimeout%2A> value has been reached, the <xref:System.Threading.CancellationToken> object will be signaled. The `CancellationToken` parameter must be passed to any asynchronous APIs that are called by your implementation of the <xref:System.Web.TaskEventHandler> class.
+  remarks: 'This constructor wraps a <xref:System.Web.TaskEventHandler> delegate so that the <xref:System.Web.UI.PageAsyncTask> object can integrate asynchronous code (based on <xref:System.Threading.Tasks.Task> objects) with the existing ASP.NET Web Forms asynchronous pages feature. ASP.NET will signal the <xref:System.Threading.CancellationToken> object that is passed to a <xref:System.Web.TaskEventHandler> delegate for cancellation based on the <xref:System.Web.UI.Page.AsyncTimeout%2A> attribute set in the `@ Page` directive of the Web page. When the <xref:System.Web.UI.Page.AsyncTimeout%2A> value has been reached, the <xref:System.Threading.CancellationToken> object will be signaled. The `CancellationToken` parameter must be passed to any asynchronous APIs that are called by your implementation of the <xref:System.Web.TaskEventHandler> class.'
   syntax:
     content: public PageAsyncTask (Func<System.Threading.CancellationToken,System.Threading.Tasks.Task> handler);
     parameters:
@@ -161,7 +161,7 @@ items:
   - System.Web
   namespace: System.Web.UI
   summary: Initializes a new instance of the <xref href="System.Web.UI.PageAsyncTask"></xref> class using the default value for executing in parallel.
-  remarks: This implementation of the constructor sets the <xref:System.Web.UI.PageAsyncTask.ExecuteInParallel%2A> property to `false` so the asynchronous task is not processed in parallel with other tasks on the page.
+  remarks: 'This implementation of the constructor sets the <xref:System.Web.UI.PageAsyncTask.ExecuteInParallel%2A> property to `false` so the asynchronous task is not processed in parallel with other tasks on the page.'
   syntax:
     content: public PageAsyncTask (System.Web.BeginEventHandler beginHandler, System.Web.EndEventHandler endHandler, System.Web.EndEventHandler timeoutHandler, object state);
     parameters:
@@ -278,7 +278,7 @@ items:
   - System.Web
   namespace: System.Web.UI
   summary: Gets the method to call when beginning an asynchronous task.
-  remarks: The <xref:System.Web.UI.PageAsyncTask.BeginHandler%2A> delegate is set in the constructor.
+  remarks: 'The <xref:System.Web.UI.PageAsyncTask.BeginHandler%2A> delegate is set in the constructor.'
   example:
   - "The following code example registers three asynchronous tasks to a page and executes them in parallel. Each task calls a method that merely causes the thread to sleep for 5 seconds. A <xref:System.Web.UI.PageAsyncTask.BeginHandler%2A> delegate is specified for each task.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.UI.PageAsyncTask#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.PageAsyncTask/CS/page_asynctask.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.UI.PageAsyncTask#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.PageAsyncTask/VB/page_asynctask.aspx#1)]  -->  \n  \n [!code-csharp[System.Web.UI.PageAsyncTask#2](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.PageAsyncTask/CS/App_Code/SlowTask.cs#2)]\n [!code-vb[System.Web.UI.PageAsyncTask#2](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.PageAsyncTask/VB/App_Code/SlowTask.vb#2)]"
   syntax:
@@ -323,7 +323,7 @@ items:
   - System.Web
   namespace: System.Web.UI
   summary: Gets the method to call when the task completes successfully within the time-out period.
-  remarks: The <xref:System.Web.UI.PageAsyncTask.EndHandler%2A> delegate is set in the constructor.
+  remarks: 'The <xref:System.Web.UI.PageAsyncTask.EndHandler%2A> delegate is set in the constructor.'
   example:
   - "The following code example registers three asynchronous tasks to a page and executes them in parallel. Each task calls a method that merely causes the thread to sleep for 5 seconds. An <xref:System.Web.UI.PageAsyncTask.EndHandler%2A> delegate is specified for each task.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.UI.PageAsyncTask#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.PageAsyncTask/CS/page_asynctask.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.UI.PageAsyncTask#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.PageAsyncTask/VB/page_asynctask.aspx#1)]  -->  \n  \n [!code-csharp[System.Web.UI.PageAsyncTask#2](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.PageAsyncTask/CS/App_Code/SlowTask.cs#2)]\n [!code-vb[System.Web.UI.PageAsyncTask#2](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.PageAsyncTask/VB/App_Code/SlowTask.vb#2)]"
   syntax:
@@ -368,7 +368,7 @@ items:
   - System.Web
   namespace: System.Web.UI
   summary: Gets a value that indicates whether the task can be processed in parallel with other tasks.
-  remarks: The <xref:System.Web.UI.PageAsyncTask.ExecuteInParallel%2A> property is set in the constructor. When multiple tasks are registered in a page and the <xref:System.Web.UI.PageAsyncTask.ExecuteInParallel%2A> property is set to `true`, then those tasks are processed concurrently. However, if the <xref:System.Web.UI.PageAsyncTask.ExecuteInParallel%2A> property is set to `false`, then those tasks are processed sequentially. For example, if a page contained two asynchronous tasks that each took 5 seconds to complete and <xref:System.Web.UI.PageAsyncTask.ExecuteInParallel%2A> is set to `true`, both tasks will complete in 5 seconds. If <xref:System.Web.UI.PageAsyncTask.ExecuteInParallel%2A> is set to `false` for these same two tasks, then the first task will complete in 5 seconds and the second task will complete 5 seconds after the completion of the first task.
+  remarks: 'The <xref:System.Web.UI.PageAsyncTask.ExecuteInParallel%2A> property is set in the constructor. When multiple tasks are registered in a page and the <xref:System.Web.UI.PageAsyncTask.ExecuteInParallel%2A> property is set to `true`, then those tasks are processed concurrently. However, if the <xref:System.Web.UI.PageAsyncTask.ExecuteInParallel%2A> property is set to `false`, then those tasks are processed sequentially. For example, if a page contained two asynchronous tasks that each took 5 seconds to complete and <xref:System.Web.UI.PageAsyncTask.ExecuteInParallel%2A> is set to `true`, both tasks will complete in 5 seconds. If <xref:System.Web.UI.PageAsyncTask.ExecuteInParallel%2A> is set to `false` for these same two tasks, then the first task will complete in 5 seconds and the second task will complete 5 seconds after the completion of the first task.'
   example:
   - "The following code example defines three asynchronous tasks that are each set to be processed in parallel. This example is part of a larger example found in the <xref:System.Web.UI.PageAsyncTask> class overview.  \n  \n [!code-csharp[System.Web.UI.PageAsyncTask#3](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.PageAsyncTask/CS/page_asynctask.aspx#3)]\n [!code-vb[System.Web.UI.PageAsyncTask#3](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.PageAsyncTask/VB/page_asynctask.aspx#3)]"
   syntax:
@@ -413,7 +413,7 @@ items:
   - System.Web
   namespace: System.Web.UI
   summary: Gets an object that represents the state of the task.
-  remarks: The <xref:System.Web.UI.PageAsyncTask.State%2A> property is set in the constructor and cannot be modified during execution of the asynchronous task. You can differentiate asynchronous tasks in a page by assigning unique string values to their respective <xref:System.Web.UI.PageAsyncTask.State%2A> properties.
+  remarks: 'The <xref:System.Web.UI.PageAsyncTask.State%2A> property is set in the constructor and cannot be modified during execution of the asynchronous task. You can differentiate asynchronous tasks in a page by assigning unique string values to their respective <xref:System.Web.UI.PageAsyncTask.State%2A> properties.'
   example:
   - "The following code example creates three asynchronous tasks and gives them unique values for their <xref:System.Web.UI.PageAsyncTask.State%2A> properties. This example is part of a larger example found in the <xref:System.Web.UI.PageAsyncTask> class overview.  \n  \n [!code-csharp[System.Web.UI.PageAsyncTask#3](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.PageAsyncTask/CS/page_asynctask.aspx#3)]\n [!code-vb[System.Web.UI.PageAsyncTask#3](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.PageAsyncTask/VB/page_asynctask.aspx#3)]"
   syntax:
@@ -458,7 +458,7 @@ items:
   - System.Web
   namespace: System.Web.UI
   summary: Gets the method to call when the task does not complete successfully within the time-out period.
-  remarks: The <xref:System.Web.UI.PageAsyncTask.TimeoutHandler%2A> delegate is set in the constructor.
+  remarks: 'The <xref:System.Web.UI.PageAsyncTask.TimeoutHandler%2A> delegate is set in the constructor.'
   example:
   - "The following code example registers three asynchronous tasks to a page and executes them in parallel. Each task calls a method that merely causes the thread to sleep for 5 seconds. A <xref:System.Web.UI.PageAsyncTask.TimeoutHandler%2A> delegate is specified for each task.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.UI.PageAsyncTask#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.PageAsyncTask/CS/page_asynctask.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.UI.PageAsyncTask#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.PageAsyncTask/VB/page_asynctask.aspx#1)]  -->  \n  \n [!code-csharp[System.Web.UI.PageAsyncTask#2](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.PageAsyncTask/CS/App_Code/SlowTask.cs#2)]\n [!code-vb[System.Web.UI.PageAsyncTask#2](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.PageAsyncTask/VB/App_Code/SlowTask.vb#2)]"
   syntax:

@@ -298,10 +298,10 @@ items:
     parameters:
     - id: binder
       type: System.Dynamic.BinaryOperationBinder
-      description: Provides information about the binary operation. The <code>binder.Operation</code> property returns an <xref href="System.Linq.Expressions.ExpressionType"></xref> object. For example, for the <code>sum = first + second</code> statement, where <code>first</code> and <code>second</code> are derived from the `DynamicObject` class, <code>binder.Operation</code> returns <code>ExpressionType.Add</code>.
+      description: 'Provides information about the binary operation. The <code>binder.Operation</code> property returns an <xref href="System.Linq.Expressions.ExpressionType"></xref> object. For example, for the <code>sum = first + second</code> statement, where <code>first</code> and <code>second</code> are derived from the `DynamicObject` class, <code>binder.Operation</code> returns <code>ExpressionType.Add</code>.'
     - id: arg
       type: System.Object
-      description: The right operand for the binary operation. For example, for the <code>sum = first + second</code> statement, where <code>first</code> and <code>second</code> are derived from the `DynamicObject` class, <code>arg</code> is equal to <code>second</code>.
+      description: 'The right operand for the binary operation. For example, for the <code>sum = first + second</code> statement, where <code>first</code> and <code>second</code> are derived from the `DynamicObject` class, <code>arg</code> is equal to <code>second</code>.'
     - id: result
       type: System.Object
       description: The result of the binary operation.
@@ -371,7 +371,7 @@ items:
     parameters:
     - id: binder
       type: System.Dynamic.ConvertBinder
-      description: Provides information about the conversion operation. The <code>binder.Type</code> property provides the type to which the object must be converted. For example, for the statement <code>(String)sampleObject</code> in C# (<code>CType(sampleObject, Type)</code> in Visual Basic), where <code>sampleObject</code> is an instance of the class derived from the <xref href="System.Dynamic.DynamicObject"></xref> class, <code>binder.Type</code> returns the <xref href="System.String"></xref> type. The <code>binder.Explicit</code> property provides information about the kind of conversion that occurs. It returns `true` for explicit conversion and `false` for implicit conversion.
+      description: 'Provides information about the conversion operation. The <code>binder.Type</code> property provides the type to which the object must be converted. For example, for the statement <code>(String)sampleObject</code> in C# (<code>CType(sampleObject, Type)</code> in Visual Basic), where <code>sampleObject</code> is an instance of the class derived from the <xref href="System.Dynamic.DynamicObject"></xref> class, <code>binder.Type</code> returns the <xref href="System.String"></xref> type. The <code>binder.Explicit</code> property provides information about the kind of conversion that occurs. It returns `true` for explicit conversion and `false` for implicit conversion.'
     - id: result
       type: System.Object
       description: The result of the type conversion operation.
@@ -432,7 +432,7 @@ items:
   - netstandard
   - System.Linq.Expressions
   namespace: System.Dynamic
-  summary: Provides the implementation for operations that initialize a new instance of a dynamic object. This method is not intended for use in C# or Visual Basic.
+  summary: 'Provides the implementation for operations that initialize a new instance of a dynamic object. This method is not intended for use in C# or Visual Basic.'
   remarks: "Classes derived from the <xref:System.Dynamic.DynamicObject> class can override this method to specify how a new instance of the dynamic object should be initialized. When the method is not overridden, the run-time binder of the language determines the behavior. (In most cases, a language-specific run-time exception is thrown.)  \n  \n C# and Visual Basic compilers never emit code to use this method because they do not support first-class types. This method is intended for languages that support the initialization of dynamic objects by using syntax like `dynamic new`."
   syntax:
     content: public virtual bool TryCreateInstance (System.Dynamic.CreateInstanceBinder binder, object[] args, out object result);
@@ -442,7 +442,7 @@ items:
       description: Provides information about the initialization operation.
     - id: args
       type: System.Object[]
-      description: The arguments that are passed to the object during initialization. For example, for the <code>new SampleType(100)</code> operation, where <code>SampleType</code> is the type derived from the <xref href="System.Dynamic.DynamicObject"></xref> class, <code>args[0]</code> is equal to 100.
+      description: 'The arguments that are passed to the object during initialization. For example, for the <code>new SampleType(100)</code> operation, where <code>SampleType</code> is the type derived from the <xref href="System.Dynamic.DynamicObject"></xref> class, <code>args[0]</code> is equal to 100.'
     - id: result
       type: System.Object
       description: The result of the initialization.
@@ -503,7 +503,7 @@ items:
   - netstandard
   - System.Linq.Expressions
   namespace: System.Dynamic
-  summary: Provides the implementation for operations that delete an object by index. This method is not intended for use in C# or Visual Basic.
+  summary: 'Provides the implementation for operations that delete an object by index. This method is not intended for use in C# or Visual Basic.'
   remarks: "Classes derived from the <xref:System.Dynamic.DynamicObject> class can override this method to specify how a value that has a specified index should be deleted. When the method is not overridden, the run-time binder of the language determines the behavior. (In most cases, a language-specific run-time exception is thrown.)  \n  \n C# and Visual Basic compilers never emit code to use this method because they do not support this kind of operation. This method is intended for languages that support syntax for deleting objects by index, such as `del sampleObject[1,2]` in Python."
   syntax:
     content: public virtual bool TryDeleteIndex (System.Dynamic.DeleteIndexBinder binder, object[] indexes);
@@ -570,7 +570,7 @@ items:
   - netstandard
   - System.Linq.Expressions
   namespace: System.Dynamic
-  summary: Provides the implementation for operations that delete an object member. This method is not intended for use in C# or Visual Basic.
+  summary: 'Provides the implementation for operations that delete an object member. This method is not intended for use in C# or Visual Basic.'
   remarks: "Classes derived from the <xref:System.Dynamic.DynamicObject> class can override this method to specify how an object member should be deleted. When this method is not overridden, the run-time binder of the language determines the behavior. (In most cases, a language-specific run-time exception is thrown.)  \n  \n C# and Visual Basic compilers never emit code to use this method because they do not support this kind of operation. This method is intended for languages that support syntax for deleting members, such as `del sampleObject.SampleMember` in Python."
   syntax:
     content: public virtual bool TryDeleteMember (System.Dynamic.DeleteMemberBinder binder);
@@ -647,7 +647,7 @@ items:
       description: Provides information about the operation.
     - id: indexes
       type: System.Object[]
-      description: The indexes that are used in the operation. For example, for the <code>sampleObject[3]</code> operation in C# (<code>sampleObject(3)</code> in Visual Basic), where <code>sampleObject</code> is derived from the `DynamicObject` class, <code>indexes[0]</code> is equal to 3.
+      description: 'The indexes that are used in the operation. For example, for the <code>sampleObject[3]</code> operation in C# (<code>sampleObject(3)</code> in Visual Basic), where <code>sampleObject</code> is derived from the `DynamicObject` class, <code>indexes[0]</code> is equal to 3.'
     - id: result
       type: System.Object
       description: The result of the index operation.
@@ -717,10 +717,10 @@ items:
     parameters:
     - id: binder
       type: System.Dynamic.GetMemberBinder
-      description: Provides information about the object that called the dynamic operation. The <code>binder.Name</code> property provides the name of the member on which the dynamic operation is performed. For example, for the <code>Console.WriteLine(sampleObject.SampleProperty)</code> statement, where <code>sampleObject</code> is an instance of the class derived from the <xref href="System.Dynamic.DynamicObject"></xref> class, <code>binder.Name</code> returns "SampleProperty". The <code>binder.IgnoreCase</code> property specifies whether the member name is case-sensitive.
+      description: 'Provides information about the object that called the dynamic operation. The <code>binder.Name</code> property provides the name of the member on which the dynamic operation is performed. For example, for the <code>Console.WriteLine(sampleObject.SampleProperty)</code> statement, where <code>sampleObject</code> is an instance of the class derived from the <xref href="System.Dynamic.DynamicObject"></xref> class, <code>binder.Name</code> returns "SampleProperty". The <code>binder.IgnoreCase</code> property specifies whether the member name is case-sensitive.'
     - id: result
       type: System.Object
-      description: The result of the get operation. For example, if the method is called for a property, you can assign the property value to <code>result</code>.
+      description: 'The result of the get operation. For example, if the method is called for a property, you can assign the property value to <code>result</code>.'
     return:
       type: System.Boolean
       description: '`true` if the operation is successful; otherwise, `false`. If this method returns `false`, the run-time binder of the language determines the behavior. (In most cases, a run-time exception is thrown.)'
@@ -790,7 +790,7 @@ items:
       description: Provides information about the invoke operation.
     - id: args
       type: System.Object[]
-      description: The arguments that are passed to the object during the invoke operation. For example, for the <code>sampleObject(100)</code> operation, where <code>sampleObject</code> is derived from the <xref href="System.Dynamic.DynamicObject"></xref> class, <code>args[0]</code> is equal to 100.
+      description: 'The arguments that are passed to the object during the invoke operation. For example, for the <code>sampleObject(100)</code> operation, where <code>sampleObject</code> is derived from the <xref href="System.Dynamic.DynamicObject"></xref> class, <code>args[0]</code> is equal to 100.'
     - id: result
       type: System.Object
       description: The result of the object invocation.
@@ -860,10 +860,10 @@ items:
     parameters:
     - id: binder
       type: System.Dynamic.InvokeMemberBinder
-      description: Provides information about the dynamic operation. The <code>binder.Name</code> property provides the name of the member on which the dynamic operation is performed. For example, for the statement <code>sampleObject.SampleMethod(100)</code>, where <code>sampleObject</code> is an instance of the class derived from the <xref href="System.Dynamic.DynamicObject"></xref> class, <code>binder.Name</code> returns "SampleMethod". The <code>binder.IgnoreCase</code> property specifies whether the member name is case-sensitive.
+      description: 'Provides information about the dynamic operation. The <code>binder.Name</code> property provides the name of the member on which the dynamic operation is performed. For example, for the statement <code>sampleObject.SampleMethod(100)</code>, where <code>sampleObject</code> is an instance of the class derived from the <xref href="System.Dynamic.DynamicObject"></xref> class, <code>binder.Name</code> returns "SampleMethod". The <code>binder.IgnoreCase</code> property specifies whether the member name is case-sensitive.'
     - id: args
       type: System.Object[]
-      description: The arguments that are passed to the object member during the invoke operation. For example, for the statement <code>sampleObject.SampleMethod(100)</code>, where <code>sampleObject</code> is derived from the <xref href="System.Dynamic.DynamicObject"></xref> class, <code>args[0]</code> is equal to 100.
+      description: 'The arguments that are passed to the object member during the invoke operation. For example, for the statement <code>sampleObject.SampleMethod(100)</code>, where <code>sampleObject</code> is derived from the <xref href="System.Dynamic.DynamicObject"></xref> class, <code>args[0]</code> is equal to 100.'
     - id: result
       type: System.Object
       description: The result of the member invocation.
@@ -936,10 +936,10 @@ items:
       description: Provides information about the operation.
     - id: indexes
       type: System.Object[]
-      description: The indexes that are used in the operation. For example, for the <code>sampleObject[3] = 10</code> operation in C# (<code>sampleObject(3) = 10</code> in Visual Basic), where <code>sampleObject</code> is derived from the <xref href="System.Dynamic.DynamicObject"></xref> class, <code>indexes[0]</code> is equal to 3.
+      description: 'The indexes that are used in the operation. For example, for the <code>sampleObject[3] = 10</code> operation in C# (<code>sampleObject(3) = 10</code> in Visual Basic), where <code>sampleObject</code> is derived from the <xref href="System.Dynamic.DynamicObject"></xref> class, <code>indexes[0]</code> is equal to 3.'
     - id: value
       type: System.Object
-      description: The value to set to the object that has the specified index. For example, for the <code>sampleObject[3] = 10</code> operation in C# (<code>sampleObject(3) = 10</code> in Visual Basic), where <code>sampleObject</code> is derived from the <xref href="System.Dynamic.DynamicObject"></xref> class, <code>value</code> is equal to 10.
+      description: 'The value to set to the object that has the specified index. For example, for the <code>sampleObject[3] = 10</code> operation in C# (<code>sampleObject(3) = 10</code> in Visual Basic), where <code>sampleObject</code> is derived from the <xref href="System.Dynamic.DynamicObject"></xref> class, <code>value</code> is equal to 10.'
     return:
       type: System.Boolean
       description: '`true` if the operation is successful; otherwise, `false`. If this method returns `false`, the run-time binder of the language determines the behavior. (In most cases, a language-specific run-time exception is thrown.'
@@ -1006,10 +1006,10 @@ items:
     parameters:
     - id: binder
       type: System.Dynamic.SetMemberBinder
-      description: Provides information about the object that called the dynamic operation. The <code>binder.Name</code> property provides the name of the member to which the value is being assigned. For example, for the statement <code>sampleObject.SampleProperty = "Test"</code>, where <code>sampleObject</code> is an instance of the class derived from the <xref href="System.Dynamic.DynamicObject"></xref> class, <code>binder.Name</code> returns "SampleProperty". The <code>binder.IgnoreCase</code> property specifies whether the member name is case-sensitive.
+      description: 'Provides information about the object that called the dynamic operation. The <code>binder.Name</code> property provides the name of the member to which the value is being assigned. For example, for the statement <code>sampleObject.SampleProperty = "Test"</code>, where <code>sampleObject</code> is an instance of the class derived from the <xref href="System.Dynamic.DynamicObject"></xref> class, <code>binder.Name</code> returns "SampleProperty". The <code>binder.IgnoreCase</code> property specifies whether the member name is case-sensitive.'
     - id: value
       type: System.Object
-      description: The value to set to the member. For example, for <code>sampleObject.SampleProperty = "Test"</code>, where <code>sampleObject</code> is an instance of the class derived from the <xref href="System.Dynamic.DynamicObject"></xref> class, the <code>value</code> is "Test".
+      description: 'The value to set to the member. For example, for <code>sampleObject.SampleProperty = "Test"</code>, where <code>sampleObject</code> is an instance of the class derived from the <xref href="System.Dynamic.DynamicObject"></xref> class, the <code>value</code> is "Test".'
     return:
       type: System.Boolean
       description: '`true` if the operation is successful; otherwise, `false`. If this method returns `false`, the run-time binder of the language determines the behavior. (In most cases, a language-specific run-time exception is thrown.)'
@@ -1067,7 +1067,7 @@ items:
   - netstandard
   - System.Linq.Expressions
   namespace: System.Dynamic
-  summary: Provides implementation for unary operations. Classes derived from the <xref href="System.Dynamic.DynamicObject"></xref> class can override this method to specify dynamic behavior for operations such as negation, increment, or decrement.
+  summary: 'Provides implementation for unary operations. Classes derived from the <xref href="System.Dynamic.DynamicObject"></xref> class can override this method to specify dynamic behavior for operations such as negation, increment, or decrement.'
   remarks: "Classes derived from the <xref:System.Dynamic.DynamicObject> class can override this method to specify how unary operations should be performed for a dynamic object. When the method is not overridden, the run-time binder of the language determines the behavior. (In most cases, a language-specific run-time exception is thrown.)  \n  \n This method is called when you have unary operations such as negation, increment, or decrement. For example, if the <xref:System.Dynamic.DynamicObject.TryUnaryOperation%2A> method is overridden, this method is automatically invoked for statements like `negativeNumber = -number`, where `number` is derived from the <xref:System.Dynamic.DynamicObject> class.  \n  \n You can get information about the type of the unary operation by using the `Operation` property of the `binder` parameter.  \n  \n If your dynamic object is used only in C# and Visual Basic, the `binder.Operation` property can have one of the following values from the <xref:System.Linq.Expressions.ExpressionType> enumeration. However, in other languages such as IronPython or IronRuby, you can have other values. For more information about <xref:System.Linq.Expressions.ExpressionType>, see documentation on the [CodePlex](http://go.microsoft.com/fwlink/?LinkId=141028) Web site.  \n  \n|Value|Description|C#|Visual Basic|  \n|-----------|-----------------|---------|------------------|  \n|`Decrement`|A unary decrement operation.|`a--`|Not supported.|  \n|`Increment`|A unary increment operation.|`a++`|Not supported.|  \n|`Negate`|An arithmetic negation.|`-a`|`-a`|  \n|`Not`|A logical negation.|`!a`|`Not a`|  \n|`OnesComplement`|A ones complement.|`~a`|Not supported.|  \n|`IsFalse`|A false condition value.|`a && b`|Not supported.|  \n|`IsTrue`|A true condition value.|`a &#124;&#124; b`|Not supported.|  \n|`UnaryPlus`|A unary plus.|`+a`|`+a`|  \n  \n> [!NOTE]\n>  To implement `OrElse` (`a || b`) and `AndAlso` (`a && b`) operations for dynamic objects in C#, you may want to implement both the <xref:System.Dynamic.DynamicObject.TryUnaryOperation%2A> method and the <xref:System.Dynamic.DynamicObject.TryBinaryOperation%2A> method.  \n>   \n>  The `OrElse` operation consists of the unary `IsTrue` operation and the binary `Or` operation. The `Or` operation is performed only if the result of the `IsTrue` operation is `false`.  \n>   \n>  The `AndAlso` operation consists of the unary `IsFalse` operation and the binary `And` operation. The `And` operation is performed only if the result of the `IsFalse` operation is `false`."
   example:
   - "Assume that you need a data structure to store textual and numeric representations of numbers, and you want to define a mathematical negation operation for such data.  \n  \n The following code example demonstrates the `DynamicNumber` class, which is derived from the <xref:System.Dynamic.DynamicObject> class. `DynamicNumber` overrides the <xref:System.Dynamic.DynamicObject.TryUnaryOperation%2A> method to enable the mathematical negation operation. Is also overrides the <xref:System.Dynamic.DynamicObject.TrySetMember%2A> and <xref:System.Dynamic.DynamicObject.TryGetMember%2A> methods to enable access to the elements.  \n  \n In this example, only the mathematical negation operation is supported. If you try to write a statement like `negativeNumber = +number`, a run-time exception occurs.  \n  \n [!code-csharp[System.Dynamic.DynamicObject#7](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.dynamic.dynamicobject/cs/program.cs#7)]\n [!code-vb[System.Dynamic.DynamicObject#7](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.dynamic.dynamicobject/vb/module1.vb#7)]"
@@ -1076,7 +1076,7 @@ items:
     parameters:
     - id: binder
       type: System.Dynamic.UnaryOperationBinder
-      description: Provides information about the unary operation. The <code>binder.Operation</code> property returns an <xref href="System.Linq.Expressions.ExpressionType"></xref> object. For example, for the <code>negativeNumber = -number</code> statement, where <code>number</code> is derived from the `DynamicObject` class, <code>binder.Operation</code> returns "Negate".
+      description: 'Provides information about the unary operation. The <code>binder.Operation</code> property returns an <xref href="System.Linq.Expressions.ExpressionType"></xref> object. For example, for the <code>negativeNumber = -number</code> statement, where <code>number</code> is derived from the `DynamicObject` class, <code>binder.Operation</code> returns "Negate".'
     - id: result
       type: System.Object
       description: The result of the unary operation.

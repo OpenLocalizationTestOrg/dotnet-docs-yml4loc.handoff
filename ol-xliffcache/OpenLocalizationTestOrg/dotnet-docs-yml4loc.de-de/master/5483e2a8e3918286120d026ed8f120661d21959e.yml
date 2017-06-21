@@ -111,7 +111,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: Initializes a new instance of the <xref href="System.Xaml.XamlDirective"></xref> class, specifying values for a name and a single XAML namespace. Use this signature only when you want or expect <xref href="System.Xaml.XamlMember.IsUnknown"></xref> to report `true` for the directive.
+  summary: 'Initializes a new instance of the <xref href="System.Xaml.XamlDirective"></xref> class, specifying values for a name and a single XAML namespace. Use this signature only when you want or expect <xref href="System.Xaml.XamlMember.IsUnknown"></xref> to report `true` for the directive.'
   remarks: "> [!IMPORTANT]\n>  This signature of the constructor always generates an identifier for the directive where <xref:System.Xaml.XamlMember.IsUnknown%2A> reports `true` for the XAML type system. If the necessary information is available (the backing type and a text syntax information item for conversion) and you want an identifier that can apply the directive, use the <xref:System.Xaml.XamlDirective.%23ctor%2A?displayProperty=fullName> constructor signature instead.  \n  \n If you use this signature, the <xref:System.Xaml.XamlDirective.AllowedLocation%2A> value for the instance is <xref:System.Xaml.Schema.AllowedMemberLocations.Any>; and the <xref:System.Xaml.XamlMember.Type%2A> value and <xref:System.Xaml.XamlMember.TypeConverter%2A> value are both `null`."
   syntax:
     content: public XamlDirective (string xamlNamespace, string name);
@@ -157,14 +157,14 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: Initializes a new instance of the <xref href="System.Xaml.XamlDirective"></xref> class, specifying values for each per-case value of a <xref href="System.Xaml.XamlDirective"></xref>.
-  remarks: You must use this constructor to generate a <xref:System.Xaml.XamlDirective> that does not report <xref:System.Xaml.XamlMember.IsUnknown%2A> as `true`.
+  summary: 'Initializes a new instance of the <xref href="System.Xaml.XamlDirective"></xref> class, specifying values for each per-case value of a <xref href="System.Xaml.XamlDirective"></xref>.'
+  remarks: 'You must use this constructor to generate a <xref:System.Xaml.XamlDirective> that does not report <xref:System.Xaml.XamlMember.IsUnknown%2A> as `true`.'
   syntax:
     content: public XamlDirective (System.Collections.Generic.IEnumerable<string> xamlNamespaces, string name, System.Xaml.XamlType xamlType, System.Xaml.Schema.XamlValueConverter<System.ComponentModel.TypeConverter> typeConverter, System.Xaml.Schema.AllowedMemberLocations allowedLocation);
     parameters:
     - id: xamlNamespaces
       type: System.Collections.Generic.IEnumerable{System.String}
-      description: A set of XAML namespaces where this <xref href="System.Xaml.XamlDirective"></xref> can exist, passed as an enumerable set of the identifier strings.
+      description: 'A set of XAML namespaces where this <xref href="System.Xaml.XamlDirective"></xref> can exist, passed as an enumerable set of the identifier strings.'
     - id: name
       type: System.String
       description: The identifying name of the <xref href="System.Xaml.XamlDirective"></xref>.
@@ -221,7 +221,7 @@ items:
     content: public System.Xaml.Schema.AllowedMemberLocations AllowedLocation { get; }
     return:
       type: System.Xaml.Schema.AllowedMemberLocations
-      description: A value of the enumeration. The default is the enumeration default, which is <xref href="System.Xaml.Schema.AllowedMemberLocations.None"></xref>.
+      description: 'A value of the enumeration. The default is the enumeration default, which is <xref href="System.Xaml.Schema.AllowedMemberLocations.None"></xref>.'
   overload: System.Xaml.XamlDirective.AllowedLocation*
   exceptions: []
   version:
@@ -300,13 +300,13 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Returns a list of XAML namespaces where this XAML member can exist.
-  remarks: The XAML namespace identifiers are strings that typically appear in the Uniform Resource Identifier (URI) string form according to the usual conventions for XAML and XML namespaces. If the list contains more than one item, the first item in the set is usually the relevant primary XAML namespace for processing purposes, and the other items are alternates. <xref:System.Xaml.XamlMember.PreferredXamlNamespace%2A?displayProperty=fullName> relies on this ordering.
+  remarks: 'The XAML namespace identifiers are strings that typically appear in the Uniform Resource Identifier (URI) string form according to the usual conventions for XAML and XML namespaces. If the list contains more than one item, the first item in the set is usually the relevant primary XAML namespace for processing purposes, and the other items are alternates. <xref:System.Xaml.XamlMember.PreferredXamlNamespace%2A?displayProperty=fullName> relies on this ordering.'
   syntax:
     content: public override System.Collections.Generic.IList<string> GetXamlNamespaces ();
     parameters: []
     return:
       type: System.Collections.Generic.IList{System.String}
-      description: A list of XAML namespace identifiers, as strings.
+      description: 'A list of XAML namespace identifiers, as strings.'
   overload: System.Xaml.XamlDirective.GetXamlNamespaces*
   exceptions: []
   version:
@@ -343,7 +343,7 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Returns an <xref href="System.Reflection.ICustomAttributeProvider"></xref> implementation. This implementation always returns `null`.
-  remarks: Because a XAML directive cannot have custom attributes, this implementation always returns `null`. <xref:System.Xaml.XamlDirective> seals this virtual member; therefore, all <xref:System.Xaml.XamlDirective> types and all predefined XAML directives must use this behavior.
+  remarks: 'Because a XAML directive cannot have custom attributes, this implementation always returns `null`. <xref:System.Xaml.XamlDirective> seals this virtual member; therefore, all <xref:System.Xaml.XamlDirective> types and all predefined XAML directives must use this behavior.'
   syntax:
     content: protected override sealed System.Reflection.ICustomAttributeProvider LookupCustomAttributeProvider ();
     parameters: []
@@ -385,8 +385,8 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: Returns a <xref href="System.Xaml.Schema.XamlValueConverter`1"></xref> object, which is used during deferred loading of XAML-declared objects. This implementation always returns `null`.
-  remarks: Because a directive cannot have deferred loading, this implementation always returns `null`. <xref:System.Xaml.XamlDirective> seals this virtual member; therefore, all <xref:System.Xaml.XamlDirective> types and all predefined XAML directives must use this behavior.
+  summary: 'Returns a <xref href="System.Xaml.Schema.XamlValueConverter`1"></xref> object, which is used during deferred loading of XAML-declared objects. This implementation always returns `null`.'
+  remarks: 'Because a directive cannot have deferred loading, this implementation always returns `null`. <xref:System.Xaml.XamlDirective> seals this virtual member; therefore, all <xref:System.Xaml.XamlDirective> types and all predefined XAML directives must use this behavior.'
   syntax:
     content: protected override sealed System.Xaml.Schema.XamlValueConverter<System.Xaml.XamlDeferringLoader> LookupDeferringLoader ();
     parameters: []
@@ -429,7 +429,7 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Returns a list of <xref href="System.Xaml.XamlMember"></xref> objects. The list reports the members where dependency relationships for initialization order exist relative to this <xref href="System.Xaml.XamlMember"></xref>. This implementation always returns `null`.
-  remarks: Because a XAML directive cannot have initialization order, this implementation always returns `null`. <xref:System.Xaml.XamlDirective> seals this virtual member; therefore, all <xref:System.Xaml.XamlDirective> types and all predefined XAML directives must use this behavior.
+  remarks: 'Because a XAML directive cannot have initialization order, this implementation always returns `null`. <xref:System.Xaml.XamlDirective> seals this virtual member; therefore, all <xref:System.Xaml.XamlDirective> types and all predefined XAML directives must use this behavior.'
   syntax:
     content: protected override sealed System.Collections.Generic.IList<System.Xaml.XamlMember> LookupDependsOn ();
     parameters: []
@@ -515,7 +515,7 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Returns whether this <xref href="System.Xaml.XamlMember"></xref> is reported as an ambient property.
-  remarks: Because a XAML directive cannot be an ambient type, this implementation always returns `false`. <xref:System.Xaml.XamlDirective> seals this virtual member; therefore, all <xref:System.Xaml.XamlDirective> types and all predefined XAML directives must use this behavior.
+  remarks: 'Because a XAML directive cannot be an ambient type, this implementation always returns `false`. <xref:System.Xaml.XamlDirective> seals this virtual member; therefore, all <xref:System.Xaml.XamlDirective> types and all predefined XAML directives must use this behavior.'
   syntax:
     content: protected override sealed bool LookupIsAmbient ();
     parameters: []
@@ -558,7 +558,7 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Returns whether this <xref href="System.Xaml.XamlDirective"></xref> represents an event.
-  remarks: <xref:System.Xaml.XamlDirective> seals this virtual member; therefore, all <xref:System.Xaml.XamlDirective> types and all predefined XAML directives must use this behavior.
+  remarks: '<xref:System.Xaml.XamlDirective> seals this virtual member; therefore, all <xref:System.Xaml.XamlDirective> types and all predefined XAML directives must use this behavior.'
   syntax:
     content: protected override sealed bool LookupIsEvent ();
     parameters: []
@@ -601,7 +601,7 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Returns whether this <xref href="System.Xaml.XamlDirective"></xref> represents an intended read-only property.
-  remarks: By definition, directives are settable. <xref:System.Xaml.XamlDirective> seals this virtual member; therefore, all <xref:System.Xaml.XamlDirective> types and all predefined XAML directives must use this behavior.
+  remarks: 'By definition, directives are settable. <xref:System.Xaml.XamlDirective> seals this virtual member; therefore, all <xref:System.Xaml.XamlDirective> types and all predefined XAML directives must use this behavior.'
   syntax:
     content: protected override sealed bool LookupIsReadOnly ();
     parameters: []
@@ -644,7 +644,7 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Returns whether this <xref href="System.Xaml.XamlDirective"></xref> represents a property that has a public `get` accessor.
-  remarks: <xref:System.Xaml.XamlDirective> seals this virtual member; therefore, all <xref:System.Xaml.XamlDirective> types and all predefined XAML directives must use this behavior.
+  remarks: '<xref:System.Xaml.XamlDirective> seals this virtual member; therefore, all <xref:System.Xaml.XamlDirective> types and all predefined XAML directives must use this behavior.'
   syntax:
     content: protected override sealed bool LookupIsReadPublic ();
     parameters: []
@@ -730,7 +730,7 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Returns whether this <xref href="System.Xaml.XamlDirective"></xref> represents an intended write-only property.
-  remarks: <xref:System.Xaml.XamlDirective> seals this virtual member; therefore, all <xref:System.Xaml.XamlDirective> types and all predefined XAML directives must use this behavior.
+  remarks: '<xref:System.Xaml.XamlDirective> seals this virtual member; therefore, all <xref:System.Xaml.XamlDirective> types and all predefined XAML directives must use this behavior.'
   syntax:
     content: protected override sealed bool LookupIsWriteOnly ();
     parameters: []
@@ -773,7 +773,7 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Returns whether this <xref href="System.Xaml.XamlDirective"></xref> represents a property that has a public `set` accessor.
-  remarks: <xref:System.Xaml.XamlDirective> seals this virtual member; therefore, all <xref:System.Xaml.XamlDirective> types and all predefined XAML directives must use this behavior.
+  remarks: '<xref:System.Xaml.XamlDirective> seals this virtual member; therefore, all <xref:System.Xaml.XamlDirective> types and all predefined XAML directives must use this behavior.'
   syntax:
     content: protected override sealed bool LookupIsWritePublic ();
     parameters: []
@@ -816,7 +816,7 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Returns the <xref href="System.Xaml.XamlType"></xref> of the type where the <xref href="System.Xaml.XamlMember"></xref> can exist. This implementation always returns `null`.
-  remarks: Target types are not relevant for directives; therefore, this implementation always returns `null`. <xref:System.Xaml.XamlDirective> seals this virtual member; therefore, all <xref:System.Xaml.XamlDirective> types and all predefined XAML directives must use this behavior.
+  remarks: 'Target types are not relevant for directives; therefore, this implementation always returns `null`. <xref:System.Xaml.XamlDirective> seals this virtual member; therefore, all <xref:System.Xaml.XamlDirective> types and all predefined XAML directives must use this behavior.'
   syntax:
     content: protected override sealed System.Xaml.XamlType LookupTargetType ();
     parameters: []
@@ -902,7 +902,7 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Returns a type converter implementation that is associated with this <xref href="System.Xaml.XamlDirective"></xref>.
-  remarks: The <xref:System.Xaml.XamlDirective> implementation only calls base and does nothing more. See <xref:System.Xaml.XamlMember.LookupTypeConverter%2A?displayProperty=fullName>. <xref:System.Xaml.XamlDirective> seals this virtual member; therefore, all <xref:System.Xaml.XamlDirective> types and all predefined XAML directives must use this behavior.
+  remarks: 'The <xref:System.Xaml.XamlDirective> implementation only calls base and does nothing more. See <xref:System.Xaml.XamlMember.LookupTypeConverter%2A?displayProperty=fullName>. <xref:System.Xaml.XamlDirective> seals this virtual member; therefore, all <xref:System.Xaml.XamlDirective> types and all predefined XAML directives must use this behavior.'
   syntax:
     content: protected override sealed System.Xaml.Schema.XamlValueConverter<System.ComponentModel.TypeConverter> LookupTypeConverter ();
     parameters: []
@@ -945,7 +945,7 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Returns a `get` accessor that is associated with this <xref href="System.Xaml.XamlDirective"></xref>. This implementation always returns `null`.
-  remarks: <xref:System.Xaml.XamlDirective> seals this virtual member; therefore, all <xref:System.Xaml.XamlDirective> types and all predefined XAML directives must use this behavior.
+  remarks: '<xref:System.Xaml.XamlDirective> seals this virtual member; therefore, all <xref:System.Xaml.XamlDirective> types and all predefined XAML directives must use this behavior.'
   syntax:
     content: protected override sealed System.Reflection.MethodInfo LookupUnderlyingGetter ();
     parameters: []
@@ -988,7 +988,7 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Returns a CLR reflection <xref href="System.Reflection.MemberInfo"></xref> that is associated with this <xref href="System.Xaml.XamlDirective"></xref>. This implementation always returns `null`.
-  remarks: <xref:System.Xaml.XamlDirective> seals this virtual member; therefore, all <xref:System.Xaml.XamlDirective> types and all predefined XAML directives must use this behavior.
+  remarks: '<xref:System.Xaml.XamlDirective> seals this virtual member; therefore, all <xref:System.Xaml.XamlDirective> types and all predefined XAML directives must use this behavior.'
   syntax:
     content: protected override sealed System.Reflection.MemberInfo LookupUnderlyingMember ();
     parameters: []
@@ -1031,7 +1031,7 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Returns a `set` accessor that is associated with this <xref href="System.Xaml.XamlDirective"></xref>. This implementation always returns `null`.
-  remarks: <xref:System.Xaml.XamlDirective> seals this virtual member; therefore, all <xref:System.Xaml.XamlDirective> types and all predefined XAML directives must use this behavior.
+  remarks: '<xref:System.Xaml.XamlDirective> seals this virtual member; therefore, all <xref:System.Xaml.XamlDirective> types and all predefined XAML directives must use this behavior.'
   syntax:
     content: protected override sealed System.Reflection.MethodInfo LookupUnderlyingSetter ();
     parameters: []
@@ -1074,7 +1074,7 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Returns a string representation of this <xref href="System.Xaml.XamlDirective"></xref>.
-  remarks: If XAML namespace information is available, this implementation returns a string combination of <xref:System.Xaml.XamlMember.PreferredXamlNamespace%2A> and <xref:System.Xaml.XamlMember.Name%2A>. If XAML namespace information is unavailable, this implementation returns <xref:System.Xaml.XamlMember.Name%2A>.
+  remarks: 'If XAML namespace information is available, this implementation returns a string combination of <xref:System.Xaml.XamlMember.PreferredXamlNamespace%2A> and <xref:System.Xaml.XamlMember.Name%2A>. If XAML namespace information is unavailable, this implementation returns <xref:System.Xaml.XamlMember.Name%2A>.'
   syntax:
     content: public override string ToString ();
     parameters: []

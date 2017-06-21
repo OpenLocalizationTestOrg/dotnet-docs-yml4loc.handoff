@@ -49,8 +49,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: Provides information about, and means to manipulate, the current environment and platform. This class cannot be inherited.
-  remarks: Use the <xref:System.Environment> class to retrieve information such as command-line arguments, the exit code, environment variable settings, contents of the call stack, time since last system boot, and the version of the common language runtime.
+  summary: 'Provides information about, and means to manipulate, the current environment and platform. This class cannot be inherited.'
+  remarks: 'Use the <xref:System.Environment> class to retrieve information such as command-line arguments, the exit code, environment variable settings, contents of the call stack, time since last system boot, and the version of the common language runtime.'
   example:
   - "The following example demonstrates displays a list of information about the current environment.  \n  \n [!code-cpp[environment.class#1](~/samples/snippets/cpp/VS_Snippets_CLR/environment.class/CPP/env0.cpp#1)]\n [!code-csharp[environment.class#1](~/samples/snippets/csharp/VS_Snippets_CLR/environment.class/CS/env0.cs#1)]\n [!code-vb[environment.class#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/environment.class/VB/env0.vb#1)]"
   syntax:
@@ -195,7 +195,7 @@ items:
   - System.Runtime.Extensions
   namespace: System
   summary: Gets or sets the fully qualified path of the current working directory.
-  remarks: By definition, if this process starts in the root directory of a local or network drive, the value of this property is the drive name followed by a trailing slash (for example, "C:\\"). If this process starts in a subdirectory, the value of this property is the drive and subdirectory path, without a trailing slash (for example, "C:\mySubDirectory").
+  remarks: 'By definition, if this process starts in the root directory of a local or network drive, the value of this property is the drive name followed by a trailing slash (for example, "C:\\"). If this process starts in a subdirectory, the value of this property is the drive and subdirectory path, without a trailing slash (for example, "C:\mySubDirectory").'
   example:
   - "The following example demonstrates setting the <xref:System.Environment.CurrentDirectory%2A> property.  \n  \n [!code-cpp[System.Environment#4](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.Environment/CPP/Vars1.cpp#4)]\n [!code-csharp[System.Environment#4](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Environment/CS/Vars1.cs#4)]\n [!code-vb[System.Environment#4](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Environment/VB/Vars1.vb#4)]"
   syntax:
@@ -416,7 +416,7 @@ items:
     content: public static int ExitCode { get; set; }
     return:
       type: System.Int32
-      description: A 32-bit signed integer containing the exit code. The default value is 0 (zero), which indicates that the process completed successfully.
+      description: 'A 32-bit signed integer containing the exit code. The default value is 0 (zero), which indicates that the process completed successfully.'
   overload: System.Environment.ExitCode*
   exceptions: []
   version:
@@ -466,7 +466,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: Replaces the name of each environment variable embedded in the specified string with the string equivalent of the value of the variable, then returns the resulting string.
+  summary: 'Replaces the name of each environment variable embedded in the specified string with the string equivalent of the value of the variable, then returns the resulting string.'
   remarks: "COM interop is used to retrieve the environment variables from the operating system. If the environment variables cannot be retrieved due to a COM error, the HRESULT that explains the cause of the failure is used to generate one of several possible exceptions; that is, the exception depends on the HRESULT. For more information about how the HRESULT is processed, see the Remarks section of the <xref:System.Runtime.InteropServices.Marshal.ThrowExceptionForHR%2A?displayProperty=fullName> method.  \n  \n Replacement only occurs for environment variables that are set. For example, suppose `name` is \"MyENV = %MyENV%\". If the environment variable, MyENV, is set to 42, this method returns \"MyENV = 42\". If MyENV is not set, no change occurs; this method returns \"MyENV = %MyENV%\".  \n  \n The size of the return value is limited to 32K."
   example:
   - "The following example shows how to obtain the system drive and system root variables.  \n  \n [!code-cpp[Environment.ExpandEnvironmentVariables#1](~/samples/snippets/cpp/VS_Snippets_CLR/environment.ExpandEnvironmentVariables/CPP/expandenvironmentvariables.cpp#1)]\n [!code-csharp[Environment.ExpandEnvironmentVariables#1](~/samples/snippets/csharp/VS_Snippets_CLR/environment.ExpandEnvironmentVariables/CS/expandenvironmentvariables.cs#1)]\n [!code-vb[Environment.ExpandEnvironmentVariables#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/environment.ExpandEnvironmentVariables/VB/expandenvironmentvariables.vb#1)]"
@@ -543,7 +543,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: Immediately terminates a process after writing a message to the Windows Application event log, and then includes the message in error reporting to Microsoft.
+  summary: 'Immediately terminates a process after writing a message to the Windows Application event log, and then includes the message in error reporting to Microsoft.'
   remarks: "This method terminates a process without running any active `try`/`finally` blocks or finalizers.  \n  \n The <xref:System.Environment.FailFast%2A> method writes the `message` string to the Windows Application event log, creates a dump of your application, and then terminates the current process. The `message` string is also included in error reporting to Microsoft.  \n  \n Use the <xref:System.Environment.FailFast%2A> method instead of the <xref:System.Environment.Exit%2A> method to terminate your application if the state of your application is damaged beyond repair, and executing your application's `try`/`finally` blocks and finalizers will corrupt program resources.  \n  \n Information is reported to Microsoft by using Windows Error Reporting. For more information, see [Windows Error Reporting: Getting Started](http://msdn.microsoft.com/library/windows/hardware/dn641144.aspx)."
   example:
   - "The following example writes a log entry to the Windows Application event log and terminates the current process.  \n  \n [!code-csharp[environment.FailFast#1](~/samples/snippets/csharp/VS_Snippets_CLR/environment.FailFast/cs/ff.cs#1)]\n [!code-vb[environment.FailFast#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/environment.FailFast/vb/ff.vb#1)]"
@@ -552,7 +552,7 @@ items:
     parameters:
     - id: message
       type: System.String
-      description: A message that explains why the process was terminated, or `null` if no explanation is provided.
+      description: 'A message that explains why the process was terminated, or `null` if no explanation is provided.'
   overload: System.Environment.FailFast*
   exceptions: []
   version:
@@ -620,7 +620,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: Immediately terminates a process after writing a message to the Windows Application event log, and then includes the message and exception information in error reporting to Microsoft.
+  summary: 'Immediately terminates a process after writing a message to the Windows Application event log, and then includes the message and exception information in error reporting to Microsoft.'
   remarks: "This method terminates the process without running any active `try`/`finally` blocks or finalizers.  \n  \n The <xref:System.Environment.FailFast%2A> method writes the `message` string to the Windows Application event log, creates a dump of your application, and then terminates the current process.  \n  \n Information is reported to Microsoft by using Windows Error Reporting. For more information, see [Windows Error Reporting: Getting Started](http://msdn.microsoft.com/library/windows/hardware/dn641144.aspx). Error reporting to Microsoft includes `message` and `exception` information, which provides details used to classify the error. Although `exception` is not handled because the process is terminated, the contextual information that raised the exception is still obtained.  \n  \n If `exception` is `null`, or if `exception` is not thrown, this method operates the same as the <xref:System.Environment.FailFast%28System.String%29> method overload.  \n  \n Use the <xref:System.Environment.FailFast%2A> method instead of the <xref:System.Environment.Exit%2A> method to terminate your application if the state of your application is damaged beyond repair, and executing your application's `try`/`finally` blocks and finalizers will corrupt program resources."
   syntax:
     content: >-
@@ -630,7 +630,7 @@ items:
     parameters:
     - id: message
       type: System.String
-      description: A message that explains why the process was terminated, or `null` if no explanation is provided.
+      description: 'A message that explains why the process was terminated, or `null` if no explanation is provided.'
     - id: exception
       type: System.Exception
       description: An exception that represents the error that caused the termination. This is typically the exception in a `catch` block.
@@ -712,7 +712,7 @@ items:
     parameters: []
     return:
       type: System.String[]
-      description: An array of string where each element contains a command-line argument. The first element is the executable file name, and the following zero or more elements contain the remaining command-line arguments.
+      description: 'An array of string where each element contains a command-line argument. The first element is the executable file name, and the following zero or more elements contain the remaining command-line arguments.'
   overload: System.Environment.GetCommandLineArgs*
   exceptions:
   - type: System.NotSupportedException
@@ -785,7 +785,7 @@ items:
       description: The name of the environment variable.
     return:
       type: System.String
-      description: The value of the environment variable specified by <code>variable</code>, or `null` if the environment variable is not found.
+      description: 'The value of the environment variable specified by <code>variable</code>, or `null` if the environment variable is not found.'
   overload: System.Environment.GetEnvironmentVariable*
   exceptions:
   - type: System.ArgumentNullException
@@ -868,7 +868,7 @@ items:
       description: One of the <xref href="System.EnvironmentVariableTarget"></xref> values.
     return:
       type: System.String
-      description: The value of the environment variable specified by the <code>variable</code> and <code>target</code> parameters, or `null` if the environment variable is not found.
+      description: 'The value of the environment variable specified by the <code>variable</code> and <code>target</code> parameters, or `null` if the environment variable is not found.'
   overload: System.Environment.GetEnvironmentVariable*
   exceptions:
   - type: System.ArgumentNullException
@@ -928,7 +928,7 @@ items:
   - netstandard
   namespace: System
   summary: Retrieves all environment variable names and their values from the current process.
-  remarks: The names and values for the environment variables are stored as key-value pairs in the returned <xref:System.Collections.IDictionary>.
+  remarks: 'The names and values for the environment variables are stored as key-value pairs in the returned <xref:System.Collections.IDictionary>.'
   example:
   - "The following example demonstrates the <xref:System.Environment.GetEnvironmentVariables%2A> method.  \n  \n [!code-cpp[Environment.GetEnvironmentVariables#1](~/samples/snippets/cpp/VS_Snippets_CLR/Environment.GetEnvironmentVariables/CPP/getenvironmentvariables.cpp#1)]\n [!code-csharp[Environment.GetEnvironmentVariables#1](~/samples/snippets/csharp/VS_Snippets_CLR/Environment.GetEnvironmentVariables/CS/getenvironmentvariables.cs#1)]\n [!code-vb[Environment.GetEnvironmentVariables#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/Environment.GetEnvironmentVariables/VB/getenvironmentvariables.vb#1)]"
   syntax:
@@ -936,7 +936,7 @@ items:
     parameters: []
     return:
       type: System.Collections.IDictionary
-      description: A dictionary that contains all environment variable names and their values; otherwise, an empty dictionary if no environment variables are found.
+      description: 'A dictionary that contains all environment variable names and their values; otherwise, an empty dictionary if no environment variables are found.'
   overload: System.Environment.GetEnvironmentVariables*
   exceptions:
   - type: System.Security.SecurityException
@@ -1004,7 +1004,7 @@ items:
   - netstandard
   - System.Runtime.Extensions
   namespace: System
-  summary: Retrieves all environment variable names and their values from the current process, or from the Windows operating system registry key for the current user or local machine.
+  summary: 'Retrieves all environment variable names and their values from the current process, or from the Windows operating system registry key for the current user or local machine.'
   remarks: "The `target` parameter specifies whether the source is the current process, the registry key for the current user, or the registry key for the local machine.  \n  \n The names and values of the environment variables are stored as key/value pairs in the returned <xref:System.Collections.IDictionary> object."
   example:
   - "The following example creates environment variables for the Process, User, and Machine targets, checks whether the operating system registry contains the User and Machine environment variables, then deletes the environment variables.  \n  \n [!code-cpp[environment.getsetenvar#1](~/samples/snippets/cpp/VS_Snippets_CLR/environment.getsetenvar/CPP/source.cpp#1)]\n [!code-csharp[environment.getsetenvar#1](~/samples/snippets/csharp/VS_Snippets_CLR/environment.getsetenvar/CS/gsev.cs#1)]\n [!code-vb[environment.getsetenvar#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/environment.getsetenvar/VB/gsev.vb#1)]"
@@ -1016,7 +1016,7 @@ items:
       description: One of the <xref href="System.EnvironmentVariableTarget"></xref> values.
     return:
       type: System.Collections.IDictionary
-      description: A dictionary that contains all environment variable names and their values from the source specified by the <code>target</code> parameter; otherwise, an empty dictionary if no environment variables are found.
+      description: 'A dictionary that contains all environment variable names and their values from the source specified by the <code>target</code> parameter; otherwise, an empty dictionary if no environment variables are found.'
   overload: System.Environment.GetEnvironmentVariables*
   exceptions:
   - type: System.Security.SecurityException
@@ -1140,7 +1140,7 @@ items:
   - netstandard
   - System.Runtime.Extensions
   namespace: System
-  summary: Gets the path to the system special folder that is identified by the specified enumeration, and uses a specified option for accessing special folders.
+  summary: 'Gets the path to the system special folder that is identified by the specified enumeration, and uses a specified option for accessing special folders.'
   remarks: "This method retrieves the path to a system special folder, such as Program Files, Programs, System, or Startup, which can be used to access common information. Special folders are set by default by the system, or explicitly by the user, when installing a version of Windows.  \n  \n The `folder` parameter designates the special folder to retrieve and must be one of the values in the <xref:System.Environment.SpecialFolder> enumeration; any other value throws an exception.  \n  \n For more information about special folders, see the [CSIDL](http://go.microsoft.com/fwlink/?LinkId=116664) values topic."
   syntax:
     content: public static string GetFolderPath (Environment.SpecialFolder folder, Environment.SpecialFolderOption option);
@@ -1218,7 +1218,7 @@ items:
     parameters: []
     return:
       type: System.String[]
-      description: An array of strings where each element contains the name of a logical drive. For example, if the computer's hard drive is the first logical drive, the first element returned is "C:\\".
+      description: 'An array of strings where each element contains the name of a logical drive. For example, if the computer''s hard drive is the first logical drive, the first element returned is "C:\\".'
   overload: System.Environment.GetLogicalDrives*
   exceptions:
   - type: System.IO.IOException
@@ -1459,7 +1459,7 @@ items:
   - netstandard
   namespace: System
   summary: Gets the NetBIOS name of this local computer.
-  remarks: The name of this computer is established at system startup when the name is read from the registry. If this computer is a node in a cluster, the name of the node is returned.
+  remarks: 'The name of this computer is established at system startup when the name is read from the registry. If this computer is a node in a cluster, the name of the node is returned.'
   example:
   - "The following example displays the name of the computer that runs the code example. (The machine name is omitted from the example output for security reasons.)  \n  \n [!code-cpp[environment.machinename#1](~/samples/snippets/cpp/VS_Snippets_CLR/Environment.MachineName/CPP/machinename.cpp#1)]\n [!code-csharp[environment.machinename#1](~/samples/snippets/csharp/VS_Snippets_CLR/Environment.MachineName/CS/machinename.cs#1)]\n [!code-vb[environment.machinename#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/Environment.MachineName/VB/machinename.vb#1)]"
   syntax:
@@ -1535,7 +1535,7 @@ items:
     content: public static string NewLine { get; }
     return:
       type: System.String
-      description: A string containing "\r\n" for non-Unix platforms, or a string containing "\n" for Unix platforms.
+      description: 'A string containing "\r\n" for non-Unix platforms, or a string containing "\n" for Unix platforms.'
   overload: System.Environment.NewLine*
   exceptions: []
   version:
@@ -1665,14 +1665,14 @@ items:
   - netstandard
   namespace: System
   summary: Gets the number of processors on the current machine.
-  remarks: For more information about processor groups and logical processors, see [Processor Groups](http://msdn.microsoft.com/library/windows/desktop/dd405503.aspx).
+  remarks: 'For more information about processor groups and logical processors, see [Processor Groups](http://msdn.microsoft.com/library/windows/desktop/dd405503.aspx).'
   example:
   - "The following example demonstrates the <xref:System.Environment.ProcessorCount%2A> property.  \n  \n [!code-cpp[environment.processorcount#1](~/samples/snippets/cpp/VS_Snippets_CLR/environment.processorcount/CPP/pc.cpp#1)]\n [!code-csharp[environment.processorcount#1](~/samples/snippets/csharp/VS_Snippets_CLR/environment.processorcount/CS/pc.cs#1)]\n [!code-vb[environment.processorcount#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/environment.processorcount/VB/pc.vb#1)]"
   syntax:
     content: public static int ProcessorCount { get; }
     return:
       type: System.Int32
-      description: The 32-bit signed integer that specifies the number of processors on the current machine. There is no default. If the current machine contains multiple processor groups, this property returns the number of logical processors that are available for use by the common language runtime (CLR).
+      description: 'The 32-bit signed integer that specifies the number of processors on the current machine. There is no default. If the current machine contains multiple processor groups, this property returns the number of logical processors that are available for use by the common language runtime (CLR).'
   overload: System.Environment.ProcessorCount*
   exceptions: []
   version:
@@ -1740,7 +1740,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: Creates, modifies, or deletes an environment variable stored in the current process.
+  summary: 'Creates, modifies, or deletes an environment variable stored in the current process.'
   remarks: "Calling this method is equivalent to calling the <xref:System.Environment.SetEnvironmentVariable%28System.String%2CSystem.String%2CSystem.EnvironmentVariableTarget%29> overload with a value of <xref:System.EnvironmentVariableTarget?displayProperty=fullName> for the `target` argument.  \n  \n If the `value` argument is not empty (see the discussion of deleting an environment variable later in this section for the definition of an empty value) and the environment variable named by the `variable` parameter does not exist, the environment variable is created and assigned the contents of `value`. If it does exist, its value is modified. Because the environment variable is defined in the environment block of the current process only, it does not persist after the process has ended.  \n  \n If `variable` contains a non-initial hexadecimal zero character, the characters before the zero character are considered the environment variable name and all subsequent characters are ignored.  \n  \n If `value` contains a non-initial hexadecimal zero character, the characters before the zero character are assigned to the environment variable and all subsequent characters are ignored.  \n  \n If `value` is empty and the environment variable named by `variable` exists, the environment variable is deleted. If `variable` does not exist, no error occurs even though the operation cannot be performed. `value` is considered empty under any of the following conditions:  \n  \n-   It is `null`.  \n  \n-   It is <xref:System.String.Empty?displayProperty=fullName>.  \n  \n-   It consists of a single character whose value is U+0000."
   example:
   - "The following example tests whether an environment variable named `APPDOMAIN` exists in the current process. If it does not, it creates it and sets its value to \"True\". If the value of the `APPDOMAIN` environment variable is \"True\", it calls the `Message.Display` method in a new application domain. Otherwise, it executes the `Message.Display` method in the current application domain.  \n  \n [!code-csharp[System.Environment.SetEnvironmentVariable#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.environment.setenvironmentvariable/cs/setenvironmentvariable1.cs#1)]\n [!code-vb[System.Environment.SetEnvironmentVariable#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.environment.setenvironmentvariable/vb/setenvironmentvariable1.vb#1)]  \n  \n If you run the example for the first time, the message \"Executing in domain Domain2\" displays to the console. If you set the environment variable from the command line by using the command:  \n  \n `Set AppDomain=False`  \n  \n the example displays the message \"Executing in domain *exeName*.exe\", where *exeName* is the name of the executable.  \n  \n The following example attempts to retrieve the value of an environment variable named `Test1` from the process environment block. If the variable doesn't exist, the example creates the variable and retrieves its value. The example displays the value of the variable. If the example created the variable, it also calls the <xref:System.Environment.GetEnvironmentVariables%28System.EnvironmentVariableTarget%29> method with each member of the <xref:System.EnvironmentVariableTarget> enumeration to establish that the variable can be retrieved only from the current process environment block. Finally, if the example created the variable, it deletes it.  \n  \n [!code-csharp[System.Environment.GetEnvironmentVariable#2](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.environment.getenvironmentvariable/cs/getenvironmentvariableex1.cs#2)]\n [!code-vb[System.Environment.GetEnvironmentVariable#2](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.environment.getenvironmentvariable/vb/getenvironmentvariableex1.vb#2)]"
@@ -1823,7 +1823,7 @@ items:
   - netstandard
   - System.Runtime.Extensions
   namespace: System
-  summary: Creates, modifies, or deletes an environment variable stored in the current process or in the Windows operating system registry key reserved for the current user or local machine.
+  summary: 'Creates, modifies, or deletes an environment variable stored in the current process or in the Windows operating system registry key reserved for the current user or local machine.'
   remarks: "The <xref:System.Environment.SetEnvironmentVariable%28System.String%2CSystem.String%2CSystem.EnvironmentVariableTarget%29> method lets you define an environment variable that is available to all processes that run on a machine (the <xref:System.EnvironmentVariableTarget?displayProperty=fullName> value), to all processes run by a user (the <xref:System.EnvironmentVariableTarget?displayProperty=fullName> value), or to the current process (the <xref:System.EnvironmentVariableTarget.Process> value). Per-machine and per-user environment variables are copied into the environment block of the current process. However, environment variables that are unique to the current process environment block persist only until the process ends.  \n  \n If the `value` argument is not empty (see the discussion of deleting an environment variable later in this section for the definition of an empty value) and the environment variable named by the `variable` parameter does not exist, the environment variable is created and assigned the contents of `value`.  If it does exist, its value is modified.  \n  \n If `variable` contains a non-initial hexadecimal zero character, the characters before the zero character are considered the environment variable name and all subsequent characters are ignored.  \n  \n If `value` contains a non-initial hexadecimal zero character, the characters before the zero character are assigned to the environment variable and all subsequent characters are ignored.  \n  \n If `value` is empty and the environment variable named by `variable` exists, the environment variable is deleted. `value` is considered empty under any of the following conditions:  \n  \n-   It is `null`.  \n  \n-   It is <xref:System.String.Empty?displayProperty=fullName>.  \n  \n-   It consists of a single character whose value is U+0000.  \n  \n If `variable` does not exist, no error occurs although the operation cannot be performed. Be careful when `target` is <xref:System.EnvironmentVariableTarget.Machine>, because you can accidentally delete an environment variable that affects your entire local machine, not just the current process or user.  \n  \n If `target` is <xref:System.EnvironmentVariableTarget.User>, the environment variable is stored in the HKEY_CURRENT_USER\\Environment key of the local computer's registry. It is also copied to instances of File Explorer that are running as the current user. The environment variable is then inherited by any new processes that the user launches from File Explorer.  \n  \n Similarly, if `target` is <xref:System.EnvironmentVariableTarget?displayProperty=fullName>, the environment variable is stored in the HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Control\\Session Manager\\Environment key of the local computer's registry. It is also copied to all instances of File Explorer. The environment variable is then inherited by any new processes that are launched from File Explorer.  \n  \n If `target` is <xref:System.EnvironmentVariableTarget.User> or <xref:System.EnvironmentVariableTarget.Machine>, other applications are notified of the set operation by a Windows `WM_SETTINGCHANGE` message.  \n  \n If `target` is <xref:System.EnvironmentVariableTarget?displayProperty=fullName> or <xref:System.EnvironmentVariableTarget?displayProperty=fullName>, we recommend that the length of `value` be less than 2048 characters."
   example:
   - "The following example creates environment variables for the <xref:System.EnvironmentVariableTarget?displayProperty=fullName>, <xref:System.EnvironmentVariableTarget?displayProperty=fullName>, and <xref:System.EnvironmentVariableTarget.Machine> targets, checks whether the operating system registry contains the user and machine environment variables, then deletes the environment variables.  \n  \n [!code-cpp[environment.getsetenvar#1](~/samples/snippets/cpp/VS_Snippets_CLR/environment.getsetenvar/CPP/source.cpp#1)]\n [!code-csharp[environment.getsetenvar#1](~/samples/snippets/csharp/VS_Snippets_CLR/environment.getsetenvar/CS/gsev.cs#1)]\n [!code-vb[environment.getsetenvar#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/environment.getsetenvar/VB/gsev.vb#1)]"
@@ -1968,7 +1968,7 @@ items:
   - System.Runtime.Extensions
   namespace: System
   summary: Gets the fully qualified path of the system directory.
-  remarks: An example of the value returned is the string "C:\WinNT\System32".
+  remarks: 'An example of the value returned is the string "C:\WinNT\System32".'
   example:
   - "The following example displays the system directory of the computer that runs the code example. (The system directory is omitted from the example output for security reasons.)  \n  \n [!code-cpp[environment.systemdirectory#1](~/samples/snippets/cpp/VS_Snippets_CLR/Environment.SystemDirectory/CPP/systemdirectory.cpp#1)]\n [!code-csharp[environment.systemdirectory#1](~/samples/snippets/csharp/VS_Snippets_CLR/Environment.SystemDirectory/CS/systemdirectory.cs#1)]\n [!code-vb[environment.systemdirectory#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/Environment.SystemDirectory/VB/systemdirectory.vb#1)]"
   syntax:
@@ -2220,7 +2220,7 @@ items:
   - System.Runtime.Extensions
   namespace: System
   summary: Gets a value indicating whether the current process is running in user interactive mode.
-  remarks: The <xref:System.Environment.UserInteractive%2A> property reports `false` for a Windows process or a service like IIS that runs without a user interface. If this property is `false`, do not display modal dialogs or message boxes because there is no graphical user interface for the user to interact with.
+  remarks: 'The <xref:System.Environment.UserInteractive%2A> property reports `false` for a Windows process or a service like IIS that runs without a user interface. If this property is `false`, do not display modal dialogs or message boxes because there is no graphical user interface for the user to interact with.'
   example:
   - "The following example displays whether the current process is running in user interactive mode.  \n  \n [!code-cpp[Environment.UserInteractive#1](~/samples/snippets/cpp/VS_Snippets_CLR/Environment.UserInteractive/CPP/userinteractive.cpp#1)]\n [!code-csharp[Environment.UserInteractive#1](~/samples/snippets/csharp/VS_Snippets_CLR/Environment.UserInteractive/CS/userinteractive.cs#1)]\n [!code-vb[Environment.UserInteractive#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/Environment.UserInteractive/VB/userinteractive.vb#1)]"
   syntax:
@@ -2335,7 +2335,7 @@ items:
   - netstandard
   - System.Runtime.Extensions
   namespace: System
-  summary: Gets a <xref href="System.Version"></xref> object that describes the major, minor, build, and revision numbers of the common language runtime.
+  summary: 'Gets a <xref href="System.Version"></xref> object that describes the major, minor, build, and revision numbers of the common language runtime.'
   remarks: "For the .NET Framework Versions 4, 4.5, 4.5.1, and 4.5.2, the <xref:System.Environment.Version%2A?displayProperty=fullName> property returns a <xref:System.Version> object whose string representation has the form `4.0.30319.xxxxx`. For the [!INCLUDE[net_v46](~/includes/net-v46-md.md)], its point releases, and the .NET Framework 4.7, it has the form `4.0.30319.42000`.  \n  \n> [!WARNING]\n>  For the [!INCLUDE[net_v45](~/includes/net-v45-md.md)] and later, we do not recommend using the <xref:System.Environment.Version%2A> property to detect the version of the runtime; instead, you can determine the version of the common language runtime by querying the registry. For more information, see [How to: Determine Which .NET Framework Versions Are Installed](~/docs/framework/migration-guide/how-to-determine-which-versions-are-installed.md).  \n  \n For more information about the version of the common language runtime that is installed with each version of the .NET Framework, see [Versions and Dependencies](~/docs/framework/migration-guide/versions-and-dependencies.md)."
   example:
   - "The following example displays the version of the common language runtime. (The version is omitted from the example output for security reasons.)  \n  \n [!code-cpp[Environment.Version#1](~/samples/snippets/cpp/VS_Snippets_CLR/Environment.Version/CPP/version.cpp#1)]\n [!code-csharp[Environment.Version#1](~/samples/snippets/csharp/VS_Snippets_CLR/Environment.Version/CS/version.cs#1)]\n [!code-vb[Environment.Version#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/Environment.Version/VB/version.vb#1)]"

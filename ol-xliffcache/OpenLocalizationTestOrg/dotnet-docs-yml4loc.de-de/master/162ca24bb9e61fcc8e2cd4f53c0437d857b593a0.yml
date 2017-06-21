@@ -85,7 +85,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Uses a mask to distinguish between proper and improper user input.
-  remarks: "The <xref:System.Windows.Forms.MaskedTextBox> class is an enhanced <xref:System.Windows.Forms.TextBox> control that supports a declarative syntax for accepting or rejecting user input. Using the <xref:System.Windows.Forms.MaskedTextBox.Mask%2A> property, you can specify the following input without writing any custom validation logic in your application:  \n  \n-   Required input characters.  \n  \n-   Optional input characters.  \n  \n-   The type of input expected at a given position in the mask; for example, a digit, or an alphabetic or alphanumeric character.  \n  \n-   Mask literals, or characters that should appear directly in the <xref:System.Windows.Forms.MaskedTextBox>; for example, the hyphens (-) in a phone number, or the currency symbol in a price.  \n  \n-   Special processing for input characters; for example, to convert alphabetic characters to uppercase.  \n  \n When a <xref:System.Windows.Forms.MaskedTextBox> control is displayed at run time, it represents the mask as a series of prompt characters and optional literal characters. Each editable mask position, representing a required or optional input, is shown with a single prompt character. For example, the number sign (#) is often used as a placeholder for a numeric character input. You can use the <xref:System.Windows.Forms.MaskedTextBox.PromptChar%2A> property to specify a custom prompt character. The <xref:System.Windows.Forms.MaskedTextBox.HidePromptOnLeave%2A> property determines if the user sees the prompt characters when the control loses input focus.  \n  \n As the user types input into the masked text box, valid input characters replace their respective prompt characters in a sequential fashion. If the user types an invalid input character, no replacement occurs, but instead a beep is issued if the <xref:System.Windows.Forms.MaskedTextBox.BeepOnError%2A> property is set to `true`, and the <xref:System.Windows.Forms.MaskedTextBox.MaskInputRejected> event is raised. You can provide your own custom error logic by handing this event.  \n  \n When the current insertion point is at a literal character, the user has a number of options:  \n  \n-   If a character other than the prompt character is typed, the literal will automatically be skipped and the input character will be applied to the next editable position, represented by the next prompt character.  \n  \n-   If the prompt character is typed and the <xref:System.Windows.Forms.MaskedTextBox.AllowPromptAsInput%2A> property is true, the input will overtype the prompt character and insertion point will be moved to the next position in the mask.  \n  \n-   As is always the case, the arrow keys can be used to navigate to a previous or subsequent position.  \n  \n You can use the <xref:System.Windows.Forms.MaskedTextBox.MaskFull%2A> property to verify whether or not the user has entered all of the required input. The <xref:System.Windows.Forms.MaskedTextBox.Text%2A> property will always retrieve the user's input formatted according to the mask and the <xref:System.Windows.Forms.MaskedTextBox.TextMaskFormat%2A> property.  \n  \n The <xref:System.Windows.Forms.MaskedTextBox> control actually defers all mask processing to the <xref:System.ComponentModel.MaskedTextProvider?displayProperty=fullName> class specified by the <xref:System.Windows.Forms.MaskedTextBox.MaskedTextProvider%2A> property. This standard provider supports all Unicode characters except for surrogates and vertically combined characters; however, the <xref:System.Windows.Forms.MaskedTextBox.AsciiOnly%2A> property can be used to restrict input to the characters sets a-z, A-Z, and 0-9.  \n  \n Masks do not necessarily guarantee that a user's input will represent a valid value for a given type; for example, -9 could be entered for an age in years. You can verify that a user's input represents a valid value by assigning an instance of that value's type to the <xref:System.Windows.Forms.MaskedTextBox.ValidatingType%2A> property. You can detect whether the user removes focus from <xref:System.Windows.Forms.MaskedTextBox> when it contains an invalid value by monitoring for the <xref:System.Windows.Forms.MaskedTextBox.TypeValidationCompleted> event. If type validation succeeds, the object representing the value will be available through the <xref:System.Windows.Forms.TypeValidationEventArgs.ReturnValue%2A> property of the <xref:System.Windows.Forms.TypeValidationEventArgs> parameter.  \n  \n As with the <xref:System.Windows.Forms.TextBox> control, several common keyboard shortcuts do not work with <xref:System.Windows.Forms.MaskedTextBox>. In particular, CTRL-R (right justify text), CTRL-L (left justify text), and CTRL-L (center text) have no effect.  \n  \n## Compatibility with Visual Basic 6.0  \n <xref:System.Windows.Forms.MaskedTextBox> was designed to retain most of the functionality of the Masked Edit control in [!INCLUDE[vbprvb](~/includes/vbprvb-md.md)] 6.0. The following table lists common properties on the Masked Edit control and gives their equivalents on <xref:System.Windows.Forms.MaskedTextBox>.  \n  \n|Masked Edit control ([!INCLUDE[vbprvb](~/includes/vbprvb-md.md)] 6.0) property|Equivalent MaskedTextBox ([!INCLUDE[dnprdnshort](~/includes/dnprdnshort-md.md)]) property|  \n|-------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|  \n|`AllowPrompt` property|<xref:System.Windows.Forms.MaskedTextBox.AllowPromptAsInput%2A>|  \n|`AutoTab` property|None|  \n|`ClipMode` property|<xref:System.Windows.Forms.MaskedTextBox.CutCopyMaskFormat%2A>|  \n|`ClipText` property|<xref:System.Windows.Forms.MaskedTextBox.Text%2A> (when <xref:System.Windows.Forms.MaskedTextBox.TextMaskFormat%2A> is set to <xref:System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals>)|  \n|`Format` property|None|  \n|`FormattedText` property|<xref:System.Windows.Forms.MaskedTextBox.Text%2A> (when <xref:System.Windows.Forms.MaskedTextBox.TextMaskFormat%2A> is set to <xref:System.Windows.Forms.MaskFormat.IncludePromptAndLiterals>)|  \n|`Mask` property|<xref:System.Windows.Forms.MaskedTextBox.Mask%2A>|  \n|`PromptChar` property|<xref:System.Windows.Forms.MaskedTextBox.PromptChar%2A>|  \n|`PromptInclude` property|<xref:System.Windows.Forms.MaskedTextBox.ResetOnPrompt%2A>|  \n|`ValidationError` event|<xref:System.Windows.Forms.MaskedTextBox.MaskInputRejected>|  \n  \n> [!CAUTION]\n>  The <xref:System.Windows.Forms.MaskedTextBox> control does not support multiline configuration or undo functionality. However, while the members associated with these features have been retained for compatibility with the <xref:System.Windows.Forms.TextBoxBase> base class, their implementations perform no actions."
+  remarks: "The <xref:System.Windows.Forms.MaskedTextBox> class is an enhanced <xref:System.Windows.Forms.TextBox> control that supports a declarative syntax for accepting or rejecting user input. Using the <xref:System.Windows.Forms.MaskedTextBox.Mask%2A> property, you can specify the following input without writing any custom validation logic in your application:  \n  \n-   Required input characters.  \n  \n-   Optional input characters.  \n  \n-   The type of input expected at a given position in the mask; for example, a digit, or an alphabetic or alphanumeric character.  \n  \n-   Mask literals, or characters that should appear directly in the <xref:System.Windows.Forms.MaskedTextBox>; for example, the hyphens (-) in a phone number, or the currency symbol in a price.  \n  \n-   Special processing for input characters; for example, to convert alphabetic characters to uppercase.  \n  \n When a <xref:System.Windows.Forms.MaskedTextBox> control is displayed at run time, it represents the mask as a series of prompt characters and optional literal characters. Each editable mask position, representing a required or optional input, is shown with a single prompt character. For example, the number sign (#) is often used as a placeholder for a numeric character input. You can use the <xref:System.Windows.Forms.MaskedTextBox.PromptChar%2A> property to specify a custom prompt character. The <xref:System.Windows.Forms.MaskedTextBox.HidePromptOnLeave%2A> property determines if the user sees the prompt characters when the control loses input focus.  \n  \n As the user types input into the masked text box, valid input characters replace their respective prompt characters in a sequential fashion. If the user types an invalid input character, no replacement occurs, but instead a beep is issued if the <xref:System.Windows.Forms.MaskedTextBox.BeepOnError%2A> property is set to `true`, and the <xref:System.Windows.Forms.MaskedTextBox.MaskInputRejected> event is raised. You can provide your own custom error logic by handing this event.  \n  \n When the current insertion point is at a literal character, the user has a number of options:  \n  \n-   If a character other than the prompt character is typed, the literal will automatically be skipped and the input character will be applied to the next editable position, represented by the next prompt character.  \n  \n-   If the prompt character is typed and the <xref:System.Windows.Forms.MaskedTextBox.AllowPromptAsInput%2A> property is true, the input will overtype the prompt character and insertion point will be moved to the next position in the mask.  \n  \n-   As is always the case, the arrow keys can be used to navigate to a previous or subsequent position.  \n  \n You can use the <xref:System.Windows.Forms.MaskedTextBox.MaskFull%2A> property to verify whether or not the user has entered all of the required input. The <xref:System.Windows.Forms.MaskedTextBox.Text%2A> property will always retrieve the user's input formatted according to the mask and the <xref:System.Windows.Forms.MaskedTextBox.TextMaskFormat%2A> property.  \n  \n The <xref:System.Windows.Forms.MaskedTextBox> control actually defers all mask processing to the <xref:System.ComponentModel.MaskedTextProvider?displayProperty=fullName> class specified by the <xref:System.Windows.Forms.MaskedTextBox.MaskedTextProvider%2A> property. This standard provider supports all Unicode characters except for surrogates and vertically combined characters; however, the <xref:System.Windows.Forms.MaskedTextBox.AsciiOnly%2A> property can be used to restrict input to the characters sets a-z, A-Z, and 0-9.  \n  \n Masks do not necessarily guarantee that a user's input will represent a valid value for a given type; for example, -9 could be entered for an age in years. You can verify that a user's input represents a valid value by assigning an instance of that value's type to the <xref:System.Windows.Forms.MaskedTextBox.ValidatingType%2A> property. You can detect whether the user removes focus from <xref:System.Windows.Forms.MaskedTextBox> when it contains an invalid value by monitoring for the <xref:System.Windows.Forms.MaskedTextBox.TypeValidationCompleted> event. If type validation succeeds, the object representing the value will be available through the <xref:System.Windows.Forms.TypeValidationEventArgs.ReturnValue%2A> property of the <xref:System.Windows.Forms.TypeValidationEventArgs> parameter.  \n  \n As with the <xref:System.Windows.Forms.TextBox> control, several common keyboard shortcuts do not work with <xref:System.Windows.Forms.MaskedTextBox>. In particular, CTRL-R (right justify text), CTRL-L (left justify text), and CTRL-L (center text) have no effect.  \n  \n## <a name=\"compatibility-with-visual-basic-60\"></a>Compatibility with Visual Basic 6.0  \n <xref:System.Windows.Forms.MaskedTextBox> was designed to retain most of the functionality of the Masked Edit control in [!INCLUDE[vbprvb](~/includes/vbprvb-md.md)] 6.0. The following table lists common properties on the Masked Edit control and gives their equivalents on <xref:System.Windows.Forms.MaskedTextBox>.  \n  \n|Masked Edit control ([!INCLUDE[vbprvb](~/includes/vbprvb-md.md)] 6.0) property|Equivalent MaskedTextBox ([!INCLUDE[dnprdnshort](~/includes/dnprdnshort-md.md)]) property|  \n|-------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|  \n|`AllowPrompt` property|<xref:System.Windows.Forms.MaskedTextBox.AllowPromptAsInput%2A>|  \n|`AutoTab` property|None|  \n|`ClipMode` property|<xref:System.Windows.Forms.MaskedTextBox.CutCopyMaskFormat%2A>|  \n|`ClipText` property|<xref:System.Windows.Forms.MaskedTextBox.Text%2A> (when <xref:System.Windows.Forms.MaskedTextBox.TextMaskFormat%2A> is set to <xref:System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals>)|  \n|`Format` property|None|  \n|`FormattedText` property|<xref:System.Windows.Forms.MaskedTextBox.Text%2A> (when <xref:System.Windows.Forms.MaskedTextBox.TextMaskFormat%2A> is set to <xref:System.Windows.Forms.MaskFormat.IncludePromptAndLiterals>)|  \n|`Mask` property|<xref:System.Windows.Forms.MaskedTextBox.Mask%2A>|  \n|`PromptChar` property|<xref:System.Windows.Forms.MaskedTextBox.PromptChar%2A>|  \n|`PromptInclude` property|<xref:System.Windows.Forms.MaskedTextBox.ResetOnPrompt%2A>|  \n|`ValidationError` event|<xref:System.Windows.Forms.MaskedTextBox.MaskInputRejected>|  \n  \n> [!CAUTION]\n>  The <xref:System.Windows.Forms.MaskedTextBox> control does not support multiline configuration or undo functionality. However, while the members associated with these features have been retained for compatibility with the <xref:System.Windows.Forms.TextBoxBase> base class, their implementations perform no actions."
   example:
   - "The following code example initializes the <xref:System.Windows.Forms.MaskedTextBox> to accept a date, and uses both the <xref:System.Windows.Forms.MaskedTextBox.MaskInputRejected> and <xref:System.Windows.Forms.MaskedTextBox.TypeValidationCompleted> events to alert the user to invalid input.  \n  \n [!code-csharp[MaskInputRejectedSample#1](~/samples/snippets/csharp/VS_Snippets_Winforms/MaskInputRejectedSample/CS/form1.cs#1)]\n [!code-vb[MaskInputRejectedSample#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/MaskInputRejectedSample/VB/form1.vb#1)]"
   syntax:
@@ -547,7 +547,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Initializes a new instance of the <xref href="System.Windows.Forms.MaskedTextBox"></xref> class using defaults.
-  remarks: The default <xref:System.Windows.Forms.MaskedTextBox.%23ctor> constructor sets the <xref:System.Windows.Forms.MaskedTextBox.MaskedTextProvider%2A> property to a null mask, represented by the string "<>". A null mask will accept any combination of characters as input.
+  remarks: 'The default <xref:System.Windows.Forms.MaskedTextBox.%23ctor> constructor sets the <xref:System.Windows.Forms.MaskedTextBox.MaskedTextProvider%2A> property to a null mask, represented by the string "<>". A null mask will accept any combination of characters as input.'
   syntax:
     content: public MaskedTextBox ();
     parameters: []
@@ -595,7 +595,7 @@ items:
     parameters:
     - id: maskedTextProvider
       type: System.ComponentModel.MaskedTextProvider
-      description: A custom mask language provider, derived from the <xref href="System.ComponentModel.MaskedTextProvider"></xref> class.
+      description: 'A custom mask language provider, derived from the <xref href="System.ComponentModel.MaskedTextProvider"></xref> class.'
   overload: System.Windows.Forms.MaskedTextBox.#ctor*
   exceptions:
   - type: System.ArgumentNullException
@@ -685,7 +685,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets a value determining how TAB keys are handled for multiline configurations. This property is not supported by <xref href="System.Windows.Forms.MaskedTextBox"></xref>.
-  remarks: The <xref:System.Windows.Forms.MaskedTextBox.AcceptsTab%2A> property is inherited from the base <xref:System.Windows.Forms.TextBoxBase> class. However, because the <xref:System.Windows.Forms.MaskedTextBox> control does not support multiline configuration, this property is not supported.
+  remarks: 'The <xref:System.Windows.Forms.MaskedTextBox.AcceptsTab%2A> property is inherited from the base <xref:System.Windows.Forms.TextBoxBase> class. However, because the <xref:System.Windows.Forms.MaskedTextBox> control does not support multiline configuration, this property is not supported.'
   syntax:
     content: >-
       [System.ComponentModel.Browsable(false)]
@@ -734,7 +734,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Occurs when the value of the <xref href="System.Windows.Forms.MaskedTextBox.AcceptsTab"></xref> property has changed. This event is not raised by <xref href="System.Windows.Forms.MaskedTextBox"></xref>.
-  remarks: The <xref:System.Windows.Forms.MaskedTextBox.AcceptsTabChanged> event is inherited from the base <xref:System.Windows.Forms.TextBoxBase> class. However, because the <xref:System.Windows.Forms.MaskedTextBox> control does not support multiline configuration, this event is not supported.
+  remarks: 'The <xref:System.Windows.Forms.MaskedTextBox.AcceptsTabChanged> event is inherited from the base <xref:System.Windows.Forms.TextBoxBase> class. However, because the <xref:System.Windows.Forms.MaskedTextBox> control does not support multiline configuration, this event is not supported.'
   syntax:
     content: >-
       [System.ComponentModel.Browsable(false)]
@@ -827,7 +827,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets a value indicating whether the <xref href="System.Windows.Forms.MaskedTextBox"></xref> control accepts characters outside of the ASCII character set.
-  remarks: If `true`, <xref:System.Windows.Forms.MaskedTextBox.AsciiOnly%2A> restricts user input to the characters a-z and A-Z. ASCII control characters are not allowed.
+  remarks: 'If `true`, <xref:System.Windows.Forms.MaskedTextBox.AsciiOnly%2A> restricts user input to the characters a-z and A-Z. ASCII control characters are not allowed.'
   syntax:
     content: public bool AsciiOnly { get; set; }
     return:
@@ -871,7 +871,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets a value indicating whether the masked text box control raises the system beep for each user key stroke that it rejects.
-  remarks: The <xref:System.Windows.Forms.MaskedTextBox.MaskInputRejected> event will still occur if the <xref:System.Windows.Forms.MaskedTextBox.BeepOnError%2A> property is set to `true`.
+  remarks: 'The <xref:System.Windows.Forms.MaskedTextBox.MaskInputRejected> event will still occur if the <xref:System.Windows.Forms.MaskedTextBox.BeepOnError%2A> property is set to `true`.'
   syntax:
     content: public bool BeepOnError { get; set; }
     return:
@@ -916,7 +916,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets a value indicating whether the user can undo the previous operation. This property is not supported by <xref href="System.Windows.Forms.MaskedTextBox"></xref>.
-  remarks: The <xref:System.Windows.Forms.MaskedTextBox.CanUndo%2A> property is inherited from the base <xref:System.Windows.Forms.TextBoxBase> class. However, because <xref:System.Windows.Forms.MaskedTextBox> does not support undo functionality, this property always has a value of `false`.
+  remarks: 'The <xref:System.Windows.Forms.MaskedTextBox.CanUndo%2A> property is inherited from the base <xref:System.Windows.Forms.TextBoxBase> class. However, because <xref:System.Windows.Forms.MaskedTextBox> does not support undo functionality, this property always has a value of `false`.'
   syntax:
     content: >-
       [System.ComponentModel.Browsable(false)]
@@ -965,7 +965,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Clears information about the most recent operation from the undo buffer of the text box. This method is not supported by <xref href="System.Windows.Forms.MaskedTextBox"></xref>.
-  remarks: The <xref:System.Windows.Forms.MaskedTextBox.ClearUndo%2A> method is inherited from the base <xref:System.Windows.Forms.TextBoxBase> class. However, <xref:System.Windows.Forms.MaskedTextBox> does not support undo functionality.
+  remarks: 'The <xref:System.Windows.Forms.MaskedTextBox.ClearUndo%2A> method is inherited from the base <xref:System.Windows.Forms.TextBoxBase> class. However, <xref:System.Windows.Forms.MaskedTextBox> does not support undo functionality.'
   syntax:
     content: public void ClearUndo ();
     parameters: []
@@ -1188,7 +1188,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets the <xref href="System.IFormatProvider"></xref> to use when performing type validation.
-  remarks: <xref:System.Windows.Forms.MaskedTextBox.FormatProvider%2A> determines which symbols are used for the currency, date, and other culture-specific mask placeholders when type validation occurs and the control has a non-null <xref:System.Windows.Forms.MaskedTextBox.ValidatingType%2A> property.
+  remarks: '<xref:System.Windows.Forms.MaskedTextBox.FormatProvider%2A> determines which symbols are used for the currency, date, and other culture-specific mask placeholders when type validation occurs and the control has a non-null <xref:System.Windows.Forms.MaskedTextBox.ValidatingType%2A> property.'
   syntax:
     content: >-
       [System.ComponentModel.Browsable(false)]
@@ -1330,7 +1330,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Retrieves the index of the first character of a given line. This method is not supported by <xref href="System.Windows.Forms.MaskedTextBox"></xref>.
-  remarks: The <xref:System.Windows.Forms.MaskedTextBox.GetFirstCharIndexFromLine%2A> method is inherited from the base <xref:System.Windows.Forms.TextBoxBase> class. However, because the <xref:System.Windows.Forms.MaskedTextBox> control does not support multiline configuration, this method is not supported.
+  remarks: 'The <xref:System.Windows.Forms.MaskedTextBox.GetFirstCharIndexFromLine%2A> method is inherited from the base <xref:System.Windows.Forms.TextBoxBase> class. However, because the <xref:System.Windows.Forms.MaskedTextBox> control does not support multiline configuration, this method is not supported.'
   syntax:
     content: public int GetFirstCharIndexFromLine (int lineNumber);
     parameters:
@@ -1379,7 +1379,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Retrieves the index of the first character of the current line. This method is not supported by <xref href="System.Windows.Forms.MaskedTextBox"></xref>.
-  remarks: The <xref:System.Windows.Forms.MaskedTextBox.GetFirstCharIndexOfCurrentLine%2A> method is inherited from the base <xref:System.Windows.Forms.TextBoxBase> class. However, because the <xref:System.Windows.Forms.MaskedTextBox> control does not support multiline configuration, this method is not supported.
+  remarks: 'The <xref:System.Windows.Forms.MaskedTextBox.GetFirstCharIndexOfCurrentLine%2A> method is inherited from the base <xref:System.Windows.Forms.TextBoxBase> class. However, because the <xref:System.Windows.Forms.MaskedTextBox> control does not support multiline configuration, this method is not supported.'
   syntax:
     content: public int GetFirstCharIndexOfCurrentLine ();
     parameters: []
@@ -1425,7 +1425,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Retrieves the line number from the specified character position within the text of the control. This method is not supported by <xref href="System.Windows.Forms.MaskedTextBox"></xref>.
-  remarks: The <xref:System.Windows.Forms.MaskedTextBox.GetLineFromCharIndex%2A> method is inherited from the base <xref:System.Windows.Forms.TextBoxBase> class. However, because the <xref:System.Windows.Forms.MaskedTextBox> control does not support multiline configuration, this method is not supported.
+  remarks: 'The <xref:System.Windows.Forms.MaskedTextBox.GetLineFromCharIndex%2A> method is inherited from the base <xref:System.Windows.Forms.TextBoxBase> class. However, because the <xref:System.Windows.Forms.MaskedTextBox> control does not support multiline configuration, this method is not supported.'
   syntax:
     content: public override int GetLineFromCharIndex (int index);
     parameters:
@@ -1754,7 +1754,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets the lines of text in multiline configurations. This property is not supported by <xref href="System.Windows.Forms.MaskedTextBox"></xref>.
-  remarks: The <xref:System.Windows.Forms.MaskedTextBox.Lines%2A> property is inherited from the base <xref:System.Windows.Forms.TextBoxBase> class. However, because the <xref:System.Windows.Forms.MaskedTextBox> control does not support multiline configuration, this property is not supported.
+  remarks: 'The <xref:System.Windows.Forms.MaskedTextBox.Lines%2A> property is inherited from the base <xref:System.Windows.Forms.TextBoxBase> class. However, because the <xref:System.Windows.Forms.MaskedTextBox> control does not support multiline configuration, this property is not supported.'
   syntax:
     content: >-
       [System.ComponentModel.Browsable(false)]
@@ -1851,7 +1851,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Occurs after the input mask is changed.
-  remarks: The <xref:System.Windows.Forms.MaskedTextBox.MaskChanged> event is raised after the value of the <xref:System.Windows.Forms.MaskedTextBox.Mask%2A> property is changed. This event is also raised if the <xref:System.Windows.Forms.MaskedTextBox.MaskedTextProvider%2A> is indirectly altered by a member such as <xref:System.Windows.Forms.MaskedTextBox.Mask%2A>, <xref:System.Windows.Forms.MaskedTextBox.AllowPromptAsInput%2A>, <xref:System.Windows.Forms.MaskedTextBox.AsciiOnly%2A>, and <xref:System.Windows.Forms.MaskedTextBox.Culture%2A>.
+  remarks: 'The <xref:System.Windows.Forms.MaskedTextBox.MaskChanged> event is raised after the value of the <xref:System.Windows.Forms.MaskedTextBox.Mask%2A> property is changed. This event is also raised if the <xref:System.Windows.Forms.MaskedTextBox.MaskedTextProvider%2A> is indirectly altered by a member such as <xref:System.Windows.Forms.MaskedTextBox.Mask%2A>, <xref:System.Windows.Forms.MaskedTextBox.AllowPromptAsInput%2A>, <xref:System.Windows.Forms.MaskedTextBox.AsciiOnly%2A>, and <xref:System.Windows.Forms.MaskedTextBox.Culture%2A>.'
   example:
   - "The following code example demonstrates the use of this member. In the example, an event handler reports on the occurrence of the <xref:System.Windows.Forms.MaskedTextBox.MaskChanged> event. This report helps you to learn when the event occurs and can assist you in debugging. To report on multiple events or on events that occur frequently, consider replacing <xref:System.Windows.Forms.MessageBox.Show%2A?displayProperty=fullName> with <xref:System.Console.WriteLine%2A?displayProperty=fullName> or appending the message to a multiline <xref:System.Windows.Forms.TextBox>.  \n  \n To run the example code, paste it into a project that contains an instance of type <xref:System.Windows.Forms.MaskedTextBox> named `MaskedTextBox1`. Then ensure that the event handler is associated with the <xref:System.Windows.Forms.MaskedTextBox.MaskChanged> event.  \n  \n [!code-csharp[System.Windows.Forms.EventExamples#485](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.EventExamples/CS/EventExamples.cs#485)]\n [!code-vb[System.Windows.Forms.EventExamples#485](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.EventExamples/VB/EventExamples.vb#485)]"
   syntax:
@@ -1896,7 +1896,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets a value indicating whether all required inputs have been entered into the input mask.
-  remarks: <xref:System.Windows.Forms.MaskedTextBox.MaskCompleted%2A> checks only required input elements. To determine whether all required and optional input elements have been filled in, use the <xref:System.Windows.Forms.MaskedTextBox.MaskFull%2A> property instead.
+  remarks: '<xref:System.Windows.Forms.MaskedTextBox.MaskCompleted%2A> checks only required input elements. To determine whether all required and optional input elements have been filled in, use the <xref:System.Windows.Forms.MaskedTextBox.MaskFull%2A> property instead.'
   syntax:
     content: >-
       [System.ComponentModel.Browsable(false)]
@@ -1994,7 +1994,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets a value indicating whether all required and optional inputs have been entered into the input mask.
-  remarks: You can use the <xref:System.Windows.Forms.MaskedTextBox.MaskFull%2A> property within the <xref:System.Windows.Forms.MaskedTextBox.MaskInputRejected> event handler to determine if the user's input was rejected because there are no remaining inputs in the mask. To determine whether only required input elements have been entered, use the <xref:System.Windows.Forms.MaskedTextBox.MaskCompleted%2A> property.
+  remarks: 'You can use the <xref:System.Windows.Forms.MaskedTextBox.MaskFull%2A> property within the <xref:System.Windows.Forms.MaskedTextBox.MaskInputRejected> event handler to determine if the user''s input was rejected because there are no remaining inputs in the mask. To determine whether only required input elements have been entered, use the <xref:System.Windows.Forms.MaskedTextBox.MaskCompleted%2A> property.'
   example:
   - "The following code example handles the <xref:System.Windows.Forms.MaskedTextBox.MaskInputRejected> event, and uses a <xref:System.Windows.Forms.ToolTip> to alert the user if an attempt is made to enter data after all positions in the mask have been used.  \n  \n [!code-csharp[MaskInputRejectedSample#1](~/samples/snippets/csharp/VS_Snippets_Winforms/MaskInputRejectedSample/CS/form1.cs#1)]\n [!code-vb[MaskInputRejectedSample#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/MaskInputRejectedSample/VB/form1.vb#1)]"
   syntax:
@@ -2090,7 +2090,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets the maximum number of characters the user can type or paste into the text box control. This property is not supported by <xref href="System.Windows.Forms.MaskedTextBox"></xref>.
-  remarks: See the <xref:System.Windows.Forms.MaskedTextBox.Mask%2A> property and the <xref:System.Windows.Forms.MaskInputRejectedEventArgs.Position%2A> property in the <xref:System.Windows.Forms.MaskInputRejectedEventArgs> class for information about how to determine the maximum length of a string in a <xref:System.Windows.Forms.MaskedTextBox>.
+  remarks: 'See the <xref:System.Windows.Forms.MaskedTextBox.Mask%2A> property and the <xref:System.Windows.Forms.MaskInputRejectedEventArgs.Position%2A> property in the <xref:System.Windows.Forms.MaskInputRejectedEventArgs> class for information about how to determine the maximum length of a string in a <xref:System.Windows.Forms.MaskedTextBox>.'
   syntax:
     content: >-
       [System.ComponentModel.Browsable(false)]
@@ -2139,7 +2139,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets a value indicating whether this is a multiline text box control. This property is not fully supported by <xref href="System.Windows.Forms.MaskedTextBox"></xref>.
-  remarks: The <xref:System.Windows.Forms.MaskedTextBox.AcceptsTab%2A> property is inherited from the base <xref:System.Windows.Forms.TextBoxBase> class. However, because the <xref:System.Windows.Forms.MaskedTextBox> control does not support multiline configuration, this property is not fully supported; it cannot be set and it always resolves to `false`.
+  remarks: 'The <xref:System.Windows.Forms.MaskedTextBox.AcceptsTab%2A> property is inherited from the base <xref:System.Windows.Forms.TextBoxBase> class. However, because the <xref:System.Windows.Forms.MaskedTextBox> control does not support multiline configuration, this property is not fully supported; it cannot be set and it always resolves to `false`.'
   syntax:
     content: >-
       [System.ComponentModel.Browsable(false)]
@@ -2187,8 +2187,8 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Typically occurs when the value of the <xref href="System.Windows.Forms.MaskedTextBox.Multiline"></xref> property has changed; however, this event is not raised by <xref href="System.Windows.Forms.MaskedTextBox"></xref>.
-  remarks: The <xref:System.Windows.Forms.MaskedTextBox.MultilineChanged> event is inherited from the base <xref:System.Windows.Forms.TextBoxBase> class. However, because the <xref:System.Windows.Forms.MaskedTextBox> control does not support multiline configuration, this event is not implemented in <xref:System.Windows.Forms.MaskedTextBox>.
+  summary: 'Typically occurs when the value of the <xref href="System.Windows.Forms.MaskedTextBox.Multiline"></xref> property has changed; however, this event is not raised by <xref href="System.Windows.Forms.MaskedTextBox"></xref>.'
+  remarks: 'The <xref:System.Windows.Forms.MaskedTextBox.MultilineChanged> event is inherited from the base <xref:System.Windows.Forms.TextBoxBase> class. However, because the <xref:System.Windows.Forms.MaskedTextBox> control does not support multiline configuration, this event is not implemented in <xref:System.Windows.Forms.MaskedTextBox>.'
   syntax:
     content: >-
       [System.ComponentModel.Browsable(false)]
@@ -2546,8 +2546,8 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Typically raises the <xref href="System.Windows.Forms.MaskedTextBox.MultilineChanged"></xref> event, but disabled for <xref href="System.Windows.Forms.MaskedTextBox"></xref>.
-  remarks: The <xref:System.Windows.Forms.MaskedTextBox.OnMultilineChanged%2A> method is inherited from the base <xref:System.Windows.Forms.TextBoxBase> class. However, because the <xref:System.Windows.Forms.MaskedTextBox> control does not support multiline configuration, this method is overridden to perform no actions.
+  summary: 'Typically raises the <xref href="System.Windows.Forms.MaskedTextBox.MultilineChanged"></xref> event, but disabled for <xref href="System.Windows.Forms.MaskedTextBox"></xref>.'
+  remarks: 'The <xref:System.Windows.Forms.MaskedTextBox.OnMultilineChanged%2A> method is inherited from the base <xref:System.Windows.Forms.TextBoxBase> class. However, because the <xref:System.Windows.Forms.MaskedTextBox> control does not support multiline configuration, this method is overridden to perform no actions.'
   syntax:
     content: protected override void OnMultilineChanged (EventArgs e);
     parameters:
@@ -2742,10 +2742,10 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: The character specified when setting this property is not a valid password character, as determined by the <xref href="System.ComponentModel.MaskedTextProvider.IsValidPasswordChar(System.Char)"></xref> method of the <xref href="System.ComponentModel.MaskedTextProvider"></xref> class.
+    description: 'The character specified when setting this property is not a valid password character, as determined by the <xref href="System.ComponentModel.MaskedTextProvider.IsValidPasswordChar(System.Char)"></xref> method of the <xref href="System.ComponentModel.MaskedTextProvider"></xref> class.'
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The password character specified is the same as the current prompt character, <xref href="System.Windows.Forms.MaskedTextBox.PromptChar"></xref>. The two are required to be different.
+    description: 'The password character specified is the same as the current prompt character, <xref href="System.Windows.Forms.MaskedTextBox.PromptChar"></xref>. The two are required to be different.'
   attributes: []
   version:
   - netframework-4.5.1
@@ -2788,7 +2788,7 @@ items:
     parameters:
     - id: msg
       type: System.Windows.Forms.Message
-      description: A <xref href="System.Windows.Forms.Message"></xref>, passed by reference that represents the window message to process.
+      description: 'A <xref href="System.Windows.Forms.Message"></xref>, passed by reference that represents the window message to process.'
     - id: keyData
       type: System.Windows.Forms.Keys
       description: One of the <xref href="System.Windows.Forms.Keys"></xref> values that represents the shortcut key to process.
@@ -2833,13 +2833,13 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Overrides the base implementation of this method to handle input language changes.
-  remarks: <xref:System.Windows.Forms.MaskedTextBox> overrides its base control's implementation of <xref:System.Windows.Forms.MaskedTextBox.ProcessKeyMessage%2A> to properly handle character events when the user is entering characters using an Input Method Editor (IME), such as is used for entering Japanese, Chinese, and other complex non-Latin scripts. <xref:System.Windows.Forms.MaskedTextBox.ProcessKeyMessage%2A> detects any WM_CHAR messages that occur after it receives a WM_IME_CHAR message and suppresses them in order to prevent these characters from showing up in the control. If you derive from this control and override this message, you should duplicate this behavior if you wish your new control to work with IMEs.
+  remarks: '<xref:System.Windows.Forms.MaskedTextBox> overrides its base control''s implementation of <xref:System.Windows.Forms.MaskedTextBox.ProcessKeyMessage%2A> to properly handle character events when the user is entering characters using an Input Method Editor (IME), such as is used for entering Japanese, Chinese, and other complex non-Latin scripts. <xref:System.Windows.Forms.MaskedTextBox.ProcessKeyMessage%2A> detects any WM_CHAR messages that occur after it receives a WM_IME_CHAR message and suppresses them in order to prevent these characters from showing up in the control. If you derive from this control and override this message, you should duplicate this behavior if you wish your new control to work with IMEs.'
   syntax:
     content: protected override bool ProcessKeyMessage (ref System.Windows.Forms.Message m);
     parameters:
     - id: m
       type: System.Windows.Forms.Message
-      description: A <xref href="System.Windows.Forms.Message"></xref>, passed by reference that represents the window message to process.
+      description: 'A <xref href="System.Windows.Forms.Message"></xref>, passed by reference that represents the window message to process.'
     return:
       type: System.Boolean
       description: '`true` if the message was processed by the control; otherwise, `false`.'
@@ -2890,10 +2890,10 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: The character specified when setting this property is not a valid prompt character, as determined by the <xref href="System.ComponentModel.MaskedTextProvider.IsValidPasswordChar(System.Char)"></xref> method of the <xref href="System.ComponentModel.MaskedTextProvider"></xref> class.
+    description: 'The character specified when setting this property is not a valid prompt character, as determined by the <xref href="System.ComponentModel.MaskedTextProvider.IsValidPasswordChar(System.Char)"></xref> method of the <xref href="System.ComponentModel.MaskedTextProvider"></xref> class.'
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The prompt character specified is the same as the current password character, <xref href="System.Windows.Forms.MaskedTextBox.PasswordChar"></xref>. The two are required to be different.
+    description: 'The prompt character specified is the same as the current password character, <xref href="System.Windows.Forms.MaskedTextBox.PasswordChar"></xref>. The two are required to be different.'
   attributes: []
   version:
   - netframework-4.5.1
@@ -3109,7 +3109,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Scrolls the contents of the control to the current caret position. This method is not supported by <xref href="System.Windows.Forms.MaskedTextBox"></xref>.
-  remarks: The <xref:System.Windows.Forms.MaskedTextBox.ScrollToCaret%2A> method is inherited from the base <xref:System.Windows.Forms.TextBoxBase> class. However, because the <xref:System.Windows.Forms.MaskedTextBox> control does not support multiline configuration, this method is overridden to perform no actions.
+  remarks: 'The <xref:System.Windows.Forms.MaskedTextBox.ScrollToCaret%2A> method is inherited from the base <xref:System.Windows.Forms.TextBoxBase> class. However, because the <xref:System.Windows.Forms.MaskedTextBox> control does not support multiline configuration, this method is overridden to perform no actions.'
   syntax:
     content: public void ScrollToCaret ();
     parameters: []
@@ -3152,12 +3152,12 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets the current selection in the <xref href="System.Windows.Forms.MaskedTextBox"></xref> control.
-  remarks: "Selections retrieved using this property are formatted according to the control's formatting properties, such as <xref:System.Windows.Forms.MaskedTextBox.Mask%2A>, <xref:System.Windows.Forms.MaskedTextBox.FormatProvider%2A>, <xref:System.Windows.Forms.MaskedTextBox.TextMaskFormat%2A> and <xref:System.Windows.Forms.MaskedTextBox.CutCopyMaskFormat%2A>. Selections set using this property behave like a Paste operation: each character is matched against the mask, and the <xref:System.Windows.Forms.MaskedTextBox.MaskInputRejected> event is raised for invalid characters. If <xref:System.Windows.Forms.MaskedTextBox.CutCopyMaskFormat%2A> is `true`, literals and prompt characters are allowed when setting <xref:System.Windows.Forms.MaskedTextBox.SelectedText%2A>, and will be removed silently unless they violate the mask."
+  remarks: 'Selections retrieved using this property are formatted according to the control''s formatting properties, such as <xref:System.Windows.Forms.MaskedTextBox.Mask%2A>, <xref:System.Windows.Forms.MaskedTextBox.FormatProvider%2A>, <xref:System.Windows.Forms.MaskedTextBox.TextMaskFormat%2A> and <xref:System.Windows.Forms.MaskedTextBox.CutCopyMaskFormat%2A>. Selections set using this property behave like a Paste operation: each character is matched against the mask, and the <xref:System.Windows.Forms.MaskedTextBox.MaskInputRejected> event is raised for invalid characters. If <xref:System.Windows.Forms.MaskedTextBox.CutCopyMaskFormat%2A> is `true`, literals and prompt characters are allowed when setting <xref:System.Windows.Forms.MaskedTextBox.SelectedText%2A>, and will be removed silently unless they violate the mask.'
   syntax:
     content: public override string SelectedText { get; set; }
     return:
       type: System.String
-      description: The currently selected text as a <xref href="System.String"></xref>. If no text is currently selected, this property resolves to an empty string.
+      description: 'The currently selected text as a <xref href="System.String"></xref>. If no text is currently selected, this property resolves to an empty string.'
   overload: System.Windows.Forms.MaskedTextBox.SelectedText*
   exceptions: []
   version:
@@ -3291,7 +3291,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets how text is aligned in a masked text box control.
-  remarks: You can use the <xref:System.Windows.Forms.MaskedTextBox.TextAlign%2A> property to align the displayed text within a <xref:System.Windows.Forms.MaskedTextBox> to match the layout of visual elements on your form. For example, if your controls are all located on the right side of the form, you can set the <xref:System.Windows.Forms.MaskedTextBox.TextAlign%2A> property to <xref:System.Windows.Forms.HorizontalAlignment.Right>, and the text will be aligned with the right side of the control instead of the default left alignment.
+  remarks: 'You can use the <xref:System.Windows.Forms.MaskedTextBox.TextAlign%2A> property to align the displayed text within a <xref:System.Windows.Forms.MaskedTextBox> to match the layout of visual elements on your form. For example, if your controls are all located on the right side of the form, you can set the <xref:System.Windows.Forms.MaskedTextBox.TextAlign%2A> property to <xref:System.Windows.Forms.HorizontalAlignment.Right>, and the text will be aligned with the right side of the control instead of the default left alignment.'
   syntax:
     content: public System.Windows.Forms.HorizontalAlignment TextAlign { get; set; }
     return:
@@ -3339,7 +3339,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Occurs when the text alignment is changed.
-  remarks: The <xref:System.Windows.Forms.MaskedTextBox.TextAlignChanged> event is raised after the <xref:System.Windows.Forms.MaskedTextBox.TextAlign%2A> property is changed.
+  remarks: 'The <xref:System.Windows.Forms.MaskedTextBox.TextAlignChanged> event is raised after the <xref:System.Windows.Forms.MaskedTextBox.TextAlign%2A> property is changed.'
   example:
   - "The following code example demonstrates the use of this member. In the example, an event handler reports on the occurrence of the <xref:System.Windows.Forms.MaskedTextBox.TextAlignChanged> event. This report helps you to learn when the event occurs and can assist you in debugging. To report on multiple events or on events that occur frequently, consider replacing <xref:System.Windows.Forms.MessageBox.Show%2A?displayProperty=fullName> with <xref:System.Console.WriteLine%2A?displayProperty=fullName> or appending the message to a multiline <xref:System.Windows.Forms.TextBox>.  \n  \n To run the example code, paste it into a project that contains an instance of type <xref:System.Windows.Forms.MaskedTextBox> named `MaskedTextBox1`. Then ensure that the event handler is associated with the <xref:System.Windows.Forms.MaskedTextBox.TextAlignChanged> event.  \n  \n [!code-csharp[System.Windows.Forms.EventExamples#487](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.EventExamples/CS/EventExamples.cs#487)]\n [!code-vb[System.Windows.Forms.EventExamples#487](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.EventExamples/VB/EventExamples.vb#487)]"
   syntax:
@@ -3391,7 +3391,7 @@ items:
       public override int TextLength { get; }
     return:
       type: System.Int32
-      description: An Int32 representing the number of characters in the <xref href="System.Windows.Forms.MaskedTextBox.Text"></xref> property. <xref href="System.Windows.Forms.MaskedTextBox.TextLength"></xref> respects properties such as <xref href="System.Windows.Forms.MaskedTextBox.HidePromptOnLeave"></xref>, which means that the return results may be different depending on whether the control has focus.
+      description: 'An Int32 representing the number of characters in the <xref href="System.Windows.Forms.MaskedTextBox.Text"></xref> property. <xref href="System.Windows.Forms.MaskedTextBox.TextLength"></xref> respects properties such as <xref href="System.Windows.Forms.MaskedTextBox.HidePromptOnLeave"></xref>, which means that the return results may be different depending on whether the control has focus.'
   overload: System.Windows.Forms.MaskedTextBox.TextLength*
   exceptions: []
   attributes:
@@ -3485,7 +3485,7 @@ items:
     parameters: []
     return:
       type: System.String
-      description: A <xref href="System.String"></xref> that contains information about the current <xref href="System.Windows.Forms.MaskedTextBox"></xref>. The string includes the type, a simplified view of the input string, and the formatted input string.
+      description: 'A <xref href="System.String"></xref> that contains information about the current <xref href="System.Windows.Forms.MaskedTextBox"></xref>. The string includes the type, a simplified view of the input string, and the formatted input string.'
   overload: System.Windows.Forms.MaskedTextBox.ToString*
   exceptions: []
   version:
@@ -3569,7 +3569,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Undoes the last edit operation in the text box. This method is not supported by <xref href="System.Windows.Forms.MaskedTextBox"></xref>.
-  remarks: The <xref:System.Windows.Forms.MaskedTextBox.Undo%2A> method is inherited from the base <xref:System.Windows.Forms.TextBoxBase> class. However, <xref:System.Windows.Forms.MaskedTextBox> does not support undo functionality.
+  remarks: 'The <xref:System.Windows.Forms.MaskedTextBox.Undo%2A> method is inherited from the base <xref:System.Windows.Forms.TextBoxBase> class. However, <xref:System.Windows.Forms.MaskedTextBox> does not support undo functionality.'
   syntax:
     content: public void Undo ();
     parameters: []
@@ -3622,7 +3622,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The password character specified is the same as the current prompt character, <xref href="System.Windows.Forms.MaskedTextBox.PromptChar"></xref>. The two are required to be different.
+    description: 'The password character specified is the same as the current prompt character, <xref href="System.Windows.Forms.MaskedTextBox.PromptChar"></xref>. The two are required to be different.'
   attributes: []
   version:
   - netframework-4.5.1
@@ -3666,7 +3666,7 @@ items:
     parameters: []
     return:
       type: System.Object
-      description: If successful, an <xref href="System.Object"></xref> of the type specified by the <xref href="System.Windows.Forms.MaskedTextBox.ValidatingType"></xref> property; otherwise, `null` to indicate conversion failure.
+      description: 'If successful, an <xref href="System.Object"></xref> of the type specified by the <xref href="System.Windows.Forms.MaskedTextBox.ValidatingType"></xref> property; otherwise, `null` to indicate conversion failure.'
   overload: System.Windows.Forms.MaskedTextBox.ValidateText*
   exceptions:
   - type: System.Exception
@@ -3803,7 +3803,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets a value indicating whether a multiline text box control automatically wraps words to the beginning of the next line when necessary. This property is not supported by <xref href="System.Windows.Forms.MaskedTextBox"></xref>.
-  remarks: Because <xref:System.Windows.Forms.MaskedTextBox> does not support multiple lines of input, the <xref:System.Windows.Forms.MaskedTextBox.WordWrap%2A> property is ignored.
+  remarks: 'Because <xref:System.Windows.Forms.MaskedTextBox> does not support multiple lines of input, the <xref:System.Windows.Forms.MaskedTextBox.WordWrap%2A> property is ignored.'
   syntax:
     content: >-
       [System.ComponentModel.Browsable(false)]

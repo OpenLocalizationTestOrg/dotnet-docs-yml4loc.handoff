@@ -15,7 +15,7 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Policy
-  summary: Defines a set of rules for authorizing a user, given a set of claims.
+  summary: 'Defines a set of rules for authorizing a user, given a set of claims.'
   remarks: "Implement the <xref:System.IdentityModel.Policy.IAuthorizationPolicy> interface to add or map one set of claims to another. An authorization policy examines a set of claims and adds additional claims based on the current set. For example, an authorization policy might evaluate a claim that contains the date of birth and add a claim that asserts that the user is over 21 years old and add an Over21 claim to the <xref:System.IdentityModel.Policy.EvaluationContext>.  \n  \n Classes that implement the <xref:System.IdentityModel.Policy.IAuthorizationPolicy> interface do not authorize users, but they enable the <xref:System.ServiceModel.ServiceAuthorizationManager> class to do so. The <xref:System.ServiceModel.ServiceAuthorizationManager> calls the <xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A> method for each authorization policy in effect. The <xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A> method determines whether additional claims should be added for the user, based on the current context. An authorization policy's <xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A> method may be called multiple times, as claims are added to the <xref:System.IdentityModel.Policy.EvaluationContext> by other authorization policies. When all authorization policies in effect are done, the <xref:System.ServiceModel.ServiceAuthorizationManager> class makes authorization decisions based upon the final set of claims. The <xref:System.ServiceModel.ServiceAuthorizationManager> class then creates an <xref:System.IdentityModel.Policy.AuthorizationContext> that contains an immutable set of claims that reflects these authorization decisions."
   example:
   - >-
@@ -76,7 +76,7 @@ items:
       description: An <xref href="System.IdentityModel.Policy.EvaluationContext"></xref> that contains the claim set that the authorization policy evaluates.
     - id: state
       type: System.Object
-      description: A <xref href="System.Object"></xref>, passed by reference that represents the custom state for this authorization policy.
+      description: 'A <xref href="System.Object"></xref>, passed by reference that represents the custom state for this authorization policy.'
     return:
       type: System.Boolean
       description: '`false` if the <xref href="System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate(System.IdentityModel.Policy.EvaluationContext,System.Object@)"></xref> method for this authorization policy must be called if additional claims are added by other authorization policies to <code>evaluationContext</code>; otherwise, `true` to state no additional evaluation is required by this authorization policy.'

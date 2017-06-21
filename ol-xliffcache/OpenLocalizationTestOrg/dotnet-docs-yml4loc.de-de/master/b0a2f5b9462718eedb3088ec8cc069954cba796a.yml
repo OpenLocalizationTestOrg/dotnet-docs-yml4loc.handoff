@@ -82,7 +82,7 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: Provides information about the characteristics for a component, such as its attributes, properties, and events. This class cannot be inherited.
+  summary: 'Provides information about the characteristics for a component, such as its attributes, properties, and events. This class cannot be inherited.'
   remarks: "The .NET Framework provides two ways to access metadata on a type: the reflection API provided in the <xref:System.Reflection?displayProperty=fullName> namespace, and the <xref:System.ComponentModel.TypeDescriptor> class. Reflection is a general mechanism available to all types because its foundation is established in the <xref:System.Object.GetType%2A> method of the root <xref:System.Object> class. The information it returns for a type is not extensible, in that it cannot be modified after compilation of the target type. For more information, see the topics in [Reflection](~/docs/framework/reflection-and-codedom/reflection.md).  \n  \n In contrast, <xref:System.ComponentModel.TypeDescriptor> is an extensible inspection mechanism for components: those classes that implement the <xref:System.ComponentModel.IComponent> interface. Unlike reflection, it does not inspect for methods. <xref:System.ComponentModel.TypeDescriptor> can be dynamically extended by several services available through the target component's <xref:System.ComponentModel.Component.Site%2A>. The following table shows these services.  \n  \n|Service name|Description|  \n|------------------|-----------------|  \n|<xref:System.ComponentModel.IExtenderProvider>|Enables another class, such as <xref:System.Windows.Forms.ToolTip>, to provide extra properties to a component.|  \n|<xref:System.ComponentModel.Design.ITypeDescriptorFilterService>|Enables another object to modify the standard metadata that is exposed by a component.|  \n|<xref:System.ComponentModel.ICustomTypeDescriptor>|Enables a class to completely and dynamically specify its own metadata, replacing the standard inspection mechanism of <xref:System.ComponentModel.TypeDescriptor>.|  \n  \n The extensibility provided by <xref:System.ComponentModel.TypeDescriptor> allows the design-time representation of a component to differ from its actual run-time representation, which makes <xref:System.ComponentModel.TypeDescriptor> useful for building design-time infrastructure.  \n  \n All the methods in <xref:System.ComponentModel.TypeDescriptor> are `static`. You cannot create an instance of this class, and this class cannot be inherited.  \n  \n You can set property and event values two different ways: specify them in the component class or change them at design time. Because you can set these values two ways, the overloaded methods of <xref:System.ComponentModel.TypeDescriptor> take two different types of parameters: a class type or an object instance.  \n  \n When you want to access <xref:System.ComponentModel.TypeDescriptor> information and you have an instance of the object, use the method that calls for a component. Use the method that calls for the class type only when you do not have an instance of the object.  \n  \n Properties and events are cached by <xref:System.ComponentModel.TypeDescriptor> for speed. Typically, they are constant for the lifetime of an object. However, extender providers and designers can change the set of properties on an object. If this is the case, then the <xref:System.ComponentModel.TypeDescriptor.Refresh%2A> method must be called to update the cache."
   syntax:
     content: public sealed class TypeDescriptor
@@ -149,7 +149,7 @@ items:
   - netstandard
   namespace: System.ComponentModel
   summary: Adds class-level attributes to the target component instance.
-  remarks: The <xref:System.ComponentModel.TypeDescriptor.AddAttributes%28System.Object%2CSystem.Attribute%5B%5D%29> method adds class-level attributes to the specified instance of a component. Because this is a common requirement of applications using the [!INCLUDE[vsprvs](~/includes/vsprvs-md.md)] Windows Forms Designer and Properties window, this method provides a shortcut by creating a type description provider that merges the provided attributes with the attributes that already exist on the class. The return value is the type description provider that was used to add the attributes. This provider can later be passed to the <xref:System.ComponentModel.TypeDescriptor.RemoveProvider%28System.ComponentModel.TypeDescriptionProvider%2CSystem.Object%29> method when the added attributes are no longer needed.
+  remarks: 'The <xref:System.ComponentModel.TypeDescriptor.AddAttributes%28System.Object%2CSystem.Attribute%5B%5D%29> method adds class-level attributes to the specified instance of a component. Because this is a common requirement of applications using the [!INCLUDE[vsprvs](~/includes/vsprvs-md.md)] Windows Forms Designer and Properties window, this method provides a shortcut by creating a type description provider that merges the provided attributes with the attributes that already exist on the class. The return value is the type description provider that was used to add the attributes. This provider can later be passed to the <xref:System.ComponentModel.TypeDescriptor.RemoveProvider%28System.ComponentModel.TypeDescriptionProvider%2CSystem.Object%29> method when the added attributes are no longer needed.'
   syntax:
     content: public static System.ComponentModel.TypeDescriptionProvider AddAttributes (object instance, Attribute[] attributes);
     parameters:
@@ -220,7 +220,7 @@ items:
   - netstandard
   namespace: System.ComponentModel
   summary: Adds class-level attributes to the target component type.
-  remarks: The <xref:System.ComponentModel.TypeDescriptor.AddAttributes%28System.Type%2CSystem.Attribute%5B%5D%29> method adds class-level attributes to the specified type of a component. Because this is a common requirement of applications using the [!INCLUDE[vsprvs](~/includes/vsprvs-md.md)] Windows Forms Designer and Properties window, this method provides a shortcut by creating a type description provider that merges the provided attributes with the attributes that already exist on the class. The return value is the type description provider that was used to add the attributes. This provider can later be passed to the <xref:System.ComponentModel.TypeDescriptor.RemoveProvider%28System.ComponentModel.TypeDescriptionProvider%2CSystem.Type%29> method when the added attributes are no longer needed.
+  remarks: 'The <xref:System.ComponentModel.TypeDescriptor.AddAttributes%28System.Type%2CSystem.Attribute%5B%5D%29> method adds class-level attributes to the specified type of a component. Because this is a common requirement of applications using the [!INCLUDE[vsprvs](~/includes/vsprvs-md.md)] Windows Forms Designer and Properties window, this method provides a shortcut by creating a type description provider that merges the provided attributes with the attributes that already exist on the class. The return value is the type description provider that was used to add the attributes. This provider can later be passed to the <xref:System.ComponentModel.TypeDescriptor.RemoveProvider%28System.ComponentModel.TypeDescriptionProvider%2CSystem.Type%29> method when the added attributes are no longer needed.'
   syntax:
     content: public static System.ComponentModel.TypeDescriptionProvider AddAttributes (Type type, Attribute[] attributes);
     parameters:
@@ -297,7 +297,7 @@ items:
     parameters:
     - id: editorBaseType
       type: System.Type
-      description: The editor base type to add the editor table for. If a table already exists for this type, this method will do nothing.
+      description: 'The editor base type to add the editor table for. If a table already exists for this type, this method will do nothing.'
     - id: table
       type: System.Collections.Hashtable
       description: The <xref href="System.Collections.Hashtable"></xref> to add.
@@ -628,7 +628,7 @@ items:
   - System.ComponentModel.TypeConverter
   namespace: System.ComponentModel
   summary: Gets or sets the provider for the Component Object Model (COM) type information for the target component.
-  remarks: The <xref:System.ComponentModel.TypeDescriptor.ComNativeDescriptorHandler%2A> property and the <xref:System.ComponentModel.IComNativeDescriptorHandler> interface are obsolete. For more information, see the <xref:System.ComponentModel.TypeDescriptor.ComObjectType%2A> property.
+  remarks: 'The <xref:System.ComponentModel.TypeDescriptor.ComNativeDescriptorHandler%2A> property and the <xref:System.ComponentModel.IComNativeDescriptorHandler> interface are obsolete. For more information, see the <xref:System.ComponentModel.TypeDescriptor.ComObjectType%2A> property.'
   syntax:
     content: >-
       [System.Obsolete("This property has been deprecated.  Use a type description provider to supply type information for COM types instead.  http://go.microsoft.com/fwlink/?linkid=14202")]
@@ -694,7 +694,7 @@ items:
     content: public static Type ComObjectType { get; }
     return:
       type: System.Type
-      description: The <xref href="System.Type"></xref> of the COM object represented by this component, or `null` for non-COM objects.
+      description: 'The <xref href="System.Type"></xref> of the COM object represented by this component, or `null` for non-COM objects.'
   overload: System.ComponentModel.TypeDescriptor.ComObjectType*
   exceptions: []
   attributes: []
@@ -817,7 +817,7 @@ items:
   - System.ComponentModel.TypeConverter
   namespace: System.ComponentModel
   summary: Creates an instance of the designer associated with the specified component and of the specified type of designer.
-  remarks: If this method cannot find a valid <xref:System.ComponentModel.DesignerAttribute>, it searches up the class hierarchy for a designer. If it cannot find a designer in the class hierarchy, it returns `null`.
+  remarks: 'If this method cannot find a valid <xref:System.ComponentModel.DesignerAttribute>, it searches up the class hierarchy for a designer. If it cannot find a designer in the class hierarchy, it returns `null`.'
   syntax:
     content: public static System.ComponentModel.Design.IDesigner CreateDesigner (System.ComponentModel.IComponent component, Type designerBaseType);
     parameters:
@@ -829,7 +829,7 @@ items:
       description: A <xref href="System.Type"></xref> that represents the type of designer to create.
     return:
       type: System.ComponentModel.Design.IDesigner
-      description: An <xref href="System.ComponentModel.Design.IDesigner"></xref> that is an instance of the designer for the component, or `null` if no designer can be found.
+      description: 'An <xref href="System.ComponentModel.Design.IDesigner"></xref> that is an instance of the designer for the component, or `null` if no designer can be found.'
   overload: System.ComponentModel.TypeDescriptor.CreateDesigner*
   exceptions: []
   version:
@@ -879,7 +879,7 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: Creates a new event descriptor that is identical to an existing event descriptor, when passed the existing <xref href="System.ComponentModel.EventDescriptor"></xref>.
+  summary: 'Creates a new event descriptor that is identical to an existing event descriptor, when passed the existing <xref href="System.ComponentModel.EventDescriptor"></xref>.'
   syntax:
     content: public static System.ComponentModel.EventDescriptor CreateEvent (Type componentType, System.ComponentModel.EventDescriptor oldEventDescriptor, Attribute[] attributes);
     parameters:
@@ -1021,7 +1021,7 @@ items:
   - netstandard
   namespace: System.ComponentModel
   summary: Creates an object that can substitute for another data type.
-  remarks: The <xref:System.ComponentModel.TypeDescriptor.CreateInstance%2A> method will search for a <xref:System.ComponentModel.TypeDescriptionProvider> that is associated with the specified `objectType` data type. This method first tries to obtain a type description provider from the `provider` parameter. If this fails, it searches its own internal tables for a provider (these entries were created through previous calls to <xref:System.ComponentModel.TypeDescriptor.AddProvider%2A>). If it finds a provider, this method will delegate the creation call to that object.
+  remarks: 'The <xref:System.ComponentModel.TypeDescriptor.CreateInstance%2A> method will search for a <xref:System.ComponentModel.TypeDescriptionProvider> that is associated with the specified `objectType` data type. This method first tries to obtain a type description provider from the `provider` parameter. If this fails, it searches its own internal tables for a provider (these entries were created through previous calls to <xref:System.ComponentModel.TypeDescriptor.AddProvider%2A>). If it finds a provider, this method will delegate the creation call to that object.'
   syntax:
     content: public static object CreateInstance (IServiceProvider provider, Type objectType, Type[] argTypes, object[] args);
     parameters:
@@ -1036,15 +1036,15 @@ items:
       description: An optional array of parameter types to be passed to the object's constructor. This parameter can be `null` or an array of zero length.
     - id: args
       type: System.Object[]
-      description: An optional array of parameter values to pass to the object's constructor. If not `null`, the number of elements must be the same as <code>argTypes</code>.
+      description: 'An optional array of parameter values to pass to the object''s constructor. If not `null`, the number of elements must be the same as <code>argTypes</code>.'
     return:
       type: System.Object
-      description: An instance of the substitute data type if an associated <xref href="System.ComponentModel.TypeDescriptionProvider"></xref> is found; otherwise, `null`.
+      description: 'An instance of the substitute data type if an associated <xref href="System.ComponentModel.TypeDescriptionProvider"></xref> is found; otherwise, `null`.'
   overload: System.ComponentModel.TypeDescriptor.CreateInstance*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: <code>objectType</code> is `null`, or <code>args</code> is `null` when <code>argTypes</code> is not `null`.
+    description: '<code>objectType</code> is `null`, or <code>args</code> is `null` when <code>argTypes</code> is not `null`.'
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
     description: <code>argTypes</code> and <code>args</code> have different number of elements.
@@ -1099,7 +1099,7 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: Creates and dynamically binds a property descriptor to a type, using the specified property name, type, and attribute array.
+  summary: 'Creates and dynamically binds a property descriptor to a type, using the specified property name, type, and attribute array.'
   syntax:
     content: public static System.ComponentModel.PropertyDescriptor CreateProperty (Type componentType, string name, Type type, Attribute[] attributes);
     parameters:
@@ -1171,7 +1171,7 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: Creates a new property descriptor from an existing property descriptor, using the specified existing <xref href="System.ComponentModel.PropertyDescriptor"></xref> and attribute array.
+  summary: 'Creates a new property descriptor from an existing property descriptor, using the specified existing <xref href="System.ComponentModel.PropertyDescriptor"></xref> and attribute array.'
   syntax:
     content: public static System.ComponentModel.PropertyDescriptor CreateProperty (Type componentType, System.ComponentModel.PropertyDescriptor oldPropertyDescriptor, Attribute[] attributes);
     parameters:
@@ -1253,7 +1253,7 @@ items:
       description: The primary object of the association.
     return:
       type: System.Object
-      description: An instance of the secondary type that has been associated with the primary object if an association exists; otherwise, <code>primary</code> if no specified association exists.
+      description: 'An instance of the secondary type that has been associated with the primary object if an association exists; otherwise, <code>primary</code> if no specified association exists.'
   overload: System.ComponentModel.TypeDescriptor.GetAssociation*
   exceptions:
   - type: System.ArgumentNullException
@@ -1323,7 +1323,7 @@ items:
       description: The component for which you want to get attributes.
     return:
       type: System.ComponentModel.AttributeCollection
-      description: An <xref href="System.ComponentModel.AttributeCollection"></xref> containing the attributes for the component. If <code>component</code> is `null`, this method returns an empty collection.
+      description: 'An <xref href="System.ComponentModel.AttributeCollection"></xref> containing the attributes for the component. If <code>component</code> is `null`, this method returns an empty collection.'
   overload: System.ComponentModel.TypeDescriptor.GetAttributes*
   exceptions: []
   version:
@@ -1387,7 +1387,7 @@ items:
       description: The <xref href="System.Type"></xref> of the target component.
     return:
       type: System.ComponentModel.AttributeCollection
-      description: An <xref href="System.ComponentModel.AttributeCollection"></xref> with the attributes for the type of the component. If the component is `null`, this method returns an empty collection.
+      description: 'An <xref href="System.ComponentModel.AttributeCollection"></xref> with the attributes for the type of the component. If the component is `null`, this method returns an empty collection.'
   overload: System.ComponentModel.TypeDescriptor.GetAttributes*
   exceptions: []
   version:
@@ -1454,7 +1454,7 @@ items:
       description: '`true` to use a baseline set of attributes from the custom type descriptor if <code>component</code> is of type <xref href="System.ComponentModel.ICustomTypeDescriptor"></xref>; otherwise, `false`.'
     return:
       type: System.ComponentModel.AttributeCollection
-      description: An <xref href="System.ComponentModel.AttributeCollection"></xref> with the attributes for the component. If the component is `null`, this method returns an empty collection.
+      description: 'An <xref href="System.ComponentModel.AttributeCollection"></xref> with the attributes for the component. If the component is `null`, this method returns an empty collection.'
   overload: System.ComponentModel.TypeDescriptor.GetAttributes*
   exceptions: []
   attributes: []
@@ -1644,7 +1644,7 @@ items:
   - netstandard
   namespace: System.ComponentModel
   summary: Returns the name of the class for the specified component using a custom type descriptor.
-  remarks: Typically, this method returns the full <xref:System.Type> name for the `component` parameter type. For example, the class name for a button is "System.Windows.Forms.Button". If the `component` parameter implements <xref:System.ComponentModel.ICustomTypeDescriptor>, it can return an alternate name.
+  remarks: 'Typically, this method returns the full <xref:System.Type> name for the `component` parameter type. For example, the class name for a button is "System.Windows.Forms.Button". If the `component` parameter implements <xref:System.ComponentModel.ICustomTypeDescriptor>, it can return an alternate name.'
   syntax:
     content: public static string GetClassName (object component, bool noCustomTypeDesc);
     parameters:
@@ -1727,7 +1727,7 @@ items:
       description: The <xref href="System.Object"></xref> for which you want the class name.
     return:
       type: System.String
-      description: A <xref href="System.String"></xref> containing the name of the specified component, or `null` if there is no component name.
+      description: 'A <xref href="System.String"></xref> containing the name of the specified component, or `null` if there is no component name.'
   overload: System.ComponentModel.TypeDescriptor.GetComponentName*
   exceptions:
   - type: System.ArgumentNullException
@@ -1788,7 +1788,7 @@ items:
   - netstandard
   namespace: System.ComponentModel
   summary: Returns the name of the specified component using a custom type descriptor.
-  remarks: This method is used at design time to retrieve the name of an instance of a component. Typically, this method returns the name for the site of the component, if one exists. For example, the class name for a button is "System.Windows.Forms.Button". If the component implements the <xref:System.ComponentModel.ICustomTypeDescriptor> interface, it can return an alternate name.
+  remarks: 'This method is used at design time to retrieve the name of an instance of a component. Typically, this method returns the name for the site of the component, if one exists. For example, the class name for a button is "System.Windows.Forms.Button". If the component implements the <xref:System.ComponentModel.ICustomTypeDescriptor> interface, it can return an alternate name.'
   syntax:
     content: public static string GetComponentName (object component, bool noCustomTypeDesc);
     parameters:
@@ -1800,7 +1800,7 @@ items:
       description: '`true` to consider custom type description information; otherwise, `false`.'
     return:
       type: System.String
-      description: The name of the class for the specified component, or `null` if there is no component name.
+      description: 'The name of the class for the specified component, or `null` if there is no component name.'
   overload: System.ComponentModel.TypeDescriptor.GetComponentName*
   exceptions:
   - type: System.ArgumentNullException
@@ -2001,7 +2001,7 @@ items:
   - netstandard
   namespace: System.ComponentModel
   summary: Returns a type converter for the type of the specified component with a custom type descriptor.
-  remarks: This method looks for the appropriate type converter by trying to find a <xref:System.ComponentModel.TypeConverterAttribute>. If it cannot find a <xref:System.ComponentModel.TypeConverterAttribute>, it traverses the base class hierarchy of the class until it finds a primitive type.
+  remarks: 'This method looks for the appropriate type converter by trying to find a <xref:System.ComponentModel.TypeConverterAttribute>. If it cannot find a <xref:System.ComponentModel.TypeConverterAttribute>, it traverses the base class hierarchy of the class until it finds a primitive type.'
   syntax:
     content: public static System.ComponentModel.TypeConverter GetConverter (object component, bool noCustomTypeDesc);
     parameters:
@@ -2084,7 +2084,7 @@ items:
       description: The <xref href="System.Type"></xref> of the target component.
     return:
       type: System.ComponentModel.EventDescriptor
-      description: An <xref href="System.ComponentModel.EventDescriptor"></xref> with the default event, or `null` if there are no events.
+      description: 'An <xref href="System.ComponentModel.EventDescriptor"></xref> with the default event, or `null` if there are no events.'
   overload: System.ComponentModel.TypeDescriptor.GetDefaultEvent*
   exceptions:
   - type: System.ArgumentNullException
@@ -2153,7 +2153,7 @@ items:
       description: '`true` to consider custom type description information; otherwise, `false`.'
     return:
       type: System.ComponentModel.EventDescriptor
-      description: An <xref href="System.ComponentModel.EventDescriptor"></xref> with the default event, or `null` if there are no events.
+      description: 'An <xref href="System.ComponentModel.EventDescriptor"></xref> with the default event, or `null` if there are no events.'
   overload: System.ComponentModel.TypeDescriptor.GetDefaultEvent*
   exceptions:
   - type: System.ArgumentNullException
@@ -2215,7 +2215,7 @@ items:
   - netstandard
   namespace: System.ComponentModel
   summary: Returns the default event for the specified component.
-  remarks: This method is equivalent to the overloaded <xref:System.ComponentModel.TypeDescriptor.GetDefaultEvent%28System.Object%2CSystem.Boolean%29> method with a second parameter of `false`.
+  remarks: 'This method is equivalent to the overloaded <xref:System.ComponentModel.TypeDescriptor.GetDefaultEvent%28System.Object%2CSystem.Boolean%29> method with a second parameter of `false`.'
   syntax:
     content: public static System.ComponentModel.EventDescriptor GetDefaultEvent (object component);
     parameters:
@@ -2224,7 +2224,7 @@ items:
       description: The component to get the event for.
     return:
       type: System.ComponentModel.EventDescriptor
-      description: An <xref href="System.ComponentModel.EventDescriptor"></xref> with the default event, or `null` if there are no events.
+      description: 'An <xref href="System.ComponentModel.EventDescriptor"></xref> with the default event, or `null` if there are no events.'
   overload: System.ComponentModel.TypeDescriptor.GetDefaultEvent*
   exceptions:
   - type: System.ArgumentNullException
@@ -2294,7 +2294,7 @@ items:
       description: A <xref href="System.Type"></xref> that represents the class to get the property for.
     return:
       type: System.ComponentModel.PropertyDescriptor
-      description: A <xref href="System.ComponentModel.PropertyDescriptor"></xref> with the default property, or `null` if there are no properties.
+      description: 'A <xref href="System.ComponentModel.PropertyDescriptor"></xref> with the default property, or `null` if there are no properties.'
   overload: System.ComponentModel.TypeDescriptor.GetDefaultProperty*
   exceptions: []
   version:
@@ -2349,7 +2349,7 @@ items:
   - netstandard
   namespace: System.ComponentModel
   summary: Returns the default property for the specified component with a custom type descriptor.
-  remarks: If the `component` parameter is `null`, this method returns `null`.
+  remarks: 'If the `component` parameter is `null`, this method returns `null`.'
   syntax:
     content: public static System.ComponentModel.PropertyDescriptor GetDefaultProperty (object component, bool noCustomTypeDesc);
     parameters:
@@ -2361,7 +2361,7 @@ items:
       description: '`true` to consider custom type description information; otherwise, `false`.'
     return:
       type: System.ComponentModel.PropertyDescriptor
-      description: A <xref href="System.ComponentModel.PropertyDescriptor"></xref> with the default property, or `null` if there are no properties.
+      description: 'A <xref href="System.ComponentModel.PropertyDescriptor"></xref> with the default property, or `null` if there are no properties.'
   overload: System.ComponentModel.TypeDescriptor.GetDefaultProperty*
   exceptions:
   - type: System.NotSupportedException
@@ -2420,7 +2420,7 @@ items:
   - netstandard
   namespace: System.ComponentModel
   summary: Returns the default property for the specified component.
-  remarks: If the `component` parameter is `null`, this method returns `null`.
+  remarks: 'If the `component` parameter is `null`, this method returns `null`.'
   syntax:
     content: public static System.ComponentModel.PropertyDescriptor GetDefaultProperty (object component);
     parameters:
@@ -2429,7 +2429,7 @@ items:
       description: The component to get the default property for.
     return:
       type: System.ComponentModel.PropertyDescriptor
-      description: A <xref href="System.ComponentModel.PropertyDescriptor"></xref> with the default property, or `null` if there are no properties.
+      description: 'A <xref href="System.ComponentModel.PropertyDescriptor"></xref> with the default property, or `null` if there are no properties.'
   overload: System.ComponentModel.TypeDescriptor.GetDefaultProperty*
   exceptions:
   - type: System.NotSupportedException
@@ -2499,7 +2499,7 @@ items:
       description: A <xref href="System.Type"></xref> that represents the base type of the editor you want to find.
     return:
       type: System.Object
-      description: An instance of the editor that can be cast to the specified editor type, or `null` if no editor of the requested type can be found.
+      description: 'An instance of the editor that can be cast to the specified editor type, or `null` if no editor of the requested type can be found.'
   overload: System.ComponentModel.TypeDescriptor.GetEditor*
   exceptions:
   - type: System.ArgumentNullException
@@ -2572,7 +2572,7 @@ items:
       description: A <xref href="System.Type"></xref> that represents the base type of the editor you are trying to find.
     return:
       type: System.Object
-      description: An instance of the editor object that can be cast to the given base type, or `null` if no editor of the requested type can be found.
+      description: 'An instance of the editor object that can be cast to the given base type, or `null` if no editor of the requested type can be found.'
   overload: System.ComponentModel.TypeDescriptor.GetEditor*
   exceptions:
   - type: System.ArgumentNullException
@@ -2645,7 +2645,7 @@ items:
       description: A flag indicating whether custom type description information should be considered.
     return:
       type: System.Object
-      description: An instance of the editor that can be cast to the specified editor type, or `null` if no editor of the requested type can be found.
+      description: 'An instance of the editor that can be cast to the specified editor type, or `null` if no editor of the requested type can be found.'
   overload: System.ComponentModel.TypeDescriptor.GetEditor*
   exceptions:
   - type: System.ArgumentNullException
@@ -3122,7 +3122,7 @@ items:
   - netstandard
   namespace: System.ComponentModel
   summary: Returns the fully qualified name of the component.
-  remarks: In many cases, the <xref:System.ComponentModel.TypeDescriptor.GetFullComponentName%2A> method will return the same value as the <xref:System.ComponentModel.TypeDescriptor.GetComponentName%2A> method. However, if the component resides in a nested container or has other nested semantics, it may return a different fully qualified name.
+  remarks: 'In many cases, the <xref:System.ComponentModel.TypeDescriptor.GetFullComponentName%2A> method will return the same value as the <xref:System.ComponentModel.TypeDescriptor.GetComponentName%2A> method. However, if the component resides in a nested container or has other nested semantics, it may return a different fully qualified name.'
   syntax:
     content: public static string GetFullComponentName (object component);
     parameters:
@@ -3131,7 +3131,7 @@ items:
       description: The <xref href="System.ComponentModel.Component"></xref> to find the name for.
     return:
       type: System.String
-      description: The fully qualified name of the specified component, or `null` if the component has no name.
+      description: 'The fully qualified name of the specified component, or `null` if the component has no name.'
   overload: System.ComponentModel.TypeDescriptor.GetFullComponentName*
   exceptions:
   - type: System.ArgumentNullException
@@ -3607,7 +3607,7 @@ items:
   - netstandard
   namespace: System.ComponentModel
   summary: Returns the type description provider for the specified component.
-  remarks: The <xref:System.ComponentModel.TypeDescriptor.GetProvider%2A> method will always return a type description provider. Even the default <xref:System.ComponentModel.TypeDescriptor> implementation is built on a <xref:System.ComponentModel.TypeDescriptionProvider>.
+  remarks: 'The <xref:System.ComponentModel.TypeDescriptor.GetProvider%2A> method will always return a type description provider. Even the default <xref:System.ComponentModel.TypeDescriptor> implementation is built on a <xref:System.ComponentModel.TypeDescriptionProvider>.'
   syntax:
     content: public static System.ComponentModel.TypeDescriptionProvider GetProvider (object instance);
     parameters:
@@ -3675,7 +3675,7 @@ items:
   - netstandard
   namespace: System.ComponentModel
   summary: Returns the type description provider for the specified type.
-  remarks: The <xref:System.ComponentModel.TypeDescriptor.GetProvider%2A> method will always return a type description provider. Even the default <xref:System.ComponentModel.TypeDescriptor> implementation is built on a <xref:System.ComponentModel.TypeDescriptionProvider>.
+  remarks: 'The <xref:System.ComponentModel.TypeDescriptor.GetProvider%2A> method will always return a type description provider. Even the default <xref:System.ComponentModel.TypeDescriptor> implementation is built on a <xref:System.ComponentModel.TypeDescriptionProvider>.'
   syntax:
     content: public static System.ComponentModel.TypeDescriptionProvider GetProvider (Type type);
     parameters:
@@ -3742,8 +3742,8 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: Returns a <xref href="System.Type"></xref> that can be used to perform reflection, given an object.
-  remarks: The <xref:System.ComponentModel.TypeDescriptor.GetReflectionType%2A> method is a low-level version of the <xref:System.ComponentModel.TypeDescriptionProvider.GetTypeDescriptor%2A> method. <xref:System.ComponentModel.TypeDescriptor.GetReflectionType%2A> is typically used to perform standard reflection against an object when no custom type descriptor can be located for it.
+  summary: 'Returns a <xref href="System.Type"></xref> that can be used to perform reflection, given an object.'
+  remarks: 'The <xref:System.ComponentModel.TypeDescriptor.GetReflectionType%2A> method is a low-level version of the <xref:System.ComponentModel.TypeDescriptionProvider.GetTypeDescriptor%2A> method. <xref:System.ComponentModel.TypeDescriptor.GetReflectionType%2A> is typically used to perform standard reflection against an object when no custom type descriptor can be located for it.'
   syntax:
     content: public static Type GetReflectionType (object instance);
     parameters:
@@ -3810,8 +3810,8 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: Returns a <xref href="System.Type"></xref> that can be used to perform reflection, given a class type.
-  remarks: The <xref:System.ComponentModel.TypeDescriptor.GetReflectionType%2A> method is a low-level version of the <xref:System.ComponentModel.TypeDescriptionProvider.GetTypeDescriptor%2A> method. <xref:System.ComponentModel.TypeDescriptor.GetReflectionType%2A> is typically used to perform standard reflection against a class when no custom type descriptor can be located for it.
+  summary: 'Returns a <xref href="System.Type"></xref> that can be used to perform reflection, given a class type.'
+  remarks: 'The <xref:System.ComponentModel.TypeDescriptor.GetReflectionType%2A> method is a low-level version of the <xref:System.ComponentModel.TypeDescriptionProvider.GetTypeDescriptor%2A> method. <xref:System.ComponentModel.TypeDescriptor.GetReflectionType%2A> is typically used to perform standard reflection against a class when no custom type descriptor can be located for it.'
   syntax:
     content: public static Type GetReflectionType (Type type);
     parameters:
@@ -3879,7 +3879,7 @@ items:
   - netstandard
   namespace: System.ComponentModel
   summary: Gets a type that represents a type description provider for all interface types.
-  remarks: The <xref:System.ComponentModel.TypeDescriptor.InterfaceType%2A> property gets a <xref:System.Type> object that you can pass to the <xref:System.ComponentModel.TypeDescriptor.AddProvider%2A> methods to define a type description provider for interface types.
+  remarks: 'The <xref:System.ComponentModel.TypeDescriptor.InterfaceType%2A> property gets a <xref:System.Type> object that you can pass to the <xref:System.ComponentModel.TypeDescriptor.AddProvider%2A> methods to define a type description provider for interface types.'
   syntax:
     content: public static Type InterfaceType { get; }
     return:

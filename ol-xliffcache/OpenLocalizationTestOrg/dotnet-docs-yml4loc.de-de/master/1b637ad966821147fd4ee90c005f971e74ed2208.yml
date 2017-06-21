@@ -21,7 +21,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: Provides read-only, random access to data contained in XML documents and enables efficient querying for specified nodes.
+  summary: 'Provides read-only, random access to data contained in XML documents and enables efficient querying for specified nodes.'
   remarks: "The SOAP messages passed between parts of the [!INCLUDE[indigo1](~/includes/indigo1-md.md)] system are handled by various components of the system that must inspect these messages to determine what actions to take in processing them. The XPath engine is a component that queries messages for this purpose and it requires a navigator to read SOAP messages and other XML documents. A navigator provides a cursor that moves from node to node tracking where the XML document is actually being read.  \n  \n The XPath engine works with a <xref:System.ServiceModel.Dispatcher.SeekableXPathNavigator>, which extends the <xref:System.Xml.XPath.XPathNavigator> class by adding a <xref:System.ServiceModel.Dispatcher.SeekableXPathNavigator.CurrentPosition%2A> property. This property allows positions within the XML document to be saved and loaded quickly without having to clone the navigator, an expensive memory allocation that the <xref:System.Xml.XPath.XPathNavigator> requires for such an operation. The XPath engine must frequently record the position of the cursor in the course of executing queries on XML documents, so the <xref:System.ServiceModel.Dispatcher.SeekableXPathNavigator> provides an important optimization for message processing.  \n  \n Note that the value of the <xref:System.ServiceModel.Dispatcher.SeekableXPathNavigator.CurrentPosition%2A> property is implementation-specific and may not map to node position or character position. Its value is only meaningful to the <xref:System.ServiceModel.Dispatcher.SeekableXPathNavigator> implementation (and instance) that supplied it."
   syntax:
     content: 'public abstract class SeekableXPathNavigator : System.Xml.XPath.XPathNavigator'
@@ -234,7 +234,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: When overridden in a derived class, returns a value that describes the document order of the two specified positions.
+  summary: 'When overridden in a derived class, returns a value that describes the document order of the two specified positions.'
   syntax:
     content: public abstract System.Xml.XmlNodeOrder ComparePosition (long first, long second);
     parameters:
@@ -289,7 +289,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: When overridden in a derived class, gets or sets a value associated with the node in the data where the XPath navigator is positioned.
+  summary: 'When overridden in a derived class, gets or sets a value associated with the node in the data where the XPath navigator is positioned.'
   remarks: The `set` operation moves the navigator to the position associated with the value specified. The `get` operation returns a value associated with the current position of the navigator.
   syntax:
     content: public abstract long CurrentPosition { get; set; }
@@ -335,7 +335,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: When overridden in a derived class, returns the local name of the node at the position specified.
+  summary: 'When overridden in a derived class, returns the local name of the node at the position specified.'
   syntax:
     content: public abstract string GetLocalName (long node_position);
     parameters:
@@ -344,7 +344,7 @@ items:
       description: ''
     return:
       type: System.String
-      description: The local name of the node at the specified position. <xref href="System.String.Empty"></xref> is returned if the node does not have a local name, for example if the current position references a text node.
+      description: 'The local name of the node at the specified position. <xref href="System.String.Empty"></xref> is returned if the node does not have a local name, for example if the current position references a text node.'
   overload: System.ServiceModel.Dispatcher.SeekableXPathNavigator.GetLocalName*
   exceptions:
   - type: System.ArgumentException
@@ -387,7 +387,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: When overridden in a derived class, returns the name of the node at the specified position.
+  summary: 'When overridden in a derived class, returns the name of the node at the specified position.'
   remarks: The name is the name of the XML element at `nodePosition` and typically includes a namespace prefix.
   syntax:
     content: public abstract string GetName (long node_position);
@@ -440,7 +440,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: When overridden in a derived class, returns the namespace of the node at the specified position.
+  summary: 'When overridden in a derived class, returns the namespace of the node at the specified position.'
   syntax:
     content: public abstract string GetNamespace (long node_position);
     parameters:
@@ -492,7 +492,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: When overridden in a derived class, returns the type of the node at the specified position.
+  summary: 'When overridden in a derived class, returns the type of the node at the specified position.'
   syntax:
     content: public abstract System.Xml.XPath.XPathNodeType GetNodeType (long node_position);
     parameters:
@@ -544,8 +544,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: When overridden in a derived class, returns the text value of the node at the specified position.
-  remarks: For elements, this method returns the concatenation of all text descendents of the node at the specified position, similar to the <xref:System.Xml.XmlElement.InnerText%2A> property.
+  summary: 'When overridden in a derived class, returns the text value of the node at the specified position.'
+  remarks: 'For elements, this method returns the concatenation of all text descendents of the node at the specified position, similar to the <xref:System.Xml.XmlElement.InnerText%2A> property.'
   syntax:
     content: public abstract string GetValue (long node_position);
     parameters:

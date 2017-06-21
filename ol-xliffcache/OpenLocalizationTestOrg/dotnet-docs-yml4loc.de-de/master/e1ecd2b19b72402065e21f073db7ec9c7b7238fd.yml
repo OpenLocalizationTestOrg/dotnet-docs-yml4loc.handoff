@@ -30,7 +30,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.Adapters
-  summary: Adapts a Web page for a specific browser and provides the base class from which all page adapters inherit, directly or indirectly.
+  summary: 'Adapts a Web page for a specific browser and provides the base class from which all page adapters inherit, directly or indirectly.'
   remarks: "The <xref:System.Web.UI.Adapters.PageAdapter> class is an abstract class that adapts a Web page for a specific class of browsers, defined by the markup language that the browser uses (for example, HTML or XHTML). Much of the adaptability in rendering behavior can be encapsulated in the specialized text writer classes that derive from the <xref:System.Web.UI.HtmlTextWriter> class, so it is not always necessary to provide a page adapter.  \n  \n Most members of derived page adapters are called from the <xref:System.Web.UI.Page> class or from control adapters. First, the <xref:System.Web.UI.Page> class or control adapters detect the presence of the derived page adapter, and then call the member, or provide the functionality if the page adapter is not present.  \n  \n The members of the <xref:System.Web.UI.Adapters.PageAdapter> class provide the following functionality:  \n  \n-   The <xref:System.Web.UI.Adapters.PageAdapter.CacheVaryByHeaders%2A> and <xref:System.Web.UI.Adapters.PageAdapter.CacheVaryByParams%2A> properties define additional HTTP headers and HTTP `GET` and `POST` parameters that can be used to vary caching. They are called during cache initialization from the <xref:System.Web.UI.Page> class.  \n  \n-   The <xref:System.Web.UI.Adapters.PageAdapter.GetStatePersister%2A> method returns an object that can be used to persist the combined view and control states of the page. It is referenced from the <xref:System.Web.UI.Page.PageStatePersister%2A> property if a derived page adapter is present.  \n  \n-   The <xref:System.Web.UI.Adapters.PageAdapter.GetPostBackFormReference%2A> method provides a DHTML code fragment that can be used to reference forms in scripts.  \n  \n-   The <xref:System.Web.UI.Adapters.PageAdapter.DeterminePostBackMode%2A> method returns a collection of the postback variables if the page is in postback. It is called by the .NET Framework instead of the <xref:System.Web.UI.Page.DeterminePostBackMode%2A?displayProperty=fullName> method if a derived page adapter is present.  \n  \n-   The <xref:System.Web.UI.Adapters.PageAdapter.RenderBeginHyperlink%2A> and <xref:System.Web.UI.Adapters.PageAdapter.RenderEndHyperlink%2A> methods are used by control adapters to render hyperlinks if a derived page adapter is present.  \n  \n-   The <xref:System.Web.UI.Adapters.PageAdapter.RenderPostBackEvent%2A> method renders a hyperlink or postback client tag that can submit the form.  \n  \n-   The <xref:System.Web.UI.Adapters.PageAdapter.RegisterRadioButton%2A> and <xref:System.Web.UI.Adapters.PageAdapter.GetRadioButtonsByGroup%2A> methods are used by radio button control adapters to reference the other <xref:System.Web.UI.WebControls.RadioButton> controls in a radio button group.  \n  \n-   The <xref:System.Web.UI.Adapters.PageAdapter.ClientState%2A> property provides access to the combined control and view states of the <xref:System.Web.UI.Page> object through the internal `ClientState` property of the <xref:System.Web.UI.Page> class.  \n  \n-   The <xref:System.Web.UI.Adapters.PageAdapter.TransformText%2A> method is used by control adapters to perform device-specific text transformation."
   example:
   - "The following code example demonstrates how to derive a class named `CustomPageAdapter` from the <xref:System.Web.UI.Adapters.PageAdapter> class and override the <xref:System.Web.UI.Adapters.PageAdapter.RenderBeginHyperlink%2A> method. The <xref:System.Web.UI.Adapters.PageAdapter.RenderBeginHyperlink%2A> method adds an attribute named `src` to a hyperlink, which contains a reference to the current page. All hyperlinks rendered in pages to which `CustomPageAdapter` is attached will have the `src` attribute.  \n  \n [!code-csharp[System.Web.UI.Adapters.PageAdapter.RenderBeginHyperlink#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.Adapters.PageAdapter.RenderBeginHyperlink/CS/pageadapter.cs#1)]\n [!code-vb[System.Web.UI.Adapters.PageAdapter.RenderBeginHyperlink#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.Adapters.PageAdapter.RenderBeginHyperlink/VB/pageadapter.vb#1)]"
@@ -101,7 +101,7 @@ items:
   - System.Web
   namespace: System.Web.UI.Adapters
   summary: Initializes a new instance of the <xref href="System.Web.UI.Adapters.PageAdapter"></xref> class.
-  remarks: The .NET Framework constructs this adapter internally when it creates the corresponding <xref:System.Web.UI.Page> class or derived class.
+  remarks: 'The .NET Framework constructs this adapter internally when it creates the corresponding <xref:System.Web.UI.Page> class or derived class.'
   syntax:
     content: protected PageAdapter ();
     parameters: []
@@ -148,7 +148,7 @@ items:
     content: public virtual System.Collections.Specialized.StringCollection CacheVaryByHeaders { get; }
     return:
       type: System.Collections.Specialized.StringCollection
-      description: An <xref href="System.Collections.IList"></xref> that contains a list of HTTP headers; otherwise, `null`.
+      description: 'An <xref href="System.Collections.IList"></xref> that contains a list of HTTP headers; otherwise, `null`.'
   overload: System.Web.UI.Adapters.PageAdapter.CacheVaryByHeaders*
   exceptions: []
   version:
@@ -192,7 +192,7 @@ items:
     content: public virtual System.Collections.Specialized.StringCollection CacheVaryByParams { get; }
     return:
       type: System.Collections.Specialized.StringCollection
-      description: An <xref href="System.Collections.IList"></xref> that contains a list of the GET and POST parameters; otherwise, `null`.
+      description: 'An <xref href="System.Collections.IList"></xref> that contains a list of the GET and POST parameters; otherwise, `null`.'
   overload: System.Web.UI.Adapters.PageAdapter.CacheVaryByParams*
   exceptions: []
   version:
@@ -281,7 +281,7 @@ items:
     parameters: []
     return:
       type: System.Collections.Specialized.NameValueCollection
-      description: A <xref href="System.Collections.Specialized.NameValueCollection"></xref> of the postback variables, if any; otherwise `null`.
+      description: 'A <xref href="System.Collections.Specialized.NameValueCollection"></xref> of the postback variables, if any; otherwise `null`.'
   overload: System.Web.UI.Adapters.PageAdapter.DeterminePostBackMode*
   exceptions: []
   version:
@@ -319,8 +319,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.Adapters
-  summary: Returns a name-value collection of data that was posted to the page using either a POST or a GET command, without performing ASP.NET request validation on the request.
-  remarks: For more information, see the <xref:System.Web.UnvalidatedRequestValues> class.
+  summary: 'Returns a name-value collection of data that was posted to the page using either a POST or a GET command, without performing ASP.NET request validation on the request.'
+  remarks: 'For more information, see the <xref:System.Web.UnvalidatedRequestValues> class.'
   syntax:
     content: public virtual System.Collections.Specialized.NameValueCollection DeterminePostBackModeUnvalidated ();
     parameters: []
@@ -413,7 +413,7 @@ items:
   - System.Web
   namespace: System.Web.UI.Adapters
   summary: Retrieves a collection of radio button controls specified by <code>groupName</code>.
-  remarks: Radio button control adapters use the <xref:System.Web.UI.Adapters.PageAdapter.GetRadioButtonsByGroup%2A> and <xref:System.Web.UI.Adapters.PageAdapter.RegisterRadioButton%2A> methods to reference the other <xref:System.Web.UI.WebControls.RadioButton> controls in the group.
+  remarks: 'Radio button control adapters use the <xref:System.Web.UI.Adapters.PageAdapter.GetRadioButtonsByGroup%2A> and <xref:System.Web.UI.Adapters.PageAdapter.RegisterRadioButton%2A> methods to reference the other <xref:System.Web.UI.WebControls.RadioButton> controls in the group.'
   syntax:
     content: public virtual System.Collections.ICollection GetRadioButtonsByGroup (string groupName);
     parameters:
@@ -713,8 +713,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.Adapters
-  summary: Renders a postback event into the response stream as a hyperlink, including the encoded and possibly encrypted view state, and event target and argument.
-  remarks: The <xref:System.Web.UI.Adapters.PageAdapter.RenderPostBackEvent%2A> method writes a postback event as a scriptless hyperlink.
+  summary: 'Renders a postback event into the response stream as a hyperlink, including the encoded and possibly encrypted view state, and event target and argument.'
+  remarks: 'The <xref:System.Web.UI.Adapters.PageAdapter.RenderPostBackEvent%2A> method writes a postback event as a scriptless hyperlink.'
   syntax:
     content: public virtual void RenderPostBackEvent (System.Web.UI.HtmlTextWriter writer, string target, string argument, string softkeyLabel, string text);
     parameters:
@@ -770,7 +770,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.Adapters
-  summary: Renders a postback event into the response stream as a hyperlink, including the encoded and possibly encrypted view state, an event target and argument, a previous-page parameter, and an access key.
+  summary: 'Renders a postback event into the response stream as a hyperlink, including the encoded and possibly encrypted view state, an event target and argument, a previous-page parameter, and an access key.'
   remarks: "The <xref:System.Web.UI.Adapters.PageAdapter.RenderPostBackEvent%2A> method writes a postback event as a scriptless hyperlink, including the possibly chunked <xref:System.Web.HttpUtility.UrlEncode%2A> view state, `__EVENTTARGET=target`, `__EVENTARGUMENT=argument`, `__PREVIOUSPAGE=currentFilePath` parameters, and an `accessKey=\"accessKey\"` attribute.  \n  \n View state is encrypted if the `enableViewStateMac` attribute of the [pages Element (ASP.NET Settings Schema)](http://msdn.microsoft.com/en-us/4123bb66-3fe4-4d62-b70e-33758656b458) configuration element is set to `true`."
   syntax:
     content: public virtual void RenderPostBackEvent (System.Web.UI.HtmlTextWriter writer, string target, string argument, string softkeyLabel, string text, string postUrl, string accessKey);
@@ -833,8 +833,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.Adapters
-  summary: Renders a postback event into the response stream as a hyperlink, including the encoded view state, an event target and argument, a previous-page parameter, and an access key.
-  remarks: The <xref:System.Web.UI.Adapters.PageAdapter.RenderPostBackEvent%2A> method writes a postback event as a scriptless hyperlink, including the possibly chunked <xref:System.Web.HttpUtility.UrlEncode%2A> view state, `__EVENTTARGET=target`, `__EVENTARGUMENT=argument`, `__PREVIOUSPAGE=currentFilePath` parameters, and an `accessKey="accessKey"` attribute.
+  summary: 'Renders a postback event into the response stream as a hyperlink, including the encoded view state, an event target and argument, a previous-page parameter, and an access key.'
+  remarks: 'The <xref:System.Web.UI.Adapters.PageAdapter.RenderPostBackEvent%2A> method writes a postback event as a scriptless hyperlink, including the possibly chunked <xref:System.Web.HttpUtility.UrlEncode%2A> view state, `__EVENTTARGET=target`, `__EVENTARGUMENT=argument`, `__PREVIOUSPAGE=currentFilePath` parameters, and an `accessKey="accessKey"` attribute.'
   syntax:
     content: protected void RenderPostBackEvent (System.Web.UI.HtmlTextWriter writer, string target, string argument, string softkeyLabel, string text, string postUrl, string accessKey, bool encode);
     parameters:

@@ -75,7 +75,7 @@ items:
   - WindowsBase
   namespace: System.ComponentModel
   summary: Adds a new item to the collection.
-  remarks: Calling <xref:System.ComponentModel.IEditableCollectionView.AddNew%2A> begins an add transaction.  You should call <xref:System.ComponentModel.IEditableCollectionView.CommitNew%2A> or <xref:System.ComponentModel.IEditableCollectionView.CancelNew%2A> to end the add transaction. A new item always appears in the collection view. Any filtering, sorting, or grouping that is applied to the view is applied to the new item when <xref:System.ComponentModel.IEditableCollectionView.CommitNew%2A> is called.
+  remarks: 'Calling <xref:System.ComponentModel.IEditableCollectionView.AddNew%2A> begins an add transaction.  You should call <xref:System.ComponentModel.IEditableCollectionView.CommitNew%2A> or <xref:System.ComponentModel.IEditableCollectionView.CancelNew%2A> to end the add transaction. A new item always appears in the collection view. Any filtering, sorting, or grouping that is applied to the view is applied to the new item when <xref:System.ComponentModel.IEditableCollectionView.CommitNew%2A> is called.'
   example:
   - "The following example creates a <xref:System.Windows.Window> that prompts the user to add a new item.  Then it calls <xref:System.ComponentModel.IEditableCollectionView.AddNew%2A> to create a new object and sets the <xref:System.Windows.FrameworkElement.DataContext%2A> of the <xref:System.Windows.Window> to that object. For the entire sample, see [Changing a Collection by Using IEditableCollectionView Sample](http://go.microsoft.com/fwlink/?LinkID=159974).  \n  \n [!code-csharp[EditingCollectionsSnippets#AddItem](~/samples/snippets/csharp/VS_Snippets_Wpf/EditingCollectionsSnippets/CSharp/Window1.xaml.cs#additem)]\n [!code-vb[EditingCollectionsSnippets#AddItem](~/samples/snippets/visualbasic/VS_Snippets_Wpf/EditingCollectionsSnippets/visualbasic/window1.xaml.vb#additem)]"
   syntax:
@@ -168,7 +168,7 @@ items:
   - WindowsBase
   namespace: System.ComponentModel
   summary: Gets a value that indicates whether the collection view can discard pending changes and restore the original values of an edited object.
-  remarks: <xref:System.ComponentModel.IEditableCollectionView.CanCancelEdit%2A> is `true` if the view supports the notion of "pending changes" on the currently edited item.   For example, a collection view might return `true` if the edited item implements <xref:System.ComponentModel.IEditableObject>, or if the view has information about the item's state that it can use to roll back changes. <xref:System.ComponentModel.IEditableCollectionView.CanCancelEdit%2A> is `false` if the view cannot revert changes on an object.  In that case, call <xref:System.ComponentModel.IEditableCollectionView.CancelEdit%2A> to cause the view to exit the edit state and provide logic to revert the changes on the object that was edited.
+  remarks: '<xref:System.ComponentModel.IEditableCollectionView.CanCancelEdit%2A> is `true` if the view supports the notion of "pending changes" on the currently edited item.   For example, a collection view might return `true` if the edited item implements <xref:System.ComponentModel.IEditableObject>, or if the view has information about the item''s state that it can use to roll back changes. <xref:System.ComponentModel.IEditableCollectionView.CanCancelEdit%2A> is `false` if the view cannot revert changes on an object.  In that case, call <xref:System.ComponentModel.IEditableCollectionView.CancelEdit%2A> to cause the view to exit the edit state and provide logic to revert the changes on the object that was edited.'
   example:
   - "The following example gets <xref:System.ComponentModel.IEditableCollectionView.CanCancelEdit%2A> to check whether the original values of the edited item can be restored before it calls <xref:System.ComponentModel.IEditableCollectionView.CancelEdit%2A>.  If the values cannot be restored, you must supply additional logic to do so.  If they can be, the values are restored when the example calls <xref:System.ComponentModel.IEditableCollectionView.CancelEdit%2A>.   For the entire sample, see [Changing a Collection by Using IEditableCollectionView Sample](http://go.microsoft.com/fwlink/?LinkID=159974).  \n  \n [!code-csharp[EditingCollectionsSnippets#CancelEdit](~/samples/snippets/csharp/VS_Snippets_Wpf/EditingCollectionsSnippets/CSharp/Window1.xaml.cs#canceledit)]\n [!code-vb[EditingCollectionsSnippets#CancelEdit](~/samples/snippets/visualbasic/VS_Snippets_Wpf/EditingCollectionsSnippets/visualbasic/window1.xaml.vb#canceledit)]"
   syntax:
@@ -213,8 +213,8 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.ComponentModel
-  summary: Ends the edit transaction and, if possible, restores the original value to the item.
-  remarks: <xref:System.ComponentModel.IEditableCollectionView.CancelEdit%2A> sets <xref:System.ComponentModel.IEditableCollectionView.CurrentEditItem%2A> to `null` and causes the collection view to exit the edit state.  If <xref:System.ComponentModel.IEditableCollectionView.CanCancelEdit%2A> is `true`, <xref:System.ComponentModel.IEditableCollectionView.CancelEdit%2A> also restores the original values of the edited object.
+  summary: 'Ends the edit transaction and, if possible, restores the original value to the item.'
+  remarks: '<xref:System.ComponentModel.IEditableCollectionView.CancelEdit%2A> sets <xref:System.ComponentModel.IEditableCollectionView.CurrentEditItem%2A> to `null` and causes the collection view to exit the edit state.  If <xref:System.ComponentModel.IEditableCollectionView.CanCancelEdit%2A> is `true`, <xref:System.ComponentModel.IEditableCollectionView.CancelEdit%2A> also restores the original values of the edited object.'
   example:
   - "The following example gets <xref:System.ComponentModel.IEditableCollectionView.CanCancelEdit%2A> to check whether the original values of the edited item can be restored before it calls <xref:System.ComponentModel.IEditableCollectionView.CancelEdit%2A>.  If the values cannot be restored, you must supply additional logic to do so.  If they can be, the values are restored when the example calls <xref:System.ComponentModel.IEditableCollectionView.CancelEdit%2A>. For the entire sample, see [Changing a Collection by Using IEditableCollectionView Sample](http://go.microsoft.com/fwlink/?LinkID=159974).  \n  \n [!code-csharp[EditingCollectionsSnippets#CancelEdit](~/samples/snippets/csharp/VS_Snippets_Wpf/EditingCollectionsSnippets/CSharp/Window1.xaml.cs#canceledit)]\n [!code-vb[EditingCollectionsSnippets#CancelEdit](~/samples/snippets/visualbasic/VS_Snippets_Wpf/EditingCollectionsSnippets/visualbasic/window1.xaml.vb#canceledit)]"
   syntax:
@@ -302,7 +302,7 @@ items:
   - WindowsBase
   namespace: System.ComponentModel
   summary: Gets a value that indicates whether an item can be removed from the collection.
-  remarks: <xref:System.ComponentModel.IEditableCollectionView.CanRemove%2A> is `false` if the underlying collection is read-only.
+  remarks: '<xref:System.ComponentModel.IEditableCollectionView.CanRemove%2A> is `false` if the underlying collection is read-only.'
   example:
   - "The following example calls <xref:System.ComponentModel.IEditableCollectionView.CanRemove%2A> to check whether an item can be removed from the collection.  If an item can be removed, the example prompts the user to confirm the action and calls <xref:System.ComponentModel.IEditableCollectionView.Remove%2A> if the user clicks **Yes**. For the entire sample, see [Changing a Collection by Using IEditableCollectionView Sample](http://go.microsoft.com/fwlink/?LinkID=159974).  \n  \n [!code-csharp[EditingCollectionsSnippets#RemoveItem](~/samples/snippets/csharp/VS_Snippets_Wpf/EditingCollectionsSnippets/CSharp/Window1.xaml.cs#removeitem)]\n [!code-vb[EditingCollectionsSnippets#RemoveItem](~/samples/snippets/visualbasic/VS_Snippets_Wpf/EditingCollectionsSnippets/visualbasic/window1.xaml.vb#removeitem)]"
   syntax:
@@ -392,7 +392,7 @@ items:
   - WindowsBase
   namespace: System.ComponentModel
   summary: Ends the add transaction and saves the pending new item.
-  remarks: Any filtering, sorting, or grouping that is applied to the <xref:System.Windows.Data.CollectionView> is applied to the new item when <xref:System.ComponentModel.IEditableCollectionView.CommitNew%2A> is called.
+  remarks: 'Any filtering, sorting, or grouping that is applied to the <xref:System.Windows.Data.CollectionView> is applied to the new item when <xref:System.ComponentModel.IEditableCollectionView.CommitNew%2A> is called.'
   example:
   - "The following example displays a form that prompts the user to add a new item.  If the user submits the form, the example calls <xref:System.ComponentModel.IEditableCollectionView.CommitNew%2A> to add the item to the collection.  If the user cancels the form, the example calls <xref:System.ComponentModel.IEditableCollectionView.CancelNew%2A> to discard the item. For the entire sample, see [Changing a Collection by Using IEditableCollectionView Sample](http://go.microsoft.com/fwlink/?LinkID=159974).  \n  \n [!code-csharp[EditingCollectionsSnippets#AddItem](~/samples/snippets/csharp/VS_Snippets_Wpf/EditingCollectionsSnippets/CSharp/Window1.xaml.cs#additem)]\n [!code-vb[EditingCollectionsSnippets#AddItem](~/samples/snippets/visualbasic/VS_Snippets_Wpf/EditingCollectionsSnippets/visualbasic/window1.xaml.vb#additem)]"
   syntax:
@@ -440,7 +440,7 @@ items:
     content: public object CurrentAddItem { get; }
     return:
       type: System.Object
-      description: The item that is being added if <xref href="System.ComponentModel.IEditableCollectionView.IsAddingNew"></xref> is `true`; otherwise, `null`.
+      description: 'The item that is being added if <xref href="System.ComponentModel.IEditableCollectionView.IsAddingNew"></xref> is `true`; otherwise, `null`.'
   overload: System.ComponentModel.IEditableCollectionView.CurrentAddItem*
   exceptions: []
   version:
@@ -483,7 +483,7 @@ items:
     content: public object CurrentEditItem { get; }
     return:
       type: System.Object
-      description: The item in the collection that is being edited if <xref href="System.ComponentModel.IEditableCollectionView.IsEditingItem"></xref> is `true`; otherwise, `null`.
+      description: 'The item in the collection that is being edited if <xref href="System.ComponentModel.IEditableCollectionView.IsEditingItem"></xref> is `true`; otherwise, `null`.'
   overload: System.ComponentModel.IEditableCollectionView.CurrentEditItem*
   exceptions: []
   version:
@@ -569,7 +569,7 @@ items:
   - WindowsBase
   namespace: System.ComponentModel
   summary: Gets a value that indicates whether an add transaction is in progress.
-  remarks: You begin an add transaction by calling <xref:System.ComponentModel.IEditableCollectionView.AddNew%2A> and end the add transaction by calling <xref:System.ComponentModel.IEditableCollectionView.CommitNew%2A> or <xref:System.ComponentModel.IEditableCollectionView.CancelNew%2A>.
+  remarks: 'You begin an add transaction by calling <xref:System.ComponentModel.IEditableCollectionView.AddNew%2A> and end the add transaction by calling <xref:System.ComponentModel.IEditableCollectionView.CommitNew%2A> or <xref:System.ComponentModel.IEditableCollectionView.CancelNew%2A>.'
   syntax:
     content: public bool IsAddingNew { get; }
     return:
@@ -613,7 +613,7 @@ items:
   - WindowsBase
   namespace: System.ComponentModel
   summary: Gets a value that indicates whether an edit transaction is in progress.
-  remarks: You begin an edit transaction by calling <xref:System.ComponentModel.IEditableCollectionView.EditItem%2A> and end the transaction by calling <xref:System.ComponentModel.IEditableCollectionView.CommitEdit%2A> or <xref:System.ComponentModel.IEditableCollectionView.CancelEdit%2A>.
+  remarks: 'You begin an edit transaction by calling <xref:System.ComponentModel.IEditableCollectionView.EditItem%2A> and end the transaction by calling <xref:System.ComponentModel.IEditableCollectionView.CommitEdit%2A> or <xref:System.ComponentModel.IEditableCollectionView.CancelEdit%2A>.'
   syntax:
     content: public bool IsEditingItem { get; }
     return:
@@ -700,7 +700,7 @@ items:
   - WindowsBase
   namespace: System.ComponentModel
   summary: Removes the specified item from the collection.
-  remarks: If `item` is not in the collection, <xref:System.ComponentModel.IEditableCollectionView.Remove%2A> does nothing.
+  remarks: 'If `item` is not in the collection, <xref:System.ComponentModel.IEditableCollectionView.Remove%2A> does nothing.'
   example:
   - "The following example calls <xref:System.ComponentModel.IEditableCollectionView.CanRemove%2A> to check whether an item can be removed from the collection.  If an item can be removed, the example prompts the user to confirm the action and calls <xref:System.ComponentModel.IEditableCollectionView.Remove%2A> if the user clicks **Yes**. For the entire sample, see [Changing a Collection by Using IEditableCollectionView Sample](http://go.microsoft.com/fwlink/?LinkID=159974).  \n  \n [!code-csharp[EditingCollectionsSnippets#RemoveItem](~/samples/snippets/csharp/VS_Snippets_Wpf/EditingCollectionsSnippets/CSharp/Window1.xaml.cs#removeitem)]\n [!code-vb[EditingCollectionsSnippets#RemoveItem](~/samples/snippets/visualbasic/VS_Snippets_Wpf/EditingCollectionsSnippets/visualbasic/window1.xaml.vb#removeitem)]"
   syntax:

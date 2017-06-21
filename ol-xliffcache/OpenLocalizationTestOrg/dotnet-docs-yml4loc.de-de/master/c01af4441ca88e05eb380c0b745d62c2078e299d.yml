@@ -27,7 +27,7 @@ items:
   - System.Runtime
   namespace: System.Text
   summary: Converts a set of characters into a sequence of bytes.
-  remarks: "To obtain an instance of an implementation of the <xref:System.Text.Encoder> class, the application should use the <xref:System.Text.Encoding.GetEncoder%2A> method of an <xref:System.Text.Encoding> implementation.  \n  \n The <xref:System.Text.Encoder.GetByteCount%2A> method determines how many bytes result in encoding a set of Unicode characters, and the <xref:System.Text.Encoder.GetBytes%2A> method performs the actual encoding. There are several versions of both of these methods available in the <xref:System.Text.Encoder> class. For more information, see <xref:System.Text.Encoding.GetBytes%2A?displayProperty=fullName>.  \n  \n A <xref:System.Text.Encoder> object maintains state information between successive calls to `GetBytes` or <xref:System.Text.Decoder.Convert%2A> methods so that it can correctly encode character sequences that span blocks. The <xref:System.Text.Encoder> also preserves trailing characters at the end of data blocks and uses the trailing characters in the next encoding operation. For example, a data block might end with an unmatched high surrogate, and the matching low surrogate might be in the next data block. Therefore, <xref:System.Text.Encoding.GetDecoder%2A> and <xref:System.Text.Encoding.GetEncoder%2A> are useful for network transmission and file operations, because those operations often deal with blocks of data instead of a complete data stream.  \n  \n> [!NOTE]\n>  When the application is done with a stream of data it should make sure that the state information is flushed by setting the `flush` parameter to `true` in the appropriate method call. If an exception occurs or if the application switches streams, it should call <xref:System.Text.Encoder.Reset%2A> to clear the internal state of the `Encoder` object.  \n  \n## Version Considerations  \n A <xref:System.Text.Decoder> or <xref:System.Text.Encoder> object can be serialized during a conversion operation. The state of the object is retained if it is deserialized in the same version of the .NET Framework, but lost if it is deserialized in another version."
+  remarks: "To obtain an instance of an implementation of the <xref:System.Text.Encoder> class, the application should use the <xref:System.Text.Encoding.GetEncoder%2A> method of an <xref:System.Text.Encoding> implementation.  \n  \n The <xref:System.Text.Encoder.GetByteCount%2A> method determines how many bytes result in encoding a set of Unicode characters, and the <xref:System.Text.Encoder.GetBytes%2A> method performs the actual encoding. There are several versions of both of these methods available in the <xref:System.Text.Encoder> class. For more information, see <xref:System.Text.Encoding.GetBytes%2A?displayProperty=fullName>.  \n  \n A <xref:System.Text.Encoder> object maintains state information between successive calls to `GetBytes` or <xref:System.Text.Decoder.Convert%2A> methods so that it can correctly encode character sequences that span blocks. The <xref:System.Text.Encoder> also preserves trailing characters at the end of data blocks and uses the trailing characters in the next encoding operation. For example, a data block might end with an unmatched high surrogate, and the matching low surrogate might be in the next data block. Therefore, <xref:System.Text.Encoding.GetDecoder%2A> and <xref:System.Text.Encoding.GetEncoder%2A> are useful for network transmission and file operations, because those operations often deal with blocks of data instead of a complete data stream.  \n  \n> [!NOTE]\n>  When the application is done with a stream of data it should make sure that the state information is flushed by setting the `flush` parameter to `true` in the appropriate method call. If an exception occurs or if the application switches streams, it should call <xref:System.Text.Encoder.Reset%2A> to clear the internal state of the `Encoder` object.  \n  \n## <a name=\"version-considerations\"></a>Version Considerations  \n A <xref:System.Text.Decoder> or <xref:System.Text.Encoder> object can be serialized during a conversion operation. The state of the object is retained if it is deserialized in the same version of the .NET Framework, but lost if it is deserialized in another version."
   example:
   - "The following example demonstrates how to convert an array of Unicode characters into blocks of bytes using a specified encoding. For comparison, the array of characters is first encoded using <xref:System.Text.UTF7Encoding>. Next, the array of characters is encoded using an <xref:System.Text.Encoder>.  \n  \n [!code-cpp[System.Text.Encoder Example#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.Text.Encoder Example/CPP/snippet.cpp#1)]\n [!code-csharp[System.Text.Encoder Example#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Text.Encoder Example/CS/snippet.cs#1)]\n [!code-vb[System.Text.Encoder Example#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Text.Encoder Example/VB/snippet.vb#1)]"
   syntax:
@@ -113,7 +113,7 @@ items:
   - System.Runtime
   namespace: System.Text
   summary: Initializes a new instance of the <xref href="System.Text.Encoder"></xref> class.
-  remarks: To obtain an instance of an implementation of this class, the application should use the <xref:System.Text.Encoding.GetEncoder%2A> method of an <xref:System.Text.Encoding> implementation.
+  remarks: 'To obtain an instance of an implementation of this class, the application should use the <xref:System.Text.Encoding.GetEncoder%2A> method of an <xref:System.Text.Encoding> implementation.'
   example:
   - "The following example demonstrates two techniques for initializing a new <xref:System.Text.Encoder> instance.  \n  \n [!code-cpp[System.Text.Encoder.ctor Example#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.Text.Encoder.ctor Example/CPP/ctor.cpp#1)]\n [!code-csharp[System.Text.Encoder.ctor Example#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Text.Encoder.ctor Example/CS/ctor.cs#1)]\n [!code-vb[System.Text.Encoder.ctor Example#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Text.Encoder.ctor Example/VB/ctor.vb#1)]"
   syntax:
@@ -213,13 +213,13 @@ items:
       description: '`true` to indicate no further data is to be converted; otherwise, `false`.'
     - id: charsUsed
       type: System.Int32
-      description: When this method returns, contains the number of characters from <code>chars</code> that were used in the conversion. This parameter is passed uninitialized.
+      description: 'When this method returns, contains the number of characters from <code>chars</code> that were used in the conversion. This parameter is passed uninitialized.'
     - id: bytesUsed
       type: System.Int32
-      description: When this method returns, contains the number of bytes that were used in the conversion. This parameter is passed uninitialized.
+      description: 'When this method returns, contains the number of bytes that were used in the conversion. This parameter is passed uninitialized.'
     - id: completed
       type: System.Boolean
-      description: When this method returns, contains `true` if all the characters specified by <code>charCount</code> were converted; otherwise, `false`. This parameter is passed uninitialized.
+      description: 'When this method returns, contains `true` if all the characters specified by <code>charCount</code> were converted; otherwise, `false`. This parameter is passed uninitialized.'
   overload: System.Text.Encoder.Convert*
   exceptions:
   - type: System.ArgumentNullException
@@ -320,13 +320,13 @@ items:
       description: '`true` to indicate no further data is to be converted; otherwise, `false`.'
     - id: charsUsed
       type: System.Int32
-      description: When this method returns, contains the number of characters from <code>chars</code> that were used in the conversion. This parameter is passed uninitialized.
+      description: 'When this method returns, contains the number of characters from <code>chars</code> that were used in the conversion. This parameter is passed uninitialized.'
     - id: bytesUsed
       type: System.Int32
-      description: When this method returns, contains the number of bytes that were produced by the conversion. This parameter is passed uninitialized.
+      description: 'When this method returns, contains the number of bytes that were produced by the conversion. This parameter is passed uninitialized.'
     - id: completed
       type: System.Boolean
-      description: When this method returns, contains `true` if all the characters specified by <code>charCount</code> were converted; otherwise, `false`. This parameter is passed uninitialized.
+      description: 'When this method returns, contains `true` if all the characters specified by <code>charCount</code> were converted; otherwise, `false`. This parameter is passed uninitialized.'
   overload: System.Text.Encoder.Convert*
   exceptions:
   - type: System.ArgumentNullException
@@ -408,7 +408,7 @@ items:
   - System.Runtime
   namespace: System.Text
   summary: Gets or sets a <xref href="System.Text.EncoderFallback"></xref> object for the current <xref href="System.Text.Encoder"></xref> object.
-  remarks: The <xref:System.Text.EncoderFallback> object represents an error handler that is invoked when a character cannot be converted into an encoded byte sequence.
+  remarks: 'The <xref:System.Text.EncoderFallback> object represents an error handler that is invoked when a character cannot be converted into an encoded byte sequence.'
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(false)]
@@ -489,7 +489,7 @@ items:
   - System.Runtime
   namespace: System.Text
   summary: Gets the <xref href="System.Text.EncoderFallbackBuffer"></xref> object associated with the current <xref href="System.Text.Encoder"></xref> object.
-  remarks: The <xref:System.Text.Encoder.FallbackBuffer%2A> object represents data used by the <xref:System.Text.EncoderFallback> object. The <xref:System.Text.EncoderFallback> object represents an error handler that is invoked when a character cannot be converted into an encoded byte sequence.
+  remarks: 'The <xref:System.Text.Encoder.FallbackBuffer%2A> object represents data used by the <xref:System.Text.EncoderFallback> object. The <xref:System.Text.EncoderFallback> object represents an error handler that is invoked when a character cannot be converted into an encoded byte sequence.'
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(false)]
@@ -559,7 +559,7 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Text
-  summary: When overridden in a derived class, calculates the number of bytes produced by encoding a set of characters starting at the specified character pointer. A parameter indicates whether to clear the internal state of the encoder after the calculation.
+  summary: 'When overridden in a derived class, calculates the number of bytes produced by encoding a set of characters starting at the specified character pointer. A parameter indicates whether to clear the internal state of the encoder after the calculation.'
   remarks: "This method does not affect the state of the encoder.  \n  \n To calculate the exact array size that <xref:System.Text.Encoder.GetBytes%2A> requires to store the resulting bytes, the application should use <xref:System.Text.Encoder.GetByteCount%2A>.  \n  \n If `GetBytes` is called with `flush` set to `false`, the encoder stores trailing characters at the end of the data block in an internal buffer and uses them in the next encoding operation. The application should call `GetByteCount` on a block of data immediately before calling `GetBytes` on the same block, so that any trailing characters from the previous block are included in the calculation."
   syntax:
     content: >-
@@ -646,7 +646,7 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Text
-  summary: When overridden in a derived class, calculates the number of bytes produced by encoding a set of characters from the specified character array. A parameter indicates whether to clear the internal state of the encoder after the calculation.
+  summary: 'When overridden in a derived class, calculates the number of bytes produced by encoding a set of characters from the specified character array. A parameter indicates whether to clear the internal state of the encoder after the calculation.'
   remarks: "This method does not affect the state of the encoder.  \n  \n To calculate the exact array size that <xref:System.Text.Encoder.GetBytes%2A> requires to store the resulting bytes, the application should use <xref:System.Text.Encoder.GetByteCount%2A>.  \n  \n If `GetBytes` is called with `flush` set to `false`, the encoder stores trailing characters at the end of the data block in an internal buffer and uses them in the next encoding operation. The application should call `GetByteCount` on a block of data immediately before calling `GetBytes` on the same block, so that any trailing characters from the previous block are included in the calculation."
   example:
   - "The following code example demonstrates how to use the <xref:System.Text.Encoder.GetByteCount%2A> method to return the number of bytes required to encode an array of characters using a Unicode <xref:System.Text.Encoder>.  \n  \n [!code-cpp[System.Text.Encoder.GetByteCount Example#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.Text.Encoder.GetByteCount Example/CPP/getbytecount-char[]-int32-int32.cpp#1)]\n [!code-csharp[System.Text.Encoder.GetByteCount Example#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Text.Encoder.GetByteCount Example/CS/getbytecount-char[]-int32-int32.cs#1)]\n [!code-vb[System.Text.Encoder.GetByteCount Example#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Text.Encoder.GetByteCount Example/VB/getbytecount-char[]-int32-int32.vb#1)]"
@@ -742,7 +742,7 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Text
-  summary: When overridden in a derived class, encodes a set of characters starting at the specified character pointer and any characters in the internal buffer into a sequence of bytes that are stored starting at the specified byte pointer. A parameter indicates whether to clear the internal state of the encoder after the conversion.
+  summary: 'When overridden in a derived class, encodes a set of characters starting at the specified character pointer and any characters in the internal buffer into a sequence of bytes that are stored starting at the specified byte pointer. A parameter indicates whether to clear the internal state of the encoder after the conversion.'
   remarks: "Remember that the <xref:System.Text.Encoder> object saves state between calls to <xref:System.Text.Encoder.GetBytes%2A>. When the application is done with a stream of data, it should set the `flush` parameter to `true` in the last call to `GetBytes` to make sure that the state information is flushed and that the encoded bytes are properly terminated. With this setting, the encoder ignores invalid bytes at the end of the data block, such as unmatched surrogates or incomplete combining sequences, and clears the internal buffer.  \n  \n To calculate the exact buffer size that `GetBytes` requires to store the resulting characters, the application should use <xref:System.Text.Encoder.GetByteCount%2A>.  \n  \n If `GetBytes` is called with `flush` set to `false`, the encoder stores trailing bytes at the end of the data block in an internal buffer and uses them in the next encoding operation. The application should call `GetByteCount` on a block of data immediately before calling `GetBytes` on the same block, so that any trailing characters from the previous block are included in the calculation.  \n  \n If your application is to convert many segments of an input stream, consider using the <xref:System.Text.Encoder.Convert%2A> method. <xref:System.Text.Encoder.GetBytes%2A> will throw an exception if the output buffer isn't large enough, but <xref:System.Text.Encoder.Convert%2A> will fill as much space as possible and return the chars read and bytes written. Also see the <xref:System.Text.Encoding.GetBytes%2A?displayProperty=fullName> topic for more comments."
   syntax:
     content: >-
@@ -838,7 +838,7 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Text
-  summary: When overridden in a derived class, encodes a set of characters from the specified character array and any characters in the internal buffer into the specified byte array. A parameter indicates whether to clear the internal state of the encoder after the conversion.
+  summary: 'When overridden in a derived class, encodes a set of characters from the specified character array and any characters in the internal buffer into the specified byte array. A parameter indicates whether to clear the internal state of the encoder after the conversion.'
   remarks: "Remember that the <xref:System.Text.Encoder> object saves state between calls to <xref:System.Text.Encoder.GetBytes%2A>. When the application is done with a stream of data, it should set the `flush` parameter to `true` in the last call to `GetBytes` to make sure that the state information is flushed and that the encoded bytes are properly terminated. With this setting, the encoder ignores invalid bytes at the end of the data block, such as unmatched surrogates or incomplete combining sequences, and clears the internal buffer.  \n  \n To calculate the exact buffer size that `GetBytes` requires to store the resulting characters, the application should use <xref:System.Text.Encoder.GetByteCount%2A>.  \n  \n If `GetBytes` is called with `flush` set to `false`, the encoder stores trailing bytes at the end of the data block in an internal buffer and uses them in the next encoding operation. The application should call `GetByteCount` on a block of data immediately before calling `GetBytes` on the same block, so that any trailing characters from the previous block are included in the calculation.  \n  \n If your application is to convert many segments of an input stream, consider using the <xref:System.Text.Encoder.Convert%2A> method. <xref:System.Text.Encoder.GetBytes%2A> will throw an exception if the output buffer isn't large enough, but <xref:System.Text.Encoder.Convert%2A> will fill as much space as possible and return the chars read and bytes written. Also see the <xref:System.Text.Encoding.GetBytes%2A?displayProperty=fullName> topic for more comments."
   example:
   - "The following example demonstrates how to encode a range of elements from a character array and store the encoded bytes in a range of elements in a byte array. The <xref:System.Text.Encoder.GetByteCount%2A> method is used to determine the size of the array required by <xref:System.Text.Encoder.GetBytes%2A>.  \n  \n [!code-cpp[System.Text.Encoder.GetBytes Example#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.Text.Encoder.GetBytes Example/CPP/getbytes-char[]-int32-int32-byte[]-int32.cpp#1)]\n [!code-csharp[System.Text.Encoder.GetBytes Example#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Text.Encoder.GetBytes Example/CS/getbytes-char[]-int32-int32-byte[]-int32.cs#1)]\n [!code-vb[System.Text.Encoder.GetBytes Example#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Text.Encoder.GetBytes Example/VB/getbytes-char[]-int32-int32-byte[]-int32.vb#1)]"
@@ -944,7 +944,7 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Text
-  summary: When overridden in a derived class, sets the encoder back to its initial state.
+  summary: 'When overridden in a derived class, sets the encoder back to its initial state.'
   remarks: "This method clears the internal state of the <xref:System.Text.Encoder> object. The method clears any state information preserved from a previous call to <xref:System.Text.Encoder.GetBytes%2A> or <xref:System.Text.Decoder.Convert%2A>, including trailing characters at the end of the previous data block, such as an unmatched high surrogate.  \n  \n Your application should call the `Reset` method if it wants to reuse the same encoder even after an exception is thrown by <xref:System.Text.Encoder.GetBytes%2A> or <xref:System.Text.Encoder.GetByteCount%2A>, or if the application switches streams."
   syntax:
     content: >-

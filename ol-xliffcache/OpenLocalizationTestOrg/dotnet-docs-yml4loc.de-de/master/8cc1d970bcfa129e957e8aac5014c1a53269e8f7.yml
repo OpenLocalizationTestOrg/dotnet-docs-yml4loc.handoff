@@ -54,7 +54,7 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis
-  summary: Creates an empty <xref href="System.Speech.Synthesis.Prompt"></xref> object and provides methods for adding content, selecting voices, controlling voice attributes, and controlling the pronunciation of spoken words.
+  summary: 'Creates an empty <xref href="System.Speech.Synthesis.Prompt"></xref> object and provides methods for adding content, selecting voices, controlling voice attributes, and controlling the pronunciation of spoken words.'
   remarks: "With <xref:System.Speech.Synthesis.PromptBuilder>, you can add a variety of content types to a prompt, including plain text, SSML markup (as a string or a file), recorded audio, or even another <xref:System.Speech.Synthesis.PromptBuilder> object.  \n  \n To append text to a <xref:System.Speech.Synthesis.PromptBuilder> object and optionally control voice attributes such as emphasis, rate, and volume, use one of the <xref:System.Speech.Synthesis.PromptBuilder.AppendText%2A> methods.  You can also control voice attributes as a group with the <xref:System.Speech.Synthesis.PromptBuilder.StartStyle%2A> and <xref:System.Speech.Synthesis.PromptBuilder.EndStyle%2A> methods.  \n  \n You can append text and control what is spoken or how it is pronounced using the <xref:System.Speech.Synthesis.PromptBuilder.AppendTextWithHint%2A>, <xref:System.Speech.Synthesis.PromptBuilder.AppendTextWithAlias%2A>, <xref:System.Speech.Synthesis.PromptBuilder.AppendTextWithPronunciation%2A>,  <xref:System.Speech.Synthesis.PromptBuilder.AppendSsml%2A>, or <xref:System.Speech.Synthesis.PromptBuilder.AppendSsmlMarkup%2A> methods.  \n  \n Change the currently selected speaking voice in the prompt using one of the overloaded <xref:System.Speech.Synthesis.PromptBuilder.StartVoice%2A> methods, naming a specific voice to use or specifying required voice characteristics, such as age and gender.  \n  \n To generate speech from a <xref:System.Speech.Synthesis.PromptBuilder> object, you can pass it as an argument to the <xref:System.Speech.Synthesis.SpeechSynthesizer.Speak%2A> method.  \n  \n For more information, see [Constructing a Complex Prompt](http://msdn.microsoft.com/en-us/552cb356-7344-473e-b0f2-7a9983f8c1a4)."
   syntax:
     content: public class PromptBuilder
@@ -155,7 +155,7 @@ items:
     parameters:
     - id: culture
       type: System.Globalization.CultureInfo
-      description: Provides information about a specific culture, such as its language, the name of the culture, the writing system, the calendar used, and how to format dates and sort strings.
+      description: 'Provides information about a specific culture, such as its language, the name of the culture, the writing system, the calendar used, and how to format dates and sort strings.'
   overload: System.Speech.Synthesis.PromptBuilder.#ctor*
   exceptions: []
   version:
@@ -331,7 +331,7 @@ items:
   - System.Speech
   namespace: System.Speech.Synthesis
   summary: Appends a bookmark to the <xref href="System.Speech.Synthesis.PromptBuilder"></xref> object.
-  remarks: A speech synthesis engine will generate a <xref:System.Speech.Synthesis.SpeechSynthesizer.BookmarkReached> event if it encounters a bookmark while speaking a prompt using any of the <xref:System.Speech.Synthesis.SpeechSynthesizer.Speak%2A>, <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakAsync%2A>, <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakSsml%2A>, or <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakSsmlAsync%2A> methods.
+  remarks: 'A speech synthesis engine will generate a <xref:System.Speech.Synthesis.SpeechSynthesizer.BookmarkReached> event if it encounters a bookmark while speaking a prompt using any of the <xref:System.Speech.Synthesis.SpeechSynthesizer.Speak%2A>, <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakAsync%2A>, <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakSsml%2A>, or <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakSsmlAsync%2A> methods.'
   example:
   - "The following example creates a prompt that includes two bookmarks and sends the output to a WAV file for playback. The handler for the <xref:System.Speech.Synthesis.SpeechSynthesizer.BookmarkReached> event writes the name of the bookmark and its position in the audio stream when the event was raised to the console.  \n  \n```csharp  \nusing System;  \nusing System.Speech.Synthesis;  \n  \nnamespace SampleSynthesis  \n{  \n  class Program  \n  {  \n    static void Main(string[] args)  \n    {  \n  \n      // Initialize a new instance of the SpeechSynthesizer.  \n      using (SpeechSynthesizer synth = new SpeechSynthesizer())  \n      {  \n  \n        // Configure the audio output.   \n        synth.SetOutputToWaveFile(@\"C:\\test\\weather.wav\");  \n  \n        // Create a SoundPlayer instance to play the output audio file.  \n        System.Media.SoundPlayer m_SoundPlayer =  \n          new System.Media.SoundPlayer(@\"C:\\test\\weather.wav\");  \n  \n        // Build a prompt and append bookmarks.  \n        PromptBuilder builder = new PromptBuilder(  \n          new System.Globalization.CultureInfo(\"en-US\"));  \n        builder.AppendText(  \n          \"The weather forecast for today is partly cloudy with some sun breaks.\");  \n        builder.AppendBookmark(\"Daytime forecast\");  \n        builder.AppendText(  \n          \"Tonight's weather will be cloudy with a 30% chance of showers.\");  \n        builder.AppendBookmark(\"Nightime forecast\");  \n  \n        // Add a handler for the BookmarkReached event.  \n        synth.BookmarkReached +=  \n          new EventHandler<BookmarkReachedEventArgs>(synth_BookmarkReached);  \n  \n        // Speak the prompt and play back the output file.  \n        synth.Speak(builder);  \n        m_SoundPlayer.Play();  \n      }  \n  \n      Console.WriteLine();  \n      Console.WriteLine(\"Press any key to exit...\");  \n      Console.ReadKey();  \n    }  \n  \n    // Write the name and position of the bookmark to the console.  \n    static void synth_BookmarkReached(object sender, BookmarkReachedEventArgs e)  \n    {  \n      Console.WriteLine(\"Bookmark ({0}) reached at: {1} \",  \n        e.Bookmark, e.AudioPosition);  \n    }  \n  }  \n}  \n  \n```"
   syntax:
@@ -377,7 +377,7 @@ items:
   - System.Speech
   namespace: System.Speech.Synthesis
   summary: Appends a break to the <xref href="System.Speech.Synthesis.PromptBuilder"></xref> object.
-  remarks: This method does not specify a duration for the break. The <xref:System.Speech.Synthesis.SpeechSynthesizer> will determine a duration value based on the linguistic context.
+  remarks: 'This method does not specify a duration for the break. The <xref:System.Speech.Synthesis.SpeechSynthesizer> will determine a duration value based on the linguistic context.'
   example:
   - "The following example builds a prompt containing two sentences separated by a break and speaks the prompt to the default audio device on the computer.  \n  \n```csharp  \nusing System;  \nusing System.Speech.Synthesis;  \n  \nnamespace SampleSynthesis  \n{  \n  class Program  \n  {  \n    static void Main(string[] args)  \n    {  \n  \n      // Initialize a new instance of the SpeechSynthesizer.  \n      using (SpeechSynthesizer synth = new SpeechSynthesizer())  \n      {  \n  \n        // Configure the audio output.   \n        synth.SetOutputToDefaultAudioDevice();  \n  \n        // Build a prompt with two sentences separated by a break.  \n        PromptBuilder builder = new PromptBuilder(  \n          new System.Globalization.CultureInfo(\"en-US\"));  \n        builder.AppendText(  \n          \"Tonight's movie showings in theater A are at 5:45, 7:15, and 8:45.\");  \n        builder.AppendBreak();  \n        builder.AppendText(  \n          \"Tonight's movie showings in theater B are at 5:15, 7:30, and 9:15.\");  \n  \n        // Speak the prompt.  \n        synth.Speak(builder);  \n      }  \n  \n      Console.WriteLine();  \n      Console.WriteLine(\"Press any key to exit...\");  \n      Console.ReadKey();  \n    }  \n  }  \n}  \n  \n```"
   syntax:
@@ -420,7 +420,7 @@ items:
   - System.Speech
   namespace: System.Speech.Synthesis
   summary: Appends a break to the <xref href="System.Speech.Synthesis.PromptBuilder"></xref> object and specifies its strength (duration).
-  remarks: The values in the <xref:System.Speech.Synthesis.PromptBreak> enumeration represent a range of separation intervals (pauses) between word boundaries. The speech synthesis engine determines the exact duration of the interval. When a break is requested, one of these values is passed to the text-to-speech (TTS) engine, which contains a mapping between these values and the corresponding millisecond break values.
+  remarks: 'The values in the <xref:System.Speech.Synthesis.PromptBreak> enumeration represent a range of separation intervals (pauses) between word boundaries. The speech synthesis engine determines the exact duration of the interval. When a break is requested, one of these values is passed to the text-to-speech (TTS) engine, which contains a mapping between these values and the corresponding millisecond break values.'
   example:
   - "The following example builds a prompt containing two sentences separated by a break and sends the output to a WAV file for playback.  \n  \n```csharp  \nusing System;  \nusing System.Speech.Synthesis;  \n  \nnamespace SampleSynthesis  \n{  \n  class Program  \n  {  \n    static void Main(string[] args)  \n    {  \n  \n      // Initialize a new instance of the SpeechSynthesizer.  \n      using (SpeechSynthesizer synth = new SpeechSynthesizer())  \n      {  \n  \n        // Configure the audio output.   \n        synth.SetOutputToWaveFile(@\"C:\\test\\weather.wav\");  \n  \n        // Create a SoundPlayer instance to play the output audio file.  \n        System.Media.SoundPlayer m_SoundPlayer =  \n          new System.Media.SoundPlayer(@\"C:\\test\\weather.wav\");  \n  \n        // Build a prompt with two sentences separated by a break.  \n        PromptBuilder builder = new PromptBuilder(  \n          new System.Globalization.CultureInfo(\"en-US\"));  \n        builder.AppendText(  \n          \"Tonight's movie showings in theater A are at 5:45, 7:15, and 8:45\");  \n        builder.AppendBreak(PromptBreak.Medium);  \n        builder.AppendText(  \n          \"Tonight's movie showings in theater B are at 5:15, 7:15, and 9:15\");  \n  \n        // Speak the prompt and play back the output file.  \n        synth.Speak(builder);  \n        m_SoundPlayer.Play();  \n      }  \n  \n      Console.WriteLine();  \n      Console.WriteLine(\"Press any key to exit...\");  \n      Console.ReadKey();  \n    }  \n  }  \n}  \n  \n```"
   syntax:
@@ -466,7 +466,7 @@ items:
   - System.Speech
   namespace: System.Speech.Synthesis
   summary: Appends a break of the specified duration to the <xref href="System.Speech.Synthesis.PromptBuilder"></xref> object.
-  remarks: A break can be used to control pauses or other prosodic boundaries between words. A break is optional. If a break is not present, the synthesizer determines the break between words depending on the linguistic context.
+  remarks: 'A break can be used to control pauses or other prosodic boundaries between words. A break is optional. If a break is not present, the synthesizer determines the break between words depending on the linguistic context.'
   example:
   - "The following example builds a prompt containing two sentences separated by a break of 15,000,000 ticks (1.5 seconds), and speaks the prompt to the default audio device on the computer.  \n  \n```csharp  \nusing System;  \nusing System.Speech.Synthesis;  \n  \nnamespace SampleSynthesis  \n{  \n  class Program  \n  {  \n    static void Main(string[] args)  \n    {  \n  \n      // Initialize a new instance of the SpeechSynthesizer.  \n      using (SpeechSynthesizer synth = new SpeechSynthesizer())  \n      {  \n  \n        // Configure the audio output.   \n        synth.SetOutputToDefaultAudioDevice();  \n  \n        // Build a prompt with two sentences separated by a break.  \n        PromptBuilder builder = new PromptBuilder(  \n          new System.Globalization.CultureInfo(\"en-US\"));  \n        builder.AppendText(  \n          \"Tonight's movie showings in theater A are at 5:45, 7:15, and 8:45\");  \n        builder.AppendBreak(new TimeSpan(15000000));  \n        builder.AppendText(  \n          \"Tonight's movie showings in theater B are at 5:15, 7:15, and 9:15\");  \n  \n        // Speak the prompt.  \n        synth.Speak(builder);  \n      }  \n  \n      Console.WriteLine();  \n      Console.WriteLine(\"Press any key to exit...\");  \n      Console.ReadKey();  \n    }  \n  }  \n}  \n```"
   syntax:
@@ -474,7 +474,7 @@ items:
     parameters:
     - id: duration
       type: System.TimeSpan
-      description: The time in ticks, where one tick equals 100 nanoseconds.
+      description: 'The time in ticks, where one tick equals 100 nanoseconds.'
   overload: System.Speech.Synthesis.PromptBuilder.AppendBreak*
   exceptions: []
   version:
@@ -741,7 +741,7 @@ items:
   - System.Speech
   namespace: System.Speech.Synthesis
   summary: Specifies text to append to the <xref href="System.Speech.Synthesis.PromptBuilder"></xref> object.
-  remarks: To append text that is formatted as SSML markup language, use <xref:System.Speech.Synthesis.PromptBuilder.AppendSsmlMarkup%2A>.
+  remarks: 'To append text that is formatted as SSML markup language, use <xref:System.Speech.Synthesis.PromptBuilder.AppendSsmlMarkup%2A>.'
   example:
   - "The example that follows creates a <xref:System.Speech.Synthesis.PromptBuilder> object and appends a text string using the <xref:System.Speech.Synthesis.PromptBuilder.AppendText%2A> method.  \n  \n```csharp  \nusing System;  \nusing System.Speech.Synthesis;  \n  \nnamespace SampleSynthesis  \n{  \n  class Program  \n  {  \n    static void Main(string[] args)  \n    {  \n  \n      // Initialize a new instance of the SpeechSynthesizer.  \n      using (SpeechSynthesizer synth = new SpeechSynthesizer())  \n      {  \n  \n        // Configure the audio output.   \n        synth.SetOutputToDefaultAudioDevice();  \n  \n        // Create a PromptBuilder object and append a text string.  \n        PromptBuilder speakText = new PromptBuilder();  \n        speakText.AppendText(\"Say the name of the song you want to hear\");  \n  \n        // Speak the contents of the prompt.  \n        synth.Speak(speakText);  \n      }  \n  \n      Console.WriteLine();  \n      Console.WriteLine(\"Press any key to exit...\");  \n      Console.ReadKey();  \n    }  \n  }  \n}  \n```"
   syntax:
@@ -883,7 +883,7 @@ items:
   - System.Speech
   namespace: System.Speech.Synthesis
   summary: Appends text to the <xref href="System.Speech.Synthesis.PromptBuilder"></xref> object and specifies the volume to speak the text.
-  remarks: The <xref:System.Speech.Synthesis.PromptVolume.Default> setting for <xref:System.Speech.Synthesis.PromptVolume> is full volume, which is the same as <xref:System.Speech.Synthesis.PromptVolume.ExtraLoud>. The other settings decrease the volume of speech output relative to full volume.
+  remarks: 'The <xref:System.Speech.Synthesis.PromptVolume.Default> setting for <xref:System.Speech.Synthesis.PromptVolume> is full volume, which is the same as <xref:System.Speech.Synthesis.PromptVolume.ExtraLoud>. The other settings decrease the volume of speech output relative to full volume.'
   example:
   - "The following example uses the <xref:System.Speech.Synthesis.PromptBuilder.AppendText%2A> method to specify volume settings that the <xref:System.Speech.Synthesis.SpeechSynthesizer> should apply to speech output.  \n  \n```csharp  \nusing System;  \nusing System.Speech.Synthesis;  \n  \nnamespace SampleSynthesis  \n{  \n  class Program  \n  {  \n    static void Main(string[] args)  \n    {  \n  \n      // Initialize a new instance of the SpeechSynthesizer.  \n      using (SpeechSynthesizer synth = new SpeechSynthesizer())  \n      {  \n  \n        // Configure the audio output.   \n        synth.SetOutputToDefaultAudioDevice();  \n  \n        // Build a prompt that applies different volume settings.  \n        PromptBuilder builder = new PromptBuilder();  \n        builder.AppendText(\"This is the default speaking volume.\", PromptVolume.Default);  \n        builder.AppendBreak();  \n        builder.AppendText(\"This is the extra loud speaking volume.\", PromptVolume.ExtraLoud);  \n        builder.AppendBreak();  \n        builder.AppendText(\"This is the medium speaking volume.\", PromptVolume.Medium);  \n  \n        // Speak the prompt.  \n        synth.Speak(builder);  \n      }  \n  \n      Console.WriteLine();  \n      Console.WriteLine(\"Press any key to exit...\");  \n      Console.ReadKey();  \n    }  \n  }  \n}  \n```"
   syntax:
@@ -932,7 +932,7 @@ items:
   - System.Speech
   namespace: System.Speech.Synthesis
   summary: Appends text to the <xref href="System.Speech.Synthesis.PromptBuilder"></xref> object and specifies the alias text to be spoken in place of the appended text.
-  remarks: This allows a document to contain both a spoken and a written form for a prompt. For example, the written form could be an acronym, such as SAPI, and the spoken form could be the expanded text for the acronym, in this case Speech Application Programming Interface.
+  remarks: 'This allows a document to contain both a spoken and a written form for a prompt. For example, the written form could be an acronym, such as SAPI, and the spoken form could be the expanded text for the acronym, in this case Speech Application Programming Interface.'
   example:
   - "The following example appends a text string (\"Speech Synthesis Markup Language\") and its alias (\"SSML\") to a <xref:System.Speech.Synthesis.PromptBuilder> object. The synthesizer will pronounce \"S S M L\".  \n  \n```  \nPromptBuilder alias = new PromptBuilder();  \nalias.AppendTextWithAlias(\"Speech Synthesis Markup Language\",\"SSML\");   \n```"
   syntax:
@@ -981,7 +981,7 @@ items:
   - System.Speech
   namespace: System.Speech.Synthesis
   summary: Appends text to the <xref href="System.Speech.Synthesis.PromptBuilder"></xref> object and a <xref href="System.String"></xref> that specifies the content type of the text.
-  remarks: You can use this method to specify a content type that is not included in the <xref:System.Speech.Synthesis.SayAs> enumeration. However, the TTS engine must support the parameter that you specify.
+  remarks: 'You can use this method to specify a content type that is not included in the <xref:System.Speech.Synthesis.SayAs> enumeration. However, the TTS engine must support the parameter that you specify.'
   syntax:
     content: public void AppendTextWithHint (string textToSpeak, string sayAs);
     parameters:
@@ -1209,7 +1209,7 @@ items:
   - System.Speech
   namespace: System.Speech.Synthesis
   summary: Specifies the end of a paragraph in the <xref href="System.Speech.Synthesis.PromptBuilder"></xref> object.
-  remarks: Long prompts can be rendered more like human speech if they are broken into sentences and paragraphs. See <xref:System.Speech.Synthesis.PromptBuilder.StartParagraph%2A> for an example.
+  remarks: 'Long prompts can be rendered more like human speech if they are broken into sentences and paragraphs. See <xref:System.Speech.Synthesis.PromptBuilder.StartParagraph%2A> for an example.'
   syntax:
     content: public void EndParagraph ();
     parameters: []
@@ -1250,7 +1250,7 @@ items:
   - System.Speech
   namespace: System.Speech.Synthesis
   summary: Specifies the end of a sentence in the <xref href="System.Speech.Synthesis.PromptBuilder"></xref> object.
-  remarks: Long prompts can be rendered more like human speech if they are broken into sentences and paragraphs. See <xref:System.Speech.Synthesis.PromptBuilder.StartSentence%2A> for an example.
+  remarks: 'Long prompts can be rendered more like human speech if they are broken into sentences and paragraphs. See <xref:System.Speech.Synthesis.PromptBuilder.StartSentence%2A> for an example.'
   syntax:
     content: public void EndSentence ();
     parameters: []
@@ -1291,7 +1291,7 @@ items:
   - System.Speech
   namespace: System.Speech.Synthesis
   summary: Specifies the end of a style in the <xref href="System.Speech.Synthesis.PromptBuilder"></xref> object.
-  remarks: The <xref:System.Speech.Synthesis.PromptBuilder.EndStyle%2A> method stops the current speaking style. The speaking style reverts to the setting that was in effect before the <xref:System.Speech.Synthesis.PromptBuilder.StartStyle%2A> method initiated a new speaking style. See <xref:System.Speech.Synthesis.PromptBuilder.StartStyle%2A> for an example.
+  remarks: 'The <xref:System.Speech.Synthesis.PromptBuilder.EndStyle%2A> method stops the current speaking style. The speaking style reverts to the setting that was in effect before the <xref:System.Speech.Synthesis.PromptBuilder.StartStyle%2A> method initiated a new speaking style. See <xref:System.Speech.Synthesis.PromptBuilder.StartStyle%2A> for an example.'
   syntax:
     content: public void EndStyle ();
     parameters: []
@@ -1332,7 +1332,7 @@ items:
   - System.Speech
   namespace: System.Speech.Synthesis
   summary: Specifies the end of use of a voice in the <xref href="System.Speech.Synthesis.PromptBuilder"></xref> object.
-  remarks: The <xref:System.Speech.Synthesis.PromptBuilder.EndVoice%2A> method stops the use of the current voice for speech output. The voice reverts to the setting that was in effect before the <xref:System.Speech.Synthesis.PromptBuilder.StartVoice%2A> method initiated a new voice.
+  remarks: 'The <xref:System.Speech.Synthesis.PromptBuilder.EndVoice%2A> method stops the use of the current voice for speech output. The voice reverts to the setting that was in effect before the <xref:System.Speech.Synthesis.PromptBuilder.StartVoice%2A> method initiated a new voice.'
   syntax:
     content: public void EndVoice ();
     parameters: []
@@ -1421,7 +1421,7 @@ items:
     parameters:
     - id: culture
       type: System.Globalization.CultureInfo
-      description: Provides information about a specific culture, such as the language, the name of the culture, the writing system, the calendar used, and how to format dates and sort strings.
+      description: 'Provides information about a specific culture, such as the language, the name of the culture, the writing system, the calendar used, and how to format dates and sort strings.'
   overload: System.Speech.Synthesis.PromptBuilder.StartParagraph*
   exceptions: []
   version:
@@ -1551,7 +1551,7 @@ items:
     parameters:
     - id: culture
       type: System.Globalization.CultureInfo
-      description: Provides information about a specific culture, such as the language, the name of the culture, the writing system, the calendar used, and how to format dates and sort strings.
+      description: 'Provides information about a specific culture, such as the language, the name of the culture, the writing system, the calendar used, and how to format dates and sort strings.'
   overload: System.Speech.Synthesis.PromptBuilder.StartSentence*
   exceptions: []
   version:
@@ -1725,7 +1725,7 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis
-  summary: Instructs the synthesizer to change the voice in the <xref href="System.Speech.Synthesis.PromptBuilder"></xref> object and specifies its gender, age, and a preferred voice that matches the specified gender and age.
+  summary: 'Instructs the synthesizer to change the voice in the <xref href="System.Speech.Synthesis.PromptBuilder"></xref> object and specifies its gender, age, and a preferred voice that matches the specified gender and age.'
   remarks: "A speech synthesis engine counts the matches it finds for the specified parameters, and returns the voice when the count equals the `voiceAlternate` parameter.  \n  \n Use the <xref:System.Speech.Synthesis.SpeechSynthesizer.GetInstalledVoices%2A> methods and <xref:System.Speech.Synthesis.VoiceInfo> class to obtain the names and attributes of installed text-to-speech (TTS) voices that you can select.  \n  \n To stop using the voice specified by <xref:System.Speech.Synthesis.PromptBuilder.StartVoice%2A> call <xref:System.Speech.Synthesis.PromptBuilder.EndVoice%2A>."
   syntax:
     content: public void StartVoice (System.Speech.Synthesis.VoiceGender gender, System.Speech.Synthesis.VoiceAge age, int voiceAlternate);
@@ -1826,7 +1826,7 @@ items:
     parameters:
     - id: culture
       type: System.Globalization.CultureInfo
-      description: Provides information about a specific culture, such as the language, the name of the culture, the writing system, the calendar used, and how to format dates and sort strings.
+      description: 'Provides information about a specific culture, such as the language, the name of the culture, the writing system, the calendar used, and how to format dates and sort strings.'
   overload: System.Speech.Synthesis.PromptBuilder.StartVoice*
   exceptions: []
   version:
@@ -1908,7 +1908,7 @@ items:
   - System.Speech
   namespace: System.Speech.Synthesis
   summary: Returns the SSML generated from the <xref href="System.Speech.Synthesis.PromptBuilder"></xref> object.
-  remarks: The <xref:System.Speech.Synthesis.PromptBuilder.ToXml%2A> method makes no attempt to format the returned SSML in any way.
+  remarks: 'The <xref:System.Speech.Synthesis.PromptBuilder.ToXml%2A> method makes no attempt to format the returned SSML in any way.'
   example:
   - "The following example creates a <xref:System.Speech.Synthesis.PromptBuilder> object, appends text, and then writes the SSML equivalent of the prompt to the console before speaking the contents of the prompt.  \n  \n```csharp  \n  \nusing System;  \nusing System.Speech.Synthesis;  \n  \nnamespace SampleSynthesis  \n{  \n  class Program  \n  {  \n    static void Main(string[] args)  \n    {  \n  \n      // Initialize a new instance of the SpeechSynthesizer.  \n      using (SpeechSynthesizer synth = new SpeechSynthesizer())  \n      {  \n  \n        // Configure the audio output.   \n        synth.SetOutputToDefaultAudioDevice();  \n  \n        // Create a PromptBuilder object and add content.  \n        PromptBuilder style = new PromptBuilder();  \n        style.AppendText(\"Your order for\");  \n        style.StartStyle(new PromptStyle(PromptRate.Slow));  \n        style.AppendText(\"one kitchen sink and one faucet\");  \n        style.EndStyle();  \n        style.AppendText(\"has been confirmed.\");  \n  \n        // Write the contents of the PromptBuilder object to the console as  \n        // an SSML-compatible XML file.  \n        string myXml = style.ToXml();  \n        Console.WriteLine(\"This is the SSML equivalent of the PromptBuilder: \\n\\n\" + myXml);  \n  \n        // Speak the contents of the SSML prompt.  \n        synth.Speak(style);  \n      }  \n  \n      Console.WriteLine();  \n      Console.WriteLine(\"Press any key to exit...\");  \n      Console.ReadKey();  \n    }  \n  }  \n}  \n  \n```"
   syntax:

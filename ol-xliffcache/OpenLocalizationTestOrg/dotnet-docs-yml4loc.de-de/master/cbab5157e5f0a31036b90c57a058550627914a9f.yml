@@ -33,7 +33,7 @@ items:
   - netstandard
   namespace: System.Threading
   summary: Enables multiple tasks to cooperatively work on an algorithm in parallel through multiple phases.
-  remarks: A group of tasks cooperate by moving through a series of phases, where each in the group signals it has arrived at the <xref:System.Threading.Barrier> in a given phase and implicitly waits for all others to arrive. The same <xref:System.Threading.Barrier> can be used for multiple phases.
+  remarks: 'A group of tasks cooperate by moving through a series of phases, where each in the group signals it has arrived at the <xref:System.Threading.Barrier> in a given phase and implicitly waits for all others to arrive. The same <xref:System.Threading.Barrier> can be used for multiple phases.'
   example:
   - "The following example shows how to use a barrier:  \n  \n [!code-csharp[System.Threading.Barrier#01](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.threading.barrier/cs/barrier.cs#01)]\n [!code-vb[System.Threading.Barrier#01](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.threading.barrier/vb/barrier.vb#01)]"
   syntax:
@@ -129,7 +129,7 @@ items:
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: <code>participantCount</code> is less than 0 or greater than 32,767.
+    description: '<code>participantCount</code> is less than 0 or greater than 32,767.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -208,7 +208,7 @@ items:
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: <code>participantCount</code> is less than 0 or greater than 32,767.
+    description: '<code>participantCount</code> is less than 0 or greater than 32,767.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -273,7 +273,7 @@ items:
   - netstandard
   namespace: System.Threading
   summary: Notifies the <xref href="System.Threading.Barrier"></xref> that there will be an additional participant.
-  remarks: If the barrier is currently executing a post phase action, this call is blocked until the post phase action completes and the barrier has moved on to the next phase.
+  remarks: 'If the barrier is currently executing a post phase action, this call is blocked until the post phase action completes and the barrier has moved on to the next phase.'
   syntax:
     content: public long AddParticipant ();
     parameters: []
@@ -352,7 +352,7 @@ items:
   - netstandard
   namespace: System.Threading
   summary: Notifies the <xref href="System.Threading.Barrier"></xref> that there will be additional participants.
-  remarks: If the barrier is currently executing a post phase action, this call is blocked until the post phase action completes and the barrier has moved on to the next phase.
+  remarks: 'If the barrier is currently executing a post phase action, this call is blocked until the post phase action completes and the barrier has moved on to the next phase.'
   syntax:
     content: public long AddParticipants (int participantCount);
     parameters:
@@ -580,8 +580,8 @@ items:
   - System
   - netstandard
   namespace: System.Threading
-  summary: Releases the unmanaged resources used by the <xref href="System.Threading.Barrier"></xref>, and optionally releases the managed resources.
-  remarks: Unlike most of the members of <xref:System.Threading.Barrier>, Dispose is not thread-safe and may not be used concurrently with other members of this instance.
+  summary: 'Releases the unmanaged resources used by the <xref href="System.Threading.Barrier"></xref>, and optionally releases the managed resources.'
+  remarks: 'Unlike most of the members of <xref:System.Threading.Barrier>, Dispose is not thread-safe and may not be used concurrently with other members of this instance.'
   syntax:
     content: protected virtual void Dispose (bool disposing);
     parameters:
@@ -872,7 +872,7 @@ items:
   - netstandard
   namespace: System.Threading
   summary: Notifies the <xref href="System.Threading.Barrier"></xref> that there will be fewer participants.
-  remarks: If `participantCount` participants are already waiting on the barrier, this removal fulfills the barrier, the post phase action is executed and all of the participants are woken as if this participant being removed had successfully reached the barrier.
+  remarks: 'If `participantCount` participants are already waiting on the barrier, this removal fulfills the barrier, the post phase action is executed and all of the participants are woken as if this participant being removed had successfully reached the barrier.'
   syntax:
     content: public void RemoveParticipants (int participantCount);
     parameters:
@@ -964,10 +964,10 @@ items:
     description: The current instance has already been disposed.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The method was invoked from within a post-phase action, the barrier currently has 0 participants, or the barrier is signaled by more threads than are registered as participants.
+    description: 'The method was invoked from within a post-phase action, the barrier currently has 0 participants, or the barrier is signaled by more threads than are registered as participants.'
   - type: System.Threading.BarrierPostPhaseException
     commentId: T:System.Threading.BarrierPostPhaseException
-    description: If an exception is thrown from the post phase action of a Barrier after all participating threads have called SignalAndWait, the exception will be wrapped in a BarrierPostPhaseException and be thrown on all participating threads.
+    description: 'If an exception is thrown from the post phase action of a Barrier after all participating threads have called SignalAndWait, the exception will be wrapped in a BarrierPostPhaseException and be thrown on all participating threads.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -1031,13 +1031,13 @@ items:
   - System
   - netstandard
   namespace: System.Threading
-  summary: Signals that a participant has reached the barrier and waits for all other participants to reach the barrier as well, using a 32-bit signed integer to measure the timeout.
+  summary: 'Signals that a participant has reached the barrier and waits for all other participants to reach the barrier as well, using a 32-bit signed integer to measure the timeout.'
   syntax:
     content: public bool SignalAndWait (int millisecondsTimeout);
     parameters:
     - id: millisecondsTimeout
       type: System.Int32
-      description: The number of milliseconds to wait, or <xref href="System.Threading.Timeout.Infinite"></xref>(-1) to wait indefinitely.
+      description: 'The number of milliseconds to wait, or <xref href="System.Threading.Timeout.Infinite"></xref>(-1) to wait indefinitely.'
     return:
       type: System.Boolean
       description: if all participants reached the barrier within the specified time; otherwise false.
@@ -1048,13 +1048,13 @@ items:
     description: The current instance has already been disposed.
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: <code>millisecondsTimeout</code> is a negative number other than -1, which represents an infinite time-out.
+    description: '<code>millisecondsTimeout</code> is a negative number other than -1, which represents an infinite time-out.'
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The method was invoked from within a post-phase action, the barrier currently has 0 participants, or the barrier is signaled by more threads than are registered as participants.
+    description: 'The method was invoked from within a post-phase action, the barrier currently has 0 participants, or the barrier is signaled by more threads than are registered as participants.'
   - type: System.Threading.BarrierPostPhaseException
     commentId: T:System.Threading.BarrierPostPhaseException
-    description: If an exception is thrown from the post phase action of a Barrier after all participating threads have called SignalAndWait, the exception will be wrapped in a BarrierPostPhaseException and be thrown on all participating threads.
+    description: 'If an exception is thrown from the post phase action of a Barrier after all participating threads have called SignalAndWait, the exception will be wrapped in a BarrierPostPhaseException and be thrown on all participating threads.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -1118,7 +1118,7 @@ items:
   - System
   - netstandard
   namespace: System.Threading
-  summary: Signals that a participant has reached the barrier and waits for all other participants to reach the barrier, while observing a cancellation token.
+  summary: 'Signals that a participant has reached the barrier and waits for all other participants to reach the barrier, while observing a cancellation token.'
   syntax:
     content: public void SignalAndWait (System.Threading.CancellationToken cancellationToken);
     parameters:
@@ -1135,7 +1135,7 @@ items:
     description: The current instance has already been disposed.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The method was invoked from within a post-phase action, the barrier currently has 0 participants, or the barrier is signaled by more threads than are registered as participants.
+    description: 'The method was invoked from within a post-phase action, the barrier currently has 0 participants, or the barrier is signaled by more threads than are registered as participants.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -1199,16 +1199,16 @@ items:
   - System
   - netstandard
   namespace: System.Threading
-  summary: Signals that a participant has reached the barrier and waits for all other participants to reach the barrier as well, using a <xref href="System.TimeSpan"></xref> object to measure the time interval.
+  summary: 'Signals that a participant has reached the barrier and waits for all other participants to reach the barrier as well, using a <xref href="System.TimeSpan"></xref> object to measure the time interval.'
   syntax:
     content: public bool SignalAndWait (TimeSpan timeout);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: A <xref href="System.TimeSpan"></xref> that represents the number of milliseconds to wait, or a <xref href="System.TimeSpan"></xref> that represents -1 milliseconds to wait indefinitely.
+      description: 'A <xref href="System.TimeSpan"></xref> that represents the number of milliseconds to wait, or a <xref href="System.TimeSpan"></xref> that represents -1 milliseconds to wait indefinitely.'
     return:
       type: System.Boolean
-      description: true if all other participants reached the barrier; otherwise, false.
+      description: 'true if all other participants reached the barrier; otherwise, false.'
   overload: System.Threading.Barrier.SignalAndWait*
   exceptions:
   - type: System.ObjectDisposedException
@@ -1216,10 +1216,10 @@ items:
     description: The current instance has already been disposed.
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: <code>timeout</code> is a negative number other than -1 milliseconds, which represents an infinite time-out, or it is greater than 32,767.
+    description: '<code>timeout</code> is a negative number other than -1 milliseconds, which represents an infinite time-out, or it is greater than 32,767.'
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The method was invoked from within a post-phase action, the barrier currently has 0 participants, or the barrier is signaled by more threads than are registered as participants.
+    description: 'The method was invoked from within a post-phase action, the barrier currently has 0 participants, or the barrier is signaled by more threads than are registered as participants.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -1283,14 +1283,14 @@ items:
   - System
   - netstandard
   namespace: System.Threading
-  summary: Signals that a participant has reached the barrier and waits for all other participants to reach the barrier as well, using a 32-bit signed integer to measure the timeout, while observing a cancellation token.
-  remarks: If the `cancellationToken` was canceled before the signal took effect, then an <xref:System.OperationCanceledException> is thrown and the <xref:System.Threading.Barrier.ParticipantsRemaining%2A> value is not decreased. If the `cancellationToken` is not canceled or is canceled after the signal takes effect then <xref:System.Threading.Barrier.ParticipantsRemaining%2A> is decreased and no <xref:System.OperationCanceledException> is thrown.
+  summary: 'Signals that a participant has reached the barrier and waits for all other participants to reach the barrier as well, using a 32-bit signed integer to measure the timeout, while observing a cancellation token.'
+  remarks: 'If the `cancellationToken` was canceled before the signal took effect, then an <xref:System.OperationCanceledException> is thrown and the <xref:System.Threading.Barrier.ParticipantsRemaining%2A> value is not decreased. If the `cancellationToken` is not canceled or is canceled after the signal takes effect then <xref:System.Threading.Barrier.ParticipantsRemaining%2A> is decreased and no <xref:System.OperationCanceledException> is thrown.'
   syntax:
     content: public bool SignalAndWait (int millisecondsTimeout, System.Threading.CancellationToken cancellationToken);
     parameters:
     - id: millisecondsTimeout
       type: System.Int32
-      description: The number of milliseconds to wait, or <xref href="System.Threading.Timeout.Infinite"></xref>(-1) to wait indefinitely.
+      description: 'The number of milliseconds to wait, or <xref href="System.Threading.Timeout.Infinite"></xref>(-1) to wait indefinitely.'
     - id: cancellationToken
       type: System.Threading.CancellationToken
       description: The <xref href="System.Threading.CancellationToken"></xref> to observe.
@@ -1307,10 +1307,10 @@ items:
     description: The current instance has already been disposed.
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: <code>millisecondsTimeout</code> is a negative number other than -1, which represents an infinite time-out.
+    description: '<code>millisecondsTimeout</code> is a negative number other than -1, which represents an infinite time-out.'
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The method was invoked from within a post-phase action, the barrier currently has 0 participants, or the barrier is signaled by more threads than are registered as participants.
+    description: 'The method was invoked from within a post-phase action, the barrier currently has 0 participants, or the barrier is signaled by more threads than are registered as participants.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -1374,19 +1374,19 @@ items:
   - System
   - netstandard
   namespace: System.Threading
-  summary: Signals that a participant has reached the barrier and waits for all other participants to reach the barrier as well, using a <xref href="System.TimeSpan"></xref> object to measure the time interval, while observing a cancellation token.
+  summary: 'Signals that a participant has reached the barrier and waits for all other participants to reach the barrier as well, using a <xref href="System.TimeSpan"></xref> object to measure the time interval, while observing a cancellation token.'
   syntax:
     content: public bool SignalAndWait (TimeSpan timeout, System.Threading.CancellationToken cancellationToken);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: A <xref href="System.TimeSpan"></xref> that represents the number of milliseconds to wait, or a <xref href="System.TimeSpan"></xref> that represents -1 milliseconds to wait indefinitely.
+      description: 'A <xref href="System.TimeSpan"></xref> that represents the number of milliseconds to wait, or a <xref href="System.TimeSpan"></xref> that represents -1 milliseconds to wait indefinitely.'
     - id: cancellationToken
       type: System.Threading.CancellationToken
       description: The <xref href="System.Threading.CancellationToken"></xref> to observe.
     return:
       type: System.Boolean
-      description: true if all other participants reached the barrier; otherwise, false.
+      description: 'true if all other participants reached the barrier; otherwise, false.'
   overload: System.Threading.Barrier.SignalAndWait*
   exceptions:
   - type: System.OperationCanceledException
@@ -1397,10 +1397,10 @@ items:
     description: The current instance has already been disposed.
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: <code>timeout</code> is a negative number other than -1 milliseconds, which represents an infinite time-out.
+    description: '<code>timeout</code> is a negative number other than -1 milliseconds, which represents an infinite time-out.'
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The method was invoked from within a post-phase action, the barrier currently has 0 participants, or the barrier is signaled by more threads than are registered as participants.
+    description: 'The method was invoked from within a post-phase action, the barrier currently has 0 participants, or the barrier is signaled by more threads than are registered as participants.'
   version:
   - netcore-1.0
   - netcore-1.1

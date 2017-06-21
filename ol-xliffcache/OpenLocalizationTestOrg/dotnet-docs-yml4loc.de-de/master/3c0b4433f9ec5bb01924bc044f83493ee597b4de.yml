@@ -27,7 +27,7 @@ items:
   - netstandard
   namespace: System.Diagnostics.Tracing
   summary: Specifies additional event schema information for an event.
-  remarks: When you apply this attribute to an ETW event method defined on an <xref:System.Diagnostics.Tracing.EventSource>-derived class, you must call the <xref:System.Diagnostics.Tracing.EventSource.WriteEvent%2A> method on the base class, passing the event ID, followed by the same arguments as the defined method is passed. You should follow the pattern shown in the following examples.
+  remarks: 'When you apply this attribute to an ETW event method defined on an <xref:System.Diagnostics.Tracing.EventSource>-derived class, you must call the <xref:System.Diagnostics.Tracing.EventSource.WriteEvent%2A> method on the base class, passing the event ID, followed by the same arguments as the defined method is passed. You should follow the pattern shown in the following examples.'
   example:
   - "The following example shows how to use the <xref:System.Diagnostics.Tracing.EventAttribute> class to define a variety of events. This code example is part of a larger example provided for the <xref:System.Diagnostics.Tracing.EventSource> class.  \n  \n [!code-csharp[ETWTrace#5](~/samples/snippets/csharp/VS_Snippets_CLR/etwtrace/cs/program.cs#5)]\n [!code-vb[ETWTrace#5](~/samples/snippets/visualbasic/VS_Snippets_CLR/etwtrace/vb/program.vb#5)]  \n  \n [!code-csharp[ETWTrace#6](~/samples/snippets/csharp/VS_Snippets_CLR/etwtrace/cs/program.cs#6)]\n [!code-vb[ETWTrace#6](~/samples/snippets/visualbasic/VS_Snippets_CLR/etwtrace/vb/program.vb#6)]  \n  \n [!code-csharp[ETWTrace#7](~/samples/snippets/csharp/VS_Snippets_CLR/etwtrace/cs/program.cs#7)]\n [!code-vb[ETWTrace#7](~/samples/snippets/visualbasic/VS_Snippets_CLR/etwtrace/vb/program.vb#7)]  \n  \n [!code-csharp[ETWTrace#8](~/samples/snippets/csharp/VS_Snippets_CLR/etwtrace/cs/program.cs#8)]\n [!code-vb[ETWTrace#8](~/samples/snippets/visualbasic/VS_Snippets_CLR/etwtrace/vb/program.vb#8)]"
   syntax:
@@ -349,7 +349,7 @@ items:
   - netstandard
   namespace: System.Diagnostics.Tracing
   summary: Gets or sets the identifier for the event.
-  remarks: <xref:System.Diagnostics.Tracing.EventAttribute.EventId%2A> should be greater than 0 or less than 65535 or errors can occur in a tracing operation. If errors do occur, you can get more information about the source of the error by checking the output stream of the debugger, if you have a debugger attached to the process firing events. You can also look for errors reported in the ETW event stream, if you have an ETW listener on the event source where the error occurs.
+  remarks: '<xref:System.Diagnostics.Tracing.EventAttribute.EventId%2A> should be greater than 0 or less than 65535 or errors can occur in a tracing operation. If errors do occur, you can get more information about the source of the error by checking the output stream of the debugger, if you have a debugger attached to the process firing events. You can also look for errors reported in the ETW event stream, if you have an ETW listener on the event source where the error occurs.'
   syntax:
     content: public int EventId { get; }
     return:
@@ -569,7 +569,7 @@ items:
   - netstandard
   namespace: System.Diagnostics.Tracing
   summary: Gets or sets the message for the event.
-  remarks: "You can use standard .NET Framework substitution operators (for example, {1}) in the string). They will be replaced with the string representation of the corresponding part of the event payload.  \n  \n```  \n[Event(1, Message = \"Application Falure: {0}\", Level = EventLevel.Error, Keywords = Keywords.Diagnostic)]  \n        public void Failure(string message) { WriteEvent(1, message); }  \n  \n```"
+  remarks: "You can use standard .NET Framework substitution operators (for example, {1}) in the string). They will be replaced with the string representation of the corresponding part of the event payload.  \n  \n```  \n[Event(1, Message = \"Application Falure: {0}\", Level = EventLevel.Error, Keywords = Keywords.Diagnostic)]  \n        public void Failure(string message) { WriteEvent(1, message); }  \n  \n```"
   example:
   - "The following example shows how to use the <xref:System.Diagnostics.Tracing.EventAttribute.Message%2A> property to specify event messages. This code example is part of a larger example provided for the <xref:System.Diagnostics.Tracing.EventSource> class.  \n  \n [!code-csharp[ETWTrace#5](~/samples/snippets/csharp/VS_Snippets_CLR/etwtrace/cs/program.cs#5)]\n [!code-vb[ETWTrace#5](~/samples/snippets/visualbasic/VS_Snippets_CLR/etwtrace/vb/program.vb#5)]  \n  \n [!code-csharp[ETWTrace#6](~/samples/snippets/csharp/VS_Snippets_CLR/etwtrace/cs/program.cs#6)]\n [!code-vb[ETWTrace#6](~/samples/snippets/visualbasic/VS_Snippets_CLR/etwtrace/vb/program.vb#6)]  \n  \n [!code-csharp[ETWTrace#7](~/samples/snippets/csharp/VS_Snippets_CLR/etwtrace/cs/program.cs#7)]\n [!code-vb[ETWTrace#7](~/samples/snippets/visualbasic/VS_Snippets_CLR/etwtrace/vb/program.vb#7)]"
   syntax:

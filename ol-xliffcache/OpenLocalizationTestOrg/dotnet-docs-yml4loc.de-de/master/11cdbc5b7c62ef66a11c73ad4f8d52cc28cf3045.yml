@@ -104,7 +104,7 @@ items:
   - System.Speech
   namespace: System.Speech.Recognition
   summary: Initializes a new instance of the <xref href="System.Speech.Recognition.SpeechRecognizer"></xref> class.
-  remarks: Each <xref:System.Speech.Recognition.SpeechRecognizer> object maintains a separate set of speech recognition grammars.
+  remarks: 'Each <xref:System.Speech.Recognition.SpeechRecognizer> object maintains a separate set of speech recognition grammars.'
   example:
   - "The following example is part of a console application that loads a speech recognition grammar and demonstrates asynchronous emulated input, the associated recognition results, and the associated events raised by the speech recognizer. If Windows Speech Recognition is not running, then starting this application will also start Windows Speech Recognition. If Windows Speech Recognition is in the **Sleeping** state, then <xref:System.Speech.Recognition.SpeechRecognizer.EmulateRecognizeAsync%2A> always returns null.  \n  \n```csharp  \nusing System;  \nusing System.Speech.Recognition;  \nusing System.Threading;  \n  \nnamespace SharedRecognizer  \n{  \n  class Program  \n  {  \n  \n    // Indicate whether the asynchronous emulate recognition  \n    // operation has completed.  \n    static bool completed;  \n  \n    static void Main(string[] args)  \n    {  \n  \n      // Initialize an instance of the shared recognizer.  \n      using (SpeechRecognizer recognizer = new SpeechRecognizer())  \n      {  \n  \n        // Create and load a sample grammar.  \n        Grammar testGrammar =  \n          new Grammar(new GrammarBuilder(\"testing testing\"));  \n        testGrammar.Name = \"Test Grammar\";  \n        recognizer.LoadGrammar(testGrammar);  \n  \n        // Attach event handlers for recognition events.  \n        recognizer.SpeechRecognized +=  \n          new EventHandler<SpeechRecognizedEventArgs>(  \n            SpeechRecognizedHandler);  \n        recognizer.EmulateRecognizeCompleted +=  \n          new EventHandler<EmulateRecognizeCompletedEventArgs>(  \n            EmulateRecognizeCompletedHandler);  \n  \n        completed = false;  \n  \n        // Start asynchronous emulated recognition.   \n        // This matches the grammar and generates a SpeechRecognized event.  \n        recognizer.EmulateRecognizeAsync(\"testing testing\");  \n  \n        // Wait for the asynchronous operation to complete.  \n        while (!completed)  \n        {  \n          Thread.Sleep(333);  \n        }  \n  \n        completed = false;  \n  \n        // Start asynchronous emulated recognition.  \n        // This does not match the grammar or generate a SpeechRecognized event.  \n        recognizer.EmulateRecognizeAsync(\"testing one two three\");  \n  \n        // Wait for the asynchronous operation to complete.  \n        while (!completed)  \n        {  \n          Thread.Sleep(333);  \n        }  \n      }  \n  \n      Console.WriteLine();  \n      Console.WriteLine(\"Press any key to exit...\");  \n      Console.ReadKey();  \n    }  \n  \n    // Handle the SpeechRecognized event.  \n    static void SpeechRecognizedHandler(  \n      object sender, SpeechRecognizedEventArgs e)  \n    {  \n      if (e.Result != null)  \n      {  \n        Console.WriteLine(\"Recognition result = {0}\",  \n          e.Result.Text ?? \"<no text>\");  \n      }  \n      else  \n      {  \n        Console.WriteLine(\"No recognition result\");  \n      }  \n    }  \n  \n    // Handle the SpeechRecognizeCompleted event.  \n    static void EmulateRecognizeCompletedHandler(  \n      object sender, EmulateRecognizeCompletedEventArgs e)  \n    {  \n      if (e.Result == null)  \n      {  \n        Console.WriteLine(\"No result generated.\");  \n      }  \n  \n      // Indicate the asynchronous operation is complete.  \n      completed = true;  \n    }  \n  }  \n}  \n  \n```"
   syntax:
@@ -151,7 +151,7 @@ items:
     content: public System.Speech.AudioFormat.SpeechAudioFormatInfo AudioFormat { get; }
     return:
       type: System.Speech.AudioFormat.SpeechAudioFormatInfo
-      description: The audio input format for the speech recognizer, or `null` if the input to the recognizer is not configured.
+      description: 'The audio input format for the speech recognizer, or `null` if the input to the recognizer is not configured.'
   overload: System.Speech.Recognition.SpeechRecognizer.AudioFormat*
   exceptions: []
   version:
@@ -193,7 +193,7 @@ items:
     content: public int AudioLevel { get; }
     return:
       type: System.Int32
-      description: The audio level of the input to the speech recognizer, from 0 through 100.
+      description: 'The audio level of the input to the speech recognizer, from 0 through 100.'
   overload: System.Speech.Recognition.SpeechRecognizer.AudioLevel*
   exceptions: []
   version:
@@ -532,8 +532,8 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Recognition
-  summary: Emulates input of a phrase to the shared speech recognizer, using text instead of audio for synchronous speech recognition.
-  remarks: The recognizers that ship with Vista and Windows 7 ignore case and character width when applying grammar rules to the input phrase. For more information about this type of comparison, see the <xref:System.Globalization.CompareOptions> enumeration values <xref:System.Globalization.CompareOptions.OrdinalIgnoreCase> and <xref:System.Globalization.CompareOptions.IgnoreWidth>. The recognizers also ignore new lines and extra white space and treat punctuation as literal input.
+  summary: 'Emulates input of a phrase to the shared speech recognizer, using text instead of audio for synchronous speech recognition.'
+  remarks: 'The recognizers that ship with Vista and Windows 7 ignore case and character width when applying grammar rules to the input phrase. For more information about this type of comparison, see the <xref:System.Globalization.CompareOptions> enumeration values <xref:System.Globalization.CompareOptions.OrdinalIgnoreCase> and <xref:System.Globalization.CompareOptions.IgnoreWidth>. The recognizers also ignore new lines and extra white space and treat punctuation as literal input.'
   example:
   - "The following example loads a sample grammar to the shared recognizer and emulates input to the recognizer. If Windows Speech Recognition is not running, then starting this application will also start Windows Speech Recognition. If Windows Speech Recognition is in the **Sleeping** state, then <xref:System.Speech.Recognition.SpeechRecognizer.EmulateRecognize%2A> always returns null.  \n  \n```csharp  \n  \nusing System;  \nusing System.Speech.Recognition;  \n  \nnamespace SharedRecognizer  \n{  \n  class Program  \n  {  \n  \n    static void Main(string[] args)  \n    {  \n      // Initialize an instance of the shared recognizer.  \n      using (SpeechRecognizer recognizer = new SpeechRecognizer())  \n      {  \n        // Create and load a sample grammar.  \n        Grammar testGrammar =  \n          new Grammar(new GrammarBuilder(\"testing testing\"));  \n        testGrammar.Name = \"Test Grammar\";  \n  \n        recognizer.LoadGrammar(testGrammar);  \n  \n        RecognitionResult result;  \n  \n        // This EmulateRecognize call matches the grammar and returns a  \n        // recognition result.  \n        result = recognizer.EmulateRecognize(\"testing testing\");  \n        OutputResult(result);  \n  \n        // This EmulateRecognize call does not match the grammar and   \n        // returns null.  \n        result = recognizer.EmulateRecognize(\"testing one two three\");  \n        OutputResult(result);  \n      }  \n  \n      Console.WriteLine();  \n      Console.WriteLine(\"Press any key to exit...\");  \n      Console.ReadKey();  \n    }  \n  \n    // Output information about a recognition result to the console.  \n    private static void OutputResult(RecognitionResult result)  \n    {  \n      if (result != null)  \n      {  \n        Console.WriteLine(\"Recognition result = {0}\",  \n          result.Text ?? \"<no text>\");  \n      }  \n      else  \n      {  \n        Console.WriteLine(\"No recognition result\");  \n      }  \n    }  \n  }  \n}  \n  \n```"
   syntax:
@@ -544,7 +544,7 @@ items:
       description: The input for the recognition operation.
     return:
       type: System.Speech.Recognition.RecognitionResult
-      description: The recognition result for the recognition operation, or `null`, if the operation is not successful or Windows Speech Recognition is in the **Sleeping** state.
+      description: 'The recognition result for the recognition operation, or `null`, if the operation is not successful or Windows Speech Recognition is in the **Sleeping** state.'
   overload: System.Speech.Recognition.SpeechRecognizer.EmulateRecognize*
   exceptions: []
   version:
@@ -581,7 +581,7 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Recognition
-  summary: Emulates input of specific words to the shared speech recognizer, using text instead of audio for synchronous speech recognition, and specifies how the recognizer handles Unicode comparison between the words and the loaded speech recognition grammars.
+  summary: 'Emulates input of specific words to the shared speech recognizer, using text instead of audio for synchronous speech recognition, and specifies how the recognizer handles Unicode comparison between the words and the loaded speech recognition grammars.'
   remarks: "This method creates a <xref:System.Speech.Recognition.RecognitionResult> object using the information provided in the `wordUnits` parameter.  \n  \n The recognizer uses the `compareOptions` when it applies grammar rules to the input phrase. The recognizers that ship with Vista and Windows 7 ignore case if the <xref:System.Globalization.CompareOptions.OrdinalIgnoreCase> or <xref:System.Globalization.CompareOptions.IgnoreCase> value is present. The recognizers always ignore the character width and never ignore the Kana type. The recognizers also ignore new lines and extra white space and treats punctuation as literal input. For more information about character width and Kana type, see the <xref:System.Globalization.CompareOptions> enumeration."
   syntax:
     content: public System.Speech.Recognition.RecognitionResult EmulateRecognize (System.Speech.Recognition.RecognizedWordUnit[] wordUnits, System.Globalization.CompareOptions compareOptions);
@@ -594,7 +594,7 @@ items:
       description: A bitwise combination of the enumeration values that describe the type of comparison to use for the emulated recognition operation.
     return:
       type: System.Speech.Recognition.RecognitionResult
-      description: The recognition result for the recognition operation, or `null`, if the operation is not successful or Windows Speech Recognition is in the **Sleeping** state.
+      description: 'The recognition result for the recognition operation, or `null`, if the operation is not successful or Windows Speech Recognition is in the **Sleeping** state.'
   overload: System.Speech.Recognition.SpeechRecognizer.EmulateRecognize*
   exceptions: []
   version:
@@ -631,8 +631,8 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Recognition
-  summary: Emulates input of a phrase to the shared speech recognizer, using text instead of audio for synchronous speech recognition, and specifies how the recognizer handles Unicode comparison between the phrase and the loaded speech recognition grammars.
-  remarks: The recognizer uses the `compareOptions` when it applies grammar rules to the input phrase. The recognizers that ship with Vista and Windows 7 ignore case if the <xref:System.Globalization.CompareOptions.OrdinalIgnoreCase> or <xref:System.Globalization.CompareOptions.IgnoreCase> value is present. The recognizers always ignore the character width and never ignore the Kana type. The recognizers also ignore new lines and extra white space and treats punctuation as literal input. For more information about character width and Kana type, see the <xref:System.Globalization.CompareOptions> enumeration.
+  summary: 'Emulates input of a phrase to the shared speech recognizer, using text instead of audio for synchronous speech recognition, and specifies how the recognizer handles Unicode comparison between the phrase and the loaded speech recognition grammars.'
+  remarks: 'The recognizer uses the `compareOptions` when it applies grammar rules to the input phrase. The recognizers that ship with Vista and Windows 7 ignore case if the <xref:System.Globalization.CompareOptions.OrdinalIgnoreCase> or <xref:System.Globalization.CompareOptions.IgnoreCase> value is present. The recognizers always ignore the character width and never ignore the Kana type. The recognizers also ignore new lines and extra white space and treats punctuation as literal input. For more information about character width and Kana type, see the <xref:System.Globalization.CompareOptions> enumeration.'
   syntax:
     content: public System.Speech.Recognition.RecognitionResult EmulateRecognize (string inputText, System.Globalization.CompareOptions compareOptions);
     parameters:
@@ -644,7 +644,7 @@ items:
       description: A bitwise combination of the enumeration values that describe the type of comparison to use for the emulated recognition operation.
     return:
       type: System.Speech.Recognition.RecognitionResult
-      description: The recognition result for the recognition operation, or `null`, if the operation is not successful or Windows Speech Recognition is in the **Sleeping** state.
+      description: 'The recognition result for the recognition operation, or `null`, if the operation is not successful or Windows Speech Recognition is in the **Sleeping** state.'
   overload: System.Speech.Recognition.SpeechRecognizer.EmulateRecognize*
   exceptions: []
   version:
@@ -681,8 +681,8 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Recognition
-  summary: Emulates input of a phrase to the shared speech recognizer, using text instead of audio for asynchronous speech recognition.
-  remarks: The recognizers that ship with Vista and Windows 7 ignore case and character width when applying grammar rules to the input phrase. For more information about this type of comparison, see the <xref:System.Globalization.CompareOptions> enumeration values <xref:System.Globalization.CompareOptions.OrdinalIgnoreCase> and <xref:System.Globalization.CompareOptions.IgnoreWidth>. The recognizers also ignore new lines and extra white space and treat punctuation as literal input.
+  summary: 'Emulates input of a phrase to the shared speech recognizer, using text instead of audio for asynchronous speech recognition.'
+  remarks: 'The recognizers that ship with Vista and Windows 7 ignore case and character width when applying grammar rules to the input phrase. For more information about this type of comparison, see the <xref:System.Globalization.CompareOptions> enumeration values <xref:System.Globalization.CompareOptions.OrdinalIgnoreCase> and <xref:System.Globalization.CompareOptions.IgnoreWidth>. The recognizers also ignore new lines and extra white space and treat punctuation as literal input.'
   example:
   - "The following example is part of a console application that loads a speech recognition grammar and demonstrates asynchronous emulated input, the associated recognition results, and the associated events raised by the speech recognizer. If Windows Speech Recognition is not running, then starting this application will also start Windows Speech Recognition. If Windows Speech Recognition is in the **Sleeping** state, then <xref:System.Speech.Recognition.SpeechRecognizer.EmulateRecognizeAsync%2A> always returns null.  \n  \n```csharp  \nusing System;  \nusing System.Speech.Recognition;  \nusing System.Threading;  \n  \nnamespace SharedRecognizer  \n{  \n  class Program  \n  {  \n    static bool completed;  \n  \n    static void Main(string[] args)  \n    {  \n      // Initialize an instance of the shared recognizer.  \n      using (SpeechRecognizer recognizer = new SpeechRecognizer())  \n      {  \n        // Create and load a sample grammar.  \n        Grammar testGrammar =  \n          new Grammar(new GrammarBuilder(\"testing testing\"));  \n        testGrammar.Name = \"Test Grammar\";  \n  \n        recognizer.LoadGrammar(testGrammar);  \n  \n        // Attach event handlers for recognition events.  \n        recognizer.SpeechRecognized +=  \n          new EventHandler<SpeechRecognizedEventArgs>(  \n            SpeechRecognizedHandler);  \n        recognizer.EmulateRecognizeCompleted +=  \n          new EventHandler<EmulateRecognizeCompletedEventArgs>(  \n            EmulateRecognizeCompletedHandler);  \n  \n        completed = false;  \n  \n        // This EmulateRecognizeAsync call generates a SpeechRecognized event.  \n        recognizer.EmulateRecognizeAsync(\"testing testing\");  \n  \n        // Wait for the asynchronous operation to complete.  \n        while (!completed)  \n        {  \n          Thread.Sleep(333);  \n        }  \n  \n        completed = false;  \n  \n        // This EmulateRecognizeAsync call does not match the grammar   \n        // or generate a SpeechRecognized event.  \n        recognizer.EmulateRecognizeAsync(\"testing one two three\");  \n  \n        // Wait for the asynchronous operation to complete.  \n        while (!completed)  \n        {  \n          Thread.Sleep(333);  \n        }  \n      }  \n  \n      Console.WriteLine();  \n      Console.WriteLine(\"Press any key to exit...\");  \n      Console.ReadKey();  \n    }  \n  \n    // Handle the SpeechRecognized event.  \n    static void SpeechRecognizedHandler(  \n      object sender, SpeechRecognizedEventArgs e)  \n    {  \n      if (e.Result != null)  \n      {  \n        Console.WriteLine(\"Recognition result = {0}\",  \n          e.Result.Text ?? \"<no text>\");  \n      }  \n      else  \n      {  \n        Console.WriteLine(\"No recognition result\");  \n      }  \n    }  \n  \n    // Handle the EmulateRecognizeCompleted event.   \n    static void EmulateRecognizeCompletedHandler(  \n      object sender, EmulateRecognizeCompletedEventArgs e)  \n    {  \n      if (e.Result == null)  \n      {  \n        Console.WriteLine(\"No result generated.\");  \n      }  \n  \n      completed = true;  \n    }  \n  }  \n}  \n  \n```"
   syntax:
@@ -727,7 +727,7 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Recognition
-  summary: Emulates input of specific words to the shared speech recognizer, using text instead of audio for asynchronous speech recognition, and specifies how the recognizer handles Unicode comparison between the words and the loaded speech recognition grammars.
+  summary: 'Emulates input of specific words to the shared speech recognizer, using text instead of audio for asynchronous speech recognition, and specifies how the recognizer handles Unicode comparison between the words and the loaded speech recognition grammars.'
   remarks: "This method creates a <xref:System.Speech.Recognition.RecognitionResult> object using the information provided in the `wordUnits` parameter.  \n  \n The recognizer uses the `compareOptions` when it applies grammar rules to the input phrase. The recognizers that ship with Vista and Windows 7 ignore case if the <xref:System.Globalization.CompareOptions.OrdinalIgnoreCase> or <xref:System.Globalization.CompareOptions.IgnoreCase> value is present. The recognizers always ignore the character width and never ignore the Kana type. The recognizers also ignore new lines and extra white space and treats punctuation as literal input. For more information about character width and Kana type, see the <xref:System.Globalization.CompareOptions> enumeration."
   syntax:
     content: public void EmulateRecognizeAsync (System.Speech.Recognition.RecognizedWordUnit[] wordUnits, System.Globalization.CompareOptions compareOptions);
@@ -774,8 +774,8 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Recognition
-  summary: Emulates input of a phrase to the shared speech recognizer, using text instead of audio for asynchronous speech recognition, and specifies how the recognizer handles Unicode comparison between the phrase and the loaded speech recognition grammars.
-  remarks: The recognizer uses the `compareOptions` when it applies grammar rules to the input phrase. The recognizers that ship with Vista and Windows 7 ignore case if the <xref:System.Globalization.CompareOptions.OrdinalIgnoreCase> or <xref:System.Globalization.CompareOptions.IgnoreCase> value is present. The recognizers always ignore the character width and never ignore the Kana type. The recognizers also ignore new lines and extra white space and treats punctuation as literal input. For more information about character width and Kana type, see the <xref:System.Globalization.CompareOptions> enumeration.
+  summary: 'Emulates input of a phrase to the shared speech recognizer, using text instead of audio for asynchronous speech recognition, and specifies how the recognizer handles Unicode comparison between the phrase and the loaded speech recognition grammars.'
+  remarks: 'The recognizer uses the `compareOptions` when it applies grammar rules to the input phrase. The recognizers that ship with Vista and Windows 7 ignore case if the <xref:System.Globalization.CompareOptions.OrdinalIgnoreCase> or <xref:System.Globalization.CompareOptions.IgnoreCase> value is present. The recognizers always ignore the character width and never ignore the Kana type. The recognizers also ignore new lines and extra white space and treats punctuation as literal input. For more information about character width and Kana type, see the <xref:System.Globalization.CompareOptions> enumeration.'
   syntax:
     content: public void EmulateRecognizeAsync (string inputText, System.Globalization.CompareOptions compareOptions);
     parameters:
@@ -1174,7 +1174,7 @@ items:
   - System.Speech
   namespace: System.Speech.Recognition
   summary: Gets the current location of the recognizer in the audio input that it is processing.
-  remarks: The `RecognizerAudioPosition` property references the recognizer's position in processing its audio input. By contrast, the <xref:System.Speech.Recognition.SpeechRecognizer.AudioPosition%2A> property references the input device's position in its generated audio stream. These positions can be different. For example, if the recognizer has received input for which it has not yet generated a recognition result then the value of the <xref:System.Speech.Recognition.SpeechRecognizer.RecognizerAudioPosition%2A> property is less than the value of the <xref:System.Speech.Recognition.SpeechRecognizer.AudioPosition%2A> property.
+  remarks: 'The `RecognizerAudioPosition` property references the recognizer''s position in processing its audio input. By contrast, the <xref:System.Speech.Recognition.SpeechRecognizer.AudioPosition%2A> property references the input device''s position in its generated audio stream. These positions can be different. For example, if the recognizer has received input for which it has not yet generated a recognition result then the value of the <xref:System.Speech.Recognition.SpeechRecognizer.RecognizerAudioPosition%2A> property is less than the value of the <xref:System.Speech.Recognition.SpeechRecognizer.AudioPosition%2A> property.'
   syntax:
     content: public TimeSpan RecognizerAudioPosition { get; }
     return:
@@ -1614,7 +1614,7 @@ items:
   - System.Speech
   namespace: System.Speech.Recognition
   summary: Gets the state of a <xref href="System.Speech.Recognition.SpeechRecognizer"></xref> object.
-  remarks: This read-only property indicates whether the shared recognizer resident in Windows is in the `Stopped` or the `Listening` state. For more information, see the <xref:System.Speech.Recognition.RecognizerState> enumeration.
+  remarks: 'This read-only property indicates whether the shared recognizer resident in Windows is in the `Stopped` or the `Listening` state. For more information, see the <xref:System.Speech.Recognition.RecognizerState> enumeration.'
   syntax:
     content: public System.Speech.Recognition.RecognizerState State { get; }
     return:
@@ -1742,7 +1742,7 @@ items:
   - System.Speech
   namespace: System.Speech.Recognition
   summary: Unloads a specified speech recognition grammar from the shared recognizer.
-  remarks: If the recognizer is running, applications must use <xref:System.Speech.Recognition.SpeechRecognizer.RequestRecognizerUpdate%2A> to pause the speech recognition engine before loading, unloading,  enabling, or disabling a grammar. To unload all grammars, use the <xref:System.Speech.Recognition.SpeechRecognizer.UnloadAllGrammars%2A> method.
+  remarks: 'If the recognizer is running, applications must use <xref:System.Speech.Recognition.SpeechRecognizer.RequestRecognizerUpdate%2A> to pause the speech recognition engine before loading, unloading,  enabling, or disabling a grammar. To unload all grammars, use the <xref:System.Speech.Recognition.SpeechRecognizer.UnloadAllGrammars%2A> method.'
   syntax:
     content: public void UnloadGrammar (System.Speech.Recognition.Grammar grammar);
     parameters:

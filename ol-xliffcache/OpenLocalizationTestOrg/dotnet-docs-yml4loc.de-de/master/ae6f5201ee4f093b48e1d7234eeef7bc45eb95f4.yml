@@ -347,7 +347,7 @@ items:
       description: The identity to which the access rule applies.  It must be an object that can be cast as a <xref href="System.Security.Principal.SecurityIdentifier"></xref>.
     - id: accessMask
       type: System.Int32
-      description: The access mask of this rule. The access mask is a 32-bit collection of anonymous bits, the meaning of which is defined by the individual integrators.
+      description: 'The access mask of this rule. The access mask is a 32-bit collection of anonymous bits, the meaning of which is defined by the individual integrators.'
     - id: isInherited
       type: System.Boolean
       description: true if this rule is inherited from a parent container.
@@ -758,7 +758,7 @@ items:
       description: The identity to which the audit rule applies.  It must be an object that can be cast as a <xref href="System.Security.Principal.SecurityIdentifier"></xref>.
     - id: accessMask
       type: System.Int32
-      description: The access mask of this rule. The access mask is a 32-bit collection of anonymous bits, the meaning of which is defined by the individual integrators.
+      description: 'The access mask of this rule. The access mask is a 32-bit collection of anonymous bits, the meaning of which is defined by the individual integrators.'
     - id: isInherited
       type: System.Boolean
       description: '`true` if this rule is inherited from a parent container.'
@@ -1132,7 +1132,7 @@ items:
     parameters:
     - id: includeSections
       type: System.Security.AccessControl.AccessControlSections
-      description: Specifies which sections (access rules, audit rules, primary group, owner) of the security descriptor to get.
+      description: 'Specifies which sections (access rules, audit rules, primary group, owner) of the security descriptor to get.'
     return:
       type: System.String
       description: The SDDL representation of the specified sections of the security descriptor associated with this <xref href="System.Security.AccessControl.ObjectSecurity"></xref> object.
@@ -1412,7 +1412,7 @@ items:
   - mscorlib
   namespace: System.Security.AccessControl
   summary: Applies the specified modification to the Discretionary Access Control List (DACL) associated with this <xref href="System.Security.AccessControl.ObjectSecurity"></xref> object.
-  remarks: To avoid unintentionally allowing access to principals, applications should check for the existence of an allow everyone full access (AEFA) access control entry (ACE) and remove it before modifying a DACL.
+  remarks: 'To avoid unintentionally allowing access to principals, applications should check for the existence of an allow everyone full access (AEFA) access control entry (ACE) and remove it before modifying a DACL.'
   syntax:
     content: protected abstract bool ModifyAccess (System.Security.AccessControl.AccessControlModification modification, System.Security.AccessControl.AccessRule rule, out bool modified);
     parameters:
@@ -1479,7 +1479,7 @@ items:
   - mscorlib
   namespace: System.Security.AccessControl
   summary: Applies the specified modification to the Discretionary Access Control List (DACL) associated with this <xref href="System.Security.AccessControl.ObjectSecurity"></xref> object.
-  remarks: To avoid unintentionally allowing access to principals, applications should check for the existence of an allow everyone full access (AEFA) access control entry (ACE) and remove it before modifying a DACL.
+  remarks: 'To avoid unintentionally allowing access to principals, applications should check for the existence of an allow everyone full access (AEFA) access control entry (ACE) and remove it before modifying a DACL.'
   syntax:
     content: public virtual bool ModifyAccessRule (System.Security.AccessControl.AccessControlModification modification, System.Security.AccessControl.AccessRule rule, out bool modified);
     parameters:
@@ -1734,7 +1734,7 @@ items:
   - mscorlib
   namespace: System.Security.AccessControl
   summary: Saves the specified sections of the security descriptor associated with this <xref href="System.Security.AccessControl.ObjectSecurity"></xref> object to permanent storage. We recommend that the values of the <code>includeSections</code> parameters passed to the constructor and persist methods be identical.
-  remarks: When persisting a <xref:System.Security.AccessControl.ObjectSecurity> object, if the value of the `includeSections` parameter passed to the <xref:System.Security.AccessControl.ObjectSecurity.Persist%2A> method is not identical to the value of the `includeSections` parameter passed to the constructor used to create that <xref:System.Security.AccessControl.ObjectSecurity> object, sections of the persisted <xref:System.Security.AccessControl.ObjectSecurity> object can contain unpredictable values. For example, if a constructor is called with an `includeSections` value of <xref:System.Security.AccessControl.AccessControlSections.Access>, and later a <xref:System.Security.AccessControl.ObjectSecurity.Persist%2A> method is called on that object with an `includeSections` value of <xref:System.Security.AccessControl.AccessControlSections.All>, the resulting persisted <xref:System.Security.AccessControl.ObjectSecurity> object will contain unpredictable values for its audit rules, group, and owner.
+  remarks: 'When persisting a <xref:System.Security.AccessControl.ObjectSecurity> object, if the value of the `includeSections` parameter passed to the <xref:System.Security.AccessControl.ObjectSecurity.Persist%2A> method is not identical to the value of the `includeSections` parameter passed to the constructor used to create that <xref:System.Security.AccessControl.ObjectSecurity> object, sections of the persisted <xref:System.Security.AccessControl.ObjectSecurity> object can contain unpredictable values. For example, if a constructor is called with an `includeSections` value of <xref:System.Security.AccessControl.AccessControlSections.Access>, and later a <xref:System.Security.AccessControl.ObjectSecurity.Persist%2A> method is called on that object with an `includeSections` value of <xref:System.Security.AccessControl.AccessControlSections.All>, the resulting persisted <xref:System.Security.AccessControl.ObjectSecurity> object will contain unpredictable values for its audit rules, group, and owner.'
   syntax:
     content: protected virtual void Persist (System.Runtime.InteropServices.SafeHandle handle, System.Security.AccessControl.AccessControlSections includeSections);
     parameters:
@@ -1743,7 +1743,7 @@ items:
       description: The handle used to retrieve the persisted information.
     - id: includeSections
       type: System.Security.AccessControl.AccessControlSections
-      description: One of the <xref href="System.Security.AccessControl.AccessControlSections"></xref> enumeration values that specifies the sections of the security descriptor (access rules, audit rules, owner, primary group) of the securable object to save.
+      description: 'One of the <xref href="System.Security.AccessControl.AccessControlSections"></xref> enumeration values that specifies the sections of the security descriptor (access rules, audit rules, owner, primary group) of the securable object to save.'
   overload: System.Security.AccessControl.ObjectSecurity.Persist*
   exceptions: []
   version:
@@ -1795,7 +1795,7 @@ items:
   - mscorlib
   namespace: System.Security.AccessControl
   summary: Saves the specified sections of the security descriptor associated with this <xref href="System.Security.AccessControl.ObjectSecurity"></xref> object to permanent storage. We recommend that the values of the <code>includeSections</code> parameters passed to the constructor and persist methods be identical.
-  remarks: When persisting a <xref:System.Security.AccessControl.ObjectSecurity> object, if the value of the `includeSections` parameter passed to the <xref:System.Security.AccessControl.ObjectSecurity.Persist%2A> method is not identical to the value of the `includeSections` parameter passed to the constructor used to create that <xref:System.Security.AccessControl.ObjectSecurity> object, sections of the persisted <xref:System.Security.AccessControl.ObjectSecurity> object can contain unpredictable values. For example, if a constructor is called with an `includeSections` value of <xref:System.Security.AccessControl.AccessControlSections.Access>, and later a <xref:System.Security.AccessControl.ObjectSecurity.Persist%2A> method is called on that object with an `includeSections` value of <xref:System.Security.AccessControl.AccessControlSections.All>, the resulting persisted <xref:System.Security.AccessControl.ObjectSecurity> object will contain unpredictable values for its audit rules, group, and owner.
+  remarks: 'When persisting a <xref:System.Security.AccessControl.ObjectSecurity> object, if the value of the `includeSections` parameter passed to the <xref:System.Security.AccessControl.ObjectSecurity.Persist%2A> method is not identical to the value of the `includeSections` parameter passed to the constructor used to create that <xref:System.Security.AccessControl.ObjectSecurity> object, sections of the persisted <xref:System.Security.AccessControl.ObjectSecurity> object can contain unpredictable values. For example, if a constructor is called with an `includeSections` value of <xref:System.Security.AccessControl.AccessControlSections.Access>, and later a <xref:System.Security.AccessControl.ObjectSecurity.Persist%2A> method is called on that object with an `includeSections` value of <xref:System.Security.AccessControl.AccessControlSections.All>, the resulting persisted <xref:System.Security.AccessControl.ObjectSecurity> object will contain unpredictable values for its audit rules, group, and owner.'
   syntax:
     content: protected virtual void Persist (string name, System.Security.AccessControl.AccessControlSections includeSections);
     parameters:
@@ -1804,7 +1804,7 @@ items:
       description: The name used to retrieve the persisted information.
     - id: includeSections
       type: System.Security.AccessControl.AccessControlSections
-      description: One of the <xref href="System.Security.AccessControl.AccessControlSections"></xref> enumeration values that specifies the sections of the security descriptor (access rules, audit rules, owner, primary group) of the securable object to save.
+      description: 'One of the <xref href="System.Security.AccessControl.AccessControlSections"></xref> enumeration values that specifies the sections of the security descriptor (access rules, audit rules, owner, primary group) of the securable object to save.'
   overload: System.Security.AccessControl.ObjectSecurity.Persist*
   exceptions: []
   version:
@@ -1856,7 +1856,7 @@ items:
   - mscorlib
   namespace: System.Security.AccessControl
   summary: Saves the specified sections of the security descriptor associated with this <xref href="System.Security.AccessControl.ObjectSecurity"></xref> object to permanent storage. We recommend that the values of the <code>includeSections</code> parameters passed to the constructor and persist methods be identical.
-  remarks: When persisting a <xref:System.Security.AccessControl.ObjectSecurity> object, if the value of the `includeSections` parameter passed to the <xref:System.Security.AccessControl.ObjectSecurity.Persist%2A> method is not identical to the value of the `includeSections` parameter passed to the constructor used to create that <xref:System.Security.AccessControl.ObjectSecurity> object, sections of the persisted <xref:System.Security.AccessControl.ObjectSecurity> object can contain unpredictable values. For example, if a constructor is called with an `includeSections` value of <xref:System.Security.AccessControl.AccessControlSections.Access>, and later a <xref:System.Security.AccessControl.ObjectSecurity.Persist%2A> method is called on that object with an `includeSections` value of <xref:System.Security.AccessControl.AccessControlSections.All>, the resulting persisted <xref:System.Security.AccessControl.ObjectSecurity> object will contain unpredictable values for its audit rules, group, and owner.
+  remarks: 'When persisting a <xref:System.Security.AccessControl.ObjectSecurity> object, if the value of the `includeSections` parameter passed to the <xref:System.Security.AccessControl.ObjectSecurity.Persist%2A> method is not identical to the value of the `includeSections` parameter passed to the constructor used to create that <xref:System.Security.AccessControl.ObjectSecurity> object, sections of the persisted <xref:System.Security.AccessControl.ObjectSecurity> object can contain unpredictable values. For example, if a constructor is called with an `includeSections` value of <xref:System.Security.AccessControl.AccessControlSections.Access>, and later a <xref:System.Security.AccessControl.ObjectSecurity.Persist%2A> method is called on that object with an `includeSections` value of <xref:System.Security.AccessControl.AccessControlSections.All>, the resulting persisted <xref:System.Security.AccessControl.ObjectSecurity> object will contain unpredictable values for its audit rules, group, and owner.'
   syntax:
     content: >-
       [System.Runtime.ExceptionServices.HandleProcessCorruptedStateExceptions]
@@ -1871,7 +1871,7 @@ items:
       description: The name used to retrieve the persisted information.
     - id: includeSections
       type: System.Security.AccessControl.AccessControlSections
-      description: One of the <xref href="System.Security.AccessControl.AccessControlSections"></xref> enumeration values that specifies the sections of the security descriptor (access rules, audit rules, owner, primary group) of the securable object to save.
+      description: 'One of the <xref href="System.Security.AccessControl.AccessControlSections"></xref> enumeration values that specifies the sections of the security descriptor (access rules, audit rules, owner, primary group) of the securable object to save.'
   overload: System.Security.AccessControl.ObjectSecurity.Persist*
   exceptions: []
   attributes:
@@ -2460,7 +2460,7 @@ items:
       description: The array of bytes from which to set the security descriptor.
     - id: includeSections
       type: System.Security.AccessControl.AccessControlSections
-      description: The sections (access rules, audit rules, owner, primary group) of the security descriptor to set.
+      description: 'The sections (access rules, audit rules, owner, primary group) of the security descriptor to set.'
   overload: System.Security.AccessControl.ObjectSecurity.SetSecurityDescriptorBinaryForm*
   exceptions: []
   version:
@@ -2579,7 +2579,7 @@ items:
       description: The SDDL string from which to set the security descriptor.
     - id: includeSections
       type: System.Security.AccessControl.AccessControlSections
-      description: The sections (access rules, audit rules, owner, primary group) of the security descriptor to set.
+      description: 'The sections (access rules, audit rules, owner, primary group) of the security descriptor to set.'
   overload: System.Security.AccessControl.ObjectSecurity.SetSecurityDescriptorSddlForm*
   exceptions: []
   version:

@@ -19,7 +19,7 @@ items:
   - netstandard
   namespace: System.Runtime.InteropServices
   summary: Identifies the type of class interface that is generated for a class.
-  remarks: This enumeration is used in conjunction with the <xref:System.Runtime.InteropServices.ClassInterfaceAttribute> attribute.
+  remarks: 'This enumeration is used in conjunction with the <xref:System.Runtime.InteropServices.ClassInterfaceAttribute> attribute.'
   example:
   - "This example shows how to apply the <xref:System.Runtime.InteropServices.ClassInterfaceAttribute> to a type, setting the <xref:System.Runtime.InteropServices.ClassInterfaceType>. Classes defined this way can be used from unmanaged COM.  \n  \n [!code-cpp[ClassInterfaceType#1](~/samples/snippets/cpp/VS_Snippets_CLR/ClassInterfaceType/cpp/ClassInterfaceType.cpp#1)]\n [!code-csharp[ClassInterfaceType#1](~/samples/snippets/csharp/VS_Snippets_CLR/ClassInterfaceType/CS/ClassInterfaceType.cs#1)]\n [!code-vb[ClassInterfaceType#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/ClassInterfaceType/VB/ClassInterfaceType.vb#1)]"
   syntax:
@@ -96,8 +96,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Runtime.InteropServices
-  summary: Indicates that the class only supports late binding for COM clients. A `dispinterface` for the class is automatically exposed to COM clients on request. The type library produced by [Tlbexp.exe (Type Library Exporter)](~/docs/framework/tools/tlbexp-exe-type-library-exporter.md) does not contain type information for the `dispinterface` in order to prevent clients from caching the DISPIDs of the interface. The `dispinterface` does not exhibit the versioning problems described in <xref href="System.Runtime.InteropServices.ClassInterfaceAttribute"></xref> because clients can only late-bind to the interface.
-  remarks: This is the default setting for <xref:System.Runtime.InteropServices.ClassInterfaceAttribute>.
+  summary: 'Indicates that the class only supports late binding for COM clients. A `dispinterface` for the class is automatically exposed to COM clients on request. The type library produced by [Tlbexp.exe (Type Library Exporter)](~/docs/framework/tools/tlbexp-exe-type-library-exporter.md) does not contain type information for the `dispinterface` in order to prevent clients from caching the DISPIDs of the interface. The `dispinterface` does not exhibit the versioning problems described in <xref href="System.Runtime.InteropServices.ClassInterfaceAttribute"></xref> because clients can only late-bind to the interface.'
+  remarks: 'This is the default setting for <xref:System.Runtime.InteropServices.ClassInterfaceAttribute>.'
   syntax:
     content: AutoDispatch
     return:
@@ -227,7 +227,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Runtime.InteropServices
-  summary: Indicates that no class interface is generated for the class. If no interfaces are implemented explicitly, the class can only provide late-bound access through the `IDispatch` interface. This is the recommended setting for <xref href="System.Runtime.InteropServices.ClassInterfaceAttribute"></xref>. Using `ClassInterfaceType.None` is the only way to expose functionality through interfaces implemented explicitly by the class.
+  summary: 'Indicates that no class interface is generated for the class. If no interfaces are implemented explicitly, the class can only provide late-bound access through the `IDispatch` interface. This is the recommended setting for <xref href="System.Runtime.InteropServices.ClassInterfaceAttribute"></xref>. Using `ClassInterfaceType.None` is the only way to expose functionality through interfaces implemented explicitly by the class.'
   remarks: '[Tlbexp.exe (Type Library Exporter)](~/docs/framework/tools/tlbexp-exe-type-library-exporter.md) exposes the first public, COM-visible interface implemented by the class as the default interface of the coclass. Beginning with the .NET Framework version 2.0, you can specify the default interface exposed to COM by using the <xref:System.Runtime.InteropServices.ComDefaultInterfaceAttribute> attribute. If the class implements no interfaces, the first public, COM-visible interface implemented by a base class becomes the default interface (starting with the most recently derived base class and working backward). Tlbexp.exe exposes `_Object` as the default interface if neither the class nor its base classes implement interfaces.'
   syntax:
     content: None

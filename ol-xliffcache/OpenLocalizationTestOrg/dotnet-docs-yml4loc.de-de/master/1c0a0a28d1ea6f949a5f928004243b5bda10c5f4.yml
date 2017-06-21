@@ -210,13 +210,13 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: Initializes a new instance of the <xref href="System.Workflow.ComponentModel.Activity"></xref> class, while initializing the <xref href="System.Workflow.ComponentModel.Activity.Name"></xref>.
+  summary: 'Initializes a new instance of the <xref href="System.Workflow.ComponentModel.Activity"></xref> class, while initializing the <xref href="System.Workflow.ComponentModel.Activity.Name"></xref>.'
   syntax:
     content: public Activity (string name);
     parameters:
     - id: name
       type: System.String
-      description: The name to associate with this instance. The name must conform to the variable naming conventions for the programming language that is being used in the Workflow project, and must be unique in the workflow.
+      description: 'The name to associate with this instance. The name must conform to the variable naming conventions for the programming language that is being used in the Workflow project, and must be unique in the workflow.'
   overload: System.Workflow.ComponentModel.Activity.#ctor*
   exceptions:
   - type: System.ArgumentNullException
@@ -429,7 +429,7 @@ items:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
   summary: Creates a deep copy of the <xref href="System.Workflow.ComponentModel.Activity"></xref>.
-  remarks: Uses a <xref:System.IO.MemoryStream> to copy the activity and creates a new activity by deserializing from that particular <xref:System.IO.MemoryStream>.
+  remarks: 'Uses a <xref:System.IO.MemoryStream> to copy the activity and creates a new activity by deserializing from that particular <xref:System.IO.MemoryStream>.'
   syntax:
     content: public System.Workflow.ComponentModel.Activity Clone ();
     parameters: []
@@ -646,7 +646,7 @@ items:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
   summary: Gets or sets the user-defined description of the <xref href="System.Workflow.ComponentModel.Activity"></xref>.
-  remarks: This property is a meta property, which means it cannot be changed at runtime. Meta properties do not change after a property instance is created at runtime, so the property must be set to a literal value at design time.
+  remarks: 'This property is a meta property, which means it cannot be changed at runtime. Meta properties do not change after a property instance is created at runtime, so the property must be set to a literal value at design time.'
   syntax:
     content: >-
       [System.ComponentModel.Browsable(true)]
@@ -751,7 +751,7 @@ items:
       description: The <xref href="System.Workflow.ComponentModel.ActivityExecutionContext"></xref> to associate with this <xref href="System.Workflow.ComponentModel.Activity"></xref> and execution.
     return:
       type: System.Workflow.ComponentModel.ActivityExecutionStatus
-      description: The <xref href="System.Workflow.ComponentModel.ActivityExecutionStatus"></xref> of the run task, which determines whether the activity remains in the executing state, or transitions to the closed state.
+      description: 'The <xref href="System.Workflow.ComponentModel.ActivityExecutionStatus"></xref> of the run task, which determines whether the activity remains in the executing state, or transitions to the closed state.'
   overload: System.Workflow.ComponentModel.Activity.Execute*
   exceptions: []
   version:
@@ -833,7 +833,7 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: Represents the <xref href="System.Workflow.ComponentModel.DependencyProperty"></xref> that targets the <xref href="System.Workflow.ComponentModel.Activity.Executing"></xref> event, which occurs when the activity is executed.
+  summary: 'Represents the <xref href="System.Workflow.ComponentModel.DependencyProperty"></xref> that targets the <xref href="System.Workflow.ComponentModel.Activity.Executing"></xref> event, which occurs when the activity is executed.'
   remarks: "You indirectly access each public property and event of this type by the resolution of a corresponding dependency property. This dependency property is the public static field named `XProperty` or `XEvent`, where X is the corresponding property.  \n  \n [!INCLUDE[DependencyPropertyRemark](~/includes/dependencypropertyremark-md.md)]"
   syntax:
     content: public static readonly System.Workflow.ComponentModel.DependencyProperty ExecutingEvent;
@@ -1055,7 +1055,7 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: Returns the instance of the <xref href="System.Workflow.ComponentModel.Activity"></xref> whose name is requested from the set of all activities running under the root activity of this instance, which is within the workflow.
+  summary: 'Returns the instance of the <xref href="System.Workflow.ComponentModel.Activity"></xref> whose name is requested from the set of all activities running under the root activity of this instance, which is within the workflow.'
   remarks: Calling `GetActivityByName` from within the constructor of a custom activity is not supported and can have unexpected results.
   syntax:
     content: public System.Workflow.ComponentModel.Activity GetActivityByName (string activityQualifiedName);
@@ -1157,7 +1157,7 @@ items:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
   summary: Called when an exception is raised within the context of the execution of this instance.
-  remarks: The default method tries to call the <xref:System.Workflow.ComponentModel.Activity.Cancel%2A> method and returns the result of this attempt.
+  remarks: 'The default method tries to call the <xref:System.Workflow.ComponentModel.Activity.Cancel%2A> method and returns the result of this attempt.'
   syntax:
     content: protected virtual System.Workflow.ComponentModel.ActivityExecutionStatus HandleFault (System.Workflow.ComponentModel.ActivityExecutionContext executionContext, Exception exception);
     parameters:
@@ -1357,7 +1357,7 @@ items:
       public bool IsDynamicActivity { get; }
     return:
       type: System.Boolean
-      description: Returns `false` if the activity is executing within the default <xref href="System.Workflow.ComponentModel.ActivityExecutionContext"></xref> of the workflow instance, otherwise returns `true`.
+      description: 'Returns `false` if the activity is executing within the default <xref href="System.Workflow.ComponentModel.ActivityExecutionContext"></xref> of the workflow instance, otherwise returns `true`.'
   overload: System.Workflow.ComponentModel.Activity.IsDynamicActivity*
   exceptions: []
   attributes:
@@ -1396,10 +1396,7 @@ items:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
   summary: Loads an instance of an <xref href="System.Workflow.ComponentModel.Activity"></xref> from a <xref href="System.IO.Stream"></xref>.
-  remarks: >-
-    > [!IMPORTANT]
-
-    >  Calling this method with untrusted data is a security risk. Call this method only with trusted data. For more information, see [Untrusted Data Security Risks](http://go.microsoft.com/fwlink/?LinkId=330378).
+  remarks: "> [!IMPORTANT]\n>  Calling this method with untrusted data is a security risk. Call this method only with trusted data. For more information, see [Untrusted Data Security Risks](http://go.microsoft.com/fwlink/?LinkId=330378)."
   syntax:
     content: public static System.Workflow.ComponentModel.Activity Load (System.IO.Stream stream, System.Workflow.ComponentModel.Activity outerActivity);
     parameters:
@@ -1451,10 +1448,7 @@ items:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
   summary: Loads an instance of an <xref href="System.Workflow.ComponentModel.Activity"></xref> from a <xref href="System.IO.Stream"></xref> using the custom <xref href="System.Runtime.Serialization.IFormatter"></xref> for deserialization.
-  remarks: >-
-    > [!IMPORTANT]
-
-    >  Calling this method with untrusted data is a security risk. Call this method only with trusted data. For more information, see [Untrusted Data Security Risks](http://go.microsoft.com/fwlink/?LinkId=330378).
+  remarks: "> [!IMPORTANT]\n>  Calling this method with untrusted data is a security risk. Call this method only with trusted data. For more information, see [Untrusted Data Security Risks](http://go.microsoft.com/fwlink/?LinkId=330378)."
   syntax:
     content: public static System.Workflow.ComponentModel.Activity Load (System.IO.Stream stream, System.Workflow.ComponentModel.Activity outerActivity, System.Runtime.Serialization.IFormatter formatter);
     parameters:
@@ -1557,7 +1551,7 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: Called by the workflow runtime whenever an <xref href="System.Workflow.ComponentModel.ActivityExecutionContext"></xref> is loaded. For example, this method is called during the creation of an <xref href="System.Workflow.ComponentModel.ActivityExecutionContext"></xref> as well as every time the <xref href="System.Workflow.ComponentModel.ActivityExecutionContext"></xref> is reincarnated when a workflow instance is loaded from persistent storage.
+  summary: 'Called by the workflow runtime whenever an <xref href="System.Workflow.ComponentModel.ActivityExecutionContext"></xref> is loaded. For example, this method is called during the creation of an <xref href="System.Workflow.ComponentModel.ActivityExecutionContext"></xref> as well as every time the <xref href="System.Workflow.ComponentModel.ActivityExecutionContext"></xref> is reincarnated when a workflow instance is loaded from persistent storage.'
   syntax:
     content: protected virtual void OnActivityExecutionContextLoad (IServiceProvider provider);
     parameters:
@@ -1599,7 +1593,7 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: Called by the workflow runtime whenever an <xref href="System.Workflow.ComponentModel.ActivityExecutionContext"></xref> is unloaded. For example, this method is called during completion of an <xref href="System.Workflow.ComponentModel.ActivityExecutionContext"></xref> as well as every time the <xref href="System.Workflow.ComponentModel.ActivityExecutionContext"></xref> is unloaded when a workflow instance is persisted.
+  summary: 'Called by the workflow runtime whenever an <xref href="System.Workflow.ComponentModel.ActivityExecutionContext"></xref> is unloaded. For example, this method is called during completion of an <xref href="System.Workflow.ComponentModel.ActivityExecutionContext"></xref> as well as every time the <xref href="System.Workflow.ComponentModel.ActivityExecutionContext"></xref> is unloaded when a workflow instance is persisted.'
   syntax:
     content: protected virtual void OnActivityExecutionContextUnload (IServiceProvider provider);
     parameters:
@@ -1685,7 +1679,7 @@ items:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
   summary: Gets the <xref href="System.Workflow.ComponentModel.CompositeActivity"></xref> that contains this <xref href="System.Workflow.ComponentModel.Activity"></xref>.
-  remarks: Returnsa null reference(`Nothing` in Visual Basic) if <xref:System.Workflow.ComponentModel.Activity> is a workflow or a root <xref:System.Workflow.ComponentModel.Activity>.
+  remarks: 'Returnsa null reference(`Nothing` in Visual Basic) if <xref:System.Workflow.ComponentModel.Activity> is a workflow or a root <xref:System.Workflow.ComponentModel.Activity>.'
   syntax:
     content: >-
       [System.ComponentModel.Browsable(false)]
@@ -2113,7 +2107,7 @@ items:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
   summary: Provides a string that represents this instance.
-  remarks: The string returned is a combination of the <xref:System.Workflow.ComponentModel.Activity.QualifiedName%2A> and the <xref:System.Type.FullName%2A> of the type of this instance.
+  remarks: 'The string returned is a combination of the <xref:System.Workflow.ComponentModel.Activity.QualifiedName%2A> and the <xref:System.Type.FullName%2A> of the type of this instance.'
   syntax:
     content: public override string ToString ();
     parameters: []
@@ -2251,7 +2245,7 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: When overridden in a derived class, provides un-initialization by a service provider for the activity.
+  summary: 'When overridden in a derived class, provides un-initialization by a service provider for the activity.'
   remarks: "This method provides the activity with an opportunity to clean up resources allocated during initialization.  \n  \n <xref:System.Workflow.ComponentModel.Activity.Uninitialize%2A> is called when an activity instance is guaranteed not to perform any more execution. For activities that do not implement <xref:System.Workflow.ComponentModel.ICompensatableActivity>, this occurs immediately after the activity closes, or, if the activity never executed, at workflow completion. For <xref:System.Workflow.ComponentModel.ICompensatableActivity> activities, this occurs either after compensation or at workflow completion."
   syntax:
     content: protected virtual void Uninitialize (IServiceProvider provider);

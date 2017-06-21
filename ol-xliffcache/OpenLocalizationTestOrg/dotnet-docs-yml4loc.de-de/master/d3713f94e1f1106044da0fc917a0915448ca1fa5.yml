@@ -31,7 +31,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Input.StylusPlugIns
   summary: Represents a plug-in that can be added to a control's <xref href="System.Windows.UIElement.StylusPlugIns"></xref> property.
-  remarks: "The <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn> allows you to manipulate <xref:System.Windows.Input.StylusPoint> objects on separate threads. Separate threads are used so that the ink still renders as the tablet pen inputs data even if the application is doing something else.  \n  \n To intercept stylus points from the hardware, create a class that inherits from the <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn> class.  The <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn> class has the following methods that you can override to manipulate <xref:System.Windows.Input.StylusPoint> objects on a thread in the pen thread pool.  \n  \n-   <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusDown%2A>  \n  \n-   <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusUp%2A>  \n  \n-   <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusMove%2A>  \n  \n-   <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusEnter%2A>  \n  \n-   <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusLeave%2A>  \n  \n The pen's input is routed to an element's <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn> on the pen thread. Since accurate hit-testing cannot be performed on the pen thread, some elements might occasionally receive stylus input intended for other elements. If you need to make sure the input was routed correctly before performing an operation, subscribe to and perform the operation in the <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusDownProcessed%2A>, <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusMoveProcessed%2A>, or <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusUpProcessed%2A> method. These methods are invoked by the main application thread after accurate hit-testing has been performed. To subscribe to these methods, call the <xref:System.Windows.Input.StylusPlugIns.RawStylusInput.NotifyWhenProcessed%2A> method in the method that occurs on the pen thread. For example, if you call <xref:System.Windows.Input.StylusPlugIns.RawStylusInput.NotifyWhenProcessed%2A> in <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusMove%2A>, the <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusMoveProcessed%2A> occurs.  \n  \n> [!NOTE]\n>  If you use a <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn> inside a control, you should test the plug-in and control extensively to make sure they do not throw any unintended exceptions.  \n  \n<a name=\"xamlTextUsage_StylusPlugIn\"></a>   \n## XAML Text Usage  \n This class is not typically used in XAML."
+  remarks: "The <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn> allows you to manipulate <xref:System.Windows.Input.StylusPoint> objects on separate threads. Separate threads are used so that the ink still renders as the tablet pen inputs data even if the application is doing something else.  \n  \n To intercept stylus points from the hardware, create a class that inherits from the <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn> class.  The <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn> class has the following methods that you can override to manipulate <xref:System.Windows.Input.StylusPoint> objects on a thread in the pen thread pool.  \n  \n-   <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusDown%2A>  \n  \n-   <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusUp%2A>  \n  \n-   <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusMove%2A>  \n  \n-   <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusEnter%2A>  \n  \n-   <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusLeave%2A>  \n  \n The pen's input is routed to an element's <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn> on the pen thread. Since accurate hit-testing cannot be performed on the pen thread, some elements might occasionally receive stylus input intended for other elements. If you need to make sure the input was routed correctly before performing an operation, subscribe to and perform the operation in the <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusDownProcessed%2A>, <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusMoveProcessed%2A>, or <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusUpProcessed%2A> method. These methods are invoked by the main application thread after accurate hit-testing has been performed. To subscribe to these methods, call the <xref:System.Windows.Input.StylusPlugIns.RawStylusInput.NotifyWhenProcessed%2A> method in the method that occurs on the pen thread. For example, if you call <xref:System.Windows.Input.StylusPlugIns.RawStylusInput.NotifyWhenProcessed%2A> in <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusMove%2A>, the <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusMoveProcessed%2A> occurs.  \n  \n> [!NOTE]\n>  If you use a <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn> inside a control, you should test the plug-in and control extensively to make sure they do not throw any unintended exceptions.  \n  \n<a name=\"xamlTextUsage_StylusPlugIn\"></a>   \n## <a name=\"xaml-text-usage\"></a>XAML Text Usage  \n This class is not typically used in XAML."
   example:
   - "The following example creates a custom <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn> that constrains the ink to a certain area on the control.  \n  \n [!code-csharp[StylusPluginSamples#1](~/samples/snippets/csharp/VS_Snippets_Wpf/StylusPluginSamples/CSharp/FilterPlugin.cs#1)]\n [!code-vb[StylusPluginSamples#1](~/samples/snippets/visualbasic/VS_Snippets_Wpf/StylusPluginSamples/VisualBasic/FilterPlugin.vb#1)]"
   syntax:
@@ -171,7 +171,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Input.StylusPlugIns
   summary: Gets the cached bounds of the element.
-  remarks: The <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn> caches the bounds of its element to perform hit testing.
+  remarks: 'The <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn> caches the bounds of its element to perform hit testing.'
   example:
   - "The following example demonstrates how a <xref:System.Windows.Input.StylusPlugIns.DynamicRenderer>, which inherits from <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn>, uses an <xref:System.Windows.Media.ImageBrush> to render a stroke.  This brush partially draws the image file specified by `imageFile`.  \n  \n [!code-csharp[StylusPluginSamples#17](~/samples/snippets/csharp/VS_Snippets_Wpf/StylusPluginSamples/CSharp/ImageRenderer.cs#17)]\n [!code-vb[StylusPluginSamples#17](~/samples/snippets/visualbasic/VS_Snippets_Wpf/StylusPluginSamples/VisualBasic/ImageRenderer.vb#17)]"
   syntax:
@@ -217,7 +217,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Input.StylusPlugIns
   summary: Gets or sets whether the <xref href="System.Windows.Input.StylusPlugIns.StylusPlugIn"></xref> is active.
-  remarks: "<a name=\"xamlTextUsage_Enabled\"></a>   \n## XAML Text Usage  \n This property is not typically used in XAML."
+  remarks: "<a name=\"xamlTextUsage_Enabled\"></a>   \n## <a name=\"xaml-text-usage\"></a>XAML Text Usage  \n This property is not typically used in XAML."
   example:
   - "The following example checks the value of the <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.Enabled%2A> property in the <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnEnabledChanged%2A> method.  \n  \n [!code-csharp[StylusPluginSamples#16](~/samples/snippets/csharp/VS_Snippets_Wpf/StylusPluginSamples/CSharp/CustomDynamicRenderer.cs#16)]\n [!code-vb[StylusPluginSamples#16](~/samples/snippets/visualbasic/VS_Snippets_Wpf/StylusPluginSamples/VisualBasic/CustomDynamicRenderer.vb#16)]"
   syntax:
@@ -396,7 +396,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Input.StylusPlugIns
   summary: Occurs when the <xref href="System.Windows.Input.StylusPlugIns.StylusPlugIn.IsActiveForInput"></xref> property changes.
-  remarks: Use the <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnIsActiveForInputChanged%2A> method to allocate and clean up resources used by the <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn>.
+  remarks: 'Use the <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnIsActiveForInputChanged%2A> method to allocate and clean up resources used by the <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn>.'
   example:
   - "The following example demonstrates how to override the <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnIsActiveForInputChanged%2A> method.  \n  \n [!code-csharp[StylusPluginSamples#18](~/samples/snippets/csharp/VS_Snippets_Wpf/StylusPluginSamples/CSharp/CustomDynamicRenderer.cs#18)]\n [!code-vb[StylusPluginSamples#18](~/samples/snippets/visualbasic/VS_Snippets_Wpf/StylusPluginSamples/VisualBasic/CustomDynamicRenderer.vb#18)]"
   syntax:
@@ -481,7 +481,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Input.StylusPlugIns
   summary: Occurs on a thread in the pen thread pool when the tablet pen touches the digitizer.
-  remarks: This method occurs on a pen thread, so minimize work in this method to avoid impacting performance.
+  remarks: 'This method occurs on a pen thread, so minimize work in this method to avoid impacting performance.'
   example:
   - "The following example demonstrates how to override the <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusDown%2A> method. To create a <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn> that restricts ink to a certain area, see the <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn> overview.  \n  \n [!code-csharp[StylusPluginSamples#8](~/samples/snippets/csharp/VS_Snippets_Wpf/StylusPluginSamples/CSharp/FilterPlugin.cs#8)]\n [!code-vb[StylusPluginSamples#8](~/samples/snippets/visualbasic/VS_Snippets_Wpf/StylusPluginSamples/VisualBasic/FilterPlugin.vb#8)]"
   syntax:
@@ -527,7 +527,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Input.StylusPlugIns
   summary: Occurs on the application UI (user interface) thread when the tablet pen touches the digitizer.
-  remarks: To subscribe to this method, call <xref:System.Windows.Input.StylusPlugIns.RawStylusInput.NotifyWhenProcessed%2A> in the <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusDown%2A> method.
+  remarks: 'To subscribe to this method, call <xref:System.Windows.Input.StylusPlugIns.RawStylusInput.NotifyWhenProcessed%2A> in the <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusDown%2A> method.'
   example:
   - "The following example creates a <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn> that checks for the <xref:System.Windows.Ink.ApplicationGesture.Down> gesture. The <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn> calls <xref:System.Windows.Input.StylusPlugIns.RawStylusInput.NotifyWhenProcessed%2A> in <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusUp%2A> to subscribe to the <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusUpProcessed%2A> method, which is called from the application UI thread. The relationship between <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusDown%2A> and on <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusDownProcessed%2A> is identical.  \n  \n [!code-csharp[StylusPluginSamples#12](~/samples/snippets/csharp/VS_Snippets_Wpf/StylusPluginSamples/CSharp/RecognizerPlugin.cs#12)]\n [!code-vb[StylusPluginSamples#12](~/samples/snippets/visualbasic/VS_Snippets_Wpf/StylusPluginSamples/VisualBasic/RecognizerPlugin.vb#12)]"
   syntax:
@@ -538,7 +538,7 @@ items:
       description: The object that the application passed to the <xref href="System.Windows.Input.StylusPlugIns.RawStylusInput.NotifyWhenProcessed(System.Object)"></xref> method.
     - id: targetVerified
       type: System.Boolean
-      description: "`true` if the pen's input was correctly routed to the <xref href=\"System.Windows.Input.StylusPlugIns.StylusPlugIn\"></xref>; otherwise, `false`."
+      description: '`true` if the pen''s input was correctly routed to the <xref href="System.Windows.Input.StylusPlugIns.StylusPlugIn"></xref>; otherwise, `false`.'
   overload: System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusDownProcessed*
   exceptions: []
   version:
@@ -577,7 +577,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Input.StylusPlugIns
   summary: Occurs on a pen thread when the cursor enters the bounds of an element.
-  remarks: This method occurs on a pen thread, so minimize work in this method to avoid impacting performance.
+  remarks: 'This method occurs on a pen thread, so minimize work in this method to avoid impacting performance.'
   syntax:
     content: protected virtual void OnStylusEnter (System.Windows.Input.StylusPlugIns.RawStylusInput rawStylusInput, bool confirmed);
     parameters:
@@ -625,7 +625,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Input.StylusPlugIns
   summary: Occurs on a pen thread when the cursor leaves the bounds of an element.
-  remarks: This method occurs on a pen thread, so minimize work in this method to avoid impacting performance.
+  remarks: 'This method occurs on a pen thread, so minimize work in this method to avoid impacting performance.'
   example:
   - "The following example resets the <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn> when the cursor leaves the bounds of the element.  \n  \n [!code-csharp[StylusPluginSamples#20](~/samples/snippets/csharp/VS_Snippets_Wpf/StylusPluginSamples/CSharp/RecognizerPlugin.cs#20)]\n [!code-vb[StylusPluginSamples#20](~/samples/snippets/visualbasic/VS_Snippets_Wpf/StylusPluginSamples/VisualBasic/RecognizerPlugin.vb#20)]  \n[!code-csharp[StylusPluginSamples#14](~/samples/snippets/csharp/VS_Snippets_Wpf/StylusPluginSamples/CSharp/RecognizerPlugin.cs#14)]\n[!code-vb[StylusPluginSamples#14](~/samples/snippets/visualbasic/VS_Snippets_Wpf/StylusPluginSamples/VisualBasic/RecognizerPlugin.vb#14)]"
   syntax:
@@ -674,7 +674,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Input.StylusPlugIns
   summary: Occurs on a pen thread when the tablet pen moves on the digitizer.
-  remarks: This method occurs on a pen thread, so minimize work in this method to avoid impacting performance.
+  remarks: 'This method occurs on a pen thread, so minimize work in this method to avoid impacting performance.'
   example:
   - "The following example demonstrates how to override the <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusMove%2A> method. To create a <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn> that restricts ink to a certain area, see the <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn> overview.  \n  \n [!code-csharp[StylusPluginSamples#9](~/samples/snippets/csharp/VS_Snippets_Wpf/StylusPluginSamples/CSharp/FilterPlugin.cs#9)]\n [!code-vb[StylusPluginSamples#9](~/samples/snippets/visualbasic/VS_Snippets_Wpf/StylusPluginSamples/VisualBasic/FilterPlugin.vb#9)]"
   syntax:
@@ -721,7 +721,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Input.StylusPlugIns
   summary: Occurs on the application UI (user interface) thread when the tablet pen moves on the digitizer.
-  remarks: To subscribe to this method, call <xref:System.Windows.Input.StylusPlugIns.RawStylusInput.NotifyWhenProcessed%2A> in the <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusMove%2A> method
+  remarks: 'To subscribe to this method, call <xref:System.Windows.Input.StylusPlugIns.RawStylusInput.NotifyWhenProcessed%2A> in the <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusMove%2A> method'
   example:
   - "The following example creates a <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn> that checks for the <xref:System.Windows.Ink.ApplicationGesture.Down> gesture. The <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn> calls <xref:System.Windows.Input.StylusPlugIns.RawStylusInput.NotifyWhenProcessed%2A> in <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusUp%2A> to subscribe to the <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusUpProcessed%2A> method, which is called from the application UI thread. The relationship between <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusMove%2A> and on <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusMoveProcessed%2A> is identical.  \n  \n [!code-csharp[StylusPluginSamples#12](~/samples/snippets/csharp/VS_Snippets_Wpf/StylusPluginSamples/CSharp/RecognizerPlugin.cs#12)]\n [!code-vb[StylusPluginSamples#12](~/samples/snippets/visualbasic/VS_Snippets_Wpf/StylusPluginSamples/VisualBasic/RecognizerPlugin.vb#12)]"
   syntax:
@@ -732,7 +732,7 @@ items:
       description: The object that the application passed to the <xref href="System.Windows.Input.StylusPlugIns.RawStylusInput.NotifyWhenProcessed(System.Object)"></xref> method.
     - id: targetVerified
       type: System.Boolean
-      description: "`true` if the pen's input was correctly routed to the <xref href=\"System.Windows.Input.StylusPlugIns.StylusPlugIn\"></xref>; otherwise, `false`."
+      description: '`true` if the pen''s input was correctly routed to the <xref href="System.Windows.Input.StylusPlugIns.StylusPlugIn"></xref>; otherwise, `false`.'
   overload: System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusMoveProcessed*
   exceptions: []
   version:
@@ -771,7 +771,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Input.StylusPlugIns
   summary: Occurs on a pen thread when the user lifts the tablet pen from the digitizer.
-  remarks: This method occurs on a pen thread, so minimize work in this method to avoid impacting performance.
+  remarks: 'This method occurs on a pen thread, so minimize work in this method to avoid impacting performance.'
   example:
   - "The following example demonstrates how to override the <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusUp%2A> method. To create a <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn> that restricts ink to a certain area, see the <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn> overview.  \n  \n [!code-csharp[StylusPluginSamples#10](~/samples/snippets/csharp/VS_Snippets_Wpf/StylusPluginSamples/CSharp/FilterPlugin.cs#10)]\n [!code-vb[StylusPluginSamples#10](~/samples/snippets/visualbasic/VS_Snippets_Wpf/StylusPluginSamples/VisualBasic/FilterPlugin.vb#10)]"
   syntax:
@@ -818,7 +818,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Input.StylusPlugIns
   summary: Occurs on the application UI (user interface) thread when the user lifts the tablet pen from the digitizer.
-  remarks: To subscribe to this method, call <xref:System.Windows.Input.StylusPlugIns.RawStylusInput.NotifyWhenProcessed%2A> in the <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusUp%2A> method
+  remarks: 'To subscribe to this method, call <xref:System.Windows.Input.StylusPlugIns.RawStylusInput.NotifyWhenProcessed%2A> in the <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusUp%2A> method'
   example:
   - "The following example creates a <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn> that checks for the <xref:System.Windows.Ink.ApplicationGesture.Down> gesture. The <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn> checks for the gesture in the <xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusUpProcessed%2A> method, which is called from the application UI thread.  \n  \n [!code-csharp[StylusPluginSamples#12](~/samples/snippets/csharp/VS_Snippets_Wpf/StylusPluginSamples/CSharp/RecognizerPlugin.cs#12)]\n [!code-vb[StylusPluginSamples#12](~/samples/snippets/visualbasic/VS_Snippets_Wpf/StylusPluginSamples/VisualBasic/RecognizerPlugin.vb#12)]"
   syntax:
@@ -829,7 +829,7 @@ items:
       description: The object that the application passed to the <xref href="System.Windows.Input.StylusPlugIns.RawStylusInput.NotifyWhenProcessed(System.Object)"></xref> method.
     - id: targetVerified
       type: System.Boolean
-      description: "`true` if the pen's input was correctly routed to the <xref href=\"System.Windows.Input.StylusPlugIns.StylusPlugIn\"></xref>; otherwise, `false`."
+      description: '`true` if the pen''s input was correctly routed to the <xref href="System.Windows.Input.StylusPlugIns.StylusPlugIn"></xref>; otherwise, `false`.'
   overload: System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusUpProcessed*
   exceptions: []
   version:

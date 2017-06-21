@@ -90,8 +90,8 @@ items:
   - netstandard
   - System.ComponentModel.TypeConverter
   namespace: System.ComponentModel
-  summary: Creates an instance of the specified type, given a context in which you can use the licensed instance.
-  remarks: The <xref:System.ComponentModel.LicenseContext> you specify as the `creationContext` parameter is used as the <xref:System.ComponentModel.LicenseManager.CurrentContext%2A> for the life of this <xref:System.ComponentModel.License>. The <xref:System.ComponentModel.LicenseManager.CreateWithContext%2A> method blocks all other threads in the <xref:System.AppDomain> from modifying the <xref:System.ComponentModel.LicenseManager.CurrentContext%2A>, allowing <xref:System.ComponentModel.LicenseManager.CreateWithContext%2A> to behave as an atomic operation.
+  summary: 'Creates an instance of the specified type, given a context in which you can use the licensed instance.'
+  remarks: 'The <xref:System.ComponentModel.LicenseContext> you specify as the `creationContext` parameter is used as the <xref:System.ComponentModel.LicenseManager.CurrentContext%2A> for the life of this <xref:System.ComponentModel.License>. The <xref:System.ComponentModel.LicenseManager.CreateWithContext%2A> method blocks all other threads in the <xref:System.AppDomain> from modifying the <xref:System.ComponentModel.LicenseManager.CurrentContext%2A>, allowing <xref:System.ComponentModel.LicenseManager.CreateWithContext%2A> to behave as an atomic operation.'
   syntax:
     content: public static object CreateWithContext (Type type, System.ComponentModel.LicenseContext creationContext);
     parameters:
@@ -153,8 +153,8 @@ items:
   - netstandard
   - System.ComponentModel.TypeConverter
   namespace: System.ComponentModel
-  summary: Creates an instance of the specified type with the specified arguments, given a context in which you can use the licensed instance.
-  remarks: The <xref:System.ComponentModel.LicenseContext> you specify as the `creationContext` parameter is used as the <xref:System.ComponentModel.LicenseManager.CurrentContext%2A> for the life of this <xref:System.ComponentModel.License>. This method blocks all other threads in the <xref:System.AppDomain> from modifying the <xref:System.ComponentModel.LicenseManager.CurrentContext%2A>, allowing <xref:System.ComponentModel.LicenseManager.CreateWithContext%2A> to behave as an atomic operation.
+  summary: 'Creates an instance of the specified type with the specified arguments, given a context in which you can use the licensed instance.'
+  remarks: 'The <xref:System.ComponentModel.LicenseContext> you specify as the `creationContext` parameter is used as the <xref:System.ComponentModel.LicenseManager.CurrentContext%2A> for the life of this <xref:System.ComponentModel.License>. This method blocks all other threads in the <xref:System.AppDomain> from modifying the <xref:System.ComponentModel.LicenseManager.CurrentContext%2A>, allowing <xref:System.ComponentModel.LicenseManager.CreateWithContext%2A> to behave as an atomic operation.'
   syntax:
     content: public static object CreateWithContext (Type type, System.ComponentModel.LicenseContext creationContext, object[] args);
     parameters:
@@ -219,8 +219,8 @@ items:
   - netstandard
   - System.ComponentModel.TypeConverter
   namespace: System.ComponentModel
-  summary: Gets or sets the current <xref href="System.ComponentModel.LicenseContext"></xref>, which specifies when you can use the licensed object.
-  remarks: When the user requests a valid <xref:System.ComponentModel.License>, the user must give the context in which the <xref:System.ComponentModel.License> is valid to the <xref:System.ComponentModel.LicenseProvider.GetLicense%2A?displayProperty=fullName> method. The <xref:System.ComponentModel.LicenseContext> returned by this property should be passed to all <xref:System.ComponentModel.LicenseProvider> classes.
+  summary: 'Gets or sets the current <xref href="System.ComponentModel.LicenseContext"></xref>, which specifies when you can use the licensed object.'
+  remarks: 'When the user requests a valid <xref:System.ComponentModel.License>, the user must give the context in which the <xref:System.ComponentModel.License> is valid to the <xref:System.ComponentModel.LicenseProvider.GetLicense%2A?displayProperty=fullName> method. The <xref:System.ComponentModel.LicenseContext> returned by this property should be passed to all <xref:System.ComponentModel.LicenseProvider> classes.'
   syntax:
     content: public static System.ComponentModel.LicenseContext CurrentContext { get; set; }
     return:
@@ -410,7 +410,7 @@ items:
       description: An object of the specified type or a type derived from the specified type.
     - id: license
       type: System.ComponentModel.License
-      description: A <xref href="System.ComponentModel.License"></xref> that is a valid license, or `null` if a valid license cannot be granted.
+      description: 'A <xref href="System.ComponentModel.License"></xref> that is a valid license, or `null` if a valid license cannot be granted.'
     return:
       type: System.Boolean
       description: '`true` if a valid <xref href="System.ComponentModel.License"></xref> can be granted; otherwise, `false`.'
@@ -464,7 +464,7 @@ items:
   - System.ComponentModel.TypeConverter
   namespace: System.ComponentModel
   summary: Prevents changes being made to the current <xref href="System.ComponentModel.LicenseContext"></xref> of the given object.
-  remarks: Use the <xref:System.ComponentModel.LicenseContext> to get the <xref:System.ComponentModel.License> of an object. This method locks the <xref:System.ComponentModel.LicenseContext>, preventing the <xref:System.ComponentModel.License> from being retrieved.
+  remarks: 'Use the <xref:System.ComponentModel.LicenseContext> to get the <xref:System.ComponentModel.License> of an object. This method locks the <xref:System.ComponentModel.LicenseContext>, preventing the <xref:System.ComponentModel.License> from being retrieved.'
   syntax:
     content: public static void LockContext (object contextUser);
     parameters:
@@ -524,7 +524,7 @@ items:
   - System.ComponentModel.TypeConverter
   namespace: System.ComponentModel
   summary: Allows changes to be made to the current <xref href="System.ComponentModel.LicenseContext"></xref> of the given object.
-  remarks: Use the <xref:System.ComponentModel.LicenseContext> to get the <xref:System.ComponentModel.License> of an object. This method unlocks the <xref:System.ComponentModel.LicenseContext>, allowing the <xref:System.ComponentModel.License> to be retrieved.
+  remarks: 'Use the <xref:System.ComponentModel.LicenseContext> to get the <xref:System.ComponentModel.License> of an object. This method unlocks the <xref:System.ComponentModel.LicenseContext>, allowing the <xref:System.ComponentModel.License> to be retrieved.'
   syntax:
     content: public static void UnlockContext (object contextUser);
     parameters:
@@ -584,12 +584,12 @@ items:
   - System.ComponentModel.TypeConverter
   namespace: System.ComponentModel
   summary: Gets the <xref href="System.ComponentModel.LicenseUsageMode"></xref> which specifies when you can use the licensed object for the <xref href="System.ComponentModel.LicenseManager.CurrentContext"></xref>.
-  remarks: If this property cannot find a <xref:System.ComponentModel.LicenseManager.CurrentContext%2A> value, it returns <xref:System.ComponentModel.LicenseUsageMode.Runtime>.
+  remarks: 'If this property cannot find a <xref:System.ComponentModel.LicenseManager.CurrentContext%2A> value, it returns <xref:System.ComponentModel.LicenseUsageMode.Runtime>.'
   syntax:
     content: public static System.ComponentModel.LicenseUsageMode UsageMode { get; }
     return:
       type: System.ComponentModel.LicenseUsageMode
-      description: One of the <xref href="System.ComponentModel.LicenseUsageMode"></xref> values, as specified in the <xref href="System.ComponentModel.LicenseManager.CurrentContext"></xref> property.
+      description: 'One of the <xref href="System.ComponentModel.LicenseUsageMode"></xref> values, as specified in the <xref href="System.ComponentModel.LicenseManager.CurrentContext"></xref> property.'
   overload: System.ComponentModel.LicenseManager.UsageMode*
   exceptions: []
   version:
@@ -640,7 +640,7 @@ items:
   - System.ComponentModel.TypeConverter
   namespace: System.ComponentModel
   summary: Determines whether a license can be granted for the specified type.
-  remarks: This method throws a <xref:System.ComponentModel.LicenseException> when a valid <xref:System.ComponentModel.License> cannot be granted. The <xref:System.ComponentModel.LicenseManager.IsValid%2A> method does not throw an exception.
+  remarks: 'This method throws a <xref:System.ComponentModel.LicenseException> when a valid <xref:System.ComponentModel.License> cannot be granted. The <xref:System.ComponentModel.LicenseManager.IsValid%2A> method does not throw an exception.'
   syntax:
     content: public static void Validate (Type type);
     parameters:
@@ -717,7 +717,7 @@ items:
   exceptions:
   - type: System.ComponentModel.LicenseException
     commentId: T:System.ComponentModel.LicenseException
-    description: The type is licensed, but a <xref href="System.ComponentModel.License"></xref> cannot be granted.
+    description: 'The type is licensed, but a <xref href="System.ComponentModel.License"></xref> cannot be granted.'
   version:
   - netcore-2.0
   - netframework-4.5.1

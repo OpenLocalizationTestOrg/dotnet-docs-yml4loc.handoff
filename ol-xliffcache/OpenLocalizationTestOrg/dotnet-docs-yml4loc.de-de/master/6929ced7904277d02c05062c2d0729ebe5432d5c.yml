@@ -28,7 +28,7 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.IO.Packaging
-  summary: Makes a request to an entire <xref href="System.IO.Packaging.PackagePart"></xref> or to a <xref href="System.IO.Packaging.PackagePart"></xref> in a package, identified by a pack URI.
+  summary: 'Makes a request to an entire <xref href="System.IO.Packaging.PackagePart"></xref> or to a <xref href="System.IO.Packaging.PackagePart"></xref> in a package, identified by a pack URI.'
   remarks: "<xref:System.IO.Packaging> [!INCLUDE[TLA2#tla_api#plural](~/includes/tla2sharptla-apisharpplural-md.md)] use a defined pack uri syntax to refer to parts that are contained in a package.  \n  \n For more information about the abstract class that this class derives from and the operation of requests and responses, see <xref:System.Net.WebRequest>."
   syntax:
     content: 'public sealed class PackWebRequest : System.Net.WebRequest'
@@ -102,7 +102,7 @@ items:
   - PresentationCore
   namespace: System.IO.Packaging
   summary: Gets or sets the <xref href="System.Net.Cache.RequestCachePolicy"></xref>.
-  remarks: The <xref:System.IO.Packaging.PackWebRequest.CachePolicy%2A> property is distinct from the <xref:System.Net.WebRequest.CachePolicy%2A> of the inner <xref:System.Net.WebRequest> returned by the <xref:System.IO.Packaging.PackWebRequest.GetInnerRequest%2A> method.
+  remarks: 'The <xref:System.IO.Packaging.PackWebRequest.CachePolicy%2A> property is distinct from the <xref:System.Net.WebRequest.CachePolicy%2A> of the inner <xref:System.Net.WebRequest> returned by the <xref:System.IO.Packaging.PackWebRequest.GetInnerRequest%2A> method.'
   syntax:
     content: public override System.Net.Cache.RequestCachePolicy CachePolicy { get; set; }
     return:
@@ -192,18 +192,18 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.IO.Packaging
-  summary: Gets or sets the <code>Content-length</code> [!INCLUDE[TLA#tla_http](~/includes/tlasharptla-http-md.md)] header.
+  summary: 'Gets or sets the <code>Content-length</code> [!INCLUDE[TLA#tla_http](~/includes/tlasharptla-http-md.md)] header.'
   remarks: "Note that the pack URI protocol does not process information in the request other than the [!INCLUDE[TLA#tla_uri](~/includes/tlasharptla-uri-md.md)].  For most traditional purposes (such as estimating the size of POST information), there is no need for this property.  \n  \n <xref:System.IO.Packaging.PackWebRequest.ContentLength%2A> returns 0 if the request resolves from the <xref:System.IO.Packaging.PackageStore> cache.  \n  \n The <xref:System.IO.Packaging.PackWebRequest.ContentLength%2A> property is shared with the inner <xref:System.Net.WebRequest> (<xref:System.IO.Packaging.PackWebRequest.GetInnerRequest%2A>)."
   syntax:
     content: public override long ContentLength { get; set; }
     return:
       type: System.Int64
-      description: The content length, in bytes.
+      description: 'The content length, in bytes.'
   overload: System.IO.Packaging.PackWebRequest.ContentLength*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: Set is not supported, <xref href="System.IO.Packaging.PackWebRequest"></xref> is read-only.
+    description: 'Set is not supported, <xref href="System.IO.Packaging.PackWebRequest"></xref> is read-only.'
   version:
   - netframework-4.5.1
   - netframework-4.5.2
@@ -239,7 +239,7 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.IO.Packaging
-  summary: Gets or sets the <code>Content-type</code> [!INCLUDE[TLA#tla_http](~/includes/tlasharptla-http-md.md)] header.
+  summary: 'Gets or sets the <code>Content-type</code> [!INCLUDE[TLA#tla_http](~/includes/tlasharptla-http-md.md)] header.'
   remarks: "Note that the pack URI protocol does not process information in the request other than the [!INCLUDE[TLA#tla_uri](~/includes/tlasharptla-uri-md.md)].  For most purposes (such as determining the type of POST information), there is no use for this property.  \n  \n <xref:System.IO.Packaging.PackWebRequest.ContentType%2A> returns an empty string if the request resolves from the <xref:System.IO.Packaging.PackageStore> cache.  \n  \n The <xref:System.IO.Packaging.PackWebRequest.ContentType%2A> property is shared with the inner <xref:System.Net.WebRequest> (<xref:System.IO.Packaging.PackWebRequest.GetInnerRequest%2A>)."
   syntax:
     content: public override string ContentType { get; set; }
@@ -328,7 +328,7 @@ items:
   - PresentationCore
   namespace: System.IO.Packaging
   summary: Gets the inner <xref href="System.Net.WebRequest"></xref>.
-  remarks: The <xref:System.IO.Packaging.PackWebRequest.GetInnerRequest%2A> is provided for advanced scenarios only and is not needed for normal operation.
+  remarks: 'The <xref:System.IO.Packaging.PackWebRequest.GetInnerRequest%2A> is provided for advanced scenarios only and is not needed for normal operation.'
   syntax:
     content: public System.Net.WebRequest GetInnerRequest ();
     parameters: []
@@ -339,7 +339,7 @@ items:
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: The inner URI does not resolve to a valid transport protocol such as http for ftp, nor can the request be resolved from the <xref href="System.IO.Packaging.PackageStore"></xref>.
+    description: 'The inner URI does not resolve to a valid transport protocol such as http for ftp, nor can the request be resolved from the <xref href="System.IO.Packaging.PackageStore"></xref>.'
   version:
   - netframework-4.5.1
   - netframework-4.5.2
@@ -376,13 +376,13 @@ items:
   - PresentationCore
   namespace: System.IO.Packaging
   summary: Do not use—<xref href="System.IO.Packaging.PackWebRequest.GetRequestStream"></xref> is not supported by <xref href="System.IO.Packaging.PackWebRequest"></xref>.
-  remarks: <xref:System.IO.Packaging.PackWebRequest.GetRequestStream%2A> exists to implement the contract required by the abstract base class.  The pack URI protocol does not support writing.
+  remarks: '<xref:System.IO.Packaging.PackWebRequest.GetRequestStream%2A> exists to implement the contract required by the abstract base class.  The pack URI protocol does not support writing.'
   syntax:
     content: public override System.IO.Stream GetRequestStream ();
     parameters: []
     return:
       type: System.IO.Stream
-      description: If <xref href="System.IO.Packaging.PackWebRequest.GetRequestStream"></xref> is called, a <xref href="System.NotSupportedException"></xref> is thrown.
+      description: 'If <xref href="System.IO.Packaging.PackWebRequest.GetRequestStream"></xref> is called, a <xref href="System.NotSupportedException"></xref> is thrown.'
   overload: System.IO.Packaging.PackWebRequest.GetRequestStream*
   exceptions:
   - type: System.NotSupportedException
@@ -606,7 +606,7 @@ items:
   - PresentationCore
   namespace: System.IO.Packaging
   summary: Gets or sets the network proxy for Internet access.
-  remarks: The <xref:System.IO.Packaging.PackWebRequest.Proxy%2A> property is shared with the inner <xref:System.Net.WebRequest> (<xref:System.IO.Packaging.PackWebRequest.GetInnerRequest%2A>).
+  remarks: 'The <xref:System.IO.Packaging.PackWebRequest.Proxy%2A> property is shared with the inner <xref:System.Net.WebRequest> (<xref:System.IO.Packaging.PackWebRequest.GetInnerRequest%2A>).'
   syntax:
     content: >-
       [get: System.Security.SecurityCritical]
@@ -657,12 +657,12 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.IO.Packaging
-  summary: Gets the [!INCLUDE[TLA2#tla_uri](~/includes/tla2sharptla-uri-md.md)] of the resource associated with the request.
+  summary: 'Gets the [!INCLUDE[TLA2#tla_uri](~/includes/tla2sharptla-uri-md.md)] of the resource associated with the request.'
   syntax:
     content: public override Uri RequestUri { get; }
     return:
       type: System.Uri
-      description: The [!INCLUDE[TLA#tla_uri](~/includes/tlasharptla-uri-md.md)] of the resource associated with the request.
+      description: 'The [!INCLUDE[TLA#tla_uri](~/includes/tlasharptla-uri-md.md)] of the resource associated with the request.'
   overload: System.IO.Packaging.PackWebRequest.RequestUri*
   exceptions: []
   version:

@@ -19,7 +19,7 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: Serializes or deserializes primitive data types and other objects to or from the body of a Message Queuing message, using a format that is compatible with the MSMQ ActiveX Component.
+  summary: 'Serializes or deserializes primitive data types and other objects to or from the body of a Message Queuing message, using a format that is compatible with the MSMQ ActiveX Component.'
   remarks: "The <xref:System.Messaging.ActiveXMessageFormatter> is compatible with messages sent using Message Queuing COM components, allowing interoperability with applications that use the MSMQ COM control.  \n  \n The <xref:System.Messaging.ActiveXMessageFormatter> can serialize most primitives, as well as objects that implement the `IPersistStream` OLE interface. It can deserialize the same set of primitives, but requires further effort when deserializing a COM object (for example, an object created using Visual Basic 6.0) that implements `IPersistStream`. The object to deserialize must be in memory by first importing the object into a .NET Framework application.  \n  \n When an application sends a message to the queue using an instance of the <xref:System.Messaging.MessageQueue> class, the formatter serializes the object into a stream and inserts it into the message body. When reading from a queue using a <xref:System.Messaging.MessageQueue>, the formatter deserializes the message data into the <xref:System.Messaging.Message.Body%2A> property of a <xref:System.Messaging.Message>.  \n  \n ActiveX serialization is very compact, which makes using the <xref:System.Messaging.ActiveXMessageFormatter> and MSMQ COM control a very fast method of serialization."
   syntax:
     content: 'public class ActiveXMessageFormatter : ICloneable, System.Messaging.IMessageFormatter'
@@ -113,7 +113,7 @@ items:
   - System.Messaging
   namespace: System.Messaging
   summary: Determines whether the formatter can deserialize the contents of the message.
-  remarks: <xref:System.Messaging.ActiveXMessageFormatter.CanRead%2A> returns `false` if the message body is not a primitive that the Message Queuing ActiveX control can deserialize or if it does not implement the `IPersistStream` interface.
+  remarks: '<xref:System.Messaging.ActiveXMessageFormatter.CanRead%2A> returns `false` if the message body is not a primitive that the Message Queuing ActiveX control can deserialize or if it does not implement the `IPersistStream` interface.'
   syntax:
     content: public bool CanRead (System.Messaging.Message message);
     parameters:
@@ -164,7 +164,7 @@ items:
   - System.Messaging
   namespace: System.Messaging
   summary: Creates an instance of the <xref href="System.Messaging.ActiveXMessageFormatter"></xref> class that is identical to the current <xref href="System.Messaging.ActiveXMessageFormatter"></xref>.
-  remarks: This method is used by the <xref:System.Messaging.MessageQueue> class in order to receive multiple messages at the same time (for example, if the application is receiving asynchronously). You typically do not need to call this method in your application code.
+  remarks: 'This method is used by the <xref:System.Messaging.MessageQueue> class in order to receive multiple messages at the same time (for example, if the application is receiving asynchronously). You typically do not need to call this method in your application code.'
   syntax:
     content: public object Clone ();
     parameters: []
@@ -259,7 +259,7 @@ items:
     parameters:
     - id: message
       type: System.Messaging.Message
-      description: The <xref href="System.Messaging.Message"></xref>, in MSMQ ActiveX control format, to deserialize.
+      description: 'The <xref href="System.Messaging.Message"></xref>, in MSMQ ActiveX control format, to deserialize.'
     return:
       type: System.Object
       description: The deserialized message.
@@ -267,7 +267,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The <xref href="System.Messaging.Message.BodyType"></xref> property of the <code>message</code> passed as a parameter cannot be mapped to a primitive type, nor does it represent a streamed object.
+    description: 'The <xref href="System.Messaging.Message.BodyType"></xref> property of the <code>message</code> passed as a parameter cannot be mapped to a primitive type, nor does it represent a streamed object.'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
     description: The body represents a stored object. The <xref href="System.Messaging.ActiveXMessageFormatter"></xref> does not support deserialization of stored objects.

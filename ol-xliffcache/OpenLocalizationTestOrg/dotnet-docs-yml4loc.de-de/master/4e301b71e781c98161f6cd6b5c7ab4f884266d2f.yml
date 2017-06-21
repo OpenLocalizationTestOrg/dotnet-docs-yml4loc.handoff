@@ -80,7 +80,7 @@ items:
   - System.Security
   namespace: System.Security.Cryptography.Pkcs
   summary: The <xref href="System.Security.Cryptography.Pkcs.SignerInfo.Certificate"></xref> property retrieves the signing certificate associated with the signer information.
-  remarks: If the signing certificate is not included at signing time by using the <xref:System.Security.Cryptography.Pkcs.CmsSigner.IncludeOption%2A?displayProperty=fullName> property, then the certificate will not be returned.
+  remarks: 'If the signing certificate is not included at signing time by using the <xref:System.Security.Cryptography.Pkcs.CmsSigner.IncludeOption%2A?displayProperty=fullName> property, then the certificate will not be returned.'
   syntax:
     content: public System.Security.Cryptography.X509Certificates.X509Certificate2 Certificate { get; }
     return:
@@ -172,14 +172,14 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Pkcs
-  summary: The <xref href="System.Security.Cryptography.Pkcs.SignerInfo.CheckSignature(System.Boolean)"></xref> method verifies the digital signature of the message and, optionally, validates the certificate.
+  summary: 'The <xref href="System.Security.Cryptography.Pkcs.SignerInfo.CheckSignature(System.Boolean)"></xref> method verifies the digital signature of the message and, optionally, validates the certificate.'
   remarks: "This method throws an exception if the verification of the digital signature fails or any validation requirements are not met.  \n  \n If more complex validation is required, the caller can specify that only the signature is verified and then use an <xref:System.Security.Cryptography.X509Certificates.X509Chain> object to perform custom validation."
   syntax:
     content: public void CheckSignature (bool verifySignatureOnly);
     parameters:
     - id: verifySignatureOnly
       type: System.Boolean
-      description: A bool value that specifies whether only the digital signature is verified. If <code>verifySignatureOnly</code> is `true`, only the signature is verified. If <code>verifySignatureOnly</code> is `false`, the digital signature is verified, the certificate chain is validated, and the purposes of the certificates are validated. The purposes of the certificate are considered valid if the certificate has no key usage or if the key usage supports digital signature or nonrepudiation.
+      description: 'A bool value that specifies whether only the digital signature is verified. If <code>verifySignatureOnly</code> is `true`, only the signature is verified. If <code>verifySignatureOnly</code> is `false`, the digital signature is verified, the certificate chain is validated, and the purposes of the certificates are validated. The purposes of the certificate are considered valid if the certificate has no key usage or if the key usage supports digital signature or nonrepudiation.'
   overload: System.Security.Cryptography.Pkcs.SignerInfo.CheckSignature*
   exceptions:
   - type: System.ArgumentNullException
@@ -228,17 +228,17 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Pkcs
-  summary: The <xref href="System.Security.Cryptography.Pkcs.SignerInfo.CheckSignature(System.Security.Cryptography.X509Certificates.X509Certificate2Collection,System.Boolean)"></xref> method verifies the digital signature of the message by using the specified collection of certificates and, optionally, validates the certificate.
+  summary: 'The <xref href="System.Security.Cryptography.Pkcs.SignerInfo.CheckSignature(System.Security.Cryptography.X509Certificates.X509Certificate2Collection,System.Boolean)"></xref> method verifies the digital signature of the message by using the specified collection of certificates and, optionally, validates the certificate.'
   remarks: "This method throws an exception if the verification of the digital signature fails or any validation requirements are not met.  \n  \n If more complex validation is required, the caller can specify that only the signature is verified and then use an <xref:System.Security.Cryptography.X509Certificates.X509Chain> object to perform custom validation."
   syntax:
     content: public void CheckSignature (System.Security.Cryptography.X509Certificates.X509Certificate2Collection extraStore, bool verifySignatureOnly);
     parameters:
     - id: extraStore
       type: System.Security.Cryptography.X509Certificates.X509Certificate2Collection
-      description: An <xref href="System.Security.Cryptography.X509Certificates.X509Certificate2Collection"></xref> object that can be used to validate the chain. If no additional certificates are to be used to validate the chain, use <xref href="System.Security.Cryptography.Pkcs.SignerInfo.CheckSignature(System.Boolean)"></xref> instead of <xref href="System.Security.Cryptography.Pkcs.SignerInfo.CheckSignature(System.Security.Cryptography.X509Certificates.X509Certificate2Collection,System.Boolean)"></xref>.
+      description: 'An <xref href="System.Security.Cryptography.X509Certificates.X509Certificate2Collection"></xref> object that can be used to validate the chain. If no additional certificates are to be used to validate the chain, use <xref href="System.Security.Cryptography.Pkcs.SignerInfo.CheckSignature(System.Boolean)"></xref> instead of <xref href="System.Security.Cryptography.Pkcs.SignerInfo.CheckSignature(System.Security.Cryptography.X509Certificates.X509Certificate2Collection,System.Boolean)"></xref>.'
     - id: verifySignatureOnly
       type: System.Boolean
-      description: A bool value that specifies whether only the digital signature is verified. If <code>verifySignatureOnly</code> is `true`, only the signature is verified. If <code>verifySignatureOnly</code> is `false`, the digital signature is verified, the certificate chain is validated, and the purposes of the certificates are validated. The purposes of the certificate are considered valid if the certificate has no key usage or if the key usage supports digital signature or nonrepudiation.
+      description: 'A bool value that specifies whether only the digital signature is verified. If <code>verifySignatureOnly</code> is `true`, only the signature is verified. If <code>verifySignatureOnly</code> is `false`, the digital signature is verified, the certificate chain is validated, and the purposes of the certificates are validated. The purposes of the certificate are considered valid if the certificate has no key usage or if the key usage supports digital signature or nonrepudiation.'
   overload: System.Security.Cryptography.Pkcs.SignerInfo.CheckSignature*
   exceptions:
   - type: System.ArgumentNullException
@@ -288,7 +288,7 @@ items:
   - System.Security
   namespace: System.Security.Cryptography.Pkcs
   summary: 'The <xref href="System.Security.Cryptography.Pkcs.SignerInfo.ComputeCounterSignature"></xref> method prompts the user to select a signing certificate, creates a countersignature, and adds the signature to the CMS/PKCS #7 message. Countersignatures are restricted to one level.'
-  remarks: "This implementation of CMS/PKCS #7 supports only one level of countersignature.  That is, a signature can be signed, which forms a countersignature, but that countersignature cannot be signed again.  \n  \n This method displays a user interface in which you choose signers for this message. This requires that the current process is running in *user interactive mode*, meaning that the <xref:System.Environment.UserInteractive%2A?displayProperty=fullName> property is set to `true`. A process is normally in user interactive mode unless it is a service process or running inside a Web application.  \n  \n Signers whose certificates meet the following conditions will be displayed in the list:  \n  \n-   The certificate has an associated private key.  \n  \n-   The certificate is within its validity period.  \n  \n-   The certificate has no key usage or a key usage that supports digital signatures or nonrepudiation.  \n  \n Signer certificates are chosen from the My store.  \n  \n## .NET Framework Security  \n The following permissions are required to display the user interface:  \n  \n-   <xref:System.Security.Permissions.UIPermissionWindow?displayProperty=fullName>  \n  \n The following permissions are required to access the signature key:  \n  \n-   <xref:System.Security.Permissions.KeyContainerPermissionFlags?displayProperty=fullName>  \n  \n-   <xref:System.Security.Permissions.KeyContainerPermissionFlags?displayProperty=fullName>"
+  remarks: "This implementation of CMS/PKCS #7 supports only one level of countersignature.  That is, a signature can be signed, which forms a countersignature, but that countersignature cannot be signed again.  \n  \n This method displays a user interface in which you choose signers for this message. This requires that the current process is running in *user interactive mode*, meaning that the <xref:System.Environment.UserInteractive%2A?displayProperty=fullName> property is set to `true`. A process is normally in user interactive mode unless it is a service process or running inside a Web application.  \n  \n Signers whose certificates meet the following conditions will be displayed in the list:  \n  \n-   The certificate has an associated private key.  \n  \n-   The certificate is within its validity period.  \n  \n-   The certificate has no key usage or a key usage that supports digital signatures or nonrepudiation.  \n  \n Signer certificates are chosen from the My store.  \n  \n## <a name=\"net-framework-security\"></a>.NET Framework Security  \n The following permissions are required to display the user interface:  \n  \n-   <xref:System.Security.Permissions.UIPermissionWindow?displayProperty=fullName>  \n  \n The following permissions are required to access the signature key:  \n  \n-   <xref:System.Security.Permissions.KeyContainerPermissionFlags?displayProperty=fullName>  \n  \n-   <xref:System.Security.Permissions.KeyContainerPermissionFlags?displayProperty=fullName>"
   syntax:
     content: public void ComputeCounterSignature ();
     parameters: []
@@ -338,7 +338,7 @@ items:
   - System.Security
   namespace: System.Security.Cryptography.Pkcs
   summary: 'The <xref href="System.Security.Cryptography.Pkcs.SignerInfo.ComputeCounterSignature(System.Security.Cryptography.Pkcs.CmsSigner)"></xref> method creates a countersignature by using the specified signer and adds the signature to the CMS/PKCS #7 message. Countersignatures are restricted to one level.'
-  remarks: "This implementation of CMS/PKCS #7 supports only one level of countersignature.  That is, a signature can be signed, which forms a countersignature, but that countersignature cannot be signed again.  \n  \n## .NET Framework Security  \n The following permissions are required to access the signature key:  \n  \n-   <xref:System.Security.Permissions.KeyContainerPermissionFlags?displayProperty=fullName>  \n  \n-   <xref:System.Security.Permissions.KeyContainerPermissionFlags?displayProperty=fullName>"
+  remarks: "This implementation of CMS/PKCS #7 supports only one level of countersignature.  That is, a signature can be signed, which forms a countersignature, but that countersignature cannot be signed again.  \n  \n## <a name=\"net-framework-security\"></a>.NET Framework Security  \n The following permissions are required to access the signature key:  \n  \n-   <xref:System.Security.Permissions.KeyContainerPermissionFlags?displayProperty=fullName>  \n  \n-   <xref:System.Security.Permissions.KeyContainerPermissionFlags?displayProperty=fullName>"
   syntax:
     content: public void ComputeCounterSignature (System.Security.Cryptography.Pkcs.CmsSigner signer);
     parameters:
@@ -396,7 +396,7 @@ items:
     content: public System.Security.Cryptography.Pkcs.SignerInfoCollection CounterSignerInfos { get; }
     return:
       type: System.Security.Cryptography.Pkcs.SignerInfoCollection
-      description: A <xref href="System.Security.Cryptography.Pkcs.SignerInfoCollection"></xref> collection that represents the counter signers for the signer information. If there are no counter signers, the property is an empty collection.
+      description: 'A <xref href="System.Security.Cryptography.Pkcs.SignerInfoCollection"></xref> collection that represents the counter signers for the signer information. If there are no counter signers, the property is an empty collection.'
   overload: System.Security.Cryptography.Pkcs.SignerInfo.CounterSignerInfos*
   exceptions: []
   version:
@@ -591,7 +591,7 @@ items:
     content: public System.Security.Cryptography.CryptographicAttributeObjectCollection SignedAttributes { get; }
     return:
       type: System.Security.Cryptography.CryptographicAttributeObjectCollection
-      description: A <xref href="System.Security.Cryptography.CryptographicAttributeObjectCollection"></xref> collection that represents the signed attributes. If there are no signed attributes, the property is an empty collection.
+      description: 'A <xref href="System.Security.Cryptography.CryptographicAttributeObjectCollection"></xref> collection that represents the signed attributes. If there are no signed attributes, the property is an empty collection.'
   overload: System.Security.Cryptography.Pkcs.SignerInfo.SignedAttributes*
   exceptions: []
   version:
@@ -682,7 +682,7 @@ items:
     content: public System.Security.Cryptography.CryptographicAttributeObjectCollection UnsignedAttributes { get; }
     return:
       type: System.Security.Cryptography.CryptographicAttributeObjectCollection
-      description: A <xref href="System.Security.Cryptography.CryptographicAttributeObjectCollection"></xref> collection that represents the unsigned attributes. If there are no unsigned attributes, the property is an empty collection.
+      description: 'A <xref href="System.Security.Cryptography.CryptographicAttributeObjectCollection"></xref> collection that represents the unsigned attributes. If there are no unsigned attributes, the property is an empty collection.'
   overload: System.Security.Cryptography.Pkcs.SignerInfo.UnsignedAttributes*
   exceptions: []
   version:

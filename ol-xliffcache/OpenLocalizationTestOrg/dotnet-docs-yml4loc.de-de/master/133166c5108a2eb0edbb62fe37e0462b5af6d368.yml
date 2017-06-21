@@ -36,7 +36,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: Serves as the base class for all data source view classes, which define the capabilities of data source controls.
+  summary: 'Serves as the base class for all data source view classes, which define the capabilities of data source controls.'
   remarks: "ASP.NET supports a data-binding architecture that enables Web server controls to bind to data in a consistent fashion. Web server controls that bind to data are referred to as data-bound controls, and the classes that facilitate that binding are called data source controls. Data source controls can represent any data source: a relational database, a file, a stream, a business object, and so on. Data source controls present data in a consistent way to data-bound controls, regardless of the source or format of the underlying data.  \n  \n You use the data source controls that are provided with ASP.NET, including <xref:System.Web.UI.WebControls.SqlDataSource>, <xref:System.Web.UI.WebControls.AccessDataSource>, and <xref:System.Web.UI.WebControls.XmlDataSource>, to perform most Web development tasks. You use the base <xref:System.Web.UI.DataSourceControl> and <xref:System.Web.UI.DataSourceView> classes when you want to implement your own custom data source control.  \n  \n You can think of a data source control as the combination of the <xref:System.Web.UI.IDataSource> object and its associated lists of data, called data source views. Each list of data is represented by a <xref:System.Web.UI.DataSourceView> object. The <xref:System.Web.UI.DataSourceView> class is the base class for all data source views, or lists of data, associated with data source controls. Data source views define the capabilities of a data source control. Because the underlying data storage contains one or more lists of data, a data source control is always associated with one or more named data source views. The data source control uses the <xref:System.Web.UI.DataSourceControl.GetViewNames%2A> method to enumerate the data source views currently associated with the data source control and the <xref:System.Web.UI.DataSourceControl.GetView%2A> method to retrieve a specific data source view instance by name.  \n  \n All <xref:System.Web.UI.DataSourceView> objects support data retrieval from the underlying data source using the <xref:System.Web.UI.DataSourceView.ExecuteSelect%2A> method. All views optionally support a basic set of operations, including operations such as <xref:System.Web.UI.DataSourceView.ExecuteInsert%2A>, <xref:System.Web.UI.DataSourceView.ExecuteUpdate%2A>, and <xref:System.Web.UI.DataSourceView.ExecuteDelete%2A>. A data-bound control can discover the capabilities of a data source control by retrieving an associated data source view using the <xref:System.Web.UI.DataSourceControl.GetView%2A> and <xref:System.Web.UI.DataSourceControl.GetViewNames%2A> methods, and by querying the view at design time or run time."
   example:
   - "The following code example demonstrates how to extend the <xref:System.Web.UI.DataSourceView> class to create a strongly typed view class for a data source control. The `CsVDataSourceView` class defines the capabilities of the `CsvDataSource` data source control and provides an implementation for data-bound controls to use data stored in comma-separated value (.csv) files. For more information on the `CsvDataSource` data source control, see the <xref:System.Web.UI.DataSourceControl> class.  \n  \n [!code-csharp[Urtue.Samples.Alexkr.CsvDataSource_1#5](~/samples/snippets/csharp/VS_Snippets_WebNet/Urtue.Samples.Alexkr.CsvDataSource_1/CS/csvdatasource.cs#5)]\n [!code-vb[Urtue.Samples.Alexkr.CsvDataSource_1#5](~/samples/snippets/visualbasic/VS_Snippets_WebNet/Urtue.Samples.Alexkr.CsvDataSource_1/VB/csvdatasource.vb#5)]"
@@ -144,8 +144,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: Gets a value indicating whether the <xref href="System.Web.UI.DataSourceView"></xref> object associated with the current <xref href="System.Web.UI.DataSourceControl"></xref> object supports the <xref href="System.Web.UI.DataSourceView.ExecuteDelete(System.Collections.IDictionary,System.Collections.IDictionary)"></xref> operation.
-  remarks: The <xref:System.Web.UI.DataSourceView.CanDelete%2A> property reflects not only a capability of the data source control, but also whether it is currently appropriate to perform an operation. For example, even though a data source view supports the <xref:System.Web.UI.DataSourceView.ExecuteDelete%2A> operation in general, if a required property or some other data is not set, the <xref:System.Web.UI.DataSourceView.CanDelete%2A> property returns `false`, as a delete operation would fail.
+  summary: 'Gets a value indicating whether the <xref href="System.Web.UI.DataSourceView"></xref> object associated with the current <xref href="System.Web.UI.DataSourceControl"></xref> object supports the <xref href="System.Web.UI.DataSourceView.ExecuteDelete(System.Collections.IDictionary,System.Collections.IDictionary)"></xref> operation.'
+  remarks: 'The <xref:System.Web.UI.DataSourceView.CanDelete%2A> property reflects not only a capability of the data source control, but also whether it is currently appropriate to perform an operation. For example, even though a data source view supports the <xref:System.Web.UI.DataSourceView.ExecuteDelete%2A> operation in general, if a required property or some other data is not set, the <xref:System.Web.UI.DataSourceView.CanDelete%2A> property returns `false`, as a delete operation would fail.'
   example:
   - "The following code example demonstrates how to override the <xref:System.Web.UI.DataSourceView.CanDelete%2A> property and the <xref:System.Web.UI.DataSourceView.ExecuteDelete%2A> method in a class that extends the <xref:System.Web.UI.DataSourceView> class. This code example is part of a larger example provided for the <xref:System.Web.UI.DataSourceView> class.  \n  \n [!code-csharp[Urtue.Samples.Alexkr.CsvDataSource_1#8](~/samples/snippets/csharp/VS_Snippets_WebNet/Urtue.Samples.Alexkr.CsvDataSource_1/CS/csvdatasource.cs#8)]\n [!code-vb[Urtue.Samples.Alexkr.CsvDataSource_1#8](~/samples/snippets/visualbasic/VS_Snippets_WebNet/Urtue.Samples.Alexkr.CsvDataSource_1/VB/csvdatasource.vb#8)]"
   syntax:
@@ -236,7 +236,7 @@ items:
   - System.Web
   namespace: System.Web.UI
   summary: Gets a value indicating whether the <xref href="System.Web.UI.DataSourceView"></xref> object associated with the current <xref href="System.Web.UI.DataSourceControl"></xref> object supports the <xref href="System.Web.UI.DataSourceView.ExecuteInsert(System.Collections.IDictionary)"></xref> operation.
-  remarks: The <xref:System.Web.UI.DataSourceView.CanInsert%2A> property reflects not only a capability of the data source control, but also whether it is currently appropriate to perform an operation. For example, even though a data source control supports the <xref:System.Web.UI.DataSourceView.ExecuteInsert%2A> operation, if a required insert command or some other data is not set, the <xref:System.Web.UI.DataSourceView.CanInsert%2A> property returns `false`, as an insert operation would fail.
+  remarks: 'The <xref:System.Web.UI.DataSourceView.CanInsert%2A> property reflects not only a capability of the data source control, but also whether it is currently appropriate to perform an operation. For example, even though a data source control supports the <xref:System.Web.UI.DataSourceView.ExecuteInsert%2A> operation, if a required insert command or some other data is not set, the <xref:System.Web.UI.DataSourceView.CanInsert%2A> property returns `false`, as an insert operation would fail.'
   example:
   - "The following code example demonstrates how to override the <xref:System.Web.UI.DataSourceView.CanInsert%2A> property and the <xref:System.Web.UI.DataSourceView.ExecuteInsert%2A> method in a class that extends the <xref:System.Web.UI.DataSourceView> class. This code example is part of a larger example provided for the <xref:System.Web.UI.DataSourceView> class.  \n  \n [!code-csharp[Urtue.Samples.Alexkr.CsvDataSource_1#9](~/samples/snippets/csharp/VS_Snippets_WebNet/Urtue.Samples.Alexkr.CsvDataSource_1/CS/csvdatasource.cs#9)]\n [!code-vb[Urtue.Samples.Alexkr.CsvDataSource_1#9](~/samples/snippets/visualbasic/VS_Snippets_WebNet/Urtue.Samples.Alexkr.CsvDataSource_1/VB/csvdatasource.vb#9)]"
   syntax:
@@ -281,7 +281,7 @@ items:
   - System.Web
   namespace: System.Web.UI
   summary: Gets a value indicating whether the <xref href="System.Web.UI.DataSourceView"></xref> object associated with the current <xref href="System.Web.UI.DataSourceControl"></xref> object supports paging through the data retrieved by the <xref href="System.Web.UI.DataSourceView.ExecuteSelect(System.Web.UI.DataSourceSelectArguments)"></xref> method.
-  remarks: A data-bound control can request paging by adding the <xref:System.Web.UI.DataSourceCapabilities.Page> field to the <xref:System.Web.UI.DataSourceSelectArguments> object passed to the <xref:System.Web.UI.DataSourceView.ExecuteSelect%2A> method. If a data-bound control requests paging, but the <xref:System.Web.UI.DataSourceView.CanPage%2A> property returns `false`, the data source view throws an exception.
+  remarks: 'A data-bound control can request paging by adding the <xref:System.Web.UI.DataSourceCapabilities.Page> field to the <xref:System.Web.UI.DataSourceSelectArguments> object passed to the <xref:System.Web.UI.DataSourceView.ExecuteSelect%2A> method. If a data-bound control requests paging, but the <xref:System.Web.UI.DataSourceView.CanPage%2A> property returns `false`, the data source view throws an exception.'
   syntax:
     content: public virtual bool CanPage { get; }
     return:
@@ -323,8 +323,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: Gets a value indicating whether the <xref href="System.Web.UI.DataSourceView"></xref> object associated with the current <xref href="System.Web.UI.DataSourceControl"></xref> object supports retrieving the total number of data rows, instead of the data.
-  remarks: A data-bound control can request a total row count by adding the <xref:System.Web.UI.DataSourceCapabilities?displayProperty=fullName> field to the <xref:System.Web.UI.DataSourceSelectArguments?displayProperty=fullName> object passed to the <xref:System.Web.UI.DataSourceView.ExecuteSelect%2A> method. If a data-bound control requests a total row count, but the <xref:System.Web.UI.DataSourceView.CanRetrieveTotalRowCount%2A> property returns `false`, the data source view throws an exception.
+  summary: 'Gets a value indicating whether the <xref href="System.Web.UI.DataSourceView"></xref> object associated with the current <xref href="System.Web.UI.DataSourceControl"></xref> object supports retrieving the total number of data rows, instead of the data.'
+  remarks: 'A data-bound control can request a total row count by adding the <xref:System.Web.UI.DataSourceCapabilities?displayProperty=fullName> field to the <xref:System.Web.UI.DataSourceSelectArguments?displayProperty=fullName> object passed to the <xref:System.Web.UI.DataSourceView.ExecuteSelect%2A> method. If a data-bound control requests a total row count, but the <xref:System.Web.UI.DataSourceView.CanRetrieveTotalRowCount%2A> property returns `false`, the data source view throws an exception.'
   syntax:
     content: public virtual bool CanRetrieveTotalRowCount { get; }
     return:
@@ -367,7 +367,7 @@ items:
   - System.Web
   namespace: System.Web.UI
   summary: Gets a value indicating whether the <xref href="System.Web.UI.DataSourceView"></xref> object associated with the current <xref href="System.Web.UI.DataSourceControl"></xref> object supports a sorted view on the underlying data source.
-  remarks: A data-bound control can request sorting by adding the <xref:System.Web.UI.DataSourceCapabilities.Sort> field to the <xref:System.Web.UI.DataSourceSelectArguments> object passed to the <xref:System.Web.UI.DataSourceView.ExecuteSelect%2A> method. If a data-bound control requests sorting, but the <xref:System.Web.UI.DataSourceView.CanSort%2A> property returns `false`, the data source view throws an exception.
+  remarks: 'A data-bound control can request sorting by adding the <xref:System.Web.UI.DataSourceCapabilities.Sort> field to the <xref:System.Web.UI.DataSourceSelectArguments> object passed to the <xref:System.Web.UI.DataSourceView.ExecuteSelect%2A> method. If a data-bound control requests sorting, but the <xref:System.Web.UI.DataSourceView.CanSort%2A> property returns `false`, the data source view throws an exception.'
   example:
   - "The following code example demonstrates how to override the <xref:System.Web.UI.DataSourceView.CanSort%2A> property in a class that extends the <xref:System.Web.UI.DataSourceView> class. This code example is part of a larger example provided for the <xref:System.Web.UI.DataSourceView> class.  \n  \n [!code-csharp[Urtue.Samples.Alexkr.CsvDataSource_1#7](~/samples/snippets/csharp/VS_Snippets_WebNet/Urtue.Samples.Alexkr.CsvDataSource_1/CS/csvdatasource.cs#7)]\n [!code-vb[Urtue.Samples.Alexkr.CsvDataSource_1#7](~/samples/snippets/visualbasic/VS_Snippets_WebNet/Urtue.Samples.Alexkr.CsvDataSource_1/VB/csvdatasource.vb#7)]"
   syntax:
@@ -411,8 +411,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: Gets a value indicating whether the <xref href="System.Web.UI.DataSourceView"></xref> object associated with the current <xref href="System.Web.UI.DataSourceControl"></xref> object supports the <xref href="System.Web.UI.DataSourceView.ExecuteUpdate(System.Collections.IDictionary,System.Collections.IDictionary,System.Collections.IDictionary)"></xref> operation.
-  remarks: The <xref:System.Web.UI.DataSourceView.CanUpdate%2A> property reflects not only a capability of the data source control, but also whether it is currently appropriate to perform an operation. For example, even though a data-bound control supports the <xref:System.Web.UI.DataSourceView.ExecuteUpdate%2A> operation, if a required update command or some other data is not set, the <xref:System.Web.UI.DataSourceView.CanUpdate%2A> property returns `false`, as an update operation would fail.
+  summary: 'Gets a value indicating whether the <xref href="System.Web.UI.DataSourceView"></xref> object associated with the current <xref href="System.Web.UI.DataSourceControl"></xref> object supports the <xref href="System.Web.UI.DataSourceView.ExecuteUpdate(System.Collections.IDictionary,System.Collections.IDictionary,System.Collections.IDictionary)"></xref> operation.'
+  remarks: 'The <xref:System.Web.UI.DataSourceView.CanUpdate%2A> property reflects not only a capability of the data source control, but also whether it is currently appropriate to perform an operation. For example, even though a data-bound control supports the <xref:System.Web.UI.DataSourceView.ExecuteUpdate%2A> operation, if a required update command or some other data is not set, the <xref:System.Web.UI.DataSourceView.CanUpdate%2A> property returns `false`, as an update operation would fail.'
   example:
   - "The following code example demonstrates how to override the <xref:System.Web.UI.DataSourceView.CanUpdate%2A> property and the <xref:System.Web.UI.DataSourceView.ExecuteUpdate%2A> method in a class that extends the <xref:System.Web.UI.DataSourceView> class. This code example is part of a larger example provided for the <xref:System.Web.UI.DataSourceView> class.  \n  \n [!code-csharp[Urtue.Samples.Alexkr.CsvDataSource_1#10](~/samples/snippets/csharp/VS_Snippets_WebNet/Urtue.Samples.Alexkr.CsvDataSource_1/CS/csvdatasource.cs#10)]\n [!code-vb[Urtue.Samples.Alexkr.CsvDataSource_1#10](~/samples/snippets/visualbasic/VS_Snippets_WebNet/Urtue.Samples.Alexkr.CsvDataSource_1/VB/csvdatasource.vb#10)]"
   syntax:
@@ -499,13 +499,13 @@ items:
   - System.Web
   namespace: System.Web.UI
   summary: Performs an asynchronous delete operation on the list of data that the <xref href="System.Web.UI.DataSourceView"></xref> object represents.
-  remarks: The <xref:System.Web.UI.DataSourceView.Delete%2A> method is the asynchronous data deletion interface for all data source view objects. The <xref:System.Web.UI.DataSourceView.Delete%2A> method calls the <xref:System.Web.UI.DataSourceView.ExecuteDelete%2A> method using any `keys` and `oldValues` parameter values supplied. The `callback` parameter is a delegate that a data-bound control passes to the data source view, which is used to notify the data-bound control when the <xref:System.Web.UI.DataSourceView.ExecuteDelete%2A> operation has completed. The method uses the parameters of the <xref:System.Web.UI.DataSourceViewOperationCallback> delegate to return the number of affected records and any <xref:System.Exception> exception that is thrown by the <xref:System.Web.UI.DataSourceView.ExecuteDelete%2A> method.
+  remarks: 'The <xref:System.Web.UI.DataSourceView.Delete%2A> method is the asynchronous data deletion interface for all data source view objects. The <xref:System.Web.UI.DataSourceView.Delete%2A> method calls the <xref:System.Web.UI.DataSourceView.ExecuteDelete%2A> method using any `keys` and `oldValues` parameter values supplied. The `callback` parameter is a delegate that a data-bound control passes to the data source view, which is used to notify the data-bound control when the <xref:System.Web.UI.DataSourceView.ExecuteDelete%2A> operation has completed. The method uses the parameters of the <xref:System.Web.UI.DataSourceViewOperationCallback> delegate to return the number of affected records and any <xref:System.Exception> exception that is thrown by the <xref:System.Web.UI.DataSourceView.ExecuteDelete%2A> method.'
   syntax:
     content: public virtual void Delete (System.Collections.IDictionary keys, System.Collections.IDictionary oldValues, System.Web.UI.DataSourceViewOperationCallback callback);
     parameters:
     - id: keys
       type: System.Collections.IDictionary
-      description: An <xref href="System.Collections.IDictionary"></xref> of object or row keys to be deleted by the <xref href="System.Web.UI.DataSourceView.ExecuteDelete(System.Collections.IDictionary,System.Collections.IDictionary)"></xref> operation.
+      description: 'An <xref href="System.Collections.IDictionary"></xref> of object or row keys to be deleted by the <xref href="System.Web.UI.DataSourceView.ExecuteDelete(System.Collections.IDictionary,System.Collections.IDictionary)"></xref> operation.'
     - id: oldValues
       type: System.Collections.IDictionary
       description: An <xref href="System.Collections.IDictionary"></xref> of name/value pairs that represent data elements and their original values.
@@ -552,7 +552,7 @@ items:
   - System.Web
   namespace: System.Web.UI
   summary: Gets a list of event-handler delegates for the data source view.
-  remarks: This property is of type <xref:System.ComponentModel.EventHandlerList>, which uses a linear search algorithm to find entries in the list of delegates. A linear search algorithm is inefficient when working with a large number of entries. Therefore, when you have a large list, finding entries with this property will be slow.
+  remarks: 'This property is of type <xref:System.ComponentModel.EventHandlerList>, which uses a linear search algorithm to find entries in the list of delegates. A linear search algorithm is inefficient when working with a large number of entries. Therefore, when you have a large list, finding entries with this property will be slow.'
   syntax:
     content: protected System.ComponentModel.EventHandlerList Events { get; }
     return:
@@ -708,7 +708,7 @@ items:
     parameters:
     - id: keys
       type: System.Collections.IDictionary
-      description: An <xref href="System.Collections.IDictionary"></xref> of object or row keys to be deleted by the <xref href="System.Web.UI.DataSourceView.ExecuteDelete(System.Collections.IDictionary,System.Collections.IDictionary)"></xref> operation.
+      description: 'An <xref href="System.Collections.IDictionary"></xref> of object or row keys to be deleted by the <xref href="System.Web.UI.DataSourceView.ExecuteDelete(System.Collections.IDictionary,System.Collections.IDictionary)"></xref> operation.'
     - id: oldValues
       type: System.Collections.IDictionary
       description: An <xref href="System.Collections.IDictionary"></xref> of name/value pairs that represent data elements and their original values.
@@ -719,7 +719,7 @@ items:
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: The <xref href="System.Web.UI.DataSourceView.ExecuteDelete(System.Collections.IDictionary,System.Collections.IDictionary)"></xref> operation is not supported by the <xref href="System.Web.UI.DataSourceView"></xref>.
+    description: 'The <xref href="System.Web.UI.DataSourceView.ExecuteDelete(System.Collections.IDictionary,System.Collections.IDictionary)"></xref> operation is not supported by the <xref href="System.Web.UI.DataSourceView"></xref>.'
   version:
   - netframework-4.5.1
   - netframework-4.5.2
@@ -807,7 +807,7 @@ items:
   - System.Web
   namespace: System.Web.UI
   summary: Gets a list of data from the underlying data storage.
-  remarks: The <xref:System.Web.UI.DataSourceView.ExecuteSelect%2A> method is called to retrieve data from the underlying data store and return it as an <xref:System.Collections.IEnumerable> object. All data source controls support data retrieval from their underlying data storage, even if other operations such as insertion and sorting are not supported. Because a data-bound control can request a list of data at any time as a result of a <xref:System.Web.UI.IDataSource.DataSourceChanged> event or a <xref:System.Web.UI.WebControls.BaseDataBoundControl.DataBind%2A> method call, the data retrieval must be performed on demand.
+  remarks: 'The <xref:System.Web.UI.DataSourceView.ExecuteSelect%2A> method is called to retrieve data from the underlying data store and return it as an <xref:System.Collections.IEnumerable> object. All data source controls support data retrieval from their underlying data storage, even if other operations such as insertion and sorting are not supported. Because a data-bound control can request a list of data at any time as a result of a <xref:System.Web.UI.IDataSource.DataSourceChanged> event or a <xref:System.Web.UI.WebControls.BaseDataBoundControl.DataBind%2A> method call, the data retrieval must be performed on demand.'
   example:
   - "The following code example demonstrates how to override the <xref:System.Web.UI.DataSourceView.ExecuteSelect%2A> method in a class that extends the <xref:System.Web.UI.DataSourceView> class. The `CsvDataSourceView` opens a comma-separated value (.csv) file, parses it line by line, and creates a <xref:System.Data.DataTable> object and a <xref:System.Data.DataView> object to hold the data in memory. Finally, a sort expression is applied if one is supplied by the <xref:System.Web.UI.DataSourceSelectArguments> object, and the <xref:System.Data.DataView> object is returned as an <xref:System.Collections.IEnumerable> instance. This code example is part of a larger example provided for the <xref:System.Web.UI.DataSourceView> class.  \n  \n [!code-csharp[Urtue.Samples.Alexkr.CsvDataSource_1#6](~/samples/snippets/csharp/VS_Snippets_WebNet/Urtue.Samples.Alexkr.CsvDataSource_1/CS/csvdatasource.cs#6)]\n [!code-vb[Urtue.Samples.Alexkr.CsvDataSource_1#6](~/samples/snippets/visualbasic/VS_Snippets_WebNet/Urtue.Samples.Alexkr.CsvDataSource_1/VB/csvdatasource.vb#6)]"
   syntax:
@@ -878,7 +878,7 @@ items:
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: The <xref href="System.Web.UI.DataSourceView.ExecuteUpdate(System.Collections.IDictionary,System.Collections.IDictionary,System.Collections.IDictionary)"></xref> operation is not supported by the <xref href="System.Web.UI.DataSourceView"></xref>.
+    description: 'The <xref href="System.Web.UI.DataSourceView.ExecuteUpdate(System.Collections.IDictionary,System.Collections.IDictionary,System.Collections.IDictionary)"></xref> operation is not supported by the <xref href="System.Web.UI.DataSourceView"></xref>.'
   version:
   - netframework-4.5.1
   - netframework-4.5.2
@@ -914,7 +914,7 @@ items:
   - System.Web
   namespace: System.Web.UI
   summary: Performs an asynchronous insert operation on the list of data that the <xref href="System.Web.UI.DataSourceView"></xref> object represents.
-  remarks: The <xref:System.Web.UI.DataSourceView.Insert%2A> method is the asynchronous data insertion interface for all data source view objects. The <xref:System.Web.UI.DataSourceView.Insert%2A> method calls the <xref:System.Web.UI.DataSourceView.ExecuteInsert%2A> method using any `values` supplied. The `callback` parameter is a delegate that a data-bound control passes to the data source view, which is used to notify the data-bound control when the <xref:System.Web.UI.DataSourceView.ExecuteInsert%2A> operation has completed. The method uses the parameters of the <xref:System.Web.UI.DataSourceViewOperationCallback> delegate to return the number of affected records and any <xref:System.Exception> exception that is thrown by the <xref:System.Web.UI.DataSourceView.ExecuteInsert%2A> method call.
+  remarks: 'The <xref:System.Web.UI.DataSourceView.Insert%2A> method is the asynchronous data insertion interface for all data source view objects. The <xref:System.Web.UI.DataSourceView.Insert%2A> method calls the <xref:System.Web.UI.DataSourceView.ExecuteInsert%2A> method using any `values` supplied. The `callback` parameter is a delegate that a data-bound control passes to the data source view, which is used to notify the data-bound control when the <xref:System.Web.UI.DataSourceView.ExecuteInsert%2A> operation has completed. The method uses the parameters of the <xref:System.Web.UI.DataSourceViewOperationCallback> delegate to return the number of affected records and any <xref:System.Exception> exception that is thrown by the <xref:System.Web.UI.DataSourceView.ExecuteInsert%2A> method call.'
   syntax:
     content: public virtual void Insert (System.Collections.IDictionary values, System.Web.UI.DataSourceViewOperationCallback callback);
     parameters:
@@ -968,7 +968,7 @@ items:
     content: public string Name { get; }
     return:
       type: System.String
-      description: The name of the <xref href="System.Web.UI.DataSourceView"></xref>, if it has one. The default value is <xref href="System.String.Empty"></xref>.
+      description: 'The name of the <xref href="System.Web.UI.DataSourceView"></xref>, if it has one. The default value is <xref href="System.String.Empty"></xref>.'
   overload: System.Web.UI.DataSourceView.Name*
   exceptions: []
   version:
@@ -1050,7 +1050,7 @@ items:
   - System.Web
   namespace: System.Web.UI
   summary: Called by the <xref href="System.Web.UI.DataSourceSelectArguments.RaiseUnsupportedCapabilitiesError(System.Web.UI.DataSourceView)"></xref> method to compare the capabilities requested for an <xref href="System.Web.UI.DataSourceView.ExecuteSelect(System.Web.UI.DataSourceSelectArguments)"></xref> operation against those that the view supports.
-  remarks: The <xref:System.Web.UI.DataSourceView.RaiseUnsupportedCapabilityError%2A> method is used by the data source view to examine each of the capabilities requested by a data-bound control, represented by the <xref:System.Web.UI.DataSourceSelectArguments> object passed to the <xref:System.Web.UI.DataSourceView.Select%2A> method, and compare it to the capabilities supported by the data source view.
+  remarks: 'The <xref:System.Web.UI.DataSourceView.RaiseUnsupportedCapabilityError%2A> method is used by the data source view to examine each of the capabilities requested by a data-bound control, represented by the <xref:System.Web.UI.DataSourceSelectArguments> object passed to the <xref:System.Web.UI.DataSourceView.Select%2A> method, and compare it to the capabilities supported by the data source view.'
   syntax:
     content: protected virtual void RaiseUnsupportedCapabilityError (System.Web.UI.DataSourceCapabilities capability);
     parameters:
@@ -1097,7 +1097,7 @@ items:
   - System.Web
   namespace: System.Web.UI
   summary: Gets a list of data asynchronously from the underlying data storage.
-  remarks: The <xref:System.Web.UI.DataSourceView.Select%2A> method is the asynchronous data retrieval interface for all data source view objects. The <xref:System.Web.UI.DataSourceView.Select%2A> method calls the <xref:System.Web.UI.DataSourceView.ExecuteSelect%2A> method, passing any <xref:System.Web.UI.DataSourceSelectArguments> supplied. The `callback` parameter is a delegate that a data-bound control passes to the data source view, which is used to notify the data-bound control when the <xref:System.Web.UI.DataSourceView.ExecuteSelect%2A> operation has completed. The data returned by the <xref:System.Web.UI.DataSourceView.ExecuteSelect%2A> call is returned in the parameter of the <xref:System.Web.UI.DataSourceViewSelectCallback> delegate.
+  remarks: 'The <xref:System.Web.UI.DataSourceView.Select%2A> method is the asynchronous data retrieval interface for all data source view objects. The <xref:System.Web.UI.DataSourceView.Select%2A> method calls the <xref:System.Web.UI.DataSourceView.ExecuteSelect%2A> method, passing any <xref:System.Web.UI.DataSourceSelectArguments> supplied. The `callback` parameter is a delegate that a data-bound control passes to the data source view, which is used to notify the data-bound control when the <xref:System.Web.UI.DataSourceView.ExecuteSelect%2A> operation has completed. The data returned by the <xref:System.Web.UI.DataSourceView.ExecuteSelect%2A> call is returned in the parameter of the <xref:System.Web.UI.DataSourceViewSelectCallback> delegate.'
   syntax:
     content: public virtual void Select (System.Web.UI.DataSourceSelectArguments arguments, System.Web.UI.DataSourceViewSelectCallback callback);
     parameters:
@@ -1147,7 +1147,7 @@ items:
   - System.Web
   namespace: System.Web.UI
   summary: Performs an asynchronous update operation on the list of data that the <xref href="System.Web.UI.DataSourceView"></xref> object represents.
-  remarks: The <xref:System.Web.UI.DataSourceView.Update%2A> method is the asynchronous data modification interface for all data source view objects. The <xref:System.Web.UI.DataSourceView.Update%2A> method calls the <xref:System.Web.UI.DataSourceView.ExecuteUpdate%2A> method using any `keys`, `values`, and `oldValues` parameter values supplied. The `callback` parameter is a delegate that a data-bound control passes to the data source view, which is used to notify the data-bound control when the <xref:System.Web.UI.DataSourceView.ExecuteUpdate%2A> operation has completed. The method uses the parameters of the <xref:System.Web.UI.DataSourceViewOperationCallback> delegate to return the number of affected records and any <xref:System.Exception> exception that is thrown by the <xref:System.Web.UI.DataSourceView.ExecuteUpdate%2A> call.
+  remarks: 'The <xref:System.Web.UI.DataSourceView.Update%2A> method is the asynchronous data modification interface for all data source view objects. The <xref:System.Web.UI.DataSourceView.Update%2A> method calls the <xref:System.Web.UI.DataSourceView.ExecuteUpdate%2A> method using any `keys`, `values`, and `oldValues` parameter values supplied. The `callback` parameter is a delegate that a data-bound control passes to the data source view, which is used to notify the data-bound control when the <xref:System.Web.UI.DataSourceView.ExecuteUpdate%2A> operation has completed. The method uses the parameters of the <xref:System.Web.UI.DataSourceViewOperationCallback> delegate to return the number of affected records and any <xref:System.Exception> exception that is thrown by the <xref:System.Web.UI.DataSourceView.ExecuteUpdate%2A> call.'
   syntax:
     content: public virtual void Update (System.Collections.IDictionary keys, System.Collections.IDictionary values, System.Collections.IDictionary oldValues, System.Web.UI.DataSourceViewOperationCallback callback);
     parameters:

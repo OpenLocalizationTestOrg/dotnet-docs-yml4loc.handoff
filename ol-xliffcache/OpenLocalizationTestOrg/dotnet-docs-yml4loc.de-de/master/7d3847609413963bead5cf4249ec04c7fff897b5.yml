@@ -22,7 +22,7 @@ items:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
   summary: Holds the stack of server channel sinks.
-  remarks: This class makes a link demand. A security exception is thrown if the immediate caller does not have infrastructure permission. See [Link Demands](~/docs/framework/misc/link-demands.md) for more information.
+  remarks: 'This class makes a link demand. A security exception is thrown if the immediate caller does not have infrastructure permission. See [Link Demands](~/docs/framework/misc/link-demands.md) for more information.'
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -127,7 +127,7 @@ items:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
   summary: Requests asynchronous processing of a method call on the sinks in the current sink stack.
-  remarks: This method initializes asynchronous processing on the top sink in the current sink stack. For additional information, see the <xref:System.Runtime.Remoting.Channels.IServerChannelSink.AsyncProcessResponse%2A> method.
+  remarks: 'This method initializes asynchronous processing on the top sink in the current sink stack. For additional information, see the <xref:System.Runtime.Remoting.Channels.IServerChannelSink.AsyncProcessResponse%2A> method.'
   syntax:
     content: public void AsyncProcessResponse (System.Runtime.Remoting.Messaging.IMessage msg, System.Runtime.Remoting.Channels.ITransportHeaders headers, System.IO.Stream stream);
     parameters:
@@ -185,7 +185,7 @@ items:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
   summary: Returns the <xref href="System.IO.Stream"></xref> onto which the specified message is to be serialized.
-  remarks: This method returns the stream returned by the <xref:System.Runtime.Remoting.Channels.IServerChannelSink.GetResponseStream%2A?displayProperty=fullName> called with the `msg` and `headers` parameters (<xref:System.Runtime.Remoting.Channels.IServerChannelSink.GetResponseStream%2A> (`msg`, `headers`)) on the top sink in the current sink stack. The top sink in the sink stack remains unchanged.
+  remarks: 'This method returns the stream returned by the <xref:System.Runtime.Remoting.Channels.IServerChannelSink.GetResponseStream%2A?displayProperty=fullName> called with the `msg` and `headers` parameters (<xref:System.Runtime.Remoting.Channels.IServerChannelSink.GetResponseStream%2A> (`msg`, `headers`)) on the top sink in the current sink stack. The top sink in the sink stack remains unchanged.'
   syntax:
     content: public System.IO.Stream GetResponseStream (System.Runtime.Remoting.Messaging.IMessage msg, System.Runtime.Remoting.Channels.ITransportHeaders headers);
     parameters:
@@ -256,7 +256,7 @@ items:
   exceptions:
   - type: System.Runtime.Remoting.RemotingException
     commentId: T:System.Runtime.Remoting.RemotingException
-    description: The current sink stack is empty, or the specified sink was never pushed onto the current stack.
+    description: 'The current sink stack is empty, or the specified sink was never pushed onto the current stack.'
   version:
   - netframework-4.5.1
   - netframework-4.5.2
@@ -297,7 +297,7 @@ items:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
   summary: Pushes the specified sink and information associated with it onto the sink stack.
-  remarks: The information generated on the request side and specified in the `state` parameter is returned in the `state` parameter of the <xref:System.Runtime.Remoting.Channels.IServerChannelSink.AsyncProcessResponse%2A> method on the corresponding sink.
+  remarks: 'The information generated on the request side and specified in the `state` parameter is returned in the `state` parameter of the <xref:System.Runtime.Remoting.Channels.IServerChannelSink.AsyncProcessResponse%2A> method on the corresponding sink.'
   syntax:
     content: public void Push (System.Runtime.Remoting.Channels.IServerChannelSink sink, object state);
     parameters:
@@ -398,7 +398,7 @@ items:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
   summary: Stores a message sink and its associated state for later asynchronous processing.
-  remarks: The <xref:System.Runtime.Remoting.Channels.ServerChannelSinkStack.Store%2A> method is intended for use only by the .NET Framework remoting infrastructure. You should not call it directly.
+  remarks: 'The <xref:System.Runtime.Remoting.Channels.ServerChannelSinkStack.Store%2A> method is intended for use only by the .NET Framework remoting infrastructure. You should not call it directly.'
   syntax:
     content: public void Store (System.Runtime.Remoting.Channels.IServerChannelSink sink, object state);
     parameters:
@@ -452,7 +452,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: Stores a message sink and its associated state, and then dispatches a message asynchronously, using the sink just stored and any other stored sinks.
+  summary: 'Stores a message sink and its associated state, and then dispatches a message asynchronously, using the sink just stored and any other stored sinks.'
   remarks: "The <xref:System.Runtime.Remoting.Channels.ServerChannelSinkStack.StoreAndDispatch%2A> method is intended for use only by the .NET Framework remoting infrastructure. You should not call it directly.  \n  \n The method should be only called by a transport sink to complete an asynchronous dispatch."
   syntax:
     content: public void StoreAndDispatch (System.Runtime.Remoting.Channels.IServerChannelSink sink, object state);

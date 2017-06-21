@@ -24,7 +24,7 @@ items:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
   summary: A token handler for encrypted security tokens. Handles tokens of type <xref href="System.IdentityModel.Tokens.EncryptedSecurityToken"></xref>.
-  remarks: A token handler that serializes and deserializes <xref:System.IdentityModel.Tokens.EncryptedSecurityToken> objects from `<xenc:EncryptedData>` elements and <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause> objects from `<xenc:EncryptedKey>` elements as defined in the XML Encryption Syntax and Processing specification (http://www.w3.org/TR/2002/REC-xmlenc-core-20021210).
+  remarks: 'A token handler that serializes and deserializes <xref:System.IdentityModel.Tokens.EncryptedSecurityToken> objects from `<xenc:EncryptedData>` elements and <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause> objects from `<xenc:EncryptedKey>` elements as defined in the XML Encryption Syntax and Processing specification (http://www.w3.org/TR/2002/REC-xmlenc-core-20021210).'
   syntax:
     content: 'public class EncryptedSecurityTokenHandler : System.IdentityModel.Tokens.SecurityTokenHandler'
   inheritance:
@@ -129,7 +129,7 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: Returns a value that indicates whether the current XML element is pointing to an `<xenc:EncryptedKey>` element that can be deserialized to a <xref href="System.IdentityModel.Tokens.SecurityKeyIdentifierClause"></xref> by this instance.
+  summary: 'Returns a value that indicates whether the current XML element is pointing to an `<xenc:EncryptedKey>` element that can be deserialized to a <xref href="System.IdentityModel.Tokens.SecurityKeyIdentifierClause"></xref> by this instance.'
   syntax:
     content: public override bool CanReadKeyIdentifierClause (System.Xml.XmlReader reader);
     parameters:
@@ -178,14 +178,14 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: Returns a value that indicates whether the reader is pointing to an `<xenc:EncryptedData>` element.
+  summary: 'Returns a value that indicates whether the reader is pointing to an `<xenc:EncryptedData>` element.'
   remarks: Does not move the reader when it returns `false`.
   syntax:
     content: public override bool CanReadToken (System.Xml.XmlReader reader);
     parameters:
     - id: reader
       type: System.Xml.XmlReader
-      description: The reader positioned at a security token (`<xenc:EncryptedData>` element.)
+      description: 'The reader positioned at a security token (`<xenc:EncryptedData>` element.)'
     return:
       type: System.Boolean
       description: '`true` if the reader is positioned at an `<xenc:EncryptedData>` element; otherwise, `false`.'
@@ -273,7 +273,7 @@ items:
     parameters: []
     return:
       type: System.String[]
-      description: By default, returns an array with a single `null` string because there is not a specific token type identifier that is associated with the <xref href="System.IdentityModel.Tokens.EncryptedSecurityToken"></xref> type.
+      description: 'By default, returns an array with a single `null` string because there is not a specific token type identifier that is associated with the <xref href="System.IdentityModel.Tokens.EncryptedSecurityToken"></xref> type.'
   overload: System.IdentityModel.Tokens.EncryptedSecurityTokenHandler.GetTokenTypeIdentifiers*
   exceptions: []
   version:
@@ -310,7 +310,7 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: Gets or sets the <xref href="System.IdentityModel.Selectors.SecurityTokenSerializer"></xref> that will be used to serialize and deserialize key identifiers from the `<xenc:EncryptedData>` element.
+  summary: 'Gets or sets the <xref href="System.IdentityModel.Selectors.SecurityTokenSerializer"></xref> that will be used to serialize and deserialize key identifiers from the `<xenc:EncryptedData>` element.'
   syntax:
     content: public System.IdentityModel.Selectors.SecurityTokenSerializer KeyInfoSerializer { get; set; }
     return:
@@ -361,7 +361,7 @@ items:
     parameters:
     - id: reader
       type: System.Xml.XmlReader
-      description: An XML reader positioned at an `<xenc:EncryptedKey>` element as defined in 'http://www.w3.org/TR/2002/REC-xmlenc-core-20021210'; otherwise, `false`.
+      description: 'An XML reader positioned at an `<xenc:EncryptedKey>` element as defined in ''http://www.w3.org/TR/2002/REC-xmlenc-core-20021210''; otherwise, `false`.'
     return:
       type: System.IdentityModel.Tokens.SecurityKeyIdentifierClause
       description: A key identifier clause of type <xref href="System.IdentityModel.Tokens.EncryptedKeyIdentifierClause"></xref>.
@@ -372,7 +372,7 @@ items:
     description: <code>reader</code> is `null`.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: <code>reader</code> is not positioned at an `<xenc:EncryptedKey>` element.
+    description: '<code>reader</code> is not positioned at an `<xenc:EncryptedKey>` element.'
   version:
   - netframework-4.5.1
   - netframework-4.5.2
@@ -516,7 +516,7 @@ items:
       description: The XML writer to which to write the encrypted token.
     - id: token
       type: System.IdentityModel.Tokens.SecurityToken
-      description: The encrypted security token, must be an instance of <xref href="System.IdentityModel.Tokens.EncryptedSecurityToken"></xref>.
+      description: 'The encrypted security token, must be an instance of <xref href="System.IdentityModel.Tokens.EncryptedSecurityToken"></xref>.'
   overload: System.IdentityModel.Tokens.EncryptedSecurityTokenHandler.WriteToken*
   exceptions:
   - type: System.ArgumentNullException

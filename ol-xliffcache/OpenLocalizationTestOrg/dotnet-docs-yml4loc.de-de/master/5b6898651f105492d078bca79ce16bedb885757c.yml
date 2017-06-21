@@ -97,7 +97,7 @@ items:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
   summary: Initializes a new instance of the <xref href="System.IdentityModel.Services.SessionAuthenticationModule"></xref> class.
-  remarks: The <xref:System.IdentityModel.Services.SessionAuthenticationModule.IsReferenceMode%2A> property is set to `false` and the <xref:System.IdentityModel.Services.SessionAuthenticationModule.CookieHandler%2A> property is initialized to a default instance of the <xref:System.IdentityModel.Services.CookieHandlerElement.ChunkedCookieHandler%2A> class.
+  remarks: 'The <xref:System.IdentityModel.Services.SessionAuthenticationModule.IsReferenceMode%2A> property is set to `false` and the <xref:System.IdentityModel.Services.SessionAuthenticationModule.CookieHandler%2A> property is initialized to a default instance of the <xref:System.IdentityModel.Services.CookieHandlerElement.ChunkedCookieHandler%2A> class.'
   syntax:
     content: public SessionAuthenticationModule ();
     parameters: []
@@ -137,8 +137,8 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
-  summary: Authenticates the incoming request by validating the incoming session token. Upon successful validation, it updates the current HTTP context and thread principal with the specified  <xref href="System.IdentityModel.Tokens.SessionSecurityToken"></xref>.
-  remarks: The <xref:System.IdentityModel.Services.SessionAuthenticationModule.AuthenticateSessionSecurityToken%2A> method is called from the <xref:System.IdentityModel.Services.SessionAuthenticationModule.OnAuthenticateRequest%2A> method. It calls the <xref:System.IdentityModel.Services.SessionAuthenticationModule.SetPrincipalFromSessionToken%2A> method to validate the incoming token and update the <xref:System.Threading.Thread.CurrentPrincipal%2A?displayProperty=fullName> and the <xref:System.Web.HttpContext.User%2A?displayProperty=fullName> properties. If the `writeCookie` parameter is `true`, the <xref:System.IdentityModel.Services.SessionAuthenticationModule.WriteSessionTokenToCookie%2A> method is invoked to write the session token to a cookie.
+  summary: 'Authenticates the incoming request by validating the incoming session token. Upon successful validation, it updates the current HTTP context and thread principal with the specified  <xref href="System.IdentityModel.Tokens.SessionSecurityToken"></xref>.'
+  remarks: 'The <xref:System.IdentityModel.Services.SessionAuthenticationModule.AuthenticateSessionSecurityToken%2A> method is called from the <xref:System.IdentityModel.Services.SessionAuthenticationModule.OnAuthenticateRequest%2A> method. It calls the <xref:System.IdentityModel.Services.SessionAuthenticationModule.SetPrincipalFromSessionToken%2A> method to validate the incoming token and update the <xref:System.Threading.Thread.CurrentPrincipal%2A?displayProperty=fullName> and the <xref:System.Web.HttpContext.User%2A?displayProperty=fullName> properties. If the `writeCookie` parameter is `true`, the <xref:System.IdentityModel.Services.SessionAuthenticationModule.WriteSessionTokenToCookie%2A> method is invoked to write the session token to a cookie.'
   syntax:
     content: public virtual void AuthenticateSessionSecurityToken (System.IdentityModel.Tokens.SessionSecurityToken sessionToken, bool writeCookie);
     parameters:
@@ -275,8 +275,8 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
-  summary: Gets the cookie handler that is used to read, write, and delete session cookies.
-  remarks: The <xref:System.IdentityModel.Services.SessionAuthenticationModule.CookieHandler%2A> property is initialized by the <xref:System.IdentityModel.Services.SessionAuthenticationModule.InitializePropertiesFromConfiguration%2A> method. This method initializes the property based on the cookie handler specified on the <xref:System.IdentityModel.Services.Configuration.FederationConfiguration> object that is set on the <xref:System.IdentityModel.Services.FederatedAuthentication.FederationConfiguration%2A?displayProperty=fullName> property. You can set the cookie handler in a configuration file through the [\&lt;cookieHandler\&gt;](~/docs/framework/configure-apps/file-schema/windows-identity-foundation/cookiehandler.md) element.
+  summary: 'Gets the cookie handler that is used to read, write, and delete session cookies.'
+  remarks: 'The <xref:System.IdentityModel.Services.SessionAuthenticationModule.CookieHandler%2A> property is initialized by the <xref:System.IdentityModel.Services.SessionAuthenticationModule.InitializePropertiesFromConfiguration%2A> method. This method initializes the property based on the cookie handler specified on the <xref:System.IdentityModel.Services.Configuration.FederationConfiguration> object that is set on the <xref:System.IdentityModel.Services.FederatedAuthentication.FederationConfiguration%2A?displayProperty=fullName> property. You can set the cookie handler in a configuration file through the [\&lt;cookieHandler\&gt;](~/docs/framework/configure-apps/file-schema/windows-identity-foundation/cookiehandler.md) element.'
   syntax:
     content: public System.IdentityModel.Services.CookieHandler CookieHandler { get; set; }
     return:
@@ -380,7 +380,7 @@ items:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
   summary: Deletes the session cookie and removes it from the cache.
-  remarks: Deletes the session cookie by using the cookie handler specified by the <xref:System.IdentityModel.Services.SessionAuthenticationModule.CookieHandler%2A> property. This method is called during sign-out by the <xref:System.IdentityModel.Services.SessionAuthenticationModule.SignOut%2A> method.
+  remarks: 'Deletes the session cookie by using the cookie handler specified by the <xref:System.IdentityModel.Services.SessionAuthenticationModule.CookieHandler%2A> property. This method is called during sign-out by the <xref:System.IdentityModel.Services.SessionAuthenticationModule.SignOut%2A> method.'
   syntax:
     content: public void DeleteSessionTokenCookie ();
     parameters: []
@@ -420,8 +420,8 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
-  summary: Initializes the module and prepares it to handle events from the module's [!INCLUDE[vstecasp](~/includes/vstecasp-md.md)] application object.
-  remarks: Adds the <xref:System.IdentityModel.Services.SessionAuthenticationModule.OnAuthenticateRequest%2A> and the <xref:System.IdentityModel.Services.SessionAuthenticationModule.OnPostAuthenticateRequest%2A> handlers to the <xref:System.Web.HttpApplication.AuthenticateRequest?displayProperty=fullName> and <xref:System.Web.HttpApplication.PostAuthenticateRequest?displayProperty=fullName> events of the application object specified by the `context` parameter.
+  summary: 'Initializes the module and prepares it to handle events from the module''s [!INCLUDE[vstecasp](~/includes/vstecasp-md.md)] application object.'
+  remarks: 'Adds the <xref:System.IdentityModel.Services.SessionAuthenticationModule.OnAuthenticateRequest%2A> and the <xref:System.IdentityModel.Services.SessionAuthenticationModule.OnPostAuthenticateRequest%2A> handlers to the <xref:System.Web.HttpApplication.AuthenticateRequest?displayProperty=fullName> and <xref:System.Web.HttpApplication.PostAuthenticateRequest?displayProperty=fullName> events of the application object specified by the `context` parameter.'
   syntax:
     content: protected override void InitializeModule (System.Web.HttpApplication context);
     parameters:
@@ -465,7 +465,7 @@ items:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
   summary: Initializes the module properties based on definitions in the configuration file.
-  remarks: Initializes the <xref:System.IdentityModel.Services.SessionAuthenticationModule.CookieHandler%2A> property from the handler specified in configuration by the <xref:System.IdentityModel.Services.Configuration.FederationConfiguration?displayProperty=fullName> object that is set on the <xref:System.IdentityModel.Services.FederatedAuthentication.FederationConfiguration%2A?displayProperty=fullName> property. You can specify the cookie handler in a configuration file through the [\&lt;cookieHandler\&gt;](~/docs/framework/configure-apps/file-schema/windows-identity-foundation/cookiehandler.md) element.
+  remarks: 'Initializes the <xref:System.IdentityModel.Services.SessionAuthenticationModule.CookieHandler%2A> property from the handler specified in configuration by the <xref:System.IdentityModel.Services.Configuration.FederationConfiguration?displayProperty=fullName> object that is set on the <xref:System.IdentityModel.Services.FederatedAuthentication.FederationConfiguration%2A?displayProperty=fullName> property. You can specify the cookie handler in a configuration file through the [\&lt;cookieHandler\&gt;](~/docs/framework/configure-apps/file-schema/windows-identity-foundation/cookiehandler.md) element.'
   syntax:
     content: protected override void InitializePropertiesFromConfiguration ();
     parameters: []
@@ -505,7 +505,7 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
-  summary: Gets or sets a value that specifies whether the session information (claim values, etc.) should be stored in the session cookie or whether the session content should be stored on the server side, using the cookie to store just a reference.
+  summary: 'Gets or sets a value that specifies whether the session information (claim values, etc.) should be stored in the session cookie or whether the session content should be stored on the server side, using the cookie to store just a reference.'
   remarks: "In reference mode, the <xref:System.IdentityModel.Tokens.SessionSecurityToken> is stored in a server-side cache (an object that derives from <xref:System.IdentityModel.Tokens.SessionSecurityTokenCache>). The issued cookie just contains a context identifier that is used to retrieve the token from the cache.  \n  \n> [!IMPORTANT]\n>  To operate in reference mode, Microsoft recommends providing a handler for the <xref:System.IdentityModel.Services.WSFederationAuthenticationModule.SessionSecurityTokenCreated?displayProperty=fullName> event in the global.asax.cs file and setting the <xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A?displayProperty=fullName> property on the token passed in the <xref:System.IdentityModel.Services.SessionSecurityTokenCreatedEventArgs.SessionToken%2A?displayProperty=fullName> property. This will ensure that the session token operates in reference mode for every request and is favored over merely setting the <xref:System.IdentityModel.Services.SessionAuthenticationModule.IsReferenceMode%2A?displayProperty=fullName> property on the Session Authentication Module."
   syntax:
     content: public bool IsReferenceMode { get; set; }
@@ -548,7 +548,7 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
-  summary: Handles the <xref href="System.Web.HttpApplication.AuthenticateRequest"></xref> event from the [!INCLUDE[vstecasp](~/includes/vstecasp-md.md)] pipeline.
+  summary: 'Handles the <xref href="System.Web.HttpApplication.AuthenticateRequest"></xref> event from the [!INCLUDE[vstecasp](~/includes/vstecasp-md.md)] pipeline.'
   remarks: "This method does the following:  \n  \n1.  Invokes the <xref:System.IdentityModel.Services.SessionAuthenticationModule.TryReadSessionTokenFromCookie%2A> method to read a <xref:System.IdentityModel.Tokens.SessionSecurityToken> from the session cookie, if one is present.  \n  \n2.  If a session security token cannot be read (most likely because a session has not been established), return.  \n  \n3.  Invokes the <xref:System.IdentityModel.Services.SessionAuthenticationModule.OnSessionSecurityTokenReceived%2A> method to raise the <xref:System.IdentityModel.Services.SessionAuthenticationModule.SessionSecurityTokenReceived> event. This provides an opportunity for the token read from the cookie to be modified or for the request to be canceled. The handler can also specify that the token should be reissued, by setting the <xref:System.IdentityModel.Services.SessionSecurityTokenReceivedEventArgs.ReissueCookie%2A?displayProperty=fullName> property.  \n  \n4.  If the token is to be reissued, removes it from the cache and invokes the <xref:System.IdentityModel.Services.SessionAuthenticationModule.OnSessionSecurityTokenCreated%2A> method to raise the <xref:System.IdentityModel.Services.SessionAuthenticationModule.SessionSecurityTokenCreated> event. This provides opportunity for the token to again be modified. The reissue behavior can also be modified by setting the <xref:System.IdentityModel.Services.SessionSecurityTokenCreatedEventArgs.WriteSessionCookie%2A?displayProperty=fullName> property in the event handler.  \n  \n5.  Invokes the <xref:System.IdentityModel.Services.SessionAuthenticationModule.AuthenticateSessionSecurityToken%2A> method to authenticate the user. If successful, this has the effect of setting the <xref:System.Threading.Thread.CurrentPrincipal%2A?displayProperty=fullName> property to the principal that is contained in the <xref:System.IdentityModel.Tokens.SessionSecurityToken.ClaimsPrincipal%2A?displayProperty=fullName> property of the incoming token.  \n  \n6.  If the session has expired, invokes the <xref:System.IdentityModel.Services.SessionAuthenticationModule.SignOut%2A> method.  \n  \n The <xref:System.IdentityModel.Services.SessionAuthenticationModule.OnAuthenticateRequest%2A> method is added to the handlers for the <xref:System.Web.HttpApplication.AuthenticateRequest?displayProperty=fullName> event in the <xref:System.IdentityModel.Services.SessionAuthenticationModule.InitializeModule%2A> method."
   syntax:
     content: protected virtual void OnAuthenticateRequest (object sender, EventArgs eventArgs);
@@ -598,7 +598,7 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
-  summary: Handles the <xref href="System.Web.HttpApplication.PostAuthenticateRequest"></xref> event from the [!INCLUDE[vstecasp](~/includes/vstecasp-md.md)] pipeline.
+  summary: 'Handles the <xref href="System.Web.HttpApplication.PostAuthenticateRequest"></xref> event from the [!INCLUDE[vstecasp](~/includes/vstecasp-md.md)] pipeline.'
   remarks: "The default implementation is empty.  \n  \n The <xref:System.IdentityModel.Services.SessionAuthenticationModule.OnPostAuthenticateRequest%2A> handler is added to the handlers for the <xref:System.Web.HttpApplication.PostAuthenticateRequest?displayProperty=fullName> event in the <xref:System.IdentityModel.Services.SessionAuthenticationModule.InitializeModule%2A> method."
   syntax:
     content: protected virtual void OnPostAuthenticateRequest (object sender, EventArgs e);
@@ -646,7 +646,7 @@ items:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
   summary: Raises the <xref href="System.IdentityModel.Services.SessionAuthenticationModule.SessionSecurityTokenCreated"></xref> event.
-  remarks: Called from the <xref:System.IdentityModel.Services.SessionAuthenticationModule.OnAuthenticateRequest%2A> method.
+  remarks: 'Called from the <xref:System.IdentityModel.Services.SessionAuthenticationModule.OnAuthenticateRequest%2A> method.'
   syntax:
     content: protected virtual void OnSessionSecurityTokenCreated (System.IdentityModel.Services.SessionSecurityTokenCreatedEventArgs args);
     parameters:
@@ -690,7 +690,7 @@ items:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
   summary: Raises the <xref href="System.IdentityModel.Services.SessionAuthenticationModule.SessionSecurityTokenReceived"></xref> event.
-  remarks: Called from the <xref:System.IdentityModel.Services.SessionAuthenticationModule.OnAuthenticateRequest%2A> method.
+  remarks: 'Called from the <xref:System.IdentityModel.Services.SessionAuthenticationModule.OnAuthenticateRequest%2A> method.'
   syntax:
     content: protected virtual void OnSessionSecurityTokenReceived (System.IdentityModel.Services.SessionSecurityTokenReceivedEventArgs args);
     parameters:
@@ -734,7 +734,7 @@ items:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
   summary: Raises the <xref href="System.IdentityModel.Services.SessionAuthenticationModule.SignedOut"></xref> event.
-  remarks: This method is invoked from the <xref:System.IdentityModel.Services.SessionAuthenticationModule.SignOut%2A> method after the sign-out has been performed and the session cookie has been deleted.
+  remarks: 'This method is invoked from the <xref:System.IdentityModel.Services.SessionAuthenticationModule.SignOut%2A> method after the sign-out has been performed and the session cookie has been deleted.'
   syntax:
     content: protected virtual void OnSignedOut (EventArgs e);
     parameters:
@@ -778,7 +778,7 @@ items:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
   summary: Raises the <xref href="System.IdentityModel.Services.SessionAuthenticationModule.SigningOut"></xref> event.
-  remarks: This method is invoked from the <xref:System.IdentityModel.Services.SessionAuthenticationModule.SignOut%2A> method to perform sign-out. It is invoked before the session cookie is deleted.
+  remarks: 'This method is invoked from the <xref:System.IdentityModel.Services.SessionAuthenticationModule.SignOut%2A> method to perform sign-out. It is invoked before the session cookie is deleted.'
   syntax:
     content: protected virtual void OnSigningOut (System.IdentityModel.Services.SigningOutEventArgs e);
     parameters:
@@ -822,7 +822,7 @@ items:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
   summary: Raises the <xref href="System.IdentityModel.Services.SessionAuthenticationModule.SignOutError"></xref> event.
-  remarks: This method is invoked from the <xref:System.IdentityModel.Services.SessionAuthenticationModule.SignOut%2A> method if an error occurs during sign-out.
+  remarks: 'This method is invoked from the <xref:System.IdentityModel.Services.SessionAuthenticationModule.SignOut%2A> method if an error occurs during sign-out.'
   syntax:
     content: protected virtual void OnSignOutError (System.IdentityModel.Services.ErrorEventArgs e);
     parameters:
@@ -871,7 +871,7 @@ items:
     parameters:
     - id: sessionCookie
       type: System.Byte[]
-      description: The cookie, in raw form, that contains the session token.
+      description: 'The cookie, in raw form, that contains the session token.'
     return:
       type: System.IdentityModel.Tokens.SessionSecurityToken
       description: The session token that was read from the cookie.
@@ -1222,13 +1222,13 @@ items:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
   summary: Attempts to read a <xref href="System.IdentityModel.Tokens.SessionSecurityToken"></xref> from a session cookie and returns a value that indicates whether the session cookie was successfully read.
-  remarks: Reads the cookie by using the cookie handler that is configured in the <xref:System.IdentityModel.Services.SessionAuthenticationModule.CookieHandler%2A> property and then invokes the <xref:System.IdentityModel.Services.SessionAuthenticationModule.ReadSessionTokenFromCookie%2A> method to read the token from the cookie.
+  remarks: 'Reads the cookie by using the cookie handler that is configured in the <xref:System.IdentityModel.Services.SessionAuthenticationModule.CookieHandler%2A> property and then invokes the <xref:System.IdentityModel.Services.SessionAuthenticationModule.ReadSessionTokenFromCookie%2A> method to read the token from the cookie.'
   syntax:
     content: public bool TryReadSessionTokenFromCookie (out System.IdentityModel.Tokens.SessionSecurityToken sessionToken);
     parameters:
     - id: sessionToken
       type: System.IdentityModel.Tokens.SessionSecurityToken
-      description: When this method returns, contains the session security token that was read from the session cookie.
+      description: 'When this method returns, contains the session security token that was read from the session cookie.'
     return:
       type: System.Boolean
       description: '`true` if the session cookie was successfully read from the request; otherwise, `false`.'
@@ -1269,7 +1269,7 @@ items:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
   summary: Validates the specified <xref href="System.IdentityModel.Tokens.SessionSecurityToken"></xref> and returns its identities.
-  remarks: This method is called from the <xref:System.IdentityModel.Services.SessionAuthenticationModule.AuthenticateSessionSecurityToken%2A> method. It invokes the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ValidateToken%2A?displayProperty=fullName> method of the configured session token handler to validate the token and extract its identities.
+  remarks: 'This method is called from the <xref:System.IdentityModel.Services.SessionAuthenticationModule.AuthenticateSessionSecurityToken%2A> method. It invokes the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ValidateToken%2A?displayProperty=fullName> method of the configured session token handler to validate the token and extract its identities.'
   syntax:
     content: protected System.Collections.ObjectModel.ReadOnlyCollection<System.Security.Claims.ClaimsIdentity> ValidateSessionToken (System.IdentityModel.Tokens.SessionSecurityToken sessionSecurityToken);
     parameters:
@@ -1325,7 +1325,7 @@ items:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
   summary: Writes the specified <xref href="System.IdentityModel.Tokens.SessionSecurityToken"></xref> to a session cookie.
-  remarks: Writes the cookie by using the cookie handler that is configured in the <xref:System.IdentityModel.Services.SessionAuthenticationModule.CookieHandler%2A> property.
+  remarks: 'Writes the cookie by using the cookie handler that is configured in the <xref:System.IdentityModel.Services.SessionAuthenticationModule.CookieHandler%2A> property.'
   syntax:
     content: public void WriteSessionTokenToCookie (System.IdentityModel.Tokens.SessionSecurityToken sessionToken);
     parameters:

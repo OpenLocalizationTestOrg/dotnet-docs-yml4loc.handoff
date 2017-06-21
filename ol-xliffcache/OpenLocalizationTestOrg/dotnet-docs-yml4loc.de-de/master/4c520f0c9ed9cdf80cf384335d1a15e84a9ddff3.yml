@@ -112,7 +112,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Displays a hierarchical collection of labeled items, each represented by a <xref href="System.Windows.Forms.TreeNode"></xref>.
+  summary: 'Displays a hierarchical collection of labeled items, each represented by a <xref href="System.Windows.Forms.TreeNode"></xref>.'
   remarks: "The <xref:System.Windows.Forms.TreeView.Nodes%2A> collection holds all the <xref:System.Windows.Forms.TreeNode> objects that are assigned to the <xref:System.Windows.Forms.TreeView> control. The tree nodes in this collection are referred to as the root tree nodes. Any tree node that is subsequently added to a root tree node is referred to as a child node. Because each <xref:System.Windows.Forms.TreeNode> can contain a collection of other <xref:System.Windows.Forms.TreeNode> objects, you might find it difficult to determine your location in the tree structure when you iterate through the collection. You can parse the <xref:System.Windows.Forms.TreeNode.FullPath%2A?displayProperty=fullName> string by using the <xref:System.Windows.Forms.TreeView.PathSeparator%2A> string value to determine where a <xref:System.Windows.Forms.TreeNode> label begins and ends.  \n  \n You can display images next to the tree nodes by assigning an <xref:System.Windows.Forms.ImageList> to the <xref:System.Windows.Forms.TreeView.ImageList%2A> property and referencing the index value of an <xref:System.Drawing.Image> in the <xref:System.Windows.Forms.ImageList> to assign that <xref:System.Drawing.Image>. Use the following properties to assign images:  \n  \n-   Set the <xref:System.Windows.Forms.TreeView.ImageIndex%2A> property to the index value of the <xref:System.Drawing.Image> that you want to display when a tree node is not selected.  \n  \n-   Set the <xref:System.Windows.Forms.TreeView.SelectedImageIndex%2A> property to the index value of the <xref:System.Drawing.Image> that you want to display when a tree node is selected.  \n  \n The images referenced by the <xref:System.Windows.Forms.TreeView.ImageIndex%2A> and <xref:System.Windows.Forms.TreeView.SelectedImageIndex%2A> property values are the default images displayed by all the tree nodes that are assigned to the <xref:System.Windows.Forms.TreeView.Nodes%2A> collection. Individual tree nodes can override the default images by setting the <xref:System.Windows.Forms.TreeNode.ImageIndex%2A?displayProperty=fullName> and <xref:System.Windows.Forms.TreeNode.SelectedImageIndex%2A?displayProperty=fullName> properties.  \n  \n The state images displayed in the <xref:System.Windows.Forms.TreeView> are 16 x 16 pixels by default. Setting the <xref:System.Windows.Forms.ImageList.ImageSize%2A> property of the <xref:System.Windows.Forms.TreeView.StateImageList%2A> will have no effect on how the images are displayed. However, the state images are resized according to the system DPI setting when the app.config file contains the following entry:  \n  \n```  \n<appSettings>  \n  <add key=\"EnableWindowsFormsHighDpiAutoResizing\" value=\"true\" />  \n</appSettings>  \n  \n```  \n  \n Tree nodes can be expanded to display the next level of child tree nodes. The user can expand the <xref:System.Windows.Forms.TreeNode> by clicking the plus-sign (+) button, if one is displayed next to the <xref:System.Windows.Forms.TreeNode>, or you can expand the <xref:System.Windows.Forms.TreeNode> by calling the <xref:System.Windows.Forms.TreeNode.Expand%2A?displayProperty=fullName> method. To expand all the child tree node levels in the <xref:System.Windows.Forms.TreeNode.Nodes%2A> collection, call the <xref:System.Windows.Forms.TreeNode.ExpandAll%2A> method. You can collapse the child <xref:System.Windows.Forms.TreeNode> level by calling the <xref:System.Windows.Forms.TreeNode.Collapse%2A?displayProperty=fullName> method, or the user can press the minus-sign (-) button, if one is displayed next to the <xref:System.Windows.Forms.TreeNode>. You can also call the <xref:System.Windows.Forms.TreeNode.Toggle%2A?displayProperty=fullName> method to alternate between the expanded and collapsed states.  \n  \n Tree nodes can optionally display check boxes. To display the check boxes, set the <xref:System.Windows.Forms.TreeView.CheckBoxes%2A> property of the <xref:System.Windows.Forms.TreeView> to `true`. The <xref:System.Windows.Forms.TreeNode.Checked%2A> property is set to `true` for tree nodes that are in a checked state.  \n  \n> [!NOTE]\n>  Setting the <xref:System.Windows.Forms.TreeNode.Checked%2A?displayProperty=fullName> property from within the <xref:System.Windows.Forms.TreeView.BeforeCheck> or <xref:System.Windows.Forms.TreeView.AfterCheck> event causes the event to be raised multiple times and can result in unexpected behavior. For example, you might set the <xref:System.Windows.Forms.TreeNode.Checked%2A> property in the event handler when you are recursively updating the child nodes so that the user does not have to expand and check each one individually. To prevent the event from being raised multiple times, add logic to your event handler that only executes your recursive code if the <xref:System.Windows.Forms.TreeViewEventArgs.Action%2A> property of the <xref:System.Windows.Forms.TreeViewEventArgs> is not set to <xref:System.Windows.Forms.TreeViewAction?displayProperty=fullName>. For an example of how to do this, see the Example section of the <xref:System.Windows.Forms.TreeView.AfterCheck> or <xref:System.Windows.Forms.TreeView.BeforeCheck> events.  \n  \n You can change the appearance of the <xref:System.Windows.Forms.TreeView> control by setting some of its display and style properties. Setting <xref:System.Windows.Forms.TreeView.ShowPlusMinus%2A> to `true` displays a plus-sign or minus-sign button next to each <xref:System.Windows.Forms.TreeNode> that can be expanded or collapsed, respectively. Setting the <xref:System.Windows.Forms.TreeView.ShowRootLines%2A> property to `true` causes the <xref:System.Windows.Forms.TreeView> to display lines that join all the root tree nodes together. You can display lines that connect child tree nodes to their root node by setting the <xref:System.Windows.Forms.TreeView.ShowLines%2A> property to `true`. Setting the <xref:System.Windows.Forms.TreeView.HotTracking%2A> property to `true` changes the appearance of the tree node labels as the mouse pointer passes over them. When hot-tracked, the tree node labels take on the appearance of a hyperlink. You can also completely customize the appearance of the <xref:System.Windows.Forms.TreeView> control. To do this, set the <xref:System.Windows.Forms.TreeView.DrawMode%2A> property to a value other than <xref:System.Windows.Forms.TreeViewDrawMode?displayProperty=fullName> and handle the <xref:System.Windows.Forms.TreeView.DrawNode> event.  \n  \n> [!NOTE]\n>  When setting the <xref:System.Windows.Forms.TreeView.CheckBoxes%2A>, <xref:System.Windows.Forms.TreeView.Scrollable%2A>, <xref:System.Windows.Forms.TreeView.ImageIndex%2A>, and <xref:System.Windows.Forms.TreeView.SelectedImageIndex%2A> properties at run time, the <xref:System.Windows.Forms.TreeView> handle is recreated (see <xref:System.Windows.Forms.Control.RecreateHandle%2A?displayProperty=fullName>) to update the control's appearance. This causes all tree nodes to be collapsed, except for the selected <xref:System.Windows.Forms.TreeNode>."
   example:
   - "The following code example demonstrates the use of the <xref:System.Windows.Forms.TreeView> control.  \n  \n [!code-csharp[TreeViewMisc#10](~/samples/snippets/csharp/VS_Snippets_Winforms/TreeViewMisc/cs/form1.cs#10)]\n [!code-vb[TreeViewMisc#10](~/samples/snippets/visualbasic/VS_Snippets_Winforms/TreeViewMisc/vb/form1.vb#10)]  \n  \n The following, more complex code example displays customer information in a <xref:System.Windows.Forms.TreeView> control. The root tree nodes display customer names, and the child tree nodes display the order numbers assigned to each customer. In this example, 1,000 customers are displayed with 15 orders each. The repainting of the <xref:System.Windows.Forms.TreeView> is suppressed by using the <xref:System.Windows.Forms.TreeView.BeginUpdate%2A> and <xref:System.Windows.Forms.TreeView.EndUpdate%2A> methods, and a wait <xref:System.Windows.Forms.Cursor> is displayed while the <xref:System.Windows.Forms.TreeView> creates and paints the <xref:System.Windows.Forms.TreeNode> objects. This example requires that you have a `Customer` object that can hold a collection of `Order` objects. It also requires that you have a cursor file that is named `MyWait.cur` in the application directory and that you have created an instance of a <xref:System.Windows.Forms.TreeView> control on a <xref:System.Windows.Forms.Form>.  \n  \n [!code-cpp[TreeView#1](~/samples/snippets/cpp/VS_Snippets_Winforms/TreeView/CPP/treeview.cpp#1)]\n [!code-csharp[TreeView#1](~/samples/snippets/csharp/VS_Snippets_Winforms/TreeView/CS/treeview.cs#1)]\n [!code-vb[TreeView#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/TreeView/VB/treeview.vb#1)]"
@@ -629,7 +629,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Occurs after the tree node is collapsed.
-  remarks: For more information about how to handle events, see [Handling and Raising Events](http://msdn.microsoft.com/library/b6f65241-e0ad-4590-a99f-200ce741bb1f).
+  remarks: 'For more information about how to handle events, see [Handling and Raising Events](http://msdn.microsoft.com/library/b6f65241-e0ad-4590-a99f-200ce741bb1f).'
   example:
   - "The following code example updates all the child tree nodes of a <xref:System.Windows.Forms.TreeNode> when the user changes its checked state. This code requires that you have a <xref:System.Windows.Forms.Form> with a <xref:System.Windows.Forms.TreeView> that has <xref:System.Windows.Forms.TreeNode> objects in its <xref:System.Windows.Forms.TreeNodeCollection>. The <xref:System.Windows.Forms.TreeNodeCollection> should have tree nodes with child nodes.  \n  \n [!code-cpp[TreeView.AfterCheck_BeforeCheck#1](~/samples/snippets/cpp/VS_Snippets_Winforms/TreeView.AfterCheck_BeforeCheck/CPP/tn_checked.cpp#1)]\n [!code-csharp[TreeView.AfterCheck_BeforeCheck#1](~/samples/snippets/csharp/VS_Snippets_Winforms/TreeView.AfterCheck_BeforeCheck/CS/tn_checked.cs#1)]\n [!code-vb[TreeView.AfterCheck_BeforeCheck#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/TreeView.AfterCheck_BeforeCheck/VB/tn_checked.vb#1)]"
   syntax:
@@ -674,7 +674,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Occurs after the tree node is expanded.
-  remarks: For more information about how to handle events, see [Handling and Raising Events](http://msdn.microsoft.com/library/b6f65241-e0ad-4590-a99f-200ce741bb1f).
+  remarks: 'For more information about how to handle events, see [Handling and Raising Events](http://msdn.microsoft.com/library/b6f65241-e0ad-4590-a99f-200ce741bb1f).'
   example:
   - "The following code example demonstrates the use of this member. In the example, an event handler reports on the occurrence of the <xref:System.Windows.Forms.TreeView.AfterExpand> event. This report helps you learn when the event occurs and can assist you in debugging. To report on multiple events or on events that occur frequently, consider replacing <xref:System.Windows.Forms.MessageBox.Show%2A?displayProperty=fullName> with <xref:System.Console.WriteLine%2A?displayProperty=fullName> or appending the message to a multiline <xref:System.Windows.Forms.TextBox>.  \n  \n To run the example code, paste it into a project that contains an instance of type <xref:System.Windows.Forms.TreeView> named `TreeView1`. Then ensure that the event handler is associated with the <xref:System.Windows.Forms.TreeView.AfterExpand> event.  \n  \n [!code-csharp[System.Windows.Forms.EventExamples#631](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.EventExamples/CS/EventExamples.cs#631)]\n [!code-vb[System.Windows.Forms.EventExamples#631](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.EventExamples/VB/EventExamples.vb#631)]"
   syntax:
@@ -719,7 +719,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Occurs after the tree node label text is edited.
-  remarks: For more information about how to handle events, see [Handling and Raising Events](http://msdn.microsoft.com/library/b6f65241-e0ad-4590-a99f-200ce741bb1f).
+  remarks: 'For more information about how to handle events, see [Handling and Raising Events](http://msdn.microsoft.com/library/b6f65241-e0ad-4590-a99f-200ce741bb1f).'
   example:
   - "The following code example lets the user edit nonroot tree nodes by using a <xref:System.Windows.Forms.ContextMenu>. When the user right clicks the mouse, the <xref:System.Windows.Forms.TreeNode> at that position is determined and stored in a variable named `mySelectedNode`. If a nonroot tree node was selected, it is put into an editable state, which allows the user to edit the node label. After the user stops editing the tree node label, the new label text is evaluated and saved. For this example, several characters are considered not valid in the label text. If one of the invalid characters is in the label string, or the string is empty, the user is notified of the error and the label is returned to its previous text.  \n  \n [!code-cpp[classic treenode.beginedit example#1](~/samples/snippets/cpp/VS_Snippets_CLR_Classic/classic TreeNode.BeginEdit Example/CPP/source.cpp#1)]\n [!code-csharp[classic treenode.beginedit example#1](~/samples/snippets/csharp/VS_Snippets_CLR_Classic/classic TreeNode.BeginEdit Example/CS/source.cs#1)]\n [!code-vb[classic treenode.beginedit example#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_Classic/classic TreeNode.BeginEdit Example/VB/source.vb#1)]"
   syntax:
@@ -1088,7 +1088,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Occurs before the tree node is collapsed.
-  remarks: For more information about how to handle events, see [Handling and Raising Events](http://msdn.microsoft.com/library/b6f65241-e0ad-4590-a99f-200ce741bb1f).
+  remarks: 'For more information about how to handle events, see [Handling and Raising Events](http://msdn.microsoft.com/library/b6f65241-e0ad-4590-a99f-200ce741bb1f).'
   example:
   - "The following code example demonstrates how to change the collapse state of a <xref:System.Windows.Forms.TreeView> so that all the checked nodes are visible. First, all the nodes are expanded, and a handler is added for the <xref:System.Windows.Forms.TreeView.BeforeCollapse> event. Next, all the nodes are collapsed. The <xref:System.Windows.Forms.TreeView.BeforeCollapse> event handler determines whether a given node has child nodes that are checked. If a node has checked children, the collapse is canceled for that node. In order to allow standard node collapse when the minus sign next to a node is clicked, the <xref:System.Windows.Forms.TreeView.BeforeCollapse> event handler is then removed.  \n  \n This behavior can also be implemented by handling the <xref:System.Windows.Forms.TreeView.BeforeExpand> event, as illustrated in the example for that topic.  \n  \n For the complete example, see the <xref:System.Windows.Forms.TreeView.%23ctor%2A> constructor reference topic.  \n  \n [!code-cpp[TreeViewShowCheckedNodes2#2](~/samples/snippets/cpp/VS_Snippets_Winforms/TreeViewShowCheckedNodes2/CPP/treeviewshowcheckednodes2.cpp#2)]\n [!code-csharp[TreeViewShowCheckedNodes2#2](~/samples/snippets/csharp/VS_Snippets_Winforms/TreeViewShowCheckedNodes2/CS/treeviewshowcheckednodes2.cs#2)]\n [!code-vb[TreeViewShowCheckedNodes2#2](~/samples/snippets/visualbasic/VS_Snippets_Winforms/TreeViewShowCheckedNodes2/VB/treeviewshowcheckednodes2.vb#2)]"
   syntax:
@@ -1133,7 +1133,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Occurs before the tree node is expanded.
-  remarks: For more information about how to handle events, see [Handling and Raising Events](http://msdn.microsoft.com/library/b6f65241-e0ad-4590-a99f-200ce741bb1f).
+  remarks: 'For more information about how to handle events, see [Handling and Raising Events](http://msdn.microsoft.com/library/b6f65241-e0ad-4590-a99f-200ce741bb1f).'
   example:
   - "The following code example demonstrates how to change the collapse state of a <xref:System.Windows.Forms.TreeView> so that all the checked nodes are visible. First, all the nodes are collapsed, and a handler is added for the <xref:System.Windows.Forms.TreeView.BeforeExpand> event. Next, all the nodes are expanded. The <xref:System.Windows.Forms.TreeView.BeforeExpand> event handler determines whether a given node has child nodes that are checked. If a node does not have checked children, the expansion is canceled for that node. In order to allow standard node expansion when the plus sign next to a node is clicked, the <xref:System.Windows.Forms.TreeView.BeforeExpand> event handler is then removed.  \n  \n This behavior can also be implemented by handling the <xref:System.Windows.Forms.TreeView.BeforeCollapse> event, as illustrated in the example for that topic.  \n  \n For the complete example, see the <xref:System.Windows.Forms.TreeView.CheckBoxes%2A> reference topic.  \n  \n [!code-cpp[TreeViewShowCheckedNodes1#2](~/samples/snippets/cpp/VS_Snippets_Winforms/TreeViewShowCheckedNodes1/CPP/treeviewshowcheckednodes1.cpp#2)]\n [!code-csharp[TreeViewShowCheckedNodes1#2](~/samples/snippets/csharp/VS_Snippets_Winforms/TreeViewShowCheckedNodes1/CS/treeviewshowcheckednodes1.cs#2)]\n [!code-vb[TreeViewShowCheckedNodes1#2](~/samples/snippets/visualbasic/VS_Snippets_Winforms/TreeViewShowCheckedNodes1/VB/treeviewshowcheckednodes1.vb#2)]"
   syntax:
@@ -1178,7 +1178,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Occurs before the tree node label text is edited.
-  remarks: For more information about how to handle events, see [Handling and Raising Events](http://msdn.microsoft.com/library/b6f65241-e0ad-4590-a99f-200ce741bb1f).
+  remarks: 'For more information about how to handle events, see [Handling and Raising Events](http://msdn.microsoft.com/library/b6f65241-e0ad-4590-a99f-200ce741bb1f).'
   example:
   - "The following code example demonstrates how to use the <xref:System.Windows.Forms.TreeView.BeforeLabelEdit><xref:System.Windows.Forms.TreeView.AfterSelect> and <xref:System.Windows.Forms.TreeView.TopNode%2A> members. To run this example, paste the following code in a form that contains a `TreeView` control that is named `TreeView1`. Call the `InitializeTreeView` method in the form's constructor or `Load` method.  \n  \n [!code-cpp[System.Windows.Forms.TreeViewAndPrintPreview#1](~/samples/snippets/cpp/VS_Snippets_Winforms/System.Windows.Forms.TreeViewAndPrintPreview/CPP/form1.cpp#1)]\n [!code-csharp[System.Windows.Forms.TreeViewAndPrintPreview#1](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.TreeViewAndPrintPreview/CS/form1.cs#1)]\n [!code-vb[System.Windows.Forms.TreeViewAndPrintPreview#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.TreeViewAndPrintPreview/VB/form1.vb#1)]  \n[!code-cpp[System.Windows.Forms.TreeViewAndPrintPreview#2](~/samples/snippets/cpp/VS_Snippets_Winforms/System.Windows.Forms.TreeViewAndPrintPreview/CPP/form1.cpp#2)]\n[!code-csharp[System.Windows.Forms.TreeViewAndPrintPreview#2](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.TreeViewAndPrintPreview/CS/form1.cs#2)]\n[!code-vb[System.Windows.Forms.TreeViewAndPrintPreview#2](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.TreeViewAndPrintPreview/VB/form1.vb#2)]"
   syntax:
@@ -1223,7 +1223,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Occurs before the tree node is selected.
-  remarks: For more information about how to handle events, see [Handling and Raising Events](http://msdn.microsoft.com/library/b6f65241-e0ad-4590-a99f-200ce741bb1f).
+  remarks: 'For more information about how to handle events, see [Handling and Raising Events](http://msdn.microsoft.com/library/b6f65241-e0ad-4590-a99f-200ce741bb1f).'
   example:
   - "The following code example demonstrates the use of this member. In the example, an event handler reports on the occurrence of the <xref:System.Windows.Forms.TreeView.BeforeSelect> event. This report helps you learn when the event occurs and can assist you in debugging. To report on multiple events or on events that occur frequently, consider replacing <xref:System.Windows.Forms.MessageBox.Show%2A?displayProperty=fullName> with <xref:System.Console.WriteLine%2A?displayProperty=fullName> or appending the message to a multiline <xref:System.Windows.Forms.TextBox>.  \n  \n To run the example code, paste it into a project that contains an instance of type <xref:System.Windows.Forms.TreeView> named `TreeView1`. Then ensure that the event handler is associated with the <xref:System.Windows.Forms.TreeView.BeforeSelect> event.  \n  \n [!code-csharp[System.Windows.Forms.EventExamples#635](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.EventExamples/CS/EventExamples.cs#635)]\n [!code-vb[System.Windows.Forms.EventExamples#635](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.EventExamples/VB/EventExamples.vb#635)]"
   syntax:
@@ -1312,7 +1312,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets the border style of the tree view control.
-  remarks: When the <xref:System.Windows.Forms.TreeView.BorderStyle%2A> property is set to <xref:System.Windows.Forms.BorderStyle.Fixed3D>, the <xref:System.Windows.Forms.TreeView> has a sunken, three-dimensional appearance. To display a flat, thin border around the <xref:System.Windows.Forms.TreeView> control, set the <xref:System.Windows.Forms.BorderStyle> property to <xref:System.Windows.Forms.BorderStyle.FixedSingle>.
+  remarks: 'When the <xref:System.Windows.Forms.TreeView.BorderStyle%2A> property is set to <xref:System.Windows.Forms.BorderStyle.Fixed3D>, the <xref:System.Windows.Forms.TreeView> has a sunken, three-dimensional appearance. To display a flat, thin border around the <xref:System.Windows.Forms.TreeView> control, set the <xref:System.Windows.Forms.BorderStyle> property to <xref:System.Windows.Forms.BorderStyle.FixedSingle>.'
   example:
   - "The following code example demonstrates how to use the <xref:System.Windows.Forms.BorderStyle> enumeration and the <xref:System.Windows.Forms.TreeView.BorderStyle%2A>, <xref:System.Windows.Forms.TreeView.ShowLines%2A>, <xref:System.Windows.Forms.TreeView.Scrollable%2A>, <xref:System.Windows.Forms.TreeView.HideSelection%2A> and <xref:System.Windows.Forms.TreeView.ShowRootLines%2A> properties. To run this example, paste the following code in a form and call the `InitializeTreeView` method in the form's constructor or `Load` method.  \n  \n [!code-cpp[System.Windows.Forms.TreeViewExample#1](~/samples/snippets/cpp/VS_Snippets_Winforms/System.Windows.Forms.TreeViewExample/CPP/form1.cpp#1)]\n [!code-csharp[System.Windows.Forms.TreeViewExample#1](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.TreeViewExample/CS/form1.cs#1)]\n [!code-vb[System.Windows.Forms.TreeViewExample#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.TreeViewExample/VB/form1.vb#1)]"
   syntax:
@@ -1623,7 +1623,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets a value indicating whether the control should redraw its surface using a secondary buffer. The <xref href="System.Windows.Forms.TreeView.DoubleBuffered"></xref> property does not affect the <xref href="System.Windows.Forms.TreeView"></xref> control.
-  remarks: Setting the <xref:System.Windows.Forms.TreeView.DoubleBuffered%2A> property does not affect the <xref:System.Windows.Forms.TreeView> control. If you want to reduce flicker when the <xref:System.Windows.Forms.TreeView> is drawn, use the <xref:System.Windows.Forms.TreeView.BeginUpdate%2A> and <xref:System.Windows.Forms.TreeView.EndUpdate%2A> methods.
+  remarks: 'Setting the <xref:System.Windows.Forms.TreeView.DoubleBuffered%2A> property does not affect the <xref:System.Windows.Forms.TreeView> control. If you want to reduce flicker when the <xref:System.Windows.Forms.TreeView> is drawn, use the <xref:System.Windows.Forms.TreeView.BeginUpdate%2A> and <xref:System.Windows.Forms.TreeView.EndUpdate%2A> methods.'
   syntax:
     content: protected override bool DoubleBuffered { get; set; }
     return:
@@ -1668,7 +1668,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets the mode in which the control is drawn.
-  remarks: The nodes of a <xref:System.Windows.Forms.TreeView> are typically drawn by the operating system. The <xref:System.Windows.Forms.TreeView.DrawMode%2A> property lets you customize the appearance of the nodes. To do this, set <xref:System.Windows.Forms.TreeView.DrawMode%2A> to <xref:System.Windows.Forms.TreeViewDrawMode?displayProperty=fullName> or <xref:System.Windows.Forms.TreeViewDrawMode?displayProperty=fullName> and provide a handler for the <xref:System.Windows.Forms.TreeView.DrawNode> event. This is called owner drawing.
+  remarks: 'The nodes of a <xref:System.Windows.Forms.TreeView> are typically drawn by the operating system. The <xref:System.Windows.Forms.TreeView.DrawMode%2A> property lets you customize the appearance of the nodes. To do this, set <xref:System.Windows.Forms.TreeView.DrawMode%2A> to <xref:System.Windows.Forms.TreeViewDrawMode?displayProperty=fullName> or <xref:System.Windows.Forms.TreeViewDrawMode?displayProperty=fullName> and provide a handler for the <xref:System.Windows.Forms.TreeView.DrawNode> event. This is called owner drawing.'
   example:
   - "The following code example demonstrates how to customize a <xref:System.Windows.Forms.TreeView> control using owner drawing. The <xref:System.Windows.Forms.TreeView> control in the example displays optional node tags alongside the standard node labels. Node tags are specified by using the <xref:System.Windows.Forms.TreeNode.Tag%2A?displayProperty=fullName> property. The <xref:System.Windows.Forms.TreeView> control also uses custom colors, which include a custom highlight color.  \n  \n You can customize most of the <xref:System.Windows.Forms.TreeView> colors by setting color properties, but the selection highlight color is not available as a property. Additionally, the default selection highlight rectangle extends only around a node label. Owner drawing must be used to draw the node tags and to draw a customized highlight rectangle large enough to include a node tag.  \n  \n For the complete example, see the <xref:System.Windows.Forms.TreeView.DrawNode> reference topic.  \n  \n [!code-cpp[TreeViewOwnerDraw#2](~/samples/snippets/cpp/VS_Snippets_Winforms/TreeViewOwnerDraw/CPP/treeviewownerdraw.cpp#2)]\n [!code-csharp[TreeViewOwnerDraw#2](~/samples/snippets/csharp/VS_Snippets_Winforms/TreeViewOwnerDraw/CS/treeviewownerdraw.cs#2)]\n [!code-vb[TreeViewOwnerDraw#2](~/samples/snippets/visualbasic/VS_Snippets_Winforms/TreeViewOwnerDraw/VB/treeviewownerdraw.vb#2)]"
   syntax:
@@ -1893,7 +1893,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets a value indicating whether the selection highlight spans the width of the tree view control.
-  remarks: When <xref:System.Windows.Forms.TreeView.FullRowSelect%2A> is `true`, a selection highlight spans the entire width of the tree view, display instead of the width of just the tree node label. The <xref:System.Windows.Forms.TreeView.FullRowSelect%2A> property is ignored if <xref:System.Windows.Forms.TreeView.ShowLines%2A> is set to `true`.
+  remarks: 'When <xref:System.Windows.Forms.TreeView.FullRowSelect%2A> is `true`, a selection highlight spans the entire width of the tree view, display instead of the width of just the tree node label. The <xref:System.Windows.Forms.TreeView.FullRowSelect%2A> property is ignored if <xref:System.Windows.Forms.TreeView.ShowLines%2A> is set to `true`.'
   example:
   - "The following code example illustrates a customized <xref:System.Windows.Forms.TreeView>. By inheriting the <xref:System.Windows.Forms.TreeView> class, this custom version has all the functionality of a typical <xref:System.Windows.Forms.TreeView>. Changing various property values in the constructor provides a unique appearance. Because the <xref:System.Windows.Forms.TreeView.ShowPlusMinus%2A> property is set to `false`, the customized control also overrides the <xref:System.Windows.Forms.TreeView.OnAfterSelect%2A> method so nodes can be expanded and collapsed when they are clicked.  \n  \n A control that is customized in this way can be used throughout an organization, making it easy to provide a consistent interface without requiring the control properties to be specified in each individual project.  \n  \n [!code-cpp[TreeViewCustomization#2](~/samples/snippets/cpp/VS_Snippets_Winforms/TreeViewCustomization/CPP/treeviewcustomization.cpp#2)]\n [!code-csharp[TreeViewCustomization#2](~/samples/snippets/csharp/VS_Snippets_Winforms/TreeViewCustomization/CS/treeviewcustomization.cs#2)]\n [!code-vb[TreeViewCustomization#2](~/samples/snippets/visualbasic/VS_Snippets_Winforms/TreeViewCustomization/VB/treeviewcustomization.vb#2)]"
   syntax:
@@ -1989,7 +1989,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Retrieves the tree node that is at the specified point.
-  remarks: You can pass the <xref:System.Windows.Forms.MouseEventArgs.X%2A?displayProperty=fullName> and <xref:System.Windows.Forms.MouseEventArgs.Y%2A?displayProperty=fullName> coordinates of the <xref:System.Windows.Forms.Control.MouseDown> event as the <xref:System.Drawing.Point.X%2A> and <xref:System.Drawing.Point.Y%2A> values of a new <xref:System.Drawing.Point>.
+  remarks: 'You can pass the <xref:System.Windows.Forms.MouseEventArgs.X%2A?displayProperty=fullName> and <xref:System.Windows.Forms.MouseEventArgs.Y%2A?displayProperty=fullName> coordinates of the <xref:System.Windows.Forms.Control.MouseDown> event as the <xref:System.Drawing.Point.X%2A> and <xref:System.Drawing.Point.Y%2A> values of a new <xref:System.Drawing.Point>.'
   syntax:
     content: public System.Windows.Forms.TreeNode GetNodeAt (System.Drawing.Point pt);
     parameters:
@@ -1998,7 +1998,7 @@ items:
       description: The <xref href="System.Drawing.Point"></xref> to evaluate and retrieve the node from.
     return:
       type: System.Windows.Forms.TreeNode
-      description: The <xref href="System.Windows.Forms.TreeNode"></xref> at the specified point, in tree view (client) coordinates, or `null` if there is no node at that location.
+      description: 'The <xref href="System.Windows.Forms.TreeNode"></xref> at the specified point, in tree view (client) coordinates, or `null` if there is no node at that location.'
   overload: System.Windows.Forms.TreeView.GetNodeAt*
   exceptions: []
   version:
@@ -2036,7 +2036,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Retrieves the tree node at the point with the specified coordinates.
-  remarks: You can pass the <xref:System.Windows.Forms.MouseEventArgs.X%2A?displayProperty=fullName> and <xref:System.Windows.Forms.MouseEventArgs.Y%2A?displayProperty=fullName> coordinates of the <xref:System.Windows.Forms.Control.MouseDown> event as the `x` and `y` parameters.
+  remarks: 'You can pass the <xref:System.Windows.Forms.MouseEventArgs.X%2A?displayProperty=fullName> and <xref:System.Windows.Forms.MouseEventArgs.Y%2A?displayProperty=fullName> coordinates of the <xref:System.Windows.Forms.Control.MouseDown> event as the `x` and `y` parameters.'
   example:
   - "The following code example lets the user edit nonroot tree nodes by using a <xref:System.Windows.Forms.ContextMenu>. When the user right clicks the mouse, the <xref:System.Windows.Forms.TreeNode> at that position is determined and stored in a variable named `mySelectedNode`. If a nonroot tree node was selected, it is put into an editable state, which allows the user to edit the node label. After the user stops editing the tree node label, the new label text is evaluated and saved. For this example, several characters are considered not valid in the label text. If one of the invalid characters is in the label string, or the string is empty, the user is notified of the error and the label is returned to its previous text.  \n  \n [!code-cpp[classic treenode.beginedit example#1](~/samples/snippets/cpp/VS_Snippets_CLR_Classic/classic TreeNode.BeginEdit Example/CPP/source.cpp#1)]\n [!code-csharp[classic treenode.beginedit example#1](~/samples/snippets/csharp/VS_Snippets_CLR_Classic/classic TreeNode.BeginEdit Example/CS/source.cs#1)]\n [!code-vb[classic treenode.beginedit example#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_Classic/classic TreeNode.BeginEdit Example/VB/source.vb#1)]"
   syntax:
@@ -2050,7 +2050,7 @@ items:
       description: The <xref href="System.Drawing.Point.Y"></xref> position to evaluate and retrieve the node from.
     return:
       type: System.Windows.Forms.TreeNode
-      description: The <xref href="System.Windows.Forms.TreeNode"></xref> at the specified location, in tree view (client) coordinates, or `null` if there is no node at that location.
+      description: 'The <xref href="System.Windows.Forms.TreeNode"></xref> at the specified location, in tree view (client) coordinates, or `null` if there is no node at that location.'
   overload: System.Windows.Forms.TreeView.GetNodeAt*
   exceptions: []
   version:
@@ -2088,8 +2088,8 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Retrieves the number of tree nodes, optionally including those in all subtrees, assigned to the tree view control.
-  remarks: If `includeSubTrees` is `true`, the result is the number of all the tree nodes in the entire tree structure.
+  summary: 'Retrieves the number of tree nodes, optionally including those in all subtrees, assigned to the tree view control.'
+  remarks: 'If `includeSubTrees` is `true`, the result is the number of all the tree nodes in the entire tree structure.'
   example:
   - "The following code example sets the <xref:System.Windows.Forms.TreeView.PathSeparator%2A> property of a <xref:System.Windows.Forms.TreeView> and displays the number of child tree nodes that are contained in the <xref:System.Windows.Forms.TreeNodeCollection> of the <xref:System.Windows.Forms.TreeView.SelectedNode%2A>. The percentage of child tree node to total tree nodes in the tree view control is also displayed. This example requires that you have a <xref:System.Windows.Forms.Form> with a <xref:System.Windows.Forms.Button>, and a <xref:System.Windows.Forms.TreeView> control with a <xref:System.Windows.Forms.TreeNodeCollection> that has several <xref:System.Windows.Forms.TreeNode> objects (preferably with three or more levels).  \n  \n [!code-cpp[TreeNode_ForeColor#2](~/samples/snippets/cpp/VS_Snippets_Winforms/TreeNode_ForeColor/CPP/treenode_forecolor.cpp#2)]\n [!code-csharp[TreeNode_ForeColor#2](~/samples/snippets/csharp/VS_Snippets_Winforms/TreeNode_ForeColor/CS/treenode_forecolor.cs#2)]\n [!code-vb[TreeNode_ForeColor#2](~/samples/snippets/visualbasic/VS_Snippets_Winforms/TreeNode_ForeColor/VB/treenode_forecolor.vb#2)]"
   syntax:
@@ -2100,7 +2100,7 @@ items:
       description: '`true` to count the <xref href="System.Windows.Forms.TreeNode"></xref> items that the subtrees contain; otherwise, `false`.'
     return:
       type: System.Int32
-      description: The number of tree nodes, optionally including those in all subtrees, assigned to the tree view control.
+      description: 'The number of tree nodes, optionally including those in all subtrees, assigned to the tree view control.'
   overload: System.Windows.Forms.TreeView.GetNodeCount*
   exceptions: []
   version:
@@ -2185,8 +2185,8 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Provides node information, given x- and y-coordinates.
-  remarks: Use this method to determine whether a set of x- and y-coordinates is located in a <xref:System.Windows.Forms.TreeNode> and where within the node the point is located, such as on the label or image area.
+  summary: 'Provides node information, given x- and y-coordinates.'
+  remarks: 'Use this method to determine whether a set of x- and y-coordinates is located in a <xref:System.Windows.Forms.TreeNode> and where within the node the point is located, such as on the label or image area.'
   example:
   - "The following code example code demonstrates how to use the <xref:System.Windows.Forms.TreeNode.Level%2A>, <xref:System.Windows.Forms.TreeViewHitTestInfo.Node%2A>, and <xref:System.Windows.Forms.TreeView.HitTest%2A> members. To run this example, create a Windows Form that contains a <xref:System.Windows.Forms.TreeView> named `treeView1` and populate it with several levels of nodes. Paste the following code into the form and associate the <xref:System.Windows.Forms.Control.MouseDown> event of `treeView1` with the `treeView1_MouseDown` method in this example.  \n  \n [!code-cpp[System.Windows.Forms.TreeViewWhidbeyMembers#3](~/samples/snippets/cpp/VS_Snippets_Winforms/System.Windows.Forms.TreeViewWhidbeyMembers/cpp/Form1.cpp#3)]\n [!code-csharp[System.Windows.Forms.TreeViewWhidbeyMembers#3](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.TreeViewWhidbeyMembers/CS/Form1.cs#3)]\n [!code-vb[System.Windows.Forms.TreeViewWhidbeyMembers#3](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.TreeViewWhidbeyMembers/VB/Form1.vb#3)]"
   syntax:
@@ -2237,8 +2237,8 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Provides node information, given a point.
-  remarks: Use this method to determine whether a point is located in a <xref:System.Windows.Forms.TreeNode> and where within the node the point is located, such as on the label or image area.
+  summary: 'Provides node information, given a point.'
+  remarks: 'Use this method to determine whether a point is located in a <xref:System.Windows.Forms.TreeNode> and where within the node the point is located, such as on the label or image area.'
   syntax:
     content: public System.Windows.Forms.TreeViewHitTestInfo HitTest (System.Drawing.Point pt);
     parameters:
@@ -2496,7 +2496,7 @@ items:
     content: public int Indent { get; set; }
     return:
       type: System.Int32
-      description: The distance, in pixels, to indent each child tree node level. The default value is 19.
+      description: 'The distance, in pixels, to indent each child tree node level. The default value is 19.'
   overload: System.Windows.Forms.TreeView.Indent*
   exceptions:
   - type: System.ArgumentOutOfRangeException
@@ -2539,7 +2539,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Determines whether the specified key is a regular input key or a special key that requires preprocessing.
-  remarks: If the user is editing a tree node, the <xref:System.Windows.Forms.TreeView> control treats keys such as ENTER, ESC, HOME, and END as input keys.
+  remarks: 'If the user is editing a tree node, the <xref:System.Windows.Forms.TreeView> control treats keys such as ENTER, ESC, HOME, and END as input keys.'
   syntax:
     content: protected override bool IsInputKey (System.Windows.Forms.Keys keyData);
     parameters:
@@ -2587,7 +2587,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Occurs when the user begins dragging a node.
-  remarks: For more information about handling events, see [Handling and Raising Events](http://msdn.microsoft.com/library/b6f65241-e0ad-4590-a99f-200ce741bb1f).
+  remarks: 'For more information about handling events, see [Handling and Raising Events](http://msdn.microsoft.com/library/b6f65241-e0ad-4590-a99f-200ce741bb1f).'
   example:
   - "The following code example demonstrates how to enable drag-and-drop operations within a <xref:System.Windows.Forms.TreeView> control. In this example, any node can be dragged to another node that is not a descendant of the dragged node. The dragged node, which includes all its descendant nodes, becomes a child of the destination node. When the left mouse button is used, the dragged node is moved to the destination node. When the right mouse button is used, the dragged node is copied to the destination node.  \n  \n [!code-cpp[TreeViewDragDrop#1](~/samples/snippets/cpp/VS_Snippets_Winforms/TreeViewDragDrop/CPP/treeviewdragdrop.cpp#1)]\n [!code-csharp[TreeViewDragDrop#1](~/samples/snippets/csharp/VS_Snippets_Winforms/TreeViewDragDrop/CS/treeviewdragdrop.cs#1)]\n [!code-vb[TreeViewDragDrop#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/TreeViewDragDrop/VB/treeviewdragdrop.vb#1)]"
   syntax:
@@ -2632,14 +2632,14 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets the height of each tree node in the tree view control.
-  remarks: If the item height is set to a value larger than the height of the tree view control, calling the <xref:System.Windows.Forms.TreeNode.EnsureVisible%2A?displayProperty=fullName> method will have unexpected results.
+  remarks: 'If the item height is set to a value larger than the height of the tree view control, calling the <xref:System.Windows.Forms.TreeNode.EnsureVisible%2A?displayProperty=fullName> method will have unexpected results.'
   example:
   - "The following code example changes the size <xref:System.Windows.Forms.TreeNode.NodeFont%2A> to the specified size and adjusts the <xref:System.Windows.Forms.TreeView.ItemHeight%2A> of the tree node's parent <xref:System.Windows.Forms.TreeView> control. This example requires that you have a <xref:System.Windows.Forms.Form> with a <xref:System.Windows.Forms.TreeView> control with a collection of <xref:System.Windows.Forms.TreeNode> objects, and a <xref:System.Windows.Forms.ComboBox> that contains font sizes.  \n  \n [!code-cpp[TreeNode_Bounds#2](~/samples/snippets/cpp/VS_Snippets_Winforms/TreeNode_Bounds/CPP/treenode_bounds.cpp#2)]\n [!code-csharp[TreeNode_Bounds#2](~/samples/snippets/csharp/VS_Snippets_Winforms/TreeNode_Bounds/CS/treenode_bounds.cs#2)]\n [!code-vb[TreeNode_Bounds#2](~/samples/snippets/visualbasic/VS_Snippets_Winforms/TreeNode_Bounds/VB/treenode_bounds.vb#2)]"
   syntax:
     content: public int ItemHeight { get; set; }
     return:
       type: System.Int32
-      description: The height, in pixels, of each tree node in the tree view.
+      description: 'The height, in pixels, of each tree node in the tree view.'
   overload: System.Windows.Forms.TreeView.ItemHeight*
   exceptions:
   - type: System.ArgumentOutOfRangeException
@@ -2681,7 +2681,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets a value indicating whether the label text of the tree nodes can be edited.
-  remarks: The <xref:System.Windows.Forms.TreeNode.BeginEdit%2A> method works only if the <xref:System.Windows.Forms.TreeView.LabelEdit%2A> property is `true`. If <xref:System.Windows.Forms.TreeView.LabelEdit%2A> is `false` when you attempt to edit the label, an exception will be thrown and the tree node will not be put in to an editable state.
+  remarks: 'The <xref:System.Windows.Forms.TreeNode.BeginEdit%2A> method works only if the <xref:System.Windows.Forms.TreeView.LabelEdit%2A> property is `true`. If <xref:System.Windows.Forms.TreeView.LabelEdit%2A> is `false` when you attempt to edit the label, an exception will be thrown and the tree node will not be put in to an editable state.'
   example:
   - "The following code example lets the user edit nonroot tree nodes by using a <xref:System.Windows.Forms.ContextMenu>. When the user right clicks the mouse, the <xref:System.Windows.Forms.TreeNode> at that position is determined and stored in a variable named `mySelectedNode`. If a nonroot tree node was selected, it is put into an editable state, which allows the user to edit the node label. After the user stops editing the tree node label, the new label text is evaluated and saved. For this example, several characters are considered not valid in the label text. If one of the invalid characters is in the label string, or the string is empty, the user is notified of the error and the label is returned to its previous text.  \n  \n [!code-cpp[classic treenode.beginedit example#1](~/samples/snippets/cpp/VS_Snippets_CLR_Classic/classic TreeNode.BeginEdit Example/CPP/source.cpp#1)]\n [!code-csharp[classic treenode.beginedit example#1](~/samples/snippets/csharp/VS_Snippets_CLR_Classic/classic TreeNode.BeginEdit Example/CS/source.cs#1)]\n [!code-vb[classic treenode.beginedit example#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_Classic/classic TreeNode.BeginEdit Example/VB/source.vb#1)]"
   syntax:
@@ -2909,7 +2909,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets the collection of tree nodes that are assigned to the tree view control.
-  remarks: The <xref:System.Windows.Forms.TreeView.Nodes%2A> property holds a collection of <xref:System.Windows.Forms.TreeNode> objects, each of which has a <xref:System.Windows.Forms.TreeNode.Nodes%2A> property that can contain its own <xref:System.Windows.Forms.TreeNodeCollection>. This nesting of tree nodes can make it difficult to navigate a tree structure, but the <xref:System.Windows.Forms.TreeNode.FullPath%2A> property makes it easier to determine your location within the tree structure.
+  remarks: 'The <xref:System.Windows.Forms.TreeView.Nodes%2A> property holds a collection of <xref:System.Windows.Forms.TreeNode> objects, each of which has a <xref:System.Windows.Forms.TreeNode.Nodes%2A> property that can contain its own <xref:System.Windows.Forms.TreeNodeCollection>. This nesting of tree nodes can make it difficult to navigate a tree structure, but the <xref:System.Windows.Forms.TreeNode.FullPath%2A> property makes it easier to determine your location within the tree structure.'
   example:
   - "The following code example displays customer information in a <xref:System.Windows.Forms.TreeView> control. The root tree nodes display customer names, and the child tree nodes display the order numbers assigned to each customer. In this example, 1,000 customers are displayed with 15 orders each. The repainting of the <xref:System.Windows.Forms.TreeView> is suppressed by using the <xref:System.Windows.Forms.TreeView.BeginUpdate%2A> and <xref:System.Windows.Forms.TreeView.EndUpdate%2A> methods, and a wait <xref:System.Windows.Forms.Cursor> is displayed while the <xref:System.Windows.Forms.TreeView> creates and paints the <xref:System.Windows.Forms.TreeNode> objects. This example requires that you have a `Customer` object that can hold a collection of `Order` objects. It also requires that you have created an instance of a <xref:System.Windows.Forms.TreeView> control on a <xref:System.Windows.Forms.Form>.  \n  \n [!code-cpp[TreeView#1](~/samples/snippets/cpp/VS_Snippets_Winforms/TreeView/CPP/treeview.cpp#1)]\n [!code-csharp[TreeView#1](~/samples/snippets/csharp/VS_Snippets_Winforms/TreeView/CS/treeview.cs#1)]\n [!code-vb[TreeView#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/TreeView/VB/treeview.vb#1)]"
   syntax:
@@ -4126,7 +4126,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets the delimiter string that the tree node path uses.
-  remarks: The tree node path consists of a set of tree node labels separated by the <xref:System.Windows.Forms.TreeView.PathSeparator%2A> delimiter strings. The labels range from the root tree node to the tree node that you want.
+  remarks: 'The tree node path consists of a set of tree node labels separated by the <xref:System.Windows.Forms.TreeView.PathSeparator%2A> delimiter strings. The labels range from the root tree node to the tree node that you want.'
   example:
   - "The following code example sets the <xref:System.Windows.Forms.TreeView.PathSeparator%2A> property of a <xref:System.Windows.Forms.TreeView> and displays the number of child tree nodes that is contained in the <xref:System.Windows.Forms.TreeNodeCollection> of the <xref:System.Windows.Forms.TreeView.SelectedNode%2A>. The percentage of child tree node to total tree nodes in the tree view control is also displayed. This example requires that you have a <xref:System.Windows.Forms.Form> with a <xref:System.Windows.Forms.Button>, and a <xref:System.Windows.Forms.TreeView> control with a <xref:System.Windows.Forms.TreeNodeCollection> that has several <xref:System.Windows.Forms.TreeNode> objects (preferably with three or more levels).  \n  \n [!code-cpp[TreeNode_ForeColor#2](~/samples/snippets/cpp/VS_Snippets_Winforms/TreeNode_ForeColor/CPP/treenode_forecolor.cpp#2)]\n [!code-csharp[TreeNode_ForeColor#2](~/samples/snippets/csharp/VS_Snippets_Winforms/TreeNode_ForeColor/CS/treenode_forecolor.cs#2)]\n [!code-vb[TreeNode_ForeColor#2](~/samples/snippets/visualbasic/VS_Snippets_Winforms/TreeNode_ForeColor/VB/treenode_forecolor.vb#2)]"
   syntax:
@@ -4173,7 +4173,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets a value that indicates whether the <xref href="System.Windows.Forms.TreeView"></xref> should be laid out from right-to-left.
-  remarks: The <xref:System.Windows.Forms.TreeView.RightToLeftLayout%2A> property is for use with international applications where the language is read from right-to-left. If you set <xref:System.Windows.Forms.TreeView.RightToLeftLayout%2A> and <xref:System.Windows.Forms.Control.RightToLeft%2A> to `true` the control's contents and text will be laid out from right-to-left.
+  remarks: 'The <xref:System.Windows.Forms.TreeView.RightToLeftLayout%2A> property is for use with international applications where the language is read from right-to-left. If you set <xref:System.Windows.Forms.TreeView.RightToLeftLayout%2A> and <xref:System.Windows.Forms.Control.RightToLeft%2A> to `true` the control''s contents and text will be laid out from right-to-left.'
   syntax:
     content: public virtual bool RightToLeftLayout { get; set; }
     return:
@@ -4218,7 +4218,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Occurs when the value of the <xref href="System.Windows.Forms.TreeView.RightToLeftLayout"></xref> property changes.
-  remarks: For more information about how to handle events, see [Handling and Raising Events](http://msdn.microsoft.com/library/b6f65241-e0ad-4590-a99f-200ce741bb1f).
+  remarks: 'For more information about how to handle events, see [Handling and Raising Events](http://msdn.microsoft.com/library/b6f65241-e0ad-4590-a99f-200ce741bb1f).'
   example:
   - "The following code example demonstrates the use of this member. In the example, an event handler reports on the occurrence of the <xref:System.Windows.Forms.TreeView.RightToLeftLayoutChanged> event. This report helps you learn when the event occurs and can assist you in debugging. To report on multiple events or on events that occur frequently, consider replacing <xref:System.Windows.Forms.MessageBox.Show%2A?displayProperty=fullName> with <xref:System.Console.WriteLine%2A?displayProperty=fullName> or appending the message to a multiline <xref:System.Windows.Forms.TextBox>.  \n  \n To run the example code, paste it into a project that contains an instance of type <xref:System.Windows.Forms.TreeView> named `TreeView1`. Then ensure that the event handler is associated with the <xref:System.Windows.Forms.TreeView.RightToLeftLayoutChanged> event.  \n  \n [!code-csharp[System.Windows.Forms.EventExamples#639](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.EventExamples/CS/EventExamples.cs#639)]\n [!code-vb[System.Windows.Forms.EventExamples#639](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.EventExamples/VB/EventExamples.vb#639)]"
   syntax:
@@ -4470,7 +4470,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets a value indicating whether lines are drawn between tree nodes in the tree view control.
-  remarks: If <xref:System.Windows.Forms.TreeView.ShowLines%2A> is set to `true`, the <xref:System.Windows.Forms.TreeView.FullRowSelect%2A> property is ignored.
+  remarks: 'If <xref:System.Windows.Forms.TreeView.ShowLines%2A> is set to `true`, the <xref:System.Windows.Forms.TreeView.FullRowSelect%2A> property is ignored.'
   example:
   - "The following code example illustrates a customized <xref:System.Windows.Forms.TreeView>. By inheriting the <xref:System.Windows.Forms.TreeView> class, this custom version has all the functionality of a typical <xref:System.Windows.Forms.TreeView>. Changing various property values in the constructor provides a unique appearance. Because the <xref:System.Windows.Forms.TreeView.ShowPlusMinus%2A> property is set to false, the customized control also overrides the <xref:System.Windows.Forms.TreeView.OnAfterSelect%2A> method so that nodes can be expanded and collapsed when they are clicked.  \n  \n A control that is customized in this way can be used throughout an organization, making it easy to provide a consistent interface without requiring the control properties to be specified in each individual project.  \n  \n [!code-cpp[TreeViewCustomization#2](~/samples/snippets/cpp/VS_Snippets_Winforms/TreeViewCustomization/CPP/treeviewcustomization.cpp#2)]\n [!code-csharp[TreeViewCustomization#2](~/samples/snippets/csharp/VS_Snippets_Winforms/TreeViewCustomization/CS/treeviewcustomization.cs#2)]\n [!code-vb[TreeViewCustomization#2](~/samples/snippets/visualbasic/VS_Snippets_Winforms/TreeViewCustomization/VB/treeviewcustomization.vb#2)]"
   syntax:
@@ -4517,7 +4517,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets a value indicating ToolTips are shown when the mouse pointer hovers over a <xref href="System.Windows.Forms.TreeNode"></xref>.
-  remarks: In order for ToolTips to be visible, you must set the <xref:System.Windows.Forms.TreeNode.ToolTipText%2A> for a <xref:System.Windows.Forms.TreeNode>.
+  remarks: 'In order for ToolTips to be visible, you must set the <xref:System.Windows.Forms.TreeNode.ToolTipText%2A> for a <xref:System.Windows.Forms.TreeNode>.'
   example:
   - "The following code example demonstrates how to use the <xref:System.Windows.Forms.TreeNode.ToolTipText%2A> and <xref:System.Windows.Forms.TreeView.ShowNodeToolTips%2A> properties. To run this example, paste the following code into a Windows Form and call `InitializeTreeViewWithToolTips` from the form's constructor or <xref:System.Windows.Forms.Form.Load> event handler.  \n  \n [!code-csharp[System.Windows.Forms.TreeViewWhidbeyMembers#7](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.TreeViewWhidbeyMembers/CS/Form1.cs#7)]\n [!code-vb[System.Windows.Forms.TreeViewWhidbeyMembers#7](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.TreeViewWhidbeyMembers/VB/Form1.vb#7)]"
   syntax:
@@ -4564,7 +4564,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets a value indicating whether plus-sign (+) and minus-sign (-) buttons are displayed next to tree nodes that contain child tree nodes.
-  remarks: The plus sign and minus sign buttons appear next to the root tree nodes only if the <xref:System.Windows.Forms.TreeView.ShowRootLines%2A> property value is `true`. If the plus sign and minus sign buttons are not displayed, no visual cue exists to indicate that the tree node contains child tree nodes and is expandable. The user then must double-click a tree node to determine whether it contains child tree nodes, to expand it, or to collapse it.
+  remarks: 'The plus sign and minus sign buttons appear next to the root tree nodes only if the <xref:System.Windows.Forms.TreeView.ShowRootLines%2A> property value is `true`. If the plus sign and minus sign buttons are not displayed, no visual cue exists to indicate that the tree node contains child tree nodes and is expandable. The user then must double-click a tree node to determine whether it contains child tree nodes, to expand it, or to collapse it.'
   example:
   - "The following code example illustrates a customized <xref:System.Windows.Forms.TreeView>. By inheriting the <xref:System.Windows.Forms.TreeView> class, this custom version has all the functionality of a typical <xref:System.Windows.Forms.TreeView>. Changing various property values in the constructor provides a unique appearance. Because the <xref:System.Windows.Forms.TreeView.ShowPlusMinus%2A> property is set to false, the customized control also overrides the <xref:System.Windows.Forms.TreeView.OnAfterSelect%2A> method so that nodes can be expanded and collapsed when they are clicked.  \n  \n A control that is customized in this way can be used throughout an organization, making it easy to provide a consistent interface without requiring the control properties to be specified in each individual project.  \n  \n [!code-cpp[TreeViewCustomization#2](~/samples/snippets/cpp/VS_Snippets_Winforms/TreeViewCustomization/CPP/treeviewcustomization.cpp#2)]\n [!code-csharp[TreeViewCustomization#2](~/samples/snippets/csharp/VS_Snippets_Winforms/TreeViewCustomization/CS/treeviewcustomization.cs#2)]\n [!code-vb[TreeViewCustomization#2](~/samples/snippets/visualbasic/VS_Snippets_Winforms/TreeViewCustomization/VB/treeviewcustomization.vb#2)]"
   syntax:
@@ -4611,7 +4611,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets a value indicating whether lines are drawn between the tree nodes that are at the root of the tree view.
-  remarks: If the <xref:System.Windows.Forms.TreeView.ShowRootLines%2A> property is `false`, the plus-sign and minus-sign buttons will not appear next to the root tree nodes, and the <xref:System.Windows.Forms.TreeView.ShowPlusMinus%2A> property will have no effect.
+  remarks: 'If the <xref:System.Windows.Forms.TreeView.ShowRootLines%2A> property is `false`, the plus-sign and minus-sign buttons will not appear next to the root tree nodes, and the <xref:System.Windows.Forms.TreeView.ShowPlusMinus%2A> property will have no effect.'
   example:
   - "The following code example demonstrates how to use the <xref:System.Windows.Forms.BorderStyle> enumeration and the <xref:System.Windows.Forms.TreeView.BorderStyle%2A>, <xref:System.Windows.Forms.TreeView.ShowLines%2A>, <xref:System.Windows.Forms.TreeView.Scrollable%2A>, <xref:System.Windows.Forms.TreeView.HideSelection%2A> and <xref:System.Windows.Forms.TreeView.ShowRootLines%2A> properties. To run this example, paste the following code in a form and call the `InitializeTreeView` method in the form's constructor or `Load` method.  \n  \n [!code-cpp[System.Windows.Forms.TreeViewExample#1](~/samples/snippets/cpp/VS_Snippets_Winforms/System.Windows.Forms.TreeViewExample/CPP/form1.cpp#1)]\n [!code-csharp[System.Windows.Forms.TreeViewExample#1](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.TreeViewExample/CS/form1.cs#1)]\n [!code-vb[System.Windows.Forms.TreeViewExample#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.TreeViewExample/VB/form1.vb#1)]"
   syntax:
@@ -4945,13 +4945,13 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Returns a <xref href="System.String"></xref> containing the name of the <xref href="System.ComponentModel.Component"></xref>, if any. This method should not be overridden.
+  summary: 'Returns a <xref href="System.String"></xref> containing the name of the <xref href="System.ComponentModel.Component"></xref>, if any. This method should not be overridden.'
   syntax:
     content: public override string ToString ();
     parameters: []
     return:
       type: System.String
-      description: A <xref href="System.String"></xref> containing the name of the <xref href="System.ComponentModel.Component"></xref>, if any, or `null` if the <xref href="System.ComponentModel.Component"></xref> is unnamed.
+      description: 'A <xref href="System.String"></xref> containing the name of the <xref href="System.ComponentModel.Component"></xref>, if any, or `null` if the <xref href="System.ComponentModel.Component"></xref> is unnamed.'
   overload: System.Windows.Forms.TreeView.ToString*
   exceptions: []
   version:
@@ -5041,7 +5041,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets the number of tree nodes that can be fully visible in the tree view control.
-  remarks: The <xref:System.Windows.Forms.TreeView.VisibleCount%2A> value can be greater than the number of tree nodes in the tree view. The value is calculated by dividing the height of the client window by the height of a tree node item. The result is the total number of <xref:System.Windows.Forms.TreeNode> objects that the <xref:System.Windows.Forms.TreeView> can display within its current dimensions.
+  remarks: 'The <xref:System.Windows.Forms.TreeView.VisibleCount%2A> value can be greater than the number of tree nodes in the tree view. The value is calculated by dividing the height of the client window by the height of a tree node item. The result is the total number of <xref:System.Windows.Forms.TreeNode> objects that the <xref:System.Windows.Forms.TreeView> can display within its current dimensions.'
   syntax:
     content: >-
       [System.ComponentModel.Browsable(false)]

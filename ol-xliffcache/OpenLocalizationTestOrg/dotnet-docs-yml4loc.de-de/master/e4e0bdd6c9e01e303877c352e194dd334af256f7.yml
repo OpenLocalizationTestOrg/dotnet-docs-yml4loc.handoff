@@ -50,7 +50,7 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media
-  summary: Provides rendering support in WPF, which includes hit testing, coordinate transformation, and bounding box calculations.
+  summary: 'Provides rendering support in WPF, which includes hit testing, coordinate transformation, and bounding box calculations.'
   remarks: "The <xref:System.Windows.Media.Visual> class is the basic abstraction from which every <xref:System.Windows.FrameworkElement> object derives. It also serves as the entry point for writing new controls in [!INCLUDE[TLA2#tla_winclient](~/includes/tla2sharptla-winclient-md.md)], and in many ways can be thought of as an equivalent of a window handle (HWND) in the [!INCLUDE[TLA#tla_win32](~/includes/tlasharptla-win32-md.md)] application model.  \n  \n The <xref:System.Windows.Media.Visual> object is a core [!INCLUDE[TLA2#tla_winclient](~/includes/tla2sharptla-winclient-md.md)] object, whose primary role is to provide rendering support. User interface controls, such as <xref:System.Windows.Controls.Button> and <xref:System.Windows.Controls.TextBox>, derive from the <xref:System.Windows.Media.Visual> class, and use the <xref:System.Windows.Media.Visual> defined properties for persisting their rendering data. The <xref:System.Windows.Media.Visual> object provides support for the following:  \n  \n-   Output display: Rendering the persisted, serialized drawing content of a visual.  \n  \n-   Transformations: Performing transformations on a visual.  \n  \n-   Clipping: Providing clipping region support for a visual.  \n  \n-   Hit testing: Determining whether a specified coordinate (point) or geometry is contained within the bounds of a visual.  \n  \n-   Bounding box calculations: Determining the bounding rectangle of a visual.  \n  \n Architecturally, the <xref:System.Windows.Media.Visual> object does not include support for other application development requirements / [!INCLUDE[TLA2#tla_winclient](~/includes/tla2sharptla-winclient-md.md)] features that are not immediately related to its rendering, such as the following:  \n  \n-   Event handling  \n  \n-   Layout  \n  \n-   Styles  \n  \n-   Data binding  \n  \n-   Globalization  \n  \n <xref:System.Windows.Media.Visual> is provided as a public abstract class from which further classes can be derived. The following illustration shows the hierarchy of the existing visual objects that are defined in the [!INCLUDE[TLA2#tla_winclient](~/includes/tla2sharptla-winclient-md.md)] architecture.  \n  \n ![Diagram of classes derived from the Visual object](~/add/media/visualclass01.png \"Diagram of classes derived from the Visual object\")  \nVisual class hierarchy  \n  \n In some cases, members that are defined as protected in <xref:System.Windows.Media.Visual> are exposed as more readily accessible members with similar names in the derived <xref:System.Windows.UIElement> class.  \n  \n For more information, see [WPF Graphics Rendering Overview](~/docs/framework/wpf/graphics-multimedia/wpf-graphics-rendering-overview.md).  \n  \n A <xref:System.Windows.Media.Visual> has a limited number of levels. In previous versions of the .NET Framework, this maximum depth was 255. This limit is inadequate for some layouts that have many levels in the visual tree.  \n  \n In [!INCLUDE[net_v40_short](~/includes/net-v40-short-md.md)], the maximum depth of a <xref:System.Windows.Media.Visual> is 2047, which enables much deeper visual trees. In most applications, there is not enough stack space to traverse so many levels, and the result is a <xref:System.StackOverflowException> during layout. For the default stack size, this exception is usually thrown when the tree depth is approximately 800, which corresponds to about 190 nested <xref:System.Windows.Controls.TreeViewItem> objects.  \n  \n If this exception is thrown by your application and you need to have a deeper visual tree, you can increase the application's stack size. You can increase the size of the stack by using the /STACK option at compile time or by using the EDITBIN utility. Increasing the stack size may affect your application's performance. For more information, see [Stack Allocations](http://go.microsoft.com/fwlink/?LinkId=165510) and [EDITBIN Options](http://go.microsoft.com/fwlink/?LinkId=165511)."
   syntax:
     content: 'public abstract class Visual : System.Windows.DependencyObject'
@@ -165,7 +165,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Defines the parent-child relationship between two visuals.
-  remarks: The <xref:System.Windows.Media.Visual.AddVisualChild%2A> method sets up the parent-child relationship between two visual objects. This method must be used when you need greater low-level control over the underlying storage implementation of visual child objects. <xref:System.Windows.Media.VisualCollection> can be used as a default implementation for storing child objects.
+  remarks: 'The <xref:System.Windows.Media.Visual.AddVisualChild%2A> method sets up the parent-child relationship between two visual objects. This method must be used when you need greater low-level control over the underlying storage implementation of visual child objects. <xref:System.Windows.Media.VisualCollection> can be used as a default implementation for storing child objects.'
   example:
   - "The following example shows how to define custom storage requirements for a visual child. The example uses the <xref:System.Windows.Media.Visual.AddVisualChild%2A> and <xref:System.Windows.Media.Visual.RemoveVisualChild%2A> methods to sets up the parent-child relationship between the parent visual and `child`. In order for the visual tree to be enumerated correctly, the example provides overridden implementations of the <xref:System.Windows.Media.Visual.GetVisualChild%2A> method and <xref:System.Windows.Media.Visual.VisualChildrenCount%2A> property.  \n  \n> [!NOTE]\n>  Although it is possible to use <xref:System.Windows.Media.VisualCollection> to create parent-child relationships between visual objects, it is more efficient to provide your own custom storage implementation when only one child is linked to a parent.  \n  \n [!code-csharp[AddVisualChild#AddVisualChild01](~/samples/snippets/csharp/VS_Snippets_Wpf/AddVisualChild/CSharp/Window1.xaml.cs#addvisualchild01)]\n [!code-vb[AddVisualChild#AddVisualChild01](~/samples/snippets/visualbasic/VS_Snippets_Wpf/AddVisualChild/visualbasic/window1.xaml.vb#addvisualchild01)]"
   syntax:
@@ -211,7 +211,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Returns the common ancestor of two visual objects.
-  remarks: 2D and 3D objects can have common visual ancestors, so it is possible to pass a <xref:System.Windows.Media.Media3D.Visual3D> for `otherVisual`.
+  remarks: '2D and 3D objects can have common visual ancestors, so it is possible to pass a <xref:System.Windows.Media.Media3D.Visual3D> for `otherVisual`.'
   syntax:
     content: public System.Windows.DependencyObject FindCommonVisualAncestor (System.Windows.DependencyObject otherVisual);
     parameters:
@@ -220,7 +220,7 @@ items:
       description: A visual object of type <xref href="System.Windows.DependencyObject"></xref>.
     return:
       type: System.Windows.DependencyObject
-      description: The common ancestor of the visual object and <code>otherVisual</code> if one exists; otherwise, `null`.
+      description: 'The common ancestor of the visual object and <code>otherVisual</code> if one exists; otherwise, `null`.'
   overload: System.Windows.Media.Visual.FindCommonVisualAncestor*
   exceptions: []
   version:
@@ -259,7 +259,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Returns the specified <xref href="System.Windows.Media.Visual"></xref> in the parent <xref href="System.Windows.Media.VisualCollection"></xref>.
-  remarks: By default, a <xref:System.Windows.Media.Visual> has no children. Therefore, the default implementation always throws an <xref:System.ArgumentOutOfRangeException>.
+  remarks: 'By default, a <xref:System.Windows.Media.Visual> has no children. Therefore, the default implementation always throws an <xref:System.ArgumentOutOfRangeException>.'
   example:
   - "The following example defines an overridden implementation of <xref:System.Windows.Media.Visual.GetVisualChild%2A>.  \n  \n [!code-csharp[DrawingVisualSample#102b](~/samples/snippets/csharp/VS_Snippets_Wpf/DrawingVisualSample/CSharp/Window1.xaml.cs#102b)]\n [!code-vb[DrawingVisualSample#102b](~/samples/snippets/visualbasic/VS_Snippets_Wpf/DrawingVisualSample/visualbasic/window1.xaml.vb#102b)]"
   syntax:
@@ -309,7 +309,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Determines whether a geometry value is within the bounds of the visual object.
-  remarks: You can override default hit testing support for a visual object by overriding the <xref:System.Windows.Media.Visual.HitTestCore%2A> method. This means that when you invoke the <xref:System.Windows.Media.VisualTreeHelper.HitTest%2A> method, your overridden implementation of <xref:System.Windows.Media.Visual.HitTestCore%2A> is called. Your overridden method is called when a hit test falls within the bounding rectangle of the visual object, even if the coordinate falls outside the geometry of the visual object.
+  remarks: 'You can override default hit testing support for a visual object by overriding the <xref:System.Windows.Media.Visual.HitTestCore%2A> method. This means that when you invoke the <xref:System.Windows.Media.VisualTreeHelper.HitTest%2A> method, your overridden implementation of <xref:System.Windows.Media.Visual.HitTestCore%2A> is called. Your overridden method is called when a hit test falls within the bounding rectangle of the visual object, even if the coordinate falls outside the geometry of the visual object.'
   example:
   - "The following example shows how to override the <xref:System.Windows.Media.Visual.HitTestCore%28System.Windows.Media.GeometryHitTestParameters%29> method. One reason you might want to override this method is to provide additional functionality during the hit testing process.  \n  \n [!code-csharp[HitTestingOverview#HitTestingOverviewSnippet13](~/samples/snippets/csharp/VS_Snippets_Wpf/HitTestingOverview/CSharp/GeometryHitTest.cs#hittestingoverviewsnippet13)]\n [!code-vb[HitTestingOverview#HitTestingOverviewSnippet13](~/samples/snippets/visualbasic/VS_Snippets_Wpf/HitTestingOverview/visualbasic/geometryhittest.vb#hittestingoverviewsnippet13)]"
   syntax:
@@ -358,7 +358,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Determines whether a point coordinate value is within the bounds of the visual object.
-  remarks: You can override the default hit testing support on visual objects by overriding the <xref:System.Windows.Media.Visual.HitTestCore%2A> method. This means that when you invoke the <xref:System.Windows.Media.VisualTreeHelper.HitTest%2A> method, your overridden implementation of <xref:System.Windows.Media.Visual.HitTestCore%2A> is called. Your overridden method is called when a hit test falls within the bounding rectangle of the visual object, even if the coordinate falls outside the geometry of the visual object.
+  remarks: 'You can override the default hit testing support on visual objects by overriding the <xref:System.Windows.Media.Visual.HitTestCore%2A> method. This means that when you invoke the <xref:System.Windows.Media.VisualTreeHelper.HitTest%2A> method, your overridden implementation of <xref:System.Windows.Media.Visual.HitTestCore%2A> is called. Your overridden method is called when a hit test falls within the bounding rectangle of the visual object, even if the coordinate falls outside the geometry of the visual object.'
   example:
   - "The following example shows how to override the <xref:System.Windows.Media.Visual.HitTestCore%28System.Windows.Media.PointHitTestParameters%29> method. One reason you might want to override this method is to provide additional functionality during the hit testing process.  \n  \n [!code-csharp[HitTestingOverview#107](~/samples/snippets/csharp/VS_Snippets_Wpf/HitTestingOverview/CSharp/Window1.xaml.cs#107)]\n [!code-vb[HitTestingOverview#107](~/samples/snippets/visualbasic/VS_Snippets_Wpf/HitTestingOverview/visualbasic/window1.xaml.vb#107)]"
   syntax:
@@ -593,7 +593,7 @@ items:
     parameters:
     - id: oldParent
       type: System.Windows.DependencyObject
-      description: A value of type <xref href="System.Windows.DependencyObject"></xref> that represents the previous parent of the <xref href="System.Windows.Media.Visual"></xref> object. If the <xref href="System.Windows.Media.Visual"></xref> object did not have a previous parent, the value of the parameter is `null`.
+      description: 'A value of type <xref href="System.Windows.DependencyObject"></xref> that represents the previous parent of the <xref href="System.Windows.Media.Visual"></xref> object. If the <xref href="System.Windows.Media.Visual"></xref> object did not have a previous parent, the value of the parameter is `null`.'
   overload: System.Windows.Media.Visual.OnVisualParentChanged*
   exceptions: []
   version:
@@ -632,7 +632,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Converts a <xref href="System.Windows.Point"></xref> in screen coordinates into a <xref href="System.Windows.Point"></xref> that represents the current coordinate system of the <xref href="System.Windows.Media.Visual"></xref>.
-  remarks: Use the <xref:System.Windows.Media.Visual.PointToScreen%2A> method to convert a <xref:System.Windows.Point> that represents the current coordinate system of the <xref:System.Windows.Media.Visual> into a <xref:System.Windows.Point> in screen coordinates.
+  remarks: 'Use the <xref:System.Windows.Media.Visual.PointToScreen%2A> method to convert a <xref:System.Windows.Point> that represents the current coordinate system of the <xref:System.Windows.Media.Visual> into a <xref:System.Windows.Point> in screen coordinates.'
   syntax:
     content: public System.Windows.Point PointFromScreen (System.Windows.Point point);
     parameters:
@@ -680,7 +680,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Converts a <xref href="System.Windows.Point"></xref> that represents the current coordinate system of the <xref href="System.Windows.Media.Visual"></xref> into a <xref href="System.Windows.Point"></xref> in screen coordinates.
-  remarks: Use the <xref:System.Windows.Media.Visual.PointFromScreen%2A> method to convert a <xref:System.Windows.Point> in screen coordinates into a <xref:System.Windows.Point> that represents the current coordinate system of the <xref:System.Windows.Media.Visual>.
+  remarks: 'Use the <xref:System.Windows.Media.Visual.PointFromScreen%2A> method to convert a <xref:System.Windows.Point> in screen coordinates into a <xref:System.Windows.Point> that represents the current coordinate system of the <xref:System.Windows.Media.Visual>.'
   syntax:
     content: public System.Windows.Point PointToScreen (System.Windows.Point point);
     parameters:
@@ -727,7 +727,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Removes the parent-child relationship between two visuals.
-  remarks: The <xref:System.Windows.Media.Visual.RemoveVisualChild%2A> method removes the parent-child relationship between two visuals. This method, along with the <xref:System.Windows.Media.Visual.AddVisualChild%2A> method, must be used when you need greater low-level control over the underlying storage implementation of visual child objects. <xref:System.Windows.Media.VisualCollection> can be used as a default implementation for storing child objects.
+  remarks: 'The <xref:System.Windows.Media.Visual.RemoveVisualChild%2A> method removes the parent-child relationship between two visuals. This method, along with the <xref:System.Windows.Media.Visual.AddVisualChild%2A> method, must be used when you need greater low-level control over the underlying storage implementation of visual child objects. <xref:System.Windows.Media.VisualCollection> can be used as a default implementation for storing child objects.'
   example:
   - "The following example shows how to define custom storage requirements for a visual child. The example uses the <xref:System.Windows.Media.Visual.AddVisualChild%2A> and <xref:System.Windows.Media.Visual.RemoveVisualChild%2A> methods to sets up the parent-child relationship between the parent visual and `child`. In order for the visual tree to be enumerated correctly, the example provides overridden implementations of the <xref:System.Windows.Media.Visual.GetVisualChild%2A> method and <xref:System.Windows.Media.Visual.VisualChildrenCount%2A> property.  \n  \n> [!NOTE]\n>  Although it is possible to use <xref:System.Windows.Media.VisualCollection> to create parent-child relationships between visual objects, it is more efficient to provide your own custom storage implementation when only one child is linked to a parent.  \n  \n [!code-csharp[AddVisualChild#AddVisualChild01](~/samples/snippets/csharp/VS_Snippets_Wpf/AddVisualChild/CSharp/Window1.xaml.cs#addvisualchild01)]\n [!code-vb[AddVisualChild#AddVisualChild01](~/samples/snippets/visualbasic/VS_Snippets_Wpf/AddVisualChild/visualbasic/window1.xaml.vb#addvisualchild01)]"
   syntax:
@@ -820,7 +820,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Returns a transform that can be used to transform coordinates from the <xref href="System.Windows.Media.Visual"></xref> to the specified <xref href="System.Windows.Media.Visual"></xref> ancestor of the visual object.
-  remarks: "Alternatively, you can use the <xref:System.Windows.Media.VisualTreeHelper.GetOffset%2A?displayProperty=fullName> method to retrieve the offset of a visual object relative to its parent. The offset values are contained within the returned <xref:System.Windows.Vector> value.  \n  \n [!code-csharp[VisualSnippets#VisualSnippet2](~/samples/snippets/csharp/VS_Snippets_Wpf/VisualSnippets/CSharp/Window1.xaml.cs#visualsnippet2)]\n [!code-vb[VisualSnippets#VisualSnippet2](~/samples/snippets/visualbasic/VS_Snippets_Wpf/VisualSnippets/visualbasic/window1.xaml.vb#visualsnippet2)]"
+  remarks: "Alternatively, you can use the <xref:System.Windows.Media.VisualTreeHelper.GetOffset%2A?displayProperty=fullName> method to retrieve the offset of a visual object relative to its parent. The offset values are contained within the returned <xref:System.Windows.Vector> value.  \n  \n [!code-csharp[VisualSnippets#VisualSnippet2](~/samples/snippets/csharp/VS_Snippets_Wpf/VisualSnippets/CSharp/Window1.xaml.cs#visualsnippet2)] [!code-vb[VisualSnippets#VisualSnippet2](~/samples/snippets/visualbasic/VS_Snippets_Wpf/VisualSnippets/visualbasic/window1.xaml.vb#visualsnippet2)]"
   example:
   - "The following markup example shows a <xref:System.Windows.Controls.TextBlock> that is nested within two <xref:System.Windows.Controls.StackPanel> objects.  \n  \n [!code-xml[VisualSnippets#VisualSnippet7](~/samples/snippets/csharp/VS_Snippets_Wpf/VisualSnippets/CSharp/Window2.xaml#visualsnippet7)]  \n  \n The following code example shows how to use the <xref:System.Windows.Media.Visual.TransformToAncestor%2A> method to retrieve the offset of the <xref:System.Windows.Controls.TextBlock> relative to the containing <xref:System.Windows.Window>. The offset values are contained in the returned <xref:System.Windows.Media.GeneralTransform>.  \n  \n [!code-csharp[VisualSnippets#VisualSnippet5](~/samples/snippets/csharp/VS_Snippets_Wpf/VisualSnippets/CSharp/Window1.xaml.cs#visualsnippet5)]\n [!code-vb[VisualSnippets#VisualSnippet5](~/samples/snippets/visualbasic/VS_Snippets_Wpf/VisualSnippets/visualbasic/window1.xaml.vb#visualsnippet5)]  \n  \n The offset takes into account the <xref:System.Windows.FrameworkElement.Margin%2A> values for all objects within the containing <xref:System.Windows.Window>. In this case, <xref:System.Windows.Vector.X%2A> is 28, and <xref:System.Windows.Vector.Y%2A> is 28."
   syntax:
@@ -937,7 +937,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Returns a transform that can be used to transform coordinates from the <xref href="System.Windows.Media.Visual"></xref> to the specified visual object.
-  remarks: The <xref:System.Windows.Media.Visual.TransformToAncestor%2A> and <xref:System.Windows.Media.Visual.TransformToDescendant%2A> methods can also be used to return a transform for a visual object.
+  remarks: 'The <xref:System.Windows.Media.Visual.TransformToAncestor%2A> and <xref:System.Windows.Media.Visual.TransformToDescendant%2A> methods can also be used to return a transform for a visual object.'
   example:
   - "The following markup example shows a <xref:System.Windows.Controls.TextBlock> that is contained within a <xref:System.Windows.Controls.StackPanel> object.  \n  \n [!code-xml[VisualSnippets#VisualSnippet4](~/samples/snippets/csharp/VS_Snippets_Wpf/VisualSnippets/CSharp/Window1.xaml#visualsnippet4)]  \n  \n The following code example shows how to use the <xref:System.Windows.Media.Visual.TransformToVisual%2A> method to retrieve the offset of the <xref:System.Windows.Controls.StackPanel> relative to its child <xref:System.Windows.Controls.TextBlock>. The offset values are contained within the returned <xref:System.Windows.Media.GeneralTransform> value.  \n  \n [!code-csharp[VisualSnippets#VisualSnippet8](~/samples/snippets/csharp/VS_Snippets_Wpf/VisualSnippets/CSharp/Window1.xaml.cs#visualsnippet8)]\n [!code-vb[VisualSnippets#VisualSnippet8](~/samples/snippets/visualbasic/VS_Snippets_Wpf/VisualSnippets/visualbasic/window1.xaml.vb#visualsnippet8)]  \n  \n The offset takes into account the <xref:System.Windows.FrameworkElement.Margin%2A> values for all objects. In this case, <xref:System.Windows.Vector.X%2A> is -4, and <xref:System.Windows.Vector.Y%2A> is -4. The offset values are negative values because the parent object is negatively offset relative to its child object."
   syntax:
@@ -1131,7 +1131,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Gets or sets a cached representation of the <xref href="System.Windows.Media.Visual"></xref>.
-  remarks: Set the <xref:System.Windows.Media.Visual.VisualCacheMode%2A> property when you need to increase performance for content that is time-consuming to render. For more information, see <xref:System.Windows.Media.BitmapCache>.
+  remarks: 'Set the <xref:System.Windows.Media.Visual.VisualCacheMode%2A> property when you need to increase performance for content that is time-consuming to render. For more information, see <xref:System.Windows.Media.BitmapCache>.'
   syntax:
     content: protected System.Windows.Media.CacheMode VisualCacheMode { get; set; }
     return:
@@ -1175,7 +1175,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Gets the number of child elements for the <xref href="System.Windows.Media.Visual"></xref>.
-  remarks: By default, a <xref:System.Windows.Media.Visual> has no children. Therefore, the default implementation always returns 0.
+  remarks: 'By default, a <xref:System.Windows.Media.Visual> has no children. Therefore, the default implementation always returns 0.'
   example:
   - "The following example defines an overridden implementation of <xref:System.Windows.Media.Visual.VisualChildrenCount%2A>.  \n  \n [!code-csharp[DrawingVisualSample#102a](~/samples/snippets/csharp/VS_Snippets_Wpf/DrawingVisualSample/CSharp/Window1.xaml.cs#102a)]\n [!code-vb[DrawingVisualSample#102a](~/samples/snippets/visualbasic/VS_Snippets_Wpf/DrawingVisualSample/visualbasic/window1.xaml.vb#102a)]"
   syntax:
@@ -1435,7 +1435,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Gets or sets the opacity of the <xref href="System.Windows.Media.Visual"></xref>.
-  remarks: The value of the opacity of the <xref:System.Windows.Media.Visual> is expressed as a value between 0 and 1. A value of 0 indicates that the element is completely transparent, whereas a value of 1 indicates that the element is completely opaque. A value of 0.5 indicates that the element is 50 percent opaque. Values that are less than 0 are treated as 0; values that are greater than 1 are treated as 1.
+  remarks: 'The value of the opacity of the <xref:System.Windows.Media.Visual> is expressed as a value between 0 and 1. A value of 0 indicates that the element is completely transparent, whereas a value of 1 indicates that the element is completely opaque. A value of 0.5 indicates that the element is 50 percent opaque. Values that are less than 0 are treated as 0; values that are greater than 1 are treated as 1.'
   syntax:
     content: protected double VisualOpacity { get; set; }
     return:
@@ -1478,7 +1478,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Gets or sets the <xref href="System.Windows.Media.Brush"></xref> value that represents the opacity mask of the <xref href="System.Windows.Media.Visual"></xref>.
-  remarks: The opacity mask is a <xref:System.Windows.Media.Brush> that is applied to any alpha-channel masking for the rendered content of this visual.
+  remarks: 'The opacity mask is a <xref:System.Windows.Media.Brush> that is applied to any alpha-channel masking for the rendered content of this visual.'
   syntax:
     content: protected System.Windows.Media.Brush VisualOpacityMask { get; set; }
     return:
@@ -1569,7 +1569,7 @@ items:
     content: protected Nullable<System.Windows.Rect> VisualScrollableAreaClip { get; set; }
     return:
       type: System.Nullable{System.Windows.Rect}
-      description: A <xref href="System.Windows.Rect"></xref> that represents the scrollable clipping area, or `null` if no clipping area is assigned.
+      description: 'A <xref href="System.Windows.Rect"></xref> that represents the scrollable clipping area, or `null` if no clipping area is assigned.'
   overload: System.Windows.Media.Visual.VisualScrollableAreaClip*
   exceptions: []
   version:

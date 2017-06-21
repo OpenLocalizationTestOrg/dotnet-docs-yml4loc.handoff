@@ -111,7 +111,7 @@ items:
   - System.Xaml
   namespace: System.Windows.Markup
   summary: Initializes a new instance of the <xref href="System.Windows.Markup.ValueSerializer"></xref> class.
-  remarks: The body of this constructor is empty; the <xref:System.Windows.Markup.ValueSerializer> class does not contain any values that require initialization.
+  remarks: 'The body of this constructor is empty; the <xref:System.Windows.Markup.ValueSerializer> class does not contain any values that require initialization.'
   syntax:
     content: protected ValueSerializer ();
     parameters: []
@@ -150,7 +150,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Windows.Markup
-  summary: When overridden in a derived class, determines whether the specified <xref href="System.String"></xref> can be converted to an instance of the type that the implementation of <xref href="System.Windows.Markup.ValueSerializer"></xref> supports.
+  summary: 'When overridden in a derived class, determines whether the specified <xref href="System.String"></xref> can be converted to an instance of the type that the implementation of <xref href="System.Windows.Markup.ValueSerializer"></xref> supports.'
   remarks: The base implementation always returns `false`.
   syntax:
     content: public virtual bool CanConvertFromString (string value, System.Windows.Markup.IValueSerializerContext context);
@@ -199,7 +199,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Windows.Markup
-  summary: When overridden in a derived class, determines whether the specified object can be converted into a <xref href="System.String"></xref>.
+  summary: 'When overridden in a derived class, determines whether the specified object can be converted into a <xref href="System.String"></xref>.'
   remarks: The base implementation always returns `false`.
   syntax:
     content: public virtual bool CanConvertToString (object value, System.Windows.Markup.IValueSerializerContext context);
@@ -248,7 +248,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Windows.Markup
-  summary: When overridden in a derived class, converts a <xref href="System.String"></xref> to an instance of the type that the implementation of <xref href="System.Windows.Markup.ValueSerializer"></xref> supports.
+  summary: 'When overridden in a derived class, converts a <xref href="System.String"></xref> to an instance of the type that the implementation of <xref href="System.Windows.Markup.ValueSerializer"></xref> supports.'
   remarks: The base implementation always throws an exception.
   syntax:
     content: public virtual object ConvertFromString (string value, System.Windows.Markup.IValueSerializerContext context);
@@ -300,7 +300,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Windows.Markup
-  summary: When overridden in a derived class, converts the specified object to a <xref href="System.String"></xref>.
+  summary: 'When overridden in a derived class, converts the specified object to a <xref href="System.String"></xref>.'
   remarks: The base implementation always throws an exception.
   syntax:
     content: public virtual string ConvertToString (object value, System.Windows.Markup.IValueSerializerContext context);
@@ -447,7 +447,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Windows.Markup
-  summary: Gets the <xref href="System.Windows.Markup.ValueSerializer"></xref> declared for a property, by passing a CLR property descriptor for the property.
+  summary: 'Gets the <xref href="System.Windows.Markup.ValueSerializer"></xref> declared for a property, by passing a CLR property descriptor for the property.'
   remarks: "A <xref:System.Windows.Markup.ValueSerializer> for a property, or for a type that is used as the value for a property, is indicated by applying the <xref:System.Windows.Markup.ValueSerializerAttribute> attribute on the property or type declaration. The <xref:System.Windows.Markup.ValueSerializer.GetSerializerFor%2A> method is a utility method that reads the CLR type system information and returns a new <xref:System.Windows.Markup.ValueSerializer> class based on the attribute if found on the property, or then if found on the property's type. `null` might be returned if no such serializer exists. `null` might also be returned if a type or property is deliberately attributed with a null-value <xref:System.Windows.Markup.ValueSerializerAttribute>.  \n  \n Another mode that <xref:System.Windows.Markup.ValueSerializer.GetSerializerFor%2A> supports is returning the internal `TypeConverterValueSerializer` class, which is a <xref:System.Windows.Markup.ValueSerializer> implementation that wraps a <xref:System.ComponentModel.TypeConverter> and translates the `Convert` methods to `Convert*String` methods (for instance <xref:System.ComponentModel.TypeConverter.ConvertTo%2A?displayProperty=fullName> is called with input of the <xref:System.String> type, and translates to <xref:System.Windows.Markup.ValueSerializer.ConvertToString%2A>. This is done only in cases where all of the following are true:  \n  \n-   A <xref:System.ComponentModel.TypeConverterAttribute> is found on the relevant property, or the relevant property's type.  \n  \n-   The indicated <xref:System.ComponentModel.TypeConverter> can be successfully constructed.  \n  \n-   The <xref:System.ComponentModel.TypeConverter> returns `true` for <xref:System.ComponentModel.TypeConverter.ConvertTo%2A?displayProperty=fullName>, called referencing the <xref:System.String> type.  \n  \n-   The <xref:System.ComponentModel.TypeConverter> returns `true` for <xref:System.ComponentModel.TypeConverter.CanConvertTo%2A?displayProperty=fullName>, called referencing the <xref:System.String> type.  \n  \n-   The <xref:System.ComponentModel.TypeConverter> returns `true` for <xref:System.ComponentModel.TypeConverter.CanConvertFrom%2A?displayProperty=fullName>, called referencing the <xref:System.String> type.  \n  \n> [!NOTE]\n>  The following are special cases: <xref:System.DateTime> types return a <xref:System.Windows.Markup.DateTimeValueSerializer>; <xref:System.String> types return an internal but functional serializer (`StringValueSerializer`)."
   syntax:
     content: public static System.Windows.Markup.ValueSerializer GetSerializerFor (System.ComponentModel.PropertyDescriptor descriptor);
@@ -545,7 +545,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Windows.Markup
-  summary: Gets the <xref href="System.Windows.Markup.ValueSerializer"></xref> declared for the specified property, using the specified context.
+  summary: 'Gets the <xref href="System.Windows.Markup.ValueSerializer"></xref> declared for the specified property, using the specified context.'
   remarks: "Rather than relying purely on attributes reported in the CLR type system, this overload uses the `context` as a service, and calls the service's implementation of <xref:System.Windows.Markup.IValueSerializerContext.GetValueSerializerFor%2A?displayProperty=fullName>. The <xref:System.Windows.Markup.IValueSerializerContext.GetValueSerializerFor%2A?displayProperty=fullName> implementation would typically also rely on the `descriptor`, but might implement special behavior for certain contexts.  \n  \n This method should be called when the caller has an available <xref:System.Windows.Markup.IValueSerializerContext> from a service.  This will ensure that the correct <xref:System.Windows.Markup.ValueSerializer> is returned for the specific context.  \n  \n If the context returns `null` from its <xref:System.Windows.Markup.IValueSerializerContext.GetValueSerializerFor%2A?displayProperty=fullName> for your specified `descriptor`, or if the context you specify is `null`, then behavior is identical to calling the <xref:System.Windows.Markup.ValueSerializer.GetSerializerFor%28System.ComponentModel.PropertyDescriptor%29> overload."
   syntax:
     content: public static System.Windows.Markup.ValueSerializer GetSerializerFor (System.ComponentModel.PropertyDescriptor descriptor, System.Windows.Markup.IValueSerializerContext context);
@@ -597,7 +597,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Windows.Markup
-  summary: Gets the <xref href="System.Windows.Markup.ValueSerializer"></xref> declared for the specified type, using the specified context.
+  summary: 'Gets the <xref href="System.Windows.Markup.ValueSerializer"></xref> declared for the specified type, using the specified context.'
   remarks: "Rather than relying purely on attributes reported in the CLR type system, this overload uses the `context` as a service, and calls the service's implementation of <xref:System.Windows.Markup.IValueSerializerContext.GetValueSerializerFor%2A?displayProperty=fullName>. The <xref:System.Windows.Markup.IValueSerializerContext.GetValueSerializerFor%2A?displayProperty=fullName> implementation would typically also rely on the `type`, but might implement special behavior for certain contexts.  \n  \n This method should be called when the caller has an available <xref:System.Windows.Markup.IValueSerializerContext> from a service. This will ensure that the correct <xref:System.Windows.Markup.ValueSerializer> is returned for the specific context.  \n  \n If the context returns `null` from its <xref:System.Windows.Markup.IValueSerializerContext.GetValueSerializerFor%2A?displayProperty=fullName> for your specified `type`, or if the context you specify is `null`, then behavior is identical to calling the <xref:System.Windows.Markup.ValueSerializer.GetSerializerFor%28System.Type%29> overload."
   syntax:
     content: public static System.Windows.Markup.ValueSerializer GetSerializerFor (Type type, System.Windows.Markup.IValueSerializerContext context);
@@ -650,7 +650,7 @@ items:
   - System.Xaml
   namespace: System.Windows.Markup
   summary: Gets an enumeration of the types referenced by the <xref href="System.Windows.Markup.ValueSerializer"></xref>.
-  remarks: "Any types a <xref:System.Windows.Markup.ValueSerializer> converts should be included in the returned enumeration.  This allows a serializer to ensure a de-serializer has enough information about the types this serializer converts.  \n  \n Overriding this method is an advanced scenario. Overriding should only be necessary if you are implementing a system where CLR type system ownertype-property relationships available to a XAML schema context do not report enough information.  \n  \n## WPF Usage Notes  \n The [!INCLUDE[TLA2#tla_winclient](~/includes/tla2sharptla-winclient-md.md)] property system implements an internal value serializer that overrides <xref:System.Windows.Markup.ValueSerializer.TypeReferences%2A> because a dependency property has a concept that it can have added owners. [!INCLUDE[TLA2#tla_winclient](~/includes/tla2sharptla-winclient-md.md)] expressions also have special internal handling."
+  remarks: "Any types a <xref:System.Windows.Markup.ValueSerializer> converts should be included in the returned enumeration.  This allows a serializer to ensure a de-serializer has enough information about the types this serializer converts.  \n  \n Overriding this method is an advanced scenario. Overriding should only be necessary if you are implementing a system where CLR type system ownertype-property relationships available to a XAML schema context do not report enough information.  \n  \n## <a name=\"wpf-usage-notes\"></a>WPF Usage Notes  \n The [!INCLUDE[TLA2#tla_winclient](~/includes/tla2sharptla-winclient-md.md)] property system implements an internal value serializer that overrides <xref:System.Windows.Markup.ValueSerializer.TypeReferences%2A> because a dependency property has a concept that it can have added owners. [!INCLUDE[TLA2#tla_winclient](~/includes/tla2sharptla-winclient-md.md)] expressions also have special internal handling."
   syntax:
     content: public virtual System.Collections.Generic.IEnumerable<Type> TypeReferences (object value, System.Windows.Markup.IValueSerializerContext context);
     parameters:

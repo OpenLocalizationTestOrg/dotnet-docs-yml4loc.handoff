@@ -216,7 +216,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: Initializes a new instance of the <xref href="System.IO.Log.LogStore"></xref> class with the specified path, mode, and access.
+  summary: 'Initializes a new instance of the <xref href="System.IO.Log.LogStore"></xref> class with the specified path, mode, and access.'
   remarks: "Use this constructor to open a new log store with the specified path, mode, and access. The store is opened sharing read access.  \n  \n The `path` parameter should use the following syntax:  \n  \n `log:<physical log name>[::<log client name>]`  \n  \n where `<physical log name>` is a valid path to a log file, and `<log client name>` is a unique client identifier. A log store should be either a physical log store or a virtual log store, but not both. Once a log store has been created physically or virtually, it remains so for its lifetime. A physical log store is created by specifying only the physical log name. A virtual log store is created by specifying both the physical log name and the log client name.  \n  \n Clients that share the same physical log name share the same extents collection and policy."
   syntax:
     content: public LogStore (string path, System.IO.FileMode mode, System.IO.FileAccess access);
@@ -457,7 +457,7 @@ items:
   - System.IO.Log
   namespace: System.IO.Log
   summary: Gets a value indicating whether this <xref href="System.IO.Log.LogStore"></xref> instance can be archived.
-  remarks: If a <xref:System.IO.Log.LogStore> is not archivable, calls to the <xref:System.IO.Log.LogStore.CreateLogArchiveSnapshot%2A> and <xref:System.IO.Log.LogStore.SetArchiveTail%2A> methods result in a <xref:System.NotSupportedException> being thrown.
+  remarks: 'If a <xref:System.IO.Log.LogStore> is not archivable, calls to the <xref:System.IO.Log.LogStore.CreateLogArchiveSnapshot%2A> and <xref:System.IO.Log.LogStore.SetArchiveTail%2A> methods result in a <xref:System.NotSupportedException> being thrown.'
   syntax:
     content: public bool Archivable { get; set; }
     return:
@@ -504,7 +504,7 @@ items:
   - System.IO.Log
   namespace: System.IO.Log
   summary: Gets the lowest sequence number that corresponds to a valid record in this <xref href="System.IO.Log.LogStore"></xref> instance.
-  remarks: Valid sequence numbers are greater than or equal to <xref:System.IO.Log.LogStore.BaseSequenceNumber%2A> and less than <xref:System.IO.Log.LogStore.LastSequenceNumber%2A>.
+  remarks: 'Valid sequence numbers are greater than or equal to <xref:System.IO.Log.LogStore.BaseSequenceNumber%2A> and less than <xref:System.IO.Log.LogStore.LastSequenceNumber%2A>.'
   syntax:
     content: public System.IO.Log.SequenceNumber BaseSequenceNumber { get; }
     return:
@@ -622,7 +622,7 @@ items:
   - System.IO.Log
   namespace: System.IO.Log
   summary: Takes a snapshot of the log store state between the specified sequence numbers for making a backup.
-  remarks: The archive snapshot returned from this method encompasses information from either the base sequence number or the archive sequence number, whichever is lower, to the last sequence number. It is not inclusive for the last sequence number, which means that the archive only includes records up to but not including last. In addition, when using this method, the start SequenceNumber must be equal to the BaseSequenceNumber in order for the archive to be consistent.
+  remarks: 'The archive snapshot returned from this method encompasses information from either the base sequence number or the archive sequence number, whichever is lower, to the last sequence number. It is not inclusive for the last sequence number, which means that the archive only includes records up to but not including last. In addition, when using this method, the start SequenceNumber must be equal to the BaseSequenceNumber in order for the archive to be consistent.'
   syntax:
     content: public System.IO.Log.LogArchiveSnapshot CreateLogArchiveSnapshot (System.IO.Log.SequenceNumber first, System.IO.Log.SequenceNumber last);
     parameters:
@@ -804,7 +804,7 @@ items:
   - System.IO.Log
   namespace: System.IO.Log
   summary: Gets the collection of log extents that contain the data for this log store.
-  remarks: A <xref:System.IO.Log.LogStore> instance stores its data in a collection of disk extents, represented by <xref:System.IO.Log.LogExtent> instances. The extents in a given <xref:System.IO.Log.LogStore> instance are all of uniform size, and space is added to and removed from a <xref:System.IO.Log.LogStore> instance in extent increments. To add and remove log extents, use the <xref:System.IO.Log.LogExtentCollection.Add%2A>and<xref:System.IO.Log.LogExtentCollection.Remove%2A> methods of the <xref:System.IO.Log.LogExtentCollection> object, which is returned by this property.
+  remarks: 'A <xref:System.IO.Log.LogStore> instance stores its data in a collection of disk extents, represented by <xref:System.IO.Log.LogExtent> instances. The extents in a given <xref:System.IO.Log.LogStore> instance are all of uniform size, and space is added to and removed from a <xref:System.IO.Log.LogStore> instance in extent increments. To add and remove log extents, use the <xref:System.IO.Log.LogExtentCollection.Add%2A>and<xref:System.IO.Log.LogExtentCollection.Remove%2A> methods of the <xref:System.IO.Log.LogExtentCollection> object, which is returned by this property.'
   syntax:
     content: public System.IO.Log.LogExtentCollection Extents { get; }
     return:
@@ -936,8 +936,8 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, gets the sequence number of the next record to be appended to the log store.
-  remarks: Valid sequence numbers are greater than or equal to <xref:System.IO.Log.LogStore.BaseSequenceNumber%2A> and less than <xref:System.IO.Log.LogStore.LastSequenceNumber%2A>.
+  summary: 'When overridden in a derived class, gets the sequence number of the next record to be appended to the log store.'
+  remarks: 'Valid sequence numbers are greater than or equal to <xref:System.IO.Log.LogStore.BaseSequenceNumber%2A> and less than <xref:System.IO.Log.LogStore.LastSequenceNumber%2A>.'
   syntax:
     content: public System.IO.Log.SequenceNumber LastSequenceNumber { get; }
     return:
@@ -983,13 +983,13 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: Gets the size of the log store, in bytes.
+  summary: 'Gets the size of the log store, in bytes.'
   remarks: The size of the log store is the sum of the sizes of the log extents.
   syntax:
     content: public long Length { get; }
     return:
       type: System.Int64
-      description: The size of the log store, in bytes.
+      description: 'The size of the log store, in bytes.'
   overload: System.IO.Log.LogStore.Length*
   exceptions:
   - type: System.ObjectDisposedException
@@ -1031,7 +1031,7 @@ items:
   - System.IO.Log
   namespace: System.IO.Log
   summary: Gets the policy associated with this log store.
-  remarks: You can use the <xref:System.IO.Log.LogPolicy> instance returned by this property to examine and manipulate the log policy associated with this <xref:System.IO.Log.LogStore>.
+  remarks: 'You can use the <xref:System.IO.Log.LogPolicy> instance returned by this property to examine and manipulate the log policy associated with this <xref:System.IO.Log.LogStore>.'
   syntax:
     content: public System.IO.Log.LogPolicy Policy { get; }
     return:

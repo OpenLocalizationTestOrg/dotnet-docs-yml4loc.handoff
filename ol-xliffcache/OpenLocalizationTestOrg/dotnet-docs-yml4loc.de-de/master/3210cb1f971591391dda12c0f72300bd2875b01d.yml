@@ -163,7 +163,7 @@ items:
   - System.Drawing.Design
   namespace: System.Drawing.Design
   summary: Gets a collection of strings depicting available categories of the toolbox.
-  remarks: The category names correspond to various toolbox categories. If a toolbox does not implement any form of categories, the <xref:System.Drawing.Design.ToolboxService.CategoryNames%2A> property may return an empty collection.
+  remarks: 'The category names correspond to various toolbox categories. If a toolbox does not implement any form of categories, the <xref:System.Drawing.Design.ToolboxService.CategoryNames%2A> property may return an empty collection.'
   syntax:
     content: protected abstract System.Drawing.Design.CategoryNameCollection CategoryNames { get; }
     return:
@@ -397,7 +397,7 @@ items:
   - System.Drawing.Design
   namespace: System.Drawing.Design
   summary: Returns an <xref href="System.Collections.IList"></xref> containing all items in a given category.
-  remarks: If the category specified by the `categoryName` parameter does not exist, the <xref:System.Drawing.Design.ToolboxService.GetItemContainers%2A> method should throw a meaningful exception.
+  remarks: 'If the category specified by the `categoryName` parameter does not exist, the <xref:System.Drawing.Design.ToolboxService.GetItemContainers%2A> method should throw a meaningful exception.'
   syntax:
     content: protected abstract System.Collections.IList GetItemContainers (string categoryName);
     parameters:
@@ -453,7 +453,7 @@ items:
       description: The type of component for which to retrieve the toolbox item.
     return:
       type: System.Drawing.Design.ToolboxItem
-      description: A toolbox item associated with the given type, or `null` if the type has no corresponding toolbox item.
+      description: 'A toolbox item associated with the given type, or `null` if the type has no corresponding toolbox item.'
   overload: System.Drawing.Design.ToolboxService.GetToolboxItem*
   exceptions:
   - type: System.ArgumentNullException
@@ -506,7 +506,7 @@ items:
       description: '`true` to search for non-public constructors on the type; `false` to search for public constructors.'
     return:
       type: System.Drawing.Design.ToolboxItem
-      description: A toolbox item associated with the given type, or `null` if the type has no corresponding toolbox item.
+      description: 'A toolbox item associated with the given type, or `null` if the type has no corresponding toolbox item.'
   overload: System.Drawing.Design.ToolboxService.GetToolboxItem*
   exceptions:
   - type: System.ArgumentNullException
@@ -871,7 +871,7 @@ items:
   - System.Drawing.Design
   namespace: System.Drawing.Design
   summary: Refreshes the state of the toolbox items.
-  remarks: The <xref:System.Drawing.Design.IToolboxService.Refresh%2A> method is called by the toolbox service when a user has requested that the collection of items should be refreshed. If the collection is always current, there is no need to provide any implementation here. If the collection returned from <xref:System.Drawing.Design.ToolboxService.GetItemContainers%2A> represents a snapshot of the toolbox items, however, this method provides an opportunity to update them.
+  remarks: 'The <xref:System.Drawing.Design.IToolboxService.Refresh%2A> method is called by the toolbox service when a user has requested that the collection of items should be refreshed. If the collection is always current, there is no need to provide any implementation here. If the collection returned from <xref:System.Drawing.Design.ToolboxService.GetItemContainers%2A> represents a snapshot of the toolbox items, however, this method provides an opportunity to update them.'
   syntax:
     content: protected abstract void Refresh ();
     parameters: []
@@ -913,7 +913,7 @@ items:
   - System.Drawing.Design
   namespace: System.Drawing.Design
   summary: Gets or sets the name of the currently selected category.
-  remarks: In general, toolbox items are grouped into categories.
+  remarks: 'In general, toolbox items are grouped into categories.'
   syntax:
     content: protected abstract string SelectedCategory { get; set; }
     return:
@@ -961,7 +961,7 @@ items:
     content: protected abstract System.Drawing.Design.ToolboxItemContainer SelectedItemContainer { get; set; }
     return:
       type: System.Drawing.Design.ToolboxItemContainer
-      description: The item container for the currently selected toolbox item, or `null` if no item is selected.
+      description: 'The item container for the currently selected toolbox item, or `null` if no item is selected.'
   overload: System.Drawing.Design.ToolboxService.SelectedItemContainer*
   exceptions: []
   version:
@@ -1000,7 +1000,7 @@ items:
   - System.Drawing.Design
   namespace: System.Drawing.Design
   summary: Receives a call from the toolbox service when a user reports that a selected toolbox item has been used.
-  remarks: The <xref:System.Drawing.Design.ToolboxService.SelectedItemContainerUsed%2A> method is called by the toolbox service when a user reports that the selected toolbox item has been used. After invoking a toolbox item, it is a common user interface (UI) behavior to cancel the selection of that toolbox item. The default implementation of this method cancels the selection of the toolbox item by setting the selected item container to `null`.
+  remarks: 'The <xref:System.Drawing.Design.ToolboxService.SelectedItemContainerUsed%2A> method is called by the toolbox service when a user reports that the selected toolbox item has been used. After invoking a toolbox item, it is a common user interface (UI) behavior to cancel the selection of that toolbox item. The default implementation of this method cancels the selection of the toolbox item by setting the selected item container to `null`.'
   syntax:
     content: protected virtual void SelectedItemContainerUsed ();
     parameters: []
@@ -1042,7 +1042,7 @@ items:
   - System.Drawing.Design
   namespace: System.Drawing.Design
   summary: Sets the current application's cursor to a cursor that represents the currently selected tool.
-  remarks: The toolbox service provides support for setting the user interface (UI) cursor to an image that represents the currently selected toolbox item. The <xref:System.Drawing.Design.ToolboxService.SetCursor%2A> method can be called to set the cursor. It returns `true` if the cursor is set, or `false` if it is not. The default implementation sets the cursor to a crosshair and returns `true` if there is an item selected. It returns `false` and leaves the cursor unchanged if no item is selected.
+  remarks: 'The toolbox service provides support for setting the user interface (UI) cursor to an image that represents the currently selected toolbox item. The <xref:System.Drawing.Design.ToolboxService.SetCursor%2A> method can be called to set the cursor. It returns `true` if the cursor is set, or `false` if it is not. The default implementation sets the cursor to a crosshair and returns `true` if there is an item selected. It returns `false` and leaves the cursor unchanged if no item is selected.'
   syntax:
     content: protected virtual bool SetCursor ();
     parameters: []
@@ -1179,8 +1179,8 @@ items:
   assemblies:
   - System.Drawing.Design
   namespace: System.Drawing.Design
-  summary: For a description of this member, see the <xref href="System.Drawing.Design.IToolboxService.AddCreator(System.Drawing.Design.ToolboxItemCreatorCallback,System.String)"></xref> method.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Drawing.Design.ToolboxService> instance is cast to an <xref:System.Drawing.Design.IToolboxService> interface.
+  summary: 'For a description of this member, see the <xref href="System.Drawing.Design.IToolboxService.AddCreator(System.Drawing.Design.ToolboxItemCreatorCallback,System.String)"></xref> method.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Drawing.Design.ToolboxService> instance is cast to an <xref:System.Drawing.Design.IToolboxService> interface.'
   syntax:
     content: void IToolboxService.AddCreator (System.Drawing.Design.ToolboxItemCreatorCallback creator, string format);
     parameters:
@@ -1228,8 +1228,8 @@ items:
   assemblies:
   - System.Drawing.Design
   namespace: System.Drawing.Design
-  summary: For a description of this member, see the <xref href="System.Drawing.Design.IToolboxService.AddCreator(System.Drawing.Design.ToolboxItemCreatorCallback,System.String,System.ComponentModel.Design.IDesignerHost)"></xref> method.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Drawing.Design.ToolboxService> instance is cast to an <xref:System.Drawing.Design.IToolboxService> interface.
+  summary: 'For a description of this member, see the <xref href="System.Drawing.Design.IToolboxService.AddCreator(System.Drawing.Design.ToolboxItemCreatorCallback,System.String,System.ComponentModel.Design.IDesignerHost)"></xref> method.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Drawing.Design.ToolboxService> instance is cast to an <xref:System.Drawing.Design.IToolboxService> interface.'
   syntax:
     content: void IToolboxService.AddCreator (System.Drawing.Design.ToolboxItemCreatorCallback creator, string format, System.ComponentModel.Design.IDesignerHost host);
     parameters:
@@ -1280,8 +1280,8 @@ items:
   assemblies:
   - System.Drawing.Design
   namespace: System.Drawing.Design
-  summary: For a description of this member, see the <xref href="System.Drawing.Design.IToolboxService.AddLinkedToolboxItem(System.Drawing.Design.ToolboxItem,System.ComponentModel.Design.IDesignerHost)"></xref> method.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Drawing.Design.ToolboxService> instance is cast to an <xref:System.Drawing.Design.IToolboxService> interface.
+  summary: 'For a description of this member, see the <xref href="System.Drawing.Design.IToolboxService.AddLinkedToolboxItem(System.Drawing.Design.ToolboxItem,System.ComponentModel.Design.IDesignerHost)"></xref> method.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Drawing.Design.ToolboxService> instance is cast to an <xref:System.Drawing.Design.IToolboxService> interface.'
   syntax:
     content: void IToolboxService.AddLinkedToolboxItem (System.Drawing.Design.ToolboxItem toolboxItem, System.ComponentModel.Design.IDesignerHost host);
     parameters:
@@ -1329,8 +1329,8 @@ items:
   assemblies:
   - System.Drawing.Design
   namespace: System.Drawing.Design
-  summary: For a description of this member, see the <xref href="System.Drawing.Design.IToolboxService.AddLinkedToolboxItem(System.Drawing.Design.ToolboxItem,System.String,System.ComponentModel.Design.IDesignerHost)"></xref> method.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Drawing.Design.ToolboxService> instance is cast to an <xref:System.Drawing.Design.IToolboxService> interface.
+  summary: 'For a description of this member, see the <xref href="System.Drawing.Design.IToolboxService.AddLinkedToolboxItem(System.Drawing.Design.ToolboxItem,System.String,System.ComponentModel.Design.IDesignerHost)"></xref> method.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Drawing.Design.ToolboxService> instance is cast to an <xref:System.Drawing.Design.IToolboxService> interface.'
   syntax:
     content: void IToolboxService.AddLinkedToolboxItem (System.Drawing.Design.ToolboxItem toolboxItem, string category, System.ComponentModel.Design.IDesignerHost host);
     parameters:
@@ -1381,8 +1381,8 @@ items:
   assemblies:
   - System.Drawing.Design
   namespace: System.Drawing.Design
-  summary: For a description of this member, see the <xref href="System.Drawing.Design.IToolboxService.AddToolboxItem(System.Drawing.Design.ToolboxItem)"></xref> method.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Drawing.Design.ToolboxService> instance is cast to an <xref:System.Drawing.Design.IToolboxService> interface.
+  summary: 'For a description of this member, see the <xref href="System.Drawing.Design.IToolboxService.AddToolboxItem(System.Drawing.Design.ToolboxItem)"></xref> method.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Drawing.Design.ToolboxService> instance is cast to an <xref:System.Drawing.Design.IToolboxService> interface.'
   syntax:
     content: void IToolboxService.AddToolboxItem (System.Drawing.Design.ToolboxItem toolboxItem);
     parameters:
@@ -1427,8 +1427,8 @@ items:
   assemblies:
   - System.Drawing.Design
   namespace: System.Drawing.Design
-  summary: For a description of this member, see the <xref href="System.Drawing.Design.IToolboxService.AddToolboxItem(System.Drawing.Design.ToolboxItem,System.String)"></xref> method.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Drawing.Design.ToolboxService> instance is cast to an <xref:System.Drawing.Design.IToolboxService> interface.
+  summary: 'For a description of this member, see the <xref href="System.Drawing.Design.IToolboxService.AddToolboxItem(System.Drawing.Design.ToolboxItem,System.String)"></xref> method.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Drawing.Design.ToolboxService> instance is cast to an <xref:System.Drawing.Design.IToolboxService> interface.'
   syntax:
     content: void IToolboxService.AddToolboxItem (System.Drawing.Design.ToolboxItem toolboxItem, string category);
     parameters:
@@ -1476,8 +1476,8 @@ items:
   assemblies:
   - System.Drawing.Design
   namespace: System.Drawing.Design
-  summary: For a description of this member, see the <xref href="System.Drawing.Design.IToolboxService.CategoryNames"></xref> property.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Drawing.Design.ToolboxService> instance is cast to an <xref:System.Drawing.Design.IToolboxService> interface.
+  summary: 'For a description of this member, see the <xref href="System.Drawing.Design.IToolboxService.CategoryNames"></xref> property.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Drawing.Design.ToolboxService> instance is cast to an <xref:System.Drawing.Design.IToolboxService> interface.'
   syntax:
     content: System.Drawing.Design.CategoryNameCollection System.Drawing.Design.IToolboxService.CategoryNames { get; }
     return:
@@ -1519,8 +1519,8 @@ items:
   assemblies:
   - System.Drawing.Design
   namespace: System.Drawing.Design
-  summary: For a description of this member, see the <xref href="System.Drawing.Design.IToolboxService.DeserializeToolboxItem(System.Object)"></xref> method.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Drawing.Design.ToolboxService> instance is cast to an <xref:System.Drawing.Design.IToolboxService> interface.
+  summary: 'For a description of this member, see the <xref href="System.Drawing.Design.IToolboxService.DeserializeToolboxItem(System.Object)"></xref> method.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Drawing.Design.ToolboxService> instance is cast to an <xref:System.Drawing.Design.IToolboxService> interface.'
   syntax:
     content: System.Drawing.Design.ToolboxItem IToolboxService.DeserializeToolboxItem (object serializedObject);
     parameters:
@@ -1568,8 +1568,8 @@ items:
   assemblies:
   - System.Drawing.Design
   namespace: System.Drawing.Design
-  summary: For a description of this member, see the <xref href="System.Drawing.Design.IToolboxService.DeserializeToolboxItem(System.Object,System.ComponentModel.Design.IDesignerHost)"></xref> method.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Drawing.Design.ToolboxService> instance is cast to an <xref:System.Drawing.Design.IToolboxService> interface.
+  summary: 'For a description of this member, see the <xref href="System.Drawing.Design.IToolboxService.DeserializeToolboxItem(System.Object,System.ComponentModel.Design.IDesignerHost)"></xref> method.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Drawing.Design.ToolboxService> instance is cast to an <xref:System.Drawing.Design.IToolboxService> interface.'
   syntax:
     content: System.Drawing.Design.ToolboxItem IToolboxService.DeserializeToolboxItem (object serializedObject, System.ComponentModel.Design.IDesignerHost host);
     parameters:
@@ -1620,14 +1620,14 @@ items:
   assemblies:
   - System.Drawing.Design
   namespace: System.Drawing.Design
-  summary: For a description of this member, see the <xref href="System.Drawing.Design.IToolboxService.GetSelectedToolboxItem*"></xref> method.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Drawing.Design.ToolboxService> instance is cast to an <xref:System.Drawing.Design.IToolboxService> interface.
+  summary: 'For a description of this member, see the <xref href="System.Drawing.Design.IToolboxService.GetSelectedToolboxItem*"></xref> method.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Drawing.Design.ToolboxService> instance is cast to an <xref:System.Drawing.Design.IToolboxService> interface.'
   syntax:
     content: System.Drawing.Design.ToolboxItem IToolboxService.GetSelectedToolboxItem ();
     parameters: []
     return:
       type: System.Drawing.Design.ToolboxItem
-      description: The <xref href="System.Drawing.Design.ToolboxItem"></xref> that is currently selected, or `null` if no toolbox item is currently selected.
+      description: 'The <xref href="System.Drawing.Design.ToolboxItem"></xref> that is currently selected, or `null` if no toolbox item is currently selected.'
   overload: System.Drawing.Design.ToolboxService.System#Drawing#Design#IToolboxService#GetSelectedToolboxItem*
   exceptions: []
   version:
@@ -1666,8 +1666,8 @@ items:
   assemblies:
   - System.Drawing.Design
   namespace: System.Drawing.Design
-  summary: For a description of this member, see the <xref href="System.Drawing.Design.IToolboxService.GetSelectedToolboxItem(System.ComponentModel.Design.IDesignerHost)"></xref> method.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Drawing.Design.ToolboxService> instance is cast to an <xref:System.Drawing.Design.IToolboxService> interface.
+  summary: 'For a description of this member, see the <xref href="System.Drawing.Design.IToolboxService.GetSelectedToolboxItem(System.ComponentModel.Design.IDesignerHost)"></xref> method.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Drawing.Design.ToolboxService> instance is cast to an <xref:System.Drawing.Design.IToolboxService> interface.'
   syntax:
     content: System.Drawing.Design.ToolboxItem IToolboxService.GetSelectedToolboxItem (System.ComponentModel.Design.IDesignerHost host);
     parameters:
@@ -1676,7 +1676,7 @@ items:
       description: The <xref href="System.ComponentModel.Design.IDesignerHost"></xref> that the selected tool must be associated with for it to be returned.
     return:
       type: System.Drawing.Design.ToolboxItem
-      description: The <xref href="System.Drawing.Design.ToolboxItem"></xref> that is currently selected, or `null` if no toolbox item is currently selected.
+      description: 'The <xref href="System.Drawing.Design.ToolboxItem"></xref> that is currently selected, or `null` if no toolbox item is currently selected.'
   overload: System.Drawing.Design.ToolboxService.System#Drawing#Design#IToolboxService#GetSelectedToolboxItem*
   exceptions: []
   version:
@@ -1916,7 +1916,7 @@ items:
   assemblies:
   - System.Drawing.Design
   namespace: System.Drawing.Design
-  summary: Gets a value indicating whether the specified object, which represents a serialized toolbox item, matches the specified attributes.
+  summary: 'Gets a value indicating whether the specified object, which represents a serialized toolbox item, matches the specified attributes.'
   syntax:
     content: bool IToolboxService.IsSupported (object serializedObject, System.Collections.ICollection filterAttributes);
     parameters:
@@ -1970,7 +1970,7 @@ items:
   assemblies:
   - System.Drawing.Design
   namespace: System.Drawing.Design
-  summary: Gets a value indicating whether the specified object, which represents a serialized toolbox item, can be used by the specified designer host.
+  summary: 'Gets a value indicating whether the specified object, which represents a serialized toolbox item, can be used by the specified designer host.'
   syntax:
     content: bool IToolboxService.IsSupported (object serializedObject, System.ComponentModel.Design.IDesignerHost host);
     parameters:
@@ -2363,8 +2363,8 @@ items:
   assemblies:
   - System.Drawing.Design
   namespace: System.Drawing.Design
-  summary: For a description of this member, see the <xref href="System.Drawing.Design.IToolboxService.SelectedCategory"></xref> property.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Drawing.Design.ToolboxService> instance is cast to an <xref:System.Drawing.Design.IToolboxService> interface.
+  summary: 'For a description of this member, see the <xref href="System.Drawing.Design.IToolboxService.SelectedCategory"></xref> property.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Drawing.Design.ToolboxService> instance is cast to an <xref:System.Drawing.Design.IToolboxService> interface.'
   syntax:
     content: string System.Drawing.Design.IToolboxService.SelectedCategory { get; set; }
     return:

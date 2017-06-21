@@ -43,8 +43,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: Converts base data types to an array of bytes, and an array of bytes to base data types.
-  remarks: "The <xref:System.BitConverter> class helps manipulate value types in their fundamental form, as a series of bytes. A byte is defined as an 8-bit unsigned integer. The <xref:System.BitConverter> class includes static methods to convert each of the primitive types to and from an array of bytes, as the following table illustrates.  \n  \n|Type|To byte conversion|From byte conversion|  \n|----------|------------------------|--------------------------|  \n|<xref:System.Boolean>|<xref:System.BitConverter.GetBytes%28System.Boolean%29>|<xref:System.BitConverter.ToBoolean%2A>|  \n|<xref:System.Char>|<xref:System.BitConverter.GetBytes%28System.Char%29>|<xref:System.BitConverter.ToChar%2A>|  \n|<xref:System.Double>|<xref:System.BitConverter.GetBytes%28System.Double%29><br /><br /> -or-<br /><br /> <xref:System.BitConverter.DoubleToInt64Bits%28System.Double%29>|<xref:System.BitConverter.ToDouble%2A><br /><br /> -or-<br /><br /> <xref:System.BitConverter.Int64BitsToDouble%2A>|  \n|<xref:System.Int16>|<xref:System.BitConverter.GetBytes%28System.Int16%29>|<xref:System.BitConverter.ToInt16%2A>|  \n|<xref:System.Int32>|<xref:System.BitConverter.GetBytes%28System.Int32%29>|<xref:System.BitConverter.ToInt32%2A>|  \n|<xref:System.Int64>|<xref:System.BitConverter.GetBytes%28System.Int64%29>|<xref:System.BitConverter.ToInt64%2A>|  \n|<xref:System.Single>|<xref:System.BitConverter.GetBytes%28System.Single%29>|<xref:System.BitConverter.ToSingle%2A>|  \n|<xref:System.UInt16>|<xref:System.BitConverter.GetBytes%28System.UInt16%29>|<xref:System.BitConverter.ToUInt16%2A>|  \n|<xref:System.UInt32>|<xref:System.BitConverter.GetBytes%28System.UInt32%29>|<xref:System.BitConverter.ToUInt32%2A>|  \n|<xref:System.UInt64>|<xref:System.BitConverter.GetBytes%28System.UInt64%29>|<xref:System.BitConverter.ToUInt64%2A>|  \n  \n If you use <xref:System.BitConverter> methods to round-trip data, make sure that the <xref:System.BitConverter.GetBytes%2A> overload and the `To`*Type* method specify the same type. As the following example illustrates, restoring an array that represents a signed integer by calling the <xref:System.BitConverter.ToUInt32%2A> method can result in a value that is different from the original. For more information, see the entry [Working with Signed Non-Decimal and Bitwise Values](http://go.microsoft.com/fwlink/?LinkId=186999) in the BCL Team Blog.  \n  \n [!code-csharp[System.BitConverter.Class#3](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.BitConverter.Class/CS/example1.cs#3)]\n [!code-vb[System.BitConverter.Class#3](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.BitConverter.Class/VB/example1.vb#3)]  \n  \n The order of bytes in the array returned by the <xref:System.BitConverter.GetBytes%2A> method overloads (as well as the order of bits in the integer returned by the <xref:System.BitConverter.DoubleToInt64Bits%2A> method and the order of hexadecimal strings returned by the <xref:System.BitConverter.ToString%28System.Byte%5B%5D%29> method) depends on whether the computer architecture is little-endian or big-endian. Similarly, the order of bytes in the array and returned by the `To`*IntegerValue* methods and the <xref:System.BitConverter.ToChar%2A> method depends on whether the computer architecture is little-endian or big-endian. The endianness of an architecture is indicated by the <xref:System.BitConverter.IsLittleEndian> property, which returns `true` on little-endian systems and `false` on big-endian systems. On little-endian systems, lower-order bytes precede higher-order bytes. On big-endian system, higher-order bytes precede lower-order bytes. The following table illustrates the difference in the byte arrays that result from passing the integer 1,234,567,890 (0x499602D2) to the <xref:System.BitConverter.GetBytes%28System.Int32%29> method. The bytes are listed in order from the byte at index 0 to the byte at index 3.  \n  \n|||  \n|-|-|  \n|Little-endian|D2-02-96-49|  \n|Big-endian|49-96-02-D2|  \n  \n Because the return value of some methods depends on system architecture, be careful when transmitting byte data beyond machine boundaries:  \n  \n-   If all systems sending and receiving data are guaranteed to have the same endianness, nothing has be done to the data.  \n  \n-   If systems sending and receiving data can have different endianness, always transmit data in a particular order. This means that the order of bytes in the array may have to be reversed either before sending them or after receiving them. A common convention is to transmit data in network byte order (big-endian order). The following example provides an implementation for sending an integer value in network byte order.  \n  \n     [!code-csharp[System.BitConverter.Class#4](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.BitConverter.Class/CS/networkorder1.cs#4)]\n     [!code-vb[System.BitConverter.Class#4](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.BitConverter.Class/VB/networkorder1.vb#4)]  \n  \n-   If systems sending and receiving data can have different endianness and the data to be transmitted consists of signed integers, call the <xref:System.Net.IPAddress.HostToNetworkOrder%2A?displayProperty=fullName> method to convert the data to network byte order and the <xref:System.Net.IPAddress.NetworkToHostOrder%2A?displayProperty=fullName> method to convert it to the order required by the recipient."
+  summary: 'Converts base data types to an array of bytes, and an array of bytes to base data types.'
+  remarks: "The <xref:System.BitConverter> class helps manipulate value types in their fundamental form, as a series of bytes. A byte is defined as an 8-bit unsigned integer. The <xref:System.BitConverter> class includes static methods to convert each of the primitive types to and from an array of bytes, as the following table illustrates.  \n  \n|Type|To byte conversion|From byte conversion|  \n|----------|------------------------|--------------------------|  \n|<xref:System.Boolean>|<xref:System.BitConverter.GetBytes%28System.Boolean%29>|<xref:System.BitConverter.ToBoolean%2A>|  \n|<xref:System.Char>|<xref:System.BitConverter.GetBytes%28System.Char%29>|<xref:System.BitConverter.ToChar%2A>|  \n|<xref:System.Double>|<xref:System.BitConverter.GetBytes%28System.Double%29><br /><br /> -or-<br /><br /> <xref:System.BitConverter.DoubleToInt64Bits%28System.Double%29>|<xref:System.BitConverter.ToDouble%2A><br /><br /> -or-<br /><br /> <xref:System.BitConverter.Int64BitsToDouble%2A>|  \n|<xref:System.Int16>|<xref:System.BitConverter.GetBytes%28System.Int16%29>|<xref:System.BitConverter.ToInt16%2A>|  \n|<xref:System.Int32>|<xref:System.BitConverter.GetBytes%28System.Int32%29>|<xref:System.BitConverter.ToInt32%2A>|  \n|<xref:System.Int64>|<xref:System.BitConverter.GetBytes%28System.Int64%29>|<xref:System.BitConverter.ToInt64%2A>|  \n|<xref:System.Single>|<xref:System.BitConverter.GetBytes%28System.Single%29>|<xref:System.BitConverter.ToSingle%2A>|  \n|<xref:System.UInt16>|<xref:System.BitConverter.GetBytes%28System.UInt16%29>|<xref:System.BitConverter.ToUInt16%2A>|  \n|<xref:System.UInt32>|<xref:System.BitConverter.GetBytes%28System.UInt32%29>|<xref:System.BitConverter.ToUInt32%2A>|  \n|<xref:System.UInt64>|<xref:System.BitConverter.GetBytes%28System.UInt64%29>|<xref:System.BitConverter.ToUInt64%2A>|  \n  \n If you use <xref:System.BitConverter> methods to round-trip data, make sure that the <xref:System.BitConverter.GetBytes%2A> overload and the `To`*Type* method specify the same type. As the following example illustrates, restoring an array that represents a signed integer by calling the <xref:System.BitConverter.ToUInt32%2A> method can result in a value that is different from the original. For more information, see the entry [Working with Signed Non-Decimal and Bitwise Values](http://go.microsoft.com/fwlink/?LinkId=186999) in the BCL Team Blog.  \n  \n [!code-csharp[System.BitConverter.Class#3](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.BitConverter.Class/CS/example1.cs#3)] [!code-vb[System.BitConverter.Class#3](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.BitConverter.Class/VB/example1.vb#3)]  \n  \n The order of bytes in the array returned by the <xref:System.BitConverter.GetBytes%2A> method overloads (as well as the order of bits in the integer returned by the <xref:System.BitConverter.DoubleToInt64Bits%2A> method and the order of hexadecimal strings returned by the <xref:System.BitConverter.ToString%28System.Byte%5B%5D%29> method) depends on whether the computer architecture is little-endian or big-endian. Similarly, the order of bytes in the array and returned by the `To`*IntegerValue* methods and the <xref:System.BitConverter.ToChar%2A> method depends on whether the computer architecture is little-endian or big-endian. The endianness of an architecture is indicated by the <xref:System.BitConverter.IsLittleEndian> property, which returns `true` on little-endian systems and `false` on big-endian systems. On little-endian systems, lower-order bytes precede higher-order bytes. On big-endian system, higher-order bytes precede lower-order bytes. The following table illustrates the difference in the byte arrays that result from passing the integer 1,234,567,890 (0x499602D2) to the <xref:System.BitConverter.GetBytes%28System.Int32%29> method. The bytes are listed in order from the byte at index 0 to the byte at index 3.  \n  \n|||  \n|-|-|  \n|Little-endian|D2-02-96-49|  \n|Big-endian|49-96-02-D2|  \n  \n Because the return value of some methods depends on system architecture, be careful when transmitting byte data beyond machine boundaries:  \n  \n-   If all systems sending and receiving data are guaranteed to have the same endianness, nothing has be done to the data.  \n  \n-   If systems sending and receiving data can have different endianness, always transmit data in a particular order. This means that the order of bytes in the array may have to be reversed either before sending them or after receiving them. A common convention is to transmit data in network byte order (big-endian order). The following example provides an implementation for sending an integer value in network byte order.  \n  \n     [!code-csharp[System.BitConverter.Class#4](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.BitConverter.Class/CS/networkorder1.cs#4)]  [!code-vb[System.BitConverter.Class#4](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.BitConverter.Class/VB/networkorder1.vb#4)]  \n  \n-   If systems sending and receiving data can have different endianness and the data to be transmitted consists of signed integers, call the <xref:System.Net.IPAddress.HostToNetworkOrder%2A?displayProperty=fullName> method to convert the data to network byte order and the <xref:System.Net.IPAddress.NetworkToHostOrder%2A?displayProperty=fullName> method to convert it to the order required by the recipient."
   example:
   - "The following code example illustrates the use of several <xref:System.BitConverter> class methods.  \n  \n [!code-cpp[System.BitConverter.Class#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.BitConverter.Class/CPP/bitconv.cpp#1)]\n [!code-csharp[System.BitConverter.Class#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.BitConverter.Class/CS/bitconv.cs#1)]\n [!code-vb[System.BitConverter.Class#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.BitConverter.Class/VB/bitconv.vb#1)]"
   syntax:
@@ -126,7 +126,7 @@ items:
   - netstandard
   namespace: System
   summary: Converts the specified double-precision floating point number to a 64-bit signed integer.
-  remarks: The order of bits in the integer returned by the <xref:System.BitConverter.DoubleToInt64Bits%2A> method depends on whether the computer architecture is little-endian or big-endian.
+  remarks: 'The order of bits in the integer returned by the <xref:System.BitConverter.DoubleToInt64Bits%2A> method depends on whether the computer architecture is little-endian or big-endian.'
   example:
   - "The following code example converts the bit patterns of several <xref:System.Double> values to <xref:System.Int64> values with the `DoubleToInt64Bits` method.  \n  \n [!code-cpp[System.BitConverter.DoubleInt64#2](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.BitConverter.DoubleInt64/CPP/dbltobits.cpp#2)]\n [!code-csharp[System.BitConverter.DoubleInt64#2](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.BitConverter.DoubleInt64/CS/dbltobits.cs#2)]\n [!code-vb[System.BitConverter.DoubleInt64#2](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.BitConverter.DoubleInt64/VB/dbltobits.vb#2)]"
   syntax:
@@ -207,7 +207,7 @@ items:
   - netstandard
   namespace: System
   summary: Returns the specified Boolean value as a byte array.
-  remarks: You can convert a byte array back to a <xref:System.Boolean> value by calling the <xref:System.BitConverter.ToBoolean%2A> method.
+  remarks: 'You can convert a byte array back to a <xref:System.Boolean> value by calling the <xref:System.BitConverter.ToBoolean%2A> method.'
   example:
   - "The following example converts the bit patterns of <xref:System.Boolean> values to <xref:System.Byte> arrays with the `GetBytes` method.  \n  \n [!code-cpp[System.BitConverter.GetBytes.Others#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.BitConverter.GetBytes.Others/CPP/bytesbool.cpp#1)]\n [!code-csharp[System.BitConverter.GetBytes.Others#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.BitConverter.GetBytes.Others/CS/bytesbool.cs#1)]\n [!code-vb[System.BitConverter.GetBytes.Others#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.BitConverter.GetBytes.Others/VB/bytesbool.vb#1)]"
   syntax:
@@ -287,7 +287,7 @@ items:
   - netstandard
   namespace: System
   summary: Returns the specified Unicode character value as an array of bytes.
-  remarks: The order of bytes in the array returned by the <xref:System.BitConverter.GetBytes%2A> method depends on whether the computer architecture is little-endian or big-endian.
+  remarks: 'The order of bytes in the array returned by the <xref:System.BitConverter.GetBytes%2A> method depends on whether the computer architecture is little-endian or big-endian.'
   example:
   - "The following code example converts the bit patterns of <xref:System.Char> values (Unicode characters) to <xref:System.Byte> arrays with the `GetBytes` method.  \n  \n [!code-cpp[System.BitConverter.GetBytes.Others#2](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.BitConverter.GetBytes.Others/CPP/byteschar.cpp#2)]\n [!code-csharp[System.BitConverter.GetBytes.Others#2](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.BitConverter.GetBytes.Others/CS/byteschar.cs#2)]\n [!code-vb[System.BitConverter.GetBytes.Others#2](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.BitConverter.GetBytes.Others/VB/byteschar.vb#2)]"
   syntax:
@@ -367,7 +367,7 @@ items:
   - netstandard
   namespace: System
   summary: Returns the specified double-precision floating point value as an array of bytes.
-  remarks: The order of bytes in the array returned by the <xref:System.BitConverter.GetBytes%2A> method depends on whether the computer architecture is little-endian or big-endian.
+  remarks: 'The order of bytes in the array returned by the <xref:System.BitConverter.GetBytes%2A> method depends on whether the computer architecture is little-endian or big-endian.'
   example:
   - "The following code example converts the bit patterns of <xref:System.Double> values to <xref:System.Byte> arrays with the `GetBytes` method.  \n  \n [!code-cpp[System.BitConverter.GetBytes.Others#4](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.BitConverter.GetBytes.Others/CPP/bytesdouble.cpp#4)]\n [!code-csharp[System.BitConverter.GetBytes.Others#4](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.BitConverter.GetBytes.Others/CS/bytesdouble.cs#4)]\n [!code-vb[System.BitConverter.GetBytes.Others#4](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.BitConverter.GetBytes.Others/VB/bytesdouble.vb#4)]"
   syntax:
@@ -448,7 +448,7 @@ items:
   - netstandard
   namespace: System
   summary: Returns the specified 16-bit signed integer value as an array of bytes.
-  remarks: The order of bytes in the array returned by the <xref:System.BitConverter.GetBytes%2A> method depends on whether the computer architecture is little-endian or big-endian.
+  remarks: 'The order of bytes in the array returned by the <xref:System.BitConverter.GetBytes%2A> method depends on whether the computer architecture is little-endian or big-endian.'
   example:
   - "The following code example converts the bit patterns of <xref:System.Int16> values to <xref:System.Byte> arrays with the `GetBytes` method.  \n  \n [!code-cpp[System.BitConverter.GetBytes.SInts#3](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.BitConverter.GetBytes.SInts/CPP/bytesint16.cpp#3)]\n [!code-csharp[System.BitConverter.GetBytes.SInts#3](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.BitConverter.GetBytes.SInts/CS/bytesint16.cs#3)]\n [!code-vb[System.BitConverter.GetBytes.SInts#3](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.BitConverter.GetBytes.SInts/VB/bytesint16.vb#3)]"
   syntax:
@@ -529,7 +529,7 @@ items:
   - netstandard
   namespace: System
   summary: Returns the specified 32-bit signed integer value as an array of bytes.
-  remarks: The order of bytes in the array returned by the <xref:System.BitConverter.GetBytes%2A> method depends on whether the computer architecture is little-endian or big-endian.
+  remarks: 'The order of bytes in the array returned by the <xref:System.BitConverter.GetBytes%2A> method depends on whether the computer architecture is little-endian or big-endian.'
   example:
   - "The following code example converts the bit patterns of <xref:System.Int32> values to <xref:System.Byte> arrays with the `GetBytes` method.  \n  \n [!code-cpp[System.BitConverter.GetBytes.SInts#2](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.BitConverter.GetBytes.SInts/CPP/bytesint32.cpp#2)]\n [!code-csharp[System.BitConverter.GetBytes.SInts#2](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.BitConverter.GetBytes.SInts/CS/bytesint32.cs#2)]\n [!code-vb[System.BitConverter.GetBytes.SInts#2](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.BitConverter.GetBytes.SInts/VB/bytesint32.vb#2)]"
   syntax:
@@ -610,7 +610,7 @@ items:
   - netstandard
   namespace: System
   summary: Returns the specified 64-bit signed integer value as an array of bytes.
-  remarks: The order of bytes in the array returned by the <xref:System.BitConverter.GetBytes%2A> method depends on whether the computer architecture is little-endian or big-endian.
+  remarks: 'The order of bytes in the array returned by the <xref:System.BitConverter.GetBytes%2A> method depends on whether the computer architecture is little-endian or big-endian.'
   example:
   - "The following example calls the <xref:System.BitConverter.GetBytes%2A> method to convert each element in an <xref:System.Int64> array to a<xref:System.Byte> arrays.  \n  \n [!code-cpp[System.BitConverter.GetBytes.SInts#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.BitConverter.GetBytes.SInts/CPP/bytesint64.cpp#1)]\n [!code-csharp[System.BitConverter.GetBytes.SInts#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.BitConverter.GetBytes.SInts/CS/bytesint64.cs#1)]\n [!code-vb[System.BitConverter.GetBytes.SInts#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.BitConverter.GetBytes.SInts/VB/bytesint64.vb#1)]"
   syntax:
@@ -691,7 +691,7 @@ items:
   - netstandard
   namespace: System
   summary: Returns the specified single-precision floating point value as an array of bytes.
-  remarks: The order of bytes in the array returned by the <xref:System.BitConverter.GetBytes%2A> method depends on whether the computer architecture is little-endian or big-endian.
+  remarks: 'The order of bytes in the array returned by the <xref:System.BitConverter.GetBytes%2A> method depends on whether the computer architecture is little-endian or big-endian.'
   example:
   - "The following code example converts the bit patterns of <xref:System.Single> values to <xref:System.Byte> arrays with the `GetBytes` method.  \n  \n [!code-cpp[System.BitConverter.GetBytes.Others#3](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.BitConverter.GetBytes.Others/CPP/bytessingle.cpp#3)]\n [!code-csharp[System.BitConverter.GetBytes.Others#3](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.BitConverter.GetBytes.Others/CS/bytessingle.cs#3)]\n [!code-vb[System.BitConverter.GetBytes.Others#3](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.BitConverter.GetBytes.Others/VB/bytessingle.vb#3)]"
   syntax:
@@ -772,7 +772,7 @@ items:
   - netstandard
   namespace: System
   summary: Returns the specified 16-bit unsigned integer value as an array of bytes.
-  remarks: The order of bytes in the array returned by the <xref:System.BitConverter.GetBytes%2A> method depends on whether the computer architecture is little-endian or big-endian.
+  remarks: 'The order of bytes in the array returned by the <xref:System.BitConverter.GetBytes%2A> method depends on whether the computer architecture is little-endian or big-endian.'
   example:
   - "The following code example converts the bit patterns of <xref:System.UInt16> values to <xref:System.Byte> arrays with the `GetBytes` method.  \n  \n [!code-cpp[System.BitConverter.GetBytes.UInts#3](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.BitConverter.GetBytes.UInts/CPP/bytesuint16.cpp#3)]\n [!code-csharp[System.BitConverter.GetBytes.UInts#3](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.BitConverter.GetBytes.UInts/CS/bytesuint16.cs#3)]\n [!code-vb[System.BitConverter.GetBytes.UInts#3](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.BitConverter.GetBytes.UInts/VB/bytesuint16.vb#3)]"
   syntax:
@@ -857,7 +857,7 @@ items:
   - netstandard
   namespace: System
   summary: Returns the specified 32-bit unsigned integer value as an array of bytes.
-  remarks: The order of bytes in the array returned by the <xref:System.BitConverter.GetBytes%2A> method depends on whether the computer architecture is little-endian or big-endian.
+  remarks: 'The order of bytes in the array returned by the <xref:System.BitConverter.GetBytes%2A> method depends on whether the computer architecture is little-endian or big-endian.'
   example:
   - "The following code example converts the bit patterns of <xref:System.UInt32> values to <xref:System.Byte> arrays with the `GetBytes` method.  \n  \n [!code-cpp[System.BitConverter.GetBytes.UInts#2](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.BitConverter.GetBytes.UInts/CPP/bytesuint32.cpp#2)]\n [!code-csharp[System.BitConverter.GetBytes.UInts#2](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.BitConverter.GetBytes.UInts/CS/bytesuint32.cs#2)]\n [!code-vb[System.BitConverter.GetBytes.UInts#2](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.BitConverter.GetBytes.UInts/VB/bytesuint32.vb#2)]"
   syntax:
@@ -942,7 +942,7 @@ items:
   - netstandard
   namespace: System
   summary: Returns the specified 64-bit unsigned integer value as an array of bytes.
-  remarks: The order of bytes in the array returned by the <xref:System.BitConverter.GetBytes%2A> method depends on whether the computer architecture is little-endian or big-endian.
+  remarks: 'The order of bytes in the array returned by the <xref:System.BitConverter.GetBytes%2A> method depends on whether the computer architecture is little-endian or big-endian.'
   example:
   - "The following code example converts the bit patterns of <xref:System.UInt64> values to <xref:System.Byte> arrays with the `GetBytes` method.  \n  \n [!code-cpp[System.BitConverter.GetBytes.UInts#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.BitConverter.GetBytes.UInts/CPP/bytesuint64.cpp#1)]\n [!code-csharp[System.BitConverter.GetBytes.UInts#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.BitConverter.GetBytes.UInts/CS/bytesuint64.cs#1)]\n [!code-vb[System.BitConverter.GetBytes.UInts#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.BitConverter.GetBytes.UInts/VB/bytesuint64.vb#1)]"
   syntax:
@@ -1056,7 +1056,7 @@ items:
   - netstandard
   namespace: System
   summary: Converts the specified 64-bit signed integer to a double-precision floating point number.
-  remarks: Typically, `value` is an integer that is returned by the <xref:System.BitConverter.DoubleToInt64Bits%2A> method.
+  remarks: 'Typically, `value` is an integer that is returned by the <xref:System.BitConverter.DoubleToInt64Bits%2A> method.'
   example:
   - "The following code example converts the bit patterns of several <xref:System.Int64> values to <xref:System.Double> values with the `Int64BitsToDouble` method.  \n  \n [!code-cpp[System.BitConverter.DoubleInt64#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.BitConverter.DoubleInt64/CPP/bitstodbl.cpp#1)]\n [!code-csharp[System.BitConverter.DoubleInt64#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.BitConverter.DoubleInt64/CS/bitstodbl.cs#1)]\n [!code-vb[System.BitConverter.DoubleInt64#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.BitConverter.DoubleInt64/VB/bitstodbl.vb#1)]"
   syntax:
@@ -1241,7 +1241,7 @@ items:
   - netstandard
   namespace: System
   summary: Returns a Boolean value converted from the byte at a specified position in a byte array.
-  remarks: To convert a <xref:System.Boolean> value to its byte representation, call the <xref:System.BitConverter.ToBoolean%2A> method.
+  remarks: 'To convert a <xref:System.Boolean> value to its byte representation, call the <xref:System.BitConverter.ToBoolean%2A> method.'
   example:
   - "The following code example converts elements of <xref:System.Byte> arrays to <xref:System.Boolean> values with the `ToBoolean` method.  \n  \n [!code-cpp[System.BitConverter.ToXXX.Others#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.BitConverter.ToXXX.Others/CPP/batobool.cpp#1)]\n [!code-csharp[System.BitConverter.ToXXX.Others#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.BitConverter.ToXXX.Others/CS/batobool.cs#1)]\n [!code-vb[System.BitConverter.ToXXX.Others#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.BitConverter.ToXXX.Others/VB/batobool.vb#1)]"
   syntax:
@@ -1330,7 +1330,7 @@ items:
   - netstandard
   namespace: System
   summary: Returns a Unicode character converted from two bytes at a specified position in a byte array.
-  remarks: The <xref:System.BitConverter.ToChar%2A> method converts the bytes from index `startIndex` to `startIndex` + 1 to a <xref:System.Char> value. The order of bytes in the array must reflect the endianness of the computer system's architecture; for more information, see the Remarks section of the <xref:System.BitConverter> class topic.
+  remarks: 'The <xref:System.BitConverter.ToChar%2A> method converts the bytes from index `startIndex` to `startIndex` + 1 to a <xref:System.Char> value. The order of bytes in the array must reflect the endianness of the computer system''s architecture; for more information, see the Remarks section of the <xref:System.BitConverter> class topic.'
   example:
   - "The following code example converts elements of <xref:System.Byte> arrays to <xref:System.Char> values (Unicode characters) with the `ToChar` method.  \n  \n [!code-cpp[System.BitConverter.ToXXX.Others#2](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.BitConverter.ToXXX.Others/CPP/batochar.cpp#2)]\n [!code-csharp[System.BitConverter.ToXXX.Others#2](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.BitConverter.ToXXX.Others/CS/batochar.cs#2)]\n [!code-vb[System.BitConverter.ToXXX.Others#2](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.BitConverter.ToXXX.Others/VB/batochar.vb#2)]"
   syntax:
@@ -1422,7 +1422,7 @@ items:
   - netstandard
   namespace: System
   summary: Returns a double-precision floating point number converted from eight bytes at a specified position in a byte array.
-  remarks: The <xref:System.BitConverter.ToDouble%2A> method converts the bytes from index `startIndex` to `startIndex` + 7 to a <xref:System.Double> value. The order of bytes in the array must reflect the endianness of the computer system's architecture; for more information, see the Remarks section of the <xref:System.BitConverter> class topic.
+  remarks: 'The <xref:System.BitConverter.ToDouble%2A> method converts the bytes from index `startIndex` to `startIndex` + 7 to a <xref:System.Double> value. The order of bytes in the array must reflect the endianness of the computer system''s architecture; for more information, see the Remarks section of the <xref:System.BitConverter> class topic.'
   example:
   - "The following code example converts elements of <xref:System.Byte> arrays to <xref:System.Double> values with the `ToDouble` method.  \n  \n [!code-cpp[System.BitConverter.ToXXX.Others#3](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.BitConverter.ToXXX.Others/CPP/batodouble.cpp#3)]\n [!code-csharp[System.BitConverter.ToXXX.Others#3](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.BitConverter.ToXXX.Others/CS/batodouble.cs#3)]\n [!code-vb[System.BitConverter.ToXXX.Others#3](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.BitConverter.ToXXX.Others/VB/batodouble.vb#3)]"
   syntax:
@@ -1441,7 +1441,7 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>startIndex</code> is greater than or equal to the length of <code>value</code> minus 7, and is less than or equal to the length of <code>value</code> minus 1.
+    description: '<code>startIndex</code> is greater than or equal to the length of <code>value</code> minus 7, and is less than or equal to the length of <code>value</code> minus 1.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>value</code> is `null`.
@@ -1515,7 +1515,7 @@ items:
   - netstandard
   namespace: System
   summary: Returns a 16-bit signed integer converted from two bytes at a specified position in a byte array.
-  remarks: The <xref:System.BitConverter.ToInt16%2A> method converts the bytes from index `startIndex` to `startIndex` + 1 to an <xref:System.Int16> value. The order of bytes in the array must reflect the endianness of the computer system's architecture; for more information, see the Remarks section of the <xref:System.BitConverter> class topic.
+  remarks: 'The <xref:System.BitConverter.ToInt16%2A> method converts the bytes from index `startIndex` to `startIndex` + 1 to an <xref:System.Int16> value. The order of bytes in the array must reflect the endianness of the computer system''s architecture; for more information, see the Remarks section of the <xref:System.BitConverter> class topic.'
   example:
   - "The following code example converts elements of <xref:System.Byte> arrays to <xref:System.Int16> values with the `ToInt16` method.  \n  \n [!code-cpp[System.BitConverter.ToXXX.SInts#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.BitConverter.ToXXX.SInts/CPP/batoint16.cpp#1)]\n [!code-csharp[System.BitConverter.ToXXX.SInts#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.BitConverter.ToXXX.SInts/CS/batoint16.cs#1)]\n [!code-vb[System.BitConverter.ToXXX.SInts#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.BitConverter.ToXXX.SInts/VB/batoint16.vb#1)]"
   syntax:
@@ -1608,7 +1608,7 @@ items:
   - netstandard
   namespace: System
   summary: Returns a 32-bit signed integer converted from four bytes at a specified position in a byte array.
-  remarks: The <xref:System.BitConverter.ToInt32%2A> method converts the bytes from index `startIndex` to `startIndex` + 3 to an <xref:System.Int32> value. The order of bytes in the array must reflect the endianness of the computer system's architecture; for more information, see the Remarks section of <xref:System.BitConverter>.
+  remarks: 'The <xref:System.BitConverter.ToInt32%2A> method converts the bytes from index `startIndex` to `startIndex` + 3 to an <xref:System.Int32> value. The order of bytes in the array must reflect the endianness of the computer system''s architecture; for more information, see the Remarks section of <xref:System.BitConverter>.'
   example:
   - "The following example uses the <xref:System.BitConverter.ToInt32%2A> method to create <xref:System.Int32> values from a four-byte array and from the upper four bytes of an eight-byte array. It also uses the <xref:System.BitConverter.GetBytes%28System.Int32%29> and <xref:System.BitConverter.ToInt32%2A> methods to round-trip an <xref:System.Int32> value.  \n  \n [!code-csharp[System.BitConverter.ToInt32#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.bitconverter.toint32/cs/toint32.cs#1)]\n [!code-vb[System.BitConverter.ToInt32#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.bitconverter.toint32/vb/toint32.vb#1)]"
   syntax:
@@ -1627,7 +1627,7 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>startIndex</code> is greater than or equal to the length of <code>value</code> minus 3, and is less than or equal to the length of <code>value</code> minus 1.
+    description: '<code>startIndex</code> is greater than or equal to the length of <code>value</code> minus 3, and is less than or equal to the length of <code>value</code> minus 1.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>value</code> is `null`.
@@ -1701,7 +1701,7 @@ items:
   - netstandard
   namespace: System
   summary: Returns a 64-bit signed integer converted from eight bytes at a specified position in a byte array.
-  remarks: The <xref:System.BitConverter.ToInt64%2A> method converts the bytes from index `startIndex` to `startIndex` + 7 to a <xref:System.Int64> value. The order of bytes in the array must reflect the endianness of the computer system's architecture; for more information, see the Remarks section of the <xref:System.BitConverter> class topic.
+  remarks: 'The <xref:System.BitConverter.ToInt64%2A> method converts the bytes from index `startIndex` to `startIndex` + 7 to a <xref:System.Int64> value. The order of bytes in the array must reflect the endianness of the computer system''s architecture; for more information, see the Remarks section of the <xref:System.BitConverter> class topic.'
   example:
   - "The following code example converts elements of <xref:System.Byte> arrays to <xref:System.Int64> values with the `ToInt64` method.  \n  \n [!code-cpp[System.BitConverter.ToXXX.SInts#3](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.BitConverter.ToXXX.SInts/CPP/batoint64.cpp#3)]\n [!code-csharp[System.BitConverter.ToXXX.SInts#3](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.BitConverter.ToXXX.SInts/CS/batoint64.cs#3)]\n [!code-vb[System.BitConverter.ToXXX.SInts#3](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.BitConverter.ToXXX.SInts/VB/batoint64.vb#3)]"
   syntax:
@@ -1720,7 +1720,7 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>startIndex</code> is greater than or equal to the length of <code>value</code> minus 7, and is less than or equal to the length of <code>value</code> minus 1.
+    description: '<code>startIndex</code> is greater than or equal to the length of <code>value</code> minus 7, and is less than or equal to the length of <code>value</code> minus 1.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>value</code> is `null`.
@@ -1794,7 +1794,7 @@ items:
   - netstandard
   namespace: System
   summary: Returns a single-precision floating point number converted from four bytes at a specified position in a byte array.
-  remarks: The <xref:System.BitConverter.ToSingle%2A> method converts the bytes from index `startIndex` to `startIndex` + 3 to a <xref:System.Single> value. The order of bytes in the array must reflect the endianness of the computer system's architecture; for more information, see the Remarks section of <xref:System.BitConverter>.
+  remarks: 'The <xref:System.BitConverter.ToSingle%2A> method converts the bytes from index `startIndex` to `startIndex` + 3 to a <xref:System.Single> value. The order of bytes in the array must reflect the endianness of the computer system''s architecture; for more information, see the Remarks section of <xref:System.BitConverter>.'
   example:
   - "The following code example converts elements of <xref:System.Byte> arrays to <xref:System.Single> values with the `ToSingle` method.  \n  \n [!code-cpp[System.BitConverter.ToXXX.Others#4](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.BitConverter.ToXXX.Others/CPP/batosingle.cpp#4)]\n [!code-csharp[System.BitConverter.ToXXX.Others#4](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.BitConverter.ToXXX.Others/CS/batosingle.cs#4)]\n [!code-vb[System.BitConverter.ToXXX.Others#4](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.BitConverter.ToXXX.Others/VB/batosingle.vb#4)]"
   syntax:
@@ -1813,7 +1813,7 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>startIndex</code> is greater than or equal to the length of <code>value</code> minus 3, and is less than or equal to the length of <code>value</code> minus 1.
+    description: '<code>startIndex</code> is greater than or equal to the length of <code>value</code> minus 3, and is less than or equal to the length of <code>value</code> minus 1.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>value</code> is `null`.
@@ -1887,7 +1887,7 @@ items:
   - netstandard
   namespace: System
   summary: Converts the numeric value of each element of a specified array of bytes to its equivalent hexadecimal string representation.
-  remarks: All the elements of `value` are converted. The order of hexadecimal strings returned by the <xref:System.BitConverter.ToString%2A> method depends on whether the computer architecture is little-endian or big-endian.
+  remarks: 'All the elements of `value` are converted. The order of hexadecimal strings returned by the <xref:System.BitConverter.ToString%2A> method depends on whether the computer architecture is little-endian or big-endian.'
   example:
   - "The following code example converts <xref:System.Byte> arrays to <xref:System.String> objects with the `ToString` method.  \n  \n [!code-cpp[System.BitConverter.ToString#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.BitConverter.ToString/CPP/batostring.cpp#1)]\n [!code-csharp[System.BitConverter.ToString#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.BitConverter.ToString/CS/batostring.cs#1)]\n [!code-vb[System.BitConverter.ToString#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.BitConverter.ToString/VB/batostring.vb#1)]"
   syntax:
@@ -1898,7 +1898,7 @@ items:
       description: An array of bytes.
     return:
       type: System.String
-      description: A string of hexadecimal pairs separated by hyphens, where each pair represents the corresponding element in <code>value</code>; for example, "7F-2C-4A-00".
+      description: 'A string of hexadecimal pairs separated by hyphens, where each pair represents the corresponding element in <code>value</code>; for example, "7F-2C-4A-00".'
   overload: System.BitConverter.ToString*
   exceptions:
   - type: System.ArgumentNullException
@@ -1970,7 +1970,7 @@ items:
   - netstandard
   namespace: System
   summary: Converts the numeric value of each element of a specified subarray of bytes to its equivalent hexadecimal string representation.
-  remarks: The elements from array position `startIndex` to the end of the array are converted. The order of hexadecimal strings returned by the <xref:System.BitConverter.ToString%2A> method depends on whether the computer architecture is little-endian or big-endian.
+  remarks: 'The elements from array position `startIndex` to the end of the array are converted. The order of hexadecimal strings returned by the <xref:System.BitConverter.ToString%2A> method depends on whether the computer architecture is little-endian or big-endian.'
   example:
   - "The following code example converts the part of a <xref:System.Byte> array starting at the specified `startIndex` to a <xref:System.String> with the `ToString` method.  \n  \n [!code-cpp[System.BitConverter.ToString#2](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.BitConverter.ToString/CPP/batostringii.cpp#2)]\n [!code-csharp[System.BitConverter.ToString#2](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.BitConverter.ToString/CS/batostringii.cs#2)]\n [!code-vb[System.BitConverter.ToString#2](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.BitConverter.ToString/VB/batostringii.vb#2)]"
   syntax:
@@ -1984,7 +1984,7 @@ items:
       description: The starting position within <code>value</code>.
     return:
       type: System.String
-      description: A string of hexadecimal pairs separated by hyphens, where each pair represents the corresponding element in a subarray of <code>value</code>; for example, "7F-2C-4A-00".
+      description: 'A string of hexadecimal pairs separated by hyphens, where each pair represents the corresponding element in a subarray of <code>value</code>; for example, "7F-2C-4A-00".'
   overload: System.BitConverter.ToString*
   exceptions:
   - type: System.ArgumentNullException
@@ -2076,7 +2076,7 @@ items:
       description: The number of array elements in <code>value</code> to convert.
     return:
       type: System.String
-      description: A string of hexadecimal pairs separated by hyphens, where each pair represents the corresponding element in a subarray of <code>value</code>; for example, "7F-2C-4A-00".
+      description: 'A string of hexadecimal pairs separated by hyphens, where each pair represents the corresponding element in a subarray of <code>value</code>; for example, "7F-2C-4A-00".'
   overload: System.BitConverter.ToString*
   exceptions:
   - type: System.ArgumentNullException
@@ -2087,7 +2087,7 @@ items:
     description: "<code>startIndex</code> or <code>length</code> is less than zero.  \n  \n -or-  \n  \n <code>startIndex</code> is greater than zero and is greater than or equal to the length of <code>value</code>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: The combination of <code>startIndex</code> and <code>length</code> does not specify a position within <code>value</code>; that is, the <code>startIndex</code> parameter is greater than the length of <code>value</code> minus the <code>length</code> parameter.
+    description: 'The combination of <code>startIndex</code> and <code>length</code> does not specify a position within <code>value</code>; that is, the <code>startIndex</code> parameter is greater than the length of <code>value</code> minus the <code>length</code> parameter.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -2154,7 +2154,7 @@ items:
   - netstandard
   namespace: System
   summary: Returns a 16-bit unsigned integer converted from two bytes at a specified position in a byte array.
-  remarks: The <xref:System.BitConverter.ToUInt16%2A> method converts the bytes from index `startIndex` to `startIndex` + 1 to a <xref:System.UInt16> value. The order of bytes in the array must reflect the endianness of the computer system's architecture; for more information, see the Remarks section of the <xref:System.BitConverter> class topic.
+  remarks: 'The <xref:System.BitConverter.ToUInt16%2A> method converts the bytes from index `startIndex` to `startIndex` + 1 to a <xref:System.UInt16> value. The order of bytes in the array must reflect the endianness of the computer system''s architecture; for more information, see the Remarks section of the <xref:System.BitConverter> class topic.'
   example:
   - "The following code example converts elements of <xref:System.Byte> arrays to <xref:System.UInt16> values with the `ToUInt16` method.  \n  \n [!code-cpp[System.BitConverter.ToXXX.UInts#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.BitConverter.ToXXX.UInts/CPP/batouint16.cpp#1)]\n [!code-csharp[System.BitConverter.ToXXX.UInts#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.BitConverter.ToXXX.UInts/CS/batouint16.cs#1)]\n [!code-vb[System.BitConverter.ToXXX.UInts#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.BitConverter.ToXXX.UInts/VB/batouint16.vb#1)]"
   syntax:
@@ -2251,7 +2251,7 @@ items:
   - netstandard
   namespace: System
   summary: Returns a 32-bit unsigned integer converted from four bytes at a specified position in a byte array.
-  remarks: The <xref:System.BitConverter.ToUInt32%2A> method converts the bytes from index `startIndex` to `startIndex` + 3 to a <xref:System.UInt32> value. The order of bytes in the array must reflect the endianness of the computer system's architecture; for more information, see the Remarks section of the <xref:System.BitConverter> class topic.
+  remarks: 'The <xref:System.BitConverter.ToUInt32%2A> method converts the bytes from index `startIndex` to `startIndex` + 3 to a <xref:System.UInt32> value. The order of bytes in the array must reflect the endianness of the computer system''s architecture; for more information, see the Remarks section of the <xref:System.BitConverter> class topic.'
   example:
   - "The following code example converts elements of <xref:System.Byte> arrays to <xref:System.UInt32> values with the `ToUInt32` method.  \n  \n [!code-cpp[System.BitConverter.ToXXX.UInts#2](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.BitConverter.ToXXX.UInts/CPP/batouint32.cpp#2)]\n [!code-csharp[System.BitConverter.ToXXX.UInts#2](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.BitConverter.ToXXX.UInts/CS/batouint32.cs#2)]\n [!code-vb[System.BitConverter.ToXXX.UInts#2](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.BitConverter.ToXXX.UInts/VB/batouint32.vb#2)]"
   syntax:
@@ -2273,7 +2273,7 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>startIndex</code> is greater than or equal to the length of <code>value</code> minus 3, and is less than or equal to the length of <code>value</code> minus 1.
+    description: '<code>startIndex</code> is greater than or equal to the length of <code>value</code> minus 3, and is less than or equal to the length of <code>value</code> minus 1.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>value</code> is `null`.
@@ -2348,7 +2348,7 @@ items:
   - netstandard
   namespace: System
   summary: Returns a 64-bit unsigned integer converted from eight bytes at a specified position in a byte array.
-  remarks: The <xref:System.BitConverter.ToUInt64%2A> method converts the bytes from index `startIndex` to `startIndex` + 7 to a <xref:System.UInt64> value. The order of bytes in the array must reflect the endianness of the computer system's architecture; for more information, see the Remarks section of the <xref:System.BitConverter> class topic.
+  remarks: 'The <xref:System.BitConverter.ToUInt64%2A> method converts the bytes from index `startIndex` to `startIndex` + 7 to a <xref:System.UInt64> value. The order of bytes in the array must reflect the endianness of the computer system''s architecture; for more information, see the Remarks section of the <xref:System.BitConverter> class topic.'
   example:
   - "The following code example converts elements of <xref:System.Byte> arrays to <xref:System.UInt64> values with the `ToUInt64` method.  \n  \n [!code-cpp[System.BitConverter.ToXXX.UInts#3](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.BitConverter.ToXXX.UInts/CPP/batouint64.cpp#3)]\n [!code-csharp[System.BitConverter.ToXXX.UInts#3](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.BitConverter.ToXXX.UInts/CS/batouint64.cs#3)]\n [!code-vb[System.BitConverter.ToXXX.UInts#3](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.BitConverter.ToXXX.UInts/VB/batouint64.vb#3)]"
   syntax:
@@ -2370,7 +2370,7 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>startIndex</code> is greater than or equal to the length of <code>value</code> minus 7, and is less than or equal to the length of <code>value</code> minus 1.
+    description: '<code>startIndex</code> is greater than or equal to the length of <code>value</code> minus 7, and is less than or equal to the length of <code>value</code> minus 1.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>value</code> is `null`.

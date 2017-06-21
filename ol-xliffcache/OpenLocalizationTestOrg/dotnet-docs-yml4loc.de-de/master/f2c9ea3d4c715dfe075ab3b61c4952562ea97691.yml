@@ -41,7 +41,7 @@ items:
   - System.Runtime.Serialization
   namespace: System.Runtime.Serialization
   summary: Serializes and deserializes an instance of a type into XML stream or document using the supplied .NET Framework types. This class cannot be inherited.
-  remarks: "The <xref:System.Runtime.Serialization.NetDataContractSerializer> differs from the <xref:System.Runtime.Serialization.DataContractSerializer> in one important way: the <xref:System.Runtime.Serialization.NetDataContractSerializer> includes CLR type information in the serialized XML, whereas the <xref:System.Runtime.Serialization.DataContractSerializer> does not. Therefore, the <xref:System.Runtime.Serialization.NetDataContractSerializer> can be used only if both the serializing and deserializing ends share the same CLR types.  \n  \n The serializer can serialize types to which either the <xref:System.Runtime.Serialization.DataContractAttribute> or <xref:System.SerializableAttribute> attribute has been applied. It also serializes types that implement <xref:System.Runtime.Serialization.ISerializable>.  \n  \n For more information about serialization, see [Serialization and Deserialization](~/docs/framework/wcf/feature-details/serialization-and-deserialization.md).  \n  \n## Incompatibility with XElement  \n The <xref:System.Xml.Linq.XElement> class is used to write XML. However, the `NetDataContractSerializer` cannot serialize an instance of the type. The following code, therefore, fails with the exception: \"Root type 'System.Xml.Linq.XElement' is not supported at the top level by NetDataContractSerializer since it is IXmlSerializable with `IsAny`=`true` and must write all its contents including the root element.\"  \n  \n [!code-csharp[NetDataContractSerializer#15](~/samples/snippets/csharp/VS_Snippets_CFX/netdatacontractserializer/cs/source.cs#15)]\n [!code-vb[NetDataContractSerializer#15](~/samples/snippets/visualbasic/VS_Snippets_CFX/netdatacontractserializer/vb/source.vb#15)]  \n  \n However, if an `XElement` is used as the type of a field or property of a class, the data contained by the field or property is serialized. This is because as a member of a class, the data is not the top level of the class."
+  remarks: "The <xref:System.Runtime.Serialization.NetDataContractSerializer> differs from the <xref:System.Runtime.Serialization.DataContractSerializer> in one important way: the <xref:System.Runtime.Serialization.NetDataContractSerializer> includes CLR type information in the serialized XML, whereas the <xref:System.Runtime.Serialization.DataContractSerializer> does not. Therefore, the <xref:System.Runtime.Serialization.NetDataContractSerializer> can be used only if both the serializing and deserializing ends share the same CLR types.  \n  \n The serializer can serialize types to which either the <xref:System.Runtime.Serialization.DataContractAttribute> or <xref:System.SerializableAttribute> attribute has been applied. It also serializes types that implement <xref:System.Runtime.Serialization.ISerializable>.  \n  \n For more information about serialization, see [Serialization and Deserialization](~/docs/framework/wcf/feature-details/serialization-and-deserialization.md).  \n  \n## <a name=\"incompatibility-with-xelement\"></a>Incompatibility with XElement  \n The <xref:System.Xml.Linq.XElement> class is used to write XML. However, the `NetDataContractSerializer` cannot serialize an instance of the type. The following code, therefore, fails with the exception: \"Root type 'System.Xml.Linq.XElement' is not supported at the top level by NetDataContractSerializer since it is IXmlSerializable with `IsAny`=`true` and must write all its contents including the root element.\"  \n  \n [!code-csharp[NetDataContractSerializer#15](~/samples/snippets/csharp/VS_Snippets_CFX/netdatacontractserializer/cs/source.cs#15)] [!code-vb[NetDataContractSerializer#15](~/samples/snippets/visualbasic/VS_Snippets_CFX/netdatacontractserializer/vb/source.vb#15)]  \n  \n However, if an `XElement` is used as the type of a field or property of a class, the data contained by the field or property is serialized. This is because as a member of a class, the data is not the top level of the class."
   example:
   - "The following example code shows a type named `Person` that is serialized by the <xref:System.Runtime.Serialization.NetDataContractSerializer>. The <xref:System.Runtime.Serialization.DataContractAttribute> attribute is applied to the class, and the <xref:System.Runtime.Serialization.DataMemberAttribute> is applied to members (including a private member) to instruct the <xref:System.Runtime.Serialization.NetDataContractSerializer> what to serialize.  \n  \n [!code-csharp[NetDataContractSerializer#0](~/samples/snippets/csharp/VS_Snippets_CFX/netdatacontractserializer/cs/source.cs#0)]\n [!code-vb[NetDataContractSerializer#0](~/samples/snippets/visualbasic/VS_Snippets_CFX/netdatacontractserializer/vb/source.vb#0)]"
   syntax:
@@ -157,7 +157,7 @@ items:
   - System.Runtime.Serialization
   namespace: System.Runtime.Serialization
   summary: Initializes a new instance of the <xref href="System.Runtime.Serialization.NetDataContractSerializer"></xref> class with the supplied streaming context data.
-  remarks: The <xref:System.Runtime.Serialization.StreamingContext> class allows you to pass in user-specific context data to use while reading and writing objects.
+  remarks: 'The <xref:System.Runtime.Serialization.StreamingContext> class allows you to pass in user-specific context data to use while reading and writing objects.'
   example:
   - "The following example creates an instance of the <xref:System.Runtime.Serialization.NetDataContractSerializer> using a <xref:System.Runtime.Serialization.StreamingContext>.  \n  \n [!code-csharp[NetDataContractSerializer#9](~/samples/snippets/csharp/VS_Snippets_CFX/netdatacontractserializer/cs/source.cs#9)]\n [!code-vb[NetDataContractSerializer#9](~/samples/snippets/visualbasic/VS_Snippets_CFX/netdatacontractserializer/vb/source.vb#9)]"
   syntax:
@@ -266,7 +266,7 @@ items:
   - System.Runtime.Serialization
   namespace: System.Runtime.Serialization
   summary: Initializes a new instance of the <xref href="System.Runtime.Serialization.NetDataContractSerializer"></xref> class with two parameters of type <xref href="System.Xml.XmlDictionaryString"></xref> that contain the root element and namespace used to specify the content.
-  remarks: The <xref:System.Xml.XmlDictionaryString> can be used to optimize performance when the same set of strings is used across object instances.
+  remarks: 'The <xref:System.Xml.XmlDictionaryString> can be used to optimize performance when the same set of strings is used across object instances.'
   example:
   - "The following example creates an instance of the <xref:System.Runtime.Serialization.DataContractSerializer> specifying the XML root element and namespace (as <xref:System.Xml.XmlDictionaryString> arguments) it will expect when deserializing an object.  \n  \n [!code-csharp[NetDataContractSerializer#11](~/samples/snippets/csharp/VS_Snippets_CFX/netdatacontractserializer/cs/source.cs#11)]\n [!code-vb[NetDataContractSerializer#11](~/samples/snippets/visualbasic/VS_Snippets_CFX/netdatacontractserializer/vb/source.vb#11)]"
   syntax:
@@ -321,8 +321,8 @@ items:
   assemblies:
   - System.Runtime.Serialization
   namespace: System.Runtime.Serialization
-  summary: Initializes a new instance of the <xref href="System.Runtime.Serialization.NetDataContractSerializer"></xref> class with the supplied context data; in addition, specifies the maximum number of items in the object to be serialized, and parameters to specify whether extra data is ignored, the assembly loading method, and a surrogate selector.
-  remarks: The `ignoreExtensionDataObject` parameter is used when the <xref:System.Runtime.Serialization.IExtensibleDataObject> interface is implemented in the class that is being serialized or deserialized.
+  summary: 'Initializes a new instance of the <xref href="System.Runtime.Serialization.NetDataContractSerializer"></xref> class with the supplied context data; in addition, specifies the maximum number of items in the object to be serialized, and parameters to specify whether extra data is ignored, the assembly loading method, and a surrogate selector.'
+  remarks: 'The `ignoreExtensionDataObject` parameter is used when the <xref:System.Runtime.Serialization.IExtensibleDataObject> interface is implemented in the class that is being serialized or deserialized.'
   example:
   - "The following example creates an instance of the <xref:System.Runtime.Serialization.NetDataContractSerializer> using a <xref:System.Runtime.Serialization.StreamingContext>. The code also sets the `ignoreExtensionDataObject`, and specifies an implementation of the `ISurrogateSelector` interface to handle to assist the serializer when selecting a surrogate (for deserializing legacy types).  \n  \n [!code-csharp[NetDataContractSerializer#12](~/samples/snippets/csharp/VS_Snippets_CFX/netdatacontractserializer/cs/source.cs#12)]\n [!code-vb[NetDataContractSerializer#12](~/samples/snippets/visualbasic/VS_Snippets_CFX/netdatacontractserializer/vb/source.vb#12)]"
   syntax:
@@ -389,8 +389,8 @@ items:
   assemblies:
   - System.Runtime.Serialization
   namespace: System.Runtime.Serialization
-  summary: Initializes a new instance of the <xref href="System.Runtime.Serialization.NetDataContractSerializer"></xref> class with the supplied context data and root name and namespace; in addition, specifies the maximum number of items in the object to be serialized, and parameters to specify whether extra data is ignored, the assembly loading method, and a surrogate selector.
-  remarks: The `ignoreExtensionDataObject` parameter is used when the <xref:System.Runtime.Serialization.IExtensibleDataObject> interface is implemented in the class that is being serialized or deserialized.
+  summary: 'Initializes a new instance of the <xref href="System.Runtime.Serialization.NetDataContractSerializer"></xref> class with the supplied context data and root name and namespace; in addition, specifies the maximum number of items in the object to be serialized, and parameters to specify whether extra data is ignored, the assembly loading method, and a surrogate selector.'
+  remarks: 'The `ignoreExtensionDataObject` parameter is used when the <xref:System.Runtime.Serialization.IExtensibleDataObject> interface is implemented in the class that is being serialized or deserialized.'
   example:
   - "The following example creates an instance of the <xref:System.Runtime.Serialization.NetDataContractSerializer> specifying the XML element name and namespace to expect when deserializing. The code also sets the `ignoreExtensionDataObject`, and specifies an implementation of the <xref:System.Runtime.Serialization.ISurrogateSelector> interface to handle to assist the serializer when selecting a surrogate (for deserializing legacy types).  \n  \n [!code-csharp[NetDataContractSerializer#13](~/samples/snippets/csharp/VS_Snippets_CFX/netdatacontractserializer/cs/source.cs#13)]\n [!code-vb[NetDataContractSerializer#13](~/samples/snippets/visualbasic/VS_Snippets_CFX/netdatacontractserializer/vb/source.vb#13)]"
   syntax:
@@ -463,7 +463,7 @@ items:
   assemblies:
   - System.Runtime.Serialization
   namespace: System.Runtime.Serialization
-  summary: Initializes a new instance of the <xref href="System.Runtime.Serialization.NetDataContractSerializer"></xref> class with the supplied context data, and root name and namespace (as <xref href="System.Xml.XmlDictionaryString"></xref> parameters); in addition, specifies the maximum number of items in the object to be serialized, and parameters to specify whether extra data found is ignored, assembly loading method, and a surrogate selector.
+  summary: 'Initializes a new instance of the <xref href="System.Runtime.Serialization.NetDataContractSerializer"></xref> class with the supplied context data, and root name and namespace (as <xref href="System.Xml.XmlDictionaryString"></xref> parameters); in addition, specifies the maximum number of items in the object to be serialized, and parameters to specify whether extra data found is ignored, assembly loading method, and a surrogate selector.'
   remarks: "The <xref:System.Xml.XmlDictionaryString> can be used to optimize performance when the same set of strings is used across object instances.  \n  \n The `ignoreExtensionDataObject` parameter is used when the <xref:System.Runtime.Serialization.IExtensibleDataObject> interface is implemented in the class that is being serialized or deserialized."
   example:
   - "The following example creates an instance of the <xref:System.Runtime.Serialization.NetDataContractSerializer> specifying the XML element name and namespace (as <xref:System.Xml.XmlDictionaryString> arguments) to expect when deserializing. The code also sets the `ignoreExtensionDataObject`, and specifies an implementation of the <xref:System.Runtime.Serialization.ISurrogateSelector> interface to handle to assist the serializer when selecting a surrogate (for deserializing legacy types).  \n  \n [!code-csharp[NetDataContractSerializer#14](~/samples/snippets/csharp/VS_Snippets_CFX/netdatacontractserializer/cs/source.cs#14)]\n [!code-vb[NetDataContractSerializer#14](~/samples/snippets/visualbasic/VS_Snippets_CFX/netdatacontractserializer/vb/source.vb#14)]"
@@ -591,7 +591,7 @@ items:
   - System.Runtime.Serialization
   namespace: System.Runtime.Serialization
   summary: Gets or sets an object that controls class loading.
-  remarks: During serialization, a formatter transmits the information required to create an instance of an object of the correct type and version. This information generally includes the full type name and assembly name of the object. The assembly name includes the name, version, and strong name hash of the assembly. By default, deserialization uses this information to create an instance of an identical object (with the exception of any assembly loading restricted by the security policy). Some users need to control which class to load, either because the class has moved between assemblies or a different version of the class is required on the server and client.
+  remarks: 'During serialization, a formatter transmits the information required to create an instance of an object of the correct type and version. This information generally includes the full type name and assembly name of the object. The assembly name includes the name, version, and strong name hash of the assembly. By default, deserialization uses this information to create an instance of an identical object (with the exception of any assembly loading restricted by the security policy). Some users need to control which class to load, either because the class has moved between assemblies or a different version of the class is required on the server and client.'
   syntax:
     content: public System.Runtime.Serialization.SerializationBinder Binder { get; set; }
     return:
@@ -744,7 +744,7 @@ items:
   - System.Runtime.Serialization
   namespace: System.Runtime.Serialization
   summary: Gets a value that specifies whether data supplied by an extension of the object is ignored.
-  remarks: When implementing the <xref:System.Runtime.Serialization.IExtensibleDataObject>, data from a future version of a type can be stored by the <xref:System.Runtime.Serialization.ExtensionDataObject>. During a round trip (where an object is deserialized, altered, and serialized again), the extra data is stored and serialized again. For more information, see [Serialization and Deserialization](~/docs/framework/wcf/feature-details/serialization-and-deserialization.md).
+  remarks: 'When implementing the <xref:System.Runtime.Serialization.IExtensibleDataObject>, data from a future version of a type can be stored by the <xref:System.Runtime.Serialization.ExtensionDataObject>. During a round trip (where an object is deserialized, altered, and serialized again), the extra data is stored and serialized again. For more information, see [Serialization and Deserialization](~/docs/framework/wcf/feature-details/serialization-and-deserialization.md).'
   syntax:
     content: public bool IgnoreExtensionDataObject { get; }
     return:
@@ -907,7 +907,7 @@ items:
   - System.Runtime.Serialization
   namespace: System.Runtime.Serialization
   summary: Gets the maximum number of items allowed in the object to be serialized.
-  remarks: For more information about setting quotas, see [Security Considerations for Data](~/docs/framework/wcf/feature-details/security-considerations-for-data.md).
+  remarks: 'For more information about setting quotas, see [Security Considerations for Data](~/docs/framework/wcf/feature-details/security-considerations-for-data.md).'
   syntax:
     content: public int MaxItemsInObjectGraph { get; }
     return:
@@ -957,10 +957,7 @@ items:
   - System.Runtime.Serialization
   namespace: System.Runtime.Serialization
   summary: Reads the XML stream or document with an <xref href="System.Xml.XmlDictionaryReader"></xref> and returns the deserialized object.
-  remarks: >-
-    > [!IMPORTANT]
-
-    >  Calling this method with untrusted data is a security risk. Call this method only with trusted data. For more information, see [Untrusted Data Security Risks](http://go.microsoft.com/fwlink/?LinkId=330378).
+  remarks: "> [!IMPORTANT]\n>  Calling this method with untrusted data is a security risk. Call this method only with trusted data. For more information, see [Untrusted Data Security Risks](http://go.microsoft.com/fwlink/?LinkId=330378)."
   syntax:
     content: public override object ReadObject (System.Xml.XmlReader reader);
     parameters:
@@ -1190,7 +1187,7 @@ items:
   - System.Runtime.Serialization
   namespace: System.Runtime.Serialization
   summary: Gets or sets an object that assists the formatter when selecting a surrogate for serialization.
-  remarks: For more information about the <xref:System.Runtime.Serialization.IDataContractSurrogate>, see [Data Contract Surrogates](~/docs/framework/wcf/extending/data-contract-surrogates.md).
+  remarks: 'For more information about the <xref:System.Runtime.Serialization.IDataContractSurrogate>, see [Data Contract Surrogates](~/docs/framework/wcf/extending/data-contract-surrogates.md).'
   syntax:
     content: public System.Runtime.Serialization.ISurrogateSelector SurrogateSelector { get; set; }
     return:
@@ -1348,7 +1345,7 @@ items:
   assemblies:
   - System.Runtime.Serialization
   namespace: System.Runtime.Serialization
-  summary: Writes the complete content (start, content, and end) of the object to the XML document or stream with the specified <xref href="System.Xml.XmlWriter"></xref>.
+  summary: 'Writes the complete content (start, content, and end) of the object to the XML document or stream with the specified <xref href="System.Xml.XmlWriter"></xref>.'
   syntax:
     content: public override void WriteObject (System.Xml.XmlWriter writer, object graph);
     parameters:
@@ -1362,7 +1359,7 @@ items:
   exceptions:
   - type: System.Runtime.Serialization.InvalidDataContractException
     commentId: T:System.Runtime.Serialization.InvalidDataContractException
-    description: the type being serialized does not conform to data contract rules. For example, the <xref href="System.Runtime.Serialization.DataContractAttribute"></xref> attribute has not been applied to the type.
+    description: 'the type being serialized does not conform to data contract rules. For example, the <xref href="System.Runtime.Serialization.DataContractAttribute"></xref> attribute has not been applied to the type.'
   - type: System.Runtime.Serialization.SerializationException
     commentId: T:System.Runtime.Serialization.SerializationException
     description: there is a problem with the instance being serialized.
@@ -1427,7 +1424,7 @@ items:
   exceptions:
   - type: System.Runtime.Serialization.InvalidDataContractException
     commentId: T:System.Runtime.Serialization.InvalidDataContractException
-    description: the type being serialized does not conform to data contract rules. For example, the <xref href="System.Runtime.Serialization.DataContractAttribute"></xref> attribute has not been applied to the type.
+    description: 'the type being serialized does not conform to data contract rules. For example, the <xref href="System.Runtime.Serialization.DataContractAttribute"></xref> attribute has not been applied to the type.'
   - type: System.Runtime.Serialization.SerializationException
     commentId: T:System.Runtime.Serialization.SerializationException
     description: there is a problem with the instance being serialized.
@@ -1489,7 +1486,7 @@ items:
   exceptions:
   - type: System.Runtime.Serialization.InvalidDataContractException
     commentId: T:System.Runtime.Serialization.InvalidDataContractException
-    description: the type being serialized does not conform to data contract rules. For example, the <xref href="System.Runtime.Serialization.DataContractAttribute"></xref> attribute has not been applied to the type.
+    description: 'the type being serialized does not conform to data contract rules. For example, the <xref href="System.Runtime.Serialization.DataContractAttribute"></xref> attribute has not been applied to the type.'
   - type: System.Runtime.Serialization.SerializationException
     commentId: T:System.Runtime.Serialization.SerializationException
     description: there is a problem with the instance being serialized.
@@ -1554,7 +1551,7 @@ items:
   exceptions:
   - type: System.Runtime.Serialization.InvalidDataContractException
     commentId: T:System.Runtime.Serialization.InvalidDataContractException
-    description: the type being serialized does not conform to data contract rules. For example, the <xref href="System.Runtime.Serialization.DataContractAttribute"></xref> attribute has not been applied to the type.
+    description: 'the type being serialized does not conform to data contract rules. For example, the <xref href="System.Runtime.Serialization.DataContractAttribute"></xref> attribute has not been applied to the type.'
   - type: System.Runtime.Serialization.SerializationException
     commentId: T:System.Runtime.Serialization.SerializationException
     description: there is a problem with the instance being serialized.
@@ -1616,7 +1613,7 @@ items:
   exceptions:
   - type: System.Runtime.Serialization.InvalidDataContractException
     commentId: T:System.Runtime.Serialization.InvalidDataContractException
-    description: the type being serialized does not conform to data contract rules. For example, the <xref href="System.Runtime.Serialization.DataContractAttribute"></xref> attribute has not been applied to the type.
+    description: 'the type being serialized does not conform to data contract rules. For example, the <xref href="System.Runtime.Serialization.DataContractAttribute"></xref> attribute has not been applied to the type.'
   - type: System.Runtime.Serialization.SerializationException
     commentId: T:System.Runtime.Serialization.SerializationException
     description: there is a problem with the instance being serialized.

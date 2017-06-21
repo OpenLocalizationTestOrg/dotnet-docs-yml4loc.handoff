@@ -257,7 +257,7 @@ items:
   - System.Web
   namespace: System.Web.Profile
   summary: Gets a group of properties identified by a group name.
-  remarks: Profile properties can be separated into groups for better organization. The <xref:System.Web.Profile.ProfileBase.GetProfileGroup%2A> property can be used to retrieve a group of properties by the group name. You can also access a profile property in a group by specifying the group name as a member of the `Profile` property available on each page. For example, the `ZipCode` profile property that is a member of the `Address` profile group could be accessed using `Profile.Address.ZipCode`.
+  remarks: 'Profile properties can be separated into groups for better organization. The <xref:System.Web.Profile.ProfileBase.GetProfileGroup%2A> property can be used to retrieve a group of properties by the group name. You can also access a profile property in a group by specifying the group name as a member of the `Profile` property available on each page. For example, the `ZipCode` profile property that is a member of the `Address` profile group could be accessed using `Profile.Address.ZipCode`.'
   example:
   - "The following Web.config file specifies a user profile that contains group of properties with a group name of `Address`. The grouped properties generated for the <xref:System.Web.HttpContext.Profile%2A> property of the current <xref:System.Web.HttpContext> will be preceded by the group name. For example, `Profile.Address.Street`.  \n  \n```  \n<configuration>  \n  <connectionStrings>  \n    <add name=\"SqlServices\" connectionString=  \n      \"Data Source=localhost;Integrated Security=SSPI;Initial Catalog=aspnetdb;\" />  \n  </connectionStrings>  \n  \n  <system.web>  \n    <authentication mode=\"Forms\" >  \n      <forms loginUrl=\"login.aspx\"  \n        name=\".ASPXFORMSAUTH\" />  \n    </authentication>  \n  \n    <authorization>  \n      <deny users=\"?\" />  \n    </authorization>  \n  \n    <membership defaultProvider=\"SqlProvider\"   \n      userIsOnlineTimeWindow=\"15\">  \n      <providers>  \n        <clear />  \n        <add   \n          name=\"SqlProvider\"   \n          type=\"System.Web.Security.SqlMembershipProvider\"   \n          connectionStringName=\"SqlServices\"  \n          enablePasswordRetrieval=\"false\"  \n          enablePasswordReset=\"true\"  \n          requiresQuestionAndAnswer=\"true\"   \n          requiresUniqueEmail=\"false\"  \n          passwordFormat=\"Hashed\"  \n          applicationName=\"MyApplication\" />  \n      </providers>  \n    </membership>  \n  \n    <profile defaultProvider=\"SqlProvider\">  \n      <providers>  \n        <add  \n          name=\"SqlProvider\"  \n          connectionStringName=\"SqlServices\"  \n          applicationName=\"MyApplication\"  \n          type=\"System.Web.Profile.SqlProfileProvider\" />  \n  \n      </providers>  \n  \n      <properties>  \n        <add name=\"ZipCode\" />  \n        <group name=\"Address\">  \n          <add name=\"Street\" />  \n          <add name=\"City\" />  \n          <add name=\"State\" />  \n          <add name=\"CountryOrRegion\" />  \n        </group>  \n      </properties>  \n    </profile>  \n  </system.web>  \n</configuration>  \n```  \n  \n The following ASP.NET page reads and sets the grouped properties specified for the user profile.  \n  \n> [!IMPORTANT]\n>  This example contains a text box that accepts user input, which is a potential security threat. By default, ASP.NET Web pages validate that user input does not include script or HTML elements. For more information, see [Script Exploits Overview](http://msdn.microsoft.com/library/772c7312-211a-4eb3-8d6e-eec0aa1dcc07).  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.Profile.HttpProfileGroupBase#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.Profile.HttpProfileGroupBase/CS/defaultcs.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.Profile.HttpProfileGroupBase#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.Profile.HttpProfileGroupBase/VB/defaultvb.aspx#1)]  -->"
   syntax:
@@ -320,7 +320,7 @@ items:
       description: The name of the profile property.
     return:
       type: System.Object
-      description: The value of the specified profile property, typed as `object`.
+      description: 'The value of the specified profile property, typed as `object`.'
   overload: System.Web.Profile.ProfileBase.GetPropertyValue*
   exceptions:
   - type: System.Configuration.Provider.ProviderException
@@ -364,7 +364,7 @@ items:
   - System.Web
   namespace: System.Web.Profile
   summary: Initializes the profile property values and information for the current user.
-  remarks: This method is not intended to be used from your code. Use one of the <xref:System.Web.Profile.ProfileBase.Create%2A> overloads to create an instance of the user profile.
+  remarks: 'This method is not intended to be used from your code. Use one of the <xref:System.Web.Profile.ProfileBase.Create%2A> overloads to create an instance of the user profile.'
   syntax:
     content: public void Initialize (string username, bool isAuthenticated);
     parameters:
@@ -497,7 +497,7 @@ items:
   - System.Web
   namespace: System.Web.Profile
   summary: Gets or sets a profile property value indexed by the property name.
-  remarks: You can use this property to retrieve or set the property values of the user profile for your application by name. Returned values are typed as `object` and must be cast as the specific object type when retrieved. For strongly typed access to profile property values, you can access the property by name as a member of the `Profile` property available on each page, for example, `Profile.CustomerAddress`.
+  remarks: 'You can use this property to retrieve or set the property values of the user profile for your application by name. Returned values are typed as `object` and must be cast as the specific object type when retrieved. For strongly typed access to profile property values, you can access the property by name as a member of the `Profile` property available on each page, for example, `Profile.CustomerAddress`.'
   example:
   - "The following code example lists the names of the properties in the user profile by binding the <xref:System.Configuration.SettingsProperty.Name%2A> property from the static <xref:System.Web.Profile.ProfileBase.Properties%2A> collection of <xref:System.Configuration.SettingsProperty> objects to a <xref:System.Web.UI.WebControls.GridView> control. The selected property value is retrieved by name using the <xref:System.Web.Profile.ProfileBase.Item%2A> collection. For an example of a Web.config file that specifies properties for the user profile, see the example provided for the <xref:System.Web.Profile.ProfileBase> class.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.Profile.HttpProfileBase#2](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.Profile.HttpProfileBase/CS/ViewProfilecs.aspx#2)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.Profile.HttpProfileBase#2](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.Profile.HttpProfileBase/VB/ViewProfilevb.aspx#2)]  -->"
   syntax:
@@ -508,7 +508,7 @@ items:
       description: The name of the profile property.
     return:
       type: System.Object
-      description: The value of the specified profile property, typed as `object`.
+      description: 'The value of the specified profile property, typed as `object`.'
   overload: System.Web.Profile.ProfileBase.Item*
   exceptions:
   - type: System.Configuration.Provider.ProviderException
@@ -558,7 +558,7 @@ items:
   - System.Web
   namespace: System.Web.Profile
   summary: Gets the most recent date and time that the profile was read or modified.
-  remarks: This property value is only modified by the default profile provider. Changes made to profile properties by a provider other than the default profile provider do not affect the value of the <xref:System.Web.Profile.ProfileBase.LastActivityDate%2A> property.
+  remarks: 'This property value is only modified by the default profile provider. Changes made to profile properties by a provider other than the default profile provider do not affect the value of the <xref:System.Web.Profile.ProfileBase.LastActivityDate%2A> property.'
   syntax:
     content: public DateTime LastActivityDate { get; }
     return:
@@ -601,7 +601,7 @@ items:
   - System.Web
   namespace: System.Web.Profile
   summary: Gets the most recent date and time that the profile was modified.
-  remarks: This property value is only modified by the default profile provider. Changes made to profile properties by a provider other than the default profile provider do not affect the value of the <xref:System.Web.Profile.ProfileBase.LastUpdatedDate%2A> property.
+  remarks: 'This property value is only modified by the default profile provider. Changes made to profile properties by a provider other than the default profile provider do not affect the value of the <xref:System.Web.Profile.ProfileBase.LastUpdatedDate%2A> property.'
   syntax:
     content: public DateTime LastUpdatedDate { get; }
     return:
@@ -644,7 +644,7 @@ items:
   - System.Web
   namespace: System.Web.Profile
   summary: Gets a collection of <xref href="System.Configuration.SettingsProperty"></xref> objects for each property in the profile.
-  remarks: You can use this property to get information about the profile properties configured for an application, including property names and types. You can also reference the <xref:System.Web.Profile.ProfileProvider> of each property. A <xref:System.Web.Profile.ProfileProvider> manages storage and retrieval of property values to and from the data source.
+  remarks: 'You can use this property to get information about the profile properties configured for an application, including property names and types. You can also reference the <xref:System.Web.Profile.ProfileProvider> of each property. A <xref:System.Web.Profile.ProfileProvider> manages storage and retrieval of property values to and from the data source.'
   example:
   - "The following code example lists the names of the properties in the user profile by binding the <xref:System.Configuration.SettingsProperty.Name%2A> property from the static <xref:System.Web.Profile.ProfileBase.Properties%2A> collection of <xref:System.Configuration.SettingsProperty> objects to a <xref:System.Web.UI.WebControls.GridView> control. The selected property value is retrieved by name using the <xref:System.Web.Profile.ProfileBase.Item%2A> collection. For an example of a Web.config file that specifies properties for the user profile, see the example provided for the <xref:System.Web.Profile.ProfileBase> class.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.Profile.HttpProfileBase#2](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.Profile.HttpProfileBase/CS/ViewProfilecs.aspx#2)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.Profile.HttpProfileBase#2](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.Profile.HttpProfileBase/VB/ViewProfilevb.aspx#2)]  -->"
   syntax:

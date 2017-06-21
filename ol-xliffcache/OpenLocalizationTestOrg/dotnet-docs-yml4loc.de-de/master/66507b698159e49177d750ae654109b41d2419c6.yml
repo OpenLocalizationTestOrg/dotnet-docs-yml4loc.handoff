@@ -20,7 +20,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Provides properties that control authentication parameters and protection level for the TCP transport.
-  remarks: This class is used by <xref:System.ServiceModel.NetTcpSecurity.Transport%2A> to set the transport-level security settings for a binding.
+  remarks: 'This class is used by <xref:System.ServiceModel.NetTcpSecurity.Transport%2A> to set the transport-level security settings for a binding.'
   syntax:
     content: public sealed class TcpTransportSecurity
   inheritance:
@@ -312,7 +312,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: 'Specifies the list of SSL/TLS protocols to negotiate when using a client credential type of TcpClientCredentialType.Certificate. The value can be a combination of one of more of the following enumeration members: Ssl3, Tls, Tls11, Tls12.'
-  remarks: The default value is Ssl3 &#124; Tls &#124; Tls11 &#124; Tls12. Versions of the framework prior to 4.6 only support Ssl3 and Tls. If these are not included, communication with earlier versions of the framework will not be possible. Specifying Tls11 and/or Tls12 will disable the usage of Ssl3, even if it has been included.
+  remarks: 'The default value is Ssl3 &#124; Tls &#124; Tls11 &#124; Tls12. Versions of the framework prior to 4.6 only support Ssl3 and Tls. If these are not included, communication with earlier versions of the framework will not be possible. Specifying Tls11 and/or Tls12 will disable the usage of Ssl3, even if it has been included.'
   example:
   - "```csharp  \nNetTcpBinding b = new NetTcpBinding();  \nb.Security.Mode = SecurityMode.Transport;  \nb.Security.Transport.ClientCredentialType = TcpClientCredentialType.Certificate;  \nb.Security.Transport.SslProtocols = SslProtocols.Tls11 | SslProtocols.Tls12;  \nEndpointAddress a = new EndpointAddress(\"net.tcp://contoso.com/TcpAddress\");  \nChannelFactory<ICalculator> cf = new ChannelFactory<ICalculator>(b, a);  \ncf.Credentials.ClientCertificate.SetCertificate(  \n    StoreLocation.LocalMachine,  \n    StoreName.My,  \n    X509FindType.FindByThumbprint,  \n    \"0000000000000000000000000000000000000000\");  \n```"
   syntax:

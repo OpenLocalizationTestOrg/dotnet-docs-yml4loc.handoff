@@ -177,7 +177,7 @@ items:
   - System.Data.Common
   namespace: System.Data.Common
   summary: Allows the provider implementation of the <xref href="System.Data.Common.DbCommandBuilder"></xref> class to handle additional parameter properties.
-  remarks: This method allows an implementation of the <xref:System.Data.Common.DbCommandBuilder> class to handle provider-specific parameter properties.
+  remarks: 'This method allows an implementation of the <xref:System.Data.Common.DbCommandBuilder> class to handle provider-specific parameter properties.'
   syntax:
     content: protected abstract void ApplyParameterInfo (System.Data.Common.DbParameter parameter, System.Data.DataRow row, System.Data.StatementType statementType, bool whereClause);
     parameters:
@@ -189,7 +189,7 @@ items:
       description: The <xref href="System.Data.DataRow"></xref> from the schema table provided by <xref href="System.Data.Common.DbDataReader.GetSchemaTable"></xref>.
     - id: statementType
       type: System.Data.StatementType
-      description: The type of command being generated; INSERT, UPDATE or DELETE.
+      description: 'The type of command being generated; INSERT, UPDATE or DELETE.'
     - id: whereClause
       type: System.Boolean
       description: '`true` if the parameter is part of the update or delete WHERE clause, `false` if it is part of the insert or update values.'
@@ -585,14 +585,14 @@ items:
   - netstandard
   - System.Data.Common
   namespace: System.Data.Common
-  summary: Gets the automatically generated <xref href="System.Data.Common.DbCommand"></xref> object required to perform deletions at the data source, optionally using columns for parameter names.
+  summary: 'Gets the automatically generated <xref href="System.Data.Common.DbCommand"></xref> object required to perform deletions at the data source, optionally using columns for parameter names.'
   remarks: "An application can use the <xref:System.Data.Common.DbCommandBuilder.GetDeleteCommand%2A> method for informational or troubleshooting purposes because it returns the <xref:System.Data.Common.DbCommand> object to be executed.  \n  \n You can also use <xref:System.Data.Common.DbCommandBuilder.GetDeleteCommand%2A> as the basis of a modified command. For example, you might call <xref:System.Data.Common.DbCommandBuilder.GetDeleteCommand%2A> and modify the command text, and then explicitly set that on the <xref:System.Data.Common.DbDataAdapter>.  \n  \n After the SQL statement is first generated, the application must explicitly call <xref:System.Data.Common.DbCommandBuilder.RefreshSchema%2A> if it changes the statement in any way. Otherwise, the <xref:System.Data.Common.DbCommandBuilder.GetDeleteCommand%2A> will still be using information from the previous statement, which might not be correct. The SQL statements are first generated either when the application calls <xref:System.Data.Common.DbDataAdapter.Update%2A> or <xref:System.Data.Common.DbCommandBuilder.GetDeleteCommand%2A>.  \n  \n The default behavior, when generating parameter names, is to use @p1, @p2, and so on for the various parameters. Passing `true` for the `useColumnsForParameterNames` parameter allows you to force the <xref:System.Data.Common.DbCommandBuilder> to generate parameters based on the column names instead. This succeeds only if the following conditions are met:  \n  \n-   The <xref:System.Data.Common.DbMetaDataColumnNames.ParameterNameMaxLength> has been specified and its length is equal to or greater than the generated parameter name.  \n  \n-   The generated parameter name meets the criteria specified in the <xref:System.Data.Common.DbMetaDataColumnNames.ParameterNamePattern> regular expression.  \n  \n-   A <xref:System.Data.Common.DbMetaDataColumnNames.ParameterMarkerFormat> is specified."
   syntax:
     content: public System.Data.Common.DbCommand GetDeleteCommand (bool useColumnsForParameterNames);
     parameters:
     - id: useColumnsForParameterNames
       type: System.Boolean
-      description: If `true`, generate parameter names matching column names, if possible. If `false`, generate @p1, @p2, and so on.
+      description: 'If `true`, generate parameter names matching column names, if possible. If `false`, generate @p1, @p2, and so on.'
     return:
       type: System.Data.Common.DbCommand
       description: The automatically generated <xref href="System.Data.Common.DbCommand"></xref> object required to perform deletions.
@@ -702,14 +702,14 @@ items:
   - netstandard
   - System.Data.Common
   namespace: System.Data.Common
-  summary: Gets the automatically generated <xref href="System.Data.Common.DbCommand"></xref> object required to perform insertions at the data source, optionally using columns for parameter names.
+  summary: 'Gets the automatically generated <xref href="System.Data.Common.DbCommand"></xref> object required to perform insertions at the data source, optionally using columns for parameter names.'
   remarks: "An application can use the <xref:System.Data.Common.DbCommandBuilder.GetInsertCommand%2A> method for informational or troubleshooting purposes because it returns the text of the <xref:System.Data.Common.DbCommand> object to be executed.  \n  \n You can also use <xref:System.Data.Common.DbCommandBuilder.GetInsertCommand%2A> as the basis of a modified command. For example, you might call <xref:System.Data.Common.DbCommandBuilder.GetInsertCommand%2A> and modify the command text, and then explicitly set that on the <xref:System.Data.Common.DbDataAdapter>.  \n  \n After the SQL statement is first generated, the application must explicitly call <xref:System.Data.Common.DbCommandBuilder.RefreshSchema%2A> if it changes the statement in any way. Otherwise, the <xref:System.Data.Common.DbCommandBuilder.GetInsertCommand%2A> will still be using information from the previous statement, which might not be correct. The SQL statements are first generated either when the application calls <xref:System.Data.Common.DbDataAdapter.Update%2A> or <xref:System.Data.Common.DbCommandBuilder.GetInsertCommand%2A>.  \n  \n The default behavior, when generating parameter names, is to use @p1, @p2, and so on for the various parameters. Passing `true` for the `useColumnsForParameterNames` parameter allows you to force the <xref:System.Data.Common.DbCommandBuilder> to generate parameters based on the column names instead. Generation of the parameters based on column names succeeds only if the following conditions are met:  \n  \n-   The <xref:System.Data.Common.DbMetaDataColumnNames.ParameterNameMaxLength> has been specified and its length is equal to or greater than the generated parameter name.  \n  \n-   The generated parameter name meets the criteria specified in the <xref:System.Data.Common.DbMetaDataColumnNames.ParameterNamePattern> regular expression.  \n  \n-   A <xref:System.Data.Common.DbMetaDataColumnNames.ParameterMarkerFormat> is specified."
   syntax:
     content: public System.Data.Common.DbCommand GetInsertCommand (bool useColumnsForParameterNames);
     parameters:
     - id: useColumnsForParameterNames
       type: System.Boolean
-      description: If `true`, generate parameter names matching column names, if possible. If `false`, generate @p1, @p2, and so on.
+      description: 'If `true`, generate parameter names matching column names, if possible. If `false`, generate @p1, @p2, and so on.'
     return:
       type: System.Data.Common.DbCommand
       description: The automatically generated <xref href="System.Data.Common.DbCommand"></xref> object required to perform insertions.
@@ -762,7 +762,7 @@ items:
   - netstandard
   - System.Data.Common
   namespace: System.Data.Common
-  summary: Returns the name of the specified parameter in the format of @p*#*. Use when building a custom command builder.
+  summary: 'Returns the name of the specified parameter in the format of @p*#*. Use when building a custom command builder.'
   syntax:
     content: protected abstract string GetParameterName (int parameterOrdinal);
     parameters:
@@ -821,7 +821,7 @@ items:
   - netstandard
   - System.Data.Common
   namespace: System.Data.Common
-  summary: Returns the full parameter name, given the partial parameter name.
+  summary: 'Returns the full parameter name, given the partial parameter name.'
   syntax:
     content: protected abstract string GetParameterName (string parameterName);
     parameters:
@@ -1057,14 +1057,14 @@ items:
   - netstandard
   - System.Data.Common
   namespace: System.Data.Common
-  summary: Gets the automatically generated <xref href="System.Data.Common.DbCommand"></xref> object required to perform updates at the data source, optionally using columns for parameter names.
+  summary: 'Gets the automatically generated <xref href="System.Data.Common.DbCommand"></xref> object required to perform updates at the data source, optionally using columns for parameter names.'
   remarks: "An application can use the <xref:System.Data.Common.DbCommandBuilder.GetUpdateCommand%2A> method for informational or troubleshooting purposes because it returns the <xref:System.Data.Common.DbCommand> object to be executed.  \n  \n You can also use <xref:System.Data.Common.DbCommandBuilder.GetUpdateCommand%2A> as the basis of a modified command. For example, you might call <xref:System.Data.Common.DbCommandBuilder.GetUpdateCommand%2A> and modify command text, and then explicitly set that on the <xref:System.Data.Common.DbDataAdapter>.  \n  \n After the SQL statement is first generated, the application must explicitly call <xref:System.Data.Common.DbCommandBuilder.RefreshSchema%2A> if it changes the statement in any way. Otherwise, the <xref:System.Data.Common.DbCommandBuilder.GetUpdateCommand%2A> will still be using information from the previous statement, which might not be correct. The SQL statements are first generated either when the application calls <xref:System.Data.Common.DbDataAdapter.Update%2A> or <xref:System.Data.Common.DbCommandBuilder.GetUpdateCommand%2A>.  \n  \n The default behavior, when generating parameter names, is to use @p1, @p2, and so on for the various parameters. Passing `true` for the `useColumnsForParameterNames` parameter allows you to force the <xref:System.Data.Common.DbCommandBuilder> to generate parameters based on the column names instead. Generation of the parameters based on column names succeeds only if the following conditions are met:  \n  \n-   The <xref:System.Data.Common.DbMetaDataColumnNames.ParameterNameMaxLength> has been specified and its length is equal to or greater than the generated parameter name.  \n  \n-   The generated parameter name meets the criteria specified in the <xref:System.Data.Common.DbMetaDataColumnNames.ParameterNamePattern> regular expression.  \n  \n-   A <xref:System.Data.Common.DbMetaDataColumnNames.ParameterMarkerFormat> is specified."
   syntax:
     content: public System.Data.Common.DbCommand GetUpdateCommand (bool useColumnsForParameterNames);
     parameters:
     - id: useColumnsForParameterNames
       type: System.Boolean
-      description: If `true`, generate parameter names matching column names, if possible. If `false`, generate @p1, @p2, and so on.
+      description: 'If `true`, generate parameter names matching column names, if possible. If `false`, generate @p1, @p2, and so on.'
     return:
       type: System.Data.Common.DbCommand
       description: The automatically generated <xref href="System.Data.Common.DbCommand"></xref> object required to perform updates.
@@ -1117,17 +1117,17 @@ items:
   - netstandard
   - System.Data.Common
   namespace: System.Data.Common
-  summary: Resets the <xref href="System.Data.Common.DbCommand.CommandTimeout"></xref>, <xref href="System.Data.Common.DbCommand.Transaction"></xref>, <xref href="System.Data.Common.DbCommand.CommandType"></xref>, and <xref href="System.Data.UpdateRowSource"></xref> properties on the <xref href="System.Data.Common.DbCommand"></xref>.
+  summary: 'Resets the <xref href="System.Data.Common.DbCommand.CommandTimeout"></xref>, <xref href="System.Data.Common.DbCommand.Transaction"></xref>, <xref href="System.Data.Common.DbCommand.CommandType"></xref>, and <xref href="System.Data.UpdateRowSource"></xref> properties on the <xref href="System.Data.Common.DbCommand"></xref>.'
   remarks: This method is intended for use by provider writers building a custom command builder.
   syntax:
     content: protected virtual System.Data.Common.DbCommand InitializeCommand (System.Data.Common.DbCommand command);
     parameters:
     - id: command
       type: System.Data.Common.DbCommand
-      description: The <xref href="System.Data.Common.DbCommand"></xref> to be used by the command builder for the corresponding insert, update, or delete command.
+      description: 'The <xref href="System.Data.Common.DbCommand"></xref> to be used by the command builder for the corresponding insert, update, or delete command.'
     return:
       type: System.Data.Common.DbCommand
-      description: A <xref href="System.Data.Common.DbCommand"></xref> instance to use for each insert, update, or delete operation. Passing a null value allows the <xref href="System.Data.Common.DbCommandBuilder.InitializeCommand(System.Data.Common.DbCommand)"></xref> method to create a <xref href="System.Data.Common.DbCommand"></xref> object based on the Select command associated with the <xref href="System.Data.Common.DbCommandBuilder"></xref>.
+      description: 'A <xref href="System.Data.Common.DbCommand"></xref> instance to use for each insert, update, or delete operation. Passing a null value allows the <xref href="System.Data.Common.DbCommandBuilder.InitializeCommand(System.Data.Common.DbCommand)"></xref> method to create a <xref href="System.Data.Common.DbCommand"></xref> object based on the Select command associated with the <xref href="System.Data.Common.DbCommandBuilder"></xref>.'
   overload: System.Data.Common.DbCommandBuilder.InitializeCommand*
   exceptions: []
   version:
@@ -1177,7 +1177,7 @@ items:
   - netstandard
   - System.Data.Common
   namespace: System.Data.Common
-  summary: Given an unquoted identifier in the correct catalog case, returns the correct quoted form of that identifier, including properly escaping any embedded quotes in the identifier.
+  summary: 'Given an unquoted identifier in the correct catalog case, returns the correct quoted form of that identifier, including properly escaping any embedded quotes in the identifier.'
   syntax:
     content: public virtual string QuoteIdentifier (string unquotedIdentifier);
     parameters:
@@ -1236,7 +1236,7 @@ items:
   - netstandard
   - System.Data.Common
   namespace: System.Data.Common
-  summary: Gets or sets the beginning character or characters to use when specifying database objects (for example, tables or columns) whose names contain characters such as spaces or reserved tokens.
+  summary: 'Gets or sets the beginning character or characters to use when specifying database objects (for example, tables or columns) whose names contain characters such as spaces or reserved tokens.'
   remarks: "Some data sources may have objects that can contain characters such as spaces, commas, and semicolons. To accommodate this capability, use the <xref:System.Data.Common.DbCommandBuilder.QuotePrefix%2A> and <xref:System.Data.Common.DbCommandBuilder.QuoteSuffix%2A> properties to specify delimiters such as a left bracket and a right bracket to encapsulate the object name.  \n  \n> [!NOTE]\n>  Although you cannot change the <xref:System.Data.Common.DbCommandBuilder.QuotePrefix%2A> or <xref:System.Data.Common.DbCommandBuilder.QuoteSuffix%2A> properties after an insert, update, or delete command has been generated, you can change their settings after calling the `Update` method of a <xref:System.Data.Common.DbDataAdapter>."
   syntax:
     content: public virtual string QuotePrefix { get; set; }
@@ -1247,7 +1247,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: This property cannot be changed after an insert, update, or delete command has been generated.
+    description: 'This property cannot be changed after an insert, update, or delete command has been generated.'
   attributes: []
   version:
   - netcore-2.0
@@ -1296,7 +1296,7 @@ items:
   - netstandard
   - System.Data.Common
   namespace: System.Data.Common
-  summary: Gets or sets the ending character or characters to use when specifying database objects (for example, tables or columns) whose names contain characters such as spaces or reserved tokens.
+  summary: 'Gets or sets the ending character or characters to use when specifying database objects (for example, tables or columns) whose names contain characters such as spaces or reserved tokens.'
   remarks: "Some data sources may have objects that can contain characters such as spaces, commas, and semicolons. To accommodate this capability, use the <xref:System.Data.Common.DbCommandBuilder.QuotePrefix%2A> and <xref:System.Data.Common.DbCommandBuilder.QuoteSuffix%2A> properties to specify delimiters such as a left bracket and a right bracket to encapsulate the object name.  \n  \n> [!NOTE]\n>  Although you cannot change the <xref:System.Data.Common.DbCommandBuilder.QuotePrefix%2A> or <xref:System.Data.Common.DbCommandBuilder.QuoteSuffix%2A> properties after an insert, update, or delete command has been generated, you can change their settings after calling the `Update` method of a <xref:System.Data.Common.DbDataAdapter>."
   syntax:
     content: public virtual string QuoteSuffix { get; set; }
@@ -1464,7 +1464,7 @@ items:
   - System.Data.Common
   namespace: System.Data.Common
   summary: Gets or sets the character to be used for the separator between the schema identifier and any other identifiers.
-  remarks: Generally, database servers indicate the schema for an identifier by separating the schema name from the identifier with some character. For example, SQL Server uses a colon, creating complete identifiers such as **Person:CustomerName**, where "Person" is the schema name and "CustomerName" is the identifier. Setting this property allows developers to modify this behavior.
+  remarks: 'Generally, database servers indicate the schema for an identifier by separating the schema name from the identifier with some character. For example, SQL Server uses a colon, creating complete identifiers such as **Person:CustomerName**, where "Person" is the schema name and "CustomerName" is the identifier. Setting this property allows developers to modify this behavior.'
   syntax:
     content: public virtual string SchemaSeparator { get; set; }
     return:
@@ -1521,7 +1521,7 @@ items:
   - System.Data.Common
   namespace: System.Data.Common
   summary: Specifies whether all column values in an update statement are included or only changed ones.
-  remarks: The UPDATE statement generated by a <xref:System.Data.Common.DbCommandBuilder> can include update information about all the columns, or it can include information only about those columns whose values have changed. Setting the <xref:System.Data.Common.DbCommandBuilder.SetAllValues%2A> property to `true` causes the generated UPDATE statement to include all the columns, whether their values have changed or not.
+  remarks: 'The UPDATE statement generated by a <xref:System.Data.Common.DbCommandBuilder> can include update information about all the columns, or it can include information only about those columns whose values have changed. Setting the <xref:System.Data.Common.DbCommandBuilder.SetAllValues%2A> property to `true` causes the generated UPDATE statement to include all the columns, whether their values have changed or not.'
   syntax:
     content: public bool SetAllValues { get; set; }
     return:
@@ -1578,7 +1578,7 @@ items:
   - System.Data.Common
   namespace: System.Data.Common
   summary: Registers the <xref href="System.Data.Common.DbCommandBuilder"></xref> to handle the <xref href="System.Data.OleDb.OleDbDataAdapter.RowUpdating"></xref> event for a <xref href="System.Data.Common.DbDataAdapter"></xref>.
-  remarks: This method is intended for use by provider writers building a custom command builder. When a new <xref:System.Data.Common.DbDataAdapter> is added to the <xref:System.Data.Common.DbCommandBuilder>, it is registered for the DbDataAdapter's **RowUpdating** event. If this method is called again with the same <xref:System.Data.Common.DbDataAdapter>, the <xref:System.Data.Common.DbCommandBuilder> is unregistered for that DbDataAdapter's **RowUpdating** event.
+  remarks: 'This method is intended for use by provider writers building a custom command builder. When a new <xref:System.Data.Common.DbDataAdapter> is added to the <xref:System.Data.Common.DbCommandBuilder>, it is registered for the DbDataAdapter''s **RowUpdating** event. If this method is called again with the same <xref:System.Data.Common.DbDataAdapter>, the <xref:System.Data.Common.DbCommandBuilder> is unregistered for that DbDataAdapter''s **RowUpdating** event.'
   syntax:
     content: protected abstract void SetRowUpdatingHandler (System.Data.Common.DbDataAdapter adapter);
     parameters:
@@ -1634,7 +1634,7 @@ items:
   - netstandard
   - System.Data.Common
   namespace: System.Data.Common
-  summary: Given a quoted identifier, returns the correct unquoted form of that identifier, including properly un-escaping any embedded quotes in the identifier.
+  summary: 'Given a quoted identifier, returns the correct unquoted form of that identifier, including properly un-escaping any embedded quotes in the identifier.'
   syntax:
     content: public virtual string UnquoteIdentifier (string quotedIdentifier);
     parameters:
@@ -1643,7 +1643,7 @@ items:
       description: The identifier that will have its embedded quotes removed.
     return:
       type: System.String
-      description: The unquoted identifier, with embedded quotes properly un-escaped.
+      description: 'The unquoted identifier, with embedded quotes properly un-escaped.'
   overload: System.Data.Common.DbCommandBuilder.UnquoteIdentifier*
   exceptions: []
   version:

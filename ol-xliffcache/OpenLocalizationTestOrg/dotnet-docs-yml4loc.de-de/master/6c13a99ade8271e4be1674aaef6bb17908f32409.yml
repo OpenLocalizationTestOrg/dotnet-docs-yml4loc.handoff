@@ -300,7 +300,7 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices
-  summary: Copies all <xref href="System.DirectoryServices.PropertyValueCollection"></xref> objects in this collection to the specified array, starting at the specified index in the target array.
+  summary: 'Copies all <xref href="System.DirectoryServices.PropertyValueCollection"></xref> objects in this collection to the specified array, starting at the specified index in the target array.'
   syntax:
     content: public void CopyTo (object[] array, int index);
     parameters:
@@ -356,7 +356,7 @@ items:
       description: The property value to find.
     return:
       type: System.Int32
-      description: The zero-based index of the specified property value. If the object is not found, the return value is -1.
+      description: 'The zero-based index of the specified property value. If the object is not found, the return value is -1.'
   overload: System.DirectoryServices.PropertyValueCollection.IndexOf*
   exceptions: []
   version:
@@ -545,7 +545,7 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices
-  summary: Overrides the <xref href="System.Collections.CollectionBase.OnInsertComplete(System.Int32,System.Object)"></xref> method.
+  summary: 'Overrides the <xref href="System.Collections.CollectionBase.OnInsertComplete(System.Int32,System.Object)"></xref> method.'
   syntax:
     content: protected override void OnInsertComplete (int index, object value);
     parameters:
@@ -592,7 +592,7 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices
-  summary: Overrides the <xref href="System.Collections.CollectionBase.OnRemoveComplete(System.Int32,System.Object)"></xref> method.
+  summary: 'Overrides the <xref href="System.Collections.CollectionBase.OnRemoveComplete(System.Int32,System.Object)"></xref> method.'
   syntax:
     content: protected override void OnRemoveComplete (int index, object value);
     parameters:
@@ -639,7 +639,7 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices
-  summary: Overrides the <xref href="System.Collections.CollectionBase.OnSetComplete(System.Int32,System.Object,System.Object)"></xref> method.
+  summary: 'Overrides the <xref href="System.Collections.CollectionBase.OnSetComplete(System.Int32,System.Object,System.Object)"></xref> method.'
   syntax:
     content: protected override void OnSetComplete (int index, object oldValue, object newValue);
     parameters:
@@ -738,7 +738,7 @@ items:
   - System.DirectoryServices
   namespace: System.DirectoryServices
   summary: Removes a specified property value from this collection.
-  remarks: When working with a multi-valued string property value, the <xref:System.DirectoryServices.PropertyValueCollection.Remove%2A> method will successfully remove the correct item. However, identifying the correct items by name is difficult with a multi-valued DNWithString property value (as the DNWithString COM class, which is used to store the DNWithString items, has 2 string properties representing the item). The way to remove such items is to find the object in the collection (by looping thru all the items), then call the <xref:System.DirectoryServices.PropertyValueCollection.Remove%2A> function with the object's pointer that you just found.  This is illustrated in the example below.
+  remarks: 'When working with a multi-valued string property value, the <xref:System.DirectoryServices.PropertyValueCollection.Remove%2A> method will successfully remove the correct item. However, identifying the correct items by name is difficult with a multi-valued DNWithString property value (as the DNWithString COM class, which is used to store the DNWithString items, has 2 string properties representing the item). The way to remove such items is to find the object in the collection (by looping thru all the items), then call the <xref:System.DirectoryServices.PropertyValueCollection.Remove%2A> function with the object''s pointer that you just found.  This is illustrated in the example below.'
   example:
   - "```csharp  \n  \n// Bind to the AD object  \nDirectoryEntry myUser = new DirectoryEntry(\"LDAP://AdServer:389/CN=MyUsername,CN=Users,DC=contoso,DC=com\");  \n  \n// Get the attribute  \nPropertyValueCollection testAttribute = myUser.Properties[\"someAttribute\"];  \n  \n// Find the item in the collection that we want to delete  \nDNWithString dnwsItemToRemove = null;  \nforeach (DNWithString dnwsItem in testAttribute)  \n{  \n    if (dnwsItem.StringValue.Equals(\"SomeValue\"))  \n    {  \n        dnwsItemToRemove = dnwsItem;  \n        break;  \n    }  \n}  \n  \n// Delete it  \ntestAttribute.Remove(dnwsItemToRemove);  \n  \n// Store the data  \nmyUser.CommitChanges();  \n```"
   syntax:
@@ -791,7 +791,7 @@ items:
   - System.DirectoryServices
   namespace: System.DirectoryServices
   summary: Gets or sets the values of the collection.
-  remarks: To add multiple values, set this property to an array of the values.
+  remarks: 'To add multiple values, set this property to an array of the values.'
   syntax:
     content: public object Value { get; set; }
     return:

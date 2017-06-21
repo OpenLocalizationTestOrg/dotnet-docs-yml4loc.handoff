@@ -171,7 +171,7 @@ items:
   - System.Design
   namespace: System.ComponentModel.Design
   summary: Gets or sets the active designer.
-  remarks: The <xref:System.ComponentModel.Design.DesignSurfaceManager.ActiveDesignSurface%2A> property should be set by the designer's user interface whenever a designer becomes the active window. The default implementation of this property works with the default implementation of the <xref:System.ComponentModel.Design.IDesignerEventService> interface to notify interested parties that a new designer is now active. If you provide your own implementation of <xref:System.ComponentModel.Design.IDesignerEventService>, you should override this property to notify your service appropriately. This property can be set to `null`, indicating that no designer is active.
+  remarks: 'The <xref:System.ComponentModel.Design.DesignSurfaceManager.ActiveDesignSurface%2A> property should be set by the designer''s user interface whenever a designer becomes the active window. The default implementation of this property works with the default implementation of the <xref:System.ComponentModel.Design.IDesignerEventService> interface to notify interested parties that a new designer is now active. If you provide your own implementation of <xref:System.ComponentModel.Design.IDesignerEventService>, you should override this property to notify your service appropriately. This property can be set to `null`, indicating that no designer is active.'
   syntax:
     content: public virtual System.ComponentModel.Design.DesignSurface ActiveDesignSurface { get; set; }
     return:
@@ -307,7 +307,7 @@ items:
     parameters:
     - id: parentProvider
       type: System.IServiceProvider
-      description: A parent service provider. A new merged service provider will be created that will first ask this provider for a service, and then delegate any failures to the design surface manager object. This merged provider will be passed into the <xref href="System.ComponentModel.Design.DesignSurfaceManager.CreateDesignSurfaceCore(System.IServiceProvider)"></xref> method.
+      description: 'A parent service provider. A new merged service provider will be created that will first ask this provider for a service, and then delegate any failures to the design surface manager object. This merged provider will be passed into the <xref href="System.ComponentModel.Design.DesignSurfaceManager.CreateDesignSurfaceCore(System.IServiceProvider)"></xref> method.'
     return:
       type: System.ComponentModel.Design.DesignSurface
       description: A new design surface instance.
@@ -352,13 +352,13 @@ items:
   - System.Design
   namespace: System.ComponentModel.Design
   summary: Implementation that creates the design surface.
-  remarks: The <xref:System.ComponentModel.Design.DesignSurfaceManager.CreateDesignSurfaceCore%2A> method is called by both <xref:System.ComponentModel.Design.DesignSurfaceManager.CreateDesignSurface%2A> methods. It is the implementation that actually creates the design surface. The default implementation just returns a new <xref:System.ComponentModel.Design.DesignSurface>. You may override this method to provide a custom object that derives from the <xref:System.ComponentModel.Design.DesignSurface> class.
+  remarks: 'The <xref:System.ComponentModel.Design.DesignSurfaceManager.CreateDesignSurfaceCore%2A> method is called by both <xref:System.ComponentModel.Design.DesignSurfaceManager.CreateDesignSurface%2A> methods. It is the implementation that actually creates the design surface. The default implementation just returns a new <xref:System.ComponentModel.Design.DesignSurface>. You may override this method to provide a custom object that derives from the <xref:System.ComponentModel.Design.DesignSurface> class.'
   syntax:
     content: protected virtual System.ComponentModel.Design.DesignSurface CreateDesignSurfaceCore (IServiceProvider parentProvider);
     parameters:
     - id: parentProvider
       type: System.IServiceProvider
-      description: A service provider to pass to the design surface. This is either an instance of <xref href="System.ComponentModel.Design.DesignSurfaceManager"></xref> or an object that implements <xref href="System.IServiceProvider"></xref>, and represents a merge between the service provider of the <xref href="System.ComponentModel.Design.DesignSurfaceManager"></xref> class and an externally passed provider.
+      description: 'A service provider to pass to the design surface. This is either an instance of <xref href="System.ComponentModel.Design.DesignSurfaceManager"></xref> or an object that implements <xref href="System.IServiceProvider"></xref>, and represents a merge between the service provider of the <xref href="System.ComponentModel.Design.DesignSurfaceManager"></xref> class and an externally passed provider.'
     return:
       type: System.ComponentModel.Design.DesignSurface
       description: A new design surface instance.
@@ -484,7 +484,7 @@ items:
   - System.Design
   namespace: System.ComponentModel.Design
   summary: Gets a collection of design surfaces.
-  remarks: The <xref:System.ComponentModel.Design.DesignSurfaceManager.DesignSurfaces%2A> property is implemented directly on top of <xref:System.ComponentModel.Design.IDesignerEventService>, so if you provide your own implementation of that service, this property uses your implementation.
+  remarks: 'The <xref:System.ComponentModel.Design.DesignSurfaceManager.DesignSurfaces%2A> property is implemented directly on top of <xref:System.ComponentModel.Design.IDesignerEventService>, so if you provide your own implementation of that service, this property uses your implementation.'
   syntax:
     content: public System.ComponentModel.Design.DesignSurfaceCollection DesignSurfaces { get; }
     return:
@@ -615,7 +615,7 @@ items:
   - System.Design
   namespace: System.ComponentModel.Design
   summary: Gets a service in the design surface manager’s service container.
-  remarks: The <xref:System.ComponentModel.Design.DesignSurfaceManager.GetService%2A> method forwards to any service provider that was given to the design surface manager at construction time.
+  remarks: 'The <xref:System.ComponentModel.Design.DesignSurfaceManager.GetService%2A> method forwards to any service provider that was given to the design surface manager at construction time.'
   syntax:
     content: public object GetService (Type serviceType);
     parameters:
@@ -624,7 +624,7 @@ items:
       description: The service type to retrieve.
     return:
       type: System.Object
-      description: An object that implements, or is a derived class of, the given service type; otherwise, `null` if the service does not exist in the service container.
+      description: 'An object that implements, or is a derived class of, the given service type; otherwise, `null` if the service does not exist in the service container.'
   overload: System.ComponentModel.Design.DesignSurfaceManager.GetService*
   exceptions: []
   version:
@@ -663,7 +663,7 @@ items:
   - System.Design
   namespace: System.ComponentModel.Design
   summary: Occurs when the global selection changes.
-  remarks: This event is raised when the active designer's selection of component set changes. This is mapped through the <xref:System.ComponentModel.Design.IDesignerEventService> interface.
+  remarks: 'This event is raised when the active designer''s selection of component set changes. This is mapped through the <xref:System.ComponentModel.Design.IDesignerEventService> interface.'
   syntax:
     content: public event EventHandler SelectionChanged;
     return:

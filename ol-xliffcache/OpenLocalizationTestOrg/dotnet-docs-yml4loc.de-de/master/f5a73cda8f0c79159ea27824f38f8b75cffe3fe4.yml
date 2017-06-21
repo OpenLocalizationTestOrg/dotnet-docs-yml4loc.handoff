@@ -29,7 +29,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Configuration
   summary: Represents configuration setting for WS-Reliable Messaging.
-  remarks: When this element is added to a custom binding, the resulting channel can support exactly-once delivery assurances.
+  remarks: 'When this element is added to a custom binding, the resulting channel can support exactly-once delivery assurances.'
   syntax:
     content: 'public sealed class ReliableSessionElement : System.ServiceModel.Configuration.BindingElementExtensionElement'
   inheritance:
@@ -377,7 +377,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Configuration
-  summary: Gets or sets a value that indicates whether advanced flow control, a Microsoft-specific implementation of flow control for WS-Reliable messaging, is activated.
+  summary: 'Gets or sets a value that indicates whether advanced flow control, a Microsoft-specific implementation of flow control for WS-Reliable messaging, is activated.'
   syntax:
     content: >-
       [System.Configuration.ConfigurationProperty("flowControlEnabled", DefaultValue=Mono.Cecil.CustomAttributeArgument)]
@@ -426,7 +426,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Configuration
   summary: Gets or sets a <xref href="System.TimeSpan"></xref> value that specifies the maximum duration the channel allows the other communicating party not to send any messages before faulting the channel.
-  remarks: Activity on a channel is defined as receiving an application or infrastructure message. This property controls the maximum amount of time to keep an inactive session alive. If there is a longer time with no activity, the session is aborted by the infrastructure and the channel faults.
+  remarks: 'Activity on a channel is defined as receiving an application or infrastructure message. This property controls the maximum amount of time to keep an inactive session alive. If there is a longer time with no activity, the session is aborted by the infrastructure and the channel faults.'
   syntax:
     content: >-
       [System.ComponentModel.TypeConverter(typeof(System.ServiceModel.Configuration.TimeSpanOrInfiniteConverter))]
@@ -436,7 +436,7 @@ items:
       public TimeSpan InactivityTimeout { get; set; }
     return:
       type: System.TimeSpan
-      description: A <xref href="System.TimeSpan"></xref> value that specifies the maximum duration the channel allows the other communicating party not to send any messages before faulting the channel. The default is 00:10:00.
+      description: 'A <xref href="System.TimeSpan"></xref> value that specifies the maximum duration the channel allows the other communicating party not to send any messages before faulting the channel. The default is 00:10:00.'
   overload: System.ServiceModel.Configuration.ReliableSessionElement.InactivityTimeout*
   exceptions: []
   attributes:
@@ -567,7 +567,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Configuration
-  summary: Gets or sets the maximum number of times a reliable channel attempts to retransmit a message it has not received an acknowledgment for, by calling Send on its underlying channel.
+  summary: 'Gets or sets the maximum number of times a reliable channel attempts to retransmit a message it has not received an acknowledgment for, by calling Send on its underlying channel.'
   remarks: "This value should be an integer greater than zero. If an acknowledgment is not received after the last retransmission, the channel faults.  \n  \n A message is considered to be transferred if its delivery at the recipient is acknowledged by the recipient.  \n  \n If an acknowledgment is not received within a certain amount of time for a message that has been transmitted, the infrastructure automatically retransmits the message. The infrastructure tries to resend the message for, at most, the number of times specified by this property. If an acknowledgment is not received after the last retransmission, the channel faults.  \n  \n The infrastructure uses an exponential back-off algorithm to determine when to retransmit, based on a computed average round-trip time. The time initially starts at 1 second before retransmission and doubling the delay with every attempt, which results in approximately 8.5 minutes passing between the first transmission attempt and the last retransmission attempt. The time for the first retransmission attempt is adjusted according to the calculated round-trip time and the resulting stretch of time that those attempts take varies accordingly. This allows the retransmission time to dynamically adapt to varying network conditions."
   syntax:
     content: >-
@@ -578,7 +578,7 @@ items:
       public int MaxRetryCount { get; set; }
     return:
       type: System.Int32
-      description: The maximum number of times a reliable channel attempts to retransmit a message it has not received an acknowledgment for, by calling Send on its underlying channel. The minimum value is 1; the maximum 20; and the default value is 8.
+      description: 'The maximum number of times a reliable channel attempts to retransmit a message it has not received an acknowledgment for, by calling Send on its underlying channel. The minimum value is 1; the maximum 20; and the default value is 8.'
   overload: System.ServiceModel.Configuration.ReliableSessionElement.MaxRetryCount*
   exceptions: []
   attributes:

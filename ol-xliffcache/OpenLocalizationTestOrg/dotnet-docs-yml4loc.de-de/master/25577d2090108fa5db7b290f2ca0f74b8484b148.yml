@@ -106,14 +106,14 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: Initializes a new instance of the <xref href="System.Data.Linq.DataContext"></xref> class by referencing the connection used by the [!INCLUDE[dnprdnshort](~/includes/dnprdnshort-md.md)].
-  remarks: A <xref:System.Data.Linq.DataContext> opens and closes a database connection as needed if you provide a closed connection or a connection string. In general, you should never have to call `Dispose` on a <xref:System.Data.Linq.DataContext>. If you provide an open connection, the <xref:System.Data.Linq.DataContext> will not close it. Therefore, do not instantiate a <xref:System.Data.Linq.DataContext> with an open connection unless you have a good reason to do this. In a <xref:System.Transactions> transaction, a <xref:System.Data.Linq.DataContext> will not open or close a connection to avoid promotion.
+  summary: 'Initializes a new instance of the <xref href="System.Data.Linq.DataContext"></xref> class by referencing the connection used by the [!INCLUDE[dnprdnshort](~/includes/dnprdnshort-md.md)].'
+  remarks: 'A <xref:System.Data.Linq.DataContext> opens and closes a database connection as needed if you provide a closed connection or a connection string. In general, you should never have to call `Dispose` on a <xref:System.Data.Linq.DataContext>. If you provide an open connection, the <xref:System.Data.Linq.DataContext> will not close it. Therefore, do not instantiate a <xref:System.Data.Linq.DataContext> with an open connection unless you have a good reason to do this. In a <xref:System.Transactions> transaction, a <xref:System.Data.Linq.DataContext> will not open or close a connection to avoid promotion.'
   syntax:
     content: public DataContext (System.Data.IDbConnection connection);
     parameters:
     - id: connection
       type: System.Data.IDbConnection
-      description: The connection used by the [!INCLUDE[dnprdnshort](~/includes/dnprdnshort-md.md)].
+      description: 'The connection used by the [!INCLUDE[dnprdnshort](~/includes/dnprdnshort-md.md)].'
   overload: System.Data.Linq.DataContext.#ctor*
   exceptions: []
   version:
@@ -486,7 +486,7 @@ items:
   - System.Data.Linq
   namespace: System.Data.Linq
   summary: Executes the table-valued database function associated with the specified CLR method.
-  remarks: The <xref:System.Data.Linq.DataContext.CreateMethodCallQuery%2A> method is used in automatically generated code and acts as a proxy to database functions.
+  remarks: 'The <xref:System.Data.Linq.DataContext.CreateMethodCallQuery%2A> method is used in automatically generated code and acts as a proxy to database functions.'
   syntax:
     content: protected System.Linq.IQueryable<TResult> CreateMethodCallQuery<TResult> (object instance, System.Reflection.MethodInfo methodInfo, object[] parameters);
     parameters:
@@ -545,7 +545,7 @@ items:
   - System.Data.Linq
   namespace: System.Data.Linq
   summary: Determines whether the associated database can be opened.
-  remarks: This method uses the connection in the <xref:System.Data.Linq.DataContext.Connection%2A> property to attempt to open the associated database.
+  remarks: 'This method uses the connection in the <xref:System.Data.Linq.DataContext.Connection%2A> property to attempt to open the associated database.'
   example:
   - "The following example uses this method to determine whether a database already exists.  \n  \n [!code-csharp[System.Data.Linq.DataContext#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Data.Linq.DataContext/cs/Program.cs#1)]\n [!code-vb[System.Data.Linq.DataContext#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Data.Linq.DataContext/vb/Module1.vb#1)]"
   syntax:
@@ -594,7 +594,7 @@ items:
   - System.Data.Linq
   namespace: System.Data.Linq
   summary: Gets or sets a value that indicates whether to delay-load one-to-many or one-to-one relationships.
-  remarks: "When the code accesses one of these relationships, null is returned if the relationship is one-to-one, and an empty collection is returned if it is one-to-many. The relationships can still be filled by setting the <xref:System.Data.Linq.DataContext.LoadOptions%2A> property.  \n  \n The main scenario for this property is to enable you to extract a piece of the object model and send it out (for example, to a Web service).  \n  \n> [!NOTE]\n>  If this property is set to `false` after a query has been executed, an exception is thrown. See the **Valid Modes** section below for more information.  \n  \n## Valid modes  \n Deferred loading requires object tracking. Only the following three modes are valid:  \n  \n-   <xref:System.Data.Linq.DataContext.ObjectTrackingEnabled%2A> = `false`. <xref:System.Data.Linq.DataContext.DeferredLoadingEnabled%2A> is ignored and inferred to be `false`. This behavior corresponds to a read-only <xref:System.Data.Linq.DataContext>.  \n  \n-   <xref:System.Data.Linq.DataContext.ObjectTrackingEnabled%2A> = `true`. <xref:System.Data.Linq.DataContext.DeferredLoadingEnabled%2A> = `false`. This situation corresponds to a <xref:System.Data.Linq.DataContext> that allows users to load an object graph by using <xref:System.Data.Linq.DataLoadOptions.LoadWith%2A> directives, but it does not enable deferred loading.  \n  \n-   Both are set to `true`. This is the default.  \n  \n The flags may not be changed after a query has been executed. Any change after the execution of the first query that uses that <xref:System.Data.Linq.DataContext> throws an exception."
+  remarks: "When the code accesses one of these relationships, null is returned if the relationship is one-to-one, and an empty collection is returned if it is one-to-many. The relationships can still be filled by setting the <xref:System.Data.Linq.DataContext.LoadOptions%2A> property.  \n  \n The main scenario for this property is to enable you to extract a piece of the object model and send it out (for example, to a Web service).  \n  \n> [!NOTE]\n>  If this property is set to `false` after a query has been executed, an exception is thrown. See the **Valid Modes** section below for more information.  \n  \n## <a name=\"valid-modes\"></a>Valid modes  \n Deferred loading requires object tracking. Only the following three modes are valid:  \n  \n-   <xref:System.Data.Linq.DataContext.ObjectTrackingEnabled%2A> = `false`. <xref:System.Data.Linq.DataContext.DeferredLoadingEnabled%2A> is ignored and inferred to be `false`. This behavior corresponds to a read-only <xref:System.Data.Linq.DataContext>.  \n  \n-   <xref:System.Data.Linq.DataContext.ObjectTrackingEnabled%2A> = `true`. <xref:System.Data.Linq.DataContext.DeferredLoadingEnabled%2A> = `false`. This situation corresponds to a <xref:System.Data.Linq.DataContext> that allows users to load an object graph by using <xref:System.Data.Linq.DataLoadOptions.LoadWith%2A> directives, but it does not enable deferred loading.  \n  \n-   Both are set to `true`. This is the default.  \n  \n The flags may not be changed after a query has been executed. Any change after the execution of the first query that uses that <xref:System.Data.Linq.DataContext> throws an exception."
   syntax:
     content: public bool DeferredLoadingEnabled { get; set; }
     return:
@@ -640,7 +640,7 @@ items:
   - System.Data.Linq
   namespace: System.Data.Linq
   summary: Deletes the associated database.
-  remarks: This method uses the connection in the <xref:System.Data.Linq.DataContext.Connection%2A> property to identify the database to be deleted.
+  remarks: 'This method uses the connection in the <xref:System.Data.Linq.DataContext.Connection%2A> property to identify the database to be deleted.'
   example:
   - "The following example shows how to delete a database that has been temporarily created.  \n  \n [!code-csharp[System.Data.Linq.DataContext#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Data.Linq.DataContext/cs/Program.cs#1)]\n [!code-vb[System.Data.Linq.DataContext#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Data.Linq.DataContext/vb/Module1.vb#1)]"
   syntax:
@@ -831,8 +831,8 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: Executes, inside delete override methods, to redelegate to [!INCLUDE[vbtecdlinq](~/includes/vbtecdlinq-md.md)] the task of generating and executing dynamic SQL for delete operations.
-  remarks: See <xref:System.Data.Linq.DataContext.ExecuteDynamicInsert%2A>.
+  summary: 'Executes, inside delete override methods, to redelegate to [!INCLUDE[vbtecdlinq](~/includes/vbtecdlinq-md.md)] the task of generating and executing dynamic SQL for delete operations.'
+  remarks: 'See <xref:System.Data.Linq.DataContext.ExecuteDynamicInsert%2A>.'
   syntax:
     content: protected void ExecuteDynamicDelete (object entity);
     parameters:
@@ -878,7 +878,7 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: Executes, inside insert override methods, to redelegate to [!INCLUDE[vbtecdlinq](~/includes/vbtecdlinq-md.md)] the task of generating and executing dynamic SQL for insert operations.
+  summary: 'Executes, inside insert override methods, to redelegate to [!INCLUDE[vbtecdlinq](~/includes/vbtecdlinq-md.md)] the task of generating and executing dynamic SQL for insert operations.'
   remarks: "Note the following considerations:  \n  \n-   Because the method has a protected modifier, its use requires subclassing <xref:System.Data.Linq.DataContext>.  \n  \n-   An exception is thrown if this operation is not called inside a <xref:System.Data.Linq.DataContext.SubmitChanges%2A> operation. It is not intended to be called as a stand-alone operation outside the scope of a <xref:System.Data.Linq.DataContext.SubmitChanges%2A> operation. <xref:System.Data.Linq.DataContext.SubmitChanges%2A> itself calls override methods if they are implemented and the previous methods are intended to be called inside the override methods.  \n  \n-   It is the responsibility of the developer to pass in the correct entity. The implementation verifies that the passed-in entity is tracked. However, it is the responsibility of the developer to maintain the order or pass in the same entity two times.  \n  \n-   It is the responsibility of the developer to invoke the correct dynamic API. For example, in the `Update` override method, only the <xref:System.Data.Linq.DataContext.ExecuteDynamicUpdate%2A> method can be called. [!INCLUDE[vbtecdlinq](~/includes/vbtecdlinq-md.md)] does not detect or verify whether the invoked dynamic method matches the applicable operation. The results are undefined if an inapplicable method is called (for example, calling <xref:System.Data.Linq.DataContext.ExecuteDynamicDelete%2A> for an object to be updated)."
   syntax:
     content: protected void ExecuteDynamicInsert (object entity);
@@ -925,8 +925,8 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: Executes, inside update override methods, to redelegate to [!INCLUDE[vbtecdlinq](~/includes/vbtecdlinq-md.md)] the task of generating and executing dynamic SQL for update operations.
-  remarks: See <xref:System.Data.Linq.DataContext.ExecuteDynamicInsert%2A>.
+  summary: 'Executes, inside update override methods, to redelegate to [!INCLUDE[vbtecdlinq](~/includes/vbtecdlinq-md.md)] the task of generating and executing dynamic SQL for update operations.'
+  remarks: 'See <xref:System.Data.Linq.DataContext.ExecuteDynamicInsert%2A>.'
   syntax:
     content: protected void ExecuteDynamicUpdate (object entity);
     parameters:
@@ -973,7 +973,7 @@ items:
   - System.Data.Linq
   namespace: System.Data.Linq
   summary: Executes the stored database procedure or scalar function associated with the specified CLR method.
-  remarks: The <xref:System.Data.Linq.DataContext.ExecuteMethodCall%2A> method is used in automatically generated code and acts as a proxy to database functions.
+  remarks: 'The <xref:System.Data.Linq.DataContext.ExecuteMethodCall%2A> method is used in automatically generated code and acts as a proxy to database functions.'
   syntax:
     content: protected System.Data.Linq.IExecuteResult ExecuteMethodCall (object instance, System.Reflection.MethodInfo methodInfo, object[] parameters);
     parameters:
@@ -1084,7 +1084,7 @@ items:
   - System.Data.Linq
   namespace: System.Data.Linq
   summary: Executes SQL queries directly on the database and returns objects.
-  remarks: "This method is a pass-through mechanism for cases where [!INCLUDE[vbtecdlinq](~/includes/vbtecdlinq-md.md)] does not provide for a particular scenario.  \n  \n The algorithm for matching columns in the result of the query to fields and properties in the object works as follows:  \n  \n-   If a field or property is mapped to a particular column name, that column name is expected in the resultset.  \n  \n-   If a field or property is not mapped, a column with the same name as the field or property is expected in the resultset.  \n  \n-   The comparison is performed by first looking for a case-sensitive match. If such a match is not found, a subsequent search occurs for a case-insensitive match.  \n  \n-   The query must return all the tracked fields and properties of the object (apart from those subject to deferred loading) when all the following are true:  \n  \n    -   If `<T>` is an entity explicitly tracked by the <xref:System.Data.Linq.DataContext>.  \n  \n    -   ObjectTrackingEnabled is true.  \n  \n    -   The entity has a primary key.  \n  \n     Otherwise an exception is thrown.  \n  \n-   In all other cases, the query can retrieve just a subset of the tracked fields and properties for the object.  \n  \n The following C# snippet shows one use for this method:  \n  \n```  \nvar customers = db.ExecuteQuery<Customer>(@\"SELECT CustomerID, CompanyName, ContactName, ContactTitle,   \n   Address, City, Region, PostalCode, Country, Phone, Fax  \n   FROM   dbo.Customers  \n   WHERE  City = {0}\", \"London\");  \n  \nforeach (Customer c in customers)  \n   Console.WriteLine(c.ContactName);  \n```  \n  \n In Visual Basic  \n  \n```  \nDim customers = db.ExecuteQuery(Of Customer)(\"SELECT CustomerID, _    CompanyName, ContactName, ContactTitle, _  \n   Address, City, Region, PostalCode, Country, Phone, Fax _  \n   FROM dbo.Customers _  \nWHERE City = {0}\", \"London\")  \n  \nFor Each c As Customer In customers  \n    Console.WriteLine(c.ContactName)  \nNext  \n```"
+  remarks: "This method is a pass-through mechanism for cases where [!INCLUDE[vbtecdlinq](~/includes/vbtecdlinq-md.md)] does not provide for a particular scenario.  \n  \n The algorithm for matching columns in the result of the query to fields and properties in the object works as follows:  \n  \n-   If a field or property is mapped to a particular column name, that column name is expected in the resultset.  \n  \n-   If a field or property is not mapped, a column with the same name as the field or property is expected in the resultset.  \n  \n-   The comparison is performed by first looking for a case-sensitive match. If such a match is not found, a subsequent search occurs for a case-insensitive match.  \n  \n-   The query must return all the tracked fields and properties of the object (apart from those subject to deferred loading) when all the following are true:  \n  \n    -   If `<T>` is an entity explicitly tracked by the <xref:System.Data.Linq.DataContext>.  \n  \n    -   ObjectTrackingEnabled is true.  \n  \n    -   The entity has a primary key.  \n  \n     Otherwise an exception is thrown.  \n  \n-   In all other cases, the query can retrieve just a subset of the tracked fields and properties for the object.  \n  \n The following C# snippet shows one use for this method:  \n  \n```  \nvar customers = db.ExecuteQuery<Customer>(@\"SELECT CustomerID, CompanyName, ContactName, ContactTitle,   \n   Address, City, Region, PostalCode, Country, Phone, Fax  \n   FROM   dbo.Customers  \n   WHERE  City = {0}\", \"London\");  \n  \nforeach (Customer c in customers)  \n   Console.WriteLine(c.ContactName);  \n```  \n  \n In Visual Basic  \n  \n```  \nDim customers = db.ExecuteQuery(Of Customer)(\"SELECT CustomerID, _    CompanyName, ContactName, ContactTitle, _  \n   Address, City, Region, PostalCode, Country, Phone, Fax _  \n   FROM dbo.Customers _  \nWHERE City = {0}\", \"London\")  \n  \nFor Each c As Customer In customers  \n    Console.WriteLine(c.ContactName)  \nNext  \n```"
   syntax:
     content: 'public System.Collections.Generic.IEnumerable<TResult> ExecuteQuery<TResult> (string query, object[] parameters) where TResult : new();'
     parameters:
@@ -1190,7 +1190,7 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: Gets the information about SQL commands generated by [!INCLUDE[vbtecdlinq](~/includes/vbtecdlinq-md.md)].
+  summary: 'Gets the information about SQL commands generated by [!INCLUDE[vbtecdlinq](~/includes/vbtecdlinq-md.md)].'
   remarks: "This method is only a getter and does not affect <xref:System.Data.Linq.DataContext> state.  \n  \n Note the following considerations:  \n  \n-   The argument must be non-null. Otherwise, a null argument exception is thrown.  \n  \n-   Normal query translation exceptions thrown during [!INCLUDE[vbtecdlinq](~/includes/vbtecdlinq-md.md)] query execution apply for a query that cannot be translated.  \n  \n-   Only the first query command is returned. Specifically, additional commands that are used for eager loading (<xref:System.Data.Linq.DataLoadOptions.LoadWith%2A>) are not included.  \n  \n-   <xref:System.Data.Linq.DataContext> does not track what the user does with the command. For example, results from the execution of the returned command are not tracked and do not affect <xref:System.Data.Linq.DataContext> state."
   example:
   - >-
@@ -1273,7 +1273,7 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: Returns a collection of objects of a particular type, where the type is defined by the <code>type</code> parameter.
+  summary: 'Returns a collection of objects of a particular type, where the type is defined by the <code>type</code> parameter.'
   remarks: "This is a weakly typed version of <xref:System.Data.Linq.DataContext.GetTable%2A>. It is important to have a weakly typed version because it is a relatively common practice to construct queries dynamically. It would be inconvenient to force the application to use reflection to call the correct generic method.  \n  \n If there is no collection for a particular type, an exception is thrown."
   syntax:
     content: public System.Data.Linq.ITable GetTable (Type type);
@@ -1323,7 +1323,7 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: Returns a collection of objects of a particular type, where the type is defined by the <code>TEntity</code> parameter.
+  summary: 'Returns a collection of objects of a particular type, where the type is defined by the <code>TEntity</code> parameter.'
   remarks: "This method is the main entry point for querying. When a strongly typed <xref:System.Data.Linq.DataContext> is created, new generated properties encapsulate calls to this method. For example, a `Customers` property is generated that returns `GetTable<Customer>`.  \n  \n If there is no collection for a particular type, an exception is thrown."
   syntax:
     content: 'public System.Data.Linq.Table<TEntity> GetTable<TEntity> () where TEntity : class;'
@@ -1730,8 +1730,8 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: Computes the set of modified objects to be inserted, updated, or deleted, and executes the appropriate commands to implement the changes to the database.
-  remarks: If override methods are present for insert, update, or delete, <xref:System.Data.Linq.DataContext.SubmitChanges%2A> executes these methods instead of the default [!INCLUDE[vbtecdlinq](~/includes/vbtecdlinq-md.md)] commands.
+  summary: 'Computes the set of modified objects to be inserted, updated, or deleted, and executes the appropriate commands to implement the changes to the database.'
+  remarks: 'If override methods are present for insert, update, or delete, <xref:System.Data.Linq.DataContext.SubmitChanges%2A> executes these methods instead of the default [!INCLUDE[vbtecdlinq](~/includes/vbtecdlinq-md.md)] commands.'
   syntax:
     content: public void SubmitChanges ();
     parameters: []
@@ -1774,8 +1774,8 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: Sends changes that were made to retrieved objects to the underlying database, and specifies the action to be taken if the submission fails.
-  remarks: Default failure mode is <xref:System.Data.Linq.ConflictMode.FailOnFirstConflict>.
+  summary: 'Sends changes that were made to retrieved objects to the underlying database, and specifies the action to be taken if the submission fails.'
+  remarks: 'Default failure mode is <xref:System.Data.Linq.ConflictMode.FailOnFirstConflict>.'
   example:
   - >-
     [!code-csharp[System.Data.Linq.ConflictModeEnumeration#1](~/samples/snippets/csharp/VS_Snippets_Data/system.data.linq.conflictmodeenumeration/cs/program.cs#1)]
@@ -1825,7 +1825,7 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: Gets or sets a local transaction for the [!INCLUDE[dnprdnshort](~/includes/dnprdnshort-md.md)] to use to access the database.
+  summary: 'Gets or sets a local transaction for the [!INCLUDE[dnprdnshort](~/includes/dnprdnshort-md.md)] to use to access the database.'
   remarks: "The primary scenario for this property is interoperability with relational [!INCLUDE[vstecado](~/includes/vstecado-md.md)] code. For example, use this property when you write your own `Create`/`Update`/`Delete` methods to set the `Transaction` property on the ADO `Command` object.  \n  \n Note the following:  \n  \n-   If this property has not been explicitly set, the getter returns null.  \n  \n-   If the code is executing in a <xref:System.Transactions.Transaction> context, setting this property throws an exception.  \n  \n-   If this property is set and a new <xref:System.Transactions.Transaction> is opened, an exception is thrown when a query or update is executed."
   syntax:
     content: public System.Data.Common.DbTransaction Transaction { get; set; }

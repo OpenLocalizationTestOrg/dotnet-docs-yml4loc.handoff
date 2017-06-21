@@ -27,7 +27,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: Represents a multicast delegate; that is, a delegate that can have more than one element in its invocation list.
+  summary: 'Represents a multicast delegate; that is, a delegate that can have more than one element in its invocation list.'
   remarks: "<xref:System.MulticastDelegate> is a special class. Compilers and other tools can derive from this class, but you cannot derive from it explicitly. The same is true of the <xref:System.Delegate> class.  \n  \n In addition to the methods that delegate types inherit from <xref:System.MulticastDelegate>, the common language runtime provides two special methods: `BeginInvoke` and `EndInvoke`. For more information about these methods, see [Calling Synchronous Methods Asynchronously](~/docs/standard/asynchronous-programming-patterns/calling-synchronous-methods-asynchronously.md).  \n  \n A <xref:System.MulticastDelegate> has a linked list of delegates, called an invocation list, consisting of one or more elements. When a multicast delegate is invoked, the delegates in the invocation list are called synchronously in the order in which they appear. If an error occurs during execution of the list then an exception is thrown."
   example:
   - "The following example defines a class, `StringContainer`, which includes a collection of strings. One of its members is the `CheckAndDisplayDelegate` delegate, which is used to display strings stored in a `StringContainer` object that satisfy particular criteria. The delegate takes a single string as a parameter and returns `void` (or, in Visual Basic, it's a `Sub` procedure). It also includes a method, `DisplayAllQualified`, that has a single parameter, a `CheckAndDisplayDelegate` delegate. This allows the method to be called and to display a set of strings that are filtered based on the methods that the delegate contains.  \n  \n The example also defines a utility class, `StringExtensions`, that has two methods:  \n  \n-   `ConStart`, which displays strings that begin with a consonant.  \n  \n-   `VowelStart`, which displays strings that begin with a vowel.  \n  \n Note that both methods include a single string parameter and return `void`. In other words, both methods can be assigned to the  `CheckAndDisplayDelegate` delegate.  \n  \n The `Test.Main` method is the application entry point. It instantiates a `StringContainer` object, populates it with strings, and creates two `CheckAndDisplayDelegate` delegates, `conStart` and `vowelStart`, that invoke a single method. It then calls the <xref:System.Delegate.Combine%2A?displayProperty=fullName> method to create the `multipleDelegates` delegate, which initially contains the `ConStart` and  `VowelStart` delegates. Note that when the `multipleDelegates` delegate is invoked, it displays all the strings in the collection in their original order. This is because each letter is passed separately to each delegate, and each letter meets the filtering criteria of only one of the two delegates. Finally, after calls to <xref:System.Delegate.Remove%2A?displayProperty=fullName> and <xref:System.Delegate.Combine%2A?displayProperty=fullName>, `multipleDelegates` contains two `conStart` delegates. When it is invoked, each string in the `StringContainer` object is displayed twice.  \n  \n [!code-cpp[Multicast Delegate Introduction#1](~/samples/snippets/cpp/VS_Snippets_CLR/Multicast Delegate Introduction/CPP/delegatestring.cpp#1)]\n [!code-csharp[Multicast Delegate Introduction#1](~/samples/snippets/csharp/VS_Snippets_CLR/Multicast Delegate Introduction/CS/delegatestring.cs#1)]\n [!code-vb[Multicast Delegate Introduction#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/Multicast Delegate Introduction/VB/delegatestring.vb#1)]"
@@ -136,7 +136,7 @@ items:
   - System.Runtime
   namespace: System
   summary: Initializes a new instance of the <xref href="System.MulticastDelegate"></xref> class.
-  remarks: This constructor cannot be used in application code. To create a delegate by specifying the name of an instance method, use an overload of the <xref:System.Delegate.CreateDelegate%2A?displayProperty=fullName> method that specifies a method name and a target object. For example, the <xref:System.Delegate.CreateDelegate%28System.Type%2CSystem.Object%2CSystem.String%29?displayProperty=fullName> method overload creates a delegate for an instance method with a specified name.
+  remarks: 'This constructor cannot be used in application code. To create a delegate by specifying the name of an instance method, use an overload of the <xref:System.Delegate.CreateDelegate%2A?displayProperty=fullName> method that specifies a method name and a target object. For example, the <xref:System.Delegate.CreateDelegate%28System.Type%2CSystem.Object%2CSystem.String%29?displayProperty=fullName> method overload creates a delegate for an instance method with a specified name.'
   syntax:
     content: protected MulticastDelegate (object target, string method);
     parameters:
@@ -150,7 +150,7 @@ items:
   exceptions:
   - type: System.MemberAccessException
     commentId: T:System.MemberAccessException
-    description: Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.
+    description: 'Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.'
   version:
   - netcore-2.0
   - netframework-4.5.1
@@ -199,7 +199,7 @@ items:
   - System.Runtime
   namespace: System
   summary: Initializes a new instance of the <xref href="System.MulticastDelegate"></xref> class.
-  remarks: This constructor cannot be used in application code. To create a delegate by specifying the name of a static method, use an overload of the <xref:System.Delegate.CreateDelegate%2A?displayProperty=fullName> method that specifies a method name but does not specify a target object. For example, the <xref:System.Delegate.CreateDelegate%28System.Type%2CSystem.Type%2CSystem.String%29?displayProperty=fullName> method overload creates a static delegate for a method with a specified name.
+  remarks: 'This constructor cannot be used in application code. To create a delegate by specifying the name of a static method, use an overload of the <xref:System.Delegate.CreateDelegate%2A?displayProperty=fullName> method that specifies a method name but does not specify a target object. For example, the <xref:System.Delegate.CreateDelegate%28System.Type%2CSystem.Type%2CSystem.String%29?displayProperty=fullName> method overload creates a static delegate for a method with a specified name.'
   syntax:
     content: protected MulticastDelegate (Type target, string method);
     parameters:
@@ -213,7 +213,7 @@ items:
   exceptions:
   - type: System.MemberAccessException
     commentId: T:System.MemberAccessException
-    description: Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.
+    description: 'Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.'
   version:
   - netcore-2.0
   - netframework-4.5.1
@@ -278,7 +278,7 @@ items:
     description: <code>follow</code> does not have the same type as this instance.
   - type: System.MemberAccessException
     commentId: T:System.MemberAccessException
-    description: Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.
+    description: 'Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.'
   version:
   - netcore-2.0
   - netframework-4.5.1
@@ -374,7 +374,7 @@ items:
   exceptions:
   - type: System.MemberAccessException
     commentId: T:System.MemberAccessException
-    description: Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.
+    description: 'Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -451,7 +451,7 @@ items:
   exceptions:
   - type: System.MemberAccessException
     commentId: T:System.MemberAccessException
-    description: Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.
+    description: 'Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -517,8 +517,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: Returns the invocation list of this multicast delegate, in invocation order.
-  remarks: The array contains a set of delegates, each with an invocation list of one entry. Invoking these delegates sequentially, in the order they appear in the array, produces the same results as invoking the current instance.
+  summary: 'Returns the invocation list of this multicast delegate, in invocation order.'
+  remarks: 'The array contains a set of delegates, each with an invocation list of one entry. Invoking these delegates sequentially, in the order they appear in the array, produces the same results as invoking the current instance.'
   syntax:
     content: public override sealed Delegate[] GetInvocationList ();
     parameters: []
@@ -529,7 +529,7 @@ items:
   exceptions:
   - type: System.MemberAccessException
     commentId: T:System.MemberAccessException
-    description: Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.
+    description: 'Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -596,7 +596,7 @@ items:
   - System.Runtime
   namespace: System
   summary: Returns a static method represented by the current <xref href="System.MulticastDelegate"></xref>.
-  remarks: If the <xref:System.MulticastDelegate> represents multiple methods, only one method is returned.
+  remarks: 'If the <xref:System.MulticastDelegate> represents multiple methods, only one method is returned.'
   syntax:
     content: protected override System.Reflection.MethodInfo GetMethodImpl ();
     parameters: []
@@ -670,7 +670,7 @@ items:
     description: <code>info</code> is `null`.
   - type: System.MemberAccessException
     commentId: T:System.MemberAccessException
-    description: Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.
+    description: 'Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.'
   - type: System.Runtime.Serialization.SerializationException
     commentId: T:System.Runtime.Serialization.SerializationException
     description: A serialization error occurred.
@@ -739,7 +739,7 @@ items:
   exceptions:
   - type: System.MemberAccessException
     commentId: T:System.MemberAccessException
-    description: Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.
+    description: 'Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -823,7 +823,7 @@ items:
   exceptions:
   - type: System.MemberAccessException
     commentId: T:System.MemberAccessException
-    description: Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.
+    description: 'Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -898,12 +898,12 @@ items:
       description: The delegate to search for in the invocation list.
     return:
       type: System.Delegate
-      description: If <code>value</code> is found in the invocation list for this instance, then a new <xref href="System.Delegate"></xref> without <code>value</code> in its invocation list; otherwise, this instance with its original invocation list.
+      description: 'If <code>value</code> is found in the invocation list for this instance, then a new <xref href="System.Delegate"></xref> without <code>value</code> in its invocation list; otherwise, this instance with its original invocation list.'
   overload: System.MulticastDelegate.RemoveImpl*
   exceptions:
   - type: System.MemberAccessException
     commentId: T:System.MemberAccessException
-    description: Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.
+    description: 'Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.'
   version:
   - netcore-2.0
   - netframework-4.5.1

@@ -59,7 +59,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Provides `static` methods and properties to manage an application, such as methods to start and stop an application, to process Windows messages, and properties to get information about an application. This class cannot be inherited.
+  summary: 'Provides `static` methods and properties to manage an application, such as methods to start and stop an application, to process Windows messages, and properties to get information about an application. This class cannot be inherited.'
   remarks: "The <xref:System.Windows.Forms.Application> class has methods to start and stop applications and threads, and to process Windows messages, as follows:  \n  \n-   <xref:System.Windows.Forms.Application.Run%2A> starts an application message loop on the current thread and, optionally, makes a form visible.  \n  \n-   <xref:System.Windows.Forms.Application.Exit%2A> or <xref:System.Windows.Forms.Application.ExitThread%2A> stops a message loop.  \n  \n-   <xref:System.Windows.Forms.Application.DoEvents%2A> processes messages while your program is in a loop.  \n  \n-   <xref:System.Windows.Forms.Application.AddMessageFilter%2A> adds a message filter to the application message pump to monitor Windows messages.  \n  \n-   <xref:System.Windows.Forms.IMessageFilter> lets you stop an event from being raised or perform special operations before invoking an event handler.  \n  \n This class has <xref:System.Windows.Forms.Application.CurrentCulture%2A> and <xref:System.Windows.Forms.Application.CurrentInputLanguage%2A> properties to get or set culture information for the current thread.  \n  \n You cannot create an instance of this class."
   example:
   - "The following code example lists numbers in a list box on a form. Each time you click `button1`, the application adds another number to the list.  \n  \n The `Main` method calls <xref:System.Windows.Forms.Application.Run%2A> to start the application, which creates the form, `listBox1` and `button1`. When the user clicks `button1`, the `button1_Click` method displays a <xref:System.Windows.Forms.MessageBox>. If the user clicks `No` on the <xref:System.Windows.Forms.MessageBox>, the `button1_Click` method adds a number to the list. If the user clicks `Yes`, the application calls <xref:System.Windows.Forms.Application.Exit%2A> to process all remaining messages in the queue and then to quit.  \n  \n> [!NOTE]\n>  The call to <xref:System.Windows.Forms.Application.Exit%2A> will fail in partial trust.  \n  \n [!code-cpp[Classic Application Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic Application Example/CPP/source.cpp#1)]\n [!code-csharp[Classic Application Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic Application Example/CS/source.cs#1)]\n [!code-vb[Classic Application Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic Application Example/VB/source.vb#1)]"
@@ -158,7 +158,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets a value indicating whether the caller can quit this application.
-  remarks: This property returns `false` if it is called from a <xref:System.Windows.Forms.Control> being hosted within a Web browser. Thus, the <xref:System.Windows.Forms.Control> cannot quit the <xref:System.Windows.Forms.Application>.
+  remarks: 'This property returns `false` if it is called from a <xref:System.Windows.Forms.Control> being hosted within a Web browser. Thus, the <xref:System.Windows.Forms.Control> cannot quit the <xref:System.Windows.Forms.Application>.'
   syntax:
     content: public static bool AllowQuit { get; }
     return:
@@ -561,10 +561,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Occurs when the application is about to enter a modal state.
-  remarks: >-
-    > [!CAUTION]
-
-    >  Because this is a static event, you must detach your event handlers when your application is disposed, or memory leaks will result.
+  remarks: "> [!CAUTION]\n>  Because this is a static event, you must detach your event handlers when your application is disposed, or memory leaks will result."
   example:
   - "The following code example demonstrates the use of this member. In the example, an event handler reports on the occurrence of the <xref:System.Windows.Forms.Application.EnterThreadModal> event. This report helps you to learn when the event occurs and can assist you in debugging. To report on multiple events or on events that occur frequently, consider replacing <xref:System.Windows.Forms.MessageBox.Show%2A?displayProperty=fullName> with <xref:System.Console.WriteLine%2A?displayProperty=fullName> or appending the message to a multiline <xref:System.Windows.Forms.TextBox>.  \n  \n To run the example code, paste it into a Windows Forms and ensure that the event handler is associated with the <xref:System.Windows.Forms.Application.EnterThreadModal> event.  \n  \n [!code-csharp[System.Windows.Forms.EventExamples#3](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.EventExamples/CS/EventExamples.cs#3)]\n [!code-vb[System.Windows.Forms.EventExamples#3](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.EventExamples/VB/EventExamples.vb#3)]"
   syntax:
@@ -609,7 +606,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Gets the path for the executable file that started the application, including the executable name.
+  summary: 'Gets the path for the executable file that started the application, including the executable name.'
   syntax:
     content: public static string ExecutablePath { get; }
     return:
@@ -652,7 +649,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Informs all message pumps that they must terminate, and then closes all application windows after the messages have been processed.
+  summary: 'Informs all message pumps that they must terminate, and then closes all application windows after the messages have been processed.'
   remarks: "The <xref:System.Windows.Forms.Application.Exit%2A> method stops all running message loops on all threads and closes all windows of the application. This method does not necessarily force the application to exit. The <xref:System.Windows.Forms.Application.Exit%2A> method is typically called from within a message loop, and forces <xref:System.Windows.Forms.Application.Run%2A> to return. To exit a message loop for the current thread only, call <xref:System.Windows.Forms.Application.ExitThread%2A>.  \n  \n <xref:System.Windows.Forms.Application.Exit%2A> raises the following events and performs the associated conditional actions:  \n  \n-   A <xref:System.Windows.Forms.Form.FormClosing> event is raised for every form represented by the <xref:System.Windows.Forms.Application.OpenForms%2A> property. This event can be canceled by setting the <xref:System.ComponentModel.CancelEventArgs.Cancel%2A> property of their <xref:System.Windows.Forms.FormClosingEventArgs> parameter to `true`.  \n  \n-   If one of more of the handlers cancels the event, then <xref:System.Windows.Forms.Application.Exit%2A> returns without further action. Otherwise, a <xref:System.Windows.Forms.Form.FormClosed> event is raised for every open form, then all running message loops and forms are closed.  \n  \n> [!NOTE]\n>  The <xref:System.Windows.Forms.Application.Exit%2A> method does not raise the <xref:System.Windows.Forms.Form.Closed> and <xref:System.Windows.Forms.Form.Closing> events, which are obsolete as of [!INCLUDE[dnprdnlong](~/includes/dnprdnlong-md.md)]."
   example:
   - "The following code example lists numbers in a list box on a form. Each time you click `button1`, the application adds another number to the list.  \n  \n The `Main` method calls <xref:System.Windows.Forms.Application.Run%2A> to start the application, which creates the form, `listBox1`, and `button1`. When the user clicks `button1`, the `button1_Click` method adds numbers one to three to the list box, and displays a <xref:System.Windows.Forms.MessageBox>. If the user clicks **No** on the <xref:System.Windows.Forms.MessageBox>, the `button1_Click` method adds another number to the list. If the user clicks **Yes**, the application calls <xref:System.Windows.Forms.Application.Exit%2A>, to process all remaining messages in the queue and then to quit.  \n  \n The example requires that `listBox1` and `button1` have been instantiated and placed on a form.  \n  \n [!code-cpp[Classic Application.Exit Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic Application.Exit Example/CPP/source.cpp#1)]\n [!code-csharp[Classic Application.Exit Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic Application.Exit Example/CS/source.cs#1)]\n [!code-vb[Classic Application.Exit Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic Application.Exit Example/VB/source.vb#1)]"
@@ -696,7 +693,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Informs all message pumps that they must terminate, and then closes all application windows after the messages have been processed.
+  summary: 'Informs all message pumps that they must terminate, and then closes all application windows after the messages have been processed.'
   syntax:
     content: public static void Exit (System.ComponentModel.CancelEventArgs e);
     parameters:
@@ -742,7 +739,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Exits the message loop on the current thread and closes all windows on the thread.
-  remarks: Use this method to exit the message loop of the current thread. This method causes the call to <xref:System.Windows.Forms.Application.Run%2A> for the current thread to return. To exit the entire application, call <xref:System.Windows.Forms.Application.Exit%2A>.
+  remarks: 'Use this method to exit the message loop of the current thread. This method causes the call to <xref:System.Windows.Forms.Application.Run%2A> for the current thread to return. To exit the entire application, call <xref:System.Windows.Forms.Application.Exit%2A>.'
   syntax:
     content: public static void ExitThread ();
     parameters: []
@@ -783,7 +780,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Runs any filters against a window message, and returns a copy of the modified message.
+  summary: 'Runs any filters against a window message, and returns a copy of the modified message.'
   syntax:
     content: public static bool FilterMessage (ref System.Windows.Forms.Message message);
     parameters:
@@ -877,10 +874,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Occurs when the application is about to leave a modal state.
-  remarks: >-
-    > [!CAUTION]
-
-    >  Because this is a static event, you must detach your event handlers when your application is disposed, or memory leaks will result.
+  remarks: "> [!CAUTION]\n>  Because this is a static event, you must detach your event handlers when your application is disposed, or memory leaks will result."
   example:
   - "The following code example demonstrates the use of this member. In the example, an event handler reports on the occurrence of the <xref:System.Windows.Forms.Application.LeaveThreadModal> event. This report helps you to learn when the event occurs and can assist you in debugging. To report on multiple events or on events that occur frequently, consider replacing <xref:System.Windows.Forms.MessageBox.Show%2A?displayProperty=fullName> with <xref:System.Console.WriteLine%2A?displayProperty=fullName> or appending the message to a multiline <xref:System.Windows.Forms.TextBox>.  \n  \n To run the example code, paste it into a Windows Forms and ensure that the event handler is associated with the <xref:System.Windows.Forms.Application.LeaveThreadModal> event.  \n  \n [!code-csharp[System.Windows.Forms.EventExamples#4](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.EventExamples/CS/EventExamples.cs#4)]\n [!code-vb[System.Windows.Forms.EventExamples#4](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.EventExamples/VB/EventExamples.vb#4)]"
   syntax:
@@ -925,7 +919,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Gets the path for the application data of a local, non-roaming user.
+  summary: 'Gets the path for the application data of a local, non-roaming user.'
   remarks: "A local user is one whose user profile is stored on the system on which the user logged on. If a path does not exist, one is created in the following format:  \n  \n *Base Path*\\\\<xref:System.Windows.Forms.Application.CompanyName%2A>\\\\<xref:System.Windows.Forms.Application.ProductName%2A>\\\\<xref:System.Windows.Forms.Application.ProductVersion%2A>   \n  \n A typical base path is C:\\Documents and Settings\\\\*username*\\Local Settings\\Application Data. This path will be different, however, if the Windows Forms application is deployed by using [!INCLUDE[ndptecclick](~/includes/ndptecclick-md.md)]. [!INCLUDE[ndptecclick](~/includes/ndptecclick-md.md)] creates its own application data directory that is isolated from all other applications. For more information, see [Accessing Local and Remote Data in ClickOnce Applications](http://msdn.microsoft.com/library/be5cbe12-6cb6-49c9-aa59-a1624e1eef3d)."
   example:
   - "The following code example displays two forms and exits the application when both forms are closed. When the application starts and exits, the position of each form is remembered. Although this example demonstrates using the <xref:System.Windows.Forms.Application.UserAppDataPath%2A> property to store application data for the user, the <xref:System.Windows.Forms.Application.LocalUserAppDataPath%2A> can be used instead.  \n  \n The `MyApplicationContext` class inherits from <xref:System.Windows.Forms.ApplicationContext> and keeps track when each form is closed, and exits the current thread when they both are. The class stores the positions of each form for the user. The form position data is stored in a file titled `Appdata.txt` that is created in the location determined by <xref:System.Windows.Forms.Application.UserAppDataPath%2A>. The `Main` method calls `Application.Run(context)` to start the application given the <xref:System.Windows.Forms.ApplicationContext>.  \n  \n This code is an excerpt from the example shown in the <xref:System.Windows.Forms.ApplicationContext> class overview. Some code is not shown for the purpose of brevity. See <xref:System.Windows.Forms.ApplicationContext> for the whole code listing.  \n  \n [!code-cpp[Application#5](~/samples/snippets/cpp/VS_Snippets_Winforms/Application/CPP/source.cpp#5)]\n [!code-csharp[Application#5](~/samples/snippets/csharp/VS_Snippets_Winforms/Application/CS/source.cs#5)]\n [!code-vb[Application#5](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Application/VB/source.vb#5)]"
@@ -933,7 +927,7 @@ items:
     content: public static string LocalUserAppDataPath { get; }
     return:
       type: System.String
-      description: The path for the application data of a local, non-roaming user.
+      description: 'The path for the application data of a local, non-roaming user.'
   overload: System.Windows.Forms.Application.LocalUserAppDataPath*
   exceptions: []
   version:
@@ -972,7 +966,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets a value indicating whether a message loop exists on this thread.
-  remarks: When hosting Windows Forms in other environments, such as unmanaged applications, this property will always return `false`. Use <xref:System.Windows.Forms.Application.RegisterMessageLoop%2A> to instruct Windows Forms if the hosting environment still has an active message loop.
+  remarks: 'When hosting Windows Forms in other environments, such as unmanaged applications, this property will always return `false`. Use <xref:System.Windows.Forms.Application.RegisterMessageLoop%2A> to instruct Windows Forms if the hosting environment still has an active message loop.'
   syntax:
     content: public static bool MessageLoop { get; }
     return:
@@ -1106,7 +1100,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets a collection of open forms owned by the application.
-  remarks: The <xref:System.Windows.Forms.Application.OpenForms%2A> property represents a read-only collection of forms owned by the application. This collection can be searched by index position or by the <xref:System.Windows.Forms.Control.Name%2A> of the <xref:System.Windows.Forms.Form>.
+  remarks: 'The <xref:System.Windows.Forms.Application.OpenForms%2A> property represents a read-only collection of forms owned by the application. This collection can be searched by index position or by the <xref:System.Windows.Forms.Control.Name%2A> of the <xref:System.Windows.Forms.Form>.'
   syntax:
     content: public static System.Windows.Forms.FormCollection OpenForms { get; }
     return:
@@ -1242,7 +1236,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Raises the <xref href="System.Windows.Forms.Application.Idle"></xref> event in hosted scenarios.
-  remarks: This method is used when hosting Windows Forms in another environment, such as an unmanaged application. You should call <xref:System.Windows.Forms.Application.RaiseIdle%2A> when the hosting application enters an idle state. This enables some Windows Forms controls and components to do important background work while the user is not interacting with the application.
+  remarks: 'This method is used when hosting Windows Forms in another environment, such as an unmanaged application. You should call <xref:System.Windows.Forms.Application.RaiseIdle%2A> when the hosting application enters an idle state. This enables some Windows Forms controls and components to do important background work while the user is not interacting with the application.'
   syntax:
     content: public static void RaiseIdle (EventArgs e);
     parameters:
@@ -1288,7 +1282,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Registers a callback for checking whether the message loop is running in hosted environments.
-  remarks: This method is used when hosting Windows Forms in another environment, such as an unmanaged application. In hosted environments, the <xref:System.Windows.Forms.Application.MessageLoop%2A> property will always return false if Windows Forms is not processing messages. Use this callback to tell Windows Forms if the hosting environment is still processing messages.
+  remarks: 'This method is used when hosting Windows Forms in another environment, such as an unmanaged application. In hosted environments, the <xref:System.Windows.Forms.Application.MessageLoop%2A> property will always return false if Windows Forms is not processing messages. Use this callback to tell Windows Forms if the hosting environment is still processing messages.'
   syntax:
     content: public static void RegisterMessageLoop (System.Windows.Forms.Application.MessageLoopCallback callback);
     parameters:
@@ -1467,7 +1461,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Begins running a standard application message loop on the current thread, without a form.
+  summary: 'Begins running a standard application message loop on the current thread, without a form.'
   remarks: "In a Win32-based or Windows Forms application, a message loop is a routine in code that processes user events, such as mouse clicks and keyboard strokes. Every running Windows-based application requires an active message loop, called the main message loop. When the main message loop is closed, the application exits. In Windows Forms, this loop is closed when the <xref:System.Windows.Forms.Application.Exit%2A> method is called, or when the <xref:System.Windows.Forms.Application.ExitThread%2A> method is called on the thread that is running the main message loop.  \n  \n Most Windows Forms developers will not need to use this version of the method. You should use the <xref:System.Windows.Forms.Application.Run%28System.Windows.Forms.Form%29> overload to start an application with a main form, so that the application terminates when the main form is closed. For all other situations, use the <xref:System.Windows.Forms.Application.Run%28System.Windows.Forms.ApplicationContext%29> overload, which supports supplying an <xref:System.Windows.Forms.ApplicationContext> object for better control over the lifetime of the application."
   syntax:
     content: public static void Run ();
@@ -1512,8 +1506,8 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Begins running a standard application message loop on the current thread, with an <xref href="System.Windows.Forms.ApplicationContext"></xref>.
-  remarks: The message loop runs until <xref:System.Windows.Forms.Application.Exit%2A> or <xref:System.Windows.Forms.Application.ExitThread%2A> is called or the <xref:System.Windows.Forms.Application.ThreadExit> event is raised on the context object.
+  summary: 'Begins running a standard application message loop on the current thread, with an <xref href="System.Windows.Forms.ApplicationContext"></xref>.'
+  remarks: 'The message loop runs until <xref:System.Windows.Forms.Application.Exit%2A> or <xref:System.Windows.Forms.Application.ExitThread%2A> is called or the <xref:System.Windows.Forms.Application.ThreadExit> event is raised on the context object.'
   example:
   - "The example displays two forms and exits the application when both forms are closed. When the application starts and exits, the position of each form is remembered. This example demonstrates how to use an <xref:System.Windows.Forms.ApplicationContext>, along with the `Application.Run(context)` method, to display multiple forms when the application starts.  \n  \n The class `MyApplicationContext` inherits from <xref:System.Windows.Forms.ApplicationContext> and keeps track when each form is closed, and exits the current thread when they both are. The class stores the positions of each form for the user. The form position data is stored in a file titled `Appdata.txt` that is created in the location determined by <xref:System.Windows.Forms.Application.UserAppDataPath%2A>. The `Main` method calls `Application.Run(context)` to start the application given the <xref:System.Windows.Forms.ApplicationContext>.  \n  \n The code for the `AppForm1` and `AppForm2` forms is not shown for the purpose of brevity. See the <xref:System.Windows.Forms.ApplicationContext> class overview for the whole code listing.  \n  \n [!code-cpp[Application#2](~/samples/snippets/cpp/VS_Snippets_Winforms/Application/CPP/source.cpp#2)]\n [!code-csharp[Application#2](~/samples/snippets/csharp/VS_Snippets_Winforms/Application/CS/source.cs#2)]\n [!code-vb[Application#2](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Application/VB/source.vb#2)]"
   syntax:
@@ -1561,7 +1555,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Begins running a standard application message loop on the current thread, and makes the specified form visible.
+  summary: 'Begins running a standard application message loop on the current thread, and makes the specified form visible.'
   remarks: "Typically, the main function of an application calls this method and passes to it the main window of the application.  \n  \n This method adds an event handler to the `mainForm` parameter for the <xref:System.Windows.Forms.Form.Closed> event. The event handler calls <xref:System.Windows.Forms.Application.ExitThread%2A> to clean up the application.  \n  \n> [!NOTE]\n>  The <xref:System.Windows.Forms.Control.Dispose%2A> method of the <xref:System.Windows.Forms.Form> class will be called prior to the return of this method."
   example:
   - "The following code example lists numbers in a list box on a form. Each time you click `button1`, the application adds another number to the list.  \n  \n The `Main` method calls <xref:System.Windows.Forms.Application.Run%2A> to start the application, which creates the form, `listBox1`, and `button1`. When the user clicks `button1`, the `button1_Click` method adds numbers one to three to the list box, and displays a <xref:System.Windows.Forms.MessageBox>. If the user clicks **No** on the <xref:System.Windows.Forms.MessageBox>, the `button1_Click` method adds another number to the list. If the user clicks **Yes**, the application calls <xref:System.Windows.Forms.Application.Exit%2A> to process all remaining messages in the queue and then to quit.  \n  \n The example requires that `listBox1` and `button1` have been created and placed on a form.  \n  \n [!code-cpp[Classic Application.Exit Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic Application.Exit Example/CPP/source.cpp#1)]\n [!code-csharp[Classic Application.Exit Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic Application.Exit Example/CS/source.cs#1)]\n [!code-vb[Classic Application.Exit Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic Application.Exit Example/VB/source.vb#1)]"
@@ -1662,7 +1656,7 @@ items:
     parameters:
     - id: defaultValue
       type: System.Boolean
-      description: The default value to use for new controls. If `true`, new controls that support <code>UseCompatibleTextRendering</code> use the [!INCLUDE[ndptecgdiplus](~/includes/ndptecgdiplus-md.md)] based <xref href="System.Drawing.Graphics"></xref> class for text rendering; if `false`, new controls use the [!INCLUDE[ndptecgdi](~/includes/ndptecgdi-md.md)] based <xref href="System.Windows.Forms.TextRenderer"></xref> class.
+      description: 'The default value to use for new controls. If `true`, new controls that support <code>UseCompatibleTextRendering</code> use the [!INCLUDE[ndptecgdiplus](~/includes/ndptecgdiplus-md.md)] based <xref href="System.Drawing.Graphics"></xref> class for text rendering; if `false`, new controls use the [!INCLUDE[ndptecgdi](~/includes/ndptecgdi-md.md)] based <xref href="System.Windows.Forms.TextRenderer"></xref> class.'
   overload: System.Windows.Forms.Application.SetCompatibleTextRenderingDefault*
   exceptions:
   - type: System.InvalidOperationException
@@ -1703,8 +1697,8 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Suspends or hibernates the system, or requests that the system be suspended or hibernated.
-  remarks: If an application does not respond to a suspend request within 20 seconds, Windows determines that it is in a non-responsive state, and that the application can either be put to sleep or terminated. Once an application responds to a suspend request, however, it can take whatever time it needs to clean up resources and shut down active processes.
+  summary: 'Suspends or hibernates the system, or requests that the system be suspended or hibernated.'
+  remarks: 'If an application does not respond to a suspend request within 20 seconds, Windows determines that it is in a non-responsive state, and that the application can either be put to sleep or terminated. Once an application responds to a suspend request, however, it can take whatever time it needs to clean up resources and shut down active processes.'
   syntax:
     content: public static bool SetSuspendState (System.Windows.Forms.PowerState state, bool force, bool disableWakeEvent);
     parameters:
@@ -1716,7 +1710,7 @@ items:
       description: '`true` to force the suspended mode immediately; `false` to cause Windows to send a suspend request to every application.'
     - id: disableWakeEvent
       type: System.Boolean
-      description: "`true` to disable restoring the system's power status to active on a wake event, `false` to enable restoring the system's power status to active on a wake event."
+      description: '`true` to disable restoring the system''s power status to active on a wake event, `false` to enable restoring the system''s power status to active on a wake event.'
     return:
       type: System.Boolean
       description: '`true` if the system is being suspended, otherwise, `false`.'
@@ -1807,7 +1801,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Instructs the application how to respond to unhandled exceptions, optionally applying thread-specific behavior.
+  summary: 'Instructs the application how to respond to unhandled exceptions, optionally applying thread-specific behavior.'
   remarks: "It is often not feasible to catch all of the exceptions thrown by Windows Forms. Using this method, you can instruct your application whether it should catch all unhandled exceptions thrown by Windows Forms components and continue operating, or whether it should expose them to the user and halt execution.  \n  \n Call <xref:System.Windows.Forms.Application.SetUnhandledExceptionMode%2A> before you instantiate the main form of your application using the <xref:System.Windows.Forms.Application.Run%2A> method.  \n  \n When `threadScope` is `true`, the thread exception mode is set. The thread exception mode overrides the application exception mode if `mode` is not set to <xref:System.Windows.Forms.UnhandledExceptionMode.Automatic>.  \n  \n When `threadScope` is `false`, the application exception mode is set. The application exception mode is used for all threads that have the <xref:System.Windows.Forms.UnhandledExceptionMode.Automatic> mode. Setting the application exception mode does not affect the setting of the current thread.  \n  \n To catch exceptions that occur in threads not created and owned by Windows Forms, use the <xref:System.AppDomain.UnhandledException> event handler."
   example:
   - "The following code example sets event handlers for exceptions that occur on Windows Forms threads and exceptions that occur on other threads. It sets <xref:System.Windows.Forms.Application.SetUnhandledExceptionMode%2A> so that all exceptions are handled by the application, regardless of the settings in the application's user configuration file. It uses the <xref:System.Windows.Forms.Application.ThreadException> event to handle UI thread exceptions, and the <xref:System.AppDomain.UnhandledException> event to handle non-UI thread exceptions. Since <xref:System.AppDomain.UnhandledException> cannot prevent an application from terminating, the example simply logs the error in the application event log before termination.  \n  \n This example assumes that you have defined two <xref:System.Windows.Forms.Button> controls, `button1` and `button2`, on your <xref:System.Windows.Forms.Form> class.  \n  \n [!code-cpp[Classic Application.ThreadException Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic Application.ThreadException Example/CPP/source.cpp#1)]\n [!code-csharp[Classic Application.ThreadException Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic Application.ThreadException Example/CS/source.cs#1)]\n [!code-vb[Classic Application.ThreadException Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic Application.ThreadException Example/VB/source.vb#1)]"
@@ -1860,7 +1854,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Gets the path for the executable file that started the application, not including the executable name.
+  summary: 'Gets the path for the executable file that started the application, not including the executable name.'
   remarks: ''
   example:
   - "The following code example gets this property and displays its value in a text box. The example requires that `textBox1` has been placed on a form.  \n  \n [!code-cpp[Classic Application.StartupPath Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic Application.StartupPath Example/CPP/source.cpp#1)]\n [!code-csharp[Classic Application.StartupPath Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic Application.StartupPath Example/CS/source.cs#1)]\n [!code-vb[Classic Application.StartupPath Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic Application.StartupPath Example/VB/source.vb#1)]"
@@ -1950,7 +1944,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Occurs when a thread is about to shut down. When the main thread for an application is about to be shut down, this event is raised first, followed by an <xref href="System.Windows.Forms.Application.ApplicationExit"></xref> event.
+  summary: 'Occurs when a thread is about to shut down. When the main thread for an application is about to be shut down, this event is raised first, followed by an <xref href="System.Windows.Forms.Application.ApplicationExit"></xref> event.'
   remarks: "You must attach the event handlers to the <xref:System.Windows.Forms.Application.ThreadExit> event to perform any unhandled, required tasks before the thread stops running. Close files opened by this thread, or dispose of objects that the garbage collector did not reclaim.  \n  \n> [!CAUTION]\n>  Because this is a static event, you must detach your event handlers when your application is disposed, or memory leaks will result."
   example:
   - "The following code example demonstrates the use of this member. In the example, an event handler reports on the occurrence of the <xref:System.Windows.Forms.Application.ThreadExit> event. This report helps you to learn when the event occurs and can assist you in debugging. To report on multiple events or on events that occur frequently, consider replacing <xref:System.Windows.Forms.MessageBox.Show%2A?displayProperty=fullName> with <xref:System.Console.WriteLine%2A?displayProperty=fullName> or appending the message to a multiline <xref:System.Windows.Forms.TextBox>.  \n  \n To run the example code, paste it into a Windows Forms and ensure that the event handler is associated with the <xref:System.Windows.Forms.Application.ThreadExit> event.  \n  \n [!code-csharp[System.Windows.Forms.EventExamples#6](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.EventExamples/CS/EventExamples.cs#6)]\n [!code-vb[System.Windows.Forms.EventExamples#6](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.EventExamples/VB/EventExamples.vb#6)]"
@@ -2125,7 +2119,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets whether the wait cursor is used for all open forms of the application.
-  remarks: When this property is set to `true`, the <xref:System.Windows.Forms.Control.UseWaitCursor%2A> property of all open forms in the application will be set to `true`. This call will not return until this property has been set on all forms. Use this property when you have a long-running operation, and want to indicate in all application forms that the operation is still processing.
+  remarks: 'When this property is set to `true`, the <xref:System.Windows.Forms.Control.UseWaitCursor%2A> property of all open forms in the application will be set to `true`. This call will not return until this property has been set on all forms. Use this property when you have a long-running operation, and want to indicate in all application forms that the operation is still processing.'
   syntax:
     content: public static bool UseWaitCursor { get; set; }
     return:
@@ -2169,7 +2163,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets a value that specifies how visual styles are applied to application windows.
-  remarks: This <xref:System.Windows.Forms.Application.VisualStyleState%2A> property determines whether visual styles are enabled in client areas or nonclient areas of application windows. Generally, this property should be set within the main form's constructor or <xref:System.Windows.Forms.Form.Load> event handler.
+  remarks: 'This <xref:System.Windows.Forms.Application.VisualStyleState%2A> property determines whether visual styles are enabled in client areas or nonclient areas of application windows. Generally, this property should be set within the main form''s constructor or <xref:System.Windows.Forms.Form.Load> event handler.'
   example:
   - "The following code example sets the <xref:System.Windows.Forms.Application.VisualStyleState%2A> property to one of the <xref:System.Windows.Forms.VisualStyles.VisualStyleState?displayProperty=fullName> values within the <xref:System.Windows.Forms.Control.Click> event handler for a <xref:System.Windows.Forms.Button> control. This code example is part of a larger example provided for the <xref:System.Windows.Forms.VisualStyles.VisualStyleState?displayProperty=fullName> enumeration.  \n  \n [!code-cpp[System.Windows.Forms.VisualStyles.VisualStyleState#10](~/samples/snippets/cpp/VS_Snippets_Winforms/System.Windows.Forms.VisualStyles.VisualStyleState/cpp/visualstylestate.cpp#10)]\n [!code-csharp[System.Windows.Forms.VisualStyles.VisualStyleState#10](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.VisualStyles.VisualStyleState/CS/visualstylestate.cs#10)]\n [!code-vb[System.Windows.Forms.VisualStyles.VisualStyleState#10](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.VisualStyles.VisualStyleState/VB/visualstylestate.vb#10)]"
   syntax:

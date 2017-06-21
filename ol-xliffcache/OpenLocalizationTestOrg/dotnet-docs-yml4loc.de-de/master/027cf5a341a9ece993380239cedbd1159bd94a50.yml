@@ -19,7 +19,7 @@ items:
   - System.Web
   namespace: System.Web.Compilation
   summary: Retrieves the value that corresponds to a specified URL parameter in a routed page.
-  remarks: The <xref:System.Web.Compilation.RouteValueExpressionBuilder> class makes it possible to use markup to set the property of a server control to the value of one of the URL parameters in a routed page.
+  remarks: 'The <xref:System.Web.Compilation.RouteValueExpressionBuilder> class makes it possible to use markup to set the property of a server control to the value of one of the URL parameters in a routed page.'
   example:
   - "The following example shows how to use markup to display the value of the URL parameter `searchterm`. The route is defined by using `http://www.contoso.com/search/{searchterm}` as the URL pattern.  \n  \n```  \n<asp:Label ID=\"Label1\" runat=\"server\"  \n    text=\"<%$ RouteValue:searchterm %>\">  \n</asp:Label>  \n```  \n  \n If the page is requested with the URL `http://www.contoso.com/search/Bicycles`, the <xref:System.Web.UI.WebControls.Label> control displays \"Bicycles\"."
   syntax:
@@ -115,7 +115,7 @@ items:
   - System.Web
   namespace: System.Web.Compilation
   summary: Retrieves the value that corresponds to a specified route key.
-  remarks: ASP.NET calls this method when an expression of the form `<%$ RouteValue:urlparameter %>` is encountered in a no-compile page. This method overrides the <xref:System.Web.Compilation.ExpressionBuilder.EvaluateExpression%2A> method by calling the <xref:System.Web.Compilation.RouteValueExpressionBuilder.GetRouteValue%2A> method. It gets the <xref:System.Web.UI.Page> object from the `context` parameter, and it gets the expression, the control type, and the property name from the `entry` parameter.
+  remarks: 'ASP.NET calls this method when an expression of the form `<%$ RouteValue:urlparameter %>` is encountered in a no-compile page. This method overrides the <xref:System.Web.Compilation.ExpressionBuilder.EvaluateExpression%2A> method by calling the <xref:System.Web.Compilation.RouteValueExpressionBuilder.GetRouteValue%2A> method. It gets the <xref:System.Web.UI.Page> object from the `context` parameter, and it gets the expression, the control type, and the property name from the `entry` parameter.'
   syntax:
     content: public override object EvaluateExpression (object target, System.Web.UI.BoundPropertyEntry entry, object parsedData, System.Web.Compilation.ExpressionBuilderContext context);
     parameters:
@@ -172,7 +172,7 @@ items:
   - System.Web
   namespace: System.Web.Compilation
   summary: Returns a code expression that is used to perform the property assignment in the generated page class.
-  remarks: This method is called when the CodeDOM is created for a page or control. The <xref:System.CodeDom.CodeExpression> object that is returned represents the code expression to add to the property assignment in the generated page class.
+  remarks: 'This method is called when the CodeDOM is created for a page or control. The <xref:System.CodeDom.CodeExpression> object that is returned represents the code expression to add to the property assignment in the generated page class.'
   syntax:
     content: public override System.CodeDom.CodeExpression GetCodeExpression (System.Web.UI.BoundPropertyEntry entry, object parsedData, System.Web.Compilation.ExpressionBuilderContext context);
     parameters:
@@ -181,7 +181,7 @@ items:
       description: The property that the expression is bound to.
     - id: parsedData
       type: System.Object
-      description: The object that represents parsed data, as returned by <xref href="System.Web.Compilation.ExpressionBuilder.ParseExpression(System.String,System.Type,System.Web.Compilation.ExpressionBuilderContext)"></xref>.
+      description: 'The object that represents parsed data, as returned by <xref href="System.Web.Compilation.ExpressionBuilder.ParseExpression(System.String,System.Type,System.Web.Compilation.ExpressionBuilderContext)"></xref>.'
     - id: context
       type: System.Web.Compilation.ExpressionBuilderContext
       description: Properties for the control or page.
@@ -226,7 +226,7 @@ items:
   - System.Web
   namespace: System.Web.Compilation
   summary: Retrieves the value that corresponds to the specified URL parameter.
-  remarks: This method retrieves the appropriate value for the specified `key` value by using the <xref:System.Web.UI.Page.RouteData%2A> property of `page`. It then uses the `controlType` and `propertyName` values to find the appropriate type converter in order to convert the retrieved value into the correct type.
+  remarks: 'This method retrieves the appropriate value for the specified `key` value by using the <xref:System.Web.UI.Page.RouteData%2A> property of `page`. It then uses the `controlType` and `propertyName` values to find the appropriate type converter in order to convert the retrieved value into the correct type.'
   syntax:
     content: public static object GetRouteValue (System.Web.UI.Page page, string key, Type controlType, string propertyName);
     parameters:
@@ -244,7 +244,7 @@ items:
       description: The name of the property that is being set by the expression.
     return:
       type: System.Object
-      description: The value that corresponds to the specified URL parameter for the current page. If <code>page</code> is `null`, if the <xref href="System.Web.UI.Page.RouteData"></xref> property of <code>page</code> is `null`, or if <code>key</code> is empty or `null`, the method returns `null`.
+      description: 'The value that corresponds to the specified URL parameter for the current page. If <code>page</code> is `null`, if the <xref href="System.Web.UI.Page.RouteData"></xref> property of <code>page</code> is `null`, or if <code>key</code> is empty or `null`, the method returns `null`.'
   overload: System.Web.Compilation.RouteValueExpressionBuilder.GetRouteValue*
   exceptions: []
   version:
@@ -283,7 +283,7 @@ items:
   - System.Web
   namespace: System.Web.Compilation
   summary: Gets a value that indicates whether an expression can be evaluated in a page that is not compiled.
-  remarks: The <xref:System.Web.Compilation.RouteValueExpressionBuilder.SupportsEvaluate%2A> property indicates whether the <xref:System.Web.Compilation.RouteValueExpressionBuilder.EvaluateExpression%2A> method has been implemented in the class in order to return a value for the expression in a page that is not compiled. The <xref:System.Web.Compilation.RouteValueExpressionBuilder> class can evaluate an expression in a page that is not compiled. Therefore, it always returns `true`.
+  remarks: 'The <xref:System.Web.Compilation.RouteValueExpressionBuilder.SupportsEvaluate%2A> property indicates whether the <xref:System.Web.Compilation.RouteValueExpressionBuilder.EvaluateExpression%2A> method has been implemented in the class in order to return a value for the expression in a page that is not compiled. The <xref:System.Web.Compilation.RouteValueExpressionBuilder> class can evaluate an expression in a page that is not compiled. Therefore, it always returns `true`.'
   syntax:
     content: public override bool SupportsEvaluate { get; }
     return:

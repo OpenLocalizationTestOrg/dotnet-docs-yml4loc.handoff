@@ -43,7 +43,7 @@ items:
   - netstandard
   namespace: System.Security.Cryptography
   summary: Provides a Cryptography Next Generation (CNG) implementation of the Elliptic Curve Digital Signature Algorithm (ECDSA).
-  remarks: This class derives from the <xref:System.Security.Cryptography.ECDsa> abstract base class.
+  remarks: 'This class derives from the <xref:System.Security.Cryptography.ECDsa> abstract base class.'
   example:
   - "The following example shows how to use the <xref:System.Security.Cryptography.ECDsaCng> class to sign a message and how to use the signature to verify that the message has not been altered.  \n  \n [!code-csharp[ECDsaCng#1](~/samples/snippets/csharp/VS_Snippets_CLR/ecdsacng/cs/program.cs#1)]\n [!code-vb[ECDsaCng#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/ecdsacng/vb/program.vb#1)]"
   syntax:
@@ -185,14 +185,14 @@ items:
   - System.Core
   - netstandard
   namespace: System.Security.Cryptography
-  summary: Initializes a new instance of the <xref href="System.Security.Cryptography.ECDsaCng"></xref> class with a random key pair, using the specified key size.
+  summary: 'Initializes a new instance of the <xref href="System.Security.Cryptography.ECDsaCng"></xref> class with a random key pair, using the specified key size.'
   remarks: The random key pair will have the public key length defined by the `keySize` parameter.
   syntax:
     content: public ECDsaCng (int keySize);
     parameters:
     - id: keySize
       type: System.Int32
-      description: The size of the key. Valid key sizes are 256, 384, and 521 bits.
+      description: 'The size of the key. Valid key sizes are 256, 384, and 521 bits.'
   overload: System.Security.Cryptography.ECDsaCng.#ctor*
   exceptions:
   - type: System.PlatformNotSupportedException
@@ -461,7 +461,7 @@ items:
   - System.Core
   - netstandard
   namespace: System.Security.Cryptography
-  summary: Exports the key used by the Elliptic curve cryptography (ECC) object into an <xref href="System.Security.Cryptography.ECParameters"></xref> object. If the key was created as a named curve, the <xref href="System.Security.Cryptography.ECParameters.Curve"></xref> field contains named curve parameters; otherwise, it contains explicit parameters.
+  summary: 'Exports the key used by the Elliptic curve cryptography (ECC) object into an <xref href="System.Security.Cryptography.ECParameters"></xref> object. If the key was created as a named curve, the <xref href="System.Security.Cryptography.ECParameters.Curve"></xref> field contains named curve parameters; otherwise, it contains explicit parameters.'
   syntax:
     content: public override System.Security.Cryptography.ECParameters ExportParameters (bool includePrivateParameters);
     parameters:
@@ -506,7 +506,7 @@ items:
   - System.Core
   namespace: System.Security.Cryptography
   summary: This method is not implemented.
-  remarks: To deserialize an XML key, use the <xref:System.Security.Cryptography.ECDsaCng.FromXmlString%28System.String%2CSystem.Security.Cryptography.ECKeyXmlFormat%29> overload instead.
+  remarks: 'To deserialize an XML key, use the <xref:System.Security.Cryptography.ECDsaCng.FromXmlString%28System.String%2CSystem.Security.Cryptography.ECKeyXmlFormat%29> overload instead.'
   syntax:
     content: public override void FromXmlString (string xmlString);
     parameters:
@@ -802,7 +802,7 @@ items:
   - netstandard
   namespace: System.Security.Cryptography
   summary: Replaces the existing key that the current instance is working with by creating a new <xref href="System.Security.Cryptography.CngKey"></xref> for the parameters structure.
-  remarks: If `parameters` contains only <xref:System.Security.Cryptography.ECParameters.Q>, only a public key is imported. If `parameters` also contains <xref:System.Security.Cryptography.ECParameters.D>, a full key pair is imported. The <xref:System.Security.Cryptography.ECParameters.Curve> field specifies the type of the curve to import.
+  remarks: 'If `parameters` contains only <xref:System.Security.Cryptography.ECParameters.Q>, only a public key is imported. If `parameters` also contains <xref:System.Security.Cryptography.ECParameters.D>, a full key pair is imported. The <xref:System.Security.Cryptography.ECParameters.Curve> field specifies the type of the curve to import.'
   syntax:
     content: public override void ImportParameters (System.Security.Cryptography.ECParameters parameters);
     parameters:
@@ -1024,7 +1024,7 @@ items:
   - System.Core
   - System.Security.Cryptography.Cng
   namespace: System.Security.Cryptography
-  summary: Generates a signature for the specified data stream, reading to the end of the stream.
+  summary: 'Generates a signature for the specified data stream, reading to the end of the stream.'
   remarks: "This method generates a signature for the specified data stream by hashing the input data using the <xref:System.Security.Cryptography.ECDsaCng.HashAlgorithm%2A> property, and then signing the result.  \n  \n The <xref:System.Security.Permissions.KeyContainerPermissionFlags?displayProperty=fullName> flag is required if the Cryptography Next Generation (CNG) key is not randomly generated by the <xref:System.Security.Cryptography.ECDsaCng> object."
   syntax:
     content: public byte[] SignData (System.IO.Stream data);
@@ -1082,7 +1082,7 @@ items:
   - System.Core
   - System.Security.Cryptography.Cng
   namespace: System.Security.Cryptography
-  summary: Generates a digital signature for the specified length of data, beginning at the specified offset.
+  summary: 'Generates a digital signature for the specified length of data, beginning at the specified offset.'
   remarks: "This method generates a signature for the specified data by hashing the input data using the <xref:System.Security.Cryptography.ECDsaCng.HashAlgorithm%2A> property, and then signing the result  \n  \n The <xref:System.Security.Permissions.KeyContainerPermissionFlags?displayProperty=fullName> flag is required if the Cryptography Next Generation (CNG) key is not randomly generated by the <xref:System.Security.Cryptography.ECDsaCng> object."
   syntax:
     content: public byte[] SignData (byte[] data, int offset, int count);
@@ -1095,7 +1095,7 @@ items:
       description: The location in the string at which to start signing.
     - id: count
       type: System.Int32
-      description: The length of the string, in characters, following <code>offset</code> that will be signed.
+      description: 'The length of the string, in characters, following <code>offset</code> that will be signed.'
     return:
       type: System.Byte[]
       description: A digital signature for the specified length of data.
@@ -1151,7 +1151,7 @@ items:
   - netstandard
   namespace: System.Security.Cryptography
   summary: Generates a signature for the specified hash value.
-  remarks: The <xref:System.Security.Permissions.KeyContainerPermissionFlags?displayProperty=fullName> flag is required if the Cryptography Next Generation (CNG) key is not randomly generated by the <xref:System.Security.Cryptography.ECDsaCng> object.
+  remarks: 'The <xref:System.Security.Permissions.KeyContainerPermissionFlags?displayProperty=fullName> flag is required if the Cryptography Next Generation (CNG) key is not randomly generated by the <xref:System.Security.Cryptography.ECDsaCng> object.'
   syntax:
     content: public override byte[] SignHash (byte[] hash);
     parameters:
@@ -1217,7 +1217,7 @@ items:
   - System.Core
   namespace: System.Security.Cryptography
   summary: This method is not implemented.
-  remarks: To convert the current key to an XML representation, use the <xref:System.Security.Cryptography.ECDsaCng.ToXmlString%28System.Security.Cryptography.ECKeyXmlFormat%29> overload instead.
+  remarks: 'To convert the current key to an XML representation, use the <xref:System.Security.Cryptography.ECDsaCng.ToXmlString%28System.Security.Cryptography.ECKeyXmlFormat%29> overload instead.'
   syntax:
     content: public override string ToXmlString (bool includePrivateParameters);
     parameters:
@@ -1277,7 +1277,7 @@ items:
       description: One of the enumeration values that specifies the format of the XML string. The only currently accepted format is <xref href="System.Security.Cryptography.ECKeyXmlFormat.Rfc4050"></xref>.
     return:
       type: System.String
-      description: A string object that contains the key information, serialized to an XML string according to the requested format.
+      description: 'A string object that contains the key information, serialized to an XML string according to the requested format.'
   overload: System.Security.Cryptography.ECDsaCng.ToXmlString*
   exceptions:
   - type: System.ArgumentOutOfRangeException
@@ -1325,7 +1325,7 @@ items:
   - System.Security.Cryptography.Cng
   namespace: System.Security.Cryptography
   summary: Verifies the digital signature of the specified data.
-  remarks: This method generates a signature for the given data by hashing the input data using the <xref:System.Security.Cryptography.ECDsaCng.HashAlgorithm%2A> property, and then signing the result.
+  remarks: 'This method generates a signature for the given data by hashing the input data using the <xref:System.Security.Cryptography.ECDsaCng.HashAlgorithm%2A> property, and then signing the result.'
   syntax:
     content: public bool VerifyData (byte[] data, byte[] signature);
     parameters:
@@ -1381,8 +1381,8 @@ items:
   - System.Core
   - System.Security.Cryptography.Cng
   namespace: System.Security.Cryptography
-  summary: Verifies the digital signature of the specified data stream, reading to the end of the stream.
-  remarks: This method hashes the input data by using the <xref:System.Security.Cryptography.ECDsaCng.HashAlgorithm%2A> property before verification.
+  summary: 'Verifies the digital signature of the specified data stream, reading to the end of the stream.'
+  remarks: 'This method hashes the input data by using the <xref:System.Security.Cryptography.ECDsaCng.HashAlgorithm%2A> property before verification.'
   syntax:
     content: public bool VerifyData (System.IO.Stream data, byte[] signature);
     parameters:
@@ -1439,8 +1439,8 @@ items:
   - System.Core
   - System.Security.Cryptography.Cng
   namespace: System.Security.Cryptography
-  summary: Verifies a signature for the specified length of data, beginning at the specified offset.
-  remarks: This method hashes the input data by using the <xref:System.Security.Cryptography.ECDsaCng.HashAlgorithm%2A> property before verification.
+  summary: 'Verifies a signature for the specified length of data, beginning at the specified offset.'
+  remarks: 'This method hashes the input data by using the <xref:System.Security.Cryptography.ECDsaCng.HashAlgorithm%2A> property before verification.'
   syntax:
     content: public bool VerifyData (byte[] data, int offset, int count, byte[] signature);
     parameters:
@@ -1452,7 +1452,7 @@ items:
       description: The location in the data at which the signed data begins.
     - id: count
       type: System.Int32
-      description: The length of the data, in characters, following <code>offset</code> that will be signed.
+      description: 'The length of the data, in characters, following <code>offset</code> that will be signed.'
     - id: signature
       type: System.Byte[]
       description: The signature to be verified.

@@ -21,7 +21,7 @@ items:
   - netstandard
   namespace: System.Xml.Linq
   summary: Compares nodes to determine whether they are equal. This class cannot be inherited.
-  remarks: The purpose of this class is to implement <xref:System.Collections.IEqualityComparer?displayProperty=fullName> and <xref:System.Collections.Generic.IEqualityComparer%601?displayProperty=fullName>. Classes that require identity (such as <xref:System.Collections.Generic.Dictionary%602> ) require an instance of a class that implements one of these interfaces.
+  remarks: 'The purpose of this class is to implement <xref:System.Collections.IEqualityComparer?displayProperty=fullName> and <xref:System.Collections.Generic.IEqualityComparer%601?displayProperty=fullName>. Classes that require identity (such as <xref:System.Collections.Generic.Dictionary%602> ) require an instance of a class that implements one of these interfaces.'
   syntax:
     content: 'public sealed class XNodeEqualityComparer : System.Collections.Generic.IEqualityComparer<System.Xml.Linq.XNode>, System.Collections.IEqualityComparer'
   inheritance:
@@ -254,7 +254,7 @@ items:
   - netstandard
   namespace: System.Xml.Linq
   summary: Returns a hash code based on an <xref href="System.Xml.Linq.XNode"></xref>.
-  remarks: The <xref:System.Xml.Linq.XNode> implementation of  <xref:System.Object.GetHashCode%2A> is based on the referential identity of the node. This method computes a deep hash code based on the value of the node and all descendants. The hash code reflects all attributes and all descendent nodes.
+  remarks: 'The <xref:System.Xml.Linq.XNode> implementation of  <xref:System.Object.GetHashCode%2A> is based on the referential identity of the node. This method computes a deep hash code based on the value of the node and all descendants. The hash code reflects all attributes and all descendent nodes.'
   example:
   - "The following example uses this method to get a deep hash code for an XML tree.  \n  \n```csharp  \n  \n                XElement xmlTree = new XElement(\"Root\",  \n    new XAttribute(\"Att1\", 1),  \n    new XAttribute(\"Att2\", 2),  \n    new XElement(\"Child1\", 1),  \n    new XElement(\"Child2\", \"some content\")  \n);  \nXNodeEqualityComparer equalityComparer = new XNodeEqualityComparer();  \nConsole.WriteLine(\"HashCode: {0}\", equalityComparer.GetHashCode(xmlTree).ToString(\"X\"));  \nxmlTree.Add(new XElement(\"NewChild\", \"new content\"));  \nConsole.WriteLine(\"HashCode: {0}\", equalityComparer.GetHashCode(xmlTree).ToString(\"X\"));  \n```  \n  \n This example produces the following output:  \n  \n```  \n  \n                HashCode: 958CCD0  \nHashCode: AD26516B  \n```"
   syntax:
@@ -413,7 +413,7 @@ items:
   - netstandard
   namespace: System.Xml.Linq
   summary: Returns a hash code based on the value of a node.
-  remarks: The <xref:System.Xml.Linq.XNode> implementation of <xref:System.Object.GetHashCode%2A> is based on the referential identity of the node. This method computes a deep hash code based on the value of the node, its attributes, and its descendants.
+  remarks: 'The <xref:System.Xml.Linq.XNode> implementation of <xref:System.Object.GetHashCode%2A> is based on the referential identity of the node. This method computes a deep hash code based on the value of the node, its attributes, and its descendants.'
   syntax:
     content: int IEqualityComparer.GetHashCode (object obj);
     parameters:

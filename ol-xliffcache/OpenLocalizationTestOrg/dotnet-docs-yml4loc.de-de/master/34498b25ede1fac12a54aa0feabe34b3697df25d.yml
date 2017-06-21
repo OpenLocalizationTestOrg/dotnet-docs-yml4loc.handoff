@@ -145,7 +145,7 @@ items:
     parameters:
     - id: instanceVersion
       type: System.Int64
-      description: The version of the lock held on the instance, or zero if the persistence provider does not implement lock versions.
+      description: 'The version of the lock held on the instance, or zero if the persistence provider does not implement lock versions.'
     - id: timeout
       type: System.TimeSpan
       description: The timeout period for the asynchronous operation.
@@ -196,7 +196,7 @@ items:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
   summary: Begins executing a persistence command asynchronously.
-  remarks: A persistence provider can use this method to execute sub-commands as part of a command. The sub-command will be executed using BeginTryCommand, similar to commands passed to InstanceStore.BeginExecute. Commands can be nested, but a command must not execute more than one sub-command at a time.
+  remarks: 'A persistence provider can use this method to execute sub-commands as part of a command. The sub-command will be executed using BeginTryCommand, similar to commands passed to InstanceStore.BeginExecute. Commands can be nested, but a command must not execute more than one sub-command at a time.'
   syntax:
     content: public IAsyncResult BeginExecute (System.Runtime.DurableInstancing.InstancePersistenceCommand command, TimeSpan timeout, AsyncCallback callback, object state);
     parameters:
@@ -259,7 +259,7 @@ items:
     parameters:
     - id: instanceVersion
       type: System.Int64
-      description: Version of the lock acquired on the instance, or zero if the persistence provider does not implement lock versions.
+      description: 'Version of the lock acquired on the instance, or zero if the persistence provider does not implement lock versions.'
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.BindAcquiredLock*
   exceptions: []
   version:
@@ -342,7 +342,7 @@ items:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
   summary: Binds an instance whose identifier is specified as a parameter to the current instance handle.
-  remarks: Once an instance is bound to a handle, it remains bound for the lifetime of the handle. No other instance can ever be bound to the handle.
+  remarks: 'Once an instance is bound to a handle, it remains bound for the lifetime of the handle. No other instance can ever be bound to the handle.'
   syntax:
     content: public void BindInstance (Guid instanceId);
     parameters:
@@ -387,7 +387,7 @@ items:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
   summary: Binds an instance owner to the current instance handle.
-  remarks: Once an instance owner is bound to a handle, it remains bound for the lifetime of the handle. No other instance owner can ever be bound to the handle.
+  remarks: 'Once an instance owner is bound to a handle, it remains bound for the lifetime of the handle. No other instance owner can ever be bound to the handle.'
   syntax:
     content: public void BindInstanceOwner (Guid instanceOwnerId, Guid lockToken);
     parameters:
@@ -441,7 +441,7 @@ items:
     parameters:
     - id: instanceVersion
       type: System.Int64
-      description: Version of the lock held on the instance, or zero if the persistence provider does not implement lock versions.
+      description: 'Version of the lock held on the instance, or zero if the persistence provider does not implement lock versions.'
     - id: timeout
       type: System.TimeSpan
       description: The time-out value for the operation.
@@ -576,7 +576,7 @@ items:
     parameters:
     - id: instanceVersion
       type: System.Int64
-      description: The version of the lock held on the instance, or zero if the persistence provider does not implement lock versions.
+      description: 'The version of the lock held on the instance, or zero if the persistence provider does not implement lock versions.'
     return:
       type: System.Exception
       description: An exception.
@@ -617,7 +617,7 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: Ends the asynchronous operation started by the <xref href="System.Runtime.DurableInstancing.InstancePersistenceContext.BeginBindReclaimedLock(System.Int64,System.TimeSpan,System.AsyncCallback,System.Object)"></xref> method.
+  summary: 'Ends the asynchronous operation started by the <xref href="System.Runtime.DurableInstancing.InstancePersistenceContext.BeginBindReclaimedLock(System.Int64,System.TimeSpan,System.AsyncCallback,System.Object)"></xref> method.'
   syntax:
     content: public void EndBindReclaimedLock (IAsyncResult result);
     parameters:
@@ -706,7 +706,7 @@ items:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
   summary: Executes a persistence command.
-  remarks: A persistence provider can use this method to execute sub-commands as part of a command. The sub-command will be executed using TryCommand, similar to commands passed to InstanceStore.Execute. Commands can be nested, but a command must not execute more than one sub-command at a time.
+  remarks: 'A persistence provider can use this method to execute sub-commands as part of a command. The sub-command will be executed using TryCommand, similar to commands passed to InstanceStore.Execute. Commands can be nested, but a command must not execute more than one sub-command at a time.'
   syntax:
     content: public void Execute (System.Runtime.DurableInstancing.InstancePersistenceCommand command, TimeSpan timeout);
     parameters:
@@ -797,12 +797,12 @@ items:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
   summary: Gets the version of the lock held on the current instance by the current instance handle.
-  remarks: The persistence provider should check this value against the lock version of the lock held on an instance in the instance store when performing an operation that requires a lock (such as persisting instance data) using a handle bound to the lock. If the lock version doesn’t match, the command should fail with InstanceLockLostException.
+  remarks: 'The persistence provider should check this value against the lock version of the lock held on an instance in the instance store when performing an operation that requires a lock (such as persisting instance data) using a handle bound to the lock. If the lock version doesn’t match, the command should fail with InstanceLockLostException.'
   syntax:
     content: public long InstanceVersion { get; }
     return:
       type: System.Int64
-      description: The version of the instance lock bound to the current instance handle, or -1 if the handle isn’t bound to a lock.
+      description: 'The version of the instance lock bound to the current instance handle, or -1 if the handle isn’t bound to a lock.'
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.InstanceVersion*
   exceptions: []
   version:
@@ -884,7 +884,7 @@ items:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
   summary: Indicates that the persistence provider has successfully retrieved the current instance from the instance store.
-  remarks: The current instance handle must be bound to an instance. If the instance handle is bound to a lock or the loaded instance is marked as complete, the loaded data is considered to be consistent; otherwise, it is considered to be in doubt.
+  remarks: 'The current instance handle must be bound to an instance. If the instance handle is bound to a lock or the loaded instance is marked as complete, the loaded data is considered to be consistent; otherwise, it is considered to be in doubt.'
   syntax:
     content: public void LoadedInstance (System.Runtime.DurableInstancing.InstanceState state, System.Collections.Generic.IDictionary<System.Xml.Linq.XName,System.Runtime.DurableInstancing.InstanceValue> instanceData, System.Collections.Generic.IDictionary<System.Xml.Linq.XName,System.Runtime.DurableInstancing.InstanceValue> instanceMetadata, System.Collections.Generic.IDictionary<Guid,System.Collections.Generic.IDictionary<System.Xml.Linq.XName,System.Runtime.DurableInstancing.InstanceValue>> associatedInstanceKeyMetadata, System.Collections.Generic.IDictionary<Guid,System.Collections.Generic.IDictionary<System.Xml.Linq.XName,System.Runtime.DurableInstancing.InstanceValue>> completedInstanceKeyMetadata);
     parameters:
@@ -899,10 +899,10 @@ items:
       description: Instance metadata as a collection of <xref href="System.Xml.Linq.XName"></xref> and <xref href="System.Runtime.DurableInstancing.InstanceValue"></xref> objects.
     - id: associatedInstanceKeyMetadata
       type: System.Collections.Generic.IDictionary{System.Guid,System.Collections.Generic.IDictionary{System.Xml.Linq.XName,System.Runtime.DurableInstancing.InstanceValue}}
-      description: Associated instance key metadata as a dictionary of instance identifier and instance key metadata, which is a dictionary of <xref href="System.Xml.Linq.XName"></xref> and <xref href="System.Runtime.DurableInstancing.InstanceValue"></xref> objects.
+      description: 'Associated instance key metadata as a dictionary of instance identifier and instance key metadata, which is a dictionary of <xref href="System.Xml.Linq.XName"></xref> and <xref href="System.Runtime.DurableInstancing.InstanceValue"></xref> objects.'
     - id: completedInstanceKeyMetadata
       type: System.Collections.Generic.IDictionary{System.Guid,System.Collections.Generic.IDictionary{System.Xml.Linq.XName,System.Runtime.DurableInstancing.InstanceValue}}
-      description: Completed instance metadata as a dictionary of instance identifier and instance key metadata, which is a dictionary of <xref href="System.Xml.Linq.XName"></xref> and <xref href="System.Runtime.DurableInstancing.InstanceValue"></xref> objects.
+      description: 'Completed instance metadata as a dictionary of instance identifier and instance key metadata, which is a dictionary of <xref href="System.Xml.Linq.XName"></xref> and <xref href="System.Runtime.DurableInstancing.InstanceValue"></xref> objects.'
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.LoadedInstance*
   exceptions: []
   version:
@@ -946,7 +946,7 @@ items:
     content: public Guid LockToken { get; }
     return:
       type: System.Guid
-      description: The lock token bound to the current instance handle, or Guid.Empty if the handle isn’t bound to an instance owner.
+      description: 'The lock token bound to the current instance handle, or Guid.Empty if the handle isn’t bound to an instance owner.'
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.LockToken*
   exceptions: []
   version:
@@ -1074,7 +1074,7 @@ items:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
   summary: Indicates that the persistence provider has successfully read some instance key metadata for a key associated to the current instance from the instance store.
-  remarks: The current instance handle must be bound to an instance. If the instance handle is bound to a lock or the current instance is marked as complete, the metadata is considered to be consistent; otherwise, it is considered to be in doubt.
+  remarks: 'The current instance handle must be bound to an instance. If the instance handle is bound to a lock or the current instance is marked as complete, the metadata is considered to be consistent; otherwise, it is considered to be in doubt.'
   syntax:
     content: public void ReadInstanceKeyMetadata (Guid key, System.Collections.Generic.IDictionary<System.Xml.Linq.XName,System.Runtime.DurableInstancing.InstanceValue> metadata, bool complete);
     parameters:
@@ -1172,7 +1172,7 @@ items:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
   summary: Sets the instance owner metadata using the data passed in the parameter.
-  remarks: The current instance handle must be bound to an instance. If the instance handle is bound to a lock or the current instance is marked as complete, the metadata is considered to be consistent; otherwise, it is considered to be in doubt.
+  remarks: 'The current instance handle must be bound to an instance. If the instance handle is bound to a lock or the current instance is marked as complete, the metadata is considered to be consistent; otherwise, it is considered to be in doubt.'
   syntax:
     content: public void ReadInstanceOwnerMetadata (System.Collections.Generic.IDictionary<System.Xml.Linq.XName,System.Runtime.DurableInstancing.InstanceValue> metadata, bool complete);
     parameters:
@@ -1220,7 +1220,7 @@ items:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
   summary: Sets the cancellation handler to be called when the cancel of an operation is requested.
-  remarks: If the cancellation handler is called, the persistence provider should cancel all pending operations and throw OperationCanceledException from TryCommand to indicate that the persistence command was interrupted before it could be completed.
+  remarks: 'If the cancellation handler is called, the persistence provider should cancel all pending operations and throw OperationCanceledException from TryCommand to indicate that the persistence command was interrupted before it could be completed.'
   syntax:
     content: public void SetCancellationHandler (Action<System.Runtime.DurableInstancing.InstancePersistenceContext> cancellationHandler);
     parameters:

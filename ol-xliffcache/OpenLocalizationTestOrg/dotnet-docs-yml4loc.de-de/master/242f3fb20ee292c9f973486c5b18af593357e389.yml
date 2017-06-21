@@ -26,7 +26,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Runtime.InteropServices.ComTypes
-  summary: Provides the managed definition of the `IStream` interface, with `ISequentialStream` functionality.
+  summary: 'Provides the managed definition of the `IStream` interface, with `ISequentialStream` functionality.'
   remarks: "For more information, see the documentation for the [IStream](https://msdn.microsoft.com/en-us/library/aa380034.aspx) and [ISequentialStream](https://msdn.microsoft.com/en-us/library/aa380010.aspx) interfaces in the MSDN Library.  \n  \n The common language runtime throws an exception when a COM method in native code returns an `HRESULT` other than `S_OK`. For more information, see [How to: Map HRESULTs and Exceptions](~/docs/framework/interop/how-to-map-hresults-and-exceptions.md)."
   syntax:
     content: >-
@@ -103,13 +103,13 @@ items:
   - netstandard
   namespace: System.Runtime.InteropServices.ComTypes
   summary: Creates a new stream object with its own seek pointer that references the same bytes as the original stream.
-  remarks: For more information, see the existing documentation for `IStream::Clone` in the MSDN Library.
+  remarks: 'For more information, see the existing documentation for `IStream::Clone` in the MSDN Library.'
   syntax:
     content: public void Clone (out System.Runtime.InteropServices.ComTypes.IStream ppstm);
     parameters:
     - id: ppstm
       type: System.Runtime.InteropServices.ComTypes.IStream
-      description: When this method returns, contains the new stream object. This parameter is passed uninitialized.
+      description: 'When this method returns, contains the new stream object. This parameter is passed uninitialized.'
   overload: System.Runtime.InteropServices.ComTypes.IStream.Clone*
   exceptions: []
   version:
@@ -176,7 +176,7 @@ items:
   - netstandard
   namespace: System.Runtime.InteropServices.ComTypes
   summary: Ensures that any changes made to a stream object that is open in transacted mode are reflected in the parent storage.
-  remarks: For more information, see the existing documentation for `IStream::Commit` in the MSDN Library.
+  remarks: 'For more information, see the existing documentation for `IStream::Commit` in the MSDN Library.'
   syntax:
     content: public void Commit (int grfCommitFlags);
     parameters:
@@ -249,7 +249,7 @@ items:
   - netstandard
   namespace: System.Runtime.InteropServices.ComTypes
   summary: Copies a specified number of bytes from the current seek pointer in the stream to the current seek pointer in another stream.
-  remarks: For more information, see the existing documentation for `IStream::CopyTo` in the MSDN Library.
+  remarks: 'For more information, see the existing documentation for `IStream::CopyTo` in the MSDN Library.'
   syntax:
     content: public void CopyTo (System.Runtime.InteropServices.ComTypes.IStream pstm, long cb, IntPtr pcbRead, IntPtr pcbWritten);
     parameters:
@@ -261,10 +261,10 @@ items:
       description: The number of bytes to copy from the source stream.
     - id: pcbRead
       type: System.IntPtr
-      description: On successful return, contains the actual number of bytes read from the source.
+      description: 'On successful return, contains the actual number of bytes read from the source.'
     - id: pcbWritten
       type: System.IntPtr
-      description: On successful return, contains the actual number of bytes written to the destination.
+      description: 'On successful return, contains the actual number of bytes written to the destination.'
   overload: System.Runtime.InteropServices.ComTypes.IStream.CopyTo*
   exceptions: []
   version:
@@ -331,7 +331,7 @@ items:
   - netstandard
   namespace: System.Runtime.InteropServices.ComTypes
   summary: Restricts access to a specified range of bytes in the stream.
-  remarks: For more information, see the existing documentation for `IStream::LockRegion` in the MSDN Library.
+  remarks: 'For more information, see the existing documentation for `IStream::LockRegion` in the MSDN Library.'
   syntax:
     content: public void LockRegion (long libOffset, long cb, int dwLockType);
     parameters:
@@ -340,7 +340,7 @@ items:
       description: The byte offset for the beginning of the range.
     - id: cb
       type: System.Int64
-      description: The length of the range, in bytes, to restrict.
+      description: 'The length of the range, in bytes, to restrict.'
     - id: dwLockType
       type: System.Int32
       description: The requested restrictions on accessing the range.
@@ -410,13 +410,13 @@ items:
   - netstandard
   namespace: System.Runtime.InteropServices.ComTypes
   summary: Reads a specified number of bytes from the stream object into memory starting at the current seek pointer.
-  remarks: For more information, see the existing documentation for `ISequentialStream::Read` in the MSDN Library.
+  remarks: 'For more information, see the existing documentation for `ISequentialStream::Read` in the MSDN Library.'
   syntax:
     content: public void Read (byte[] pv, int cb, IntPtr pcbRead);
     parameters:
     - id: pv
       type: System.Byte[]
-      description: When this method returns, contains the data read from the stream. This parameter is passed uninitialized.
+      description: 'When this method returns, contains the data read from the stream. This parameter is passed uninitialized.'
     - id: cb
       type: System.Int32
       description: The number of bytes to read from the stream object.
@@ -489,7 +489,7 @@ items:
   - netstandard
   namespace: System.Runtime.InteropServices.ComTypes
   summary: Discards all changes that have been made to a transacted stream since the last <xref href="System.Runtime.InteropServices.ComTypes.IStream.Commit(System.Int32)"></xref> call.
-  remarks: For more information, see the existing documentation for `IStream::Revert` in the MSDN Library.
+  remarks: 'For more information, see the existing documentation for `IStream::Revert` in the MSDN Library.'
   syntax:
     content: public void Revert ();
     parameters: []
@@ -558,8 +558,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Runtime.InteropServices.ComTypes
-  summary: Changes the seek pointer to a new location relative to the beginning of the stream, to the end of the stream, or to the current seek pointer.
-  remarks: For more information, see the existing documentation for `IStream::Seek` in the MSDN Library.
+  summary: 'Changes the seek pointer to a new location relative to the beginning of the stream, to the end of the stream, or to the current seek pointer.'
+  remarks: 'For more information, see the existing documentation for `IStream::Seek` in the MSDN Library.'
   syntax:
     content: public void Seek (long dlibMove, int dwOrigin, IntPtr plibNewPosition);
     parameters:
@@ -568,10 +568,10 @@ items:
       description: The displacement to add to <code>dwOrigin</code>.
     - id: dwOrigin
       type: System.Int32
-      description: The origin of the seek. The origin can be the beginning of the file, the current seek pointer, or the end of the file.
+      description: 'The origin of the seek. The origin can be the beginning of the file, the current seek pointer, or the end of the file.'
     - id: plibNewPosition
       type: System.IntPtr
-      description: On successful return, contains the offset of the seek pointer from the beginning of the stream.
+      description: 'On successful return, contains the offset of the seek pointer from the beginning of the stream.'
   overload: System.Runtime.InteropServices.ComTypes.IStream.Seek*
   exceptions: []
   version:
@@ -638,7 +638,7 @@ items:
   - netstandard
   namespace: System.Runtime.InteropServices.ComTypes
   summary: Changes the size of the stream object.
-  remarks: For more information, see the existing documentation for `IStream::SetSize` in the MSDN Library.
+  remarks: 'For more information, see the existing documentation for `IStream::SetSize` in the MSDN Library.'
   syntax:
     content: public void SetSize (long libNewSize);
     parameters:
@@ -711,16 +711,16 @@ items:
   - netstandard
   namespace: System.Runtime.InteropServices.ComTypes
   summary: Retrieves the <xref href="System.Runtime.InteropServices.STATSTG"></xref> structure for this stream.
-  remarks: For more information, see the existing documentation for `IStream::Stat` in the MSDN Library.
+  remarks: 'For more information, see the existing documentation for `IStream::Stat` in the MSDN Library.'
   syntax:
     content: public void Stat (out System.Runtime.InteropServices.ComTypes.STATSTG pstatstg, int grfStatFlag);
     parameters:
     - id: pstatstg
       type: System.Runtime.InteropServices.ComTypes.STATSTG
-      description: When this method returns, contains a `STATSTG` structure that describes this stream object. This parameter is passed uninitialized.
+      description: 'When this method returns, contains a `STATSTG` structure that describes this stream object. This parameter is passed uninitialized.'
     - id: grfStatFlag
       type: System.Int32
-      description: Members in the `STATSTG` structure that this method does not return, thus saving some memory allocation operations.
+      description: 'Members in the `STATSTG` structure that this method does not return, thus saving some memory allocation operations.'
   overload: System.Runtime.InteropServices.ComTypes.IStream.Stat*
   exceptions: []
   version:
@@ -786,8 +786,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Runtime.InteropServices.ComTypes
-  summary: Removes the access restriction on a range of bytes previously restricted with the <xref href="System.Runtime.InteropServices.ComTypes.IStream.LockRegion(System.Int64,System.Int64,System.Int32)"></xref> method.
-  remarks: For more information, see the existing documentation for `IStream::UnlockRegion` in the MSDN Library.
+  summary: 'Removes the access restriction on a range of bytes previously restricted with the <xref href="System.Runtime.InteropServices.ComTypes.IStream.LockRegion(System.Int64,System.Int64,System.Int32)"></xref> method.'
+  remarks: 'For more information, see the existing documentation for `IStream::UnlockRegion` in the MSDN Library.'
   syntax:
     content: public void UnlockRegion (long libOffset, long cb, int dwLockType);
     parameters:
@@ -796,7 +796,7 @@ items:
       description: The byte offset for the beginning of the range.
     - id: cb
       type: System.Int64
-      description: The length, in bytes, of the range to restrict.
+      description: 'The length, in bytes, of the range to restrict.'
     - id: dwLockType
       type: System.Int32
       description: The access restrictions previously placed on the range.
@@ -866,7 +866,7 @@ items:
   - netstandard
   namespace: System.Runtime.InteropServices.ComTypes
   summary: Writes a specified number of bytes into the stream object starting at the current seek pointer.
-  remarks: For more information, see the existing documentation for `ISequentialStream::Write` in the MSDN Library.
+  remarks: 'For more information, see the existing documentation for `ISequentialStream::Write` in the MSDN Library.'
   syntax:
     content: public void Write (byte[] pv, int cb, IntPtr pcbWritten);
     parameters:
@@ -878,7 +878,7 @@ items:
       description: The number of bytes to write to the stream.
     - id: pcbWritten
       type: System.IntPtr
-      description: On successful return, contains the actual number of bytes written to the stream object. If the caller sets this pointer to <xref href="System.IntPtr.Zero"></xref>, this method does not provide the actual number of bytes written.
+      description: 'On successful return, contains the actual number of bytes written to the stream object. If the caller sets this pointer to <xref href="System.IntPtr.Zero"></xref>, this method does not provide the actual number of bytes written.'
   overload: System.Runtime.InteropServices.ComTypes.IStream.Write*
   exceptions: []
   version:

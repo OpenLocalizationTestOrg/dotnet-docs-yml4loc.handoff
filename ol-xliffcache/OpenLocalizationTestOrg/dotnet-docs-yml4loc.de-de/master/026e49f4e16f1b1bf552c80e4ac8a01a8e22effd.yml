@@ -25,8 +25,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: Defines the configuration settings that control the key generation and algorithms that are used in encryption, decryption, and message authentication code (MAC) operations in Windows Forms authentication, view-state validation, and session-state application isolation. This class cannot be inherited.
-  remarks: The <xref:System.Web.Configuration.MachineKeySection> class provides a way to programmatically access and modify the content of the `MachineKey` section in the configuration file. The `MachineKey` section can be configured at the machine (Machine.config) or application (Web.config) level and controls the keys and algorithms that are used for Windows Forms authentication, view-state validation, and session-state application isolation. For any of these features to work across a network of Web servers (a Web farm), the `DecryptionKey` and `ValidationKey` attributes of the `MachineKey` section must be configured explicitly and identically with valid key values. The `AutoGenerate` value does not work for Web farms, because it relies on a cryptographically random secret, which is persisted using machine-local protection and will not be the same across more than one computer.
+  summary: 'Defines the configuration settings that control the key generation and algorithms that are used in encryption, decryption, and message authentication code (MAC) operations in Windows Forms authentication, view-state validation, and session-state application isolation. This class cannot be inherited.'
+  remarks: 'The <xref:System.Web.Configuration.MachineKeySection> class provides a way to programmatically access and modify the content of the `MachineKey` section in the configuration file. The `MachineKey` section can be configured at the machine (Machine.config) or application (Web.config) level and controls the keys and algorithms that are used for Windows Forms authentication, view-state validation, and session-state application isolation. For any of these features to work across a network of Web servers (a Web farm), the `DecryptionKey` and `ValidationKey` attributes of the `MachineKey` section must be configured explicitly and identically with valid key values. The `AutoGenerate` value does not work for Web farms, because it relies on a cryptographically random secret, which is persisted using machine-local protection and will not be the same across more than one computer.'
   example:
   - "The example in this section demonstrates how to specify values declaratively for several attributes of the  section, which can also be accessed as members of the <xref:System.Web.Configuration.MachineKeySection> class.  \n  \n The following example from a configuration file shows how to specify values declaratively for the  section.  \n  \n```  \n<system.web>  \n  <machineKey validationKey=\"AutoGenerate,IsolateApps\"   \n    decryptionKey=\"AutoGenerate,IsolateApps\"   \n    validation=\"SHA1\"/>  \n</system.web>  \n```  \n  \n The following example demonstrates how to use the <xref:System.Web.Configuration.MachineKeySection> class in code.  \n  \n [!code-csharp[System.Web.Configuration.MachineKeySection#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.Configuration.MachineKeySection/CS/machinekeysection.cs#1)]\n [!code-vb[System.Web.Configuration.MachineKeySection#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.Configuration.MachineKeySection/VB/machinekeysection.vb#1)]"
   syntax:
@@ -117,7 +117,7 @@ items:
   - System.Web
   namespace: System.Web.Configuration
   summary: Initializes a new instance of the <xref href="System.Web.Configuration.MachineKeySection"></xref> class by using default settings.
-  remarks: The constructor is not intended to be used directly from your code. It is called by the ASP.NET configuration system. You obtain an instance of the <xref:System.Web.Configuration.MachineKeySection> class by using the <xref:System.Configuration.Configuration.GetSection%2A> method.
+  remarks: 'The constructor is not intended to be used directly from your code. It is called by the ASP.NET configuration system. You obtain an instance of the <xref:System.Web.Configuration.MachineKeySection> class by using the <xref:System.Configuration.Configuration.GetSection%2A> method.'
   syntax:
     content: public MachineKeySection ();
     parameters: []
@@ -159,7 +159,7 @@ items:
   - System.Web
   namespace: System.Web.Configuration
   summary: Gets or sets the name of the application.
-  remarks: This property must be set if you set the <xref:System.Web.Configuration.MachineKeySection.DataProtectorType%2A> property. The property value is passed to the <xref:System.Security.Cryptography.DataProtector.Create%2A?displayProperty=fullName> factory method.
+  remarks: 'This property must be set if you set the <xref:System.Web.Configuration.MachineKeySection.DataProtectorType%2A> property. The property value is passed to the <xref:System.Security.Cryptography.DataProtector.Create%2A?displayProperty=fullName> factory method.'
   syntax:
     content: >-
       [System.ComponentModel.TypeConverter(typeof(System.Configuration.WhiteSpaceTrimStringConverter))]
@@ -324,7 +324,7 @@ items:
       public string Decryption { get; set; }
     return:
       type: System.String
-      description: A value that indicates the algorithm that is used to encrypt and decrypt forms authentication data. (For information about how to specify the algorithm that is used when view state is encrypted, see the <xref href="System.Web.Configuration.MachineKeySection.Validation"></xref> property.) `Auto` is the default value.
+      description: 'A value that indicates the algorithm that is used to encrypt and decrypt forms authentication data. (For information about how to specify the algorithm that is used when view state is encrypted, see the <xref href="System.Web.Configuration.MachineKeySection.Validation"></xref> property.) `Auto` is the default value.'
   overload: System.Web.Configuration.MachineKeySection.Decryption*
   exceptions:
   - type: System.Configuration.ConfigurationErrorsException
@@ -369,7 +369,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: Gets or sets the key that is used to encrypt and decrypt data, or the process by which the key is generated.
+  summary: 'Gets or sets the key that is used to encrypt and decrypt data, or the process by which the key is generated.'
   remarks: "The <xref:System.Web.Configuration.MachineKeySection.DecryptionKey%2A> property is used for encryption and decryption, such as in Windows Forms authentication, and for view state when the <xref:System.Web.Configuration.MachineKeySection.Validation%2A> property is set to \"3DES\" or \"AES\".  \n  \n Use the \"AutoGenerate\" option to specify that ASP.NET generates a random key and stores it in the Local Security Authority. The \"AutoGenerate\" option is part of the default value.  \n  \n If you add the \"IsolateApps\" modifier to the \"AutoGenerate\" <xref:System.Web.Configuration.MachineKeySection.ValidationKey%2A> value, ASP.NET generates a unique encrypted key for each application by using each application's <xref:System.Web.HttpRuntime.AppDomainAppVirtualPath%2A>. This is the default setting.  \n  \n If you add the \"IsolateByAppId\" modifier to the \"AutoGenerate\" <xref:System.Web.Configuration.MachineKeySection.ValidationKey%2A> value, ASP.NET generates a unique encrypted key for each application by using each application's <xref:System.Web.HttpRuntime.AppDomainAppId%2A>. If two distinct applications share a virtual path (perhaps because those applications are running on different ports), this flag can be used to further distinguish them from one another. The \"IsolateByAppId\" flag is understood only by ASP.NET 4.5, but it can be used regardless of the <xref:System.Web.Configuration.MachineKeySection.CompatibilityMode?displayProperty=fullName> setting.  \n  \n If you need to support configuration across a network of Web servers (a Web farm), set the <xref:System.Web.Configuration.MachineKeySection.DecryptionKey%2A> property manually to ensure consistent configuration. For information about how to manually generate values for the `DecryptionKey` attribute, see [How To: Configure MachineKey in ASP.NET 2.0](http://go.microsoft.com/fwlink/?linkid=155113).  \n  \n This property is  typically set declaratively in the `DecryptionKey` attribute of the  element of the Web.config file. For more information, see the  element."
   example:
   - "The following example demonstrates how to set the <xref:System.Web.Configuration.MachineKeySection.DecryptionKey%2A> property by using code. This example is part of a larger example provided for the <xref:System.Web.Configuration.MachineKeySection> class.  \n  \n [!code-csharp[System.Web.Configuration.MachineKeySection#3](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.Configuration.MachineKeySection/CS/machinekeysection.cs#3)]\n [!code-vb[System.Web.Configuration.MachineKeySection#3](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.Configuration.MachineKeySection/VB/machinekeysection.vb#3)]"
@@ -384,7 +384,7 @@ items:
       public string DecryptionKey { get; set; }
     return:
       type: System.String
-      description: A key value, or a value that indicates how the key is generated. The default is "AutoGenerate,IsolateApps".
+      description: 'A key value, or a value that indicates how the key is generated. The default is "AutoGenerate,IsolateApps".'
   overload: System.Web.Configuration.MachineKeySection.DecryptionKey*
   exceptions: []
   attributes:
@@ -537,7 +537,7 @@ items:
   - System.Web
   namespace: System.Web.Configuration
   summary: Specifies the hashing algorithm that is used for validating forms authentication and view state data.
-  remarks: The <xref:System.Web.Configuration.MachineKeySection.Validation%2A> property supports encryption algorithms that are defined by the <xref:System.Web.Configuration.MachineKeyValidation> enumeration. This property is typically set declaratively in the `decryption` attribute of the  element of the Web.config file. For more information, see the  element.
+  remarks: 'The <xref:System.Web.Configuration.MachineKeySection.Validation%2A> property supports encryption algorithms that are defined by the <xref:System.Web.Configuration.MachineKeyValidation> enumeration. This property is typically set declaratively in the `decryption` attribute of the  element of the Web.config file. For more information, see the  element.'
   example:
   - "The following example demonstrates how to set the <xref:System.Web.Configuration.MachineKeySection.Validation%2A> property by using code. This example is part of a larger example provided for the <xref:System.Web.Configuration.MachineKeySection> class.  \n  \n [!code-csharp[System.Web.Configuration.MachineKeySection#4](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.Configuration.MachineKeySection/CS/machinekeysection.cs#4)]\n [!code-vb[System.Web.Configuration.MachineKeySection#4](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.Configuration.MachineKeySection/VB/machinekeysection.vb#4)]"
   syntax:
@@ -637,7 +637,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: Gets or sets the key that is used to validate forms authentication and view state data, or the process by which the key is generated.
+  summary: 'Gets or sets the key that is used to validate forms authentication and view state data, or the process by which the key is generated.'
   remarks: "The <xref:System.Web.Configuration.MachineKeySection.ValidationKey%2A> property is used when `enableViewStateMAC` is `true` to create a message authentication code (MAC) to enable ASP.NET to determine whether view state has been tampered with. The <xref:System.Web.Configuration.MachineKeySection.ValidationKey%2A> property is also used to generate out-of-process, application-specific session IDs to ensure that session state variables are isolated between applications.  \n  \n Use the \"AutoGenerate\" option to specify that ASP.NET generates a random key and stores it in the Local Security Authority. The \"AutoGenerate\" option is part of the default value.  \n  \n If you add the \"IsolateApps\" modifier to the \"AutoGenerate\" <xref:System.Web.Configuration.MachineKeySection.ValidationKey%2A> value, ASP.NET generates a unique encrypted key for each application by using each application's <xref:System.Web.HttpRuntime.AppDomainAppVirtualPath%2A>. This is the default setting.  \n  \n If you add the \"IsolateByAppId\" modifier to the \"AutoGenerate\" <xref:System.Web.Configuration.MachineKeySection.ValidationKey%2A> value, ASP.NET generates a unique encrypted key for each application by using each application's <xref:System.Web.HttpRuntime.AppDomainAppId%2A>. If two distinct applications share a virtual path (perhaps because those applications are running on different ports), this flag can be used to further distinguish them from one another. The \"IsolateByAppId\" flag is understood only by ASP.NET 4.5, but it can be used regardless of the <xref:System.Web.Configuration.MachineKeySection.CompatibilityMode?displayProperty=fullName> setting.  \n  \n If you need to support configuration across a network of Web servers (a Web farm), set the <xref:System.Web.Configuration.MachineKeySection.ValidationKey%2A> property manually to ensure consistent configuration. For information about how to manually generate values for the `DecryptionKey` attribute, see [How To: Configure MachineKey in ASP.NET 2.0](http://go.microsoft.com/fwlink/?linkid=155113).  \n  \n This property is typically set declaratively in the `validationKey` attribute of the  element of the Web.config file."
   example:
   - "The following example shows how to set the <xref:System.Web.Configuration.MachineKeySection.ValidationKey%2A> property by using code. This example is part of a larger example provided for the <xref:System.Web.Configuration.MachineKeySection> class.  \n  \n [!code-csharp[System.Web.Configuration.MachineKeySection#2](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.Configuration.MachineKeySection/CS/machinekeysection.cs#2)]\n [!code-vb[System.Web.Configuration.MachineKeySection#2](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.Configuration.MachineKeySection/VB/machinekeysection.vb#2)]"
@@ -652,7 +652,7 @@ items:
       public string ValidationKey { get; set; }
     return:
       type: System.String
-      description: A key value, or a value that indicates how the key is generated. The default is "AutoGenerate,IsolateApps".
+      description: 'A key value, or a value that indicates how the key is generated. The default is "AutoGenerate,IsolateApps".'
   overload: System.Web.Configuration.MachineKeySection.ValidationKey*
   exceptions: []
   attributes:

@@ -354,7 +354,7 @@ items:
     parameters:
     - id: obj
       type: System.Object
-      description: An object to compare with this instance, or `null`.
+      description: 'An object to compare with this instance, or `null`.'
     return:
       type: System.Boolean
       description: '`true` if <code>obj</code> equals the type and value of this instance; otherwise, `false`.'
@@ -501,14 +501,14 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Reflection
-  summary: Invokes the constructor reflected by the instance that has the specified parameters, providing default values for the parameters not commonly used.
+  summary: 'Invokes the constructor reflected by the instance that has the specified parameters, providing default values for the parameters not commonly used.'
   remarks: "The number, type, and order of elements in the `parameters` array should be identical to the number, type, and order of parameters for the constructor reflected by this instance. Before calling the constructor, `Invoke` ensures that the caller has access permission and verifies that the parameters are valid.  \n  \n Access restrictions are ignored for fully trusted code. That is, private constructors, methods, fields, and properties can be accessed and invoked using reflection whenever the code is fully trusted.  \n  \n> [!NOTE]\n>  To create an instance of a value type that has no instance constructors, use the <xref:System.Activator.CreateInstance%2A> method.  \n  \n This method is a convenience method for the following overloaded version, using default values. This method cannot be overridden.  \n  \n> [!NOTE]\n>  Starting with the [!INCLUDE[net_v20sp1_long](~/includes/net-v20sp1-long-md.md)], this method can be used to access non-public members if the caller has been granted <xref:System.Security.Permissions.ReflectionPermission> with the <xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName> flag and if the grant set of the non-public members is restricted to the caller’s grant set, or a subset thereof. (See [Security Considerations for Reflection](~/docs/framework/reflection-and-codedom/security-considerations-for-reflection.md).)  \n>   \n>  To use this functionality, your application should target the [!INCLUDE[net_v35_long](~/includes/net-v35-long-md.md)] or later."
   syntax:
     content: public object Invoke (object[] parameters);
     parameters:
     - id: parameters
       type: System.Object[]
-      description: An array of values that matches the number, order and type (under the constraints of the default binder) of the parameters for this constructor. If this constructor takes no parameters, then use either an array with zero elements or `null`, as in Object[] parameters = new Object[0]. Any object in this array that is not explicitly initialized with a value will contain the default value for that object type. For reference-type elements, this value is `null`. For value-type elements, this value is 0, 0.0, or `false`, depending on the specific element type.
+      description: 'An array of values that matches the number, order and type (under the constraints of the default binder) of the parameters for this constructor. If this constructor takes no parameters, then use either an array with zero elements or `null`, as in Object[] parameters = new Object[0]. Any object in this array that is not explicitly initialized with a value will contain the default value for that object type. For reference-type elements, this value is `null`. For value-type elements, this value is 0, 0.0, or `false`, depending on the specific element type.'
     return:
       type: System.Object
       description: An instance of the class associated with the constructor.
@@ -531,7 +531,7 @@ items:
     description: An incorrect number of parameters was passed.
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: Creation of <xref href="System.TypedReference"></xref>, <xref href="System.ArgIterator"></xref>, and <xref href="System.RuntimeArgumentHandle"></xref> types is not supported.
+    description: 'Creation of <xref href="System.TypedReference"></xref>, <xref href="System.ArgIterator"></xref>, and <xref href="System.RuntimeArgumentHandle"></xref> types is not supported.'
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
     description: The caller does not have the necessary code access permission.
@@ -601,7 +601,7 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Reflection
-  summary: When implemented in a derived class, invokes the constructor reflected by this `ConstructorInfo` with the specified arguments, under the constraints of the specified `Binder`.
+  summary: 'When implemented in a derived class, invokes the constructor reflected by this `ConstructorInfo` with the specified arguments, under the constraints of the specified `Binder`.'
   remarks: "The number, type, and order of elements in the `parameters` array should be identical to the number, type, and order of parameters for the constructor reflected by this instance.  \n  \n Before calling the constructor, `Invoke` ensures that the caller has access permission and that the parameters are of the correct number, order and type.  \n  \n Access restrictions are ignored for fully trusted code. That is, private constructors, methods, fields, and properties can be accessed and invoked using reflection whenever the code is fully trusted.  \n  \n> [!NOTE]\n>  To create an instance of a value type that has no instance constructors, use the <xref:System.Activator.CreateInstance%2A> method.  \n  \n> [!NOTE]\n>  Starting with the [!INCLUDE[net_v20sp1_long](~/includes/net-v20sp1-long-md.md)], this method can be used to access non-public members if the caller has been granted <xref:System.Security.Permissions.ReflectionPermission> with the <xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName> flag and if the grant set of the non-public members is restricted to the caller’s grant set, or a subset thereof. (See [Security Considerations for Reflection](~/docs/framework/reflection-and-codedom/security-considerations-for-reflection.md).)  \n>   \n>  To use this functionality, your application should target the [!INCLUDE[net_v35_long](~/includes/net-v35-long-md.md)] or later."
   syntax:
     content: public abstract object Invoke (System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, object[] parameters, System.Globalization.CultureInfo culture);
@@ -611,13 +611,13 @@ items:
       description: One of the `BindingFlags` values that specifies the type of binding.
     - id: binder
       type: System.Reflection.Binder
-      description: A `Binder` that defines a set of properties and enables the binding, coercion of argument types, and invocation of members using reflection. If <code>binder</code> is `null`, then `Binder.DefaultBinding` is used.
+      description: 'A `Binder` that defines a set of properties and enables the binding, coercion of argument types, and invocation of members using reflection. If <code>binder</code> is `null`, then `Binder.DefaultBinding` is used.'
     - id: parameters
       type: System.Object[]
-      description: An array of type `Object` used to match the number, order and type of the parameters for this constructor, under the constraints of <code>binder</code>. If this constructor does not require parameters, pass an array with zero elements, as in Object[] parameters = new Object[0]. Any object in this array that is not explicitly initialized with a value will contain the default value for that object type. For reference-type elements, this value is `null`. For value-type elements, this value is 0, 0.0, or `false`, depending on the specific element type.
+      description: 'An array of type `Object` used to match the number, order and type of the parameters for this constructor, under the constraints of <code>binder</code>. If this constructor does not require parameters, pass an array with zero elements, as in Object[] parameters = new Object[0]. Any object in this array that is not explicitly initialized with a value will contain the default value for that object type. For reference-type elements, this value is `null`. For value-type elements, this value is 0, 0.0, or `false`, depending on the specific element type.'
     - id: culture
       type: System.Globalization.CultureInfo
-      description: A <xref href="System.Globalization.CultureInfo"></xref> used to govern the coercion of types. If this is `null`, the <xref href="System.Globalization.CultureInfo"></xref> for the current thread is used.
+      description: 'A <xref href="System.Globalization.CultureInfo"></xref> used to govern the coercion of types. If this is `null`, the <xref href="System.Globalization.CultureInfo"></xref> for the current thread is used.'
     return:
       type: System.Object
       description: An instance of the class associated with the constructor.
@@ -625,7 +625,7 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: The <code>parameters</code> array does not contain values that match the types accepted by this constructor, under the constraints of the <code>binder</code>.
+    description: 'The <code>parameters</code> array does not contain values that match the types accepted by this constructor, under the constraints of the <code>binder</code>.'
   - type: System.Reflection.TargetInvocationException
     commentId: T:System.Reflection.TargetInvocationException
     description: The invoked constructor throws an exception.
@@ -634,7 +634,7 @@ items:
     description: An incorrect number of parameters was passed.
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: Creation of <xref href="System.TypedReference"></xref>, <xref href="System.ArgIterator"></xref>, and <xref href="System.RuntimeArgumentHandle"></xref> types is not supported.
+    description: 'Creation of <xref href="System.TypedReference"></xref>, <xref href="System.ArgIterator"></xref>, and <xref href="System.RuntimeArgumentHandle"></xref> types is not supported.'
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
     description: The caller does not have the necessary code access permissions.
@@ -643,7 +643,7 @@ items:
     description: "The class is abstract.  \n  \n -or-  \n  \n The constructor is a class initializer."
   - type: System.MethodAccessException
     commentId: T:System.MethodAccessException
-    description: The constructor is private or protected, and the caller lacks <xref href="System.Security.Permissions.ReflectionPermissionFlag.MemberAccess"></xref>.
+    description: 'The constructor is private or protected, and the caller lacks <xref href="System.Security.Permissions.ReflectionPermissionFlag.MemberAccess"></xref>.'
   version:
   - netcore-2.0
   - netframework-4.5.1
@@ -693,7 +693,7 @@ items:
   - System.Runtime
   namespace: System.Reflection
   summary: Gets a <xref href="System.Reflection.MemberTypes"></xref> value indicating that this member is a constructor.
-  remarks: This property overrides <xref:System.Reflection.MemberInfo.MemberType%2A>. Therefore, when you examine a set of <xref:System.Reflection.MemberInfo> objects — for example, the array returned by <xref:System.Type.GetMembers%2A> — the <xref:System.Reflection.MemberInfo.MemberType%2A> property returns <xref:System.Reflection.MemberTypes.Constructor> only when a given member is a constructor.
+  remarks: 'This property overrides <xref:System.Reflection.MemberInfo.MemberType%2A>. Therefore, when you examine a set of <xref:System.Reflection.MemberInfo> objects — for example, the array returned by <xref:System.Type.GetMembers%2A> — the <xref:System.Reflection.MemberInfo.MemberType%2A> property returns <xref:System.Reflection.MemberTypes.Constructor> only when a given member is a constructor.'
   example:
   - "The following example uses the <xref:System.Reflection.ConstructorInfo.MemberType%2A> property to identify a <xref:System.Reflection.MemberInfo> object as a constructor.  \n  \n [!code-cpp[Classic MemberInfo.MemberType Example#1](~/samples/snippets/cpp/VS_Snippets_CLR_Classic/classic MemberInfo.MemberType Example/CPP/source.cpp#1)]\n [!code-csharp[Classic MemberInfo.MemberType Example#1](~/samples/snippets/csharp/VS_Snippets_CLR_Classic/classic MemberInfo.MemberType Example/CS/source.cs#1)]\n [!code-vb[Classic MemberInfo.MemberType Example#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_Classic/classic MemberInfo.MemberType Example/VB/source.vb#1)]"
   syntax:
@@ -965,7 +965,7 @@ items:
   - mscorlib
   namespace: System.Reflection
   summary: Maps a set of names to a corresponding set of dispatch identifiers.
-  remarks: This method is for access to managed classes from unmanaged code, and should not be called from managed code. For more information about `IDispatch::GetIDsOfNames`, see the MSDN Library.
+  remarks: 'This method is for access to managed classes from unmanaged code, and should not be called from managed code. For more information about `IDispatch::GetIDsOfNames`, see the MSDN Library.'
   syntax:
     content: void _ConstructorInfo.GetIDsOfNames (ref Guid riid, IntPtr rgszNames, uint cNames, uint lcid, IntPtr rgDispId);
     parameters:
@@ -1074,8 +1074,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Reflection
-  summary: Retrieves the type information for an object, which can then be used to get the type information for an interface.
-  remarks: This method is for access to managed classes from unmanaged code, and should not be called from managed code. For more information about `IDispatch::GetTypeInfo`, see the MSDN Library.
+  summary: 'Retrieves the type information for an object, which can then be used to get the type information for an interface.'
+  remarks: 'This method is for access to managed classes from unmanaged code, and should not be called from managed code. For more information about `IDispatch::GetTypeInfo`, see the MSDN Library.'
   syntax:
     content: void _ConstructorInfo.GetTypeInfo (uint iTInfo, uint lcid, IntPtr ppTInfo);
     parameters:
@@ -1132,7 +1132,7 @@ items:
   - mscorlib
   namespace: System.Reflection
   summary: Retrieves the number of type information interfaces that an object provides (either 0 or 1).
-  remarks: This method is for access to managed classes from unmanaged code, and should not be called from managed code. For more information about `IDispatch::GetTypeInfoCount`, see the MSDN Library.
+  remarks: 'This method is for access to managed classes from unmanaged code, and should not be called from managed code. For more information about `IDispatch::GetTypeInfoCount`, see the MSDN Library.'
   syntax:
     content: void _ConstructorInfo.GetTypeInfoCount (out uint pcTInfo);
     parameters:
@@ -1183,7 +1183,7 @@ items:
   - mscorlib
   namespace: System.Reflection
   summary: Provides access to properties and methods exposed by an object.
-  remarks: This method is for access to managed classes from unmanaged code, and should not be called from managed code. For more information about `IDispatch::Invoke`, see the MSDN Library.
+  remarks: 'This method is for access to managed classes from unmanaged code, and should not be called from managed code. For more information about `IDispatch::Invoke`, see the MSDN Library.'
   syntax:
     content: void _ConstructorInfo.Invoke (uint dispIdMember, ref Guid riid, uint lcid, short wFlags, IntPtr pDispParams, IntPtr pVarResult, IntPtr pExcepInfo, IntPtr puArgErr);
     parameters:
@@ -1201,7 +1201,7 @@ items:
       description: Flags describing the context of the call.
     - id: pDispParams
       type: System.IntPtr
-      description: Pointer to a structure containing an array of arguments, an array of argument DISPIDs for named arguments, and counts for the number of elements in the arrays.
+      description: 'Pointer to a structure containing an array of arguments, an array of argument DISPIDs for named arguments, and counts for the number of elements in the arrays.'
     - id: pVarResult
       type: System.IntPtr
       description: Pointer to the location where the result is to be stored.
@@ -1254,8 +1254,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Reflection
-  summary: Provides COM objects with version-independent access to the <xref href="System.Reflection.MethodBase.Invoke(System.Object,System.Reflection.BindingFlags,System.Reflection.Binder,System.Object[],System.Globalization.CultureInfo)"></xref> method.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Reflection.ConstructorInfo> instance is cast to an <xref:System.Runtime.InteropServices._ConstructorInfo> interface.
+  summary: 'Provides COM objects with version-independent access to the <xref href="System.Reflection.MethodBase.Invoke(System.Object,System.Reflection.BindingFlags,System.Reflection.Binder,System.Object[],System.Globalization.CultureInfo)"></xref> method.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Reflection.ConstructorInfo> instance is cast to an <xref:System.Runtime.InteropServices._ConstructorInfo> interface.'
   syntax:
     content: object _ConstructorInfo.Invoke_2 (object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, object[] parameters, System.Globalization.CultureInfo culture);
     parameters:
@@ -1267,13 +1267,13 @@ items:
       description: One of the <xref href="System.Reflection.BindingFlags"></xref> values that specifies the type of binding.
     - id: binder
       type: System.Reflection.Binder
-      description: A <xref href="System.Reflection.Binder"></xref> that defines a set of properties and enables the binding, coercion of argument types, and invocation of members using reflection. If <code>binder</code> is `null`, then <xref href="System.Type.DefaultBinder"></xref> is used.
+      description: 'A <xref href="System.Reflection.Binder"></xref> that defines a set of properties and enables the binding, coercion of argument types, and invocation of members using reflection. If <code>binder</code> is `null`, then <xref href="System.Type.DefaultBinder"></xref> is used.'
     - id: parameters
       type: System.Object[]
-      description: An array of objects used to match the number, order, and type of the parameters for this constructor, under the constraints of <code>binder</code>. If this constructor does not require parameters, pass an array with zero elements. Any object in this array that is not explicitly initialized with a value will contain the default value for that object type. For reference-type elements, this value is `null`. For value-type elements, this value is 0, 0.0, or `false`, depending on the specific element type.
+      description: 'An array of objects used to match the number, order, and type of the parameters for this constructor, under the constraints of <code>binder</code>. If this constructor does not require parameters, pass an array with zero elements. Any object in this array that is not explicitly initialized with a value will contain the default value for that object type. For reference-type elements, this value is `null`. For value-type elements, this value is 0, 0.0, or `false`, depending on the specific element type.'
     - id: culture
       type: System.Globalization.CultureInfo
-      description: A <xref href="System.Globalization.CultureInfo"></xref> used to govern the coercion of types. If this is `null`, the <xref href="System.Globalization.CultureInfo"></xref> for the current thread is used.
+      description: 'A <xref href="System.Globalization.CultureInfo"></xref> used to govern the coercion of types. If this is `null`, the <xref href="System.Globalization.CultureInfo"></xref> for the current thread is used.'
     return:
       type: System.Object
       description: An instance of the type.
@@ -1317,8 +1317,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Reflection
-  summary: Provides COM objects with version-independent access to the <xref href="System.Reflection.MethodBase.Invoke(System.Object,System.Object[])"></xref> method.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Reflection.ConstructorInfo> instance is cast to an <xref:System.Runtime.InteropServices._ConstructorInfo> interface.
+  summary: 'Provides COM objects with version-independent access to the <xref href="System.Reflection.MethodBase.Invoke(System.Object,System.Object[])"></xref> method.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Reflection.ConstructorInfo> instance is cast to an <xref:System.Runtime.InteropServices._ConstructorInfo> interface.'
   syntax:
     content: object _ConstructorInfo.Invoke_3 (object obj, object[] parameters);
     parameters:
@@ -1327,7 +1327,7 @@ items:
       description: The instance that created this method.
     - id: parameters
       type: System.Object[]
-      description: An array of objects used to match the number, order, and type of the parameters for this constructor, under the constraints of <code>binder</code>. If this constructor does not require parameters, pass an array with zero elements. Any object in this array that is not explicitly initialized with a value will contain the default value for that object type. For reference-type elements, this value is `null`. For value-type elements, this value is 0, 0.0, or `false`, depending on the specific element type.
+      description: 'An array of objects used to match the number, order, and type of the parameters for this constructor, under the constraints of <code>binder</code>. If this constructor does not require parameters, pass an array with zero elements. Any object in this array that is not explicitly initialized with a value will contain the default value for that object type. For reference-type elements, this value is `null`. For value-type elements, this value is 0, 0.0, or `false`, depending on the specific element type.'
     return:
       type: System.Object
       description: An instance of the type.
@@ -1371,8 +1371,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Reflection
-  summary: Provides COM objects with version-independent access to the <xref href="System.Reflection.ConstructorInfo.Invoke(System.Reflection.BindingFlags,System.Reflection.Binder,System.Object[],System.Globalization.CultureInfo)"></xref> method.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Reflection.ConstructorInfo> instance is cast to an <xref:System.Runtime.InteropServices._ConstructorInfo> interface.
+  summary: 'Provides COM objects with version-independent access to the <xref href="System.Reflection.ConstructorInfo.Invoke(System.Reflection.BindingFlags,System.Reflection.Binder,System.Object[],System.Globalization.CultureInfo)"></xref> method.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Reflection.ConstructorInfo> instance is cast to an <xref:System.Runtime.InteropServices._ConstructorInfo> interface.'
   syntax:
     content: object _ConstructorInfo.Invoke_4 (System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, object[] parameters, System.Globalization.CultureInfo culture);
     parameters:
@@ -1381,13 +1381,13 @@ items:
       description: One of the <xref href="System.Reflection.BindingFlags"></xref> values that specifies the type of binding.
     - id: binder
       type: System.Reflection.Binder
-      description: A <xref href="System.Reflection.Binder"></xref> that defines a set of properties and enables the binding, coercion of argument types, and invocation of members using reflection. If <code>binder</code> is `null`, then <xref href="System.Type.DefaultBinder"></xref> is used.
+      description: 'A <xref href="System.Reflection.Binder"></xref> that defines a set of properties and enables the binding, coercion of argument types, and invocation of members using reflection. If <code>binder</code> is `null`, then <xref href="System.Type.DefaultBinder"></xref> is used.'
     - id: parameters
       type: System.Object[]
-      description: An array of objects used to match the number, order, and type of the parameters for this constructor, under the constraints of <code>binder</code>. If this constructor does not require parameters, pass an array with zero elements. Any object in this array that is not explicitly initialized with a value will contain the default value for that object type. For reference-type elements, this value is `null`. For value-type elements, this value is 0, 0.0, or `false`, depending on the specific element type.
+      description: 'An array of objects used to match the number, order, and type of the parameters for this constructor, under the constraints of <code>binder</code>. If this constructor does not require parameters, pass an array with zero elements. Any object in this array that is not explicitly initialized with a value will contain the default value for that object type. For reference-type elements, this value is `null`. For value-type elements, this value is 0, 0.0, or `false`, depending on the specific element type.'
     - id: culture
       type: System.Globalization.CultureInfo
-      description: A <xref href="System.Globalization.CultureInfo"></xref> used to govern the coercion of types. If this is `null`, the <xref href="System.Globalization.CultureInfo"></xref> for the current thread is used.
+      description: 'A <xref href="System.Globalization.CultureInfo"></xref> used to govern the coercion of types. If this is `null`, the <xref href="System.Globalization.CultureInfo"></xref> for the current thread is used.'
     return:
       type: System.Object
       description: An instance of the type.
@@ -1431,14 +1431,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Reflection
-  summary: Provides COM objects with version-independent access to the <xref href="System.Reflection.ConstructorInfo.Invoke(System.Object[])"></xref> method.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Reflection.ConstructorInfo> instance is cast to an <xref:System.Runtime.InteropServices._ConstructorInfo> interface.
+  summary: 'Provides COM objects with version-independent access to the <xref href="System.Reflection.ConstructorInfo.Invoke(System.Object[])"></xref> method.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Reflection.ConstructorInfo> instance is cast to an <xref:System.Runtime.InteropServices._ConstructorInfo> interface.'
   syntax:
     content: object _ConstructorInfo.Invoke_5 (object[] parameters);
     parameters:
     - id: parameters
       type: System.Object[]
-      description: An array of objects used to match the number, order, and type of the parameters for this constructor, under the constraints of <code>binder</code>. If this constructor does not require parameters, pass an array with zero elements. Any object in this array that is not explicitly initialized with a value will contain the default value for that object type. For reference-type elements, this value is `null`. For value-type elements, this value is 0, 0.0, or `false`, depending on the specific element type.
+      description: 'An array of objects used to match the number, order, and type of the parameters for this constructor, under the constraints of <code>binder</code>. If this constructor does not require parameters, pass an array with zero elements. Any object in this array that is not explicitly initialized with a value will contain the default value for that object type. For reference-type elements, this value is `null`. For value-type elements, this value is 0, 0.0, or `false`, depending on the specific element type.'
     return:
       type: System.Object
       description: An instance of the type.

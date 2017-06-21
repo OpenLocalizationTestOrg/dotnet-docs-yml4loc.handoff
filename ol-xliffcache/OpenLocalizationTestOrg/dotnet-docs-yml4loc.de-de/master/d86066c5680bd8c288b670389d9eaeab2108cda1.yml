@@ -18,7 +18,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Windows.Markup
-  summary: Provides type conversion to convert a string name into an object reference to the object with that name, or to return the name of an object from the object graph.
+  summary: 'Provides type conversion to convert a string name into an object reference to the object with that name, or to return the name of an object from the object graph.'
   remarks: "This class provides a type converter wrapper around two services.  \n  \n The <xref:System.Windows.Markup.NameReferenceConverter.ConvertFrom%2A> implementation uses <xref:System.Xaml.IXamlNameResolver> service from context to perform the resolution of an object by name in XAML. This is part of the relevant XAML reader and XAML writer implementations in .NET Framework XAML Services. Proper function of this converter requires that the <xref:System.Xaml.IXamlNameResolver> service is available from service context.  \n  \n The <xref:System.Windows.Markup.NameReferenceConverter.ConvertTo%2A> implementation uses <xref:System.Xaml.IXamlNameProvider> service from context to perform the resolution of a reference name for an object during save/serialization. This is part of the relevant reader and writer implementations and their context. Proper function of this converter requires that there be an underlying <xref:System.Xaml.IXamlNameProvider> service available.  \n  \n This type converter implementation is atypical for the <xref:System.ComponentModel.TypeConverter> base type because it is not scoped to a discrete conversion type. It can potentially convert any object to and from a referencing name so long as that object could have a name assigned to it in XAML, and the supporting context has the necessary services to return results.  \n  \n As part of general services support, the System.Xaml base implementation of <xref:System.Xaml.XamlObjectWriter> and <xref:System.Xaml.XamlXmlWriter> provide <xref:System.Xaml.IXamlNameProvider> and <xref:System.Xaml.IXamlNameResolver> services for use by <xref:System.Windows.Markup.NameReferenceConverter>. The name basis for these services uses either `x:Name` or a <xref:System.Windows.Markup.RuntimeNamePropertyAttribute> attributed alias property."
   syntax:
     content: 'public class NameReferenceConverter : System.ComponentModel.TypeConverter'
@@ -141,7 +141,7 @@ items:
   - System.Xaml
   namespace: System.Windows.Markup
   summary: Returns whether this converter can convert an object of one type to another object.
-  remarks: This implementation can only process a `sourceType` of <xref:System.String>. Other types return `false`.
+  remarks: 'This implementation can only process a `sourceType` of <xref:System.String>. Other types return `false`.'
   syntax:
     content: public override bool CanConvertFrom (System.ComponentModel.ITypeDescriptorContext context, Type sourceType);
     parameters:
@@ -238,8 +238,8 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Windows.Markup
-  summary: Converts the provided object to another object, using the specified context and culture information.
-  remarks: Only a <xref:System.String> input provides a conversion result.
+  summary: 'Converts the provided object to another object, using the specified context and culture information.'
+  remarks: 'Only a <xref:System.String> input provides a conversion result.'
   syntax:
     content: public override object ConvertFrom (System.ComponentModel.ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value);
     parameters:
@@ -254,7 +254,7 @@ items:
       description: The reference name string to convert.
     return:
       type: System.Object
-      description: The returned object, which is potentially any object that is type-mapped in the relevant backing assemblies and capable of being declared in XAML with a XAML name reference.
+      description: 'The returned object, which is potentially any object that is type-mapped in the relevant backing assemblies and capable of being declared in XAML with a XAML name reference.'
   overload: System.Windows.Markup.NameReferenceConverter.ConvertFrom*
   exceptions:
   - type: System.InvalidOperationException

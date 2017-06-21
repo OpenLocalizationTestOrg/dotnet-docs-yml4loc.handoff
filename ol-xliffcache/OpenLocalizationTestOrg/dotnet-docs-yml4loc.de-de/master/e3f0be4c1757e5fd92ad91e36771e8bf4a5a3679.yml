@@ -102,7 +102,7 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Recognition
-  summary: Initializes a new, empty instance of the <xref href="System.Speech.Recognition.GrammarBuilder"></xref> class.
+  summary: 'Initializes a new, empty instance of the <xref href="System.Speech.Recognition.GrammarBuilder"></xref> class.'
   remarks: "To add rules to an existing <xref:System.Speech.Recognition.GrammarBuilder> object, use the <xref:System.Speech.Recognition.GrammarBuilder.Add%2A>, <xref:System.Speech.Recognition.GrammarBuilder.Append%2A>, <xref:System.Speech.Recognition.GrammarBuilder.AppendDictation%2A>, <xref:System.Speech.Recognition.GrammarBuilder.AppendRuleReference%2A>, and <xref:System.Speech.Recognition.GrammarBuilder.AppendWildcard%2A> methods, and the <xref:System.Speech.Recognition.GrammarBuilder.op_Addition%2A> operator.  \n  \n> [!IMPORTANT]\n>  The speech recognizer can throw an exception when using a speech recognition grammar that contains duplicate semantic elements with the same key name or multiple semantic elements that could repeatedly modify the value of the same semantic element. For more information about building a speech recognition grammar that contains semantic information, see [Using SemanticResultKey and SemanticResultValue Objects](http://msdn.microsoft.com/en-us/0fea1236-5261-4608-89b3-9ce9ffc22a1c)."
   example:
   - "The following example uses  <xref:System.Speech.Recognition.GrammarBuilder> and <xref:System.Speech.Recognition.Choices> objects to construct a grammar that can recognize either of the two phrases, \"Make background *colorChoice*\" or \"Set background to *colorChoice*\".  \n  \n The example uses a <xref:System.Speech.Recognition.Choices> object  to create a list of acceptable values for *colorChoice* from an array of <xref:System.String> objects. A <xref:System.Speech.Recognition.Choices> object is analogous to the `one-of` element in the SRGS specification, and contains a set of alternate phrases, any one of which can be recognized when spoken. The example also uses a <xref:System.Speech.Recognition.Choices> object to group an array of two <xref:System.Speech.Recognition.GrammarBuilder> objects into a pair of alternative phrases that the resultant grammar can recognize. Alternate words or phrases are a component of most grammars, and the <xref:System.Speech.Recognition.Choices> object provides this functionality for grammars constructed with <xref:System.Speech.Recognition.GrammarBuilder>.  \n  \n The example finally creates a <xref:System.Speech.Recognition.Grammar> object from a <xref:System.Speech.Recognition.GrammarBuilder> constructed from a <xref:System.Speech.Recognition.Choices> object.  \n  \n```csharp  \n  \nprivate Grammar CreateColorGrammar()  \n{  \n  \n  // Create a set of color choices.  \n  Choices colorChoice = new Choices(new string[] {\"red\", \"green\", \"blue\"});  \n  GrammarBuilder colorElement = new GrammarBuilder(colorChoice);  \n  \n  // Create grammar builders for the two versions of the phrase.  \n  GrammarBuilder makePhrase = new GrammarBuilder(\"Make background\");  \n  makePhrase.Append(colorElement);  \n  GrammarBuilder setPhrase = new GrammarBuilder(\"Set background to\");  \n  setPhrase.Append(colorElement);  \n  \n  // Create a Choices for the two alternative phrases, convert the Choices  \n  // to a GrammarBuilder, and construct the Grammar object from the result.  \n  GrammarBuilder bothPhrases = new GrammarBuilder();  \n  Choices bothChoices = new Choices(new GrammarBuilder[] {makePhrase, setPhrase});  \n  bothPhrases.Append(bothChoices);  \n  Grammar grammar = new Grammar(bothPhrases);  \n  grammar.Name = \"backgroundColor\";  \n  return grammar;  \n}  \n  \n```"
@@ -146,7 +146,7 @@ items:
   - System.Speech
   namespace: System.Speech.Recognition
   summary: Initializes a new instance of the <xref href="System.Speech.Recognition.GrammarBuilder"></xref> class from a set of alternatives.
-  remarks: For more information about building a speech recognition grammar that contains alternatives, see [Using Choices to Create a GrammarBuilder Grammar](http://msdn.microsoft.com/en-us/5b18db18-a5f6-46a3-aa77-6d3141544efd).
+  remarks: 'For more information about building a speech recognition grammar that contains alternatives, see [Using Choices to Create a GrammarBuilder Grammar](http://msdn.microsoft.com/en-us/5b18db18-a5f6-46a3-aa77-6d3141544efd).'
   example:
   - "The following example uses  <xref:System.Speech.Recognition.GrammarBuilder> and <xref:System.Speech.Recognition.Choices> objects to construct a grammar that can recognize either of the two phrases, \"Make background *colorChoice*\" or \"Set background to *colorChoice*\".  \n  \n The example uses a <xref:System.Speech.Recognition.Choices> object  to create a list of acceptable values for *colorChoice* from an array of <xref:System.String> objects. A <xref:System.Speech.Recognition.Choices> object is analogous to the `one-of` element in the SRGS specification, and contains a set of alternate phrases, any of which can be recognized when spoken. The example also uses a <xref:System.Speech.Recognition.Choices> object to group an array of two <xref:System.Speech.Recognition.GrammarBuilder> objects into a pair of alternative phrases that the resultant grammar can recognize. Alternate words or phrases are a component of most grammars, and the <xref:System.Speech.Recognition.Choices> object provides this functionality for grammars constructed with <xref:System.Speech.Recognition.GrammarBuilder>.  \n  \n The example finally creates a <xref:System.Speech.Recognition.Grammar> object from a <xref:System.Speech.Recognition.GrammarBuilder> constructed from a <xref:System.Speech.Recognition.Choices> object.  \n  \n```csharp  \n  \nprivate Grammar CreateColorGrammar()  \n{  \n  \n  // Create a set of color choices.  \n  Choices colorChoice = new Choices(new string[] {\"red\", \"green\", \"blue\"});  \n  GrammarBuilder colorElement = new GrammarBuilder(colorChoice);  \n  \n  // Create grammar builders for the two versions of the phrase.  \n  GrammarBuilder makePhrase = new GrammarBuilder(\"Make background\");  \n  makePhrase.Append(colorElement);  \n  GrammarBuilder setPhrase = new GrammarBuilder(\"Set background to\");  \n  setPhrase.Append(colorElement);  \n  \n  // Create a Choices for the two alternative phrases, convert the Choices  \n  // to a GrammarBuilder, and construct the grammar from the result.  \n  Choices bothChoices = new Choices(new GrammarBuilder[] {makePhrase, setPhrase});  \n  Grammar grammar = new Grammar((GrammarBuilder)bothChoices);  \n  grammar.Name = \"backgroundColor\";  \n  return grammar;  \n}  \n  \n```"
   syntax:
@@ -284,7 +284,7 @@ items:
   - System.Speech
   namespace: System.Speech.Recognition
   summary: Initializes a new instance of the <xref href="System.Speech.Recognition.GrammarBuilder"></xref> class from a sequence of words.
-  remarks: The phrase represents an exact spoken phrase that the speech recognition grammar can recognize. For more information about building a speech recognition grammar that contains strings, see [Using Strings to Create a GrammarBuilder Grammar](http://msdn.microsoft.com/en-us/0d87b445-a342-4369-9b3f-91d07fd7e114).
+  remarks: 'The phrase represents an exact spoken phrase that the speech recognition grammar can recognize. For more information about building a speech recognition grammar that contains strings, see [Using Strings to Create a GrammarBuilder Grammar](http://msdn.microsoft.com/en-us/0d87b445-a342-4369-9b3f-91d07fd7e114).'
   example:
   - "The following example uses  <xref:System.Speech.Recognition.GrammarBuilder> and <xref:System.Speech.Recognition.Choices> objects to construct a grammar that can recognize either of the two phrases, \"Make background *colorChoice*\" or \"Set background to *colorChoice*\".  \n  \n After creating a list of acceptable values for *colorChoice* using a <xref:System.Speech.Recognition.Choices> object, the example initializes two <xref:System.Speech.Recognition.GrammarBuilder> objects, `makePhrase` and `setPhrase`, using a string as an argument.  \n  \n The example finally creates a <xref:System.Speech.Recognition.Grammar> object from a <xref:System.Speech.Recognition.Choices> object cast to a <xref:System.Speech.Recognition.GrammarBuilder> object.  \n  \n```csharp  \n  \nprivate Grammar CreateColorGrammar()  \n{  \n  \n  // Create a set of color choices.  \n  Choices colorChoice = new Choices(new string[] {\"red\", \"green\", \"blue\"});  \n  GrammarBuilder colorElement = new GrammarBuilder(colorChoice);  \n  \n  // Create grammar builders for the two versions of the phrase.  \n  GrammarBuilder makePhrase = new GrammarBuilder(\"Make background\");  \n  makePhrase.Append(colorElement);  \n  GrammarBuilder setPhrase = new GrammarBuilder(\"Set background to\");  \n  setPhrase.Append(colorElement);  \n  \n  // Create a Choices for the two alternative phrases, convert the Choices  \n  // to a GrammarBuilder, and construct the Grammar object from the result.  \n  Choices bothChoices = new Choices(new GrammarBuilder[] {makePhrase, setPhrase});  \n  Grammar grammar = new Grammar((GrammarBuilder)bothChoices);  \n  grammar.Name = \"backgroundColor\";  \n  return grammar;  \n}  \n  \n```"
   syntax:
@@ -489,7 +489,7 @@ items:
     parameters:
     - id: choices
       type: System.Speech.Recognition.Choices
-      description: The first grammar element, which represents a set of alternatives.
+      description: 'The first grammar element, which represents a set of alternatives.'
     - id: builder
       type: System.Speech.Recognition.GrammarBuilder
       description: The second grammar element.
@@ -544,7 +544,7 @@ items:
       description: The first grammar element.
     - id: choices
       type: System.Speech.Recognition.Choices
-      description: The second grammar element, which represents a set of alternatives.
+      description: 'The second grammar element, which represents a set of alternatives.'
     return:
       type: System.Speech.Recognition.GrammarBuilder
       description: A <xref href="System.Speech.Recognition.GrammarBuilder"></xref> for the sequence of the <code>builder</code> element followed by the <code>choices</code> element.
@@ -648,7 +648,7 @@ items:
       description: The first grammar element.
     - id: phrase
       type: System.String
-      description: The second grammar element, which represents a sequence of words.
+      description: 'The second grammar element, which represents a sequence of words.'
     return:
       type: System.Speech.Recognition.GrammarBuilder
       description: A <xref href="System.Speech.Recognition.GrammarBuilder"></xref> for the sequence of the <code>builder</code> element followed by the <code>phrase</code> element.
@@ -697,7 +697,7 @@ items:
     parameters:
     - id: phrase
       type: System.String
-      description: The first grammar element, which represents a sequence of words.
+      description: 'The first grammar element, which represents a sequence of words.'
     - id: builder
       type: System.Speech.Recognition.GrammarBuilder
       description: The second grammar element.
@@ -1122,7 +1122,7 @@ items:
   - System.Speech
   namespace: System.Speech.Recognition
   summary: Appends the default dictation grammar to the current sequence of grammar elements.
-  remarks: For more information on dictation grammars, see <xref:System.Speech.Recognition.DictationGrammar>.
+  remarks: 'For more information on dictation grammars, see <xref:System.Speech.Recognition.DictationGrammar>.'
   example:
   - "The following example creates a speech recognition grammar that incorporates dictation.  \n  \n```csharp  \n  \nGrammarBuilder builder = new GrammarBuilder();  \nbuilder.Append(\"begin\");  \nbuilder.AppendDictation();  \nbuilder.Append(\"end\");  \nGrammar grammarWithDictation = new Grammar(builder);  \ngrammarWithDictation.Name = \"Grammar with Dictation\";  \n```"
   syntax:
@@ -1268,7 +1268,7 @@ items:
       description: The file path or Universal Resource Identifier (URI) of the file that describes a speech recognition grammar in a supported format.
     - id: rule
       type: System.String
-      description: The identifier of the rule to append, or `null` to append the default root rule of the grammar file.
+      description: 'The identifier of the rule to append, or `null` to append the default root rule of the grammar file.'
   overload: System.Speech.Recognition.GrammarBuilder.AppendRuleReference*
   exceptions: []
   version:
@@ -1445,7 +1445,7 @@ items:
     parameters:
     - id: choices
       type: System.Speech.Recognition.Choices
-      description: The first grammar element, which represents a set of alternatives.
+      description: 'The first grammar element, which represents a set of alternatives.'
     - id: builder
       type: System.Speech.Recognition.GrammarBuilder
       description: The second grammar element.
@@ -1500,7 +1500,7 @@ items:
       description: The first grammar element.
     - id: choices
       type: System.Speech.Recognition.Choices
-      description: The second grammar element, which represents a set of alternative elements.
+      description: 'The second grammar element, which represents a set of alternative elements.'
     return:
       type: System.Speech.Recognition.GrammarBuilder
       description: Returns a <xref href="System.Speech.Recognition.GrammarBuilder"></xref> for the sequence of the <code>builder</code> parameter followed by the <code>choices</code> parameter.
@@ -1600,7 +1600,7 @@ items:
       description: The first grammar element.
     - id: phrase
       type: System.String
-      description: The second grammar element, which represents a sequence of words.
+      description: 'The second grammar element, which represents a sequence of words.'
     return:
       type: System.Speech.Recognition.GrammarBuilder
       description: Returns a <xref href="System.Speech.Recognition.GrammarBuilder"></xref> for the sequence of the <code>builder</code> parameter followed by the <code>phrase</code> parameter.
@@ -1649,7 +1649,7 @@ items:
     parameters:
     - id: phrase
       type: System.String
-      description: The first grammar element, which represents a sequence of words.
+      description: 'The first grammar element, which represents a sequence of words.'
     - id: builder
       type: System.Speech.Recognition.GrammarBuilder
       description: The second grammar element.

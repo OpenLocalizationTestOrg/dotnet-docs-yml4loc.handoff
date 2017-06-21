@@ -96,7 +96,7 @@ items:
   - System.CodeDom
   namespace: System.CodeDom
   summary: Initializes a new instance of the <xref href="System.CodeDom.CodeTypeReference"></xref> class.
-  remarks: This constructor creates an empty <xref:System.CodeDom.CodeTypeReference> object.  If you use this constructor, set properties to establish the type reference.
+  remarks: 'This constructor creates an empty <xref:System.CodeDom.CodeTypeReference> object.  If you use this constructor, set properties to establish the type reference.'
   syntax:
     content: public CodeTypeReference ();
     parameters: []
@@ -294,7 +294,7 @@ items:
   - System.CodeDom
   namespace: System.CodeDom
   summary: Initializes a new instance of the <xref href="System.CodeDom.CodeTypeReference"></xref> class using the specified array type and rank.
-  remarks: This constructor can be used to construct arrays of arrays by nesting <xref:System.CodeDom.CodeTypeReference> objects.
+  remarks: 'This constructor can be used to construct arrays of arrays by nesting <xref:System.CodeDom.CodeTypeReference> objects.'
   syntax:
     content: public CodeTypeReference (System.CodeDom.CodeTypeReference arrayType, int rank);
     parameters:
@@ -407,7 +407,7 @@ items:
       description: The name of the type to reference.
     - id: codeTypeReferenceOption
       type: System.CodeDom.CodeTypeReferenceOptions
-      description: The code type reference option, one of the <xref href="System.CodeDom.CodeTypeReferenceOptions"></xref> values.
+      description: 'The code type reference option, one of the <xref href="System.CodeDom.CodeTypeReferenceOptions"></xref> values.'
   overload: System.CodeDom.CodeTypeReference.#ctor*
   exceptions: []
   version:
@@ -511,7 +511,7 @@ items:
       description: The <xref href="System.Type"></xref> to reference.
     - id: codeTypeReferenceOption
       type: System.CodeDom.CodeTypeReferenceOptions
-      description: The code type reference option, one of the <xref href="System.CodeDom.CodeTypeReferenceOptions"></xref> values.
+      description: 'The code type reference option, one of the <xref href="System.CodeDom.CodeTypeReferenceOptions"></xref> values.'
   overload: System.CodeDom.CodeTypeReference.#ctor*
   exceptions: []
   version:
@@ -555,7 +555,7 @@ items:
   - System.CodeDom
   namespace: System.CodeDom
   summary: Gets or sets the type of the elements in the array.
-  remarks: This is disregarded unless the <xref:System.CodeDom.CodeTypeReference.ArrayRank%2A> property is greater than or equal to 1.
+  remarks: 'This is disregarded unless the <xref:System.CodeDom.CodeTypeReference.ArrayRank%2A> property is greater than or equal to 1.'
   syntax:
     content: public System.CodeDom.CodeTypeReference ArrayElementType { get; set; }
     return:
@@ -652,7 +652,7 @@ items:
   - System.CodeDom
   namespace: System.CodeDom
   summary: Gets or sets the name of the type being referenced.
-  remarks: "This property contains the name of the type unless it is an array type, in which case it is the array element type.  \n  \n> [!NOTE]\n>  The name of the property may be misleading. This property contains just the type name with any array adornments or generic type arguments removed, not the base or parent type as might be expected. For example, the <xref:System.CodeDom.CodeTypeReference.BaseType%2A> value for ``System.Collections.Generic.Dictionary`2[[System.String], [System.Collections.Generic.List`1[[System.Int32]]]]`` is ``System.Collections.Generic.Dictionary`2``.  \n  \n## Representation of Generic Types  \n The information in this section is intended for CodeDom provider developers and only applies to CLS-compliant languages. The return value can contain generic types. Generic types are formatted with the name of the type followed by a grave accent (\"`\") followed by a count of the generic type arguments. The generic type arguments can be found in the <xref:System.CodeDom.CodeTypeReferenceCollection> returned by the <xref:System.CodeDom.CodeTypeReference.TypeArguments%2A> property. The values returned by <xref:System.CodeDom.CodeTypeReference.BaseType%2A> and the associated <xref:System.CodeDom.CodeTypeReference.TypeArguments%2A> contain the same content as the value of the type returned by reflection.  \n  \n For example, a constructed <xref:System.Collections.Generic.Dictionary%602> where `K` is a string and `V` is a constructed <xref:System.Collections.Generic.List%601> of integers is represented by reflection as the following (with the assembly information removed):  \n  \n```  \nSystem.Collections.Generic.Dictionary`2[[System.String], [System.Collections.Generic.List`1[[System.Int32]]]]  \n```  \n  \n Recursively parsing the <xref:System.CodeDom.CodeTypeReference.BaseType%2A> property from the <xref:System.CodeDom.CodeTypeReference> for <xref:System.Collections.Generic.Dictionary%602> yields the same strings as the reflection representation above:  \n  \n-   The <xref:System.CodeDom.CodeTypeReference.BaseType%2A> property for the parent <xref:System.CodeDom.CodeTypeReference> returns the following:  \n  \n    ```  \n    System.Collections.Generic.Dictionary`2  \n    ```  \n  \n-   The <xref:System.CodeDom.CodeTypeReference.BaseType%2A> property for the first <xref:System.CodeDom.CodeTypeReference> object in the <xref:System.CodeDom.CodeTypeReference.TypeArguments%2A> collection returns the following:  \n  \n    ```  \n    System.String  \n    ```  \n  \n-   The <xref:System.CodeDom.CodeTypeReference.BaseType%2A> property for the second <xref:System.CodeDom.CodeTypeReference> object in the <xref:System.CodeDom.CodeTypeReference.TypeArguments%2A> collection returns the following:  \n  \n    ```  \n    System.Collections.Generic.List`1  \n    ```  \n  \n-   The <xref:System.CodeDom.CodeTypeReference.TypeArguments%2A> property in the <xref:System.CodeDom.CodeTypeReference> object for ``System.Collections.Generic.List`1`` returns the following:  \n  \n    ```  \n    System.Int32  \n    ```  \n  \n The type argument count should be used when parsing the associated <xref:System.CodeDom.CodeTypeReference.TypeArguments%2A> values. The common practice is to remove the type argument count from the generated code, but the practice is compiler specific.  It is important to note that the type argument count can be found within a nested type name, in which case it is followed by a plus sign (\"+\").  \n  \n> [!NOTE]\n>  When creating a generic <xref:System.CodeDom.CodeTypeReference>, the recommended practice is to specify the type arguments as <xref:System.CodeDom.CodeTypeReference> objects or use the constructor that takes a <xref:System.Type>. Use of the constructor that creates a <xref:System.CodeDom.CodeTypeReference> from a string can lead to undiscoverable type-argument errors."
+  remarks: "This property contains the name of the type unless it is an array type, in which case it is the array element type.  \n  \n> [!NOTE]\n>  The name of the property may be misleading. This property contains just the type name with any array adornments or generic type arguments removed, not the base or parent type as might be expected. For example, the <xref:System.CodeDom.CodeTypeReference.BaseType%2A> value for ``System.Collections.Generic.Dictionary`2[[System.String], [System.Collections.Generic.List`1[[System.Int32]]]]`` is ``System.Collections.Generic.Dictionary`2``.  \n  \n## <a name=\"representation-of-generic-types\"></a>Representation of Generic Types  \n The information in this section is intended for CodeDom provider developers and only applies to CLS-compliant languages. The return value can contain generic types. Generic types are formatted with the name of the type followed by a grave accent (\"`\") followed by a count of the generic type arguments. The generic type arguments can be found in the <xref:System.CodeDom.CodeTypeReferenceCollection> returned by the <xref:System.CodeDom.CodeTypeReference.TypeArguments%2A> property. The values returned by <xref:System.CodeDom.CodeTypeReference.BaseType%2A> and the associated <xref:System.CodeDom.CodeTypeReference.TypeArguments%2A> contain the same content as the value of the type returned by reflection.  \n  \n For example, a constructed <xref:System.Collections.Generic.Dictionary%602> where `K` is a string and `V` is a constructed <xref:System.Collections.Generic.List%601> of integers is represented by reflection as the following (with the assembly information removed):  \n  \n```  \nSystem.Collections.Generic.Dictionary`2[[System.String], [System.Collections.Generic.List`1[[System.Int32]]]]  \n```  \n  \n Recursively parsing the <xref:System.CodeDom.CodeTypeReference.BaseType%2A> property from the <xref:System.CodeDom.CodeTypeReference> for <xref:System.Collections.Generic.Dictionary%602> yields the same strings as the reflection representation above:  \n  \n-   The <xref:System.CodeDom.CodeTypeReference.BaseType%2A> property for the parent <xref:System.CodeDom.CodeTypeReference> returns the following:  \n  \n    ```  \n    System.Collections.Generic.Dictionary`2  \n    ```  \n  \n-   The <xref:System.CodeDom.CodeTypeReference.BaseType%2A> property for the first <xref:System.CodeDom.CodeTypeReference> object in the <xref:System.CodeDom.CodeTypeReference.TypeArguments%2A> collection returns the following:  \n  \n    ```  \n    System.String  \n    ```  \n  \n-   The <xref:System.CodeDom.CodeTypeReference.BaseType%2A> property for the second <xref:System.CodeDom.CodeTypeReference> object in the <xref:System.CodeDom.CodeTypeReference.TypeArguments%2A> collection returns the following:  \n  \n    ```  \n    System.Collections.Generic.List`1  \n    ```  \n  \n-   The <xref:System.CodeDom.CodeTypeReference.TypeArguments%2A> property in the <xref:System.CodeDom.CodeTypeReference> object for ``System.Collections.Generic.List`1`` returns the following:  \n  \n    ```  \n    System.Int32  \n    ```  \n  \n The type argument count should be used when parsing the associated <xref:System.CodeDom.CodeTypeReference.TypeArguments%2A> values. The common practice is to remove the type argument count from the generated code, but the practice is compiler specific.  It is important to note that the type argument count can be found within a nested type name, in which case it is followed by a plus sign (\"+\").  \n  \n> [!NOTE]\n>  When creating a generic <xref:System.CodeDom.CodeTypeReference>, the recommended practice is to specify the type arguments as <xref:System.CodeDom.CodeTypeReference> objects or use the constructor that takes a <xref:System.Type>. Use of the constructor that creates a <xref:System.CodeDom.CodeTypeReference> from a string can lead to undiscoverable type-argument errors."
   syntax:
     content: public string BaseType { get; set; }
     return:
@@ -754,7 +754,7 @@ items:
   - System.CodeDom
   namespace: System.CodeDom
   summary: Gets the type arguments for the current generic type reference.
-  remarks: The <xref:System.CodeDom.CodeTypeReference.TypeArguments%2A> property is a collection of type references to be substituted for the type parameter references of the current generic type. The collection contains all the type arguments for all nested types. For an example, see the <xref:System.CodeDom.CodeTypeReference.BaseType%2A> property.
+  remarks: 'The <xref:System.CodeDom.CodeTypeReference.TypeArguments%2A> property is a collection of type references to be substituted for the type parameter references of the current generic type. The collection contains all the type arguments for all nested types. For an example, see the <xref:System.CodeDom.CodeTypeReference.BaseType%2A> property.'
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(false)]

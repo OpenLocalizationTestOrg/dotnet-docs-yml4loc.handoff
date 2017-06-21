@@ -34,7 +34,7 @@ items:
   - mscorlib
   namespace: System.Runtime.InteropServices
   summary: Use <xref href="System.Runtime.InteropServices.ComTypes.IMoniker"></xref> instead.
-  remarks: For more information about the `IMoniker`, `IPersist`, and `IPersistStream` interfaces, see the MSDN Library.
+  remarks: 'For more information about the `IMoniker`, `IPersist`, and `IPersistStream` interfaces, see the MSDN Library.'
   syntax:
     content: >-
       [System.Obsolete]
@@ -89,7 +89,7 @@ items:
   - mscorlib
   namespace: System.Runtime.InteropServices
   summary: Uses the moniker to bind to the object it identifies.
-  remarks: For more information about `IMoniker::BindToObject`, see the MSDN Library.
+  remarks: 'For more information about `IMoniker::BindToObject`, see the MSDN Library.'
   syntax:
     content: public void BindToObject (System.Runtime.InteropServices.UCOMIBindCtx pbc, System.Runtime.InteropServices.UCOMIMoniker pmkToLeft, ref Guid riidResult, out object ppvResult);
     parameters:
@@ -98,13 +98,13 @@ items:
       description: A reference to the `IBindCtx` interface on the bind context object used in this binding operation.
     - id: pmkToLeft
       type: System.Runtime.InteropServices.UCOMIMoniker
-      description: A reference to the moniker to the left of this moniker, if the moniker is part of a composite moniker.
+      description: 'A reference to the moniker to the left of this moniker, if the moniker is part of a composite moniker.'
     - id: riidResult
       type: System.Guid
       description: The interface identifier (IID) of the interface the client intends to use to communicate with the object that the moniker identifies.
     - id: ppvResult
       type: System.Object
-      description: On successful return, reference to the interface requested by <code>riidResult</code>.
+      description: 'On successful return, reference to the interface requested by <code>riidResult</code>.'
   overload: System.Runtime.InteropServices.UCOMIMoniker.BindToObject*
   exceptions: []
   version:
@@ -147,7 +147,7 @@ items:
   - mscorlib
   namespace: System.Runtime.InteropServices
   summary: Retrieves an interface pointer to the storage that contains the object identified by the moniker.
-  remarks: For more information about `IMoniker::BindToStorage`, see the MSDN Library.
+  remarks: 'For more information about `IMoniker::BindToStorage`, see the MSDN Library.'
   syntax:
     content: public void BindToStorage (System.Runtime.InteropServices.UCOMIBindCtx pbc, System.Runtime.InteropServices.UCOMIMoniker pmkToLeft, ref Guid riid, out object ppvObj);
     parameters:
@@ -156,13 +156,13 @@ items:
       description: A reference to the `IBindCtx` interface on the bind context object used during this binding operation.
     - id: pmkToLeft
       type: System.Runtime.InteropServices.UCOMIMoniker
-      description: A reference to the moniker to the left of this moniker, if the moniker is part of a composite moniker.
+      description: 'A reference to the moniker to the left of this moniker, if the moniker is part of a composite moniker.'
     - id: riid
       type: System.Guid
       description: The interface identifier (IID) of the storage interface requested.
     - id: ppvObj
       type: System.Object
-      description: On successful return, a reference to the interface requested by <code>riid</code>.
+      description: 'On successful return, a reference to the interface requested by <code>riid</code>.'
   overload: System.Runtime.InteropServices.UCOMIMoniker.BindToStorage*
   exceptions: []
   version:
@@ -205,7 +205,7 @@ items:
   - mscorlib
   namespace: System.Runtime.InteropServices
   summary: Creates a new moniker based on the common prefix that this moniker shares with another moniker.
-  remarks: For more information about `IMoniker::CommonPrefixWith`, see the MSDN Library.
+  remarks: 'For more information about `IMoniker::CommonPrefixWith`, see the MSDN Library.'
   syntax:
     content: public void CommonPrefixWith (System.Runtime.InteropServices.UCOMIMoniker pmkOther, out System.Runtime.InteropServices.UCOMIMoniker ppmkPrefix);
     parameters:
@@ -214,7 +214,7 @@ items:
       description: A reference to the `IMoniker` interface on another moniker to compare with this for a common prefix.
     - id: ppmkPrefix
       type: System.Runtime.InteropServices.UCOMIMoniker
-      description: On successful return, contains the moniker that is the common prefix of this moniker and <code>pmkOther</code>.
+      description: 'On successful return, contains the moniker that is the common prefix of this moniker and <code>pmkOther</code>.'
   overload: System.Runtime.InteropServices.UCOMIMoniker.CommonPrefixWith*
   exceptions: []
   version:
@@ -256,8 +256,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.InteropServices
-  summary: Combines the current moniker with another moniker, creating a new composite moniker.
-  remarks: For more information about `IMoniker::ComposeWith`, see the MSDN Library.
+  summary: 'Combines the current moniker with another moniker, creating a new composite moniker.'
+  remarks: 'For more information about `IMoniker::ComposeWith`, see the MSDN Library.'
   syntax:
     content: public void ComposeWith (System.Runtime.InteropServices.UCOMIMoniker pmkRight, bool fOnlyIfNotGeneric, out System.Runtime.InteropServices.UCOMIMoniker ppmkComposite);
     parameters:
@@ -266,10 +266,10 @@ items:
       description: A reference to the `IMoniker` interface on the moniker to compose onto the end of this moniker.
     - id: fOnlyIfNotGeneric
       type: System.Boolean
-      description: If `true`, the caller requires a nongeneric composition, so the operation proceeds only if <code>pmkRight</code> is a moniker class that this moniker can compose with in some way other than forming a generic composite. If `false`, the method can create a generic composite if necessary.
+      description: 'If `true`, the caller requires a nongeneric composition, so the operation proceeds only if <code>pmkRight</code> is a moniker class that this moniker can compose with in some way other than forming a generic composite. If `false`, the method can create a generic composite if necessary.'
     - id: ppmkComposite
       type: System.Runtime.InteropServices.UCOMIMoniker
-      description: On successful return, a reference to the resulting composite moniker.
+      description: 'On successful return, a reference to the resulting composite moniker.'
   overload: System.Runtime.InteropServices.UCOMIMoniker.ComposeWith*
   exceptions: []
   version:
@@ -312,16 +312,16 @@ items:
   - mscorlib
   namespace: System.Runtime.InteropServices
   summary: Supplies a pointer to an enumerator that can enumerate the components of a composite moniker.
-  remarks: For more information about `IMoniker::Enum`, see the MSDN Library.
+  remarks: 'For more information about `IMoniker::Enum`, see the MSDN Library.'
   syntax:
     content: public void Enum (bool fForward, out System.Runtime.InteropServices.UCOMIEnumMoniker ppenumMoniker);
     parameters:
     - id: fForward
       type: System.Boolean
-      description: If `true`, enumerates the monikers from left to right. If `false`, enumerates from right to left.
+      description: 'If `true`, enumerates the monikers from left to right. If `false`, enumerates from right to left.'
     - id: ppenumMoniker
       type: System.Runtime.InteropServices.UCOMIEnumMoniker
-      description: On successful return, references the enumerator object for the moniker.
+      description: 'On successful return, references the enumerator object for the moniker.'
   overload: System.Runtime.InteropServices.UCOMIMoniker.Enum*
   exceptions: []
   version:
@@ -364,13 +364,13 @@ items:
   - mscorlib
   namespace: System.Runtime.InteropServices
   summary: Retrieves the class identifier (CLSID) of an object.
-  remarks: For more information about `IPersist::GetClassID`, see the MSDN Library.
+  remarks: 'For more information about `IPersist::GetClassID`, see the MSDN Library.'
   syntax:
     content: public void GetClassID (out Guid pClassID);
     parameters:
     - id: pClassID
       type: System.Guid
-      description: On successful return, contains the CLSID.
+      description: 'On successful return, contains the CLSID.'
   overload: System.Runtime.InteropServices.UCOMIMoniker.GetClassID*
   exceptions: []
   version:
@@ -412,8 +412,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.InteropServices
-  summary: Gets the display name, which is a user-readable representation of this moniker.
-  remarks: For more information about `IMoniker::GetDisplayName`, see the MSDN Library.
+  summary: 'Gets the display name, which is a user-readable representation of this moniker.'
+  remarks: 'For more information about `IMoniker::GetDisplayName`, see the MSDN Library.'
   syntax:
     content: public void GetDisplayName (System.Runtime.InteropServices.UCOMIBindCtx pbc, System.Runtime.InteropServices.UCOMIMoniker pmkToLeft, out string ppszDisplayName);
     parameters:
@@ -422,10 +422,10 @@ items:
       description: A reference to the bind context to use in this operation.
     - id: pmkToLeft
       type: System.Runtime.InteropServices.UCOMIMoniker
-      description: A reference to the moniker to the left of this moniker, if the moniker is part of a composite moniker.
+      description: 'A reference to the moniker to the left of this moniker, if the moniker is part of a composite moniker.'
     - id: ppszDisplayName
       type: System.String
-      description: On successful return, contains the display name string.
+      description: 'On successful return, contains the display name string.'
   overload: System.Runtime.InteropServices.UCOMIMoniker.GetDisplayName*
   exceptions: []
   version:
@@ -468,13 +468,13 @@ items:
   - mscorlib
   namespace: System.Runtime.InteropServices
   summary: Returns the size in bytes of the stream needed to save the object.
-  remarks: For more information about `IPersistStream::GetSizeMax`, see the MSDN Library.
+  remarks: 'For more information about `IPersistStream::GetSizeMax`, see the MSDN Library.'
   syntax:
     content: public void GetSizeMax (out long pcbSize);
     parameters:
     - id: pcbSize
       type: System.Int64
-      description: On successful return, contains a `long` value indicating the size in bytes of the stream needed to save this object.
+      description: 'On successful return, contains a `long` value indicating the size in bytes of the stream needed to save this object.'
   overload: System.Runtime.InteropServices.UCOMIMoniker.GetSizeMax*
   exceptions: []
   version:
@@ -517,7 +517,7 @@ items:
   - mscorlib
   namespace: System.Runtime.InteropServices
   summary: Provides a number representing the time the object identified by this moniker was last changed.
-  remarks: For more information about `IMoniker::GetTimeOfLastChange`, see the MSDN Library.
+  remarks: 'For more information about `IMoniker::GetTimeOfLastChange`, see the MSDN Library.'
   syntax:
     content: public void GetTimeOfLastChange (System.Runtime.InteropServices.UCOMIBindCtx pbc, System.Runtime.InteropServices.UCOMIMoniker pmkToLeft, out System.Runtime.InteropServices.FILETIME pFileTime);
     parameters:
@@ -526,10 +526,10 @@ items:
       description: A reference to the bind context to be used in this binding operation.
     - id: pmkToLeft
       type: System.Runtime.InteropServices.UCOMIMoniker
-      description: A reference to the moniker to the left of this moniker, if the moniker is part of a composite moniker.
+      description: 'A reference to the moniker to the left of this moniker, if the moniker is part of a composite moniker.'
     - id: pFileTime
       type: System.Runtime.InteropServices.FILETIME
-      description: On successful return, contains the time of last change.
+      description: 'On successful return, contains the time of last change.'
   overload: System.Runtime.InteropServices.UCOMIMoniker.GetTimeOfLastChange*
   exceptions: []
   version:
@@ -572,13 +572,13 @@ items:
   - mscorlib
   namespace: System.Runtime.InteropServices
   summary: Calculates a 32-bit integer using the internal state of the moniker.
-  remarks: For more information about `IMoniker::Hash`, see the MSDN Library.
+  remarks: 'For more information about `IMoniker::Hash`, see the MSDN Library.'
   syntax:
     content: public void Hash (out int pdwHash);
     parameters:
     - id: pdwHash
       type: System.Int32
-      description: On successful return, contains the hash value for this moniker.
+      description: 'On successful return, contains the hash value for this moniker.'
   overload: System.Runtime.InteropServices.UCOMIMoniker.Hash*
   exceptions: []
   version:
@@ -620,14 +620,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.InteropServices
-  summary: Provides a moniker that, when composed to the right of this moniker or one of similar structure, composes to nothing.
-  remarks: For more information about `IMoniker::Inverse`, see the MSDN Library.
+  summary: 'Provides a moniker that, when composed to the right of this moniker or one of similar structure, composes to nothing.'
+  remarks: 'For more information about `IMoniker::Inverse`, see the MSDN Library.'
   syntax:
     content: public void Inverse (out System.Runtime.InteropServices.UCOMIMoniker ppmk);
     parameters:
     - id: ppmk
       type: System.Runtime.InteropServices.UCOMIMoniker
-      description: On successful return, contains a moniker that is the inverse of this moniker.
+      description: 'On successful return, contains a moniker that is the inverse of this moniker.'
   overload: System.Runtime.InteropServices.UCOMIMoniker.Inverse*
   exceptions: []
   version:
@@ -670,13 +670,13 @@ items:
   - mscorlib
   namespace: System.Runtime.InteropServices
   summary: Checks the object for changes since it was last saved.
-  remarks: For more information about `IPersistStream::IsDirty`, see the MSDN Library.
+  remarks: 'For more information about `IPersistStream::IsDirty`, see the MSDN Library.'
   syntax:
     content: public int IsDirty ();
     parameters: []
     return:
       type: System.Int32
-      description: An `S_OK``HRESULT` value if the object has changed; otherwise, an `S_FALSE``HRESULT` value.
+      description: 'An `S_OK``HRESULT` value if the object has changed; otherwise, an `S_FALSE``HRESULT` value.'
   overload: System.Runtime.InteropServices.UCOMIMoniker.IsDirty*
   exceptions: []
   version:
@@ -719,7 +719,7 @@ items:
   - mscorlib
   namespace: System.Runtime.InteropServices
   summary: Compares this moniker with a specified moniker and indicates whether they are identical.
-  remarks: For more information about `IMoniker::IsEqual`, see the MSDN Library.
+  remarks: 'For more information about `IMoniker::IsEqual`, see the MSDN Library.'
   syntax:
     content: public void IsEqual (System.Runtime.InteropServices.UCOMIMoniker pmkOtherMoniker);
     parameters:
@@ -768,7 +768,7 @@ items:
   - mscorlib
   namespace: System.Runtime.InteropServices
   summary: Determines whether the object that is identified by this moniker is currently loaded and running.
-  remarks: For more information about `IMoniker::IsRunning`, see the MSDN Library.
+  remarks: 'For more information about `IMoniker::IsRunning`, see the MSDN Library.'
   syntax:
     content: public void IsRunning (System.Runtime.InteropServices.UCOMIBindCtx pbc, System.Runtime.InteropServices.UCOMIMoniker pmkToLeft, System.Runtime.InteropServices.UCOMIMoniker pmkNewlyRunning);
     parameters:
@@ -823,13 +823,13 @@ items:
   - mscorlib
   namespace: System.Runtime.InteropServices
   summary: Indicates whether this moniker is of one of the system-supplied moniker classes.
-  remarks: For details on the values of the `MKSYS` enumeration and for information about `IMoniker::IsSystemMoniker`, see the MSDN Library.
+  remarks: 'For details on the values of the `MKSYS` enumeration and for information about `IMoniker::IsSystemMoniker`, see the MSDN Library.'
   syntax:
     content: public void IsSystemMoniker (out int pdwMksys);
     parameters:
     - id: pdwMksys
       type: System.Int32
-      description: A pointer to an integer that is one of the values from the `MKSYS` enumeration, and refers to one of the COM moniker classes.
+      description: 'A pointer to an integer that is one of the values from the `MKSYS` enumeration, and refers to one of the COM moniker classes.'
   overload: System.Runtime.InteropServices.UCOMIMoniker.IsSystemMoniker*
   exceptions: []
   version:
@@ -872,7 +872,7 @@ items:
   - mscorlib
   namespace: System.Runtime.InteropServices
   summary: Initializes an object from the stream where it was previously saved.
-  remarks: For more information about `IPersistStream::Load`, see the MSDN Library.
+  remarks: 'For more information about `IPersistStream::Load`, see the MSDN Library.'
   syntax:
     content: public void Load (System.Runtime.InteropServices.UCOMIStream pStm);
     parameters:
@@ -921,7 +921,7 @@ items:
   - mscorlib
   namespace: System.Runtime.InteropServices
   summary: Reads as many characters of the specified display name as it understands and builds a moniker corresponding to the portion read.
-  remarks: For more information about `IMoniker::ParseDisplayName`, see the MSDN Library.
+  remarks: 'For more information about `IMoniker::ParseDisplayName`, see the MSDN Library.'
   syntax:
     content: public void ParseDisplayName (System.Runtime.InteropServices.UCOMIBindCtx pbc, System.Runtime.InteropServices.UCOMIMoniker pmkToLeft, string pszDisplayName, out int pchEaten, out System.Runtime.InteropServices.UCOMIMoniker ppmkOut);
     parameters:
@@ -936,7 +936,7 @@ items:
       description: A reference to the string containing the remaining display name to parse.
     - id: pchEaten
       type: System.Int32
-      description: On successful return, contains the number of characters in <code>pszDisplayName</code> that were consumed in this step.
+      description: 'On successful return, contains the number of characters in <code>pszDisplayName</code> that were consumed in this step.'
     - id: ppmkOut
       type: System.Runtime.InteropServices.UCOMIMoniker
       description: Reference to the moniker that was built from <code>pszDisplayName</code>.
@@ -982,7 +982,7 @@ items:
   - mscorlib
   namespace: System.Runtime.InteropServices
   summary: Returns a reduced moniker which is another moniker that refers to the same object as this moniker but can be bound with equal or greater efficiency.
-  remarks: For more information about `IMoniker::Reduce`, see the MSDN Library.
+  remarks: 'For more information about `IMoniker::Reduce`, see the MSDN Library.'
   syntax:
     content: public void Reduce (System.Runtime.InteropServices.UCOMIBindCtx pbc, int dwReduceHowFar, ref System.Runtime.InteropServices.UCOMIMoniker ppmkToLeft, out System.Runtime.InteropServices.UCOMIMoniker ppmkReduced);
     parameters:
@@ -997,7 +997,7 @@ items:
       description: A reference to the moniker to the left of this moniker.
     - id: ppmkReduced
       type: System.Runtime.InteropServices.UCOMIMoniker
-      description: On successful return, a reference to the reduced form of this moniker, which can be `null` if an error occurs or if this moniker is reduced to nothing.
+      description: 'On successful return, a reference to the reduced form of this moniker, which can be `null` if an error occurs or if this moniker is reduced to nothing.'
   overload: System.Runtime.InteropServices.UCOMIMoniker.Reduce*
   exceptions: []
   version:
@@ -1039,8 +1039,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.InteropServices
-  summary: Supplies a moniker that, when appended to this moniker (or one with a similar structure), yields the specified moniker.
-  remarks: For more information about `IMoniker::RelativePath`, see the MSDN Library.
+  summary: 'Supplies a moniker that, when appended to this moniker (or one with a similar structure), yields the specified moniker.'
+  remarks: 'For more information about `IMoniker::RelativePath`, see the MSDN Library.'
   syntax:
     content: public void RelativePathTo (System.Runtime.InteropServices.UCOMIMoniker pmkOther, out System.Runtime.InteropServices.UCOMIMoniker ppmkRelPath);
     parameters:
@@ -1049,7 +1049,7 @@ items:
       description: A reference to the moniker to which a relative path should be taken.
     - id: ppmkRelPath
       type: System.Runtime.InteropServices.UCOMIMoniker
-      description: On successful return, reference to the relative moniker.
+      description: 'On successful return, reference to the relative moniker.'
   overload: System.Runtime.InteropServices.UCOMIMoniker.RelativePathTo*
   exceptions: []
   version:
@@ -1092,7 +1092,7 @@ items:
   - mscorlib
   namespace: System.Runtime.InteropServices
   summary: Saves an object to the specified stream.
-  remarks: For more information about `IPersistStream::Save`, see the MSDN Library.
+  remarks: 'For more information about `IPersistStream::Save`, see the MSDN Library.'
   syntax:
     content: public void Save (System.Runtime.InteropServices.UCOMIStream pStm, bool fClearDirty);
     parameters:

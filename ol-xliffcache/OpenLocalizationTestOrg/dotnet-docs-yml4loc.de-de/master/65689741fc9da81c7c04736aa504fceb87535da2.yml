@@ -24,7 +24,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Represents the writer of the message body.
-  remarks: A message consists of headers and a body. The headers are buffered and the body is streamed. Because the body is streamed, the user cannot pass the actual content of the body to a message. Instead the user must pass a class that knows how to write the body when asked to do so. This is done by passing a class derived from <xref:System.ServiceModel.Channels.BodyWriter> to the <xref:System.ServiceModel.Channels.Message>. A message calls the class derived from <xref:System.ServiceModel.Channels.BodyWriter> whenever it requires the body to be written using an <xref:System.Xml.XmlWriter>.
+  remarks: 'A message consists of headers and a body. The headers are buffered and the body is streamed. Because the body is streamed, the user cannot pass the actual content of the body to a message. Instead the user must pass a class that knows how to write the body when asked to do so. This is done by passing a class derived from <xref:System.ServiceModel.Channels.BodyWriter> to the <xref:System.ServiceModel.Channels.Message>. A message calls the class derived from <xref:System.ServiceModel.Channels.BodyWriter> whenever it requires the body to be written using an <xref:System.Xml.XmlWriter>.'
   example:
   - "The following example shows how to derive a class from <xref:System.ServiceModel.Channels.BodyWriter>. This override takes in an array of strings and writes them to a <xref:System.Xml.XmlDictionaryWriter>.  \n  \n [!code-csharp[S_UEBodyWriter#1](~/samples/snippets/csharp/VS_Snippets_CFX/s_uebodywriter/cs/program.cs#1)]\n [!code-vb[S_UEBodyWriter#1](~/samples/snippets/visualbasic/VS_Snippets_CFX/s_uebodywriter/vb/module1.vb#1)]"
   syntax:
@@ -136,7 +136,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: Starts to write body contents for the body writer with specified writer, callback and state.
+  summary: 'Starts to write body contents for the body writer with specified writer, callback and state.'
   syntax:
     content: public IAsyncResult BeginWriteBodyContents (System.Xml.XmlDictionaryWriter writer, AsyncCallback callback, object state);
     parameters:
@@ -190,7 +190,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Creates a buffered copy of the body.
-  remarks: If <xref:System.ServiceModel.Channels.BodyWriter.IsBuffered%2A> is `true` then the <xref:System.ServiceModel.Channels.BodyWriter> object is returned. If <xref:System.ServiceModel.Channels.BodyWriter.IsBuffered%2A> is `false` then the contents of the <xref:System.ServiceModel.Channels.BodyWriter> up to `maxBufferSize` is returned. This also calls <xref:System.ServiceModel.Channels.BodyWriter.OnCreateBufferedCopy%28System.Int32%29> as an extensibility point.
+  remarks: 'If <xref:System.ServiceModel.Channels.BodyWriter.IsBuffered%2A> is `true` then the <xref:System.ServiceModel.Channels.BodyWriter> object is returned. If <xref:System.ServiceModel.Channels.BodyWriter.IsBuffered%2A> is `false` then the contents of the <xref:System.ServiceModel.Channels.BodyWriter> up to `maxBufferSize` is returned. This also calls <xref:System.ServiceModel.Channels.BodyWriter.OnCreateBufferedCopy%28System.Int32%29> as an extensibility point.'
   example:
   - "The following sample shows how to create a buffered copy of an existing <xref:System.ServiceModel.Channels.BodyWriter> instance.  \n  \n [!code-csharp[S_UEBodyWriter#2](~/samples/snippets/csharp/VS_Snippets_CFX/s_uebodywriter/cs/snippets.cs#2)]\n [!code-vb[S_UEBodyWriter#2](~/samples/snippets/visualbasic/VS_Snippets_CFX/s_uebodywriter/vb/snippets.vb#2)]"
   syntax:
@@ -209,7 +209,7 @@ items:
     description: The <code>maxBufferSize</code> is less than zero.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The body has already been written and cannot be written again, or the body writer is not buffered.
+    description: 'The body has already been written and cannot be written again, or the body writer is not buffered.'
   version:
   - netframework-4.5.1
   - netframework-4.5.2
@@ -345,7 +345,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: Raises an event when the body writer starts to write body contents with specified writer, callback and state.
+  summary: 'Raises an event when the body writer starts to write body contents with specified writer, callback and state.'
   syntax:
     content: protected virtual IAsyncResult OnBeginWriteBodyContents (System.Xml.XmlDictionaryWriter writer, AsyncCallback callback, object state);
     parameters:
@@ -496,8 +496,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: When implemented, provides an extensibility point when the body contents are written.
-  remarks: This method must be implemented by classes derived from <xref:System.ServiceModel.Channels.BodyWriter>. This is the key method that writes the body. If the <xref:System.ServiceModel.Channels.BodyWriter> is buffered then this method is called only once.
+  summary: 'When implemented, provides an extensibility point when the body contents are written.'
+  remarks: 'This method must be implemented by classes derived from <xref:System.ServiceModel.Channels.BodyWriter>. This is the key method that writes the body. If the <xref:System.ServiceModel.Channels.BodyWriter> is buffered then this method is called only once.'
   example:
   - "The following example illustrates an override of the <xref:System.ServiceModel.Channels.BodyWriter.OnWriteBodyContents%28System.Xml.XmlDictionaryWriter%29> method.  \n  \n [!code-csharp[S_UEBodyWriter#3](~/samples/snippets/csharp/VS_Snippets_CFX/s_uebodywriter/cs/program.cs#3)]\n [!code-vb[S_UEBodyWriter#3](~/samples/snippets/visualbasic/VS_Snippets_CFX/s_uebodywriter/vb/module1.vb#3)]"
   syntax:
@@ -550,7 +550,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Writes out the contents of the message body.
-  remarks: The default implementation of <xref:System.ServiceModel.Channels.BodyWriter.WriteBodyContents%28System.Xml.XmlDictionaryWriter%29> calls <xref:System.ServiceModel.Channels.BodyWriter.OnWriteBodyContents%28System.Xml.XmlDictionaryWriter%29>, so overriding <xref:System.ServiceModel.Channels.BodyWriter.OnWriteBodyContents%28System.Xml.XmlDictionaryWriter%29> provides the best point of extension.
+  remarks: 'The default implementation of <xref:System.ServiceModel.Channels.BodyWriter.WriteBodyContents%28System.Xml.XmlDictionaryWriter%29> calls <xref:System.ServiceModel.Channels.BodyWriter.OnWriteBodyContents%28System.Xml.XmlDictionaryWriter%29>, so overriding <xref:System.ServiceModel.Channels.BodyWriter.OnWriteBodyContents%28System.Xml.XmlDictionaryWriter%29> provides the best point of extension.'
   example:
   - "The following sample shows how to call the <xref:System.ServiceModel.Channels.BodyWriter.WriteBodyContents%28System.Xml.XmlDictionaryWriter%29> method.  \n  \n [!code-csharp[S_UEBodyWriter#4](~/samples/snippets/csharp/VS_Snippets_CFX/s_uebodywriter/cs/program.cs#4)]\n [!code-vb[S_UEBodyWriter#4](~/samples/snippets/visualbasic/VS_Snippets_CFX/s_uebodywriter/vb/module1.vb#4)]"
   syntax:

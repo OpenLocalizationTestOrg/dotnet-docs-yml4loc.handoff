@@ -93,7 +93,7 @@ items:
   - System.Runtime
   namespace: System.Reflection
   summary: Initializes a new instance of the <xref href="System.Reflection.ExceptionHandlingClause"></xref> class.
-  remarks: This constructor is invoked by derived classes during the construction of <xref:System.Reflection.ExceptionHandlingClause> objects.
+  remarks: 'This constructor is invoked by derived classes during the construction of <xref:System.Reflection.ExceptionHandlingClause> objects.'
   syntax:
     content: protected ExceptionHandlingClause ();
     parameters: []
@@ -147,17 +147,14 @@ items:
   - System.Runtime
   namespace: System.Reflection
   summary: Gets the type of exception handled by this clause.
-  remarks: >-
-    > [!NOTE]
-
-    >  Working with exception-handling clauses requires a thorough understanding of metadata and Microsoft intermediate language (MSIL) instruction formats. Information can be found in the Common Language Infrastructure (CLI) documentation, especially "Partition II: Metadata Definition and Semantics" and "Partition III: CIL Instruction Set". The documentation is available online; see [ECMA C# and Common Language Infrastructure Standards](http://go.microsoft.com/fwlink/?LinkID=99212) on MSDN and [Standard ECMA-335 - Common Language Infrastructure (CLI)](http://go.microsoft.com/fwlink/?LinkID=65552) on the Ecma International Web site.
+  remarks: "> [!NOTE]\n>  Working with exception-handling clauses requires a thorough understanding of metadata and Microsoft intermediate language (MSIL) instruction formats. Information can be found in the Common Language Infrastructure (CLI) documentation, especially \"Partition II: Metadata Definition and Semantics\" and \"Partition III: CIL Instruction Set\". The documentation is available online; see [ECMA C# and Common Language Infrastructure Standards](http://go.microsoft.com/fwlink/?LinkID=99212) on MSDN and [Standard ECMA-335 - Common Language Infrastructure (CLI)](http://go.microsoft.com/fwlink/?LinkID=65552) on the Ecma International Web site."
   example:
   - "The following code example defines a test method named `MethodBodyExample`, and displays its local variable information and exception-handling clauses. The <xref:System.Reflection.MethodBase.GetMethodBody%2A?displayProperty=fullName> method is used to obtain a <xref:System.Reflection.MethodBody> object for the test method. The <xref:System.Reflection.MethodBody.ExceptionHandlingClauses%2A> property is used to obtain a list of <xref:System.Reflection.ExceptionHandlingClause> objects and display their properties.  \n  \n> [!NOTE]\n>  Not all computer languages can generate <xref:System.Reflection.ExceptionHandlingClauseOptions?displayProperty=fullName> clauses. The Visual Basic example shows a filter clause, using a Visual Basic `When` expression, which is omitted from the examples for other languages.  \n  \n This code is part of a larger example located in the <xref:System.Reflection.MethodBody> class topic.  \n  \n [!code-cpp[MethodBody#2](~/samples/snippets/cpp/VS_Snippets_CLR/MethodBody/cpp/source.cpp#2)]\n [!code-csharp[MethodBody#2](~/samples/snippets/csharp/VS_Snippets_CLR/MethodBody/CS/source.cs#2)]\n [!code-vb[MethodBody#2](~/samples/snippets/visualbasic/VS_Snippets_CLR/MethodBody/VB/source.vb#2)]  \n[!code-cpp[MethodBody#4](~/samples/snippets/cpp/VS_Snippets_CLR/MethodBody/cpp/source.cpp#4)]\n[!code-csharp[MethodBody#4](~/samples/snippets/csharp/VS_Snippets_CLR/MethodBody/CS/source.cs#4)]\n[!code-vb[MethodBody#4](~/samples/snippets/visualbasic/VS_Snippets_CLR/MethodBody/VB/source.vb#4)]  \n[!code-cpp[MethodBody#5](~/samples/snippets/cpp/VS_Snippets_CLR/MethodBody/cpp/source.cpp#5)]\n[!code-csharp[MethodBody#5](~/samples/snippets/csharp/VS_Snippets_CLR/MethodBody/CS/source.cs#5)]\n[!code-vb[MethodBody#5](~/samples/snippets/visualbasic/VS_Snippets_CLR/MethodBody/VB/source.vb#5)]  \n[!code-cpp[MethodBody#7](~/samples/snippets/cpp/VS_Snippets_CLR/MethodBody/cpp/source.cpp#7)]\n[!code-csharp[MethodBody#7](~/samples/snippets/csharp/VS_Snippets_CLR/MethodBody/CS/source.cs#7)]\n[!code-vb[MethodBody#7](~/samples/snippets/visualbasic/VS_Snippets_CLR/MethodBody/VB/source.vb#7)]"
   syntax:
     content: public virtual Type CatchType { get; }
     return:
       type: System.Type
-      description: A <xref href="System.Type"></xref> object that represents that type of exception handled by this clause, or `null` if the <xref href="System.Reflection.ExceptionHandlingClause.Flags"></xref> property is <xref href="System.Reflection.ExceptionHandlingClauseOptions.Filter"></xref> or <xref href="System.Reflection.ExceptionHandlingClauseOptions.Finally"></xref>.
+      description: 'A <xref href="System.Type"></xref> object that represents that type of exception handled by this clause, or `null` if the <xref href="System.Reflection.ExceptionHandlingClause.Flags"></xref> property is <xref href="System.Reflection.ExceptionHandlingClauseOptions.Filter"></xref> or <xref href="System.Reflection.ExceptionHandlingClauseOptions.Finally"></xref>.'
   overload: System.Reflection.ExceptionHandlingClause.CatchType*
   exceptions:
   - type: System.InvalidOperationException
@@ -210,13 +207,13 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Reflection
-  summary: Gets the offset within the method body, in bytes, of the user-supplied filter code.
+  summary: 'Gets the offset within the method body, in bytes, of the user-supplied filter code.'
   remarks: "A filter clause contains user-suppliedMicrosoft intermediate language (MSIL) that determines whether an exception is handled by this clause. For example, any clause containing the Visual Basic `When` keyword is a <xref:System.Reflection.ExceptionHandlingClauseOptions?displayProperty=fullName> clause.  \n  \n> [!NOTE]\n>  Working with exception-handling clauses requires a thorough understanding of metadata and MSIL instruction formats. Information can be found in the Common Language Infrastructure (CLI) documentation, especially \"Partition II: Metadata Definition and Semantics\" and \"Partition III: CIL Instruction Set\". The documentation is available online; see [ECMA C# and Common Language Infrastructure Standards](http://go.microsoft.com/fwlink/?LinkID=99212) on MSDN and [Standard ECMA-335 - Common Language Infrastructure (CLI)](http://go.microsoft.com/fwlink/?LinkID=65552) on the Ecma International Web site."
   syntax:
     content: public virtual int FilterOffset { get; }
     return:
       type: System.Int32
-      description: The offset within the method body, in bytes, of the user-supplied filter code. The value of this property has no meaning if the <xref href="System.Reflection.ExceptionHandlingClause.Flags"></xref> property has any value other than <xref href="System.Reflection.ExceptionHandlingClauseOptions.Filter"></xref>.
+      description: 'The offset within the method body, in bytes, of the user-supplied filter code. The value of this property has no meaning if the <xref href="System.Reflection.ExceptionHandlingClause.Flags"></xref> property has any value other than <xref href="System.Reflection.ExceptionHandlingClauseOptions.Filter"></xref>.'
   overload: System.Reflection.ExceptionHandlingClause.FilterOffset*
   exceptions:
   - type: System.InvalidOperationException
@@ -269,11 +266,8 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Reflection
-  summary: Gets a value indicating whether this exception-handling clause is a finally clause, a type-filtered clause, or a user-filtered clause.
-  remarks: >-
-    > [!NOTE]
-
-    >  Working with exception-handling clauses requires a thorough understanding of metadata and Microsoft intermediate language (MSIL) instruction formats. Information can be found in the Common Language Infrastructure (CLI) documentation, especially "Partition II: Metadata Definition and Semantics" and "Partition III: CIL Instruction Set". The documentation is available online; see [ECMA C# and Common Language Infrastructure Standards](http://go.microsoft.com/fwlink/?LinkID=99212) on MSDN and [Standard ECMA-335 - Common Language Infrastructure (CLI)](http://go.microsoft.com/fwlink/?LinkID=65552) on the Ecma International Web site.
+  summary: 'Gets a value indicating whether this exception-handling clause is a finally clause, a type-filtered clause, or a user-filtered clause.'
+  remarks: "> [!NOTE]\n>  Working with exception-handling clauses requires a thorough understanding of metadata and Microsoft intermediate language (MSIL) instruction formats. Information can be found in the Common Language Infrastructure (CLI) documentation, especially \"Partition II: Metadata Definition and Semantics\" and \"Partition III: CIL Instruction Set\". The documentation is available online; see [ECMA C# and Common Language Infrastructure Standards](http://go.microsoft.com/fwlink/?LinkID=99212) on MSDN and [Standard ECMA-335 - Common Language Infrastructure (CLI)](http://go.microsoft.com/fwlink/?LinkID=65552) on the Ecma International Web site."
   example:
   - "The following code example defines a test method named `MethodBodyExample`, and displays its local variable information and exception-handling clauses. The <xref:System.Reflection.MethodBase.GetMethodBody%2A?displayProperty=fullName> method is used to obtain a <xref:System.Reflection.MethodBody> object for the test method. The <xref:System.Reflection.MethodBody.ExceptionHandlingClauses%2A> property is used to obtain a list of <xref:System.Reflection.ExceptionHandlingClause> objects and display their properties.  \n  \n> [!NOTE]\n>  Not all computer languages can generate <xref:System.Reflection.ExceptionHandlingClauseOptions?displayProperty=fullName> clauses. The Visual Basic example shows a filter clause, using a Visual Basic `When` expression, which is omitted from the examples for other languages.  \n  \n This code is part of a larger example located in the <xref:System.Reflection.MethodBody> class topic.  \n  \n [!code-cpp[MethodBody#2](~/samples/snippets/cpp/VS_Snippets_CLR/MethodBody/cpp/source.cpp#2)]\n [!code-csharp[MethodBody#2](~/samples/snippets/csharp/VS_Snippets_CLR/MethodBody/CS/source.cs#2)]\n [!code-vb[MethodBody#2](~/samples/snippets/visualbasic/VS_Snippets_CLR/MethodBody/VB/source.vb#2)]  \n[!code-cpp[MethodBody#4](~/samples/snippets/cpp/VS_Snippets_CLR/MethodBody/cpp/source.cpp#4)]\n[!code-csharp[MethodBody#4](~/samples/snippets/csharp/VS_Snippets_CLR/MethodBody/CS/source.cs#4)]\n[!code-vb[MethodBody#4](~/samples/snippets/visualbasic/VS_Snippets_CLR/MethodBody/VB/source.vb#4)]  \n[!code-cpp[MethodBody#5](~/samples/snippets/cpp/VS_Snippets_CLR/MethodBody/cpp/source.cpp#5)]\n[!code-csharp[MethodBody#5](~/samples/snippets/csharp/VS_Snippets_CLR/MethodBody/CS/source.cs#5)]\n[!code-vb[MethodBody#5](~/samples/snippets/visualbasic/VS_Snippets_CLR/MethodBody/VB/source.vb#5)]  \n[!code-cpp[MethodBody#7](~/samples/snippets/cpp/VS_Snippets_CLR/MethodBody/cpp/source.cpp#7)]\n[!code-csharp[MethodBody#7](~/samples/snippets/csharp/VS_Snippets_CLR/MethodBody/CS/source.cs#7)]\n[!code-vb[MethodBody#7](~/samples/snippets/visualbasic/VS_Snippets_CLR/MethodBody/VB/source.vb#7)]"
   syntax:
@@ -330,18 +324,15 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Reflection
-  summary: Gets the length, in bytes, of the body of this exception-handling clause.
-  remarks: >-
-    > [!NOTE]
-
-    >  Working with exception-handling clauses requires a thorough understanding of metadata and Microsoft intermediate language (MSIL) instruction formats. Information can be found in the Common Language Infrastructure (CLI) documentation, especially "Partition II: Metadata Definition and Semantics" and "Partition III: CIL Instruction Set". The documentation is available online; see [ECMA C# and Common Language Infrastructure Standards](http://go.microsoft.com/fwlink/?LinkID=99212) on MSDN and [Standard ECMA-335 - Common Language Infrastructure (CLI)](http://go.microsoft.com/fwlink/?LinkID=65552) on the Ecma International Web site.
+  summary: 'Gets the length, in bytes, of the body of this exception-handling clause.'
+  remarks: "> [!NOTE]\n>  Working with exception-handling clauses requires a thorough understanding of metadata and Microsoft intermediate language (MSIL) instruction formats. Information can be found in the Common Language Infrastructure (CLI) documentation, especially \"Partition II: Metadata Definition and Semantics\" and \"Partition III: CIL Instruction Set\". The documentation is available online; see [ECMA C# and Common Language Infrastructure Standards](http://go.microsoft.com/fwlink/?LinkID=99212) on MSDN and [Standard ECMA-335 - Common Language Infrastructure (CLI)](http://go.microsoft.com/fwlink/?LinkID=65552) on the Ecma International Web site."
   example:
   - "The following code example defines a test method named `MethodBodyExample`, and displays its local variable information and exception-handling clauses. The <xref:System.Reflection.MethodBase.GetMethodBody%2A?displayProperty=fullName> method is used to obtain a <xref:System.Reflection.MethodBody> object for the test method. The <xref:System.Reflection.MethodBody.ExceptionHandlingClauses%2A> property is used to obtain a list of <xref:System.Reflection.ExceptionHandlingClause> objects and display their properties.  \n  \n> [!NOTE]\n>  Not all computer languages can generate <xref:System.Reflection.ExceptionHandlingClauseOptions?displayProperty=fullName> clauses. The Visual Basic example shows a filter clause, using a Visual Basic `When` expression, which is omitted from the examples for other languages.  \n  \n This code is part of a larger example located in the <xref:System.Reflection.MethodBody> class topic.  \n  \n [!code-cpp[MethodBody#2](~/samples/snippets/cpp/VS_Snippets_CLR/MethodBody/cpp/source.cpp#2)]\n [!code-csharp[MethodBody#2](~/samples/snippets/csharp/VS_Snippets_CLR/MethodBody/CS/source.cs#2)]\n [!code-vb[MethodBody#2](~/samples/snippets/visualbasic/VS_Snippets_CLR/MethodBody/VB/source.vb#2)]  \n[!code-cpp[MethodBody#4](~/samples/snippets/cpp/VS_Snippets_CLR/MethodBody/cpp/source.cpp#4)]\n[!code-csharp[MethodBody#4](~/samples/snippets/csharp/VS_Snippets_CLR/MethodBody/CS/source.cs#4)]\n[!code-vb[MethodBody#4](~/samples/snippets/visualbasic/VS_Snippets_CLR/MethodBody/VB/source.vb#4)]  \n[!code-cpp[MethodBody#5](~/samples/snippets/cpp/VS_Snippets_CLR/MethodBody/cpp/source.cpp#5)]\n[!code-csharp[MethodBody#5](~/samples/snippets/csharp/VS_Snippets_CLR/MethodBody/CS/source.cs#5)]\n[!code-vb[MethodBody#5](~/samples/snippets/visualbasic/VS_Snippets_CLR/MethodBody/VB/source.vb#5)]  \n[!code-cpp[MethodBody#7](~/samples/snippets/cpp/VS_Snippets_CLR/MethodBody/cpp/source.cpp#7)]\n[!code-csharp[MethodBody#7](~/samples/snippets/csharp/VS_Snippets_CLR/MethodBody/CS/source.cs#7)]\n[!code-vb[MethodBody#7](~/samples/snippets/visualbasic/VS_Snippets_CLR/MethodBody/VB/source.vb#7)]"
   syntax:
     content: public virtual int HandlerLength { get; }
     return:
       type: System.Int32
-      description: An integer that represents the length, in bytes, of the MSIL that forms the body of this exception-handling clause.
+      description: 'An integer that represents the length, in bytes, of the MSIL that forms the body of this exception-handling clause.'
   overload: System.Reflection.ExceptionHandlingClause.HandlerLength*
   exceptions: []
   version:
@@ -391,18 +382,15 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Reflection
-  summary: Gets the offset within the method body, in bytes, of this exception-handling clause.
-  remarks: >-
-    > [!NOTE]
-
-    >  Working with exception-handling clauses requires a thorough understanding of metadata and Microsoft intermediate language (MSIL) instruction formats. Information can be found in the Common Language Infrastructure (CLI) documentation, especially "Partition II: Metadata Definition and Semantics" and "Partition III: CIL Instruction Set". The documentation is available online; see [ECMA C# and Common Language Infrastructure Standards](http://go.microsoft.com/fwlink/?LinkID=99212) on MSDN and [Standard ECMA-335 - Common Language Infrastructure (CLI)](http://go.microsoft.com/fwlink/?LinkID=65552) on the Ecma International Web site.
+  summary: 'Gets the offset within the method body, in bytes, of this exception-handling clause.'
+  remarks: "> [!NOTE]\n>  Working with exception-handling clauses requires a thorough understanding of metadata and Microsoft intermediate language (MSIL) instruction formats. Information can be found in the Common Language Infrastructure (CLI) documentation, especially \"Partition II: Metadata Definition and Semantics\" and \"Partition III: CIL Instruction Set\". The documentation is available online; see [ECMA C# and Common Language Infrastructure Standards](http://go.microsoft.com/fwlink/?LinkID=99212) on MSDN and [Standard ECMA-335 - Common Language Infrastructure (CLI)](http://go.microsoft.com/fwlink/?LinkID=65552) on the Ecma International Web site."
   example:
   - "The following code example defines a test method named `MethodBodyExample`, and displays its local variable information and exception-handling clauses. The <xref:System.Reflection.MethodBase.GetMethodBody%2A?displayProperty=fullName> method is used to obtain a <xref:System.Reflection.MethodBody> object for the test method. The <xref:System.Reflection.MethodBody.ExceptionHandlingClauses%2A> property is used to obtain a list of <xref:System.Reflection.ExceptionHandlingClause> objects and display their properties.  \n  \n> [!NOTE]\n>  Not all computer languages can generate <xref:System.Reflection.ExceptionHandlingClauseOptions?displayProperty=fullName> clauses. The Visual Basic example shows a filter clause, using a Visual Basic `When` expression, which is omitted from the examples for other languages.  \n  \n This code is part of a larger example located in the <xref:System.Reflection.MethodBody> class topic.  \n  \n [!code-cpp[MethodBody#2](~/samples/snippets/cpp/VS_Snippets_CLR/MethodBody/cpp/source.cpp#2)]\n [!code-csharp[MethodBody#2](~/samples/snippets/csharp/VS_Snippets_CLR/MethodBody/CS/source.cs#2)]\n [!code-vb[MethodBody#2](~/samples/snippets/visualbasic/VS_Snippets_CLR/MethodBody/VB/source.vb#2)]  \n[!code-cpp[MethodBody#4](~/samples/snippets/cpp/VS_Snippets_CLR/MethodBody/cpp/source.cpp#4)]\n[!code-csharp[MethodBody#4](~/samples/snippets/csharp/VS_Snippets_CLR/MethodBody/CS/source.cs#4)]\n[!code-vb[MethodBody#4](~/samples/snippets/visualbasic/VS_Snippets_CLR/MethodBody/VB/source.vb#4)]  \n[!code-cpp[MethodBody#5](~/samples/snippets/cpp/VS_Snippets_CLR/MethodBody/cpp/source.cpp#5)]\n[!code-csharp[MethodBody#5](~/samples/snippets/csharp/VS_Snippets_CLR/MethodBody/CS/source.cs#5)]\n[!code-vb[MethodBody#5](~/samples/snippets/visualbasic/VS_Snippets_CLR/MethodBody/VB/source.vb#5)]  \n[!code-cpp[MethodBody#7](~/samples/snippets/cpp/VS_Snippets_CLR/MethodBody/cpp/source.cpp#7)]\n[!code-csharp[MethodBody#7](~/samples/snippets/csharp/VS_Snippets_CLR/MethodBody/CS/source.cs#7)]\n[!code-vb[MethodBody#7](~/samples/snippets/visualbasic/VS_Snippets_CLR/MethodBody/VB/source.vb#7)]"
   syntax:
     content: public virtual int HandlerOffset { get; }
     return:
       type: System.Int32
-      description: An integer that represents the offset within the method body, in bytes, of this exception-handling clause.
+      description: 'An integer that represents the offset within the method body, in bytes, of this exception-handling clause.'
   overload: System.Reflection.ExceptionHandlingClause.HandlerOffset*
   exceptions: []
   version:
@@ -508,7 +496,7 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Reflection
-  summary: The total length, in bytes, of the try block that includes this exception-handling clause.
+  summary: 'The total length, in bytes, of the try block that includes this exception-handling clause.'
   remarks: "An integer that represents the total length, in bytes, of the try block that includes this exception-handling clause.  \n  \n> [!NOTE]\n>  Working with exception-handling clauses requires a thorough understanding of metadata and Microsoft intermediate language (MSIL) instruction formats. Information can be found in the Common Language Infrastructure (CLI) documentation, especially \"Partition II: Metadata Definition and Semantics\" and \"Partition III: CIL Instruction Set\". The documentation is available online; see [ECMA C# and Common Language Infrastructure Standards](http://go.microsoft.com/fwlink/?LinkID=99212) on MSDN and [Standard ECMA-335 - Common Language Infrastructure (CLI)](http://go.microsoft.com/fwlink/?LinkID=65552) on the Ecma International Web site."
   example:
   - "The following code example defines a test method named `MethodBodyExample`, and displays its local variable information and exception-handling clauses. The <xref:System.Reflection.MethodBase.GetMethodBody%2A?displayProperty=fullName> method is used to obtain a <xref:System.Reflection.MethodBody> object for the test method. The <xref:System.Reflection.MethodBody.ExceptionHandlingClauses%2A> property is used to obtain a list of <xref:System.Reflection.ExceptionHandlingClause> objects and display their properties.  \n  \n> [!NOTE]\n>  Not all computer languages can generate <xref:System.Reflection.ExceptionHandlingClauseOptions?displayProperty=fullName> clauses. The Visual Basic example shows a filter clause, using a Visual Basic `When` expression, which is omitted from the examples for other languages.  \n  \n This code is part of a larger example located in the <xref:System.Reflection.MethodBody> class topic.  \n  \n [!code-cpp[MethodBody#2](~/samples/snippets/cpp/VS_Snippets_CLR/MethodBody/cpp/source.cpp#2)]\n [!code-csharp[MethodBody#2](~/samples/snippets/csharp/VS_Snippets_CLR/MethodBody/CS/source.cs#2)]\n [!code-vb[MethodBody#2](~/samples/snippets/visualbasic/VS_Snippets_CLR/MethodBody/VB/source.vb#2)]  \n[!code-cpp[MethodBody#4](~/samples/snippets/cpp/VS_Snippets_CLR/MethodBody/cpp/source.cpp#4)]\n[!code-csharp[MethodBody#4](~/samples/snippets/csharp/VS_Snippets_CLR/MethodBody/CS/source.cs#4)]\n[!code-vb[MethodBody#4](~/samples/snippets/visualbasic/VS_Snippets_CLR/MethodBody/VB/source.vb#4)]  \n[!code-cpp[MethodBody#5](~/samples/snippets/cpp/VS_Snippets_CLR/MethodBody/cpp/source.cpp#5)]\n[!code-csharp[MethodBody#5](~/samples/snippets/csharp/VS_Snippets_CLR/MethodBody/CS/source.cs#5)]\n[!code-vb[MethodBody#5](~/samples/snippets/visualbasic/VS_Snippets_CLR/MethodBody/VB/source.vb#5)]  \n[!code-cpp[MethodBody#7](~/samples/snippets/cpp/VS_Snippets_CLR/MethodBody/cpp/source.cpp#7)]\n[!code-csharp[MethodBody#7](~/samples/snippets/csharp/VS_Snippets_CLR/MethodBody/CS/source.cs#7)]\n[!code-vb[MethodBody#7](~/samples/snippets/visualbasic/VS_Snippets_CLR/MethodBody/VB/source.vb#7)]"
@@ -516,7 +504,7 @@ items:
     content: public virtual int TryLength { get; }
     return:
       type: System.Int32
-      description: The total length, in bytes, of the try block that includes this exception-handling clause.
+      description: 'The total length, in bytes, of the try block that includes this exception-handling clause.'
   overload: System.Reflection.ExceptionHandlingClause.TryLength*
   exceptions: []
   version:
@@ -566,18 +554,15 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Reflection
-  summary: The offset within the method, in bytes, of the try block that includes this exception-handling clause.
-  remarks: >-
-    > [!NOTE]
-
-    >  Working with exception-handling clauses requires a thorough understanding of metadata and Microsoft intermediate language (MSIL) instruction formats. Information can be found in the Common Language Infrastructure (CLI) documentation, especially "Partition II: Metadata Definition and Semantics" and "Partition III: CIL Instruction Set". The documentation is available online; see [ECMA C# and Common Language Infrastructure Standards](http://go.microsoft.com/fwlink/?LinkID=99212) on MSDN and [Standard ECMA-335 - Common Language Infrastructure (CLI)](http://go.microsoft.com/fwlink/?LinkID=65552) on the Ecma International Web site.
+  summary: 'The offset within the method, in bytes, of the try block that includes this exception-handling clause.'
+  remarks: "> [!NOTE]\n>  Working with exception-handling clauses requires a thorough understanding of metadata and Microsoft intermediate language (MSIL) instruction formats. Information can be found in the Common Language Infrastructure (CLI) documentation, especially \"Partition II: Metadata Definition and Semantics\" and \"Partition III: CIL Instruction Set\". The documentation is available online; see [ECMA C# and Common Language Infrastructure Standards](http://go.microsoft.com/fwlink/?LinkID=99212) on MSDN and [Standard ECMA-335 - Common Language Infrastructure (CLI)](http://go.microsoft.com/fwlink/?LinkID=65552) on the Ecma International Web site."
   example:
   - "The following code example defines a test method named `MethodBodyExample`, and displays its local variable information and exception-handling clauses. The <xref:System.Reflection.MethodBase.GetMethodBody%2A?displayProperty=fullName> method is used to obtain a <xref:System.Reflection.MethodBody> object for the test method. The <xref:System.Reflection.MethodBody.ExceptionHandlingClauses%2A> property is used to obtain a list of <xref:System.Reflection.ExceptionHandlingClause> objects and display their properties.  \n  \n> [!NOTE]\n>  Not all computer languages can generate <xref:System.Reflection.ExceptionHandlingClauseOptions?displayProperty=fullName> clauses. The Visual Basic example shows a filter clause, using a Visual Basic `When` expression, which is omitted from the examples for other languages.  \n  \n This code is part of a larger example located in the <xref:System.Reflection.MethodBody> class topic.  \n  \n [!code-cpp[MethodBody#2](~/samples/snippets/cpp/VS_Snippets_CLR/MethodBody/cpp/source.cpp#2)]\n [!code-csharp[MethodBody#2](~/samples/snippets/csharp/VS_Snippets_CLR/MethodBody/CS/source.cs#2)]\n [!code-vb[MethodBody#2](~/samples/snippets/visualbasic/VS_Snippets_CLR/MethodBody/VB/source.vb#2)]  \n[!code-cpp[MethodBody#4](~/samples/snippets/cpp/VS_Snippets_CLR/MethodBody/cpp/source.cpp#4)]\n[!code-csharp[MethodBody#4](~/samples/snippets/csharp/VS_Snippets_CLR/MethodBody/CS/source.cs#4)]\n[!code-vb[MethodBody#4](~/samples/snippets/visualbasic/VS_Snippets_CLR/MethodBody/VB/source.vb#4)]  \n[!code-cpp[MethodBody#5](~/samples/snippets/cpp/VS_Snippets_CLR/MethodBody/cpp/source.cpp#5)]\n[!code-csharp[MethodBody#5](~/samples/snippets/csharp/VS_Snippets_CLR/MethodBody/CS/source.cs#5)]\n[!code-vb[MethodBody#5](~/samples/snippets/visualbasic/VS_Snippets_CLR/MethodBody/VB/source.vb#5)]  \n[!code-cpp[MethodBody#7](~/samples/snippets/cpp/VS_Snippets_CLR/MethodBody/cpp/source.cpp#7)]\n[!code-csharp[MethodBody#7](~/samples/snippets/csharp/VS_Snippets_CLR/MethodBody/CS/source.cs#7)]\n[!code-vb[MethodBody#7](~/samples/snippets/visualbasic/VS_Snippets_CLR/MethodBody/VB/source.vb#7)]"
   syntax:
     content: public virtual int TryOffset { get; }
     return:
       type: System.Int32
-      description: An integer that represents the offset within the method, in bytes, of the try block that includes this exception-handling clause.
+      description: 'An integer that represents the offset within the method, in bytes, of the try block that includes this exception-handling clause.'
   overload: System.Reflection.ExceptionHandlingClause.TryOffset*
   exceptions: []
   version:

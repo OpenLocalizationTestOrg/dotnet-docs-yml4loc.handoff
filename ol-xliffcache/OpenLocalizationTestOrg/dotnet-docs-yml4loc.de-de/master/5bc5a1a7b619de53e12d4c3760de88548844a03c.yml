@@ -33,7 +33,7 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Protocols.WSTrust
-  summary: Represents the wst:RequestSecurityToken element (RST), which is used to request a security token.
+  summary: 'Represents the wst:RequestSecurityToken element (RST), which is used to request a security token.'
   remarks: "The wst:RequestSecurityToken element (message) contains the parameters and properties used to request a security token from a security token service (STS). The message (or element) is abbreviated as RST. The <xref:System.IdentityModel.Protocols.WSTrust.RequestSecurityToken> class contains properties that represent the elements of the RST. An RST can form a request that corresponds to any of the request bindings defined by WS-Trust; for example, the Issuance binding, the Renewal binding, the Validate binding, or the Cancel binding. Many of the properties in the <xref:System.IdentityModel.Protocols.WSTrust.RequestSecurityToken> class correspond to elements that are present only in specific kinds of requests as defined by these bindings. Depending on the kind of request a particular <xref:System.IdentityModel.Protocols.WSTrust.RequestSecurityToken> object represents or the parameters present in the specific request that it represents, some properties of the object may be `null`.  \n  \n The STS returns a response to the request in a message that contains a wst:RequestSecurityTokenResponse element (RSTR). This message is represented by the <xref:System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse> class.  \n  \n [!INCLUDE[wif_wstrust_ref](~/includes/wif-wstrust-ref-md.md)]"
   example:
   - "The code example that is used in this topic is taken from the `Custom Token` sample. This sample provides custom classes that enable processing of Simple Web Tokens (SWT) and it includes an implementation of a passive STS that is capable of serving an SWT token. The STS is implemented by a class that is derived from <xref:System.IdentityModel.SecurityTokenService>. Many of the methods of the <xref:System.IdentityModel.SecurityTokenService> class that are called from its token issuance pipeline take a <xref:System.IdentityModel.Protocols.WSTrust.RequestSecurityToken> object as one if their parameters. For information about this sample and other samples available for WIF and about where to download them, see [WIF Code Sample Index](~/docs/framework/security/wif-code-sample-index.md).  \n  \n The following code example shows an implementation of the <xref:System.IdentityModel.SecurityTokenService.GetScope%2A?displayProperty=fullName> method. The method takes a <xref:System.IdentityModel.Protocols.WSTrust.RequestSecurityToken> as one of its parameters and properties of this parameter are used to set properties on the <xref:System.IdentityModel.Scope> object that is returned by the method.  \n  \n [!code-csharp[WIFCustomTokenSTS#4](~/samples/snippets/csharp/VS_Snippets_Misc/wifcustomtokensts/cs/passivests/customsecuritytokenservice.cs#4)]  \n[!code-csharp[WIFCustomTokenSTS#5](~/samples/snippets/csharp/VS_Snippets_Misc/wifcustomtokensts/cs/passivests/customsecuritytokenservice.cs#5)]  \n[!code-csharp[WIFCustomTokenSTS#7](~/samples/snippets/csharp/VS_Snippets_Misc/wifcustomtokensts/cs/passivests/customsecuritytokenservice.cs#7)]"
@@ -239,7 +239,7 @@ items:
   - System.IdentityModel
   namespace: System.IdentityModel.Protocols.WSTrust
   summary: Gets or sets the security token for the identity that the requestor is attempting to act as.
-  remarks: Represents the contents of the wst:ActAs element. This optional element supports delegation scenarios and indicates that the requestor is making the request to act as another identity. This element is introduced in WS-Trust 1.4. This property is `null` in requests that don’t involve delegation.
+  remarks: 'Represents the contents of the wst:ActAs element. This optional element supports delegation scenarios and indicates that the requestor is making the request to act as another identity. This element is introduced in WS-Trust 1.4. This property is `null` in requests that don’t involve delegation.'
   syntax:
     content: public System.IdentityModel.Tokens.SecurityTokenElement ActAs { get; set; }
     return:
@@ -282,7 +282,7 @@ items:
   - System.IdentityModel
   namespace: System.IdentityModel.Protocols.WSTrust
   summary: Gets or sets the additional context information for the request.
-  remarks: Represents the contents of the auth:AdditionalContext element. This optional element provides additional information that the security token service (STS) can use in the token issuance process.
+  remarks: 'Represents the contents of the auth:AdditionalContext element. This optional element provides additional information that the security token service (STS) can use in the token issuance process.'
   syntax:
     content: public System.IdentityModel.Protocols.WSTrust.AdditionalContext AdditionalContext { get; set; }
     return:
@@ -325,7 +325,7 @@ items:
   - System.IdentityModel
   namespace: System.IdentityModel.Protocols.WSTrust
   summary: Gets or sets the token to be canceled in a WS-Trust cancel request.
-  remarks: Represents the contents of a wst:CancelTarget element. This element carries the information about the token to be cancelled in a WS-Trust cancel request.
+  remarks: 'Represents the contents of a wst:CancelTarget element. This element carries the information about the token to be cancelled in a WS-Trust cancel request.'
   syntax:
     content: public System.IdentityModel.Tokens.SecurityTokenElement CancelTarget { get; set; }
     return:
@@ -368,7 +368,7 @@ items:
   - System.IdentityModel
   namespace: System.IdentityModel.Protocols.WSTrust
   summary: Gets the claim types requested by the client (requestor).
-  remarks: Represents the contents of the wst:Claims element. This optional element requests the set of specific claim types requested by the client.
+  remarks: 'Represents the contents of the wst:Claims element. This optional element requests the set of specific claim types requested by the client.'
   syntax:
     content: public System.IdentityModel.Protocols.WSTrust.RequestClaimCollection Claims { get; }
     return:
@@ -411,7 +411,7 @@ items:
   - System.IdentityModel
   namespace: System.IdentityModel.Protocols.WSTrust
   summary: Gets a URI that represents the desired algorithm to use when computed keys are used for issued tokens.
-  remarks: Represents the wst:ComputedKeyAlgorithm element. This optional element specifies a URI that represents the desired algorithm to use when computed keys are used for issued tokens.
+  remarks: 'Represents the wst:ComputedKeyAlgorithm element. This optional element specifies a URI that represents the desired algorithm to use when computed keys are used for issued tokens.'
   syntax:
     content: public string ComputedKeyAlgorithm { get; set; }
     return:
@@ -454,7 +454,7 @@ items:
   - System.IdentityModel
   namespace: System.IdentityModel.Protocols.WSTrust
   summary: Gets or sets a value that specifies if the issued token should be marked as delegatable.
-  remarks: Represents the contents of the wst:Delegatable element. This optional element indicates that the returned token may be delegatable to another party. This element is introduced in WS-Trust 1.4. This property used in conjunction with the <xref:System.IdentityModel.Protocols.WSTrust.RequestSecurityToken.DelegateTo%2A> property.
+  remarks: 'Represents the contents of the wst:Delegatable element. This optional element indicates that the returned token may be delegatable to another party. This element is introduced in WS-Trust 1.4. This property used in conjunction with the <xref:System.IdentityModel.Protocols.WSTrust.RequestSecurityToken.DelegateTo%2A> property.'
   syntax:
     content: public Nullable<bool> Delegatable { get; set; }
     return:
@@ -497,7 +497,7 @@ items:
   - System.IdentityModel
   namespace: System.IdentityModel.Protocols.WSTrust
   summary: Gets or sets the identity to which the issued token should be delegated.
-  remarks: Represents the contents of the wst:DelegateTo element. This optional element indicates that the issued token be delegated to the specified identity. This element is introduced in WS-Trust 1.4. This property is `null` in requests that don’t involve delegation. This property is used in conjunction with the <xref:System.IdentityModel.Protocols.WSTrust.RequestSecurityToken.DelegateTo%2A> property.
+  remarks: 'Represents the contents of the wst:DelegateTo element. This optional element indicates that the issued token be delegated to the specified identity. This element is introduced in WS-Trust 1.4. This property is `null` in requests that don’t involve delegation. This property is used in conjunction with the <xref:System.IdentityModel.Protocols.WSTrust.RequestSecurityToken.DelegateTo%2A> property.'
   syntax:
     content: public System.IdentityModel.Tokens.SecurityTokenElement DelegateTo { get; set; }
     return:
@@ -540,7 +540,7 @@ items:
   - System.IdentityModel
   namespace: System.IdentityModel.Protocols.WSTrust
   summary: Gets or sets information on the token and key to use when encrypting.
-  remarks: Represents the contents of the wst:Encryption element. This optional element indicates that any returned secrets in issued security tokens should be encrypted for the specified token.
+  remarks: 'Represents the contents of the wst:Encryption element. This optional element indicates that any returned secrets in issued security tokens should be encrypted for the specified token.'
   syntax:
     content: public System.IdentityModel.Tokens.SecurityTokenElement Encryption { get; set; }
     return:
@@ -583,7 +583,7 @@ items:
   - System.IdentityModel
   namespace: System.IdentityModel.Protocols.WSTrust
   summary: Gets or sets a value that specifies if the issued token should be marked forwardable.
-  remarks: Represents the contents of the wst:Forwardable element. This optional element indicates whether the returned token is bound to the requestor’s computer or service (indicated by a `false` value). This element is introduced in WS-Trust 1.4. This property used in conjunction with the <xref:System.IdentityModel.Protocols.WSTrust.RequestSecurityToken.DelegateTo%2A> property.
+  remarks: 'Represents the contents of the wst:Forwardable element. This optional element indicates whether the returned token is bound to the requestor’s computer or service (indicated by a `false` value). This element is introduced in WS-Trust 1.4. This property used in conjunction with the <xref:System.IdentityModel.Protocols.WSTrust.RequestSecurityToken.DelegateTo%2A> property.'
   syntax:
     content: public Nullable<bool> Forwardable { get; set; }
     return:
@@ -625,8 +625,8 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Protocols.WSTrust
-  summary: Gets or sets the issuer of the wst:OnBehalfOf token.
-  remarks: Represents the contents of the wst:Issuer element. This optional element identifies the issuer of the token that is specified in the wst:OnBehalfOf element.
+  summary: 'Gets or sets the issuer of the wst:OnBehalfOf token.'
+  remarks: 'Represents the contents of the wst:Issuer element. This optional element identifies the issuer of the token that is specified in the wst:OnBehalfOf element.'
   syntax:
     content: public System.IdentityModel.Protocols.WSTrust.EndpointReference Issuer { get; set; }
     return:
@@ -669,7 +669,7 @@ items:
   - System.IdentityModel
   namespace: System.IdentityModel.Protocols.WSTrust
   summary: Gets or sets the token for the identity on behalf of which the request is being made.
-  remarks: Represents the contents of the wst:OnBehalfOf element. This optional element indicates that the requestor is making the request on behalf of another identity.
+  remarks: 'Represents the contents of the wst:OnBehalfOf element. This optional element indicates that the requestor is making the request on behalf of another identity.'
   syntax:
     content: public System.IdentityModel.Tokens.SecurityTokenElement OnBehalfOf { get; set; }
     return:
@@ -712,7 +712,7 @@ items:
   - System.IdentityModel
   namespace: System.IdentityModel.Protocols.WSTrust
   summary: Gets or sets the participants that are authorized to use the issued token.
-  remarks: Represents the contents of the wst:Participants element. This optional element identifies additional participants that are authorized to use the token.
+  remarks: 'Represents the contents of the wst:Participants element. This optional element identifies additional participants that are authorized to use the token.'
   syntax:
     content: public System.IdentityModel.Protocols.WSTrust.Participants Participants { get; set; }
     return:
@@ -755,7 +755,7 @@ items:
   - System.IdentityModel
   namespace: System.IdentityModel.Protocols.WSTrust
   summary: Gets or sets the token to be used to encrypt the proof token.
-  remarks: Represents the contents of the wst:ProofEncryption element. This optional element contains the token to be used to encrypt the proof key.
+  remarks: 'Represents the contents of the wst:ProofEncryption element. This optional element contains the token to be used to encrypt the proof key.'
   syntax:
     content: public System.IdentityModel.Tokens.SecurityTokenElement ProofEncryption { get; set; }
     return:
@@ -798,7 +798,7 @@ items:
   - System.IdentityModel
   namespace: System.IdentityModel.Protocols.WSTrust
   summary: Gets or sets the renew semantics for a WS-Trust renew request.
-  remarks: Represents the contents of the wst:Renewing element. This optional element specifies the renew semantics for a WS-Trust renew request.
+  remarks: 'Represents the contents of the wst:Renewing element. This optional element specifies the renew semantics for a WS-Trust renew request.'
   syntax:
     content: public System.IdentityModel.Protocols.WSTrust.Renewing Renewing { get; set; }
     return:
@@ -841,7 +841,7 @@ items:
   - System.IdentityModel
   namespace: System.IdentityModel.Protocols.WSTrust
   summary: Gets or sets the token to be renewed in a WS-Trust renew request.
-  remarks: Represents the contents of a wst:RenewTarget element. This element carries the information about the token to be renewed in a WS-Trust renew request.
+  remarks: 'Represents the contents of a wst:RenewTarget element. This element carries the information about the token to be renewed in a WS-Trust renew request.'
   syntax:
     content: public System.IdentityModel.Tokens.SecurityTokenElement RenewTarget { get; set; }
     return:
@@ -884,12 +884,12 @@ items:
   - System.IdentityModel
   namespace: System.IdentityModel.Protocols.WSTrust
   summary: Gets or sets parameters for which the requestor is not the originator.
-  remarks: Represents the contents of a wst:SecondaryParameters element. This optional element contains parameters for which the requestor is not the originator. An STS may choose to use the values found in this element based on its policy.
+  remarks: 'Represents the contents of a wst:SecondaryParameters element. This optional element contains parameters for which the requestor is not the originator. An STS may choose to use the values found in this element based on its policy.'
   syntax:
     content: public System.IdentityModel.Protocols.WSTrust.RequestSecurityToken SecondaryParameters { get; set; }
     return:
       type: System.IdentityModel.Protocols.WSTrust.RequestSecurityToken
-      description: A <xref href="System.IdentityModel.Protocols.WSTrust.RequestSecurityToken"></xref> that contains secondary parameters for the request; that is, parameters for which the requestor is not the originator.
+      description: 'A <xref href="System.IdentityModel.Protocols.WSTrust.RequestSecurityToken"></xref> that contains secondary parameters for the request; that is, parameters for which the requestor is not the originator.'
   overload: System.IdentityModel.Protocols.WSTrust.RequestSecurityToken.SecondaryParameters*
   exceptions: []
   version:
@@ -927,7 +927,7 @@ items:
   - System.IdentityModel
   namespace: System.IdentityModel.Protocols.WSTrust
   summary: Gets or sets the token to be validated in a WS-Trust validate request.
-  remarks: Represents the contents of a wst:ValidateTarget element. This element carries the information about the token to be validated in a WS-Trust validate request.
+  remarks: 'Represents the contents of a wst:ValidateTarget element. This element carries the information about the token to be validated in a WS-Trust validate request.'
   syntax:
     content: public System.IdentityModel.Tokens.SecurityTokenElement ValidateTarget { get; set; }
     return:

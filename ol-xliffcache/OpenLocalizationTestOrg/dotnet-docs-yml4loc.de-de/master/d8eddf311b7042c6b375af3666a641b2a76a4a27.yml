@@ -29,7 +29,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security.AntiXss
-  summary: Encodes a string for use in HTML, XML, CSS, and URL strings.
+  summary: 'Encodes a string for use in HTML, XML, CSS, and URL strings.'
   remarks: "You can use the <xref:System.Web.Security.AntiXss.AntiXssEncoder> class to override the <xref:System.Web.Util.HttpEncoder> class that is used by default to encode and decode strings in methods of classes such as <xref:System.Web.HttpUtility>, <xref:System.Web.HttpServerUtility>, and <xref:System.Net.HttpResponseHeader>.  \n  \n In the <xref:System.Web.Security.AntiXss.AntiXssEncoder> class, all characters that are not found in the safe list are encoded by the <xref:System.Web.Security.AntiXss.AntiXssEncoder.HtmlAttributeEncode%2A> and <xref:System.Web.Security.AntiXss.AntiXssEncoder.HtmlEncode%2A> methods.  \n  \n To replace the <xref:System.Web.Util.HttpEncoder> class with the <xref:System.Web.Security.AntiXss.AntiXssEncoder> class, register it using the `encoderType` attribute of the httpRuntime element in the Web.config file, as shown in following example:  \n  \n```  \n<httpRuntime encoderType=\"System.Web.Security.AntiXss.AntiXssEncoder\" />  \n```  \n  \n A list of default safe characters for different encoding methods can be found in the remarks for the <xref:System.Web.Security.AntiXss.AntiXssEncoder.HtmlAttributeEncode%2A>, <xref:System.Web.Security.AntiXss.AntiXssEncoder.HtmlEncode%2A>, <xref:System.Web.Security.AntiXss.AntiXssEncoder.XmlAttributeEncode%2A>, and <xref:System.Web.Security.AntiXss.AntiXssEncoder.XmlEncode%2A> methods. The default safe list can be modified by using the <xref:System.Web.Security.AntiXss.AntiXssEncoder.MarkAsSafe%2A> method."
   syntax:
     content: 'public class AntiXssEncoder : System.Web.Util.HttpEncoder'
@@ -510,7 +510,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The <xref href="System.Web.Security.AntiXss.AntiXssEncoder.MarkAsSafe(System.Web.Security.AntiXss.LowerCodeCharts,System.Web.Security.AntiXss.LowerMidCodeCharts,System.Web.Security.AntiXss.MidCodeCharts,System.Web.Security.AntiXss.UpperMidCodeCharts,System.Web.Security.AntiXss.UpperCodeCharts)"></xref> method was called outside the `Application_Start` method in the Global.asax file.
+    description: 'The <xref href="System.Web.Security.AntiXss.AntiXssEncoder.MarkAsSafe(System.Web.Security.AntiXss.LowerCodeCharts,System.Web.Security.AntiXss.LowerMidCodeCharts,System.Web.Security.AntiXss.MidCodeCharts,System.Web.Security.AntiXss.UpperMidCodeCharts,System.Web.Security.AntiXss.UpperCodeCharts)"></xref> method was called outside the `Application_Start` method in the Global.asax file.'
   version:
   - netframework-4.5.1
   - netframework-4.5.2
@@ -692,7 +692,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security.AntiXss
-  summary: Encodes the specified byte array for use in a URL, starting at the specified offset in the byte array and encoding the specified number of bytes.
+  summary: 'Encodes the specified byte array for use in a URL, starting at the specified offset in the byte array and encoding the specified number of bytes.'
   remarks: "This method encodes all characters except those that are in the safe list. Characters are encoded by using `%SINGLE_BYTE_HEX` notation.  \n  \n The following table lists the default safe characters.  \n  \n|Unicode code chart|Character(s)|Description|  \n|------------------------|--------------------|-----------------|  \n|[C0 Controls and Basic Latin](http://www.unicode.org/charts/PDF/U0000.pdf)|A-Z|Uppercase alphabetic characters|  \n|[C0 Controls and Basic Latin](http://www.unicode.org/charts/PDF/U0000.pdf)|a-z|Lowercase alphabetic characters|  \n|[C0 Controls and Basic Latin](http://www.unicode.org/charts/PDF/U0000.pdf)|0-9|Numbers|  \n|[C0 Controls and Basic Latin](http://www.unicode.org/charts/PDF/U0000.pdf)|-|Hyphen, minus|  \n|[C0 Controls and Basic Latin](http://www.unicode.org/charts/PDF/U0000.pdf)|.|Period, dot, full stop|  \n|[C0 Controls and Basic Latin](http://www.unicode.org/charts/PDF/U0000.pdf)|_|Underscore|  \n|[C0 Controls and Basic Latin](http://www.unicode.org/charts/PDF/U0000.pdf)|~|Tilde|  \n  \n The following table lists examples of inputs and the corresponding encoded outputs.  \n  \n|||  \n|-|-|  \n|`alert('XSS Attack!');`|`alert%28%27XSS%20Attack%21%27%29%3b`|  \n|`<script>alert('XSS Attack!');</script>`|`%3cscript%3ealert%28%27XSS%20Attack%21%27%29%3b%3c%2fscript%3e`|  \n|`alert('XSSあAttack!');`|`alert%28%27XSS%e3%81%82Attack%21%27%29%3b`|  \n|`user@contoso.com`|`user%40contoso.com`|  \n|`\"Anti-Cross Site Scripting Namespace\"`|`%22Anti-Cross%20Site%20Scripting%20Namespace%22`|"
   syntax:
     content: protected override byte[] UrlEncode (byte[] bytes, int offset, int count);

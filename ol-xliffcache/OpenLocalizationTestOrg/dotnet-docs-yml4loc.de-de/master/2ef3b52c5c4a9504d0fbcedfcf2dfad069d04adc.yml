@@ -20,7 +20,7 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Interop
-  summary: Provides a keyboard sink for components that manages tabbing, accelerators, and mnemonics across interop boundaries and between HWNDs. This interface implements keyboard message management in WPF-Win32 interoperation scenarios.
+  summary: 'Provides a keyboard sink for components that manages tabbing, accelerators, and mnemonics across interop boundaries and between HWNDs. This interface implements keyboard message management in WPF-Win32 interoperation scenarios.'
   remarks: "A keyboard sink handles input from particular subsets of the overall keyboard input model for [!INCLUDE[TLA#tla_win32](~/includes/tlasharptla-win32-md.md)] and [!INCLUDE[TLA#tla_winclient](~/includes/tlasharptla-winclient-md.md)], and enables some keyboard input to be processed and directed to HWNDs other than the one with current keyboard focus.  \n  \n If your component contains other components, and maintains a tab order, your component must also implement <xref:System.Windows.Interop.IKeyboardInputSite> and keep track of which component has focus.  \n  \n For a discussion of the input architecture specifically implemented for [!INCLUDE[TLA#tla_winforms](~/includes/tlasharptla-winforms-md.md)] interop, see [Windows Forms and WPF Interoperability Input Architecture](~/docs/framework/wpf/advanced/windows-forms-and-wpf-interoperability-input-architecture.md).  \n  \n <xref:System.Windows.Interop.HwndSource> and <xref:System.Windows.Interop.HwndHost> each implement the <xref:System.Windows.Interop.IKeyboardInputSink> interface, through explicit interface definitions. The explicit definitions supply default behaviors, and can also be accessed if necessary through an <xref:System.Windows.Interop.IKeyboardInputSink> interface cast of <xref:System.Windows.Interop.HwndSource> or <xref:System.Windows.Interop.HwndHost>."
   syntax:
     content: public interface IKeyboardInputSink
@@ -64,7 +64,7 @@ items:
   - WindowsBase
   namespace: System.Windows.Interop
   summary: Gets a value that indicates whether the sink or one of its contained components has focus.
-  remarks: This method is necessary for forwarding <xref:System.Windows.Interop.IKeyboardInputSink.TranslateAccelerator%2A> calls to child components with focus from within the <xref:System.Windows.Interop.IKeyboardInputSink.TranslateAccelerator%2A> implementation. Call <xref:System.Windows.Interop.IKeyboardInputSink.HasFocusWithin%2A> recursively until you reach the level of specific focus and forward <xref:System.Windows.Interop.IKeyboardInputSink.TranslateAccelerator%2A> there.
+  remarks: 'This method is necessary for forwarding <xref:System.Windows.Interop.IKeyboardInputSink.TranslateAccelerator%2A> calls to child components with focus from within the <xref:System.Windows.Interop.IKeyboardInputSink.TranslateAccelerator%2A> implementation. Call <xref:System.Windows.Interop.IKeyboardInputSink.HasFocusWithin%2A> recursively until you reach the level of specific focus and forward <xref:System.Windows.Interop.IKeyboardInputSink.TranslateAccelerator%2A> there.'
   syntax:
     content: public bool HasFocusWithin ();
     parameters: []
@@ -108,7 +108,7 @@ items:
   - WindowsBase
   namespace: System.Windows.Interop
   summary: Gets or sets a reference to the component's container's <xref href="System.Windows.Interop.IKeyboardInputSite"></xref> interface.
-  remarks: This property should initially be set to `null`. Any container that adds the sink to its components list will set <xref:System.Windows.Interop.IKeyboardInputSink.KeyboardInputSite%2A> before any other methods are called, and it can be set multiple times after that. You should set the property to `null` again before disposal.
+  remarks: 'This property should initially be set to `null`. Any container that adds the sink to its components list will set <xref:System.Windows.Interop.IKeyboardInputSink.KeyboardInputSite%2A> before any other methods are called, and it can be set multiple times after that. You should set the property to `null` again before disposal.'
   syntax:
     content: >-
       [set: System.Security.SecurityCritical]
@@ -212,7 +212,7 @@ items:
   - WindowsBase
   namespace: System.Windows.Interop
   summary: Registers the <xref href="System.Windows.Interop.IKeyboardInputSink"></xref> interface of a contained component.
-  remarks: Components with child components should maintain internal collections of sites and use this method to add a new sink and return the new site. You only need to maintain the site collection, because the sink can be obtained from the site.
+  remarks: 'Components with child components should maintain internal collections of sites and use this method to add a new sink and return the new site. You only need to maintain the site collection, because the sink can be obtained from the site.'
   syntax:
     content: >-
       [System.Security.SecurityCritical]
@@ -265,7 +265,7 @@ items:
   - WindowsBase
   namespace: System.Windows.Interop
   summary: Sets focus on either the first tab stop or the last tab stop of the sink.
-  remarks: <xref:System.Windows.Input.FocusNavigationDirection.First> and <xref:System.Windows.Input.FocusNavigationDirection.Last> are the only relevant values that should be passed to this method in the <xref:System.Windows.Input.TraversalRequest>.
+  remarks: '<xref:System.Windows.Input.FocusNavigationDirection.First> and <xref:System.Windows.Input.FocusNavigationDirection.Last> are the only relevant values that should be passed to this method in the <xref:System.Windows.Input.TraversalRequest>.'
   syntax:
     content: public bool TabInto (System.Windows.Input.TraversalRequest request);
     parameters:
@@ -367,8 +367,8 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Interop
-  summary: Processes WM_CHAR, WM_SYSCHAR, WM_DEADCHAR, and WM_SYSDEADCHAR input messages before <xref href="System.Windows.Interop.IKeyboardInputSink.OnMnemonic(System.Windows.Interop.MSG@,System.Windows.Input.ModifierKeys)"></xref> is called.
-  remarks: If you implement this method to return `true`, the input architecture will not call <xref:System.Windows.Interop.IKeyboardInputSink.OnMnemonic%2A> for that key message.
+  summary: 'Processes WM_CHAR, WM_SYSCHAR, WM_DEADCHAR, and WM_SYSDEADCHAR input messages before <xref href="System.Windows.Interop.IKeyboardInputSink.OnMnemonic(System.Windows.Interop.MSG@,System.Windows.Input.ModifierKeys)"></xref> is called.'
+  remarks: 'If you implement this method to return `true`, the input architecture will not call <xref:System.Windows.Interop.IKeyboardInputSink.OnMnemonic%2A> for that key message.'
   syntax:
     content: >-
       [System.Security.SecurityCritical]

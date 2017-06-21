@@ -67,7 +67,7 @@ items:
   - System.Runtime
   namespace: System.Globalization
   summary: Implements a set of methods for culture-sensitive string comparisons.
-  remarks: "Conventions for comparing and sorting data vary from culture to culture. For example, sort order may be based on phonetics or on the visual representation of characters. In East Asian languages, characters are sorted by the stroke and radical of ideographs. Sorting also depends on the order languages and cultures use for the alphabet. For example, the Danish language has an \"Æ\" character that it sorts after \"Z\" in the alphabet. In addition, comparisons may be case-sensitive or case-insensitive, and casing rules may also differ by culture. The <xref:System.Globalization.CompareInfo> class is responsible for maintaining this culture-sensitive string comparison data and for performing culture-sensitive string operations.  \n  \n Typically, you do not have to instantiate a <xref:System.Globalization.CompareInfo> object directly, because one is used implicitly by all non-ordinal string comparison operations, including calls to the <xref:System.String.Compare%2A?displayProperty=fullName> method. However, if you do want to retrieve a <xref:System.Globalization.CompareInfo> object, you can do it in one of these ways:  \n  \n-   By retrieving the value of the <xref:System.Globalization.CultureInfo.CompareInfo%2A?displayProperty=fullName> property for a particular culture.  \n  \n-   By calling the static <xref:System.Globalization.CompareInfo.GetCompareInfo%2A> method with a culture name. This allows for late-bound access to a <xref:System.Globalization.CompareInfo> object.  \n  \n## Ignored search values  \n Character sets include ignorable characters, which are characters that are not considered when performing a linguistic or culture-sensitive comparison. Comparison methods such as <xref:System.Globalization.CompareInfo.IndexOf%2A> and <xref:System.Globalization.CompareInfo.LastIndexOf%2A> do not consider such characters when they perform a culture-sensitive comparison. Ignorable characters include:  \n  \n-   <xref:System.String.Empty?displayProperty=fullName>. Culture-sensitive comparison methods will always find an empty string at the beginning (index zero) of the string being searched.  \n  \n-   A character or string consisting of characters with code points that are not considered in the operation because of comparison options, In particular, the  <xref:System.Globalization.CompareOptions?displayProperty=fullName> and <xref:System.Globalization.CompareOptions?displayProperty=fullName> options produce searches in which symbols and nonspacing combining characters are ignored.  \n  \n-   A string with code points that have no linguistic significance. For example, a soft hyphen (U+00AD) is always ignored in a culture-sensitive string comparison.  \n  \n## Security considerations  \n If a security decision depends on a string comparison or a case change, you should use the <xref:System.Globalization.CultureInfo.InvariantCulture%2A> property to ensure that the behavior is consistent, regardless of the culture settings of the operating system.  \n  \n> [!NOTE]\n>  When possible, you should use string comparison methods that have a parameter of type <xref:System.Globalization.CompareOptions> to specify the kind of comparison expected. As a general rule, use linguistic options (using the current culture) for comparing strings displayed in the user interface and specify <xref:System.Globalization.CompareOptions.Ordinal> or <xref:System.Globalization.CompareOptions.OrdinalIgnoreCase> for security comparisons."
+  remarks: "Conventions for comparing and sorting data vary from culture to culture. For example, sort order may be based on phonetics or on the visual representation of characters. In East Asian languages, characters are sorted by the stroke and radical of ideographs. Sorting also depends on the order languages and cultures use for the alphabet. For example, the Danish language has an \"Æ\" character that it sorts after \"Z\" in the alphabet. In addition, comparisons may be case-sensitive or case-insensitive, and casing rules may also differ by culture. The <xref:System.Globalization.CompareInfo> class is responsible for maintaining this culture-sensitive string comparison data and for performing culture-sensitive string operations.  \n  \n Typically, you do not have to instantiate a <xref:System.Globalization.CompareInfo> object directly, because one is used implicitly by all non-ordinal string comparison operations, including calls to the <xref:System.String.Compare%2A?displayProperty=fullName> method. However, if you do want to retrieve a <xref:System.Globalization.CompareInfo> object, you can do it in one of these ways:  \n  \n-   By retrieving the value of the <xref:System.Globalization.CultureInfo.CompareInfo%2A?displayProperty=fullName> property for a particular culture.  \n  \n-   By calling the static <xref:System.Globalization.CompareInfo.GetCompareInfo%2A> method with a culture name. This allows for late-bound access to a <xref:System.Globalization.CompareInfo> object.  \n  \n## <a name=\"ignored-search-values\"></a>Ignored search values  \n Character sets include ignorable characters, which are characters that are not considered when performing a linguistic or culture-sensitive comparison. Comparison methods such as <xref:System.Globalization.CompareInfo.IndexOf%2A> and <xref:System.Globalization.CompareInfo.LastIndexOf%2A> do not consider such characters when they perform a culture-sensitive comparison. Ignorable characters include:  \n  \n-   <xref:System.String.Empty?displayProperty=fullName>. Culture-sensitive comparison methods will always find an empty string at the beginning (index zero) of the string being searched.  \n  \n-   A character or string consisting of characters with code points that are not considered in the operation because of comparison options, In particular, the  <xref:System.Globalization.CompareOptions?displayProperty=fullName> and <xref:System.Globalization.CompareOptions?displayProperty=fullName> options produce searches in which symbols and nonspacing combining characters are ignored.  \n  \n-   A string with code points that have no linguistic significance. For example, a soft hyphen (U+00AD) is always ignored in a culture-sensitive string comparison.  \n  \n## <a name=\"security-considerations\"></a>Security considerations  \n If a security decision depends on a string comparison or a case change, you should use the <xref:System.Globalization.CultureInfo.InvariantCulture%2A> property to ensure that the behavior is consistent, regardless of the culture settings of the operating system.  \n  \n> [!NOTE]\n>  When possible, you should use string comparison methods that have a parameter of type <xref:System.Globalization.CompareOptions> to specify the kind of comparison expected. As a general rule, use linguistic options (using the current culture) for comparing strings displayed in the user interface and specify <xref:System.Globalization.CompareOptions.Ordinal> or <xref:System.Globalization.CompareOptions.OrdinalIgnoreCase> for security comparisons."
   example:
   - "The following example shows how the <xref:System.Globalization.CompareInfo> object associated with a <xref:System.Globalization.CultureInfo> object affects string comparison.  \n  \n [!code-cpp[CompareInfo#1](~/samples/snippets/cpp/VS_Snippets_CLR/CompareInfo/cpp/CompareInfo.cpp#1)]\n [!code-csharp[CompareInfo#1](~/samples/snippets/csharp/VS_Snippets_CLR/CompareInfo/CS/CompareInfo.cs#1)]\n [!code-vb[CompareInfo#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/CompareInfo/VB/CompareInfo.vb#1)]"
   syntax:
@@ -167,7 +167,7 @@ items:
       description: The second string to compare.
     return:
       type: System.Int32
-      description: "A 32-bit signed integer indicating the lexical relationship between the two comparands.  \n  \n <table><thead><tr><th> Value  \n  \n </th><th> Condition  \n  \n </th></tr></thead><tbody><tr><td> zero  \n  \n </td><td> The two strings are equal.  \n  \n </td></tr><tr><td> less than zero  \n  \n </td><td><code>string1</code> is less than <code>string2</code>.  \n  \n </td></tr><tr><td> greater than zero  \n  \n </td><td><code>string1</code> is greater than <code>string2</code>.  \n  \n </td></tr></tbody></table>"
+      description: "A 32-bit signed integer indicating the lexical relationship between the two comparands.  \n  \n <table><thead><tr><th> Value\n </th><th> Condition\n </th></tr></thead><tbody><tr><td> zero\n </td><td> The two strings are equal.  \n  \n </td></tr><tr><td> less than zero\n </td><td><code>string1</code> is less than <code>string2</code>.  \n  \n </td></tr><tr><td> greater than zero\n </td><td><code>string1</code> is greater than <code>string2</code>.  \n  \n </td></tr></tbody></table>"
   overload: System.Globalization.CompareInfo.Compare*
   exceptions: []
   version:
@@ -252,7 +252,7 @@ items:
       description: 'A value that defines how <code>string1</code> and <code>string2</code> should be compared. <code>options</code> is either the enumeration value <xref href="System.Globalization.CompareOptions.Ordinal"></xref>, or a bitwise combination of one or more of the following values: <xref href="System.Globalization.CompareOptions.IgnoreCase"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreSymbols"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreNonSpace"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreWidth"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreKanaType"></xref>, and <xref href="System.Globalization.CompareOptions.StringSort"></xref>.'
     return:
       type: System.Int32
-      description: "A 32-bit signed integer indicating the lexical relationship between the two comparands.  \n  \n <table><thead><tr><th> Value  \n  \n </th><th> Condition  \n  \n </th></tr></thead><tbody><tr><td> zero  \n  \n </td><td> The two strings are equal.  \n  \n </td></tr><tr><td> less than zero  \n  \n </td><td><code>string1</code> is less than <code>string2</code>.  \n  \n </td></tr><tr><td> greater than zero  \n  \n </td><td><code>string1</code> is greater than <code>string2</code>.  \n  \n </td></tr></tbody></table>"
+      description: "A 32-bit signed integer indicating the lexical relationship between the two comparands.  \n  \n <table><thead><tr><th> Value\n </th><th> Condition\n </th></tr></thead><tbody><tr><td> zero\n </td><td> The two strings are equal.  \n  \n </td></tr><tr><td> less than zero\n </td><td><code>string1</code> is less than <code>string2</code>.  \n  \n </td></tr><tr><td> greater than zero\n </td><td><code>string1</code> is greater than <code>string2</code>.  \n  \n </td></tr></tbody></table>"
   overload: System.Globalization.CompareInfo.Compare*
   exceptions:
   - type: System.ArgumentException
@@ -344,7 +344,7 @@ items:
       description: The zero-based index of the character in <code>string2</code> at which to start comparing.
     return:
       type: System.Int32
-      description: "A 32-bit signed integer indicating the lexical relationship between the two comparands.  \n  \n <table><thead><tr><th> Value  \n  \n </th><th> Condition  \n  \n </th></tr></thead><tbody><tr><td> zero  \n  \n </td><td> The two strings are equal.  \n  \n </td></tr><tr><td> less than zero  \n  \n </td><td> The specified section of <code>string1</code> is less than the specified section of <code>string2</code>.  \n  \n </td></tr><tr><td> greater than zero  \n  \n </td><td> The specified section of <code>string1</code> is greater than the specified section of <code>string2</code>.  \n  \n </td></tr></tbody></table>"
+      description: "A 32-bit signed integer indicating the lexical relationship between the two comparands.  \n  \n <table><thead><tr><th> Value\n </th><th> Condition\n </th></tr></thead><tbody><tr><td> zero\n </td><td> The two strings are equal.  \n  \n </td></tr><tr><td> less than zero\n </td><td> The specified section of <code>string1</code> is less than the specified section of <code>string2</code>.  \n  \n </td></tr><tr><td> greater than zero\n </td><td> The specified section of <code>string1</code> is greater than the specified section of <code>string2</code>.  \n  \n </td></tr></tbody></table>"
   overload: System.Globalization.CompareInfo.Compare*
   exceptions:
   - type: System.ArgumentOutOfRangeException
@@ -438,7 +438,7 @@ items:
       description: 'A value that defines how <code>string1</code> and <code>string2</code> should be compared. <code>options</code> is either the enumeration value <xref href="System.Globalization.CompareOptions.Ordinal"></xref>, or a bitwise combination of one or more of the following values: <xref href="System.Globalization.CompareOptions.IgnoreCase"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreSymbols"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreNonSpace"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreWidth"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreKanaType"></xref>, and <xref href="System.Globalization.CompareOptions.StringSort"></xref>.'
     return:
       type: System.Int32
-      description: "A 32-bit signed integer indicating the lexical relationship between the two comparands.  \n  \n <table><thead><tr><th> Value  \n  \n </th><th> Condition  \n  \n </th></tr></thead><tbody><tr><td> zero  \n  \n </td><td> The two strings are equal.  \n  \n </td></tr><tr><td> less than zero  \n  \n </td><td> The specified section of <code>string1</code> is less than the specified section of <code>string2</code>.  \n  \n </td></tr><tr><td> greater than zero  \n  \n </td><td> The specified section of <code>string1</code> is greater than the specified section of <code>string2</code>.  \n  \n </td></tr></tbody></table>"
+      description: "A 32-bit signed integer indicating the lexical relationship between the two comparands.  \n  \n <table><thead><tr><th> Value\n </th><th> Condition\n </th></tr></thead><tbody><tr><td> zero\n </td><td> The two strings are equal.  \n  \n </td></tr><tr><td> less than zero\n </td><td> The specified section of <code>string1</code> is less than the specified section of <code>string2</code>.  \n  \n </td></tr><tr><td> greater than zero\n </td><td> The specified section of <code>string1</code> is greater than the specified section of <code>string2</code>.  \n  \n </td></tr></tbody></table>"
   overload: System.Globalization.CompareInfo.Compare*
   exceptions:
   - type: System.ArgumentOutOfRangeException
@@ -538,7 +538,7 @@ items:
       description: The number of consecutive characters in <code>string2</code> to compare.
     return:
       type: System.Int32
-      description: "A 32-bit signed integer indicating the lexical relationship between the two comparands.  \n  \n <table><thead><tr><th> Value  \n  \n </th><th> Condition  \n  \n </th></tr></thead><tbody><tr><td> zero  \n  \n </td><td> The two strings are equal.  \n  \n </td></tr><tr><td> less than zero  \n  \n </td><td> The specified section of <code>string1</code> is less than the specified section of <code>string2</code>.  \n  \n </td></tr><tr><td> greater than zero  \n  \n </td><td> The specified section of <code>string1</code> is greater than the specified section of <code>string2</code>.  \n  \n </td></tr></tbody></table>"
+      description: "A 32-bit signed integer indicating the lexical relationship between the two comparands.  \n  \n <table><thead><tr><th> Value\n </th><th> Condition\n </th></tr></thead><tbody><tr><td> zero\n </td><td> The two strings are equal.  \n  \n </td></tr><tr><td> less than zero\n </td><td> The specified section of <code>string1</code> is less than the specified section of <code>string2</code>.  \n  \n </td></tr><tr><td> greater than zero\n </td><td> The specified section of <code>string1</code> is greater than the specified section of <code>string2</code>.  \n  \n </td></tr></tbody></table>"
   overload: System.Globalization.CompareInfo.Compare*
   exceptions:
   - type: System.ArgumentOutOfRangeException
@@ -638,7 +638,7 @@ items:
       description: 'A value that defines how <code>string1</code> and <code>string2</code> should be compared. <code>options</code> is either the enumeration value <xref href="System.Globalization.CompareOptions.Ordinal"></xref>, or a bitwise combination of one or more of the following values: <xref href="System.Globalization.CompareOptions.IgnoreCase"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreSymbols"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreNonSpace"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreWidth"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreKanaType"></xref>, and <xref href="System.Globalization.CompareOptions.StringSort"></xref>.'
     return:
       type: System.Int32
-      description: "A 32-bit signed integer indicating the lexical relationship between the two comparands.  \n  \n <table><thead><tr><th> Value  \n  \n </th><th> Condition  \n  \n </th></tr></thead><tbody><tr><td> zero  \n  \n </td><td> The two strings are equal.  \n  \n </td></tr><tr><td> less than zero  \n  \n </td><td> The specified section of <code>string1</code> is less than the specified section of <code>string2</code>.  \n  \n </td></tr><tr><td> greater than zero  \n  \n </td><td> The specified section of <code>string1</code> is greater than the specified section of <code>string2</code>.  \n  \n </td></tr></tbody></table>"
+      description: "A 32-bit signed integer indicating the lexical relationship between the two comparands.  \n  \n <table><thead><tr><th> Value\n </th><th> Condition\n </th></tr></thead><tbody><tr><td> zero\n </td><td> The two strings are equal.  \n  \n </td></tr><tr><td> less than zero\n </td><td> The specified section of <code>string1</code> is less than the specified section of <code>string2</code>.  \n  \n </td></tr><tr><td> greater than zero\n </td><td> The specified section of <code>string1</code> is greater than the specified section of <code>string2</code>.  \n  \n </td></tr></tbody></table>"
   overload: System.Globalization.CompareInfo.Compare*
   exceptions:
   - type: System.ArgumentOutOfRangeException
@@ -1074,7 +1074,7 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Globalization
-  summary: Serves as a hash function for the current <xref href="System.Globalization.CompareInfo"></xref> for hashing algorithms and data structures, such as a hash table.
+  summary: 'Serves as a hash function for the current <xref href="System.Globalization.CompareInfo"></xref> for hashing algorithms and data structures, such as a hash table.'
   remarks: "This method overrides <xref:System.Object.GetHashCode%2A?displayProperty=fullName>.  \n  \n This method generates the same hash code for two objects that are equal according to the <xref:System.Globalization.CompareInfo.Equals%2A> method."
   syntax:
     content: public override int GetHashCode ();
@@ -1219,7 +1219,7 @@ items:
   - System.Runtime
   namespace: System.Globalization
   summary: Gets the sort key for the specified string.
-  remarks: Each character in a string is given several categories of sort weights, including script, alphabetic, case, and diacritic weights. A sort key is the repository of these weights for a particular string. For example, a sort key might contain a string of alphabetic weights, followed by a string of case weights, and so on. The <xref:System.Globalization.CompareInfo.GetSortKey%2A> method is equivalent to the Windows API method `LCMapString` with the LCMAP_SORTKEY flag.
+  remarks: 'Each character in a string is given several categories of sort weights, including script, alphabetic, case, and diacritic weights. A sort key is the repository of these weights for a particular string. For example, a sort key might contain a string of alphabetic weights, followed by a string of case weights, and so on. The <xref:System.Globalization.CompareInfo.GetSortKey%2A> method is equivalent to the Windows API method `LCMapString` with the LCMAP_SORTKEY flag.'
   syntax:
     content: public virtual System.Globalization.SortKey GetSortKey (string source);
     parameters:
@@ -1279,7 +1279,7 @@ items:
   - System.Runtime
   namespace: System.Globalization
   summary: Gets a <xref href="System.Globalization.SortKey"></xref> object for the specified string using the specified <xref href="System.Globalization.CompareOptions"></xref> value.
-  remarks: Each character in a string is given several categories of sort weights, including script, alphabetic, case, and diacritic weights. A sort key is the repository of these weights for a particular string. For example, a sort key might contain a string of alphabetic weights, followed by a string of case weights, and so on. The <xref:System.Globalization.CompareInfo.GetSortKey%2A> method is equivalent to the Windows API method `LCMapString` with the LCMAP_SORTKEY flag.
+  remarks: 'Each character in a string is given several categories of sort weights, including script, alphabetic, case, and diacritic weights. A sort key is the repository of these weights for a particular string. For example, a sort key might contain a string of alphabetic weights, followed by a string of case weights, and so on. The <xref:System.Globalization.CompareInfo.GetSortKey%2A> method is equivalent to the Windows API method `LCMapString` with the LCMAP_SORTKEY flag.'
   syntax:
     content: public virtual System.Globalization.SortKey GetSortKey (string source, System.Globalization.CompareOptions options);
     parameters:
@@ -1366,7 +1366,7 @@ items:
       description: The number of elements in the section to search.
     return:
       type: System.Int32
-      description: The zero-based index of the first occurrence of <code>value</code>, if found, within the section of <code>source</code> that starts at <code>startIndex</code> and contains the number of elements specified by <code>count</code>; otherwise, -1. Returns <code>startIndex</code> if <code>value</code> is an ignorable character.
+      description: 'The zero-based index of the first occurrence of <code>value</code>, if found, within the section of <code>source</code> that starts at <code>startIndex</code> and contains the number of elements specified by <code>count</code>; otherwise, -1. Returns <code>startIndex</code> if <code>value</code> is an ignorable character.'
   overload: System.Globalization.CompareInfo.IndexOf*
   exceptions:
   - type: System.ArgumentNullException
@@ -1463,7 +1463,7 @@ items:
       description: 'A value that defines how <code>source</code> and <code>value</code> should be compared. <code>options</code> is either the enumeration value <xref href="System.Globalization.CompareOptions.Ordinal"></xref>, or a bitwise combination of one or more of the following values: <xref href="System.Globalization.CompareOptions.IgnoreCase"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreSymbols"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreNonSpace"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreWidth"></xref>, and <xref href="System.Globalization.CompareOptions.IgnoreKanaType"></xref>.'
     return:
       type: System.Int32
-      description: The zero-based index of the first occurrence of <code>value</code>, if found, within the section of <code>source</code> that starts at <code>startIndex</code> and contains the number of elements specified by <code>count</code>, using the specified comparison options; otherwise, -1. Returns <code>startIndex</code> if <code>value</code> is an ignorable character.
+      description: 'The zero-based index of the first occurrence of <code>value</code>, if found, within the section of <code>source</code> that starts at <code>startIndex</code> and contains the number of elements specified by <code>count</code>, using the specified comparison options; otherwise, -1. Returns <code>startIndex</code> if <code>value</code> is an ignorable character.'
   overload: System.Globalization.CompareInfo.IndexOf*
   exceptions:
   - type: System.ArgumentNullException
@@ -1564,7 +1564,7 @@ items:
       description: 'A value that defines how <code>source</code> and <code>value</code> should be compared. <code>options</code> is either the enumeration value <xref href="System.Globalization.CompareOptions.Ordinal"></xref>, or a bitwise combination of one or more of the following values: <xref href="System.Globalization.CompareOptions.IgnoreCase"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreSymbols"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreNonSpace"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreWidth"></xref>, and <xref href="System.Globalization.CompareOptions.IgnoreKanaType"></xref>.'
     return:
       type: System.Int32
-      description: The zero-based index of the first occurrence of <code>value</code>, if found, within the section of <code>source</code> that starts at <code>startIndex</code> and contains the number of elements specified by <code>count</code>, using the specified comparison options; otherwise, -1. Returns <code>startIndex</code> if <code>value</code> is an ignorable character.
+      description: 'The zero-based index of the first occurrence of <code>value</code>, if found, within the section of <code>source</code> that starts at <code>startIndex</code> and contains the number of elements specified by <code>count</code>, using the specified comparison options; otherwise, -1. Returns <code>startIndex</code> if <code>value</code> is an ignorable character.'
   overload: System.Globalization.CompareInfo.IndexOf*
   exceptions:
   - type: System.ArgumentNullException
@@ -1662,7 +1662,7 @@ items:
       description: 'A value that defines how <code>source</code> and <code>value</code> should be compared. <code>options</code> is either the enumeration value <xref href="System.Globalization.CompareOptions.Ordinal"></xref>, or a bitwise combination of one or more of the following values: <xref href="System.Globalization.CompareOptions.IgnoreCase"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreSymbols"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreNonSpace"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreWidth"></xref>, and <xref href="System.Globalization.CompareOptions.IgnoreKanaType"></xref>.'
     return:
       type: System.Int32
-      description: The zero-based index of the first occurrence of <code>value</code>, if found, within the section of <code>source</code> that extends from <code>startIndex</code> to the end of <code>source</code>, using the specified comparison options; otherwise, -1. Returns <code>startIndex</code> if <code>value</code> is an ignorable character.
+      description: 'The zero-based index of the first occurrence of <code>value</code>, if found, within the section of <code>source</code> that extends from <code>startIndex</code> to the end of <code>source</code>, using the specified comparison options; otherwise, -1. Returns <code>startIndex</code> if <code>value</code> is an ignorable character.'
   overload: System.Globalization.CompareInfo.IndexOf*
   exceptions:
   - type: System.ArgumentNullException
@@ -1759,7 +1759,7 @@ items:
       description: 'A value that defines how <code>source</code> and <code>value</code> should be compared. <code>options</code> is either the enumeration value <xref href="System.Globalization.CompareOptions.Ordinal"></xref>, or a bitwise combination of one or more of the following values: <xref href="System.Globalization.CompareOptions.IgnoreCase"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreSymbols"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreNonSpace"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreWidth"></xref>, and <xref href="System.Globalization.CompareOptions.IgnoreKanaType"></xref>.'
     return:
       type: System.Int32
-      description: The zero-based index of the first occurrence of <code>value</code>, if found, within the section of <code>source</code> that extends from <code>startIndex</code> to the end of <code>source</code>, using the specified comparison options; otherwise, -1. Returns <code>startIndex</code> if <code>value</code> is an ignorable character.
+      description: 'The zero-based index of the first occurrence of <code>value</code>, if found, within the section of <code>source</code> that extends from <code>startIndex</code> to the end of <code>source</code>, using the specified comparison options; otherwise, -1. Returns <code>startIndex</code> if <code>value</code> is an ignorable character.'
   overload: System.Globalization.CompareInfo.IndexOf*
   exceptions:
   - type: System.ArgumentNullException
@@ -1856,7 +1856,7 @@ items:
       description: The number of elements in the section to search.
     return:
       type: System.Int32
-      description: The zero-based index of the first occurrence of <code>value</code>, if found, within the section of <code>source</code> that starts at <code>startIndex</code> and contains the number of elements specified by <code>count</code>; otherwise, -1. Returns <code>startIndex</code> if <code>value</code> is an ignorable character.
+      description: 'The zero-based index of the first occurrence of <code>value</code>, if found, within the section of <code>source</code> that starts at <code>startIndex</code> and contains the number of elements specified by <code>count</code>; otherwise, -1. Returns <code>startIndex</code> if <code>value</code> is an ignorable character.'
   overload: System.Globalization.CompareInfo.IndexOf*
   exceptions:
   - type: System.ArgumentNullException
@@ -1947,7 +1947,7 @@ items:
       description: 'A value that defines how <code>source</code> and <code>value</code> should be compared. <code>options</code> is either the enumeration value <xref href="System.Globalization.CompareOptions.Ordinal"></xref>, or a bitwise combination of one or more of the following values: <xref href="System.Globalization.CompareOptions.IgnoreCase"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreSymbols"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreNonSpace"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreWidth"></xref>, and <xref href="System.Globalization.CompareOptions.IgnoreKanaType"></xref>.'
     return:
       type: System.Int32
-      description: The zero-based index of the first occurrence of <code>value</code>, if found, within <code>source</code>, using the specified comparison options; otherwise, -1. Returns 0 (zero) if <code>value</code> is an ignorable character.
+      description: 'The zero-based index of the first occurrence of <code>value</code>, if found, within <code>source</code>, using the specified comparison options; otherwise, -1. Returns 0 (zero) if <code>value</code> is an ignorable character.'
   overload: System.Globalization.CompareInfo.IndexOf*
   exceptions:
   - type: System.ArgumentNullException
@@ -2037,7 +2037,7 @@ items:
       description: The zero-based starting index of the search.
     return:
       type: System.Int32
-      description: The zero-based index of the first occurrence of <code>value</code>, if found, within the section of <code>source</code> that extends from <code>startIndex</code> to the end of <code>source</code>; otherwise, -1. Returns <code>startIndex</code> if <code>value</code> is an ignorable character.
+      description: 'The zero-based index of the first occurrence of <code>value</code>, if found, within the section of <code>source</code> that extends from <code>startIndex</code> to the end of <code>source</code>; otherwise, -1. Returns <code>startIndex</code> if <code>value</code> is an ignorable character.'
   overload: System.Globalization.CompareInfo.IndexOf*
   exceptions:
   - type: System.ArgumentNullException
@@ -2112,7 +2112,7 @@ items:
       description: 'A value that defines how the strings should be compared. <code>options</code> is either the enumeration value <xref href="System.Globalization.CompareOptions.Ordinal"></xref>, or a bitwise combination of one or more of the following values: <xref href="System.Globalization.CompareOptions.IgnoreCase"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreSymbols"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreNonSpace"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreWidth"></xref>, and <xref href="System.Globalization.CompareOptions.IgnoreKanaType"></xref>.'
     return:
       type: System.Int32
-      description: The zero-based index of the first occurrence of <code>value</code>, if found, within <code>source</code>, using the specified comparison options; otherwise, -1. Returns 0 (zero) if <code>value</code> is an ignorable character.
+      description: 'The zero-based index of the first occurrence of <code>value</code>, if found, within <code>source</code>, using the specified comparison options; otherwise, -1. Returns 0 (zero) if <code>value</code> is an ignorable character.'
   overload: System.Globalization.CompareInfo.IndexOf*
   exceptions:
   - type: System.ArgumentNullException
@@ -2202,7 +2202,7 @@ items:
       description: The zero-based starting index of the search.
     return:
       type: System.Int32
-      description: The zero-based index of the first occurrence of <code>value</code>, if found, within the section of <code>source</code> that extends from <code>startIndex</code> to the end of <code>source</code>; otherwise, -1. Returns <code>startIndex</code> if <code>value</code> is an ignorable character.
+      description: 'The zero-based index of the first occurrence of <code>value</code>, if found, within the section of <code>source</code> that extends from <code>startIndex</code> to the end of <code>source</code>; otherwise, -1. Returns <code>startIndex</code> if <code>value</code> is an ignorable character.'
   overload: System.Globalization.CompareInfo.IndexOf*
   exceptions:
   - type: System.ArgumentNullException
@@ -2274,7 +2274,7 @@ items:
       description: The string to locate within <code>source</code>.
     return:
       type: System.Int32
-      description: The zero-based index of the first occurrence of <code>value</code>, if found, within <code>source</code>; otherwise, -1. Returns 0 (zero) if <code>value</code> is an ignorable character.
+      description: 'The zero-based index of the first occurrence of <code>value</code>, if found, within <code>source</code>; otherwise, -1. Returns 0 (zero) if <code>value</code> is an ignorable character.'
   overload: System.Globalization.CompareInfo.IndexOf*
   exceptions:
   - type: System.ArgumentNullException
@@ -2359,7 +2359,7 @@ items:
       description: The character to locate within <code>source</code>.
     return:
       type: System.Int32
-      description: The zero-based index of the first occurrence of <code>value</code>, if found, within <code>source</code>; otherwise, -1. Returns 0 (zero) if <code>value</code> is an ignorable character.
+      description: 'The zero-based index of the first occurrence of <code>value</code>, if found, within <code>source</code>; otherwise, -1. Returns 0 (zero) if <code>value</code> is an ignorable character.'
   overload: System.Globalization.CompareInfo.IndexOf*
   exceptions:
   - type: System.ArgumentNullException
@@ -2606,7 +2606,7 @@ items:
   - System.Runtime
   namespace: System.Globalization
   summary: Indicates whether a specified Unicode string is sortable.
-  remarks: Each Unicode character in the `str` parameter is represented by one or more UTF-16 encoded <xref:System.Char> objects. The `str` parameter is sortable if each Unicode character is defined in an internal <xref:System.Globalization.CompareInfo> class sort table, and is not a private use or unpaired high or low surrogate character.
+  remarks: 'Each Unicode character in the `str` parameter is represented by one or more UTF-16 encoded <xref:System.Char> objects. The `str` parameter is sortable if each Unicode character is defined in an internal <xref:System.Globalization.CompareInfo> class sort table, and is not a private use or unpaired high or low surrogate character.'
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(false)]
@@ -2674,7 +2674,7 @@ items:
   - System.Runtime
   namespace: System.Globalization
   summary: Indicates whether a specified Unicode character is sortable.
-  remarks: The `ch` parameter is sortable if it is a Unicode character that is defined in an internal <xref:System.Globalization.CompareInfo> class sort table, and is not a private use or unpaired high or low surrogate character.
+  remarks: 'The `ch` parameter is sortable if it is a Unicode character that is defined in an internal <xref:System.Globalization.CompareInfo> class sort table, and is not a private use or unpaired high or low surrogate character.'
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(false)]
@@ -2940,7 +2940,7 @@ items:
       description: 'A value that defines how <code>source</code> and <code>value</code> should be compared. <code>options</code> is either the enumeration value <xref href="System.Globalization.CompareOptions.Ordinal"></xref>, or a bitwise combination of one or more of the following values: <xref href="System.Globalization.CompareOptions.IgnoreCase"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreSymbols"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreNonSpace"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreWidth"></xref>, and <xref href="System.Globalization.CompareOptions.IgnoreKanaType"></xref>.'
     return:
       type: System.Int32
-      description: The zero-based index of the last occurrence of <code>value</code>, if found, within the section of <code>source</code> that contains the number of elements specified by <code>count</code> and that ends at <code>startIndex</code>, using the specified comparison options; otherwise, -1. Returns <code>startIndex</code> if <code>value</code> is an ignorable character.
+      description: 'The zero-based index of the last occurrence of <code>value</code>, if found, within the section of <code>source</code> that contains the number of elements specified by <code>count</code> and that ends at <code>startIndex</code>, using the specified comparison options; otherwise, -1. Returns <code>startIndex</code> if <code>value</code> is an ignorable character.'
   overload: System.Globalization.CompareInfo.LastIndexOf*
   exceptions:
   - type: System.ArgumentNullException
@@ -3038,7 +3038,7 @@ items:
       description: The number of elements in the section to search.
     return:
       type: System.Int32
-      description: The zero-based index of the last occurrence of <code>value</code>, if found, within the section of <code>source</code> that contains the number of elements specified by <code>count</code> and that ends at <code>startIndex</code>; otherwise, -1. Returns <code>startIndex</code> if <code>value</code> is an ignorable character.
+      description: 'The zero-based index of the last occurrence of <code>value</code>, if found, within the section of <code>source</code> that contains the number of elements specified by <code>count</code> and that ends at <code>startIndex</code>; otherwise, -1. Returns <code>startIndex</code> if <code>value</code> is an ignorable character.'
   overload: System.Globalization.CompareInfo.LastIndexOf*
   exceptions:
   - type: System.ArgumentNullException
@@ -3135,7 +3135,7 @@ items:
       description: 'A value that defines how <code>source</code> and <code>value</code> should be compared. <code>options</code> is either the enumeration value <xref href="System.Globalization.CompareOptions.Ordinal"></xref>, or a bitwise combination of one or more of the following values: <xref href="System.Globalization.CompareOptions.IgnoreCase"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreSymbols"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreNonSpace"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreWidth"></xref>, and <xref href="System.Globalization.CompareOptions.IgnoreKanaType"></xref>.'
     return:
       type: System.Int32
-      description: The zero-based index of the last occurrence of <code>value</code>, if found, within the section of <code>source</code> that contains the number of elements specified by <code>count</code> and that ends at <code>startIndex</code>, using the specified comparison options; otherwise, -1. Returns <code>startIndex</code> if <code>value</code> is an ignorable character.
+      description: 'The zero-based index of the last occurrence of <code>value</code>, if found, within the section of <code>source</code> that contains the number of elements specified by <code>count</code> and that ends at <code>startIndex</code>, using the specified comparison options; otherwise, -1. Returns <code>startIndex</code> if <code>value</code> is an ignorable character.'
   overload: System.Globalization.CompareInfo.LastIndexOf*
   exceptions:
   - type: System.ArgumentNullException
@@ -3233,7 +3233,7 @@ items:
       description: 'A value that defines how <code>source</code> and <code>value</code> should be compared. <code>options</code> is either the enumeration value <xref href="System.Globalization.CompareOptions.Ordinal"></xref>, or a bitwise combination of one or more of the following values: <xref href="System.Globalization.CompareOptions.IgnoreCase"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreSymbols"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreNonSpace"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreWidth"></xref>, and <xref href="System.Globalization.CompareOptions.IgnoreKanaType"></xref>.'
     return:
       type: System.Int32
-      description: The zero-based index of the last occurrence of <code>value</code>, if found, within the section of <code>source</code> that extends from the beginning of <code>source</code> to <code>startIndex</code>, using the specified comparison options; otherwise, -1. Returns <code>startIndex</code> if <code>value</code> is an ignorable character.
+      description: 'The zero-based index of the last occurrence of <code>value</code>, if found, within the section of <code>source</code> that extends from the beginning of <code>source</code> to <code>startIndex</code>, using the specified comparison options; otherwise, -1. Returns <code>startIndex</code> if <code>value</code> is an ignorable character.'
   overload: System.Globalization.CompareInfo.LastIndexOf*
   exceptions:
   - type: System.ArgumentNullException
@@ -3330,7 +3330,7 @@ items:
       description: The number of elements in the section to search.
     return:
       type: System.Int32
-      description: The zero-based index of the last occurrence of <code>value</code>, if found, within the section of <code>source</code> that contains the number of elements specified by <code>count</code> and that ends at <code>startIndex</code>; otherwise, -1. Returns <code>startIndex</code> if <code>value</code> is an ignorable character.
+      description: 'The zero-based index of the last occurrence of <code>value</code>, if found, within the section of <code>source</code> that contains the number of elements specified by <code>count</code> and that ends at <code>startIndex</code>; otherwise, -1. Returns <code>startIndex</code> if <code>value</code> is an ignorable character.'
   overload: System.Globalization.CompareInfo.LastIndexOf*
   exceptions:
   - type: System.ArgumentNullException
@@ -3424,7 +3424,7 @@ items:
       description: 'A value that defines how <code>source</code> and <code>value</code> should be compared. <code>options</code> is either the enumeration value <xref href="System.Globalization.CompareOptions.Ordinal"></xref>, or a bitwise combination of one or more of the following values: <xref href="System.Globalization.CompareOptions.IgnoreCase"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreSymbols"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreNonSpace"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreWidth"></xref>, and <xref href="System.Globalization.CompareOptions.IgnoreKanaType"></xref>.'
     return:
       type: System.Int32
-      description: The zero-based index of the last occurrence of <code>value</code>, if found, within the section of <code>source</code> that extends from the beginning of <code>source</code> to <code>startIndex</code>, using the specified comparison options; otherwise, -1. Returns <code>startIndex</code> if <code>value</code> is an ignorable character.
+      description: 'The zero-based index of the last occurrence of <code>value</code>, if found, within the section of <code>source</code> that extends from the beginning of <code>source</code> to <code>startIndex</code>, using the specified comparison options; otherwise, -1. Returns <code>startIndex</code> if <code>value</code> is an ignorable character.'
   overload: System.Globalization.CompareInfo.LastIndexOf*
   exceptions:
   - type: System.ArgumentNullException
@@ -3518,7 +3518,7 @@ items:
       description: 'A value that defines how <code>source</code> and <code>value</code> should be compared. <code>options</code> is either the enumeration value <xref href="System.Globalization.CompareOptions.Ordinal"></xref>, or a bitwise combination of one or more of the following values: <xref href="System.Globalization.CompareOptions.IgnoreCase"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreSymbols"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreNonSpace"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreWidth"></xref>, and <xref href="System.Globalization.CompareOptions.IgnoreKanaType"></xref>.'
     return:
       type: System.Int32
-      description: The zero-based index of the last occurrence of <code>value</code>, if found, within <code>source</code>, using the specified comparison options; otherwise, -1.
+      description: 'The zero-based index of the last occurrence of <code>value</code>, if found, within <code>source</code>, using the specified comparison options; otherwise, -1.'
   overload: System.Globalization.CompareInfo.LastIndexOf*
   exceptions:
   - type: System.ArgumentNullException
@@ -3609,7 +3609,7 @@ items:
       description: 'A value that defines how <code>source</code> and <code>value</code> should be compared. <code>options</code> is either the enumeration value <xref href="System.Globalization.CompareOptions.Ordinal"></xref>, or a bitwise combination of one or more of the following values: <xref href="System.Globalization.CompareOptions.IgnoreCase"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreSymbols"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreNonSpace"></xref>, <xref href="System.Globalization.CompareOptions.IgnoreWidth"></xref>, and <xref href="System.Globalization.CompareOptions.IgnoreKanaType"></xref>.'
     return:
       type: System.Int32
-      description: The zero-based index of the last occurrence of <code>value</code>, if found, within <code>source</code>, using the specified comparison options; otherwise, -1.
+      description: 'The zero-based index of the last occurrence of <code>value</code>, if found, within <code>source</code>, using the specified comparison options; otherwise, -1.'
   overload: System.Globalization.CompareInfo.LastIndexOf*
   exceptions:
   - type: System.ArgumentNullException
@@ -3699,7 +3699,7 @@ items:
       description: The zero-based starting index of the backward search.
     return:
       type: System.Int32
-      description: The zero-based index of the last occurrence of <code>value</code>, if found, within the section of <code>source</code> that extends from the beginning of <code>source</code> to <code>startIndex</code>; otherwise, -1. Returns <code>startIndex</code> if <code>value</code> is an ignorable character.
+      description: 'The zero-based index of the last occurrence of <code>value</code>, if found, within the section of <code>source</code> that extends from the beginning of <code>source</code> to <code>startIndex</code>; otherwise, -1. Returns <code>startIndex</code> if <code>value</code> is an ignorable character.'
   overload: System.Globalization.CompareInfo.LastIndexOf*
   exceptions:
   - type: System.ArgumentNullException
@@ -3771,7 +3771,7 @@ items:
       description: The string to locate within <code>source</code>.
     return:
       type: System.Int32
-      description: The zero-based index of the last occurrence of <code>value</code>, if found, within <code>source</code>; otherwise, -1.
+      description: 'The zero-based index of the last occurrence of <code>value</code>, if found, within <code>source</code>; otherwise, -1.'
   overload: System.Globalization.CompareInfo.LastIndexOf*
   exceptions:
   - type: System.ArgumentNullException
@@ -3856,7 +3856,7 @@ items:
       description: The character to locate within <code>source</code>.
     return:
       type: System.Int32
-      description: The zero-based index of the last occurrence of <code>value</code>, if found, within <code>source</code>; otherwise, -1.
+      description: 'The zero-based index of the last occurrence of <code>value</code>, if found, within <code>source</code>; otherwise, -1.'
   overload: System.Globalization.CompareInfo.LastIndexOf*
   exceptions:
   - type: System.ArgumentNullException
@@ -3943,7 +3943,7 @@ items:
       description: The zero-based starting index of the backward search.
     return:
       type: System.Int32
-      description: The zero-based index of the last occurrence of <code>value</code>, if found, within the section of <code>source</code> that extends from the beginning of <code>source</code> to <code>startIndex</code>; otherwise, -1. Returns <code>startIndex</code> if <code>value</code> is an ignorable character.
+      description: 'The zero-based index of the last occurrence of <code>value</code>, if found, within the section of <code>source</code> that extends from the beginning of <code>source</code> to <code>startIndex</code>; otherwise, -1. Returns <code>startIndex</code> if <code>value</code> is an ignorable character.'
   overload: System.Globalization.CompareInfo.LastIndexOf*
   exceptions:
   - type: System.ArgumentNullException
@@ -4059,7 +4059,7 @@ items:
   - System.Runtime
   namespace: System.Globalization
   summary: Gets the name of the culture used for sorting operations by this <xref href="System.Globalization.CompareInfo"></xref> object.
-  remarks: The <xref:System.Globalization.CompareInfo.Name%2A> and <xref:System.Globalization.CultureInfo.Name?displayProperty=fullName> properties can have different values. For example, an <xref:System.Globalization.CompareInfo.LCID%2A> property value of hexadecimal 0x10407 identifies an alternate sort culture that sorts names as they might appear in a German telephone book. The <xref:System.Globalization.CompareInfo.Name%2A> property has a value of "de-de_phoneb", whereas the <xref:System.Globalization.CultureInfo.Name?displayProperty=fullName> property of the associated German (Germany) culture has a value of "de-DE".
+  remarks: 'The <xref:System.Globalization.CompareInfo.Name%2A> and <xref:System.Globalization.CultureInfo.Name?displayProperty=fullName> properties can have different values. For example, an <xref:System.Globalization.CompareInfo.LCID%2A> property value of hexadecimal 0x10407 identifies an alternate sort culture that sorts names as they might appear in a German telephone book. The <xref:System.Globalization.CompareInfo.Name%2A> property has a value of "de-de_phoneb", whereas the <xref:System.Globalization.CultureInfo.Name?displayProperty=fullName> property of the associated German (Germany) culture has a value of "de-DE".'
   example:
   - "The following example compares three strings using the fr-FR and ja-JP cultures. The <xref:System.Globalization.CultureInfo.Name%2A> property is used to display the name of each culture.  \n  \n [!code-cpp[CompareInfo#1](~/samples/snippets/cpp/VS_Snippets_CLR/CompareInfo/cpp/CompareInfo.cpp#1)]\n [!code-csharp[CompareInfo#1](~/samples/snippets/csharp/VS_Snippets_CLR/CompareInfo/CS/CompareInfo.cs#1)]\n [!code-vb[CompareInfo#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/CompareInfo/VB/CompareInfo.vb#1)]"
   syntax:
@@ -4139,7 +4139,7 @@ items:
   - System.Runtime
   namespace: System.Globalization
   summary: Returns a string that represents the current <xref href="System.Globalization.CompareInfo"></xref> object.
-  remarks: This method overrides the <xref:System.Object.ToString%2A?displayProperty=fullName> method. It returns a string that consists of the class name and the value of the instance <xref:System.Globalization.CompareInfo.Name%2A> property, separated by a hyphen.
+  remarks: 'This method overrides the <xref:System.Object.ToString%2A?displayProperty=fullName> method. It returns a string that consists of the class name and the value of the instance <xref:System.Globalization.CompareInfo.Name%2A> property, separated by a hyphen.'
   syntax:
     content: public override string ToString ();
     parameters: []
@@ -4274,7 +4274,7 @@ items:
   - System.Runtime
   namespace: System.Globalization
   summary: Runs when the entire object graph has been deserialized.
-  remarks: This member is an explicit interface member implementation that can be used only when the current <xref:System.Globalization.CompareInfo> object is cast to an <xref:System.Runtime.Serialization.IDeserializationCallback> interface. For more information, see the <xref:System.Runtime.Serialization.IDeserializationCallback.OnDeserialization%2A> method.
+  remarks: 'This member is an explicit interface member implementation that can be used only when the current <xref:System.Globalization.CompareInfo> object is cast to an <xref:System.Runtime.Serialization.IDeserializationCallback> interface. For more information, see the <xref:System.Runtime.Serialization.IDeserializationCallback.OnDeserialization%2A> method.'
   syntax:
     content: void IDeserializationCallback.OnDeserialization (object sender);
     parameters:

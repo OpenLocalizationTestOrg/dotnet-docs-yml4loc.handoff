@@ -32,7 +32,7 @@ items:
   - netstandard
   namespace: System.Threading
   summary: Provides a slimmed down version of <xref href="System.Threading.ManualResetEvent"></xref>.
-  remarks: You can use this class for better performance than <xref:System.Threading.ManualResetEvent> when wait times are expected to be very short, and when the event does not cross a process boundary. <xref:System.Threading.ManualResetEventSlim> uses busy spinning for a short time while it waits for the event to become signaled. When wait times are short, spinning can be much less expensive than waiting by using wait handles. However, if the event does not become signaled within a certain period of time, <xref:System.Threading.ManualResetEventSlim> resorts to a regular event handle wait.
+  remarks: 'You can use this class for better performance than <xref:System.Threading.ManualResetEvent> when wait times are expected to be very short, and when the event does not cross a process boundary. <xref:System.Threading.ManualResetEventSlim> uses busy spinning for a short time while it waits for the event to become signaled. When wait times are short, spinning can be much less expensive than waiting by using wait handles. However, if the event does not become signaled within a certain period of time, <xref:System.Threading.ManualResetEventSlim> resorts to a regular event handle wait.'
   example:
   - "The following example shows how to use a <xref:System.Threading.ManualResetEventSlim>. For more information about the use of `SpinCount` and other best practices concerning the use of this type, see [ManualResetEvent and ManualResetEventSlim](~/docs/standard/threading/manualresetevent-and-manualreseteventslim.md).  \n  \n [!code-csharp[System.Threading.ManualResetEventSlim#01](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.threading.manualreseteventslim/cs/mres.cs#01)]\n [!code-vb[System.Threading.ManualResetEventSlim#01](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.threading.manualreseteventslim/vb/mres.vb#01)]"
   syntax:
@@ -406,8 +406,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Releases the unmanaged resources used by the <xref href="System.Threading.ManualResetEventSlim"></xref>, and optionally releases the managed resources.
-  remarks: Unlike most of the members of <xref:System.Threading.ManualResetEventSlim>, <xref:System.Threading.ManualResetEventSlim.Dispose%2A> is not thread-safe and may not be used concurrently with other members of this instance.
+  summary: 'Releases the unmanaged resources used by the <xref href="System.Threading.ManualResetEventSlim"></xref>, and optionally releases the managed resources.'
+  remarks: 'Unlike most of the members of <xref:System.Threading.ManualResetEventSlim>, <xref:System.Threading.ManualResetEventSlim.Dispose%2A> is not thread-safe and may not be used concurrently with other members of this instance.'
   syntax:
     content: protected virtual void Dispose (bool disposing);
     parameters:
@@ -484,7 +484,7 @@ items:
     content: public bool IsSet { get; }
     return:
       type: System.Boolean
-      description: true if the event has is set; otherwise, false.
+      description: 'true if the event has is set; otherwise, false.'
   overload: System.Threading.ManualResetEventSlim.IsSet*
   exceptions: []
   version:
@@ -550,8 +550,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Sets the state of the event to nonsignaled, which causes threads to block.
-  remarks: <xref:System.Threading.ManualResetEventSlim.Reset%2A> can be called concurrently with all members except <xref:System.Threading.ManualResetEventSlim.WaitHandle%2A>.
+  summary: 'Sets the state of the event to nonsignaled, which causes threads to block.'
+  remarks: '<xref:System.Threading.ManualResetEventSlim.Reset%2A> can be called concurrently with all members except <xref:System.Threading.ManualResetEventSlim.WaitHandle%2A>.'
   syntax:
     content: public void Reset ();
     parameters: []
@@ -623,7 +623,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Sets the state of the event to signaled, which allows one or more threads waiting on the event to proceed.
+  summary: 'Sets the state of the event to signaled, which allows one or more threads waiting on the event to proceed.'
   syntax:
     content: public void Set ();
     parameters: []
@@ -839,13 +839,13 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Blocks the current thread until the current <xref href="System.Threading.ManualResetEventSlim"></xref> is set, using a 32-bit signed integer to measure the time interval.
+  summary: 'Blocks the current thread until the current <xref href="System.Threading.ManualResetEventSlim"></xref> is set, using a 32-bit signed integer to measure the time interval.'
   syntax:
     content: public bool Wait (int millisecondsTimeout);
     parameters:
     - id: millisecondsTimeout
       type: System.Int32
-      description: The number of milliseconds to wait, or <xref href="System.Threading.Timeout.Infinite"></xref>(-1) to wait indefinitely.
+      description: 'The number of milliseconds to wait, or <xref href="System.Threading.Timeout.Infinite"></xref>(-1) to wait indefinitely.'
     return:
       type: System.Boolean
       description: '`true` if the <xref href="System.Threading.ManualResetEventSlim"></xref> was set; otherwise, `false`.'
@@ -853,7 +853,7 @@ items:
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: <code>millisecondsTimeout</code> is a negative number other than -1, which represents an infinite time-out.
+    description: '<code>millisecondsTimeout</code> is a negative number other than -1, which represents an infinite time-out.'
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
     description: The maximum number of waiters has been exceeded.
@@ -923,7 +923,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Blocks the current thread until the current <xref href="System.Threading.ManualResetEventSlim"></xref> receives a signal, while observing a <xref href="System.Threading.CancellationToken"></xref>.
+  summary: 'Blocks the current thread until the current <xref href="System.Threading.ManualResetEventSlim"></xref> receives a signal, while observing a <xref href="System.Threading.CancellationToken"></xref>.'
   remarks: The caller of this method blocks indefinitely until the current instance is set. The caller will return immediately if the event is currently in a set state.
   syntax:
     content: public void Wait (System.Threading.CancellationToken cancellationToken);
@@ -1005,13 +1005,13 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Blocks the current thread until the current <xref href="System.Threading.ManualResetEventSlim"></xref> is set, using a <xref href="System.TimeSpan"></xref> to measure the time interval.
+  summary: 'Blocks the current thread until the current <xref href="System.Threading.ManualResetEventSlim"></xref> is set, using a <xref href="System.TimeSpan"></xref> to measure the time interval.'
   syntax:
     content: public bool Wait (TimeSpan timeout);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: A <xref href="System.TimeSpan"></xref> that represents the number of milliseconds to wait, or a <xref href="System.TimeSpan"></xref> that represents -1 milliseconds to wait indefinitely.
+      description: 'A <xref href="System.TimeSpan"></xref> that represents the number of milliseconds to wait, or a <xref href="System.TimeSpan"></xref> that represents -1 milliseconds to wait indefinitely.'
     return:
       type: System.Boolean
       description: '`true` if the <xref href="System.Threading.ManualResetEventSlim"></xref> was set; otherwise, `false`.'
@@ -1089,13 +1089,13 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Blocks the current thread until the current <xref href="System.Threading.ManualResetEventSlim"></xref> is set, using a 32-bit signed integer to measure the time interval, while observing a <xref href="System.Threading.CancellationToken"></xref>.
+  summary: 'Blocks the current thread until the current <xref href="System.Threading.ManualResetEventSlim"></xref> is set, using a 32-bit signed integer to measure the time interval, while observing a <xref href="System.Threading.CancellationToken"></xref>.'
   syntax:
     content: public bool Wait (int millisecondsTimeout, System.Threading.CancellationToken cancellationToken);
     parameters:
     - id: millisecondsTimeout
       type: System.Int32
-      description: The number of milliseconds to wait, or <xref href="System.Threading.Timeout.Infinite"></xref>(-1) to wait indefinitely.
+      description: 'The number of milliseconds to wait, or <xref href="System.Threading.Timeout.Infinite"></xref>(-1) to wait indefinitely.'
     - id: cancellationToken
       type: System.Threading.CancellationToken
       description: The <xref href="System.Threading.CancellationToken"></xref> to observe.
@@ -1109,7 +1109,7 @@ items:
     description: <code>cancellationToken</code> was canceled.
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: <code>millisecondsTimeout</code> is a negative number other than -1, which represents an infinite time-out.
+    description: '<code>millisecondsTimeout</code> is a negative number other than -1, which represents an infinite time-out.'
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
     description: The maximum number of waiters has been exceeded.
@@ -1179,13 +1179,13 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Blocks the current thread until the current <xref href="System.Threading.ManualResetEventSlim"></xref> is set, using a <xref href="System.TimeSpan"></xref> to measure the time interval, while observing a <xref href="System.Threading.CancellationToken"></xref>.
+  summary: 'Blocks the current thread until the current <xref href="System.Threading.ManualResetEventSlim"></xref> is set, using a <xref href="System.TimeSpan"></xref> to measure the time interval, while observing a <xref href="System.Threading.CancellationToken"></xref>.'
   syntax:
     content: public bool Wait (TimeSpan timeout, System.Threading.CancellationToken cancellationToken);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: A <xref href="System.TimeSpan"></xref> that represents the number of milliseconds to wait, or a <xref href="System.TimeSpan"></xref> that represents -1 milliseconds to wait indefinitely.
+      description: 'A <xref href="System.TimeSpan"></xref> that represents the number of milliseconds to wait, or a <xref href="System.TimeSpan"></xref> that represents -1 milliseconds to wait indefinitely.'
     - id: cancellationToken
       type: System.Threading.CancellationToken
       description: The <xref href="System.Threading.CancellationToken"></xref> to observe.
@@ -1270,7 +1270,7 @@ items:
   - netstandard
   namespace: System.Threading
   summary: Gets the underlying <xref href="System.Threading.WaitHandle"></xref> object for this <xref href="System.Threading.ManualResetEventSlim"></xref>.
-  remarks: Accessing this property forces initialization of an underlying event object if one hasn't already been created. To simply wait on this <xref:System.Threading.ManualResetEventSlim>, the public Wait methods should be preferred. It is recommended to dispose the <xref:System.Threading.ManualResetEventSlim> instance after accessing this property, in order to prevent a resource leak.
+  remarks: 'Accessing this property forces initialization of an underlying event object if one hasn''t already been created. To simply wait on this <xref:System.Threading.ManualResetEventSlim>, the public Wait methods should be preferred. It is recommended to dispose the <xref:System.Threading.ManualResetEventSlim> instance after accessing this property, in order to prevent a resource leak.'
   syntax:
     content: public System.Threading.WaitHandle WaitHandle { get; }
     return:

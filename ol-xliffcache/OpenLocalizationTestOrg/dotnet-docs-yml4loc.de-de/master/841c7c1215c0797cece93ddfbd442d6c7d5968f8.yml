@@ -156,7 +156,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Initializes a new instance of the <xref href="System.Windows.Forms.DataObject"></xref> class and adds the specified object to it.
-  remarks: You can add data in any format to the <xref:System.Windows.Forms.DataObject> when you use this constructor, or you can add data as an <xref:System.Windows.Forms.IDataObject> to provide multiple formats at once. If you are familiar with COM programming, you can also add a data object that implements the COM `IDataObject` interface. For more information, see `IDataObject` in the MSDN library at http://msdn.microsoft.com/library.
+  remarks: 'You can add data in any format to the <xref:System.Windows.Forms.DataObject> when you use this constructor, or you can add data as an <xref:System.Windows.Forms.IDataObject> to provide multiple formats at once. If you are familiar with COM programming, you can also add a data object that implements the COM `IDataObject` interface. For more information, see `IDataObject` in the MSDN library at http://msdn.microsoft.com/library.'
   example:
   - "The following code example creates a <xref:System.Windows.Forms.DataObject> that contains a string. The data is retrieved using its data format. The results are displayed in a text box. This code requires that `textBox1` has been created.  \n  \n [!code-cpp[Classic DataObject.DataObject3 Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic DataObject.DataObject3 Example/CPP/source.cpp#1)]\n [!code-csharp[Classic DataObject.DataObject3 Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic DataObject.DataObject3 Example/CS/source.cs#1)]\n [!code-vb[Classic DataObject.DataObject3 Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic DataObject.DataObject3 Example/VB/source.vb#1)]"
   syntax:
@@ -252,7 +252,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Indicates whether the data object contains data in the <xref href="System.Windows.Forms.DataFormats.WaveAudio"></xref> format.
-  remarks: Use this method to determine whether the data object contains audio data before retrieving it with the <xref:System.Windows.Forms.DataObject.GetAudioStream%2A> method.
+  remarks: 'Use this method to determine whether the data object contains audio data before retrieving it with the <xref:System.Windows.Forms.DataObject.GetAudioStream%2A> method.'
   syntax:
     content: public virtual bool ContainsAudio ();
     parameters: []
@@ -341,7 +341,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Indicates whether the data object contains data that is in the <xref href="System.Windows.Forms.DataFormats.Bitmap"></xref> format or can be converted to that format.
-  remarks: Use this method to determine whether the data object contains image data before retrieving it with the <xref:System.Windows.Forms.DataObject.GetImage%2A> method.
+  remarks: 'Use this method to determine whether the data object contains image data before retrieving it with the <xref:System.Windows.Forms.DataObject.GetImage%2A> method.'
   syntax:
     content: public virtual bool ContainsImage ();
     parameters: []
@@ -385,7 +385,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Indicates whether the data object contains data in the <xref href="System.Windows.Forms.TextDataFormat.UnicodeText"></xref> format.
-  remarks: Use this method to determine whether the data object contains text data before retrieving it with the <xref:System.Windows.Forms.DataObject.GetText%2A> method.
+  remarks: 'Use this method to determine whether the data object contains text data before retrieving it with the <xref:System.Windows.Forms.DataObject.GetText%2A> method.'
   syntax:
     content: public virtual bool ContainsText ();
     parameters: []
@@ -430,7 +430,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Indicates whether the data object contains text data in the format indicated by the specified <xref href="System.Windows.Forms.TextDataFormat"></xref> value.
-  remarks: Use this method to determine whether the data object contains text data before retrieving it with the <xref:System.Windows.Forms.DataObject.GetText%2A> method.
+  remarks: 'Use this method to determine whether the data object contains text data before retrieving it with the <xref:System.Windows.Forms.DataObject.GetText%2A> method.'
   syntax:
     content: public virtual bool ContainsText (System.Windows.Forms.TextDataFormat format);
     parameters:
@@ -525,7 +525,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Returns the data associated with the specified data format, using an automated conversion parameter to determine whether to convert the data to the format.
+  summary: 'Returns the data associated with the specified data format, using an automated conversion parameter to determine whether to convert the data to the format.'
   remarks: "If the `autoConvert` parameter is `true` and this method cannot find data in the specified format, it attempts to convert the data to the format. If the data cannot be converted to the specified format, or if the data was stored with the automatic conversion set to `false`, this method returns `null`.  \n  \n If the `autoConvert` parameter is `false`, this method returns data in the specified format, or `null` if no data in this format can be found.  \n  \n To determine whether data is associated with, or can be converted to, a format, call <xref:System.Windows.Forms.DataObject.GetDataPresent%2A> before calling <xref:System.Windows.Forms.DataObject.GetData%2A>. Call <xref:System.Windows.Forms.DataObject.GetFormats%2A> for a list of valid formats for the data stored in this <xref:System.Windows.Forms.DataObject>.  \n  \n> [!NOTE]\n>  Data can be converted to another format if it was stored specifying that conversion is allowed, and if the requested format is compatible with the stored format. For example, data stored as Unicode can be converted to text.  \n>   \n>  When `format` is <xref:System.Windows.Forms.DataFormats.Html>, this method returns a UTF-8 encoded string in applications that target .NET 4.5 or higher, and an ANSI encoded string in applications that target .NET 4.0 or lower."
   example:
   - "The following code example retrieves the data stored in a <xref:System.Windows.Forms.DataObject>, using the `autoConvert` parameter to specify whether to convert the data format.  \n  \n First, a new <xref:System.Windows.Forms.DataObject> is created with text data. Then the example tries to retrieve the data, specifying its format as a string and no format conversion, that is, the `autoConvert` parameter is `false`. This operation fails because there is no string data in the <xref:System.Windows.Forms.DataObject>.  \n  \n Next, the example tries to retrieve the data again, with the `autoConvert` parameter set to `true`. This operation succeeds and the results are displayed in a <xref:System.Windows.Forms.MessageBox>.  \n  \n This code requires that `textBox1` has been created.  \n  \n [!code-cpp[Classic DataObject.GetData Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic DataObject.GetData Example/CPP/source.cpp#1)]\n [!code-csharp[Classic DataObject.GetData Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic DataObject.GetData Example/CS/source.cs#1)]\n [!code-vb[Classic DataObject.GetData Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic DataObject.GetData Example/VB/source.vb#1)]"
@@ -540,7 +540,7 @@ items:
       description: '`true` to the convert data to the specified format; otherwise, `false`.'
     return:
       type: System.Object
-      description: The data associated with the specified format, or `null`.
+      description: 'The data associated with the specified format, or `null`.'
   overload: System.Windows.Forms.DataObject.GetData*
   exceptions: []
   version:
@@ -590,7 +590,7 @@ items:
       description: The format of the data to retrieve. See <xref href="System.Windows.Forms.DataFormats"></xref> for predefined formats.
     return:
       type: System.Object
-      description: The data associated with the specified format, or `null`.
+      description: 'The data associated with the specified format, or `null`.'
   overload: System.Windows.Forms.DataObject.GetData*
   exceptions: []
   version:
@@ -640,7 +640,7 @@ items:
       description: A <xref href="System.Type"></xref> representing the format of the data to retrieve.
     return:
       type: System.Object
-      description: The data associated with the specified format, or `null`.
+      description: 'The data associated with the specified format, or `null`.'
   overload: System.Windows.Forms.DataObject.GetData*
   exceptions: []
   version:
@@ -678,7 +678,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Determines whether data stored in this <xref href="System.Windows.Forms.DataObject"></xref> is associated with, or can be converted to, the specified format.
+  summary: 'Determines whether data stored in this <xref href="System.Windows.Forms.DataObject"></xref> is associated with, or can be converted to, the specified format.'
   remarks: "Call this method to determine whether a format exists before calling <xref:System.Windows.Forms.DataObject.GetData%2A>. Call <xref:System.Windows.Forms.DataObject.GetFormats%2A> for the formats that are available in this <xref:System.Windows.Forms.DataObject>.  \n  \n> [!NOTE]\n>  Data can be converted to another format if it was stored specifying that conversion is allowed, and if the requested format is compatible with the stored format. For example, data stored as Unicode can be converted to text.  \n  \n> [!NOTE]\n>  If no data can be retrieved, no exception will be thrown. Instead, `false` will be returned."
   example:
   - "The following code example determines whether data currently stored in this <xref:System.Windows.Forms.DataObject> is associated with, or can be converted to, a specified format. A new <xref:System.Windows.Forms.DataObject> is initialized with a string and its associated format specified as text.  \n  \n Then the examples prints whether text data exists in the <xref:System.Windows.Forms.DataObject>. This code requires that `textBox1` has been created."
@@ -728,7 +728,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Determines whether data stored in this <xref href="System.Windows.Forms.DataObject"></xref> is associated with, or can be converted to, the specified format.
+  summary: 'Determines whether data stored in this <xref href="System.Windows.Forms.DataObject"></xref> is associated with, or can be converted to, the specified format.'
   remarks: "Call this method to determine whether a format exists before calling <xref:System.Windows.Forms.DataObject.GetData%2A>. Call <xref:System.Windows.Forms.DataObject.GetFormats%2A> for the formats that are available in this <xref:System.Windows.Forms.DataObject>.  \n  \n> [!NOTE]\n>  Data can be converted to another format if it was stored specifying that conversion is allowed, and if the requested format is compatible with the stored format. For example, data stored as Unicode can be converted to text.  \n  \n> [!NOTE]\n>  If no data can be retrieved, no exception will be thrown. Instead, `false` will be returned."
   example:
   - "The following code example determines whether data of the specified type exists in a <xref:System.Windows.Forms.DataObject>, or whether the data can be converted to the specified type. The result is displayed in a text box. The code requires that `textBox1` has been created.  \n  \n [!code-cpp[Classic DataObject.GetDataPresent Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic DataObject.GetDataPresent Example/CPP/source.cpp#1)]\n [!code-csharp[Classic DataObject.GetDataPresent Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic DataObject.GetDataPresent Example/CS/source.cs#1)]\n [!code-vb[Classic DataObject.GetDataPresent Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic DataObject.GetDataPresent Example/VB/source.vb#1)]"
@@ -778,7 +778,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Determines whether this <xref href="System.Windows.Forms.DataObject"></xref> contains data in the specified format or, optionally, contains data that can be converted to the specified format.
+  summary: 'Determines whether this <xref href="System.Windows.Forms.DataObject"></xref> contains data in the specified format or, optionally, contains data that can be converted to the specified format.'
   remarks: "Call this method to determine whether a format exists before calling <xref:System.Windows.Forms.DataObject.GetData%2A>. Call <xref:System.Windows.Forms.DataObject.GetFormats%2A> for the formats that are available in this <xref:System.Windows.Forms.DataObject>.  \n  \n This method returns `true` when:  \n  \n-   The `autoConvert` parameter is `true` and the data is in a format that can be converted to the appropriate format.  \n  \n-   The `autoConvert` parameter is `false` and the data is in the appropriate format.  \n  \n This method returns `false` when:  \n  \n-   The `autoConvert` parameter is `true` and this method cannot find data in the specified format, and it cannot convert data to the specified format, or the data was stored with automatic conversion set to `false`.  \n  \n-   The `autoConvert` parameter is `false` and data does not exist in this <xref:System.Windows.Forms.DataObject> in the specified format.  \n  \n> [!NOTE]\n>  Data can be converted to another format if it was stored specifying that conversion is allowed and if the requested format is compatible with the stored format. For example, data stored as Unicode can be converted to text.  \n  \n> [!NOTE]\n>  If no data can be retrieved, no exception will be thrown. Instead, `false` will be returned."
   example:
   - "The following code example determines whether data currently stored in the <xref:System.Windows.Forms.DataObject> is associated with a specified format. First, a new <xref:System.Windows.Forms.DataObject> is initialized with a string, specifying its format as text.  \n  \n Then the <xref:System.Windows.Forms.DataObject> is queried for data associated with the text format, specifying the `autoConvert` parameter as `false`. The result of this query is printed in a text box.  \n  \n Then the <xref:System.Windows.Forms.DataObject> is queried for data associated with string format, specifying the `autoConvert` parameter as `true`. The results are printed in the text box. This code requires that `textBox1` has been created.  \n  \n [!code-cpp[Classic DataObject.GetDataPresent1 Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic DataObject.GetDataPresent1 Example/CPP/source.cpp#1)]\n [!code-csharp[Classic DataObject.GetDataPresent1 Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic DataObject.GetDataPresent1 Example/CS/source.cs#1)]\n [!code-vb[Classic DataObject.GetDataPresent1 Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic DataObject.GetDataPresent1 Example/VB/source.vb#1)]"
@@ -883,7 +883,7 @@ items:
     parameters: []
     return:
       type: System.String[]
-      description: An array of type <xref href="System.String"></xref>, containing a list of all formats that are supported by the data stored in this object.
+      description: 'An array of type <xref href="System.String"></xref>, containing a list of all formats that are supported by the data stored in this object.'
   overload: System.Windows.Forms.DataObject.GetFormats*
   exceptions: []
   version:
@@ -921,7 +921,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Returns a list of all formats that data stored in this <xref href="System.Windows.Forms.DataObject"></xref> is associated with or can be converted to, using an automatic conversion parameter to determine whether to retrieve only native data formats or all formats that the data can be converted to.
+  summary: 'Returns a list of all formats that data stored in this <xref href="System.Windows.Forms.DataObject"></xref> is associated with or can be converted to, using an automatic conversion parameter to determine whether to retrieve only native data formats or all formats that the data can be converted to.'
   remarks: "Call this method to get the supported data formats before calling <xref:System.Windows.Forms.DataObject.GetData%2A>. See <xref:System.Windows.Forms.DataFormats> for the predefined formats.  \n  \n> [!NOTE]\n>  Data can be converted to another format if it was stored specifying that conversion is allowed and if the requested format is compatible with the stored format. For example, data stored as Unicode can be converted to text."
   example:
   - "The following code example queries a <xref:System.Windows.Forms.DataObject> for the formats associated with its data. The first query specifies the `autoConvert` parameter as `false`, so only the native format of the data is returned. The second query specifies the `autoConvert` parameter as `true`, so the list of formats includes the formats that the data can be converted to.  \n  \n This code requires that `textBox1` has been created.  \n  \n [!code-cpp[Classic DataObject.GetFormats Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic DataObject.GetFormats Example/CPP/source.cpp#1)]\n [!code-csharp[Classic DataObject.GetFormats Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic DataObject.GetFormats Example/CS/source.cs#1)]\n [!code-vb[Classic DataObject.GetFormats Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic DataObject.GetFormats Example/VB/source.vb#1)]"
@@ -933,7 +933,7 @@ items:
       description: '`true` to retrieve all formats that data stored in this <xref href="System.Windows.Forms.DataObject"></xref> is associated with, or can be converted to; `false` to retrieve only native data formats.'
     return:
       type: System.String[]
-      description: An array of type <xref href="System.String"></xref>, containing a list of all formats that are supported by the data stored in this object.
+      description: 'An array of type <xref href="System.String"></xref>, containing a list of all formats that are supported by the data stored in this object.'
   overload: System.Windows.Forms.DataObject.GetFormats*
   exceptions: []
   version:
@@ -1113,7 +1113,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Adds a <xref href="System.Byte"></xref> array to the data object in the <xref href="System.Windows.Forms.DataFormats.WaveAudio"></xref> format after converting it to a <xref href="System.IO.Stream"></xref>.
-  remarks: To retrieve audio data from the data object, first use the <xref:System.Windows.Forms.DataObject.ContainsAudio%2A> method to determine whether the data object contains audio data before retrieving it with the <xref:System.Windows.Forms.DataObject.GetAudioStream%2A> method.
+  remarks: 'To retrieve audio data from the data object, first use the <xref:System.Windows.Forms.DataObject.ContainsAudio%2A> method to determine whether the data object contains audio data before retrieving it with the <xref:System.Windows.Forms.DataObject.GetAudioStream%2A> method.'
   syntax:
     content: public virtual void SetAudio (byte[] audioBytes);
     parameters:
@@ -1161,7 +1161,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Adds a <xref href="System.IO.Stream"></xref> to the data object in the <xref href="System.Windows.Forms.DataFormats.WaveAudio"></xref> format.
-  remarks: To retrieve audio data from the data object, first use the <xref:System.Windows.Forms.DataObject.ContainsAudio%2A> method to determine whether the data object contains audio data before retrieving it with the <xref:System.Windows.Forms.DataObject.GetAudioStream%2A> method.
+  remarks: 'To retrieve audio data from the data object, first use the <xref:System.Windows.Forms.DataObject.ContainsAudio%2A> method to determine whether the data object contains audio data before retrieving it with the <xref:System.Windows.Forms.DataObject.GetAudioStream%2A> method.'
   syntax:
     content: public virtual void SetAudio (System.IO.Stream audioStream);
     parameters:
@@ -1356,7 +1356,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Adds the specified object to the <xref href="System.Windows.Forms.DataObject"></xref> using the specified format and indicating whether the data can be converted to another format.
-  remarks: If you do not know the format of the target application, you can store data in multiple formats using this method.
+  remarks: 'If you do not know the format of the target application, you can store data in multiple formats using this method.'
   example:
   - "The following code example stores data in a <xref:System.Windows.Forms.DataObject> and specifies that the data can only be retrieved in its native format.  \n  \n First, a new <xref:System.Windows.Forms.DataObject> is created. Data in the Unicode format is stored in the <xref:System.Windows.Forms.DataObject>, with `autoConvert` set to `false`.  \n  \n Then, the <xref:System.Windows.Forms.DataObject> is queried for the list of available data formats. Only the Unicode format is returned, although Unicode data can be converted to text and other formats.  \n  \n This code requires that `textBox1` has been created.  \n  \n [!code-cpp[Classic DataObject.SetData Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic DataObject.SetData Example/CPP/source.cpp#1)]\n [!code-csharp[Classic DataObject.SetData Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic DataObject.SetData Example/CS/source.cs#1)]\n [!code-vb[Classic DataObject.SetData Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic DataObject.SetData Example/VB/source.vb#1)]"
   syntax:
@@ -1457,7 +1457,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Adds an <xref href="System.Drawing.Image"></xref> to the data object in the <xref href="System.Windows.Forms.DataFormats.Bitmap"></xref> format.
-  remarks: To retrieve image data from the data object, first use the <xref:System.Windows.Forms.DataObject.ContainsImage%2A> method to determine whether the data object contains image data before retrieving it with the <xref:System.Windows.Forms.DataObject.GetImage%2A> method.
+  remarks: 'To retrieve image data from the data object, first use the <xref:System.Windows.Forms.DataObject.ContainsImage%2A> method to determine whether the data object contains image data before retrieving it with the <xref:System.Windows.Forms.DataObject.GetImage%2A> method.'
   syntax:
     content: public virtual void SetImage (System.Drawing.Image image);
     parameters:
@@ -1505,7 +1505,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Adds text data to the data object in the format indicated by the specified <xref href="System.Windows.Forms.TextDataFormat"></xref> value.
-  remarks: To retrieve text data from the data object, first use the <xref:System.Windows.Forms.DataObject.ContainsText%2A> method to determine whether the data object contains image data before retrieving it with the <xref:System.Windows.Forms.DataObject.GetText%2A> method.
+  remarks: 'To retrieve text data from the data object, first use the <xref:System.Windows.Forms.DataObject.ContainsText%2A> method to determine whether the data object contains image data before retrieving it with the <xref:System.Windows.Forms.DataObject.GetText%2A> method.'
   syntax:
     content: public virtual void SetText (string textData, System.Windows.Forms.TextDataFormat format);
     parameters:
@@ -1558,7 +1558,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Adds text data to the data object in the <xref href="System.Windows.Forms.TextDataFormat.UnicodeText"></xref> format.
-  remarks: To retrieve text data from the data object, first use the <xref:System.Windows.Forms.DataObject.ContainsText%2A> method to determine whether the data object contains image data before retrieving it with the <xref:System.Windows.Forms.DataObject.GetText%2A> method.
+  remarks: 'To retrieve text data from the data object, first use the <xref:System.Windows.Forms.DataObject.ContainsText%2A> method to determine whether the data object contains image data before retrieving it with the <xref:System.Windows.Forms.DataObject.GetText%2A> method.'
   syntax:
     content: public virtual void SetText (string textData);
     parameters:
@@ -1606,13 +1606,13 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Creates a connection between a data object and an advisory sink. This method is called by an object that supports an advisory sink and enables the advisory sink to be notified of changes in the object's data.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Windows.Forms.DataObject> is cast to an <xref:System.Runtime.InteropServices.ComTypes.IDataObject> interface.
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Windows.Forms.DataObject> is cast to an <xref:System.Runtime.InteropServices.ComTypes.IDataObject> interface.'
   syntax:
     content: int IDataObject.DAdvise (ref System.Runtime.InteropServices.ComTypes.FORMATETC pFormatetc, System.Runtime.InteropServices.ComTypes.ADVF advf, System.Runtime.InteropServices.ComTypes.IAdviseSink pAdvSink, out int pdwConnection);
     parameters:
     - id: pFormatetc
       type: System.Runtime.InteropServices.ComTypes.FORMATETC
-      description: A <xref href="System.Runtime.InteropServices.ComTypes.FORMATETC"></xref> structure, passed by reference, that defines the format, target device, aspect, and medium that will be used for future notifications.
+      description: 'A <xref href="System.Runtime.InteropServices.ComTypes.FORMATETC"></xref> structure, passed by reference, that defines the format, target device, aspect, and medium that will be used for future notifications.'
     - id: advf
       type: System.Runtime.InteropServices.ComTypes.ADVF
       description: One of the <xref href="System.Runtime.InteropServices.ComTypes.ADVF"></xref> values that specifies a group of flags for controlling the advisory connection.
@@ -1621,10 +1621,10 @@ items:
       description: A pointer to the <xref href="System.Runtime.InteropServices.ComTypes.IAdviseSink"></xref> interface on the advisory sink that will receive the change notification.
     - id: pdwConnection
       type: System.Int32
-      description: When this method returns, contains a pointer to a DWORD token that identifies this connection. You can use this token later to delete the advisory connection by passing it to <xref href="System.Runtime.InteropServices.ComTypes.IDataObject.DUnadvise(System.Int32)"></xref>. If this value is zero, the connection was not established. This parameter is passed uninitialized.
+      description: 'When this method returns, contains a pointer to a DWORD token that identifies this connection. You can use this token later to delete the advisory connection by passing it to <xref href="System.Runtime.InteropServices.ComTypes.IDataObject.DUnadvise(System.Int32)"></xref>. If this value is zero, the connection was not established. This parameter is passed uninitialized.'
     return:
       type: System.Int32
-      description: "This method supports the standard return values E_INVALIDARG, E_UNEXPECTED, and E_OUTOFMEMORY, as well as the following:  \n  \n <table><thead><tr><th> Value  \n  \n </th><th> Description  \n  \n </th></tr></thead><tbody><tr><td> S_OK  \n  \n </td><td> The advisory connection was created.  \n  \n </td></tr><tr><td> E_NOTIMPL  \n  \n </td><td> This method is not implemented on the data object.  \n  \n </td></tr><tr><td> DV_E_LINDEX  \n  \n </td><td> There is an invalid value for <xref href=\"System.Runtime.InteropServices.ComTypes.FORMATETC.lindex\"></xref>; currently, only -1 is supported.  \n  \n </td></tr><tr><td> DV_E_FORMATETC  \n  \n </td><td> There is an invalid value for the <code>pFormatetc</code> parameter.  \n  \n </td></tr><tr><td> OLE_E_ADVISENOTSUPPORTED  \n  \n </td><td> The data object does not support change notification.  \n  \n </td></tr></tbody></table>"
+      description: "This method supports the standard return values E_INVALIDARG, E_UNEXPECTED, and E_OUTOFMEMORY, as well as the following:  \n  \n <table><thead><tr><th> Value\n </th><th> Description\n </th></tr></thead><tbody><tr><td> S_OK\n </td><td> The advisory connection was created.  \n  \n </td></tr><tr><td> E_NOTIMPL\n </td><td> This method is not implemented on the data object.  \n  \n </td></tr><tr><td> DV_E_LINDEX\n </td><td> There is an invalid value for <xref href=\"System.Runtime.InteropServices.ComTypes.FORMATETC.lindex\"></xref>; currently, only -1 is supported.  \n  \n </td></tr><tr><td> DV_E_FORMATETC\n </td><td> There is an invalid value for the <code>pFormatetc</code> parameter.  \n  \n </td></tr><tr><td> OLE_E_ADVISENOTSUPPORTED\n </td><td> The data object does not support change notification.  \n  \n </td></tr></tbody></table>"
   overload: System.Windows.Forms.DataObject.System#Runtime#InteropServices#ComTypes#IDataObject#DAdvise*
   exceptions: []
   version:
@@ -1664,13 +1664,13 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Destroys a notification connection that had been previously established.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Windows.Forms.DataObject> is cast to an <xref:System.Runtime.InteropServices.ComTypes.IDataObject> interface.
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Windows.Forms.DataObject> is cast to an <xref:System.Runtime.InteropServices.ComTypes.IDataObject> interface.'
   syntax:
     content: void IDataObject.DUnadvise (int dwConnection);
     parameters:
     - id: dwConnection
       type: System.Int32
-      description: A DWORD token that specifies the connection to remove. Use the value returned by <xref href="System.Runtime.InteropServices.ComTypes.IDataObject.DAdvise(System.Runtime.InteropServices.ComTypes.FORMATETC@,System.Runtime.InteropServices.ComTypes.ADVF,System.Runtime.InteropServices.ComTypes.IAdviseSink,System.Int32@)"></xref> when the connection was originally established.
+      description: 'A DWORD token that specifies the connection to remove. Use the value returned by <xref href="System.Runtime.InteropServices.ComTypes.IDataObject.DAdvise(System.Runtime.InteropServices.ComTypes.FORMATETC@,System.Runtime.InteropServices.ComTypes.ADVF,System.Runtime.InteropServices.ComTypes.IAdviseSink,System.Int32@)"></xref> when the connection was originally established.'
   overload: System.Windows.Forms.DataObject.System#Runtime#InteropServices#ComTypes#IDataObject#DUnadvise*
   exceptions: []
   version:
@@ -1709,16 +1709,16 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Creates an object that can be used to enumerate the current advisory connections.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Windows.Forms.DataObject> is cast to an <xref:System.Runtime.InteropServices.ComTypes.IDataObject> interface.
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Windows.Forms.DataObject> is cast to an <xref:System.Runtime.InteropServices.ComTypes.IDataObject> interface.'
   syntax:
     content: int IDataObject.EnumDAdvise (out System.Runtime.InteropServices.ComTypes.IEnumSTATDATA enumAdvise);
     parameters:
     - id: enumAdvise
       type: System.Runtime.InteropServices.ComTypes.IEnumSTATDATA
-      description: When this method returns, contains an <xref href="System.Runtime.InteropServices.ComTypes.IEnumSTATDATA"></xref> that receives the interface pointer to the new enumerator object. If the implementation sets <code>enumAdvise</code> to `null`, there are no connections to advisory sinks at this time. This parameter is passed uninitialized.
+      description: 'When this method returns, contains an <xref href="System.Runtime.InteropServices.ComTypes.IEnumSTATDATA"></xref> that receives the interface pointer to the new enumerator object. If the implementation sets <code>enumAdvise</code> to `null`, there are no connections to advisory sinks at this time. This parameter is passed uninitialized.'
     return:
       type: System.Int32
-      description: "This method supports the standard return value E_OUTOFMEMORY, as well as the following:  \n  \n <table><thead><tr><th> Value  \n  \n </th><th> Description  \n  \n </th></tr></thead><tbody><tr><td> S_OK  \n  \n </td><td> The enumerator object is successfully instantiated or there are no connections.  \n  \n </td></tr><tr><td> OLE_E_ADVISENOTSUPPORTED  \n  \n </td><td> This object does not support advisory notifications.  \n  \n </td></tr></tbody></table>"
+      description: "This method supports the standard return value E_OUTOFMEMORY, as well as the following:  \n  \n <table><thead><tr><th> Value\n </th><th> Description\n </th></tr></thead><tbody><tr><td> S_OK\n </td><td> The enumerator object is successfully instantiated or there are no connections.  \n  \n </td></tr><tr><td> OLE_E_ADVISENOTSUPPORTED\n </td><td> This object does not support advisory notifications.  \n  \n </td></tr></tbody></table>"
   overload: System.Windows.Forms.DataObject.System#Runtime#InteropServices#ComTypes#IDataObject#EnumDAdvise*
   exceptions: []
   version:
@@ -1757,8 +1757,8 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Creates an object for enumerating the <xref href="System.Runtime.InteropServices.ComTypes.FORMATETC"></xref> structures for a data object. These structures are used in calls to <xref href="System.Runtime.InteropServices.ComTypes.IDataObject.GetData(System.Runtime.InteropServices.ComTypes.FORMATETC@,System.Runtime.InteropServices.ComTypes.STGMEDIUM@)"></xref> or <xref href="System.Runtime.InteropServices.ComTypes.IDataObject.SetData(System.Runtime.InteropServices.ComTypes.FORMATETC@,System.Runtime.InteropServices.ComTypes.STGMEDIUM@,System.Boolean)"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Windows.Forms.DataObject> is cast to an <xref:System.Runtime.InteropServices.ComTypes.IDataObject> interface.
+  summary: 'Creates an object for enumerating the <xref href="System.Runtime.InteropServices.ComTypes.FORMATETC"></xref> structures for a data object. These structures are used in calls to <xref href="System.Runtime.InteropServices.ComTypes.IDataObject.GetData(System.Runtime.InteropServices.ComTypes.FORMATETC@,System.Runtime.InteropServices.ComTypes.STGMEDIUM@)"></xref> or <xref href="System.Runtime.InteropServices.ComTypes.IDataObject.SetData(System.Runtime.InteropServices.ComTypes.FORMATETC@,System.Runtime.InteropServices.ComTypes.STGMEDIUM@,System.Boolean)"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Windows.Forms.DataObject> is cast to an <xref:System.Runtime.InteropServices.ComTypes.IDataObject> interface.'
   syntax:
     content: System.Runtime.InteropServices.ComTypes.IEnumFORMATETC IDataObject.EnumFormatEtc (System.Runtime.InteropServices.ComTypes.DATADIR dwDirection);
     parameters:
@@ -1767,7 +1767,7 @@ items:
       description: One of the <xref href="System.Runtime.InteropServices.ComTypes.DATADIR"></xref> values that specifies the direction of the data.
     return:
       type: System.Runtime.InteropServices.ComTypes.IEnumFORMATETC
-      description: "This method supports the standard return values E_INVALIDARG and E_OUTOFMEMORY, as well as the following:  \n  \n <table><thead><tr><th> Value  \n  \n </th><th> Description  \n  \n </th></tr></thead><tbody><tr><td> S_OK  \n  \n </td><td> The enumerator object was successfully created.  \n  \n </td></tr><tr><td> E_NOTIMPL  \n  \n </td><td> The direction specified by the <code>direction</code> parameter is not supported.  \n  \n </td></tr><tr><td> OLE_S_USEREG  \n  \n </td><td> Requests that OLE enumerate the formats from the registry.  \n  \n </td></tr></tbody></table>"
+      description: "This method supports the standard return values E_INVALIDARG and E_OUTOFMEMORY, as well as the following:  \n  \n <table><thead><tr><th> Value\n </th><th> Description\n </th></tr></thead><tbody><tr><td> S_OK\n </td><td> The enumerator object was successfully created.  \n  \n </td></tr><tr><td> E_NOTIMPL\n </td><td> The direction specified by the <code>direction</code> parameter is not supported.  \n  \n </td></tr><tr><td> OLE_S_USEREG\n </td><td> Requests that OLE enumerate the formats from the registry.  \n  \n </td></tr></tbody></table>"
   overload: System.Windows.Forms.DataObject.System#Runtime#InteropServices#ComTypes#IDataObject#EnumFormatEtc*
   exceptions: []
   version:
@@ -1806,20 +1806,20 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Provides a standard <xref href="System.Runtime.InteropServices.ComTypes.FORMATETC"></xref> structure that is logically equivalent to a more complex structure. Use this method to determine whether two different <xref href="System.Runtime.InteropServices.ComTypes.FORMATETC"></xref> structures would return the same data, removing the need for duplicate rendering.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Windows.Forms.DataObject> is cast to an <xref:System.Runtime.InteropServices.ComTypes.IDataObject> interface.
+  summary: 'Provides a standard <xref href="System.Runtime.InteropServices.ComTypes.FORMATETC"></xref> structure that is logically equivalent to a more complex structure. Use this method to determine whether two different <xref href="System.Runtime.InteropServices.ComTypes.FORMATETC"></xref> structures would return the same data, removing the need for duplicate rendering.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Windows.Forms.DataObject> is cast to an <xref:System.Runtime.InteropServices.ComTypes.IDataObject> interface.'
   syntax:
     content: int IDataObject.GetCanonicalFormatEtc (ref System.Runtime.InteropServices.ComTypes.FORMATETC pformatetcIn, out System.Runtime.InteropServices.ComTypes.FORMATETC pformatetcOut);
     parameters:
     - id: pformatetcIn
       type: System.Runtime.InteropServices.ComTypes.FORMATETC
-      description: A pointer to a <xref href="System.Runtime.InteropServices.ComTypes.FORMATETC"></xref> structure, passed by reference, that defines the format, medium, and target device that the caller would like to use to retrieve data in a subsequent call such as <xref href="System.Runtime.InteropServices.ComTypes.IDataObject.GetData(System.Runtime.InteropServices.ComTypes.FORMATETC@,System.Runtime.InteropServices.ComTypes.STGMEDIUM@)"></xref>. The <xref href="System.Runtime.InteropServices.ComTypes.TYMED"></xref> member is not significant in this case and should be ignored.
+      description: 'A pointer to a <xref href="System.Runtime.InteropServices.ComTypes.FORMATETC"></xref> structure, passed by reference, that defines the format, medium, and target device that the caller would like to use to retrieve data in a subsequent call such as <xref href="System.Runtime.InteropServices.ComTypes.IDataObject.GetData(System.Runtime.InteropServices.ComTypes.FORMATETC@,System.Runtime.InteropServices.ComTypes.STGMEDIUM@)"></xref>. The <xref href="System.Runtime.InteropServices.ComTypes.TYMED"></xref> member is not significant in this case and should be ignored.'
     - id: pformatetcOut
       type: System.Runtime.InteropServices.ComTypes.FORMATETC
-      description: When this method returns, contains a pointer to a <xref href="System.Runtime.InteropServices.ComTypes.FORMATETC"></xref> structure that contains the most general information possible for a specific rendering, making it canonically equivalent to <code>formatetIn</code>. The caller must allocate this structure and the <xref href="System.Runtime.InteropServices.ComTypes.IDataObject.GetCanonicalFormatEtc(System.Runtime.InteropServices.ComTypes.FORMATETC@,System.Runtime.InteropServices.ComTypes.FORMATETC@)"></xref> method must fill in the data. To retrieve data in a subsequent call such as <xref href="System.Runtime.InteropServices.ComTypes.IDataObject.GetData(System.Runtime.InteropServices.ComTypes.FORMATETC@,System.Runtime.InteropServices.ComTypes.STGMEDIUM@)"></xref>, the caller uses the supplied value of <code>formatOut</code>, unless the value supplied is `null`. This value is `null` if the method returns `DATA_S_SAMEFORMATETC`. The <xref href="System.Runtime.InteropServices.ComTypes.TYMED"></xref> member is not significant in this case and should be ignored. This parameter is passed uninitialized.
+      description: 'When this method returns, contains a pointer to a <xref href="System.Runtime.InteropServices.ComTypes.FORMATETC"></xref> structure that contains the most general information possible for a specific rendering, making it canonically equivalent to <code>formatetIn</code>. The caller must allocate this structure and the <xref href="System.Runtime.InteropServices.ComTypes.IDataObject.GetCanonicalFormatEtc(System.Runtime.InteropServices.ComTypes.FORMATETC@,System.Runtime.InteropServices.ComTypes.FORMATETC@)"></xref> method must fill in the data. To retrieve data in a subsequent call such as <xref href="System.Runtime.InteropServices.ComTypes.IDataObject.GetData(System.Runtime.InteropServices.ComTypes.FORMATETC@,System.Runtime.InteropServices.ComTypes.STGMEDIUM@)"></xref>, the caller uses the supplied value of <code>formatOut</code>, unless the value supplied is `null`. This value is `null` if the method returns `DATA_S_SAMEFORMATETC`. The <xref href="System.Runtime.InteropServices.ComTypes.TYMED"></xref> member is not significant in this case and should be ignored. This parameter is passed uninitialized.'
     return:
       type: System.Int32
-      description: "This method supports the standard return values E_INVALIDARG, E_UNEXPECTED, and E_OUTOFMEMORY, as well as the following:  \n  \n <table><thead><tr><th> Value  \n  \n </th><th> Description  \n  \n </th></tr></thead><tbody><tr><td> S_OK  \n  \n </td><td> The returned <xref href=\"System.Runtime.InteropServices.ComTypes.FORMATETC\"></xref> structure is different from the one that was passed.  \n  \n </td></tr><tr><td> DATA_S_SAMEFORMATETC  \n  \n </td><td> The <xref href=\"System.Runtime.InteropServices.ComTypes.FORMATETC\"></xref> structures are the same and `null` is returned in the <code>formatOut</code> parameter.  \n  \n </td></tr><tr><td> DV_E_LINDEX  \n  \n </td><td> There is an invalid value for <xref href=\"System.Runtime.InteropServices.ComTypes.FORMATETC.lindex\"></xref>; currently, only -1 is supported.  \n  \n </td></tr><tr><td> DV_E_FORMATETC  \n  \n </td><td> There is an invalid value for the <code>pFormatetc</code> parameter.  \n  \n </td></tr><tr><td> OLE_E_NOTRUNNING  \n  \n </td><td> The application is not running.  \n  \n </td></tr></tbody></table>"
+      description: "This method supports the standard return values E_INVALIDARG, E_UNEXPECTED, and E_OUTOFMEMORY, as well as the following:  \n  \n <table><thead><tr><th> Value\n </th><th> Description\n </th></tr></thead><tbody><tr><td> S_OK\n </td><td> The returned <xref href=\"System.Runtime.InteropServices.ComTypes.FORMATETC\"></xref> structure is different from the one that was passed.  \n  \n </td></tr><tr><td> DATA_S_SAMEFORMATETC\n </td><td> The <xref href=\"System.Runtime.InteropServices.ComTypes.FORMATETC\"></xref> structures are the same and `null` is returned in the <code>formatOut</code> parameter.  \n  \n </td></tr><tr><td> DV_E_LINDEX\n </td><td> There is an invalid value for <xref href=\"System.Runtime.InteropServices.ComTypes.FORMATETC.lindex\"></xref>; currently, only -1 is supported.  \n  \n </td></tr><tr><td> DV_E_FORMATETC\n </td><td> There is an invalid value for the <code>pFormatetc</code> parameter.  \n  \n </td></tr><tr><td> OLE_E_NOTRUNNING\n </td><td> The application is not running.  \n  \n </td></tr></tbody></table>"
   overload: System.Windows.Forms.DataObject.System#Runtime#InteropServices#ComTypes#IDataObject#GetCanonicalFormatEtc*
   exceptions: []
   version:
@@ -1858,17 +1858,17 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Obtains data from a source data object. The <xref href="System.Runtime.InteropServices.ComTypes.IDataObject.GetData(System.Runtime.InteropServices.ComTypes.FORMATETC@,System.Runtime.InteropServices.ComTypes.STGMEDIUM@)"></xref> method, which is called by a data consumer, renders the data described in the specified <xref href="System.Runtime.InteropServices.ComTypes.FORMATETC"></xref> structure and transfers it through the specified <xref href="System.Runtime.InteropServices.ComTypes.STGMEDIUM"></xref> structure. The caller then assumes responsibility for releasing the <xref href="System.Runtime.InteropServices.ComTypes.STGMEDIUM"></xref> structure.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Windows.Forms.DataObject> is cast to an <xref:System.Runtime.InteropServices.ComTypes.IDataObject> interface.
+  summary: 'Obtains data from a source data object. The <xref href="System.Runtime.InteropServices.ComTypes.IDataObject.GetData(System.Runtime.InteropServices.ComTypes.FORMATETC@,System.Runtime.InteropServices.ComTypes.STGMEDIUM@)"></xref> method, which is called by a data consumer, renders the data described in the specified <xref href="System.Runtime.InteropServices.ComTypes.FORMATETC"></xref> structure and transfers it through the specified <xref href="System.Runtime.InteropServices.ComTypes.STGMEDIUM"></xref> structure. The caller then assumes responsibility for releasing the <xref href="System.Runtime.InteropServices.ComTypes.STGMEDIUM"></xref> structure.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Windows.Forms.DataObject> is cast to an <xref:System.Runtime.InteropServices.ComTypes.IDataObject> interface.'
   syntax:
     content: void IDataObject.GetData (ref System.Runtime.InteropServices.ComTypes.FORMATETC formatetc, out System.Runtime.InteropServices.ComTypes.STGMEDIUM medium);
     parameters:
     - id: formatetc
       type: System.Runtime.InteropServices.ComTypes.FORMATETC
-      description: A pointer to a <xref href="System.Runtime.InteropServices.ComTypes.FORMATETC"></xref> structure, passed by reference, that defines the format, medium, and target device to use when passing the data. It is possible to specify more than one medium by using the Boolean OR operator, allowing the method to choose the best medium among those specified.
+      description: 'A pointer to a <xref href="System.Runtime.InteropServices.ComTypes.FORMATETC"></xref> structure, passed by reference, that defines the format, medium, and target device to use when passing the data. It is possible to specify more than one medium by using the Boolean OR operator, allowing the method to choose the best medium among those specified.'
     - id: medium
       type: System.Runtime.InteropServices.ComTypes.STGMEDIUM
-      description: When this method returns, contains a pointer to the <xref href="System.Runtime.InteropServices.ComTypes.STGMEDIUM"></xref> structure that indicates the storage medium containing the returned data through its <xref href="System.Runtime.InteropServices.ComTypes.STGMEDIUM.tymed"></xref> member, and the responsibility for releasing the medium through the value of its <xref href="System.Runtime.InteropServices.ComTypes.STGMEDIUM.pUnkForRelease"></xref> member. If <xref href="System.Runtime.InteropServices.ComTypes.STGMEDIUM.pUnkForRelease"></xref> is `null`, the receiver of the medium is responsible for releasing it; otherwise, <xref href="System.Runtime.InteropServices.ComTypes.STGMEDIUM.pUnkForRelease"></xref> points to the `IUnknown` interface on the appropriate object so its `Release` method can be called. The medium must be allocated and filled in by <xref href="System.Runtime.InteropServices.ComTypes.IDataObject.GetData(System.Runtime.InteropServices.ComTypes.FORMATETC@,System.Runtime.InteropServices.ComTypes.STGMEDIUM@)"></xref>. This parameter is passed uninitialized.
+      description: 'When this method returns, contains a pointer to the <xref href="System.Runtime.InteropServices.ComTypes.STGMEDIUM"></xref> structure that indicates the storage medium containing the returned data through its <xref href="System.Runtime.InteropServices.ComTypes.STGMEDIUM.tymed"></xref> member, and the responsibility for releasing the medium through the value of its <xref href="System.Runtime.InteropServices.ComTypes.STGMEDIUM.pUnkForRelease"></xref> member. If <xref href="System.Runtime.InteropServices.ComTypes.STGMEDIUM.pUnkForRelease"></xref> is `null`, the receiver of the medium is responsible for releasing it; otherwise, <xref href="System.Runtime.InteropServices.ComTypes.STGMEDIUM.pUnkForRelease"></xref> points to the `IUnknown` interface on the appropriate object so its `Release` method can be called. The medium must be allocated and filled in by <xref href="System.Runtime.InteropServices.ComTypes.IDataObject.GetData(System.Runtime.InteropServices.ComTypes.FORMATETC@,System.Runtime.InteropServices.ComTypes.STGMEDIUM@)"></xref>. This parameter is passed uninitialized.'
   overload: System.Windows.Forms.DataObject.System#Runtime#InteropServices#ComTypes#IDataObject#GetData*
   exceptions:
   - type: System.OutOfMemoryException
@@ -1909,8 +1909,8 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Obtains data from a source data object. This method, which is called by a data consumer, differs from the <xref href="System.Runtime.InteropServices.ComTypes.IDataObject.GetData(System.Runtime.InteropServices.ComTypes.FORMATETC@,System.Runtime.InteropServices.ComTypes.STGMEDIUM@)"></xref> method in that the caller must allocate and free the specified storage medium.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Windows.Forms.DataObject> is cast to an <xref:System.Runtime.InteropServices.ComTypes.IDataObject> interface.
+  summary: 'Obtains data from a source data object. This method, which is called by a data consumer, differs from the <xref href="System.Runtime.InteropServices.ComTypes.IDataObject.GetData(System.Runtime.InteropServices.ComTypes.FORMATETC@,System.Runtime.InteropServices.ComTypes.STGMEDIUM@)"></xref> method in that the caller must allocate and free the specified storage medium.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Windows.Forms.DataObject> is cast to an <xref:System.Runtime.InteropServices.ComTypes.IDataObject> interface.'
   syntax:
     content: void IDataObject.GetDataHere (ref System.Runtime.InteropServices.ComTypes.FORMATETC formatetc, ref System.Runtime.InteropServices.ComTypes.STGMEDIUM medium);
     parameters:
@@ -1919,7 +1919,7 @@ items:
       description: 'A pointer to a <xref href="System.Runtime.InteropServices.ComTypes.FORMATETC"></xref> structure, passed by reference, that defines the format, medium, and target device to use when passing the data. Only one medium can be specified in <xref href="System.Runtime.InteropServices.ComTypes.TYMED"></xref>, and only the following <xref href="System.Runtime.InteropServices.ComTypes.TYMED"></xref> values are valid: <xref href="System.Runtime.InteropServices.ComTypes.TYMED.TYMED_ISTORAGE"></xref>, <xref href="System.Runtime.InteropServices.ComTypes.TYMED.TYMED_ISTREAM"></xref>, <xref href="System.Runtime.InteropServices.ComTypes.TYMED.TYMED_HGLOBAL"></xref>, or <xref href="System.Runtime.InteropServices.ComTypes.TYMED.TYMED_FILE"></xref>.'
     - id: medium
       type: System.Runtime.InteropServices.ComTypes.STGMEDIUM
-      description: A <xref href="System.Runtime.InteropServices.ComTypes.STGMEDIUM"></xref>, passed by reference, that defines the storage medium containing the data being transferred. The medium must be allocated by the caller and filled in by <xref href="System.Runtime.InteropServices.ComTypes.IDataObject.GetDataHere(System.Runtime.InteropServices.ComTypes.FORMATETC@,System.Runtime.InteropServices.ComTypes.STGMEDIUM@)"></xref>. The caller must also free the medium. The implementation of this method must always supply a value of `null` for the <xref href="System.Runtime.InteropServices.ComTypes.STGMEDIUM.pUnkForRelease"></xref> member of the <xref href="System.Runtime.InteropServices.ComTypes.STGMEDIUM"></xref> structure that this parameter points to.
+      description: 'A <xref href="System.Runtime.InteropServices.ComTypes.STGMEDIUM"></xref>, passed by reference, that defines the storage medium containing the data being transferred. The medium must be allocated by the caller and filled in by <xref href="System.Runtime.InteropServices.ComTypes.IDataObject.GetDataHere(System.Runtime.InteropServices.ComTypes.FORMATETC@,System.Runtime.InteropServices.ComTypes.STGMEDIUM@)"></xref>. The caller must also free the medium. The implementation of this method must always supply a value of `null` for the <xref href="System.Runtime.InteropServices.ComTypes.STGMEDIUM.pUnkForRelease"></xref> member of the <xref href="System.Runtime.InteropServices.ComTypes.STGMEDIUM"></xref> structure that this parameter points to.'
   overload: System.Windows.Forms.DataObject.System#Runtime#InteropServices#ComTypes#IDataObject#GetDataHere*
   exceptions: []
   version:
@@ -1958,17 +1958,17 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Determines whether the data object is capable of rendering the data described in the <xref href="System.Runtime.InteropServices.ComTypes.FORMATETC"></xref> structure. Objects attempting a paste or drop operation can call this method before calling <xref href="System.Runtime.InteropServices.ComTypes.IDataObject.GetData(System.Runtime.InteropServices.ComTypes.FORMATETC@,System.Runtime.InteropServices.ComTypes.STGMEDIUM@)"></xref> to get an indication of whether the operation may be successful.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Windows.Forms.DataObject> is cast to an <xref:System.Runtime.InteropServices.ComTypes.IDataObject> interface.
+  summary: 'Determines whether the data object is capable of rendering the data described in the <xref href="System.Runtime.InteropServices.ComTypes.FORMATETC"></xref> structure. Objects attempting a paste or drop operation can call this method before calling <xref href="System.Runtime.InteropServices.ComTypes.IDataObject.GetData(System.Runtime.InteropServices.ComTypes.FORMATETC@,System.Runtime.InteropServices.ComTypes.STGMEDIUM@)"></xref> to get an indication of whether the operation may be successful.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Windows.Forms.DataObject> is cast to an <xref:System.Runtime.InteropServices.ComTypes.IDataObject> interface.'
   syntax:
     content: int IDataObject.QueryGetData (ref System.Runtime.InteropServices.ComTypes.FORMATETC formatetc);
     parameters:
     - id: formatetc
       type: System.Runtime.InteropServices.ComTypes.FORMATETC
-      description: A pointer to a <xref href="System.Runtime.InteropServices.ComTypes.FORMATETC"></xref> structure, passed by reference, that defines the format, medium, and target device to use for the query.
+      description: 'A pointer to a <xref href="System.Runtime.InteropServices.ComTypes.FORMATETC"></xref> structure, passed by reference, that defines the format, medium, and target device to use for the query.'
     return:
       type: System.Int32
-      description: "This method supports the standard return values E_INVALIDARG, E_UNEXPECTED, and E_OUTOFMEMORY, as well as the following:  \n  \n <table><thead><tr><th> Value  \n  \n </th><th> Description  \n  \n </th></tr></thead><tbody><tr><td> S_OK  \n  \n </td><td> A subsequent call to <xref href=\"System.Runtime.InteropServices.ComTypes.IDataObject.GetData(System.Runtime.InteropServices.ComTypes.FORMATETC@,System.Runtime.InteropServices.ComTypes.STGMEDIUM@)\"></xref> would probably be successful.  \n  \n </td></tr><tr><td> DV_E_LINDEX  \n  \n </td><td> An invalid value for <xref href=\"System.Runtime.InteropServices.ComTypes.FORMATETC.lindex\"></xref>; currently, only -1 is supported.  \n  \n </td></tr><tr><td> DV_E_FORMATETC  \n  \n </td><td> An invalid value for the <code>pFormatetc</code> parameter.  \n  \n </td></tr><tr><td> DV_E_TYMED  \n  \n </td><td> An invalid <xref href=\"System.Runtime.InteropServices.ComTypes.FORMATETC.tymed\"></xref> value.  \n  \n </td></tr><tr><td> DV_E_DVASPECT  \n  \n </td><td> An invalid <xref href=\"System.Runtime.InteropServices.ComTypes.FORMATETC.dwAspect\"></xref> value.  \n  \n </td></tr><tr><td> OLE_E_NOTRUNNING  \n  \n </td><td> The application is not running.  \n  \n </td></tr></tbody></table>"
+      description: "This method supports the standard return values E_INVALIDARG, E_UNEXPECTED, and E_OUTOFMEMORY, as well as the following:  \n  \n <table><thead><tr><th> Value\n </th><th> Description\n </th></tr></thead><tbody><tr><td> S_OK\n </td><td> A subsequent call to <xref href=\"System.Runtime.InteropServices.ComTypes.IDataObject.GetData(System.Runtime.InteropServices.ComTypes.FORMATETC@,System.Runtime.InteropServices.ComTypes.STGMEDIUM@)\"></xref> would probably be successful.  \n  \n </td></tr><tr><td> DV_E_LINDEX\n </td><td> An invalid value for <xref href=\"System.Runtime.InteropServices.ComTypes.FORMATETC.lindex\"></xref>; currently, only -1 is supported.  \n  \n </td></tr><tr><td> DV_E_FORMATETC\n </td><td> An invalid value for the <code>pFormatetc</code> parameter.  \n  \n </td></tr><tr><td> DV_E_TYMED\n </td><td> An invalid <xref href=\"System.Runtime.InteropServices.ComTypes.FORMATETC.tymed\"></xref> value.  \n  \n </td></tr><tr><td> DV_E_DVASPECT\n </td><td> An invalid <xref href=\"System.Runtime.InteropServices.ComTypes.FORMATETC.dwAspect\"></xref> value.  \n  \n </td></tr><tr><td> OLE_E_NOTRUNNING\n </td><td> The application is not running.  \n  \n </td></tr></tbody></table>"
   overload: System.Windows.Forms.DataObject.System#Runtime#InteropServices#ComTypes#IDataObject#QueryGetData*
   exceptions: []
   version:
@@ -2008,16 +2008,16 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Transfers data to the object that implements this method. This method is called by an object that contains a data source.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Windows.Forms.DataObject> is cast to an <xref:System.Runtime.InteropServices.ComTypes.IDataObject> interface.
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Windows.Forms.DataObject> is cast to an <xref:System.Runtime.InteropServices.ComTypes.IDataObject> interface.'
   syntax:
     content: void IDataObject.SetData (ref System.Runtime.InteropServices.ComTypes.FORMATETC pFormatetcIn, ref System.Runtime.InteropServices.ComTypes.STGMEDIUM pmedium, bool fRelease);
     parameters:
     - id: pFormatetcIn
       type: System.Runtime.InteropServices.ComTypes.FORMATETC
-      description: A <xref href="System.Runtime.InteropServices.ComTypes.FORMATETC"></xref> structure, passed by reference, that defines the format used by the data object when interpreting the data contained in the storage medium.
+      description: 'A <xref href="System.Runtime.InteropServices.ComTypes.FORMATETC"></xref> structure, passed by reference, that defines the format used by the data object when interpreting the data contained in the storage medium.'
     - id: pmedium
       type: System.Runtime.InteropServices.ComTypes.STGMEDIUM
-      description: A <xref href="System.Runtime.InteropServices.ComTypes.STGMEDIUM"></xref> structure, passed by reference, that defines the storage medium in which the data is being passed.
+      description: 'A <xref href="System.Runtime.InteropServices.ComTypes.STGMEDIUM"></xref> structure, passed by reference, that defines the storage medium in which the data is being passed.'
     - id: fRelease
       type: System.Boolean
       description: '`true` to specify that the data object called, which implements <xref href="System.Runtime.InteropServices.ComTypes.IDataObject.SetData(System.Runtime.InteropServices.ComTypes.FORMATETC@,System.Runtime.InteropServices.ComTypes.STGMEDIUM@,System.Boolean)"></xref>, owns the storage medium after the call returns. This means that the data object must free the medium after it has been used by calling the `ReleaseStgMedium` function. `false` to specify that the caller retains ownership of the storage medium, and the data object called uses the storage medium for the duration of the call only.'

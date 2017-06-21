@@ -22,7 +22,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows
-  summary: Reports the information returned from <xref href="System.Windows.DependencyPropertyHelper.GetValueSource(System.Windows.DependencyObject,System.Windows.DependencyProperty)"></xref>.
+  summary: 'Reports the information returned from <xref href="System.Windows.DependencyPropertyHelper.GetValueSource(System.Windows.DependencyObject,System.Windows.DependencyProperty)"></xref>.'
   remarks: "Most of the information that <xref:System.Windows.ValueSource> transmits is contained in the <xref:System.Windows.ValueSource.BaseValueSource%2A> property. This property contains an enumeration value that specifies exactly one aspect of the overall [!INCLUDE[TLA2#tla_winclient](~/includes/tla2sharptla-winclient-md.md)] property system that is responsible for the effective value of a dependency property.  \n  \n Besides the base value, the other information that might be interesting about a dependency property value is whether the value is being animated, and whether the value involves an expression (such as a binding, or a dynamic resource reference). This information is reported by <xref:System.Windows.ValueSource.IsAnimated%2A> and <xref:System.Windows.ValueSource.IsExpression%2A> respectively. Also, if coercion is acting on a property value, the property retains a desired value, and the property value will attempt to reach that desired value if the constraints of the specific coercion are changed or lifted. A coerced property that is not at its desired value will report that <xref:System.Windows.ValueSource.IsCoerced%2A> is `true`."
   syntax:
     content: public struct ValueSource
@@ -64,7 +64,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows
-  summary: Gets a value of the <xref href="System.Windows.BaseValueSource"></xref> enumeration, which reports the source that provided the dependency property system with a value.
+  summary: 'Gets a value of the <xref href="System.Windows.BaseValueSource"></xref> enumeration, which reports the source that provided the dependency property system with a value.'
   remarks: "The base value is not the effective value if either coercion or animation is acting on the property. Check <xref:System.Windows.ValueSource.IsAnimated%2A> and <xref:System.Windows.ValueSource.IsCoerced%2A> if you want to determine whether the base value is the effective value.  \n  \n You might also want to check <xref:System.Windows.ValueSource.IsExpression%2A> to see if the base value was evaluated out of an expression."
   syntax:
     content: public System.Windows.BaseValueSource BaseValueSource { get; }
@@ -109,7 +109,7 @@ items:
   - PresentationFramework
   namespace: System.Windows
   summary: Returns a value indicating whether this <xref href="System.Windows.ValueSource"></xref> is equal to a specified object.
-  remarks: This implementation supports value equality, based on each of the property values of each <xref:System.Windows.ValueSource> structure.
+  remarks: 'This implementation supports value equality, based on each of the property values of each <xref:System.Windows.ValueSource> structure.'
   syntax:
     content: public override bool Equals (object o);
     parameters:
@@ -157,7 +157,7 @@ items:
   - PresentationFramework
   namespace: System.Windows
   summary: Returns the hash code for this <xref href="System.Windows.ValueSource"></xref>.
-  remarks: This hash code is based on the <xref:System.Windows.ValueSource.BaseValueSource%2A> value.
+  remarks: 'This hash code is based on the <xref:System.Windows.ValueSource.BaseValueSource%2A> value.'
   syntax:
     content: public override int GetHashCode ();
     parameters: []
@@ -202,7 +202,7 @@ items:
   - PresentationFramework
   namespace: System.Windows
   summary: Gets a value that declares whether the property is being animated.
-  remarks: For any property that is currently being animated, the source reported by <xref:System.Windows.ValueSource.BaseValueSource%2A> is not immediately relevant, because the animation operates at higher dependency property precedence than the base value. For more information about precedence and animations, see [Dependency Property Value Precedence](~/docs/framework/wpf/advanced/dependency-property-value-precedence.md).
+  remarks: 'For any property that is currently being animated, the source reported by <xref:System.Windows.ValueSource.BaseValueSource%2A> is not immediately relevant, because the animation operates at higher dependency property precedence than the base value. For more information about precedence and animations, see [Dependency Property Value Precedence](~/docs/framework/wpf/advanced/dependency-property-value-precedence.md).'
   syntax:
     content: public bool IsAnimated { get; }
     return:
@@ -289,7 +289,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows
-  summary: Gets whether the value was set by the <xref href="System.Windows.DependencyObject.SetCurrentValue(System.Windows.DependencyProperty,System.Object)"></xref> method.
+  summary: 'Gets whether the value was set by the <xref href="System.Windows.DependencyObject.SetCurrentValue(System.Windows.DependencyProperty,System.Object)"></xref> method.'
   syntax:
     content: public bool IsCurrent { get; }
     return:
@@ -332,7 +332,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows
-  summary: Gets a value that declares whether this value resulted from an evaluated expression. This might be a <xref href="System.Windows.Data.BindingExpression"></xref> supporting a binding, or an internal expression such as those that support the [DynamicResource Markup Extension](~/docs/framework/wpf/advanced/dynamicresource-markup-extension.md).
+  summary: 'Gets a value that declares whether this value resulted from an evaluated expression. This might be a <xref href="System.Windows.Data.BindingExpression"></xref> supporting a binding, or an internal expression such as those that support the [DynamicResource Markup Extension](~/docs/framework/wpf/advanced/dynamicresource-markup-extension.md).'
   remarks: "An evaluated expression will also report the specific base value setting condition where the expression was applied, as a value in <xref:System.Windows.ValueSource.BaseValueSource%2A>. The <xref:System.Windows.ValueSource.BaseValueSource%2A> is still very relevant for any property where <xref:System.Windows.ValueSource.IsExpression%2A> is `true`. Knowing whether a value came through an expression can be particularly useful if the value was set indirectly, such as through a template or an inherited property value.  \n  \n If an expression fails to evaluate (the binding failed; no resource of that name was found), then the value will come from some other participant in the property system, most likely the default value. That source is then reported in <xref:System.Windows.ValueSource.BaseValueSource%2A>. Failed expression evaluations will return `false` for <xref:System.Windows.ValueSource.IsExpression%2A>."
   syntax:
     content: public bool IsExpression { get; }
@@ -376,7 +376,7 @@ items:
   - PresentationFramework
   namespace: System.Windows
   summary: Determines whether two <xref href="System.Windows.ValueSource"></xref> instances have the same value.
-  remarks: This implementation calls <xref:System.Windows.ValueSource.Equals%2A>, and supports value equality based on all properties of <xref:System.Windows.ValueSource>.
+  remarks: 'This implementation calls <xref:System.Windows.ValueSource.Equals%2A>, and supports value equality based on all properties of <xref:System.Windows.ValueSource>.'
   syntax:
     content: public static bool op_Equality (System.Windows.ValueSource vs1, System.Windows.ValueSource vs2);
     parameters:
@@ -427,7 +427,7 @@ items:
   - PresentationFramework
   namespace: System.Windows
   summary: Determines whether two <xref href="System.Windows.ValueSource"></xref> instances do not have the same value.
-  remarks: This implementation calls <xref:System.Windows.ValueSource.Equals%2A>, returning its negation, and supports value equality based on all properties of <xref:System.Windows.ValueSource>.
+  remarks: 'This implementation calls <xref:System.Windows.ValueSource.Equals%2A>, returning its negation, and supports value equality based on all properties of <xref:System.Windows.ValueSource>.'
   syntax:
     content: public static bool op_Inequality (System.Windows.ValueSource vs1, System.Windows.ValueSource vs2);
     parameters:

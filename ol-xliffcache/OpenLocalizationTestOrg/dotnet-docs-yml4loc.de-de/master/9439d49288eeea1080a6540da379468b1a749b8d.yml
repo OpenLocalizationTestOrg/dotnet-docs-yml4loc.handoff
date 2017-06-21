@@ -160,7 +160,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Initializes a new instance of the <xref href="System.ServiceModel.WSDualHttpBinding"></xref> class with a specified type of security used by the binding.
-  remarks: Reliable messaging is required by the <xref:System.ServiceModel.WSDualHttpBinding>, so there is no constructor that provides a switch to turn it off as there is on the <xref:System.ServiceModel.WSHttpBinding.%23ctor%28System.ServiceModel.SecurityMode%29> constructor for the <xref:System.ServiceModel.WSHttpBinding>.
+  remarks: 'Reliable messaging is required by the <xref:System.ServiceModel.WSDualHttpBinding>, so there is no constructor that provides a switch to turn it off as there is on the <xref:System.ServiceModel.WSHttpBinding.%23ctor%28System.ServiceModel.SecurityMode%29> constructor for the <xref:System.ServiceModel.WSHttpBinding>.'
   example:
   - "The following example shows how to use the `wsDualHttpBinding` constructor with a security mode.  \n  \n [!code-csharp[S_dualhttp#3](~/samples/snippets/csharp/VS_Snippets_CFX/s_dualhttp/cs/program.cs#3)]\n [!code-vb[S_dualhttp#3](~/samples/snippets/visualbasic/VS_Snippets_CFX/s_dualhttp/vb/module1.vb#3)]"
   syntax:
@@ -356,7 +356,7 @@ items:
     parameters: []
     return:
       type: System.ServiceModel.Channels.BindingElementCollection
-      description: A <xref href="System.ServiceModel.Channels.BindingElementCollection"></xref> that includes a <xref href="System.ServiceModel.Channels.TransactionFlowBindingElement"></xref> and, because a reliable session is required for the <xref href="System.ServiceModel.WSDualHttpBinding"></xref>, a <xref href="System.ServiceModel.Channels.ReliableSessionBindingElement"></xref>.
+      description: 'A <xref href="System.ServiceModel.Channels.BindingElementCollection"></xref> that includes a <xref href="System.ServiceModel.Channels.TransactionFlowBindingElement"></xref> and, because a reliable session is required for the <xref href="System.ServiceModel.WSDualHttpBinding"></xref>, a <xref href="System.ServiceModel.Channels.ReliableSessionBindingElement"></xref>.'
   overload: System.ServiceModel.WSDualHttpBinding.CreateBindingElements*
   exceptions: []
   version:
@@ -448,7 +448,7 @@ items:
     content: public System.ServiceModel.HostNameComparisonMode HostNameComparisonMode { get; set; }
     return:
       type: System.ServiceModel.HostNameComparisonMode
-      description: The <xref href="System.ServiceModel.Configuration.WSDualHttpBindingElement.HostNameComparisonMode"></xref> value that indicates whether the hostname is used to reach the service when matching on the URI. The default value is <xref href="System.ServiceModel.HostNameComparisonMode.StrongWildcard"></xref>, which ignores the hostname in the match.
+      description: 'The <xref href="System.ServiceModel.Configuration.WSDualHttpBindingElement.HostNameComparisonMode"></xref> value that indicates whether the hostname is used to reach the service when matching on the URI. The default value is <xref href="System.ServiceModel.HostNameComparisonMode.StrongWildcard"></xref>, which ignores the hostname in the match.'
   overload: System.ServiceModel.WSDualHttpBinding.HostNameComparisonMode*
   exceptions: []
   attributes: []
@@ -487,7 +487,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: Gets or sets the maximum amount of memory, in bytes, that can be allocated for the manager of message buffers that receive messages at the endpoints configured with this binding.
+  summary: 'Gets or sets the maximum amount of memory, in bytes, that can be allocated for the manager of message buffers that receive messages at the endpoints configured with this binding.'
   remarks: "The <xref:System.ServiceModel.Channels.BufferManager> minimizes the cost of using buffers with a buffer pool. Buffers are required to process messages by the service when they come out of the channel. If there is not sufficient memory in the buffer pool to process the message load, the <xref:System.ServiceModel.Channels.BufferManager> must allocate additional memory from the CLR heap, which increases the garbage collection overhead. Extensive allocation from the CLR garbage heap is an indication that the buffer pool size is too small and that performance can be improved with a larger allocation by increasing the <xref:System.ServiceModel.WSDualHttpBinding.MaxBufferPoolSize%2A> limit.  \n  \n The limitations on buffer size set here are for optimizing the performance of message exchanges. If a message exceeds the maximum value set for the buffer, it is not dropped. Instead, more memory is requested from the CLR heap and this incurs more garbage collection overhead than using the buffers."
   example:
   - "The following example shows how to set the `MaxBufferPoolSize`.  \n  \n [!code-csharp[S_dualhttp#10](~/samples/snippets/csharp/VS_Snippets_CFX/s_dualhttp/cs/program.cs#10)]\n [!code-vb[S_dualhttp#10](~/samples/snippets/visualbasic/VS_Snippets_CFX/s_dualhttp/vb/module1.vb#10)]"
@@ -495,7 +495,7 @@ items:
     content: public long MaxBufferPoolSize { get; set; }
     return:
       type: System.Int64
-      description: The maximum size, in bytes, for the pool of buffers used by an endpoint configured with this binding. The default value is 524288 bytes.
+      description: 'The maximum size, in bytes, for the pool of buffers used by an endpoint configured with this binding. The default value is 524288 bytes.'
   overload: System.ServiceModel.WSDualHttpBinding.MaxBufferPoolSize*
   exceptions: []
   attributes: []
@@ -534,7 +534,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: Gets or sets the maximum size, in bytes, for a message that can be received on a channel configured with this binding.
+  summary: 'Gets or sets the maximum size, in bytes, for a message that can be received on a channel configured with this binding.'
   remarks: "The size of the messages that can be received on the wire by services using the <xref:System.ServiceModel.WSDualHttpBinding> is bounded by the amount of memory allocated for each message. This bound on message size is intended to limit exposure to DOS-style attacks.  \n  \n Note that the settings for <xref:System.ServiceModel.WSDualHttpBinding.MaxBufferPoolSize%2A> and <xref:System.ServiceModel.BasicHttpBinding.MaxReceivedMessageSize%2A> are local behavioral settings. This means that they are not transmitted to other endpoints in metadata. If you generate a proxy to a service with a maximum message size of 2GB from metadata, the proxy still has a default value 64K. This leaves control of the appropriate bounds for message and message buffer size in the scope of local administrators."
   example:
   - "The following example shows how to get the <xref:System.ServiceModel.WSDualHttpBinding.MaxReceivedMessageSize%2A> property.  \n  \n [!code-csharp[S_dualhttp#22](~/samples/snippets/csharp/VS_Snippets_CFX/s_dualhttp/cs/program.cs#22)]\n [!code-vb[S_dualhttp#22](~/samples/snippets/visualbasic/VS_Snippets_CFX/s_dualhttp/vb/module1.vb#22)]"
@@ -542,7 +542,7 @@ items:
     content: public long MaxReceivedMessageSize { get; set; }
     return:
       type: System.Int64
-      description: The maximum size, in bytes, for a message that is processed by the binding. The default value is 65,536 bytes.
+      description: 'The maximum size, in bytes, for a message that is processed by the binding. The default value is 65,536 bytes.'
   overload: System.ServiceModel.WSDualHttpBinding.MaxReceivedMessageSize*
   exceptions:
   - type: System.ArgumentOutOfRangeException
@@ -632,7 +632,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Gets or sets the URI address of the HTTP proxy.
-  remarks: If the <xref:System.ServiceModel.WSDualHttpBinding.UseDefaultWebProxy%2A> is set to `true`, the value of the <xref:System.ServiceModel.WSDualHttpBinding.ProxyAddress%2A> is ignored.
+  remarks: 'If the <xref:System.ServiceModel.WSDualHttpBinding.UseDefaultWebProxy%2A> is set to `true`, the value of the <xref:System.ServiceModel.WSDualHttpBinding.ProxyAddress%2A> is ignored.'
   example:
   - "The following example shows how to specify the address of the HTTP proxy.  \n  \n [!code-csharp[S_dualhttp#12](~/samples/snippets/csharp/VS_Snippets_CFX/s_dualhttp/cs/program.cs#12)]\n [!code-vb[S_dualhttp#12](~/samples/snippets/visualbasic/VS_Snippets_CFX/s_dualhttp/vb/module1.vb#12)]"
   syntax:
@@ -725,7 +725,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Gets an object that provides convenient access to the properties of a reliable session binding element that are available when using one of the system-provided bindings.
-  remarks: The reliable session is required for service configured with a <xref:System.ServiceModel.WSDualHttpBinding>.
+  remarks: 'The reliable session is required for service configured with a <xref:System.ServiceModel.WSDualHttpBinding>.'
   example:
   - "The following example shows how to get the <xref:System.ServiceModel.WSDualHttpBinding.ReliableSession%2A> property.  \n  \n [!code-csharp[S_dualhttp#14](~/samples/snippets/csharp/VS_Snippets_CFX/s_dualhttp/cs/program.cs#14)]\n [!code-vb[S_dualhttp#14](~/samples/snippets/visualbasic/VS_Snippets_CFX/s_dualhttp/vb/module1.vb#14)]"
   syntax:
@@ -1140,7 +1140,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: Gets or sets a value that indicates whether the auto-configured HTTP proxy of the system should be used, if available.
+  summary: 'Gets or sets a value that indicates whether the auto-configured HTTP proxy of the system should be used, if available.'
   remarks: ''
   example:
   - "The following example shows how to set the `UseDefaultWebProxy` property to use the auto-configured HTTP proxy of the system.  \n  \n [!code-csharp[S_dualhttp#19](~/samples/snippets/csharp/VS_Snippets_CFX/s_dualhttp/cs/program.cs#19)]\n [!code-vb[S_dualhttp#19](~/samples/snippets/visualbasic/VS_Snippets_CFX/s_dualhttp/vb/module1.vb#19)]"

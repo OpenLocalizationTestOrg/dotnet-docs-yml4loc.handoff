@@ -195,7 +195,7 @@ items:
   - netstandard
   namespace: System.ComponentModel
   summary: Initializes a new instance of the <xref href="System.ComponentModel.PropertyDescriptor"></xref> class with the name in the specified <xref href="System.ComponentModel.MemberDescriptor"></xref> and the attributes in both the <xref href="System.ComponentModel.MemberDescriptor"></xref> and the <xref href="System.Attribute"></xref> array.
-  remarks: This constructor appends the attributes in the <xref:System.Attribute> array to the attributes in the <xref:System.ComponentModel.MemberDescriptor>.
+  remarks: 'This constructor appends the attributes in the <xref:System.Attribute> array to the attributes in the <xref:System.ComponentModel.MemberDescriptor>.'
   syntax:
     content: protected PropertyDescriptor (System.ComponentModel.MemberDescriptor descr, Attribute[] attrs);
     parameters:
@@ -387,8 +387,8 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: When overridden in a derived class, returns whether resetting an object changes its value.
-  remarks: Typically, this method is implemented through reflection.
+  summary: 'When overridden in a derived class, returns whether resetting an object changes its value.'
+  remarks: 'Typically, this method is implemented through reflection.'
   syntax:
     content: public abstract bool CanResetValue (object component);
     parameters:
@@ -451,13 +451,13 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: When overridden in a derived class, gets the type of the component this property is bound to.
-  remarks: Typically, this property is implemented through reflection.
+  summary: 'When overridden in a derived class, gets the type of the component this property is bound to.'
+  remarks: 'Typically, this property is implemented through reflection.'
   syntax:
     content: public abstract Type ComponentType { get; }
     return:
       type: System.Type
-      description: A <xref href="System.Type"></xref> that represents the type of component this property is bound to. When the <xref href="System.ComponentModel.PropertyDescriptor.GetValue(System.Object)"></xref> or <xref href="System.ComponentModel.PropertyDescriptor.SetValue(System.Object,System.Object)"></xref> methods are invoked, the object specified might be an instance of this type.
+      description: 'A <xref href="System.Type"></xref> that represents the type of component this property is bound to. When the <xref href="System.ComponentModel.PropertyDescriptor.GetValue(System.Object)"></xref> or <xref href="System.ComponentModel.PropertyDescriptor.SetValue(System.Object,System.Object)"></xref> methods are invoked, the object specified might be an instance of this type.'
   overload: System.ComponentModel.PropertyDescriptor.ComponentType*
   exceptions: []
   version:
@@ -698,13 +698,13 @@ items:
   - netstandard
   namespace: System.ComponentModel
   summary: Adds the attributes of the <xref href="System.ComponentModel.PropertyDescriptor"></xref> to the specified list of attributes in the parent class.
-  remarks: For duplicate attributes, the last one added to the list will be kept.
+  remarks: 'For duplicate attributes, the last one added to the list will be kept.'
   syntax:
     content: protected override void FillAttributes (System.Collections.IList attributeList);
     parameters:
     - id: attributeList
       type: System.Collections.IList
-      description: An <xref href="System.Collections.IList"></xref> that lists the attributes in the parent class. Initially, this is empty.
+      description: 'An <xref href="System.Collections.IList"></xref> that lists the attributes in the parent class. Initially, this is empty.'
   overload: System.ComponentModel.PropertyDescriptor.FillAttributes*
   exceptions: []
   version:
@@ -1020,10 +1020,10 @@ items:
     parameters:
     - id: editorBaseType
       type: System.Type
-      description: The base type of editor, which is used to differentiate between multiple editors that a property supports.
+      description: 'The base type of editor, which is used to differentiate between multiple editors that a property supports.'
     return:
       type: System.Object
-      description: An instance of the requested editor type, or `null` if an editor cannot be found.
+      description: 'An instance of the requested editor type, or `null` if an editor cannot be found.'
   overload: System.ComponentModel.PropertyDescriptor.GetEditor*
   exceptions: []
   version:
@@ -1138,7 +1138,7 @@ items:
   - netstandard
   namespace: System.ComponentModel
   summary: This method returns the object that should be used during invocation of members.
-  remarks: Typically, the return value will be the same as the `instance` passed in. If someone associated another object with this instance, or if the instance is a custom type descriptor, the <xref:System.ComponentModel.PropertyDescriptor.GetInvocationTarget%2A> method may return a different value.
+  remarks: 'Typically, the return value will be the same as the `instance` passed in. If someone associated another object with this instance, or if the instance is a custom type descriptor, the <xref:System.ComponentModel.PropertyDescriptor.GetInvocationTarget%2A> method may return a different value.'
   syntax:
     content: protected override object GetInvocationTarget (Type type, object instance);
     parameters:
@@ -1205,7 +1205,7 @@ items:
   - netstandard
   namespace: System.ComponentModel
   summary: Returns a type using its name.
-  remarks: To find the appropriate type, this method first checks the assembly of the type that this <xref:System.ComponentModel.PropertyDescriptor> references. If it does not find the type in the assembly, it calls <xref:System.Type.GetType%2A?displayProperty=fullName>.
+  remarks: 'To find the appropriate type, this method first checks the assembly of the type that this <xref:System.ComponentModel.PropertyDescriptor> references. If it does not find the type in the assembly, it calls <xref:System.Type.GetType%2A?displayProperty=fullName>.'
   syntax:
     content: protected Type GetTypeFromName (string typeName);
     parameters:
@@ -1214,7 +1214,7 @@ items:
       description: The assembly-qualified name of the type to retrieve.
     return:
       type: System.Type
-      description: A <xref href="System.Type"></xref> that matches the given type name, or `null` if a match cannot be found.
+      description: 'A <xref href="System.Type"></xref> that matches the given type name, or `null` if a match cannot be found.'
   overload: System.ComponentModel.PropertyDescriptor.GetTypeFromName*
   exceptions: []
   version:
@@ -1268,7 +1268,7 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: When overridden in a derived class, gets the current value of the property on a component.
+  summary: 'When overridden in a derived class, gets the current value of the property on a component.'
   remarks: "Typically, this method is implemented through reflection.  \n  \n This method automatically calls the pre-change method, <xref:System.ComponentModel.Design.IComponentChangeService.OnComponentChanging%2A>, and post-change method, <xref:System.ComponentModel.Design.IComponentChangeService.OnComponentChanged%2A>, of the <xref:System.ComponentModel.Design.IComponentChangeService>."
   syntax:
     content: public abstract object GetValue (object component);
@@ -1341,7 +1341,7 @@ items:
       description: The component for which to retrieve event handlers.
     return:
       type: System.EventHandler
-      description: A combined multicast event handler, or `null` if no event handlers are currently assigned to <code>component</code>.
+      description: 'A combined multicast event handler, or `null` if no event handlers are currently assigned to <code>component</code>.'
   overload: System.ComponentModel.PropertyDescriptor.GetValueChangedHandler*
   exceptions: []
   version:
@@ -1395,8 +1395,8 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: Gets a value indicating whether this property should be localized, as specified in the <xref href="System.ComponentModel.LocalizableAttribute"></xref>.
-  remarks: When a property is marked with the <xref:System.ComponentModel.LocalizableAttribute> set to `true` and used in a visual designer, its values are saved in a resource file. If you mark a property with the attribute and then set the property in code, resource files are not used.
+  summary: 'Gets a value indicating whether this property should be localized, as specified in the <xref href="System.ComponentModel.LocalizableAttribute"></xref>.'
+  remarks: 'When a property is marked with the <xref:System.ComponentModel.LocalizableAttribute> set to `true` and used in a visual designer, its values are saved in a resource file. If you mark a property with the attribute and then set the property in code, resource files are not used.'
   syntax:
     content: public virtual bool IsLocalizable { get; }
     return:
@@ -1455,7 +1455,7 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: When overridden in a derived class, gets a value indicating whether this property is read-only.
+  summary: 'When overridden in a derived class, gets a value indicating whether this property is read-only.'
   syntax:
     content: public abstract bool IsReadOnly { get; }
     return:
@@ -1578,8 +1578,8 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: When overridden in a derived class, gets the type of the property.
-  remarks: Typically, this property is implemented through reflection.
+  summary: 'When overridden in a derived class, gets the type of the property.'
+  remarks: 'Typically, this property is implemented through reflection.'
   syntax:
     content: public abstract Type PropertyType { get; }
     return:
@@ -1704,7 +1704,7 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: When overridden in a derived class, resets the value for this property of the component to the default value.
+  summary: 'When overridden in a derived class, resets the value for this property of the component to the default value.'
   remarks: "Typically, this method is implemented through reflection.  \n  \n This method determines the value to reset the property to in the following order of precedence:  \n  \n1.  There is a shadowed property for this property.  \n  \n2.  There is a <xref:System.ComponentModel.DefaultValueAttribute> for this property.  \n  \n3.  There is a \"ResetMyProperty\" method that you have implemented, where \"MyProperty\" is the name of the property you pass to it.  \n  \n This method creates a <xref:System.ComponentModel.Design.DesignerTransaction> automatically in the following order:  \n  \n1.  The method calls the <xref:System.ComponentModel.Design.IDesignerHost.CreateTransaction%2A?displayProperty=fullName> method to create a new <xref:System.ComponentModel.Design.DesignerTransaction> to represent the changes.  \n  \n2.  The method calls the <xref:System.ComponentModel.Design.IComponentChangeService.OnComponentChanging%2A?displayProperty=fullName> method to indicate that the transaction has begun and the changes are about to occur.  \n  \n3.  The method resets the property to the value determined by this method's checking order.  \n  \n4.  The method calls the <xref:System.ComponentModel.Design.IComponentChangeService.OnComponentChanged%2A?displayProperty=fullName> method to indicate that the changes have occurred.  \n  \n5.  The method calls <xref:System.ComponentModel.Design.DesignerTransaction.Commit%2A?displayProperty=fullName> to indicate that the transaction is completed.  \n  \n The purpose of the transaction is to support `Undo` and `Redo` functionality."
   syntax:
     content: public abstract void ResetValue (object component);
@@ -1765,7 +1765,7 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: Gets a value indicating whether this property should be serialized, as specified in the <xref href="System.ComponentModel.DesignerSerializationVisibilityAttribute"></xref>.
+  summary: 'Gets a value indicating whether this property should be serialized, as specified in the <xref href="System.ComponentModel.DesignerSerializationVisibilityAttribute"></xref>.'
   syntax:
     content: public System.ComponentModel.DesignerSerializationVisibility SerializationVisibility { get; }
     return:
@@ -1824,7 +1824,7 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: When overridden in a derived class, sets the value of the component to a different value.
+  summary: 'When overridden in a derived class, sets the value of the component to a different value.'
   remarks: "Typically, this method is implemented through reflection.  \n  \n This method creates a <xref:System.ComponentModel.Design.DesignerTransaction> automatically in the following order:  \n  \n1.  The method calls the <xref:System.ComponentModel.Design.IDesignerHost.CreateTransaction%2A?displayProperty=fullName> method to create a new <xref:System.ComponentModel.Design.DesignerTransaction> to represent the changes.  \n  \n2.  The method calls the <xref:System.ComponentModel.Design.IComponentChangeService.OnComponentChanging%2A?displayProperty=fullName> method to indicate that the transaction has begun and the changes are about to occur.  \n  \n3.  The method resets the property to the value determined by this method's checking order.  \n  \n4.  The method calls the <xref:System.ComponentModel.Design.IComponentChangeService.OnComponentChanged%2A?displayProperty=fullName> method to indicate that the changes have occurred.  \n  \n5.  The method calls <xref:System.ComponentModel.Design.DesignerTransaction.Commit%2A?displayProperty=fullName> to indicate that the transaction is complete.  \n  \n The purpose of the transaction is to support `Undo` and `Redo` functionality."
   syntax:
     content: public abstract void SetValue (object component, object value);
@@ -1888,8 +1888,8 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: When overridden in a derived class, determines a value indicating whether the value of this property needs to be persisted.
-  remarks: Typically, this method is implemented through reflection.
+  summary: 'When overridden in a derived class, determines a value indicating whether the value of this property needs to be persisted.'
+  remarks: 'Typically, this method is implemented through reflection.'
   syntax:
     content: public abstract bool ShouldSerializeValue (object component);
     parameters:
@@ -1953,7 +1953,7 @@ items:
   - netstandard
   namespace: System.ComponentModel
   summary: Gets a value indicating whether value change notifications for this property may originate from outside the property descriptor.
-  remarks: The <xref:System.ComponentModel.PropertyDescriptor.SupportsChangeEvents%2A> property indicates whether value change notifications for this property may originate from outside the property descriptor, such as from the component itself, or whether notifications will only originate from direct calls made to the <xref:System.ComponentModel.PropertyDescriptor.SetValue%2A> method. For example, the component may implement the <xref:System.ComponentModel.INotifyPropertyChanged> interface, or may have an explicit `name.Changed` event for this property.
+  remarks: 'The <xref:System.ComponentModel.PropertyDescriptor.SupportsChangeEvents%2A> property indicates whether value change notifications for this property may originate from outside the property descriptor, such as from the component itself, or whether notifications will only originate from direct calls made to the <xref:System.ComponentModel.PropertyDescriptor.SetValue%2A> method. For example, the component may implement the <xref:System.ComponentModel.INotifyPropertyChanged> interface, or may have an explicit `name.Changed` event for this property.'
   syntax:
     content: public virtual bool SupportsChangeEvents { get; }
     return:

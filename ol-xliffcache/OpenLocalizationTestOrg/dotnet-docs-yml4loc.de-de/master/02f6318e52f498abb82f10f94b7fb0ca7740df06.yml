@@ -197,7 +197,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Associates a set of cache dependencies with the response to facilitate invalidation of the response if it is stored in the output cache and the specified dependencies change.
-  remarks: The <xref:System.Web.HttpResponse.AddCacheDependency%2A> method allows dependencies to be created between cached responses and a <xref:System.Web.Caching.CacheDependency> object.
+  remarks: 'The <xref:System.Web.HttpResponse.AddCacheDependency%2A> method allows dependencies to be created between cached responses and a <xref:System.Web.Caching.CacheDependency> object.'
   example:
   - "The following example demonstrates how to create a cache dependency by using the <xref:System.Web.HttpResponse.AddCacheDependency%2A> method and a <xref:System.Web.Caching.CacheDependency> object.  \n  \n <!-- TODO: review snippet reference [!code-csharp[HttpResponse.AddCacheDependency#1](~/samples/snippets/csharp/VS_Snippets_WebNet/HttpResponse.AddCacheDependency/CS/httpresponse.addcachedependency_cs.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[HttpResponse.AddCacheDependency#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/HttpResponse.AddCacheDependency/VB/httpresponse.addcachedependency_vb.aspx#1)]  -->"
   syntax:
@@ -205,7 +205,7 @@ items:
     parameters:
     - id: dependencies
       type: System.Web.Caching.CacheDependency[]
-      description: A file, cache key, or <xref href="System.Web.Caching.CacheDependency"></xref> to add to the list of application dependencies.
+      description: 'A file, cache key, or <xref href="System.Web.Caching.CacheDependency"></xref> to add to the list of application dependencies.'
   overload: System.Web.HttpResponse.AddCacheDependency*
   exceptions:
   - type: System.ArgumentNullException
@@ -213,7 +213,7 @@ items:
     description: The <code>dependencies</code> parameter is `null`.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: This method was called too late in the cache processing pipeline, after the cached response was already created.
+    description: 'This method was called too late in the cache processing pipeline, after the cached response was already created.'
   version:
   - netframework-4.5.1
   - netframework-4.5.2
@@ -250,7 +250,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Makes the validity of a cached response dependent on other items in the cache.
-  remarks: When the items referred to in the `cacheKeys` parameter are removed from the cache, the cached response of the current item is not valid.
+  remarks: 'When the items referred to in the `cacheKeys` parameter are removed from the cache, the cached response of the current item is not valid.'
   example:
   - "The following example demonstrates how to use an ASP.NET page that is output cached. The code for the page creates an <xref:System.Collections.ArrayList> object of keys that are associated with items that are stored in the <xref:System.Web.Caching.Cache> object. Next, the code passes the <xref:System.Collections.ArrayList> as the parameter in a call to the <xref:System.Web.HttpResponse.AddCacheItemDependencies%2A> method. This makes the output cached response not valid, if any of the files specified in the <xref:System.Collections.ArrayList> change.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.HttpResponse_Samples2#5](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.HttpResponse_Samples2/CS/cacheitemsdepscs.aspx#5)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.HttpResponse_Samples2#5](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.HttpResponse_Samples2/VB/cacheitemsdepsvb.aspx#5)]  -->"
   syntax:
@@ -297,7 +297,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Makes the validity of a cached item dependent on another item in the cache.
-  remarks: When any of the `cacheKey`s are removed from the cache, the cached response of the current item is invalid.
+  remarks: 'When any of the `cacheKey`s are removed from the cache, the cached response of the current item is invalid.'
   syntax:
     content: public void AddCacheItemDependencies (string[] cacheKeys);
     parameters:
@@ -342,7 +342,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Makes the validity of a cached response dependent on another item in the cache.
-  remarks: When the item corresponding to the `cacheKey` parameter is removed from the cache, the cached response of the current item is invalid.
+  remarks: 'When the item corresponding to the `cacheKey` parameter is removed from the cache, the cached response of the current item is invalid.'
   example:
   - "The following example is an ASP.NET user control that is output cached. The code for the control calls the <xref:System.Web.HttpResponse.AddCacheItemDependency%2A> method with the key of an item stored in the <xref:System.Web.Caching.Cache> object passed as its parameter. If the item does not exist in the cache, the control's response that was stored in the output cache is invalidated. This means that on the subsequent request, a new version of the control's response will be added to the output cache.  \n  \n Next, the code checks whether an item associated with a `bookData` key is stored in the `Cache` object, and displays one of two lines of text dependent upon the result. Then, the code sets the <xref:System.Web.UI.WebControls.BaseDataList.DataSource%2A> property of a <xref:System.Web.UI.WebControls.DataGrid> control, which is named `dgBooks`, with a call to a custom `DataHelper` class' shared `GetBookData` method, and populates the <xref:System.Web.UI.WebControls.DataGrid> with the <xref:System.Web.UI.Control.DataBind%2A> method.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.HttpResponse_Samples2#3](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.HttpResponse_Samples2/CS/bookscs.ascx#3)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.HttpResponse_Samples2#3](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.HttpResponse_Samples2/VB/booksvb.ascx#3)]  -->"
   syntax:
@@ -529,8 +529,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Adds an HTTP header to the output stream. <xref href="System.Web.HttpResponse.AddHeader(System.String,System.String)"></xref> is provided for compatibility with earlier versions of ASP.
-  remarks: <xref:System.Web.HttpResponse.AddHeader%2A> is the same as <xref:System.Web.HttpResponse.AppendHeader%2A> and is provided only for compatibility with earlier versions of ASP. With ASP.NET, use <xref:System.Web.HttpResponse.AppendHeader%2A>.
+  summary: 'Adds an HTTP header to the output stream. <xref href="System.Web.HttpResponse.AddHeader(System.String,System.String)"></xref> is provided for compatibility with earlier versions of ASP.'
+  remarks: '<xref:System.Web.HttpResponse.AddHeader%2A> is the same as <xref:System.Web.HttpResponse.AppendHeader%2A> and is provided only for compatibility with earlier versions of ASP. With ASP.NET, use <xref:System.Web.HttpResponse.AppendHeader%2A>.'
   syntax:
     content: public void AddHeader (string name, string value);
     parameters:
@@ -771,8 +771,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Adds a session ID to the virtual path if the session is using <xref href="System.Web.Configuration.SessionStateSection.Cookieless"></xref> session state and returns the combined path. If <xref href="System.Web.Configuration.SessionStateSection.Cookieless"></xref> session state is not used, <xref href="System.Web.HttpResponse.ApplyAppPathModifier(System.String)"></xref> returns the original virtual path.
-  remarks: <xref:System.Web.HttpResponse.ApplyAppPathModifier%2A> is used only with cookieless sessions to construct absolute HREFs.
+  summary: 'Adds a session ID to the virtual path if the session is using <xref href="System.Web.Configuration.SessionStateSection.Cookieless"></xref> session state and returns the combined path. If <xref href="System.Web.Configuration.SessionStateSection.Cookieless"></xref> session state is not used, <xref href="System.Web.HttpResponse.ApplyAppPathModifier(System.String)"></xref> returns the original virtual path.'
+  remarks: '<xref:System.Web.HttpResponse.ApplyAppPathModifier%2A> is used only with cookieless sessions to construct absolute HREFs.'
   example:
   - "The following example declares a string variable named `urlConverted`, and sets it to the result of an <xref:System.Web.HttpResponse.ApplyAppPathModifier%2A> method call. The code then passes the variable's value to a <xref:System.Web.UI.WebControls.HyperLink> control's <xref:System.Web.UI.WebControls.HyperLink.NavigateUrl%2A> property.  \n  \n [!code-csharp[System.Web.HttpResponse_Sample5#5](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.HttpResponse_Sample5/CS/responseapppathmodifiercs.aspx#5)]\n [!code-vb[System.Web.HttpResponse_Sample5#5](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.HttpResponse_Sample5/VB/responseapppathmodifiervb.aspx#5)]"
   syntax:
@@ -822,7 +822,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Sends the currently buffered response to the client.
-  remarks: If the underlying <xref:System.Web.HttpWorkerRequest> object supports asynchronous flush operations and this method is called from an asynchronous module event or from an asynchronous handler, the flush operation is performed asynchronously. Otherwise, the flush operation is performed synchronously. Asynchronous flush is supported for IIS 6.0 and later.
+  remarks: 'If the underlying <xref:System.Web.HttpWorkerRequest> object supports asynchronous flush operations and this method is called from an asynchronous module event or from an asynchronous handler, the flush operation is performed asynchronously. Otherwise, the flush operation is performed synchronously. Asynchronous flush is supported for IIS 6.0 and later.'
   syntax:
     content: public IAsyncResult BeginFlush (AsyncCallback callback, object state);
     parameters:
@@ -923,7 +923,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets or sets a value indicating whether to buffer output and send it after the complete response is finished processing.
-  remarks: The <xref:System.Web.HttpResponse.Buffer%2A> property has been deprecated in favor of the <xref:System.Web.HttpResponse.BufferOutput%2A> property and is provided only for compatibility with earlier versions of ASP. With ASP.NET, use <xref:System.Web.HttpResponse.BufferOutput%2A>.
+  remarks: 'The <xref:System.Web.HttpResponse.Buffer%2A> property has been deprecated in favor of the <xref:System.Web.HttpResponse.BufferOutput%2A> property and is provided only for compatibility with earlier versions of ASP. With ASP.NET, use <xref:System.Web.HttpResponse.BufferOutput%2A>.'
   syntax:
     content: public bool Buffer { get; set; }
     return:
@@ -1012,7 +1012,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Gets the caching policy (such as expiration time, privacy settings, and vary clauses) of a Web page.
+  summary: 'Gets the caching policy (such as expiration time, privacy settings, and vary clauses) of a Web page.'
   remarks: ''
   example:
   - "The following example writes properties of the current cache policy to the HTTP output stream.  \n  \n [!code-csharp[Classic HttpResponse.Cache Example#1](~/samples/snippets/csharp/VS_Snippets_WebNet/Classic HttpResponse.Cache Example/CS/source.cs#1)]\n [!code-vb[Classic HttpResponse.Cache Example#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/Classic HttpResponse.Cache Example/VB/source.vb#1)]"
@@ -1155,7 +1155,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Clears all content output from the buffer stream.
-  remarks: The <xref:System.Web.HttpResponse.Clear%2A> method does not clear header information.
+  remarks: 'The <xref:System.Web.HttpResponse.Clear%2A> method does not clear header information.'
   example:
   - "The following example sets the <xref:System.Web.HttpResponse.ContentType%2A> property for the response to image/jpeg, calls the <xref:System.Web.HttpResponse.Clear%2A> method to remove other content that might be attached to the response, and then sets the <xref:System.Web.HttpResponse.BufferOutput%2A> property to true so that the complete page will be processed before any content is sent to the requesting client.  \n  \n For a complete example, see the <xref:System.Web.HttpResponse> class.  \n  \n [!code-csharp[System.Web.HttpResponse_Samples1#2](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.HttpResponse_Samples1/CS/responsesamplescs.aspx#2)]\n [!code-vb[System.Web.HttpResponse_Samples1#2](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.HttpResponse_Samples1/VB/responsesamplesvb.aspx#2)]"
   syntax:
@@ -1199,7 +1199,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Clears all content output from the buffer stream.
-  remarks: The <xref:System.Web.HttpResponse.ClearContent%2A> method does not clear header information.
+  remarks: 'The <xref:System.Web.HttpResponse.ClearContent%2A> method does not clear header information.'
   example:
   - "The following example clears all content from the buffer stream.  \n  \n [!code-csharp[Classic HttpResponse.ClearContent Example#1](~/samples/snippets/csharp/VS_Snippets_WebNet/Classic HttpResponse.ClearContent Example/CS/source.cs#1)]\n [!code-vb[Classic HttpResponse.ClearContent Example#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/Classic HttpResponse.ClearContent Example/VB/source.vb#1)]"
   syntax:
@@ -1376,7 +1376,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets or sets the HTTP character set of the output stream.
-  remarks: Default `ContentEncoding` can be specified in an ASP.NET configuration file in the [globalization Element (ASP.NET Settings Schema)](http://msdn.microsoft.com/en-us/e2dffc8e-ebd2-439b-a2fd-e3ac5e620da7) section. If <xref:System.Web.HttpResponse.ContentEncoding%2A> is specified by the client, the default configuration settings are overridden.
+  remarks: 'Default `ContentEncoding` can be specified in an ASP.NET configuration file in the [globalization Element (ASP.NET Settings Schema)](http://msdn.microsoft.com/en-us/e2dffc8e-ebd2-439b-a2fd-e3ac5e620da7) section. If <xref:System.Web.HttpResponse.ContentEncoding%2A> is specified by the client, the default configuration settings are overridden.'
   example:
   - "The following example writes a human-readable description of the character set encoding to the output stream.  \n  \n [!code-csharp[Classic HttpResponse.ContentEncoding Example#1](~/samples/snippets/csharp/VS_Snippets_WebNet/Classic HttpResponse.ContentEncoding Example/CS/source.cs#1)]\n [!code-vb[Classic HttpResponse.ContentEncoding Example#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/Classic HttpResponse.ContentEncoding Example/VB/source.vb#1)]"
   syntax:
@@ -1520,7 +1520,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Disables kernel caching for the current response.
-  remarks: If kernel caching is not supported, this method has no effect.
+  remarks: 'If kernel caching is not supported, this method has no effect.'
   syntax:
     content: public void DisableKernelCache ();
     parameters: []
@@ -1562,7 +1562,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Disables IIS user-mode caching for this response.
-  remarks: If IIS user-mode caching is not supported, this method returns without performing any action.
+  remarks: 'If IIS user-mode caching is not supported, this method returns without performing any action.'
   syntax:
     content: public void DisableUserCache ();
     parameters: []
@@ -1603,7 +1603,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Sends all currently buffered output to the client, stops execution of the page, and raises the <xref href="System.Web.HttpApplication.EndRequest"></xref> event.
+  summary: 'Sends all currently buffered output to the client, stops execution of the page, and raises the <xref href="System.Web.HttpApplication.EndRequest"></xref> event.'
   remarks: "This method is provided only for compatibility with ASP—that is, for compatibility with COM-based Web-programming technology that preceded ASP.NET. If you want to jump ahead to the <xref:System.Web.HttpApplication.EndRequest> event and send a response to the client, it is usually preferable to call <xref:System.Web.HttpApplication.CompleteRequest%2A> instead.  \n  \n To mimic the behavior of the `End` method in ASP, this method tries to raise a <xref:System.Threading.ThreadAbortException> exception. If this attempt is successful, the calling thread will be aborted, which is detrimental to your site's performance. In that case, no code after the call to the <xref:System.Web.HttpResponse.End%2A> method is executed.  \n  \n If the <xref:System.Web.HttpResponse.End%2A> method is not able to raise a <xref:System.Threading.ThreadAbortException>, it instead flushes the response bytes to the client. It does this synchronously, which can also be detrimental to your site's performance.  \n  \n In either case (whether or not a <xref:System.Threading.ThreadAbortException> exception is successfully raised), the response pipeline jumps ahead to the <xref:System.Web.HttpApplication.EndRequest> event.  \n  \n The <xref:System.Web.HttpApplication.CompleteRequest%2A> method does not raise an exception, and code after the call to the <xref:System.Web.HttpApplication.CompleteRequest%2A> method might be executed. If your intention is to avoid execution of subsequent code, and if the performance penalty of <xref:System.Web.HttpResponse.End%2A> is acceptable, you can call <xref:System.Web.HttpResponse.End%2A> instead of <xref:System.Web.HttpApplication.CompleteRequest%2A>."
   syntax:
     content: public void End ();
@@ -1698,8 +1698,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Gets or sets the number of minutes before a page cached on a browser expires. If the user returns to the same page before it expires, the cached version is displayed. <xref href="System.Web.HttpResponse.Expires"></xref> is provided for compatibility with earlier versions of ASP.
-  remarks: The `Expires`, <xref:System.Web.HttpResponse.ExpiresAbsolute%2A> and <xref:System.Web.HttpResponse.CacheControl%2A> properties have been deprecated in favor of the methods of the <xref:System.Web.HttpCachePolicy> class available through the <xref:System.Web.HttpResponse.Cache%2A> intrinsic object to control the Internet Information Services (IIS) output cache and client caches.
+  summary: 'Gets or sets the number of minutes before a page cached on a browser expires. If the user returns to the same page before it expires, the cached version is displayed. <xref href="System.Web.HttpResponse.Expires"></xref> is provided for compatibility with earlier versions of ASP.'
+  remarks: 'The `Expires`, <xref:System.Web.HttpResponse.ExpiresAbsolute%2A> and <xref:System.Web.HttpResponse.CacheControl%2A> properties have been deprecated in favor of the methods of the <xref:System.Web.HttpCachePolicy> class available through the <xref:System.Web.HttpResponse.Cache%2A> intrinsic object to control the Internet Information Services (IIS) output cache and client caches.'
   syntax:
     content: public int Expires { get; set; }
     return:
@@ -1743,7 +1743,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets or sets the absolute date and time at which to remove cached information from the cache. <xref href="System.Web.HttpResponse.ExpiresAbsolute"></xref> is provided for compatibility with earlier versions of ASP.
-  remarks: The `ExpiresAbsolute`, <xref:System.Web.HttpResponse.Expires%2A>, and <xref:System.Web.HttpResponse.CacheControl%2A> properties have been deprecated in favor of the methods of the <xref:System.Web.HttpCachePolicy> class available through the <xref:System.Web.HttpResponse.Cache%2A> intrinsic object to control the Internet Information Services (IIS) output cache and client caches.
+  remarks: 'The `ExpiresAbsolute`, <xref:System.Web.HttpResponse.Expires%2A>, and <xref:System.Web.HttpResponse.CacheControl%2A> properties have been deprecated in favor of the methods of the <xref:System.Web.HttpCachePolicy> class available through the <xref:System.Web.HttpResponse.Cache%2A> intrinsic object to control the Internet Information Services (IIS) output cache and client caches.'
   syntax:
     content: public DateTime ExpiresAbsolute { get; set; }
     return:
@@ -1787,7 +1787,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets or sets a wrapping filter object that is used to modify the HTTP entity body before transmission.
-  remarks: When you create a `Stream` object and set the <xref:System.Web.HttpResponse.Filter%2A> property to the `Stream` object, all HTTP output sent by <xref:System.Web.HttpResponse.Write%2A> passes through the filter.
+  remarks: 'When you create a `Stream` object and set the <xref:System.Web.HttpResponse.Filter%2A> property to the `Stream` object, all HTTP output sent by <xref:System.Web.HttpResponse.Write%2A> passes through the filter.'
   example:
   - "The following example is an ASP.NET page that sets the <xref:System.Web.HttpResponse.Filter%2A> property to a new instance of the `UpperCaseFilter` class, a custom <xref:System.IO.Stream> class that converts all text that passes through it to uppercase. The information about the request is saved to a text file, and then the <xref:System.Web.HttpResponse.Filter%2A> property is set. After the response filter is in place, the code calls the <xref:System.Web.HttpRequest.MapPath%2A> method to get the absolute path to a text file named `TestFile.txt` that serves as the source for the content of the response. The code then creates a new <xref:System.IO.StreamReader> object to read the text file from beginning to end, and then calls the <xref:System.Web.HttpResponse.Write%2A> method to display the content of the file on the page.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.HttpRequest_Samples2#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.HttpRequest_Samples2/CS/requestsamples2cs.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.HttpRequest_Samples2#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.HttpRequest_Samples2/VB/requestsamples2vb.aspx#1)]  -->"
   syntax:
@@ -1836,7 +1836,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Sends all currently buffered output to the client.
-  remarks: Forces all currently buffered output to be sent to the client. The <xref:System.Web.HttpResponse.Flush%2A> method can be called multiple times during request processing.
+  remarks: 'Forces all currently buffered output to be sent to the client. The <xref:System.Web.HttpResponse.Flush%2A> method can be called multiple times during request processing.'
   example:
   - "The following example calls the <xref:System.Drawing.Graphics.Save%2A> method to save a <xref:System.Drawing.Bitmap> object to the <xref:System.Web.HttpResponse.OutputStream%2A> property and converts the image to the JPEG format. The code then calls the `Dispose` method on the <xref:System.Drawing.Bitmap> object and a <xref:System.Drawing.Graphics> object, releasing the resources that they were using. It then calls the <xref:System.Web.HttpResponse.Flush%2A> method to send the content of the response to the requesting client.  \n  \n For a complete example, see the <xref:System.Web.HttpResponse> class.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.HttpResponse_Samples1#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.HttpResponse_Samples1/CS/responsesamplescs.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.HttpResponse_Samples1#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.HttpResponse_Samples1/VB/responsesamplesvb.aspx#1)]  -->"
   syntax:
@@ -1971,7 +1971,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets the collection of response headers.
-  remarks: The <xref:System.Web.HttpResponse.Headers%2A> property is only supported with the [!INCLUDE[iisver](~/includes/iisver-md.md)] integrated pipeline mode and at least the .NET Framework 3.0. When you try to access the <xref:System.Web.HttpResponse.Headers%2A> property and either of these two conditions is not met, a <xref:System.PlatformNotSupportedException> is thrown.
+  remarks: 'The <xref:System.Web.HttpResponse.Headers%2A> property is only supported with the [!INCLUDE[iisver](~/includes/iisver-md.md)] integrated pipeline mode and at least the .NET Framework 3.0. When you try to access the <xref:System.Web.HttpResponse.Headers%2A> property and either of these two conditions is not met, a <xref:System.PlatformNotSupportedException> is thrown.'
   syntax:
     content: public System.Collections.Specialized.NameValueCollection Headers { get; }
     return:
@@ -1981,7 +1981,7 @@ items:
   exceptions:
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: The operation requires the integrated pipeline mode in [!INCLUDE[iisver](~/includes/iisver-md.md)] and at least the .NET Framework version 3.0.
+    description: 'The operation requires the integrated pipeline mode in [!INCLUDE[iisver](~/includes/iisver-md.md)] and at least the .NET Framework version 3.0.'
   version:
   - netframework-4.5.1
   - netframework-4.5.2
@@ -2103,7 +2103,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets a Boolean value indicating whether the client is being transferred to a new location.
-  remarks: Use the <xref:System.Web.HttpResponse.IsRequestBeingRedirected%2A> property with the <xref:System.Web.HttpResponse.RedirectLocation%2A> property to test and determine whether the absolute URI that is transmitted to the client in the HTTP `Location` header is different than the current URI and what the new intended URI that is being transferred to will be.
+  remarks: 'Use the <xref:System.Web.HttpResponse.IsRequestBeingRedirected%2A> property with the <xref:System.Web.HttpResponse.RedirectLocation%2A> property to test and determine whether the absolute URI that is transmitted to the client in the HTTP `Location` header is different than the current URI and what the new intended URI that is being transferred to will be.'
   syntax:
     content: public bool IsRequestBeingRedirected { get; }
     return:
@@ -2533,8 +2533,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Performs a permanent redirection from the requested URL to the specified URL, and provides the option to complete the response.
-  remarks: The <xref:System.Web.HttpResponse.RedirectPermanent%28System.String%2CSystem.Boolean%29> method overload provides a 301 HTTP status code in the response and includes the URL to redirect the request to. This method overload also provides the option to specify whether to terminate or to complete the response after the redirection has been performed. A 301 HTTP status code is a standard code in an HTTP response. It indicates that a permanent redirection exists, and it provides the redirection location.
+  summary: 'Performs a permanent redirection from the requested URL to the specified URL, and provides the option to complete the response.'
+  remarks: 'The <xref:System.Web.HttpResponse.RedirectPermanent%28System.String%2CSystem.Boolean%29> method overload provides a 301 HTTP status code in the response and includes the URL to redirect the request to. This method overload also provides the option to specify whether to terminate or to complete the response after the redirection has been performed. A 301 HTTP status code is a standard code in an HTTP response. It indicates that a permanent redirection exists, and it provides the redirection location.'
   syntax:
     content: public void RedirectPermanent (string url, bool endResponse);
     parameters:
@@ -3181,7 +3181,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Uses the specified output-cache provider to remove all output-cache items that are associated with the specified path.
-  remarks: Call this method to remove output-cache items that are associated with the custom output-cache providers that are specified in the Web site configuration file. To remove output-cache items that are associated with the default output-cache provider, call the <xref:System.Web.HttpResponse.RemoveOutputCacheItem%28System.String%29> method overload.
+  remarks: 'Call this method to remove output-cache items that are associated with the custom output-cache providers that are specified in the Web site configuration file. To remove output-cache items that are associated with the default output-cache provider, call the <xref:System.Web.HttpResponse.RemoveOutputCacheItem%28System.String%29> method overload.'
   syntax:
     content: public static void RemoveOutputCacheItem (string path, string providerName);
     parameters:
@@ -3235,7 +3235,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Removes from the cache all cached items that are associated with the default output-cache provider. This method is static.
-  remarks: Call this method to remove output-cache items that are associated with the default output-cache provider. Call the <xref:System.Web.HttpResponse.RemoveOutputCacheItem%2A> method to remove output-cache items that are associated with custom output-cache providers that are specified in the Web site configuration file.
+  remarks: 'Call this method to remove output-cache items that are associated with the default output-cache provider. Call the <xref:System.Web.HttpResponse.RemoveOutputCacheItem%2A> method to remove output-cache items that are associated with custom output-cache providers that are specified in the Web site configuration file.'
   syntax:
     content: public static void RemoveOutputCacheItem (string path);
     parameters:
@@ -3285,7 +3285,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Because the <strong>HttpResponse.SetCookie</strong> method is intended for internal use only, you should not call it in your code. Instead, you can call the <strong>HttpResponse.Cookies.Set</strong> method, as the following example shows.<br /> Updates an existing cookie in the cookie collection.
+  summary: 'Because the <strong>HttpResponse.SetCookie</strong> method is intended for internal use only, you should not call it in your code. Instead, you can call the <strong>HttpResponse.Cookies.Set</strong> method, as the following example shows.<br /> Updates an existing cookie in the cookie collection.'
   remarks: ''
   example:
   - "The following example updates the value of an existing cookie.  \n  \n [!code-csharp[Classic HttpResponse.SetCookie Example#1](~/samples/snippets/csharp/VS_Snippets_WebNet/Classic HttpResponse.SetCookie Example/CS/source.cs#1)]\n [!code-vb[Classic HttpResponse.SetCookie Example#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/Classic HttpResponse.SetCookie Example/VB/source.vb#1)]"
@@ -3336,7 +3336,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Sets the `Status` line that is returned to the client.
-  remarks: <xref:System.Web.HttpResponse.Status%2A> has been deprecated in favor of <xref:System.Web.HttpResponse.StatusDescription%2A> and is provided only for compatibility with earlier versions of ASP. With ASP.NET, use <xref:System.Web.HttpResponse.StatusDescription%2A> instead.
+  remarks: '<xref:System.Web.HttpResponse.Status%2A> has been deprecated in favor of <xref:System.Web.HttpResponse.StatusDescription%2A> and is provided only for compatibility with earlier versions of ASP. With ASP.NET, use <xref:System.Web.HttpResponse.StatusDescription%2A> instead.'
   syntax:
     content: public string Status { get; set; }
     return:
@@ -3390,7 +3390,7 @@ items:
     content: public int StatusCode { get; set; }
     return:
       type: System.Int32
-      description: An Integer representing the status of the HTTP output returned to the client. The default value is 200 (OK). For a listing of valid status codes, see [Http Status Codes](http://go.microsoft.com/fwlink/?LinkId=73157).
+      description: 'An Integer representing the status of the HTTP output returned to the client. The default value is 200 (OK). For a listing of valid status codes, see [Http Status Codes](http://go.microsoft.com/fwlink/?LinkId=73157).'
   overload: System.Web.HttpResponse.StatusCode*
   exceptions:
   - type: System.Web.HttpException
@@ -3439,7 +3439,7 @@ items:
     content: public string StatusDescription { get; set; }
     return:
       type: System.String
-      description: A string that describes the status of the HTTP output returned to the client. The default value is "OK". For a listing of valid status codes, see [Http Status Codes](http://go.microsoft.com/fwlink/?LinkId=73157).
+      description: 'A string that describes the status of the HTTP output returned to the client. The default value is "OK". For a listing of valid status codes, see [Http Status Codes](http://go.microsoft.com/fwlink/?LinkId=73157).'
   overload: System.Web.HttpResponse.StatusDescription*
   exceptions:
   - type: System.Web.HttpException
@@ -3484,19 +3484,19 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets or sets a value qualifying the status code of the response.
-  remarks: The <xref:System.Web.HttpResponse.SubStatusCode%2A> property is only supported with the integrated pipeline mode in [!INCLUDE[iisver](~/includes/iisver-md.md)] and at least the .NET Framework version 3.0. When you set the <xref:System.Web.HttpResponse.SubStatusCode%2A> property, the status is logged on [!INCLUDE[iisver](~/includes/iisver-md.md)] if failed-request tracing is configured. Independent of whether tracing is configured, the code is never sent as part of the final response to the request. For more information, see [Troubleshooting Failed Requests Using Failed Request Tracing in IIS 7.0](http://www.iis.net/default.aspx?tabid=2&subtabid=25&i=969&p=1).
+  remarks: 'The <xref:System.Web.HttpResponse.SubStatusCode%2A> property is only supported with the integrated pipeline mode in [!INCLUDE[iisver](~/includes/iisver-md.md)] and at least the .NET Framework version 3.0. When you set the <xref:System.Web.HttpResponse.SubStatusCode%2A> property, the status is logged on [!INCLUDE[iisver](~/includes/iisver-md.md)] if failed-request tracing is configured. Independent of whether tracing is configured, the code is never sent as part of the final response to the request. For more information, see [Troubleshooting Failed Requests Using Failed Request Tracing in IIS 7.0](http://www.iis.net/default.aspx?tabid=2&subtabid=25&i=969&p=1).'
   example:
   - "The following example sets the <xref:System.Web.HttpResponse.SubStatusCode%2A> property in an event handler for the <xref:System.Web.HttpApplication> instance of the <xref:System.Web.HttpApplication.PostAuthenticateRequest> event. Put the code file in the App_Code folder of your Web application and configure the Web.config file to register the module. For more information, see [Walkthrough: Creating and Registering a Custom HTTP Module](http://msdn.microsoft.com/library/7787d5be-40a4-4072-9075-c2b767428453).  \n  \n [!code-csharp[System.Web.HttpResponse.SubStatusCode#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.HttpResponse.SubStatusCode/CS/App_Code/TestModule.cs#1)]\n [!code-vb[System.Web.HttpResponse.SubStatusCode#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.HttpResponse.SubStatusCode/VB/App_Code/TestModule.vb#1)]"
   syntax:
     content: public int SubStatusCode { get; set; }
     return:
       type: System.Int32
-      description: An integer value that represents the [!INCLUDE[iisver](~/includes/iisver-md.md)] sub status code.
+      description: 'An integer value that represents the [!INCLUDE[iisver](~/includes/iisver-md.md)] sub status code.'
   overload: System.Web.HttpResponse.SubStatusCode*
   exceptions:
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: The operation requires the integrated pipeline mode in [!INCLUDE[iisver](~/includes/iisver-md.md)] and at least the .NET Framework version 3.0.
+    description: 'The operation requires the integrated pipeline mode in [!INCLUDE[iisver](~/includes/iisver-md.md)] and at least the .NET Framework version 3.0.'
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
     description: The status code is set after all HTTP headers have been sent.
@@ -3536,7 +3536,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets a value that indicates whether the connection supports asynchronous flush operations.
-  remarks: This property returns the value of the <xref:System.Web.HttpWorkerRequest.SupportsAsyncFlush%2A?displayProperty=fullName> property.
+  remarks: 'This property returns the value of the <xref:System.Web.HttpWorkerRequest.SupportsAsyncFlush%2A?displayProperty=fullName> property.'
   syntax:
     content: public bool SupportsAsyncFlush { get; }
     return:
@@ -3666,7 +3666,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets or sets a value that specifies whether forms authentication redirection to the login page should be suppressed.
-  remarks: By default, forms authentication converts HTTP 401 status codes to 302 in order to redirect to the login page. This isn't appropriate for certain classes of errors, such as when authentication succeeds but authorization fails, or when the current request is an AJAX or web service request. This property provides a way to suppress the redirect behavior and send the original status code to the client.
+  remarks: 'By default, forms authentication converts HTTP 401 status codes to 302 in order to redirect to the login page. This isn''t appropriate for certain classes of errors, such as when authentication succeeds but authorization fails, or when the current request is an AJAX or web service request. This property provides a way to suppress the redirect behavior and send the original status code to the client.'
   syntax:
     content: public bool SuppressFormsAuthenticationRedirect { get; set; }
     return:
@@ -3710,7 +3710,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Writes the specified part of a file directly to an HTTP response output stream without buffering it in memory.
-  remarks: If you specify 0 as the `offset` parameter and -1 as the `length` parameter, the whole file is sent.
+  remarks: 'If you specify 0 as the `offset` parameter and -1 as the `length` parameter, the whole file is sent.'
   syntax:
     content: public void TransmitFile (string filename, long offset, long length);
     parameters:
@@ -3769,7 +3769,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Writes the specified file directly to an HTTP response output stream, without buffering it in memory.
+  summary: 'Writes the specified file directly to an HTTP response output stream, without buffering it in memory.'
   syntax:
     content: public void TransmitFile (string filename);
     parameters:
@@ -3816,8 +3816,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Gets or sets a value that specifies whether [!INCLUDE[iisver](~/includes/iisver-md.md)] custom errors are disabled.
-  remarks: The <xref:System.Web.HttpResponse.TrySkipIisCustomErrors%2A> property is used only when your application is hosted in IIS 7.0. When running in Classic mode in IIS 7.0 the <xref:System.Web.HttpResponse.TrySkipIisCustomErrors%2A> property default value is `true`. When running in Integrated mode, the <xref:System.Web.HttpResponse.TrySkipIisCustomErrors%2A> property default value is `false`.
+  summary: 'Gets or sets a value that specifies whether [!INCLUDE[iisver](~/includes/iisver-md.md)] custom errors are disabled.'
+  remarks: 'The <xref:System.Web.HttpResponse.TrySkipIisCustomErrors%2A> property is used only when your application is hosted in IIS 7.0. When running in Classic mode in IIS 7.0 the <xref:System.Web.HttpResponse.TrySkipIisCustomErrors%2A> property default value is `true`. When running in Integrated mode, the <xref:System.Web.HttpResponse.TrySkipIisCustomErrors%2A> property default value is `false`.'
   syntax:
     content: public bool TrySkipIisCustomErrors { get; set; }
     return:
@@ -4013,7 +4013,7 @@ items:
       description: The position in the character array where writing starts.
     - id: count
       type: System.Int32
-      description: The number of characters to write, beginning at <code>index</code>.
+      description: 'The number of characters to write, beginning at <code>index</code>.'
   overload: System.Web.HttpResponse.Write*
   exceptions: []
   version:
@@ -4272,14 +4272,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Allows insertion of response substitution blocks into the response, which allows dynamic generation of specified response regions for output cached responses.
+  summary: 'Allows insertion of response substitution blocks into the response, which allows dynamic generation of specified response regions for output cached responses.'
   remarks: "You can use the <xref:System.Web.HttpResponse.WriteSubstitution%2A> method for post-cache substitution in your output-cached pages. By passing a <xref:System.Web.HttpContext> object to a callback method with a prescribed <xref:System.Web.HttpResponseSubstitutionCallback> signature, you can replace output cached content at any given location in the page cache. To initiate the replacement, call the <xref:System.Web.HttpResponse.WriteSubstitution%2A> method, passing it the callback method, which must be thread safe and can be either of the following:  \n  \n-   A static method on the container page or user control.  \n  \n-   A static or instance method on another arbitrary object.  \n  \n On the first request to the page, the <xref:System.Web.HttpResponse.WriteSubstitution%2A> calls the <xref:System.Web.HttpResponseSubstitutionCallback> delegate to produce the output. Then, it adds a substitution buffer to the response, which retains the delegate to call on future requests. Finally, it degrades client-side cacheability from public to server-only, ensuring future requests to the page re-invoke the delegate by not caching on the client.  \n  \n> [!NOTE]\n>  Post-cache substitution is not supported for a cached user control where output caching is applied at the user control level. This is also known as fragment caching. For more information, see [Caching Portions of an ASP.NET Page](http://msdn.microsoft.com/library/cdd8e523-7305-4685-a456-c5be1de1367e)."
   syntax:
     content: public void WriteSubstitution (System.Web.HttpResponseSubstitutionCallback callback);
     parameters:
     - id: callback
       type: System.Web.HttpResponseSubstitutionCallback
-      description: The method, user control, or object to substitute.
+      description: 'The method, user control, or object to substitute.'
   overload: System.Web.HttpResponse.WriteSubstitution*
   exceptions:
   - type: System.ArgumentException

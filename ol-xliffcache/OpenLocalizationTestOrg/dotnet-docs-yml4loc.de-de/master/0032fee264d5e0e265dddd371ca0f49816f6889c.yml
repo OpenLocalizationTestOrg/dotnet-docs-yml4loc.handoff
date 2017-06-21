@@ -99,13 +99,13 @@ items:
   - netstandard
   namespace: System.Runtime.InteropServices.ComTypes
   summary: Enumerates the objects currently registered as running.
-  remarks: For more information, see the documentation for the [IRunningObjectTable::EnumRunning](http://go.microsoft.com/fwlink/?LinkId=163475) method in the MSDN library.
+  remarks: 'For more information, see the documentation for the [IRunningObjectTable::EnumRunning](http://go.microsoft.com/fwlink/?LinkId=163475) method in the MSDN library.'
   syntax:
     content: public void EnumRunning (out System.Runtime.InteropServices.ComTypes.IEnumMoniker ppenumMoniker);
     parameters:
     - id: ppenumMoniker
       type: System.Runtime.InteropServices.ComTypes.IEnumMoniker
-      description: When this method returns, contains the new enumerator for the Running Object Table (ROT). This parameter is passed uninitialized.
+      description: 'When this method returns, contains the new enumerator for the Running Object Table (ROT). This parameter is passed uninitialized.'
   overload: System.Runtime.InteropServices.ComTypes.IRunningObjectTable.EnumRunning*
   exceptions: []
   version:
@@ -172,7 +172,7 @@ items:
   - netstandard
   namespace: System.Runtime.InteropServices.ComTypes
   summary: Returns the registered object if the supplied object name is registered as running.
-  remarks: For more information, see the documentation for the [IRunningObjectTable::GetObject](http://go.microsoft.com/fwlink/?LinkId=163476) method in the MSDN library.
+  remarks: 'For more information, see the documentation for the [IRunningObjectTable::GetObject](http://go.microsoft.com/fwlink/?LinkId=163476) method in the MSDN library.'
   syntax:
     content: public int GetObject (System.Runtime.InteropServices.ComTypes.IMoniker pmkObjectName, out object ppunkObject);
     parameters:
@@ -181,7 +181,7 @@ items:
       description: A reference to the moniker to search for in the Running Object Table (ROT).
     - id: ppunkObject
       type: System.Object
-      description: When this method returns, contains the requested running object. This parameter is passed uninitialized.
+      description: 'When this method returns, contains the requested running object. This parameter is passed uninitialized.'
     return:
       type: System.Int32
       description: An `HRESULT` value that indicates the success or failure of the operation.
@@ -250,8 +250,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Runtime.InteropServices.ComTypes
-  summary: Searches for this moniker in the Running Object Table (ROT) and reports the recorded time of change, if present.
-  remarks: For more information, see the documentation for the [IRunningObjectTable::GetTimeOfLastChange](http://go.microsoft.com/fwlink/?LinkId=163477) method in the MSDN library.
+  summary: 'Searches for this moniker in the Running Object Table (ROT) and reports the recorded time of change, if present.'
+  remarks: 'For more information, see the documentation for the [IRunningObjectTable::GetTimeOfLastChange](http://go.microsoft.com/fwlink/?LinkId=163477) method in the MSDN library.'
   syntax:
     content: public int GetTimeOfLastChange (System.Runtime.InteropServices.ComTypes.IMoniker pmkObjectName, out System.Runtime.InteropServices.ComTypes.FILETIME pfiletime);
     parameters:
@@ -260,7 +260,7 @@ items:
       description: A reference to the moniker to search for in the Running Object Table (ROT).
     - id: pfiletime
       type: System.Runtime.InteropServices.ComTypes.FILETIME
-      description: When this object returns, contains the objects last change time. This parameter is passed uninitialized.
+      description: 'When this object returns, contains the objects last change time. This parameter is passed uninitialized.'
     return:
       type: System.Int32
       description: An `HRESULT` value that indicates the success or failure of the operation.
@@ -330,7 +330,7 @@ items:
   - netstandard
   namespace: System.Runtime.InteropServices.ComTypes
   summary: Determines whether the specified moniker is currently registered in the Running Object Table (ROT).
-  remarks: For more information, see the documentation for the [IRunningObjectTable::IsRunning](http://go.microsoft.com/fwlink/?LinkId=163478) method in the MSDN library.
+  remarks: 'For more information, see the documentation for the [IRunningObjectTable::IsRunning](http://go.microsoft.com/fwlink/?LinkId=163478) method in the MSDN library.'
   syntax:
     content: public int IsRunning (System.Runtime.InteropServices.ComTypes.IMoniker pmkObjectName);
     parameters:
@@ -405,8 +405,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Runtime.InteropServices.ComTypes
-  summary: Notes the time that a particular object changed so `IMoniker::GetTimeOfLastChange` can report an appropriate change time.
-  remarks: For more information, see the documentation for the [IRunningObjectTable::NoteChangeTime](http://go.microsoft.com/fwlink/?LinkId=163479) method in the MSDN library.
+  summary: 'Notes the time that a particular object changed so `IMoniker::GetTimeOfLastChange` can report an appropriate change time.'
+  remarks: 'For more information, see the documentation for the [IRunningObjectTable::NoteChangeTime](http://go.microsoft.com/fwlink/?LinkId=163479) method in the MSDN library.'
   syntax:
     content: public void NoteChangeTime (int dwRegister, ref System.Runtime.InteropServices.ComTypes.FILETIME pfiletime);
     parameters:
@@ -482,13 +482,13 @@ items:
   - netstandard
   namespace: System.Runtime.InteropServices.ComTypes
   summary: Registers that the supplied object has entered the running state.
-  remarks: ROT references to `punkObject` (weak and strong) determine object lifetime. For more information, see the documentation for the COM [IRunningObjectTable::Register](http://go.microsoft.com/fwlink/?LinkId=163474) method in the MSDN library.
+  remarks: 'ROT references to `punkObject` (weak and strong) determine object lifetime. For more information, see the documentation for the COM [IRunningObjectTable::Register](http://go.microsoft.com/fwlink/?LinkId=163474) method in the MSDN library.'
   syntax:
     content: public int Register (int grfFlags, object punkObject, System.Runtime.InteropServices.ComTypes.IMoniker pmkObjectName);
     parameters:
     - id: grfFlags
       type: System.Int32
-      description: Specifies whether the Running Object Table's (ROT) reference to <code>punkObject</code> is weak or strong, and controls access to the object through its entry in the ROT.
+      description: 'Specifies whether the Running Object Table''s (ROT) reference to <code>punkObject</code> is weak or strong, and controls access to the object through its entry in the ROT.'
     - id: punkObject
       type: System.Object
       description: A reference to the object being registered as running.
@@ -497,7 +497,7 @@ items:
       description: A reference to the moniker that identifies <code>punkObject</code>.
     return:
       type: System.Int32
-      description: A value that can be used to identify this ROT entry in subsequent calls to <xref href="System.Runtime.InteropServices.ComTypes.IRunningObjectTable.Revoke(System.Int32)"></xref> or <xref href="System.Runtime.InteropServices.ComTypes.IRunningObjectTable.NoteChangeTime(System.Int32,System.Runtime.InteropServices.ComTypes.FILETIME@)"></xref>.
+      description: 'A value that can be used to identify this ROT entry in subsequent calls to <xref href="System.Runtime.InteropServices.ComTypes.IRunningObjectTable.Revoke(System.Int32)"></xref> or <xref href="System.Runtime.InteropServices.ComTypes.IRunningObjectTable.NoteChangeTime(System.Int32,System.Runtime.InteropServices.ComTypes.FILETIME@)"></xref>.'
   overload: System.Runtime.InteropServices.ComTypes.IRunningObjectTable.Register*
   exceptions: []
   version:
@@ -564,7 +564,7 @@ items:
   - netstandard
   namespace: System.Runtime.InteropServices.ComTypes
   summary: Unregisters the specified object from the Running Object Table (ROT).
-  remarks: For more information, see the documentation for the [IRunningObjectTable::Revoke](http://go.microsoft.com/fwlink/?LinkId=163480) method in the MSDN library.
+  remarks: 'For more information, see the documentation for the [IRunningObjectTable::Revoke](http://go.microsoft.com/fwlink/?LinkId=163480) method in the MSDN library.'
   syntax:
     content: public void Revoke (int dwRegister);
     parameters:

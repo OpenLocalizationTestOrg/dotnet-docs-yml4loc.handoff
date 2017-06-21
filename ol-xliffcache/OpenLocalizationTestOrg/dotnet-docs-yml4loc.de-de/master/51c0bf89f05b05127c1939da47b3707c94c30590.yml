@@ -122,7 +122,7 @@ items:
   - System.ServiceModel.Web
   namespace: System.ServiceModel.Dispatcher
   summary: Gets a value that indicates whether a Common Language Runtime (CLR) type specified is a known type that can be serialized and deserialized.
-  remarks: This checks whether a CLR type can be used in a JSON query string. The CLR types that can be used in such a string are just those that are supported by <xref:System.Runtime.Serialization.DataContractSerializer>.
+  remarks: 'This checks whether a CLR type can be used in a JSON query string. The CLR types that can be used in such a string are just those that are supported by <xref:System.Runtime.Serialization.DataContractSerializer>.'
   syntax:
     content: public override bool CanConvert (Type type);
     parameters:
@@ -235,7 +235,7 @@ items:
   - System.ServiceModel.Web
   namespace: System.ServiceModel.Dispatcher
   summary: Serializes a Common Language Runtime (CLR) parameter type to a JavaScript Object Notation (JSON) representation.
-  remarks: The converter overrides <xref:System.ServiceModel.Dispatcher.QueryStringConverter.ConvertValueToString%28System.Object%2CSystem.Type%29> so that each parameter is serialized to JSON using the default <xref:System.Runtime.Serialization.Json.DataContractJsonSerializer> and a JSON XML Writer configured to use the UTF-8 encoding. Unlike its base type, this converter can handle any type adhering to the Data Contract model.
+  remarks: 'The converter overrides <xref:System.ServiceModel.Dispatcher.QueryStringConverter.ConvertValueToString%28System.Object%2CSystem.Type%29> so that each parameter is serialized to JSON using the default <xref:System.Runtime.Serialization.Json.DataContractJsonSerializer> and a JSON XML Writer configured to use the UTF-8 encoding. Unlike its base type, this converter can handle any type adhering to the Data Contract model.'
   example:
   - "Consider the following operation.  \n  \n```  \n[WebGet]  \n[OperationContract] public int GetOptionQuote(string ticker, DateTime dte, Option opt);  \n```  \n  \n This operation produces a URL that is a URL-encoded version of the following.  \n  \n```  \nhttp://localhost/quote.svc/GetOptionQuote?ticker=\"MSFT\"&dte=\"\\/Date(50067823)\\/\"&opt={\"type\":\"call\",\"strikePrice\":\"35\"}  \n```"
   syntax:
