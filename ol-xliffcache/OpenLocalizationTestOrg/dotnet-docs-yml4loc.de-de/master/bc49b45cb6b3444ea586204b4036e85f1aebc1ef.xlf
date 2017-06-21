@@ -1,0 +1,489 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="de-de">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-fdd610b" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">bc49b45cb6b3444ea586204b4036e85f1aebc1ef</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">System.Web.SessionState.SessionStateStoreProviderBase.yml</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net47</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Human Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">6d63d41110bcbf0988f84a503de06e8ecfb2d653</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">39a96507130357097d15d7be9cbb6e40df4fd0bd</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Defines the required members of a session-state provider for a data store.</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve" extradata="MT">
+          <source>ASP.NET session state reads and writes session data from and to a data store using a session-state store provider.</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A session-state store provider is a class that inherits the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase&gt;</ph> abstract class and overrides its members with implementations specific to the data store.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The session-state store provider is called by the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateModule&gt;</ph> class during the processing of an ASP.NET page to communicate with the data store for the storage and retrieval of session variables and related session information such as the time-out value.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Session data within each ASP.NET application is stored separately for each <ph id="ph1">&lt;xref:System.Web.SessionState.HttpSessionState.SessionID%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve" extradata="MT">
+          <source>ASP.NET applications do not share session data.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You can specify a custom <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase&gt;</ph> implementation for an ASP.NET application by setting the <ph id="ph2">`mode`</ph> attribute of the <ph id="ph3">`sessionState`</ph> configuration element to <ph id="ph4">&lt;xref:System.Web.SessionState.SessionStateMode.Custom&gt;</ph> and the <ph id="ph5">`customProvider`</ph> attribute to the name of the custom provider, as shown in the example for this topic.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Locking Session Store Data</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Because ASP.NET applications are multithreaded to support responding to concurrent requests, it is possible that concurrent requests might attempt to access the same session information.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Consider a scenario where multiple frames in a frameset all access the same application.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The separate requests for each frame in the frameset can be executed on the Web server concurrently on different threads.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If the ASP.NET pages for each frame source access session-state variables, then you could have multiple threads accessing the session store concurrently.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve" extradata="MT">
+          <source>To avoid data collisions at the session store and unexpected session-state behavior, the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateModule&gt;</ph> and <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase&gt;</ph> classes include lock functionality that exclusively locks the session store item for a particular session for the duration of the execution of an ASP.NET page.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Note that even if the <ph id="ph1">&lt;xref:System.Web.Configuration.PagesSection.EnableSessionState%2A&gt;</ph> attribute is marked as <ph id="ph2">`ReadOnly`</ph>, other ASP.NET pages in the same application might be able to write to the session store, so a request for read-only session data from the store might still end up waiting for locked data to be freed.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A lock is set on session-store data at the beginning of the request, in the call to the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.GetItemExclusive%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve" extradata="MT">
+          <source>When the request completes, the lock is released during the call to the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.SetAndReleaseItemExclusive%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateModule&gt;</ph> object encounters locked session data during the call to either the <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.GetItemExclusive%2A&gt;</ph> or the <ph id="ph3">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.GetItem%2A&gt;</ph> method, it will re-request the session data at half-second intervals until either the lock is released or the amount of time that the session data has been locked exceeds the value of the <ph id="ph4">&lt;xref:System.Web.Configuration.HttpRuntimeSection.ExecutionTimeout%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If the execution time out is exceeded, the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateModule&gt;</ph> object will call the <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.ReleaseItemExclusive%2A&gt;</ph> method to free the session-store data and request the session-store data at that time.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Because locked session-store data might have been freed by a call to the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.ReleaseItemExclusive%2A&gt;</ph> method on a separate thread before the call to the <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.SetAndReleaseItemExclusive%2A&gt;</ph> method for the current response, an attempt could be made to set and release session-state store data that has already been released and modified by another session.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve" extradata="MT">
+          <source>To avoid this situation, the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.GetItem%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.GetItemExclusive%2A&gt;</ph> methods return a lock identifier.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This lock identifier must be included with each request to modify locked session-store data.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Session-store data is modified only if the lock identifier in the data store matches the lock identifier supplied by the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateModule&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Deleting Expired Session Store Data</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve" extradata="MT">
+          <source>When the <ph id="ph1">&lt;xref:System.Web.SessionState.HttpSessionState.Abandon%2A&gt;</ph> method is called for a particular session, the data for that session is deleted from the data store using the <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.RemoveItem%2A&gt;</ph> method; otherwise, the data will remain in the session data store to server future requests for the session.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve" extradata="MT">
+          <source>It is up to the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase&gt;</ph> implementation to delete expired session data.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Initializes a new instance of the <ph id="ph1">&lt;xref href="System.Web.SessionState.SessionStateStoreProviderBase"&gt;&lt;/xref&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You are not required to implement a constructor for a class that inherits the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase&gt;</ph> abstract class.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Initialization values for a <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase&gt;</ph> implementation are passed to the <ph id="ph2">&lt;xref:System.Configuration.Provider.ProviderBase.Initialize%2A&gt;</ph> method implementation.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Creates a new <ph id="ph1">&lt;xref href="System.Web.SessionState.SessionStateStoreData"&gt;&lt;/xref&gt;</ph> object to be used for the current request.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateModule&gt;</ph> object calls the <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.CreateNewStoreData%2A&gt;</ph> method at the beginning of a request for an ASP.NET page, during the <ph id="ph3">&lt;xref:System.Web.HttpApplication.AcquireRequestState&gt;</ph> event.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.CreateNewStoreData%2A&gt;</ph> method is called if:</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve" extradata="MT">
+          <source>the incoming request has no session ID, or</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve" extradata="MT">
+          <source>the incoming request has a session ID, but the session is not found in the data store.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.CreateNewStoreData%2A&gt;</ph> method creates a new <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateStoreData&gt;</ph> object with an empty <ph id="ph3">&lt;xref:System.Web.SessionState.ISessionStateItemCollection&gt;</ph> object, an <ph id="ph4">&lt;xref:System.Web.HttpStaticObjectsCollection&gt;</ph> collection, and the specified <ph id="ph5">`timeout`</ph> value.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Web.HttpStaticObjectsCollection&gt;</ph> collection for the ASP.NET application can be retrieved using the <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateUtility.GetSessionStaticObjects%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Web.HttpContext"&gt;&lt;/xref&gt;</ph> for the current request.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>The session-state <ph id="ph1">&lt;xref href="System.Web.SessionState.HttpSessionState.Timeout"&gt;&lt;/xref&gt;</ph> value for the new <ph id="ph2">&lt;xref href="System.Web.SessionState.SessionStateStoreData"&gt;&lt;/xref&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>A new <ph id="ph1">&lt;xref href="System.Web.SessionState.SessionStateStoreData"&gt;&lt;/xref&gt;</ph> for the current request.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Adds a new session-state item to the data store.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.CreateUninitializedItem%2A&gt;</ph> method is used with sessions when the <ph id="ph2">`cookieless`</ph> and <ph id="ph3">`regenerateExpiredSessionId`</ph> attributes are both <ph id="ph4">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Having the <ph id="ph1">`regenerateExpiredSessionId attribute`</ph> set to <ph id="ph2">`true`</ph> causes the <ph id="ph3">&lt;xref:System.Web.SessionState.SessionStateModule&gt;</ph> object to generate a new <ph id="ph4">&lt;xref:System.Web.SessionState.HttpSessionState.SessionID%2A&gt;</ph> value when an expired <ph id="ph5">&lt;xref:System.Web.SessionState.HttpSessionState.SessionID%2A&gt;</ph> value is encountered.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The process of generating a new <ph id="ph1">&lt;xref:System.Web.SessionState.HttpSessionState.SessionID%2A&gt;</ph> value requires redirecting the browser to a URL that contains the newly generated <ph id="ph2">&lt;xref:System.Web.SessionState.HttpSessionState.SessionID%2A&gt;</ph> value.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.CreateUninitializedItem%2A&gt;</ph> method is called during the initial request that contains an expired <ph id="ph2">&lt;xref:System.Web.SessionState.HttpSessionState.SessionID%2A&gt;</ph> value.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve" extradata="MT">
+          <source>After the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateModule&gt;</ph> object acquires a new <ph id="ph2">&lt;xref:System.Web.SessionState.HttpSessionState.SessionID%2A&gt;</ph> value to replace the expired value, it calls the <ph id="ph3">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.CreateUninitializedItem%2A&gt;</ph> method to add an uninitialized entry to the session-state data store.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The browser is then redirected to the URL containing the newly generated <ph id="ph1">&lt;xref:System.Web.SessionState.HttpSessionState.SessionID%2A&gt;</ph> value.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The existence of the uninitialized entry in the session data store ensures that the redirected request that includes the newly generated <ph id="ph1">&lt;xref:System.Web.SessionState.HttpSessionState.SessionID%2A&gt;</ph> value is not mistaken for a request for an expired session and is, instead, treated as a new session.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The uninitialized entry in the session data store is associated with the newly generated <ph id="ph1">&lt;xref:System.Web.SessionState.HttpSessionState.SessionID%2A&gt;</ph> value and contains only default values, including an expiration date and time and a value that corresponds to the <ph id="ph2">`actionFlags`</ph> parameter of the <ph id="ph3">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.GetItem%2A&gt;</ph> and <ph id="ph4">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.GetItemExclusive%2A&gt;</ph> methods.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The uninitialized entry in the session-state store should include an <ph id="ph1">`actionFlags`</ph> value equal to the <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateActions.InitializeItem&gt;</ph> enumeration value.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This value is passed to the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateModule&gt;</ph> object by the <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.GetItem%2A&gt;</ph> and <ph id="ph3">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.GetItemExclusive%2A&gt;</ph> methods, and informs the <ph id="ph4">&lt;xref:System.Web.SessionState.SessionStateModule&gt;</ph> object that the current session is a new but uninitialized session.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateModule&gt;</ph> object will then initialize the new session and raise the <ph id="ph2">`Session_OnStart`</ph> event.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For more information about cookieless sessions, see the <ph id="ph1">&lt;xref:System.Web.SessionState.HttpSessionState.IsCookieless%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Web.HttpContext"&gt;&lt;/xref&gt;</ph> for the current request.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Web.SessionState.HttpSessionState.SessionID"&gt;&lt;/xref&gt;</ph> for the current request.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>The session <ph id="ph1">&lt;xref href="System.Web.SessionState.HttpSessionState.Timeout"&gt;&lt;/xref&gt;</ph> for the current request.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Releases all resources used by the <ph id="ph1">&lt;xref href="System.Web.SessionState.SessionStateStoreProviderBase"&gt;&lt;/xref&gt;</ph> implementation.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.Dispose%2A?displayProperty=fullName&gt;</ph> method is called when the <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateModule.Dispose%2A?displayProperty=fullName&gt;</ph> method executes at the closing of the application domain.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Classes that inherit the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase&gt;</ph> class can use this method to free any resources no longer in use.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Called by the <ph id="ph1">&lt;xref href="System.Web.SessionState.SessionStateModule"&gt;&lt;/xref&gt;</ph> object at the end of a request.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateModule&gt;</ph> object calls the <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.EndRequest%2A&gt;</ph> method at the end of a request for an ASP.NET page, during the <ph id="ph3">&lt;xref:System.Web.HttpApplication.EndRequest&gt;</ph> event.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You can use the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.EndRequest%2A&gt;</ph> method to perform any per-request cleanup required by your session-state store provider.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Web.HttpContext"&gt;&lt;/xref&gt;</ph> for the current request.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Returns read-only session-state data from the session data store.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateModule&gt;</ph> object calls the <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.GetItem%2A&gt;</ph> method at the beginning of a request, during the <ph id="ph3">&lt;xref:System.Web.HttpApplication.AcquireRequestState&gt;</ph> event, when the <ph id="ph4">&lt;xref:System.Web.Configuration.PagesSection.EnableSessionState%2A&gt;</ph> attribute is set to <ph id="ph5">`ReadOnly`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If the <ph id="ph1">&lt;xref:System.Web.Configuration.PagesSection.EnableSessionState%2A&gt;</ph> attribute is set to <ph id="ph2">`true`</ph>, the <ph id="ph3">&lt;xref:System.Web.SessionState.SessionStateModule&gt;</ph> object instead calls the <ph id="ph4">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.GetItemExclusive%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.GetItem%2A&gt;</ph> method returns a <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateStoreData&gt;</ph> object populated with session information from the data store and updates the expiration date of the session data.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If no session-item data is found at the data store, the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.GetItem%2A&gt;</ph> method sets the <ph id="ph2">`locked`</ph> <ph id="ph3">`out`</ph> parameter to <ph id="ph4">`false`</ph> and returns <ph id="ph5">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This causes the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateModule&gt;</ph> object to call the <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.CreateNewStoreData%2A&gt;</ph> method to create a new session item in the data store.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If session-item data is found at the data store but the data is locked, the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.GetItem%2A&gt;</ph> method sets the <ph id="ph2">`locked`</ph> <ph id="ph3">`out`</ph> parameter to <ph id="ph4">`true`</ph>, sets the <ph id="ph5">`lockAge`</ph> <ph id="ph6">`out`</ph> parameter to the current date and time minus the date and time when the item was locked (which is retrieved from the data store), sets the <ph id="ph7">`lockId`</ph> <ph id="ph8">`out`</ph> parameter to the lock identifier retrieved from the data store, and returns <ph id="ph9">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This causes the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateModule&gt;</ph> object to call the <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.GetItem%2A&gt;</ph> method again after a half-second interval to attempt to retrieve the session-item information.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If the value that the <ph id="ph1">`lockAge`</ph> <ph id="ph2">`out`</ph> parameter is set to exceed the <ph id="ph3">&lt;xref:System.Web.Configuration.HttpRuntimeSection.ExecutionTimeout%2A&gt;</ph> value, then the <ph id="ph4">&lt;xref:System.Web.SessionState.SessionStateModule&gt;</ph> object calls the <ph id="ph5">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.ReleaseItemExclusive%2A&gt;</ph> method to clear the lock on the session-item data, and then calls the <ph id="ph6">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.GetItem%2A&gt;</ph> method again.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">`actionFlags`</ph> parameter is used when both the <ph id="ph2">`cookieless`</ph> and <ph id="ph3">`regenerateExpiredSessionId`</ph> attributes are set to <ph id="ph4">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve" extradata="MT">
+          <source>An <ph id="ph1">`actionFlags`</ph> value set to <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateActions.InitializeItem&gt;</ph> indicates that the entry in the session data store is a new session that requires initialization.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Uninitialized entries in the session data store are created by a call to the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.CreateUninitializedItem%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If the item from the session data store is not an uninitialized item, the <ph id="ph1">`actionFlags`</ph> parameter will be set to zero.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Custom session-state store implementers that support cookieless sessions should set the <ph id="ph1">`actionFlags`</ph> <ph id="ph2">`out`</ph> parameter to the value returned from the session data store for the current item.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If the <ph id="ph1">`actionFlags`</ph> parameter value for the requested session-store item equals the <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateActions.InitializeItem&gt;</ph> enumeration value, then the <ph id="ph3">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.GetItem%2A&gt;</ph> method should set the value in the data store to zero after setting the <ph id="ph4">`actionFlags`</ph> <ph id="ph5">`out`</ph> parameter.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Web.HttpContext"&gt;&lt;/xref&gt;</ph> for the current request.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Web.SessionState.HttpSessionState.SessionID"&gt;&lt;/xref&gt;</ph> for the current request.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>When this method returns, contains a Boolean value that is set to <ph id="ph1">`true`</ph> if the requested session item is locked at the session data store; otherwise, <ph id="ph2">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>When this method returns, contains a <ph id="ph1">&lt;xref href="System.TimeSpan"&gt;&lt;/xref&gt;</ph> object that is set to the amount of time that an item in the session data store has been locked.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>When this method returns, contains an object that is set to the lock identifier for the current request.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>For details on the lock identifier, see "Locking Session-Store Data" in the <ph id="ph1">&lt;xref href="System.Web.SessionState.SessionStateStoreProviderBase"&gt;&lt;/xref&gt;</ph> class summary.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>When this method returns, contains one of the <ph id="ph1">&lt;xref href="System.Web.SessionState.SessionStateActions"&gt;&lt;/xref&gt;</ph> values, indicating whether the current session is an uninitialized, cookieless session.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.Web.SessionState.SessionStateStoreData"&gt;&lt;/xref&gt;</ph> populated with session values and information from the session data store.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>Returns read-only session-state data from the session data store.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateModule&gt;</ph> object calls the <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.GetItemExclusive%2A&gt;</ph> method at the beginning of a request, during the <ph id="ph3">&lt;xref:System.Web.HttpApplication.AcquireRequestState&gt;</ph> event, when the <ph id="ph4">&lt;xref:System.Web.Configuration.PagesSection.EnableSessionState%2A&gt;</ph> attribute is set to <ph id="ph5">`true`</ph>, which is the default.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If the <ph id="ph1">&lt;xref:System.Web.Configuration.PagesSection.EnableSessionState%2A&gt;</ph> attribute is set to <ph id="ph2">`ReadOnly`</ph>, the <ph id="ph3">&lt;xref:System.Web.SessionState.SessionStateModule&gt;</ph> object instead calls the <ph id="ph4">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.GetItem%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.GetItemExclusive%2A&gt;</ph> method returns a <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateStoreData&gt;</ph> object populated with session information from the data store, updates the expiration date of the stored data, and locks the session-item data at the data store for the duration of the request.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If no session-item data is found at the data store, the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.GetItemExclusive%2A&gt;</ph> method sets the <ph id="ph2">`locked`</ph> <ph id="ph3">`out`</ph> parameter to <ph id="ph4">`false`</ph> and returns <ph id="ph5">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This causes the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateModule&gt;</ph> object to call the <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.CreateNewStoreData%2A&gt;</ph> method to create a new session item in the data store.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If session-item data is found at the data store but the data is locked, the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.GetItemExclusive%2A&gt;</ph> method sets the <ph id="ph2">`locked`</ph> <ph id="ph3">`out`</ph> parameter to <ph id="ph4">`true`</ph>, sets the <ph id="ph5">`lockAge`</ph> <ph id="ph6">`out`</ph> parameter to the current date and time minus the date and time when the item was locked (which is retrieved from the data store), sets the <ph id="ph7">`lockId`</ph> <ph id="ph8">`out`</ph> parameter to the lock identifier retrieved from the data store, and returns <ph id="ph9">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This causes the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateModule&gt;</ph> object to call the <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.GetItemExclusive%2A&gt;</ph> method again after a half-second interval to attempt to retrieve the session-item information and obtain a lock on the data.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If the value that the <ph id="ph1">`lockAge`</ph> <ph id="ph2">`out`</ph> parameter is set to exceeds the <ph id="ph3">&lt;xref:System.Web.Configuration.HttpRuntimeSection.ExecutionTimeout%2A&gt;</ph> value, then the <ph id="ph4">&lt;xref:System.Web.SessionState.SessionStateModule&gt;</ph> calls the <ph id="ph5">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.ReleaseItemExclusive%2A&gt;</ph> method to clear the lock on the session-item data, and then calls the <ph id="ph6">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.GetItemExclusive%2A&gt;</ph> method again.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">`actionFlags`</ph> parameter is used when the <ph id="ph2">`cookieless`</ph> and <ph id="ph3">`regenerateExpiredSessionId`</ph> attributes are both set to <ph id="ph4">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve" extradata="MT">
+          <source>An <ph id="ph1">`actionFlags`</ph> value set to <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateActions.InitializeItem&gt;</ph> indicates that the entry in the session data store is a new session that requires initialization.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Uninitialized entries in the session data store are created by a call to the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.CreateUninitializedItem%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If the item from the session data store is not an uninitialized item, the <ph id="ph1">`actionFlags`</ph> parameter will be set to zero.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Custom session-state store implementers that support cookieless sessions should set the <ph id="ph1">`actionFlags`</ph> <ph id="ph2">`out`</ph> parameter to the value returned from the session data store for the current item.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If the <ph id="ph1">`actionFlags`</ph> parameter value for the requested session-store item equals the <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateActions.InitializeItem&gt;</ph> enumeration value, then the <ph id="ph3">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.GetItemExclusive%2A&gt;</ph> method should set the value in the data store to zero after setting the <ph id="ph4">`actionFlags`</ph> <ph id="ph5">`out`</ph> parameter.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Web.HttpContext"&gt;&lt;/xref&gt;</ph> for the current request.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Web.SessionState.HttpSessionState.SessionID"&gt;&lt;/xref&gt;</ph> for the current request.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>When this method returns, contains a Boolean value that is set to <ph id="ph1">`true`</ph> if a lock is successfully obtained; otherwise, <ph id="ph2">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>When this method returns, contains a <ph id="ph1">&lt;xref href="System.TimeSpan"&gt;&lt;/xref&gt;</ph> object that is set to the amount of time that an item in the session data store has been locked.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>When this method returns, contains an object that is set to the lock identifier for the current request.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>For details on the lock identifier, see "Locking Session-Store Data" in the <ph id="ph1">&lt;xref href="System.Web.SessionState.SessionStateStoreProviderBase"&gt;&lt;/xref&gt;</ph> class summary.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>When this method returns, contains one of the <ph id="ph1">&lt;xref href="System.Web.SessionState.SessionStateActions"&gt;&lt;/xref&gt;</ph> values, indicating whether the current session is an uninitialized, cookieless session.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.Web.SessionState.SessionStateStoreData"&gt;&lt;/xref&gt;</ph> populated with session values and information from the session data store.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>Called by the <ph id="ph1">&lt;xref href="System.Web.SessionState.SessionStateModule"&gt;&lt;/xref&gt;</ph> object for per-request initialization.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateModule&gt;</ph> object calls the <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.InitializeRequest%2A&gt;</ph> method before calling any other <ph id="ph3">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You can use the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.InitializeRequest%2A&gt;</ph> method to perform any per-request initialization required by your session-state store provider.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Web.HttpContext"&gt;&lt;/xref&gt;</ph> for the current request.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>Releases a lock on an item in the session data store.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateModule&gt;</ph> object calls the <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.ReleaseItemExclusive%2A&gt;</ph> method to update the expiration date and release a lock on an item in the session data store.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve" extradata="MT">
+          <source>It is called at the end of a request, during the <ph id="ph1">&lt;xref:System.Web.HttpApplication.ReleaseRequestState&gt;</ph> event, if session values are unchanged.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If session values have been modified, the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateModule&gt;</ph> object instead calls the <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.SetAndReleaseItemExclusive%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateModule&gt;</ph> object also calls the <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.ReleaseItemExclusive%2A&gt;</ph> method when a lock on an item in the session data store has exceeded the <ph id="ph3">&lt;xref:System.Web.Configuration.HttpRuntimeSection.ExecutionTimeout%2A&gt;</ph> value.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For more information about locking and details about the lock identifier, see "Locking Session-Store Data" in the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase&gt;</ph> class overview.</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.ReleaseItemExclusive%2A&gt;</ph> method only removes the lock from an item in the session data store for the current application that matches the supplied session <ph id="ph2">`id`</ph> and <ph id="ph3">`lockId`</ph> values.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If the <ph id="ph1">`lockId`</ph> does not match the one in the data store, the <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.ReleaseItemExclusive%2A&gt;</ph> method does nothing.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Web.HttpContext"&gt;&lt;/xref&gt;</ph> for the current request.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>The session identifier for the current request.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>The lock identifier for the current request.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>Deletes item data from the session data store.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateModule&gt;</ph> object calls the <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.RemoveItem%2A&gt;</ph> method at the end of a request, during the <ph id="ph3">&lt;xref:System.Web.HttpApplication.ReleaseRequestState&gt;</ph> event, to delete the data for a session item from the session data store if the <ph id="ph4">&lt;xref:System.Web.SessionState.HttpSessionState.Abandon%2A&gt;</ph> method has been called.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Only session data for the current application that matches the supplied session <ph id="ph1">`id`</ph> and <ph id="ph2">`lockId`</ph> values is deleted.</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For more information about locking and details about the lock identifier, see "Locking Session-Store Data" in the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase&gt;</ph> class overview.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Web.HttpContext"&gt;&lt;/xref&gt;</ph> for the current request.</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>The session identifier for the current request.</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>The lock identifier for the current request.</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Web.SessionState.SessionStateStoreData"&gt;&lt;/xref&gt;</ph> that represents the item to delete from the data store.</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>Updates the expiration date and time of an item in the session data store.</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateModule&gt;</ph> object calls the <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.ResetItemTimeout%2A&gt;</ph> method to update the expiration date and time for a session to the current date and time plus the session <ph id="ph3">&lt;xref:System.Web.SessionState.HttpSessionState.Timeout%2A&gt;</ph> value when either:</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve" extradata="MT">
+          <source>the <ph id="ph1">&lt;xref:System.Web.Configuration.PagesSection.EnableSessionState%2A&gt;</ph> attribute is <ph id="ph2">`true`</ph>, or</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve" extradata="MT">
+          <source>the request did not raise the <ph id="ph1">&lt;xref:System.Web.HttpApplication.AcquireRequestState&gt;</ph> and <ph id="ph2">&lt;xref:System.Web.HttpApplication.ReleaseRequestState&gt;</ph> events due to an error.</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If an ASP.NET page is requested and the <ph id="ph1">&lt;xref:System.Web.Configuration.PagesSection.EnableSessionState%2A&gt;</ph> attribute is set to <ph id="ph2">`false`</ph>, the <ph id="ph3">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.ResetItemTimeout%2A&gt;</ph> method is still called to update the expiration date and time of the data in the session data store.</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Web.HttpContext"&gt;&lt;/xref&gt;</ph> for the current request.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>The session identifier for the current request.</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>Updates the session-item information in the session-state data store with values from the current request, and clears the lock on the data.</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateModule&gt;</ph> object calls the <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.SetAndReleaseItemExclusive%2A&gt;</ph> method at the end of a request, during the <ph id="ph3">&lt;xref:System.Web.HttpApplication.ReleaseRequestState&gt;</ph> event, to insert current session-item information into the data store or update existing session-item information in the data store with current values, to update the expiration time on the item, and to release the lock on the data.</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Only session data for the current application that matches the supplied session <ph id="ph1">`id`</ph> and <ph id="ph2">`lockId`</ph> values is updated.</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For more information about locking, see "Locking Session Store Data" in the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase&gt;</ph> class overview.</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If the session values for the current request have not been modified, the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.SetAndReleaseItemExclusive%2A&gt;</ph> method is not called.</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Instead, the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.ReleaseItemExclusive%2A&gt;</ph> method is called.</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If the <ph id="ph1">&lt;xref:System.Web.SessionState.HttpSessionState.Abandon%2A&gt;</ph> method has been called, the <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.SetAndReleaseItemExclusive%2A&gt;</ph> method is not called.</source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Instead, the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateModule&gt;</ph> object calls the <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.RemoveItem%2A&gt;</ph> method to delete session-item data from the data source.</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Web.HttpContext"&gt;&lt;/xref&gt;</ph> for the current request.</source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve">
+          <source>The session identifier for the current request.</source>
+        </trans-unit>
+        <trans-unit id="248" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Web.SessionState.SessionStateStoreData"&gt;&lt;/xref&gt;</ph> object that contains the current session values to be stored.</source>
+        </trans-unit>
+        <trans-unit id="249" translate="yes" xml:space="preserve">
+          <source>The lock identifier for the current request.</source>
+        </trans-unit>
+        <trans-unit id="250" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`true`</ph> to identify the session item as a new item; <ph id="ph2">`false`</ph> to identify the session item as an existing item.</source>
+        </trans-unit>
+        <trans-unit id="251" translate="yes" xml:space="preserve">
+          <source>Sets a reference to the <ph id="ph1">&lt;xref href="System.Web.SessionState.SessionStateItemExpireCallback"&gt;&lt;/xref&gt;</ph> delegate for the <ph id="ph2">`Session_OnEnd`</ph> event defined in the Global.asax file.</source>
+        </trans-unit>
+        <trans-unit id="252" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateModule&gt;</ph> object calls the <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.SetItemExpireCallback%2A&gt;</ph> method when the module is initialized to determine whether calls to the <ph id="ph3">`Session_OnEnd`</ph> event are supported by the <ph id="ph4">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase&gt;</ph> implementation and to associate the <ph id="ph5">&lt;xref:System.Web.SessionState.SessionStateItemExpireCallback&gt;</ph> delegate with the <ph id="ph6">`Session_OnEnd`</ph> event.</source>
+        </trans-unit>
+        <trans-unit id="253" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Custom session-state store provider implementers should use the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.SetItemExpireCallback%2A&gt;</ph> method to inform the <ph id="ph2">&lt;xref:System.Web.SessionState.SessionStateModule&gt;</ph> object whether calls to the <ph id="ph3">`Session_OnEnd`</ph> event are supported and to set a local reference to the <ph id="ph4">&lt;xref:System.Web.SessionState.SessionStateItemExpireCallback&gt;</ph> delegate supplied by the <ph id="ph5">`expireCallback`</ph> parameter.</source>
+        </trans-unit>
+        <trans-unit id="254" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The custom implementation must decide when the local <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateItemExpireCallback&gt;</ph> delegate will be called.</source>
+        </trans-unit>
+        <trans-unit id="255" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For example, the delegate could be called during the call to the <ph id="ph1">&lt;xref:System.Web.SessionState.SessionStateStoreProviderBase.RemoveItem%2A&gt;</ph> method, which is called when a session is abandoned.</source>
+        </trans-unit>
+        <trans-unit id="256" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Web.SessionState.SessionStateItemExpireCallback"&gt;&lt;/xref&gt;</ph> delegate for the <ph id="ph2">`Session_OnEnd`</ph> event defined in the Global.asax file.</source>
+        </trans-unit>
+        <trans-unit id="257" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`true`</ph> if the session-state store provider supports calling the <ph id="ph2">`Session_OnEnd`</ph> event; otherwise, <ph id="ph3">`false`</ph>.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

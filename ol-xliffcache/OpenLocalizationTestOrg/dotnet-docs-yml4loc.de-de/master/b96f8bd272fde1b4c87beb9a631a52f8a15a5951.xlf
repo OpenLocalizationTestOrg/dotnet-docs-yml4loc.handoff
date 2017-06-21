@@ -1,0 +1,237 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="de-de">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-fdd610b" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">b96f8bd272fde1b4c87beb9a631a52f8a15a5951</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">System.Threading.SpinLock.yml</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net47</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Human Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">9527b59b47de7f63b9c51556a0b8c721ae227ea8</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">5bb8c3b75ab1acc5a44ac7d612823a70a0898a22</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Provides a mutual exclusion lock primitive where a thread trying to acquire the lock waits in a loop repeatedly checking until the lock becomes available.</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For an example of how to use a Spin Lock, see <bpt id="p1">[</bpt>How to: Use SpinLock for Low-Level Synchronization<ept id="p1">](~/docs/standard/threading/how-to-use-spinlock-for-low-level-synchronization.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Spin locks can be used for leaf-level locks where the object allocation implied by using a <ph id="ph1">&lt;xref:System.Threading.Monitor&gt;</ph>, in size or due to garbage collection pressure, is overly expensive.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A spin lock can be useful in to avoid blocking; however, if you expect a significant amount of blocking, you should probably not use spin locks due to excessive spinning.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Spinning can be beneficial when locks are fine-grained and large in number (for example, a lock per node in a linked list) and also when lock hold-times are always extremely short.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve" extradata="MT">
+          <source>In general, while holding a spin lock, one should avoid any of these actions:</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve" extradata="MT">
+          <source>blocking,</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve" extradata="MT">
+          <source>calling anything that itself may block,</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve" extradata="MT">
+          <source>holding more than one spin lock at once,</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve" extradata="MT">
+          <source>making dynamically dispatched calls (interface and virtuals),</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve" extradata="MT">
+          <source>making statically dispatched calls into any code one doesn't own, or</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve" extradata="MT">
+          <source>allocating memory.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">&lt;xref:System.Threading.SpinLock&gt;</ph> should only be used after you have been determined that doing so will improve an application's performance.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve" extradata="MT">
+          <source>It is also important to note that <ph id="ph1">&lt;xref:System.Threading.SpinLock&gt;</ph> is a value type, for performance reasons.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For this reason, you must be very careful not to accidentally copy a <ph id="ph1">&lt;xref:System.Threading.SpinLock&gt;</ph> instance, as the two instances (the original and the copy) would then be completely independent of one another, which would likely lead to erroneous behavior of the application.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If a <ph id="ph1">&lt;xref:System.Threading.SpinLock&gt;</ph> instance must be passed around, it should be passed by reference rather than by value.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Do not store <ph id="ph1">&lt;xref:System.Threading.SpinLock&gt;</ph> instances in readonly fields.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Initializes a new instance of the <ph id="ph1">&lt;xref href="System.Threading.SpinLock"&gt;&lt;/xref&gt;</ph> structure with the option to track thread IDs to improve debugging.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The default constructor for <ph id="ph1">&lt;xref:System.Threading.SpinLock&gt;</ph> tracks thread ownership.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Whether to capture and use thread IDs for debugging purposes.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Acquires the lock in a reliable manner, such that even if an exception occurs within the method call, <bpt id="p1">&lt;code&gt;</bpt><ph id="ph1">lockTaken</ph><ept id="p1">&lt;/code&gt;</ept> can be examined reliably to determine whether the lock was acquired.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">&lt;xref:System.Threading.SpinLock&gt;</ph> is a non-reentrant lock, meaning that if a thread holds the lock, it is not allowed to enter the lock again.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If thread ownership tracking is enabled (whether it's enabled is available through <ph id="ph1">&lt;xref:System.Threading.SpinLock.IsThreadOwnerTrackingEnabled%2A&gt;</ph>), an exception will be thrown when a thread tries to re-enter a lock it already holds.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve" extradata="MT">
+          <source>However, if thread ownership tracking is disabled, attempting to enter a lock already held will result in deadlock.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If you call <ph id="ph1">&lt;xref:System.Threading.SpinLock.Exit%2A&gt;</ph> without having first called <ph id="ph2">&lt;xref:System.Threading.SpinLock.Enter%2A&gt;</ph> the internal state of the <ph id="ph3">&lt;xref:System.Threading.SpinLock&gt;</ph> can become corrupted.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>True if the lock is acquired; otherwise, false.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;code&gt;</bpt><ph id="ph1">lockTaken</ph><ept id="p1">&lt;/code&gt;</ept> must be initialized to false prior to calling this method.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">&lt;code&gt;</bpt><ph id="ph1">lockTaken</ph><ept id="p1">&lt;/code&gt;</ept> argument must be initialized to false prior to calling Enter.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Thread ownership tracking is enabled, and the current thread has already acquired this lock.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Releases the lock.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The default overload of <ph id="ph1">&lt;xref:System.Threading.SpinLock.Exit%2A&gt;</ph> provides the same behavior as if calling <ph id="ph2">&lt;xref:System.Threading.SpinLock.Exit%2A&gt;</ph> using true as the argument.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If you call <ph id="ph1">&lt;xref:System.Threading.SpinLock.Exit%2A&gt;</ph> without having first called <ph id="ph2">&lt;xref:System.Threading.SpinLock.Enter%2A&gt;</ph> the internal state of the <ph id="ph3">&lt;xref:System.Threading.SpinLock&gt;</ph> can become corrupted.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Thread ownership tracking is enabled, and the current thread is not the owner of this lock.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Releases the lock.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Calling <ph id="ph1">&lt;xref:System.Threading.SpinLock.Exit%2A&gt;</ph> with the <ph id="ph2">`useMemoryBarrier`</ph> argument set to true will improve the fairness of the lock at the expense of some performance.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The default <ph id="ph1">&lt;xref:System.Threading.SpinLock.Exit%2A&gt;</ph> overload behaves as if specifying true for <ph id="ph2">`useMemoryBarrier`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If you call <ph id="ph1">&lt;xref:System.Threading.SpinLock.Exit%2A&gt;</ph> without having first called <ph id="ph2">&lt;xref:System.Threading.SpinLock.Enter%2A&gt;</ph> the internal state of the <ph id="ph3">&lt;xref:System.Threading.SpinLock&gt;</ph> can become corrupted.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>A Boolean value that indicates whether a memory fence should be issued in order to immediately publish the exit operation to other threads.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Thread ownership tracking is enabled, and the current thread is not the owner of this lock.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Gets whether the lock is currently held by any thread.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>true if the lock is currently held by any thread; otherwise false.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Gets whether the lock is held by the current thread.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If the lock was initialized to track owner threads, this will return whether the lock is acquired by the current thread.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve" extradata="MT">
+          <source>It is invalid to use this property when the lock was initialized to not track thread ownership.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>true if the lock is held by the current thread; otherwise false.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Thread ownership tracking is disabled.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Gets whether thread ownership tracking is enabled for this instance.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>true if thread ownership tracking is enabled for this instance; otherwise false.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Attempts to acquire the lock in a reliable manner, such that even if an exception occurs within the method call, <bpt id="p1">&lt;code&gt;</bpt><ph id="ph1">lockTaken</ph><ept id="p1">&lt;/code&gt;</ept> can be examined reliably to determine whether the lock was acquired.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Unlike <ph id="ph1">&lt;xref:System.Threading.SpinLock.Enter%2A&gt;</ph>, TryEnter will not block waiting for the lock to be available.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If the lock is not available when TryEnter is called, it will return immediately without any further spinning.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>True if the lock is acquired; otherwise, false.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;code&gt;</bpt><ph id="ph1">lockTaken</ph><ept id="p1">&lt;/code&gt;</ept> must be initialized to false prior to calling this method.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">&lt;code&gt;</bpt><ph id="ph1">lockTaken</ph><ept id="p1">&lt;/code&gt;</ept> argument must be initialized to false prior to calling TryEnter.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Thread ownership tracking is enabled, and the current thread has already acquired this lock.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Attempts to acquire the lock in a reliable manner, such that even if an exception occurs within the method call, <bpt id="p1">&lt;code&gt;</bpt><ph id="ph1">lockTaken</ph><ept id="p1">&lt;/code&gt;</ept> can be examined reliably to determine whether the lock was acquired.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Unlike <ph id="ph1">&lt;xref:System.Threading.SpinLock.Enter%2A&gt;</ph>, TryEnter will not block indefinitely waiting for the lock to be available.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve" extradata="MT">
+          <source>It will block until either the lock is available or until the <ph id="ph1">`millisecondsTimeout`</ph> has expired.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>The number of milliseconds to wait, or <ph id="ph1">&lt;xref href="System.Threading.Timeout.Infinite"&gt;&lt;/xref&gt;</ph> (-1) to wait indefinitely.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>True if the lock is acquired; otherwise, false.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;code&gt;</bpt><ph id="ph1">lockTaken</ph><ept id="p1">&lt;/code&gt;</ept> must be initialized to false prior to calling this method.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;code&gt;millisecondsTimeout&lt;/code&gt;</ph> is a negative number other than -1, which represents an infinite time-out.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">&lt;code&gt;</bpt><ph id="ph1">lockTaken</ph><ept id="p1">&lt;/code&gt;</ept> argument must be initialized to false prior to calling TryEnter.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>Thread ownership tracking is enabled, and the current thread has already acquired this lock.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Attempts to acquire the lock in a reliable manner, such that even if an exception occurs within the method call, <bpt id="p1">&lt;code&gt;</bpt><ph id="ph1">lockTaken</ph><ept id="p1">&lt;/code&gt;</ept> can be examined reliably to determine whether the lock was acquired.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Unlike <ph id="ph1">&lt;xref:System.Threading.SpinLock.Enter%2A&gt;</ph>, TryEnter will not block indefinitely waiting for the lock to be available.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve" extradata="MT">
+          <source>It will block until either the lock is available or until the <ph id="ph1">`timeout`</ph> has expired.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.TimeSpan"&gt;&lt;/xref&gt;</ph> that represents the number of milliseconds to wait, or a <ph id="ph2">&lt;xref href="System.TimeSpan"&gt;&lt;/xref&gt;</ph> that represents -1 milliseconds to wait indefinitely.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>True if the lock is acquired; otherwise, false.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;code&gt;</bpt><ph id="ph1">lockTaken</ph><ept id="p1">&lt;/code&gt;</ept> must be initialized to false prior to calling this method.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;code&gt;timeout&lt;/code&gt;</ph> is a negative number other than -1 milliseconds, which represents an infinite time-out -or- timeout is greater than <ph id="ph2">&lt;xref href="System.Int32.MaxValue"&gt;&lt;/xref&gt;</ph> milliseconds.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">&lt;code&gt;</bpt><ph id="ph1">lockTaken</ph><ept id="p1">&lt;/code&gt;</ept> argument must be initialized to false prior to calling TryEnter.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Thread ownership tracking is enabled, and the current thread has already acquired this lock.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

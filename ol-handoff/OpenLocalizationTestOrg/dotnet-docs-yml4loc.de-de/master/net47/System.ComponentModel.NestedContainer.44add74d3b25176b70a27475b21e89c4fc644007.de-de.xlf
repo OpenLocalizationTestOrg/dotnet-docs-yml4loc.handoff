@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="de-de">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-fdd610b" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">22bb84b10ccd7d162046eb7afdbef51b080dd88a</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">System.ComponentModel.NestedContainer.yml</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net47</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Human Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">33c0cedc547a9dd56c1961fbb9bafee4e6d78100</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">3ff97348a0134e75513b56d7e69335f6ef8ee28d</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Provides the base implementation for the <ph id="ph1">&lt;xref href="System.ComponentModel.INestedContainer"&gt;&lt;/xref&gt;</ph> interface, which enables containers to have an owning component.</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.ComponentModel.NestedContainer&gt;</ph> class is a simple implementation of the <ph id="ph2">&lt;xref:System.ComponentModel.INestedContainer&gt;</ph> interface, which defines a component that logically contains zero or more other components and is owned by a parent component.</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The behavior of nested containers differs from a standard <ph id="ph1">&lt;xref:System.ComponentModel.Container&gt;</ph> in a number of ways, including the following:</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Site characteristics such as <ph id="ph1">&lt;xref:System.ComponentModel.Component.DesignMode%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.ComponentModel.Component.GetService%2A&gt;</ph> are routed through the owning component’s site.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The site’s <ph id="ph1">&lt;xref:System.ComponentModel.ISite.Name%2A&gt;</ph> property is a qualified name that includes the owning component’s name followed by a period (.) and the child component’s name.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">&lt;xref:System.ComponentModel.NestedContainer.GetService%2A&gt;</ph> provides support for the <ph id="ph2">&lt;xref:System.ComponentModel.INestedContainer&gt;</ph> as a service.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve" extradata="MT">
+          <source>When the owning component is disposed, the container is disposed as well.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve" extradata="MT">
+          <source>In addition, designers treat nested containers differently.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A designer host is only interested in one container—the one associated with the host.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Therefore, component add and remove events are not raised when a component is added to or removed from a nested container.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve" extradata="MT">
+          <source>However, because services flow through to the nested container, component change events are raised when a component in a nested container is changed.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This disparity in event tracking also impacts undo functionality, which is closely tied to serialization.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The standard undo engine uses <ph id="ph1">&lt;xref:System.ComponentModel.Design.IReferenceService&gt;</ph> to track changes made to components.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If the undo engine cannot identify a name for a component through the reference service, the engine will ignore any changes for that component.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This service automatically recognizes changes to contained components only if they are exposed as public read-only properties of the same name in their owners.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Otherwise, the developer must pass component change events up to the owner.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For example, if a nested component’s <ph id="ph1">`Text`</ph> property is resurfaced on its owning component as an <ph id="ph2">`Address`</ph> property, when the <ph id="ph3">`Text`</ph> property is changed, a property change must be programmatically made for the corresponding <ph id="ph4">`Address`</ph> property or else that change will not be tracked by undo.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Initializes a new instance of the <ph id="ph1">&lt;xref href="System.ComponentModel.NestedContainer"&gt;&lt;/xref&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This constructor enlists in its owner's <ph id="ph1">&lt;xref:System.ComponentModel.IComponent.Disposed&gt;</ph> event so that the nested container's <ph id="ph2">&lt;xref:System.ComponentModel.NestedContainer.Dispose%2A&gt;</ph> method will automatically be called.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.ComponentModel.IComponent"&gt;&lt;/xref&gt;</ph> that owns this nested container.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;code&gt;owner&lt;/code&gt;</ph> is <ph id="ph2">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Creates a site for the component within the container.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If the <ph id="ph1">`name`</ph> parameter is <ph id="ph2">`null`</ph>, the <ph id="ph3">&lt;xref:System.ComponentModel.IComponent&gt;</ph> is added to the nested container without an identifying name.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.ComponentModel.IComponent"&gt;&lt;/xref&gt;</ph> to create a site for.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The name to assign to <bpt id="p1">&lt;code&gt;</bpt><ph id="ph1">component</ph><ept id="p1">&lt;/code&gt;</ept>, or <ph id="ph2">`null`</ph> to skip the name assignment.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>The newly created <ph id="ph1">&lt;xref href="System.ComponentModel.ISite"&gt;&lt;/xref&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;code&gt;component&lt;/code&gt;</ph> is <ph id="ph2">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Releases the resources used by the nested container.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method is called by the public <ph id="ph1">`Dispose()`</ph> method and the <ph id="ph2">&lt;xref:System.Object.Finalize%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">`Dispose()`</ph> invokes the protected <ph id="ph2">`Dispose(Boolean)`</ph> method with the <ph id="ph3">`disposing`</ph> parameter set to <ph id="ph4">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">&lt;xref:System.Object.Finalize%2A&gt;</ph> invokes <ph id="ph2">`Dispose`</ph> with <ph id="ph3">`disposing`</ph> set to <ph id="ph4">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve" extradata="MT">
+          <source>When the <ph id="ph1">`disposing`</ph> parameter is true, this method releases all resources held by any managed objects that this <ph id="ph2">&lt;xref:System.ComponentModel.NestedContainer&gt;</ph> references.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method invokes the <ph id="ph1">`Dispose()`</ph> method of each referenced object.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`true`</ph> to release both managed and unmanaged resources; <ph id="ph2">`false`</ph> to release only unmanaged resources.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Gets the service object of the specified type, if it is available.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method overrides the <ph id="ph1">&lt;xref:System.ComponentModel.Container.GetService%2A?displayProperty=fullName&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This implementation only resolves requests for the <ph id="ph1">&lt;xref:System.ComponentModel.INestedContainer&gt;</ph> and <ph id="ph2">&lt;xref:System.ComponentModel.IContainer&gt;</ph> services.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Type"&gt;&lt;/xref&gt;</ph> of the service to retrieve.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>An <ph id="ph1">&lt;xref href="System.Object"&gt;&lt;/xref&gt;</ph> that implements the requested service, or <ph id="ph2">`null`</ph> if the service cannot be resolved.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Gets the owning component for this nested container.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The owning component is the characteristic that differentiates nested containers from ordinary containers.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.ComponentModel.IComponent"&gt;&lt;/xref&gt;</ph> that owns this nested container.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Gets the name of the owning component.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This property may be overridden to provide a custom owner name.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The default implementation searches the owner's site for <ph id="ph1">&lt;xref:System.ComponentModel.INestedSite&gt;</ph> and calls <ph id="ph2">&lt;xref:System.ComponentModel.INestedSite.FullName%2A&gt;</ph>, or <ph id="ph3">&lt;xref:System.ComponentModel.ISite.Name%2A&gt;</ph> if there is no nested site.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If neither is available, this property returns <ph id="ph1">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>The name of the owning component.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

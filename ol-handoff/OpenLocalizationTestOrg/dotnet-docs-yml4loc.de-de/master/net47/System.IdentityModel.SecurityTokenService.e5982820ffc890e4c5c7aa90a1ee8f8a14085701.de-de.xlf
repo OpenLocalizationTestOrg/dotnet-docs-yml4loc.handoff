@@ -1,0 +1,900 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="de-de">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-fdd610b" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">865e7c721dfcb1a10dee14e42fd05fc74d2539bd</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">System.IdentityModel.SecurityTokenService.yml</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net47</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Human Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">8fefc40a4be291dab29219821e4d9c83dbe1a036</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">41cc34db94d758579f67285a8c38cb8cfac374b7</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>The abstract base class that defines the properties and methods of a security token service (STS).</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve" extradata="MT">
+          <source>To create an STS you must derive from the <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve" extradata="MT">
+          <source>In your custom class you must, at a minimum, override the <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService.GetScope%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.IdentityModel.SecurityTokenService.GetOutputClaimsIdentity%2A&gt;</ph> methods.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve" extradata="MT">
+          <source>With these overrides, the STS created using the default implementation of all the other methods defined in the class is capable of issuing security tokens in response to security token requests (RST).</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve" extradata="MT">
+          <source>That is, the Issue binding defined in the WS-Trust specification is implemented.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This binding is implemented in the <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService.Issue%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve" extradata="MT">
+          <source>None of the other WS-Trust bindings (Renew, Cancel, and Validate) are implemented in the default case and an appropriate fault is returned to the caller if an RST that corresponds to one of these bindings is encountered.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You can, of course, override the appropriate methods (<ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService.Renew%2A&gt;</ph>, <ph id="ph2">&lt;xref:System.IdentityModel.SecurityTokenService.Cancel%2A&gt;</ph>, and <ph id="ph3">&lt;xref:System.IdentityModel.SecurityTokenService.Validate%2A&gt;</ph>) to implement these bindings in your STS.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Implementing a production-ready STS entails careful planning and considerable resources to mitigate the potential security risks inherent in exposing such a service.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Most developers using Windows Identity Foundation (WIF) will be developing applications that outsource identity management to an STS, rather than developing an STS itself.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve" extradata="MT">
+          <source>WIF provides a Visual Studio extension, the Identity and Access Tool for Visual Studio 2012, to help developers test solutions in the development environment.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This tool includes an STS, <ph id="ph1">`LocalSTS`</ph>, that you can configure to serve specific claims to the application that you are developing.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For more information about the Identity and Access tool, see <bpt id="p1">[</bpt>Identity and Access Tool for Visual Studio 2012<ept id="p1">](~/docs/framework/security/identity-and-access-tool-for-vs.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve" extradata="MT">
+          <source>In some scenarios, <ph id="ph1">`LocalSTS`</ph> may not provide the functionality necessary to adequately test your application; for example, in a scenario that involves developing a custom token handler for use by an application.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve" extradata="MT">
+          <source>In these cases, you can derive from <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService&gt;</ph> to create one or more simple STSs that can be deployed in your development environment and that can be used to test such features in your application.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The rest of this section focuses on the methods exposed by the <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService&gt;</ph> class that enable you to implement a simple STS and extend the token issuance pipeline.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The following list provides a brief overview of the methods of primary importance to the developer for use in a test or development environment.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService.GetScope%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method returns a <ph id="ph1">&lt;xref:System.IdentityModel.Scope&gt;</ph> object that contains information about the RP.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This object is used in the rest of the token issuance pipeline and includes information about the signing and encrypting credentials to use in the response, as well as the <ph id="ph1">`AppliesTo`</ph> and <ph id="ph2">`ReplyTo`</ph> (if required) addresses.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You must override this method.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService.GetOutputClaimsIdentity%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method returns an <ph id="ph1">&lt;xref:System.Security.Claims.ClaimsIdentity&gt;</ph> object that contains the claims to return to the RP.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You must override this method.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService.Issue%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method implements the token request pipeline, which processes an incoming security token request (RST) and returns a response (RSTR) to the caller that contains a token that can be used to authenticate with an RP.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Many of the other methods defined in the <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService&gt;</ph> class are called from this method, including the <ph id="ph2">&lt;xref:System.IdentityModel.SecurityTokenService.GetScope%2A&gt;</ph> and <ph id="ph3">&lt;xref:System.IdentityModel.SecurityTokenService.GetOutputClaimsIdentity%2A&gt;</ph> methods.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You do not have to override this method, but an understanding of the token request pipeline it implements may be helpful.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve" extradata="MT">
+          <source>An STS is configured through the <ph id="ph1">&lt;xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Called from derived classes to initialize the <ph id="ph1">&lt;xref href="System.IdentityModel.SecurityTokenService"&gt;&lt;/xref&gt;</ph> class using the specified configuration settings.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Use this constructor to initialize scope provider and token issuer certificate.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Configuration.SecurityTokenServiceConfiguration"&gt;&lt;/xref&gt;</ph> that contains the settings for the STS.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;code&gt;securityTokenServiceConfiguration&lt;/code&gt;</ph> is <ph id="ph2">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>When overridden in a derived class, begins an asynchronous WS-Trust Cancel request.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The default implementation of this method throws an <ph id="ph1">&lt;xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.Security.Claims.ClaimsPrincipal"&gt;&lt;/xref&gt;</ph> that represents the identity of the token requestor.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Protocols.WSTrust.RequestSecurityToken"&gt;&lt;/xref&gt;</ph> that represents the security token request.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>This includes the request message as well as other client related information such as authorization context.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.AsyncCallback"&gt;&lt;/xref&gt;</ph> delegate that receives notification of the completion of the asynchronous cancel operation.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>An object that contains state information associated with the asynchronous cancel operation.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.IAsyncResult"&gt;&lt;/xref&gt;</ph> that references the asynchronous cancel operation.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>When overridden in a derived class, begins an asynchronous call to the <ph id="ph1">&lt;xref href="System.IdentityModel.SecurityTokenService.GetOutputClaimsIdentity(System.Security.Claims.ClaimsPrincipal,System.IdentityModel.Protocols.WSTrust.RequestSecurityToken,System.IdentityModel.Scope)"&gt;&lt;/xref&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The default implementation of this method throws a <ph id="ph1">&lt;xref:System.NotImplementedException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.Security.Claims.ClaimsPrincipal"&gt;&lt;/xref&gt;</ph> that represents the identity of the token requestor.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Protocols.WSTrust.RequestSecurityToken"&gt;&lt;/xref&gt;</ph> that represents the security token request.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>This includes the request message as well as other client related information such as authorization context.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.IdentityModel.Scope"&gt;&lt;/xref&gt;</ph> that contains information about the relying party associated with the request.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.AsyncCallback"&gt;&lt;/xref&gt;</ph> delegate that receives notification of the completion of the asynchronous operation.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>An object that contains state information associated with the asynchronous operation.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.IAsyncResult"&gt;&lt;/xref&gt;</ph> that references the asynchronous operation.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>When overridden in a derived class, begins an asynchronous call for the <ph id="ph1">&lt;xref href="System.IdentityModel.SecurityTokenService.GetScope(System.Security.Claims.ClaimsPrincipal,System.IdentityModel.Protocols.WSTrust.RequestSecurityToken)"&gt;&lt;/xref&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The default implementation of this method throws a <ph id="ph1">&lt;xref:System.NotImplementedException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.Security.Claims.ClaimsPrincipal"&gt;&lt;/xref&gt;</ph> that represents the identity of the token requestor.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Protocols.WSTrust.RequestSecurityToken"&gt;&lt;/xref&gt;</ph> that represents the security token request.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>This includes the request message as well as other client related information such as authorization context.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.AsyncCallback"&gt;&lt;/xref&gt;</ph> delegate that receives notification of the completion of the asynchronous operation.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>An object that contains state information associated with the asynchronous operation.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.IAsyncResult"&gt;&lt;/xref&gt;</ph> that references the asynchronous cancel operation.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>When overridden in a derived class, begins an asynchronous WS-Trust Issue request.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The default implementation of this method throws an <ph id="ph1">&lt;xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.Security.Claims.ClaimsPrincipal"&gt;&lt;/xref&gt;</ph> that represents the identity of the token requestor.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Protocols.WSTrust.RequestSecurityToken"&gt;&lt;/xref&gt;</ph> that represents the security token request.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>This includes the request message as well as other client related information such as authorization context.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.AsyncCallback"&gt;&lt;/xref&gt;</ph> delegate that receives notification of the completion of the asynchronous issue operation.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>An object that contains state information associated with the asynchronous issue operation.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.IAsyncResult"&gt;&lt;/xref&gt;</ph> that references the asynchronous issue operation.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>When overridden in a derived class, begins an asynchronous WS-Trust Renew request.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The default implementation of this method throws an <ph id="ph1">&lt;xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.Security.Claims.ClaimsPrincipal"&gt;&lt;/xref&gt;</ph> that represents the identity of the token requestor.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Protocols.WSTrust.RequestSecurityToken"&gt;&lt;/xref&gt;</ph> that represents the security token request.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>This includes the request message as well as other client related information such as authorization context.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.AsyncCallback"&gt;&lt;/xref&gt;</ph> delegate that receives notification of the completion of the asynchronous renew operation.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>An object that contains state information associated with the asynchronous renew operation.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.IAsyncResult"&gt;&lt;/xref&gt;</ph> that references the asynchronous renew operation.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>When overridden in a derived class, begins an asynchronous WS-Trust Validate request.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The default implementation of this method throws an <ph id="ph1">&lt;xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.Security.Claims.ClaimsPrincipal"&gt;&lt;/xref&gt;</ph> that represents the identity of the token requestor.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Protocols.WSTrust.RequestSecurityToken"&gt;&lt;/xref&gt;</ph> that represents the security token request.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>This includes the request message as well as other client related information such as authorization context.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.AsyncCallback"&gt;&lt;/xref&gt;</ph> delegate that receives notification of the completion of the asynchronous validate operation.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>An object that contains state information associated with the asynchronous validate operation.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.IAsyncResult"&gt;&lt;/xref&gt;</ph> that references the asynchronous validate operation.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>When overridden in a derived class, processes a WS-Trust Cancel request.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The default implementation of this method throws an <ph id="ph1">&lt;xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.Security.Claims.ClaimsPrincipal"&gt;&lt;/xref&gt;</ph> that represents the identity of the token requestor.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Protocols.WSTrust.RequestSecurityToken"&gt;&lt;/xref&gt;</ph> that represents the security token request.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>This includes the request message as well as other client related information such as authorization context.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse"&gt;&lt;/xref&gt;</ph> that represents the RSTR to return to the caller.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>Creates an instance of a <ph id="ph1">&lt;xref href="System.IdentityModel.SecurityTokenService.SecurityTokenDescriptor"&gt;&lt;/xref&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Invoked during token issuance after <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService.GetScope%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>The incoming token request.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.IdentityModel.SecurityTokenService.Scope"&gt;&lt;/xref&gt;</ph> object returned from <ph id="ph2">&lt;xref href="System.IdentityModel.SecurityTokenService.GetScope(System.Security.Claims.ClaimsPrincipal,System.IdentityModel.Protocols.WSTrust.RequestSecurityToken)"&gt;&lt;/xref&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.IdentityModel.SecurityTokenService.SecurityTokenDescriptor"&gt;&lt;/xref&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;code&gt;request&lt;/code&gt;</ph> is <ph id="ph2">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>-or-</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;code&gt;scope&lt;/code&gt;</ph> is <ph id="ph2">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>When overridden in a derived class, completes the asynchronous WS-Trust Cancel request.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The default implementation of this method throws an <ph id="ph1">&lt;xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.IAsyncResult"&gt;&lt;/xref&gt;</ph> that is returned by a call to the <ph id="ph2">&lt;xref href="System.IdentityModel.SecurityTokenService.BeginCancel(System.Security.Claims.ClaimsPrincipal,System.IdentityModel.Protocols.WSTrust.RequestSecurityToken,System.AsyncCallback,System.Object)"&gt;&lt;/xref&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse"&gt;&lt;/xref&gt;</ph> that represents the RSTR to return to the caller.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>When overridden in a derived class, completes the asynchronous call to the <ph id="ph1">&lt;xref href="System.IdentityModel.SecurityTokenService.BeginGetOutputClaimsIdentity(System.Security.Claims.ClaimsPrincipal,System.IdentityModel.Protocols.WSTrust.RequestSecurityToken,System.IdentityModel.Scope,System.AsyncCallback,System.Object)"&gt;&lt;/xref&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The default implementation of this method throws a <ph id="ph1">&lt;xref:System.NotImplementedException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.IAsyncResult"&gt;&lt;/xref&gt;</ph> that is returned by a call to the <ph id="ph2">&lt;xref href="System.IdentityModel.SecurityTokenService.BeginGetOutputClaimsIdentity(System.Security.Claims.ClaimsPrincipal,System.IdentityModel.Protocols.WSTrust.RequestSecurityToken,System.IdentityModel.Scope,System.AsyncCallback,System.Object)"&gt;&lt;/xref&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.Security.Claims.ClaimsIdentity"&gt;&lt;/xref&gt;</ph> that contains the collection of claims that will be placed in the issued security token.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>When overridden in a derived class, completes the asynchronous call to the <ph id="ph1">&lt;xref href="System.IdentityModel.SecurityTokenService.BeginGetScope(System.Security.Claims.ClaimsPrincipal,System.IdentityModel.Protocols.WSTrust.RequestSecurityToken,System.AsyncCallback,System.Object)"&gt;&lt;/xref&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The default implementation of this method throws a <ph id="ph1">&lt;xref:System.NotImplementedException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.IAsyncResult"&gt;&lt;/xref&gt;</ph> that is returned by a call to the <ph id="ph2">&lt;xref href="System.IdentityModel.SecurityTokenService.BeginGetScope(System.Security.Claims.ClaimsPrincipal,System.IdentityModel.Protocols.WSTrust.RequestSecurityToken,System.AsyncCallback,System.Object)"&gt;&lt;/xref&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Scope"&gt;&lt;/xref&gt;</ph> that encapsulates the relying party (RP) information associated with the request (RST) specified in the call to the <ph id="ph2">&lt;xref href="System.IdentityModel.SecurityTokenService.BeginGetScope(System.Security.Claims.ClaimsPrincipal,System.IdentityModel.Protocols.WSTrust.RequestSecurityToken,System.AsyncCallback,System.Object)"&gt;&lt;/xref&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>When overridden in a derived class, completes the asynchronous WS-Trust Issue request.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The default implementation of this method throws an <ph id="ph1">&lt;xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.IAsyncResult"&gt;&lt;/xref&gt;</ph> that is returned by a call to the <ph id="ph2">&lt;xref href="System.IdentityModel.SecurityTokenService.BeginIssue(System.Security.Claims.ClaimsPrincipal,System.IdentityModel.Protocols.WSTrust.RequestSecurityToken,System.AsyncCallback,System.Object)"&gt;&lt;/xref&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse"&gt;&lt;/xref&gt;</ph> that represents the RSTR to return to the caller.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>When overridden in a derived class, completes the asynchronous WS-Trust Renew request.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The default implementation of this method throws an <ph id="ph1">&lt;xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.IAsyncResult"&gt;&lt;/xref&gt;</ph> that is returned by a call to the <ph id="ph2">&lt;xref href="System.IdentityModel.SecurityTokenService.BeginRenew(System.Security.Claims.ClaimsPrincipal,System.IdentityModel.Protocols.WSTrust.RequestSecurityToken,System.AsyncCallback,System.Object)"&gt;&lt;/xref&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse"&gt;&lt;/xref&gt;</ph> that represents the RSTR to return to the caller.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>When overridden in a derived class, completes the asynchronous WS-Trust Validate request.</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The default implementation of this method throws an <ph id="ph1">&lt;xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.IAsyncResult"&gt;&lt;/xref&gt;</ph> that is returned by a call to the <ph id="ph2">&lt;xref href="System.IdentityModel.SecurityTokenService.BeginValidate(System.Security.Claims.ClaimsPrincipal,System.IdentityModel.Protocols.WSTrust.RequestSecurityToken,System.AsyncCallback,System.Object)"&gt;&lt;/xref&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse"&gt;&lt;/xref&gt;</ph> that represents the RSTR to return to the caller.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>Gets the name of the security token service (STS).</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method is called from the default token issuance pipeline implemented in the <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService.Issue%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The default implementation returns the <ph id="ph1">&lt;xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName%2A&gt;</ph> property from configuration accessed through the <ph id="ph2">&lt;xref:System.IdentityModel.SecurityTokenService.SecurityTokenServiceConfiguration%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>The issuer name.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>When overridden in a derived class, this method returns a collection of output subjects to be included in the issued token.</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService.GetOutputClaimsIdentity%2A&gt;</ph> method is called from the token issuance pipeline, which is implemented by the <ph id="ph2">&lt;xref:System.IdentityModel.SecurityTokenService.Issue%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve" extradata="MT">
+          <source>It returns an <ph id="ph1">&lt;xref:System.Security.Claims.ClaimsIdentity&gt;</ph> that contains the claims to include in the issued security token based on the requestor of the token (the <ph id="ph2">`principal`</ph> parameter), the incoming RST (the <ph id="ph3">`request`</ph> parameter), and the relying party for which the token is intended (the <ph id="ph4">`scope`</ph> parameter).</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The logic in this method is primarily concerned with answering the following questions:</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve" extradata="MT">
+          <source><bpt id="p1">**</bpt>Which claim types should be included in the response based on the RP for which it is intended?<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Typically this is decided on a per-RP basis from lists of claim types required for each RP or on a per-request basis by examining the <ph id="ph1">&lt;xref:System.IdentityModel.Protocols.WSTrust.RequestSecurityToken.Claims%2A&gt;</ph> property of the request.</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve" extradata="MT">
+          <source>However, the logic and details for determining the claims to include in the response is completely up to your implementation.</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve" extradata="MT">
+          <source><bpt id="p1">**</bpt>Which claim values should be assigned to the claims in the response?<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For an Identity Provider (IP-STS) this typically means using one or more claims in the requestor’s <ph id="ph1">&lt;xref:System.Security.Claims.ClaimsPrincipal&gt;</ph> (provided by the <ph id="ph2">`principal`</ph> parameter) to access a store (or other entity) to return values for the required claim types.</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For a Federation Provider (R-STS) this typically means performing some kind of processing on the requestor’s incoming claims to fulfill the request; perhaps performing filtering or transformation on some claims presented by the requestor, while passing others through unmodified.</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Of course, as in the case of deciding which claims to include in the response, the details and logic of how to determine the values of these claims is up to your implementation.</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.Security.Claims.ClaimsPrincipal"&gt;&lt;/xref&gt;</ph> that represents the identity of the token requestor.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Protocols.WSTrust.RequestSecurityToken"&gt;&lt;/xref&gt;</ph> that represents the security token request.</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>This includes the request message as well as other client related information such as authorization context.</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.IdentityModel.Scope"&gt;&lt;/xref&gt;</ph> that contains information about the relying party associated with the request.</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source>This is the <ph id="ph1">&lt;xref href="System.IdentityModel.Scope"&gt;&lt;/xref&gt;</ph> object that was returned by the <ph id="ph2">&lt;xref href="System.IdentityModel.SecurityTokenService.GetScope(System.Security.Claims.ClaimsPrincipal,System.IdentityModel.Protocols.WSTrust.RequestSecurityToken)"&gt;&lt;/xref&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.Security.Claims.ClaimsIdentity"&gt;&lt;/xref&gt;</ph> that contains the collection of claims that will be placed in the issued security token.</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source>Gets the proof token to be included in the response (RSTR).</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method is called from the default token issuance pipeline implemented in the <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService.Issue%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The default implementation returns a proof descriptor or throws an appropriate exception.</source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Protocols.WSTrust.RequestSecurityToken"&gt;&lt;/xref&gt;</ph> that represents the incoming token request (RST).</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.IdentityModel.Scope"&gt;&lt;/xref&gt;</ph> instance that encapsulates information about the relying party.</source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Tokens.ProofDescriptor"&gt;&lt;/xref&gt;</ph> that represents the newly created proof descriptor.</source>
+        </trans-unit>
+        <trans-unit id="248" translate="yes" xml:space="preserve">
+          <source>The proof descriptor can be an asymmetric proof descriptor, a symmetric proof descriptor, or <ph id="ph1">`null`</ph> in the bearer token case.</source>
+        </trans-unit>
+        <trans-unit id="249" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;code&gt;request&lt;/code&gt;</ph> is <ph id="ph2">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="250" translate="yes" xml:space="preserve">
+          <source>-or-</source>
+        </trans-unit>
+        <trans-unit id="251" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;code&gt;scope&lt;/code&gt;</ph> is <ph id="ph2">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="252" translate="yes" xml:space="preserve">
+          <source>Gets the requestor's proof encrypting credentials.</source>
+        </trans-unit>
+        <trans-unit id="253" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method is called from the <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService.GetProofToken%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="254" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The default implementation does the following.</source>
+        </trans-unit>
+        <trans-unit id="255" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Returns <ph id="ph1">`null`</ph> if there is no encryption token specified in the request (the <ph id="ph2">&lt;xref:System.IdentityModel.Protocols.WSTrust.RequestSecurityToken.ProofEncryption%2A?displayProperty=fullName&gt;</ph> property is <ph id="ph3">`null`</ph>).</source>
+        </trans-unit>
+        <trans-unit id="256" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Otherwise, if it can get the token as an <ph id="ph1">&lt;xref:System.IdentityModel.Tokens.X509SecurityToken&gt;</ph>, it returns credentials based on that token.</source>
+        </trans-unit>
+        <trans-unit id="257" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If it cannot resolve the token as an <ph id="ph1">&lt;xref:System.IdentityModel.Tokens.X509SecurityToken&gt;</ph>, a <ph id="ph2">&lt;xref:System.IdentityModel.RequestFailedException&gt;</ph> is thrown.</source>
+        </trans-unit>
+        <trans-unit id="258" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Protocols.WSTrust.RequestSecurityToken"&gt;&lt;/xref&gt;</ph> that represents the incoming token request (RST).</source>
+        </trans-unit>
+        <trans-unit id="259" translate="yes" xml:space="preserve">
+          <source>An <ph id="ph1">&lt;xref href="System.IdentityModel.Tokens.EncryptingCredentials"&gt;&lt;/xref&gt;</ph> object that represents the requestor’s encrypting credentials.</source>
+        </trans-unit>
+        <trans-unit id="260" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;code&gt;request&lt;/code&gt;</ph> is <ph id="ph2">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="261" translate="yes" xml:space="preserve">
+          <source>Creates the response (RSTR) that contains the issued token by using the specified request (RST) and security token descriptor.</source>
+        </trans-unit>
+        <trans-unit id="262" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService.GetResponse%2A&gt;</ph> method is called as the last step from the token issuance pipeline, which is implemented by the <ph id="ph2">&lt;xref:System.IdentityModel.SecurityTokenService.Issue%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="263" translate="yes" xml:space="preserve" extradata="MT">
+          <source>It creates and returns the response (RSTR) by using the original incoming request (RST) and the token descriptor that was built up during previous steps in the token issuance pipeline.</source>
+        </trans-unit>
+        <trans-unit id="264" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The default implementation creates the RSTR by passing the RST specified in the request parameter to the <ph id="ph1">&lt;xref:System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse.%23ctor%28System.IdentityModel.Protocols.WSTrust.WSTrustMessage%29?displayProperty=fullName&gt;</ph> constructor, invoking the <ph id="ph2">&lt;xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.ApplyTo%2A?displayProperty=fullName&gt;</ph> method on the token descriptor passed into <ph id="ph3">&lt;xref:System.IdentityModel.SecurityTokenService.GetResponse%2A&gt;</ph> to apply its properties to the newly created RSTR, setting the <ph id="ph4">&lt;xref:System.IdentityModel.Protocols.WSTrust.WSTrustMessage.AppliesTo%2A&gt;</ph> property on the RSTR by using the <ph id="ph5">&lt;xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.AppliesToAddress%2A&gt;</ph> property on the token descriptor, and finally setting the <ph id="ph6">&lt;xref:System.IdentityModel.Protocols.WSTrust.WSTrustMessage.ReplyTo%2A&gt;</ph> property on the RSTR according to the following table:</source>
+        </trans-unit>
+        <trans-unit id="265" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">`RST.ReplyTo`</ph> property</source>
+        </trans-unit>
+        <trans-unit id="266" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">&lt;xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.AppliesToAddress%2A?displayProperty=fullName&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="267" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">`RSTR.ReplyTo`</ph> property</source>
+        </trans-unit>
+        <trans-unit id="268" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Set</source>
+        </trans-unit>
+        <trans-unit id="269" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Not Set</source>
+        </trans-unit>
+        <trans-unit id="270" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Not Set</source>
+        </trans-unit>
+        <trans-unit id="271" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Set</source>
+        </trans-unit>
+        <trans-unit id="272" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Set</source>
+        </trans-unit>
+        <trans-unit id="273" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Not Set</source>
+        </trans-unit>
+        <trans-unit id="274" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Set</source>
+        </trans-unit>
+        <trans-unit id="275" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Not Set</source>
+        </trans-unit>
+        <trans-unit id="276" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Not Set</source>
+        </trans-unit>
+        <trans-unit id="277" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Not Set</source>
+        </trans-unit>
+        <trans-unit id="278" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Not Set</source>
+        </trans-unit>
+        <trans-unit id="279" translate="yes" xml:space="preserve">
+          <source>The RST that contains the token request.</source>
+        </trans-unit>
+        <trans-unit id="280" translate="yes" xml:space="preserve">
+          <source>The token descriptor that contains the information to use for the issued token.</source>
+        </trans-unit>
+        <trans-unit id="281" translate="yes" xml:space="preserve">
+          <source>The response (RSTR) or <ph id="ph1">`null`</ph> if a response cannot be created from the specified request and token descriptor.</source>
+        </trans-unit>
+        <trans-unit id="282" translate="yes" xml:space="preserve">
+          <source>The default implementation returns <ph id="ph1">`null`</ph> if the <bpt id="p1">&lt;code&gt;</bpt><ph id="ph2">tokenDescriptor</ph><ept id="p1">&lt;/code&gt;</ept> parameter is <ph id="ph3">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="283" translate="yes" xml:space="preserve">
+          <source>Gets a <ph id="ph1">&lt;xref href="System.IdentityModel.Scope"&gt;&lt;/xref&gt;</ph> object that contains information about the relying party (RP) associated with the specified request (RST).</source>
+        </trans-unit>
+        <trans-unit id="284" translate="yes" xml:space="preserve">
+          <source>You must override this method in your implementation of the <ph id="ph1">&lt;xref href="System.IdentityModel.SecurityTokenService"&gt;&lt;/xref&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="285" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService.GetScope%2A&gt;</ph> method is called from the token issuance pipeline after the <ph id="ph2">&lt;xref:System.IdentityModel.SecurityTokenService.ValidateRequest%2A&gt;</ph> method and should return a <ph id="ph3">&lt;xref:System.IdentityModel.Scope&gt;</ph> object configured for the incoming request.</source>
+        </trans-unit>
+        <trans-unit id="286" translate="yes" xml:space="preserve" extradata="MT">
+          <source>(The token issuance pipeline is implemented in the <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService.Issue%2A&gt;</ph> method.) The <ph id="ph2">&lt;xref:System.IdentityModel.Scope&gt;</ph> object encapsulates information about the RP associated with the security token request (RST).</source>
+        </trans-unit>
+        <trans-unit id="287" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This includes information about the encrypting and signing credentials to be used with the RP and whether or not to encrypt any issued tokens and/or symmetric keys in the response.</source>
+        </trans-unit>
+        <trans-unit id="288" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Some typical tasks performed in the <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService.GetScope%2A&gt;</ph> method are:</source>
+        </trans-unit>
+        <trans-unit id="289" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Determine whether the RP for which the token is intended is a recognized RP.</source>
+        </trans-unit>
+        <trans-unit id="290" translate="yes" xml:space="preserve" extradata="MT">
+          <source>How this is accomplished depends on your implementation.</source>
+        </trans-unit>
+        <trans-unit id="291" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If the intended RP is not a valid RP for this STS, then the method should throw an <ph id="ph1">&lt;xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="292" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Determine the signing credentials to be used in the response (RSTR) and set the <ph id="ph1">&lt;xref:System.IdentityModel.Scope.SigningCredentials%2A&gt;</ph> property accordingly.</source>
+        </trans-unit>
+        <trans-unit id="293" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Determine whether the response and/or any included symmetrical keys should be encrypted and the credentials to be used for encryption.</source>
+        </trans-unit>
+        <trans-unit id="294" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Set the <ph id="ph1">&lt;xref:System.IdentityModel.Scope.TokenEncryptionRequired%2A&gt;</ph>, <ph id="ph2">&lt;xref:System.IdentityModel.Scope.SymmetricKeyEncryptionRequired%2A&gt;</ph>, and <ph id="ph3">&lt;xref:System.IdentityModel.Scope.EncryptingCredentials%2A&gt;</ph> properties accordingly.</source>
+        </trans-unit>
+        <trans-unit id="295" translate="yes" xml:space="preserve" extradata="MT">
+          <source>By default, the <ph id="ph1">&lt;xref:System.IdentityModel.Scope.TokenEncryptionRequired%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.IdentityModel.Scope.SymmetricKeyEncryptionRequired%2A&gt;</ph> properties are set <ph id="ph3">`true`</ph> to prevent the STS from issuing tokens that are not secure.</source>
+        </trans-unit>
+        <trans-unit id="296" translate="yes" xml:space="preserve" extradata="MT">
+          <source>It is recommended that these properties never be set to <ph id="ph1">`false`</ph> in a production environment.</source>
+        </trans-unit>
+        <trans-unit id="297" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Determine the address to which the response should be returned.</source>
+        </trans-unit>
+        <trans-unit id="298" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Set either the <ph id="ph1">&lt;xref:System.IdentityModel.Scope.AppliesToAddress%2A&gt;</ph> or <ph id="ph2">&lt;xref:System.IdentityModel.Scope.ReplyToAddress%2A&gt;</ph> property accordingly.</source>
+        </trans-unit>
+        <trans-unit id="299" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.Security.Claims.ClaimsPrincipal"&gt;&lt;/xref&gt;</ph> that represents the client making the request.</source>
+        </trans-unit>
+        <trans-unit id="300" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Protocols.WSTrust.RequestSecurityToken"&gt;&lt;/xref&gt;</ph> that represents the incoming request (RST).</source>
+        </trans-unit>
+        <trans-unit id="301" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Scope"&gt;&lt;/xref&gt;</ph> that encapsulates the RP information associated with the request.</source>
+        </trans-unit>
+        <trans-unit id="302" translate="yes" xml:space="preserve">
+          <source>Gets the appropriate security token handler for issuing a security token of the specified type.</source>
+        </trans-unit>
+        <trans-unit id="303" translate="yes" xml:space="preserve" extradata="MT">
+          <source>In the default implementation if <ph id="ph1">`requestedTokenType`</ph> is <ph id="ph2">`null`</ph> or an empty string, the default token type from configuration is used.</source>
+        </trans-unit>
+        <trans-unit id="304" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This is specified by the <ph id="ph1">&lt;xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.DefaultTokenType%2A&gt;</ph> property of the STS configuration object accessed through the <ph id="ph2">&lt;xref:System.IdentityModel.SecurityTokenService.SecurityTokenServiceConfiguration%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="305" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method is called from the default token issuance pipeline implemented in the <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService.Issue%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="306" translate="yes" xml:space="preserve">
+          <source>A string that contains the requested token type URI.</source>
+        </trans-unit>
+        <trans-unit id="307" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Tokens.SecurityTokenHandler"&gt;&lt;/xref&gt;</ph> that represents the token handler to be used for creating the issued security token.</source>
+        </trans-unit>
+        <trans-unit id="308" translate="yes" xml:space="preserve">
+          <source>Returns <ph id="ph1">`null`</ph> if the requested token type is not supported (there is no handler configured for the specified token type).</source>
+        </trans-unit>
+        <trans-unit id="309" translate="yes" xml:space="preserve">
+          <source>Gets the lifetime for the issued token.</source>
+        </trans-unit>
+        <trans-unit id="310" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method is normally called with the lifetime that arrived in the RST.</source>
+        </trans-unit>
+        <trans-unit id="311" translate="yes" xml:space="preserve" extradata="MT">
+          <source>In the default implementation, the token lifetime is calculated according to the following table.</source>
+        </trans-unit>
+        <trans-unit id="312" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Created (in)</source>
+        </trans-unit>
+        <trans-unit id="313" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Expires (in)</source>
+        </trans-unit>
+        <trans-unit id="314" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Created (in)</source>
+        </trans-unit>
+        <trans-unit id="315" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Expires (out)</source>
+        </trans-unit>
+        <trans-unit id="316" translate="yes" xml:space="preserve" extradata="MT">
+          <source>C</source>
+        </trans-unit>
+        <trans-unit id="317" translate="yes" xml:space="preserve" extradata="MT">
+          <source>C</source>
+        </trans-unit>
+        <trans-unit id="318" translate="yes" xml:space="preserve" extradata="MT">
+          <source>C + <ph id="ph1">&lt;xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.DefaultTokenLifetime%2A?displayProperty=fullName&gt;</ph></source>
+        </trans-unit>
+        <trans-unit id="319" translate="yes" xml:space="preserve" extradata="MT">
+          <source>E</source>
+        </trans-unit>
+        <trans-unit id="320" translate="yes" xml:space="preserve" extradata="MT">
+          <source>E</source>
+        </trans-unit>
+        <trans-unit id="321" translate="yes" xml:space="preserve" extradata="MT">
+          <source>C</source>
+        </trans-unit>
+        <trans-unit id="322" translate="yes" xml:space="preserve" extradata="MT">
+          <source>E</source>
+        </trans-unit>
+        <trans-unit id="323" translate="yes" xml:space="preserve" extradata="MT">
+          <source>C</source>
+        </trans-unit>
+        <trans-unit id="324" translate="yes" xml:space="preserve" extradata="MT">
+          <source>E</source>
+        </trans-unit>
+        <trans-unit id="325" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method is called from the default token issuance pipeline implemented in the <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService.Issue%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="326" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Protocols.WSTrust.Lifetime"&gt;&lt;/xref&gt;</ph> that represents the requested lifetime.</source>
+        </trans-unit>
+        <trans-unit id="327" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Protocols.WSTrust.Lifetime"&gt;&lt;/xref&gt;</ph> that represents the granted lifetime.</source>
+        </trans-unit>
+        <trans-unit id="328" translate="yes" xml:space="preserve">
+          <source>Issues a security token.</source>
+        </trans-unit>
+        <trans-unit id="329" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method implements the Issue binding defined in the WS-Trust specification.</source>
+        </trans-unit>
+        <trans-unit id="330" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The default implementation of the <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService.Issue%2A&gt;</ph> method processes the incoming request (RST) through a token issuance (claims issuance) pipeline and returns either a response (RSTR) that contains a security token with the appropriate claims to authenticate the requestor with the RP or an appropriate exception.</source>
+        </trans-unit>
+        <trans-unit id="331" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The token issuance pipeline in the default implementation consists of calls to the following methods (of the <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService&gt;</ph> class).</source>
+        </trans-unit>
+        <trans-unit id="332" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService.ValidateRequest%2A&gt;</ph> method to validate the request (RST).</source>
+        </trans-unit>
+        <trans-unit id="333" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService.GetScope%2A&gt;</ph> method to get a <ph id="ph2">&lt;xref:System.IdentityModel.Scope&gt;</ph> object that contains information about the relying party (RP) associated with the request.</source>
+        </trans-unit>
+        <trans-unit id="334" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You must override this method.</source>
+        </trans-unit>
+        <trans-unit id="335" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService.GetScope%2A&gt;</ph> returns <ph id="ph2">`null`</ph>, a <ph id="ph3">&lt;xref:System.InvalidOperationException&gt;</ph> is thrown.</source>
+        </trans-unit>
+        <trans-unit id="336" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService.CreateSecurityTokenDescriptor%2A&gt;</ph> method to return a security token descriptor based on the RST and the <ph id="ph2">&lt;xref:System.IdentityModel.Scope&gt;</ph> object returned in the previous step.</source>
+        </trans-unit>
+        <trans-unit id="337" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The security token descriptor (<ph id="ph1">&lt;xref:System.IdentityModel.Tokens.SecurityTokenDescriptor&gt;</ph>) contains information about the request in a form that can be used by a token handler.</source>
+        </trans-unit>
+        <trans-unit id="338" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService.SecurityTokenDescriptor%2A?displayProperty=fullName&gt;</ph> property is set to the descriptor returned by the call.</source>
+        </trans-unit>
+        <trans-unit id="339" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If <ph id="ph1">`null`</ph> is returned or if the <ph id="ph2">&lt;xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.SigningCredentials%2A&gt;</ph> property of the descriptor is <ph id="ph3">`null`</ph>, an <ph id="ph4">&lt;xref:System.InvalidOperationException&gt;</ph> is thrown.</source>
+        </trans-unit>
+        <trans-unit id="340" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The exception is also thrown if the <ph id="ph1">&lt;xref:System.IdentityModel.Scope.TokenEncryptionRequired%2A?displayProperty=fullName&gt;</ph> property is <ph id="ph2">`true`</ph> but the <ph id="ph3">&lt;xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.EncryptingCredentials%2A&gt;</ph> property on the returned descriptor is <ph id="ph4">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="341" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService.GetSecurityTokenHandler%2A&gt;</ph> method to get the appropriate token handler based on the kind of token requested.</source>
+        </trans-unit>
+        <trans-unit id="342" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If <ph id="ph1">`null`</ph> is returned, a <ph id="ph2">&lt;xref:System.NotImplementedException&gt;</ph> is thrown.</source>
+        </trans-unit>
+        <trans-unit id="343" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService.GetIssuerName%2A&gt;</ph> method to get the issuer name for the token.</source>
+        </trans-unit>
+        <trans-unit id="344" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Throws an <ph id="ph1">&lt;xref:System.InvalidOperationException&gt;</ph> if the name is <ph id="ph2">`null`</ph> or empty; otherwise sets the <ph id="ph3">&lt;xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.TokenIssuerName%2A&gt;</ph> property on the descriptor.</source>
+        </trans-unit>
+        <trans-unit id="345" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService.GetTokenLifetime%2A&gt;</ph> method to get the lifetime for the token and sets the <ph id="ph2">&lt;xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.Lifetime%2A&gt;</ph> property on the descriptor.</source>
+        </trans-unit>
+        <trans-unit id="346" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService.GetProofToken%2A&gt;</ph> method to get the proof token to include in the issued token and sets the <ph id="ph2">&lt;xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.Proof%2A&gt;</ph> property on the descriptor.</source>
+        </trans-unit>
+        <trans-unit id="347" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService.GetOutputClaimsIdentity%2A&gt;</ph> method to get the claims to include in the issued token and sets the <ph id="ph2">&lt;xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.Subject%2A&gt;</ph> property on the descriptor.</source>
+        </trans-unit>
+        <trans-unit id="348" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You must override this method.</source>
+        </trans-unit>
+        <trans-unit id="349" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService.GetResponse%2A&gt;</ph> method to create a response (RSTR) that contains the issued token.</source>
+        </trans-unit>
+        <trans-unit id="350" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You can override the <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService.Issue%2A&gt;</ph> method to implement a custom token issuance pipeline; however this is typically not necessary in the development and test environments for which most custom implementations of the <ph id="ph2">&lt;xref:System.IdentityModel.SecurityTokenService&gt;</ph> class are intended.</source>
+        </trans-unit>
+        <trans-unit id="351" translate="yes" xml:space="preserve" extradata="MT">
+          <source>In many of these cases you override the <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService.GetOutputClaimsIdentity%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.IdentityModel.SecurityTokenService.GetScope%2A&gt;</ph> methods and optionally override the <ph id="ph3">&lt;xref:System.IdentityModel.SecurityTokenService.ValidateRequest%2A&gt;</ph> method  to provide a serviceable STS for your environment.</source>
+        </trans-unit>
+        <trans-unit id="352" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If further customization is necessary you can often provide it by overriding the methods that implement each stage of the default token issuance pipeline listed above.</source>
+        </trans-unit>
+        <trans-unit id="353" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.Security.Claims.ClaimsPrincipal"&gt;&lt;/xref&gt;</ph> that represents the identity of the token requestor.</source>
+        </trans-unit>
+        <trans-unit id="354" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Protocols.WSTrust.RequestSecurityToken"&gt;&lt;/xref&gt;</ph> that represents the security token request.</source>
+        </trans-unit>
+        <trans-unit id="355" translate="yes" xml:space="preserve">
+          <source>This includes the request message as well as other client related information such as authorization context.</source>
+        </trans-unit>
+        <trans-unit id="356" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse"&gt;&lt;/xref&gt;</ph> that contains the issued security token.</source>
+        </trans-unit>
+        <trans-unit id="357" translate="yes" xml:space="preserve">
+          <source>Gets or sets the principal associated with the current instance.</source>
+        </trans-unit>
+        <trans-unit id="358" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.Security.Claims.ClaimsPrincipal"&gt;&lt;/xref&gt;</ph> that represents the current principal.</source>
+        </trans-unit>
+        <trans-unit id="359" translate="yes" xml:space="preserve">
+          <source>When overridden in a derived class, processes a WS-Trust Renew request.</source>
+        </trans-unit>
+        <trans-unit id="360" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The default implementation of this method throws an <ph id="ph1">&lt;xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="361" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.Security.Claims.ClaimsPrincipal"&gt;&lt;/xref&gt;</ph> that represents the identity of the token requestor.</source>
+        </trans-unit>
+        <trans-unit id="362" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Protocols.WSTrust.RequestSecurityToken"&gt;&lt;/xref&gt;</ph> that represents the security token request.</source>
+        </trans-unit>
+        <trans-unit id="363" translate="yes" xml:space="preserve">
+          <source>This includes the request message as well as other client related information such as authorization context.</source>
+        </trans-unit>
+        <trans-unit id="364" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse"&gt;&lt;/xref&gt;</ph> that represents the RSTR to return to the caller.</source>
+        </trans-unit>
+        <trans-unit id="365" translate="yes" xml:space="preserve">
+          <source>Gets or sets the security token request (RST) associated with the current instance.</source>
+        </trans-unit>
+        <trans-unit id="366" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Protocols.WSTrust.RequestSecurityToken"&gt;&lt;/xref&gt;</ph> that contains the request.</source>
+        </trans-unit>
+        <trans-unit id="367" translate="yes" xml:space="preserve">
+          <source>Gets or sets the scope associated with the current instance.</source>
+        </trans-unit>
+        <trans-unit id="368" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Scope"&gt;&lt;/xref&gt;</ph> that represents the configuration for the token issuance request.</source>
+        </trans-unit>
+        <trans-unit id="369" translate="yes" xml:space="preserve">
+          <source>Gets or sets the <ph id="ph1">&lt;xref href="System.IdentityModel.Tokens.SecurityTokenDescriptor"&gt;&lt;/xref&gt;</ph> associated with the current instance.</source>
+        </trans-unit>
+        <trans-unit id="370" translate="yes" xml:space="preserve">
+          <source>The security token descriptor that is associated with the current instance.</source>
+        </trans-unit>
+        <trans-unit id="371" translate="yes" xml:space="preserve">
+          <source>An attempt to set the property to <ph id="ph1">`null`</ph> occurs.</source>
+        </trans-unit>
+        <trans-unit id="372" translate="yes" xml:space="preserve">
+          <source>Gets the owner configuration instance.</source>
+        </trans-unit>
+        <trans-unit id="373" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Configuration.SecurityTokenServiceConfiguration"&gt;&lt;/xref&gt;</ph> that contains the configuration for the current instance.</source>
+        </trans-unit>
+        <trans-unit id="374" translate="yes" xml:space="preserve">
+          <source>When overridden in a derived class, processes a WS-Trust Validate request.</source>
+        </trans-unit>
+        <trans-unit id="375" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The default implementation of this method throws an <ph id="ph1">&lt;xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="376" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.Security.Claims.ClaimsPrincipal"&gt;&lt;/xref&gt;</ph> that represents the identity of the token requestor.</source>
+        </trans-unit>
+        <trans-unit id="377" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Protocols.WSTrust.RequestSecurityToken"&gt;&lt;/xref&gt;</ph> that represents the security token request.</source>
+        </trans-unit>
+        <trans-unit id="378" translate="yes" xml:space="preserve">
+          <source>This includes the request message as well as other client related information such as authorization context.</source>
+        </trans-unit>
+        <trans-unit id="379" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse"&gt;&lt;/xref&gt;</ph> that represents the RSTR to return to the caller.</source>
+        </trans-unit>
+        <trans-unit id="380" translate="yes" xml:space="preserve">
+          <source>Validates the security token request (RST) encapsulated by this instance.</source>
+        </trans-unit>
+        <trans-unit id="381" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService.ValidateRequest%2A&gt;</ph> method is called from the token issuance pipeline (the <ph id="ph2">&lt;xref:System.IdentityModel.SecurityTokenService.Issue%2A&gt;</ph> method) to validate the incoming RST.</source>
+        </trans-unit>
+        <trans-unit id="382" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The RST is validated against the requirements (policy) of the STS and an appropriate exception is thrown if it is not valid.</source>
+        </trans-unit>
+        <trans-unit id="383" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The default implementation of the <ph id="ph1">&lt;xref:System.IdentityModel.SecurityTokenService&gt;</ph> class supports only the RST-RSTR pattern and only the Issue binding of the WS-Trust specification (the <ph id="ph2">&lt;xref:System.IdentityModel.Protocols.WSTrust.WSTrustMessage.RequestType%2A&gt;</ph> property of the request must be set to <ph id="ph3">&lt;xref:System.IdentityModel.Protocols.WSTrust.RequestTypes.Issue?displayProperty=fullName&gt;</ph>).</source>
+        </trans-unit>
+        <trans-unit id="384" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The default implementation of this method enforces these requirements (and others noted in the exceptions section).</source>
+        </trans-unit>
+        <trans-unit id="385" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You can override this method if you must enforce different validation requirements for your custom STS.</source>
+        </trans-unit>
+        <trans-unit id="386" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.IdentityModel.Protocols.WSTrust.RequestSecurityToken"&gt;&lt;/xref&gt;</ph> that represents the request.</source>
+        </trans-unit>
+        <trans-unit id="387" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;code&gt;request&lt;/code&gt;</ph> is <ph id="ph2">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="388" translate="yes" xml:space="preserve">
+          <source>-or-</source>
+        </trans-unit>
+        <trans-unit id="389" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.IdentityModel.Protocols.WSTrust.WSTrustMessage.RequestType"&gt;&lt;/xref&gt;</ph> property of the request is not set to <ph id="ph2">&lt;xref href="System.IdentityModel.Protocols.WSTrust.RequestTypes.Issue"&gt;&lt;/xref&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="390" translate="yes" xml:space="preserve">
+          <source>-or-</source>
+        </trans-unit>
+        <trans-unit id="391" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.IdentityModel.Protocols.WSTrust.WSTrustMessage.KeyType"&gt;&lt;/xref&gt;</ph> property of the request is not <ph id="ph2">`null`</ph> or one of the constants defined in the <ph id="ph3">&lt;xref href="System.IdentityModel.Protocols.WSTrust.KeyTypes"&gt;&lt;/xref&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="392" translate="yes" xml:space="preserve">
+          <source>-or-</source>
+        </trans-unit>
+        <trans-unit id="393" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.IdentityModel.Protocols.WSTrust.WSTrustMessage.KeyType"&gt;&lt;/xref&gt;</ph> of the request is <ph id="ph2">&lt;xref href="System.IdentityModel.Protocols.WSTrust.KeyTypes.Bearer"&gt;&lt;/xref&gt;</ph> and the <ph id="ph3">`KeySize`</ph> element is present, but its value is not equal to zero.</source>
+        </trans-unit>
+        <trans-unit id="394" translate="yes" xml:space="preserve">
+          <source>The STS does not support the request token type (based on the value of the <ph id="ph1">&lt;xref href="System.IdentityModel.Protocols.WSTrust.WSTrustMessage.TokenType"&gt;&lt;/xref&gt;</ph> property of the request).</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
