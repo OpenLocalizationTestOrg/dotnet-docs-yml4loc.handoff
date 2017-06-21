@@ -1,0 +1,519 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ja-jp">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-fdd610b" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">5b6898651f105492d078bca79ce16bedb885757c</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">System.IdentityModel.Services.SessionAuthenticationModule.yml</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net47</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Human Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e404f35cf2ab66835fc59f41318b7dd3da643cd3</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">bb2e5fafa80707f400654efea5216dc271662f16</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Implements an ASP.NET module that processes session cookies in WS-Federation scenarios.</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve" extradata="MT">
+          <source>When present in the ASP.NET pipeline, the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule&gt;</ph> (SAM) processes session cookies in WS-Federation scenarios.</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve" extradata="MT">
+          <source>It uses the cookie handler specified by the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.CookieHandler%2A&gt;</ph> property to read the raw session cookie from the HTTP request and write it to the HTTP response.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve" extradata="MT">
+          <source>It uses the <ph id="ph1">&lt;xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler&gt;</ph> that is configured for an application to deserialize the raw session cookie into <ph id="ph2">&lt;xref:System.IdentityModel.Tokens.SessionSecurityToken&gt;</ph> objects.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The session security token contains the claims (<ph id="ph1">&lt;xref:System.Security.Claims.Claim&gt;</ph>) and principal (<ph id="ph2">&lt;xref:System.Security.Claims.ClaimsPrincipal&gt;</ph>) associated with the entity for which the request is being served.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The SAM adds its <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.OnAuthenticateRequest%2A&gt;</ph> event handler to the <ph id="ph2">&lt;xref:System.Web.HttpApplication.AuthenticateRequest?displayProperty=fullName&gt;</ph> event in the ASP.NET pipeline.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This handler intercepts sign-in requests, and, if there is a session cookie, deserializes it into a session token, and sets the <ph id="ph1">&lt;xref:System.Threading.Thread.CurrentPrincipal%2A?displayProperty=fullName&gt;</ph> and <ph id="ph2">&lt;xref:System.Web.HttpContext.User%2A?displayProperty=fullName&gt;</ph> properties to the claims principal contained in the session token.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve" extradata="MT">
+          <source>It invokes several of the other methods exposed by the SAM during this process.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.SignOut%2A&gt;</ph> method can be invoked to sign the user out of a session (for example, in a SignOut.aspx.cs code-behind file).</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The SAM exposes several events that provide access to its processing pipeline.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.SessionSecurityTokenReceived&gt;</ph> and <ph id="ph2">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.SessionSecurityTokenCreated&gt;</ph> events enable you to modify session tokens that are read from cookies or created during processing.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Typically, this is done to add, remove, or transform claims in the token or to adjust its expiration time.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.SigningOut&gt;</ph>, <ph id="ph2">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.SignedOut&gt;</ph>, and <ph id="ph3">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.SignOutError&gt;</ph> events provide hooks into the processing of sign-out requests.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For many scenarios, simply adding handlers for these events, often to the global.asax.cs file, will be sufficient.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For more complicated scenarios, you can derive from <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule&gt;</ph> to implement a custom SAM.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve" extradata="MT">
+          <source>To this end, many of the methods that are invoked during <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.OnAuthenticateRequest%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.SignOut%2A&gt;</ph> are exposed so that you can provide custom behavior at specific stages of the session processing lifecycle.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You can add the SAM to the ASP.NET pipeline in a configuration file by adding it to the HTTP modules under either the <ph id="ph1">`&lt;system.webServer&gt;`</ph> element for IIS version 7 and later or under the <ph id="ph2">`&lt;system.web&gt;`</ph> element for versions prior to IIS 7.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The cookie handler used by the SAM can be configured with the <bpt id="p1">[</bpt><ph id="ph1">\&amp;</ph>lt;cookieHandler<ph id="ph2">\&amp;</ph>gt;<ept id="p1">](~/docs/framework/configure-apps/file-schema/windows-identity-foundation/cookiehandler.md)</ept> element.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Initializes a new instance of the <ph id="ph1">&lt;xref href="System.IdentityModel.Services.SessionAuthenticationModule"&gt;&lt;/xref&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.IsReferenceMode%2A&gt;</ph> property is set to <ph id="ph2">`false`</ph> and the <ph id="ph3">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.CookieHandler%2A&gt;</ph> property is initialized to a default instance of the <ph id="ph4">&lt;xref:System.IdentityModel.Services.CookieHandlerElement.ChunkedCookieHandler%2A&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Authenticates the incoming request by validating the incoming session token.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Upon successful validation, it updates the current HTTP context and thread principal with the specified  <ph id="ph1">&lt;xref href="System.IdentityModel.Tokens.SessionSecurityToken"&gt;&lt;/xref&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.AuthenticateSessionSecurityToken%2A&gt;</ph> method is called from the <ph id="ph2">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.OnAuthenticateRequest%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve" extradata="MT">
+          <source>It calls the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.SetPrincipalFromSessionToken%2A&gt;</ph> method to validate the incoming token and update the <ph id="ph2">&lt;xref:System.Threading.Thread.CurrentPrincipal%2A?displayProperty=fullName&gt;</ph> and the <ph id="ph3">&lt;xref:System.Web.HttpContext.User%2A?displayProperty=fullName&gt;</ph> properties.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If the <ph id="ph1">`writeCookie`</ph> parameter is <ph id="ph2">`true`</ph>, the <ph id="ph3">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.WriteSessionTokenToCookie%2A&gt;</ph> method is invoked to write the session token to a cookie.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>The session security token to use to authenticate the incoming HTTP request.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`true`</ph> to write the session cookie; otherwise <ph id="ph2">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Determines whether a session cookie is in the specified cookie collection.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>The collection of cookies in which to search.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`true`</ph> if a session cookie is found; otherwise, <ph id="ph2">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;code&gt;httpCookieCollection&lt;/code&gt;</ph> is null</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Gets the active <ph id="ph1">&lt;xref href="System.IdentityModel.Tokens.SessionSecurityToken"&gt;&lt;/xref&gt;</ph> for the current <ph id="ph2">&lt;xref href="System.Web.HttpContext"&gt;&lt;/xref&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The active session security token.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Gets the cookie handler that is used to read, write, and delete session cookies.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.CookieHandler%2A&gt;</ph> property is initialized by the <ph id="ph2">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.InitializePropertiesFromConfiguration%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method initializes the property based on the cookie handler specified on the <ph id="ph1">&lt;xref:System.IdentityModel.Services.Configuration.FederationConfiguration&gt;</ph> object that is set on the <ph id="ph2">&lt;xref:System.IdentityModel.Services.FederatedAuthentication.FederationConfiguration%2A?displayProperty=fullName&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You can set the cookie handler in a configuration file through the <bpt id="p1">[</bpt><ph id="ph1">\&amp;</ph>lt;cookieHandler<ph id="ph2">\&amp;</ph>gt;<ept id="p1">](~/docs/framework/configure-apps/file-schema/windows-identity-foundation/cookiehandler.md)</ept> element.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>The cookie handler.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Creates a <ph id="ph1">&lt;xref href="System.IdentityModel.Tokens.SessionSecurityToken"&gt;&lt;/xref&gt;</ph> from the specified parameters by using the configured session token handler.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>The principal to be captured in the token.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>An application-defined context string.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>The first instant in which this token is valid.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>The last instant in which this token is valid.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`true`</ph> if the value should be persisted by the user agent; otherwise, <ph id="ph2">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>The session token.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>There is not a valid session token handler configured.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>(There is no <ph id="ph1">&lt;xref href="System.IdentityModel.Tokens.SessionSecurityTokenHandler"&gt;&lt;/xref&gt;</ph> configured in the <ph id="ph2">&lt;xref href="System.IdentityModel.Configuration.IdentityConfiguration.SecurityTokenHandlers"&gt;&lt;/xref&gt;</ph> property.)</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Deletes the session cookie and removes it from the cache.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Deletes the session cookie by using the cookie handler specified by the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.CookieHandler%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method is called during sign-out by the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.SignOut%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Initializes the module and prepares it to handle events from the module's <ph id="ph1">[!INCLUDE[vstecasp](~/includes/vstecasp-md.md)]</ph> application object.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Adds the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.OnAuthenticateRequest%2A&gt;</ph> and the <ph id="ph2">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.OnPostAuthenticateRequest%2A&gt;</ph> handlers to the <ph id="ph3">&lt;xref:System.Web.HttpApplication.AuthenticateRequest?displayProperty=fullName&gt;</ph> and <ph id="ph4">&lt;xref:System.Web.HttpApplication.PostAuthenticateRequest?displayProperty=fullName&gt;</ph> events of the application object specified by the <ph id="ph5">`context`</ph> parameter.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>The HTTP application object that contains this module.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Initializes the module properties based on definitions in the configuration file.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Initializes the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.CookieHandler%2A&gt;</ph> property from the handler specified in configuration by the <ph id="ph2">&lt;xref:System.IdentityModel.Services.Configuration.FederationConfiguration?displayProperty=fullName&gt;</ph> object that is set on the <ph id="ph3">&lt;xref:System.IdentityModel.Services.FederatedAuthentication.FederationConfiguration%2A?displayProperty=fullName&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You can specify the cookie handler in a configuration file through the <bpt id="p1">[</bpt><ph id="ph1">\&amp;</ph>lt;cookieHandler<ph id="ph2">\&amp;</ph>gt;<ept id="p1">](~/docs/framework/configure-apps/file-schema/windows-identity-foundation/cookiehandler.md)</ept> element.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Gets or sets a value that specifies whether the session information (claim values, etc.) should be stored in the session cookie or whether the session content should be stored on the server side, using the cookie to store just a reference.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve" extradata="MT">
+          <source>In reference mode, the <ph id="ph1">&lt;xref:System.IdentityModel.Tokens.SessionSecurityToken&gt;</ph> is stored in a server-side cache (an object that derives from <ph id="ph2">&lt;xref:System.IdentityModel.Tokens.SessionSecurityTokenCache&gt;</ph>).</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The issued cookie just contains a context identifier that is used to retrieve the token from the cache.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve" extradata="MT">
+          <source>To operate in reference mode, Microsoft recommends providing a handler for the <ph id="ph1">&lt;xref:System.IdentityModel.Services.WSFederationAuthenticationModule.SessionSecurityTokenCreated?displayProperty=fullName&gt;</ph> event in the global.asax.cs file and setting the <ph id="ph2">&lt;xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A?displayProperty=fullName&gt;</ph> property on the token passed in the <ph id="ph3">&lt;xref:System.IdentityModel.Services.SessionSecurityTokenCreatedEventArgs.SessionToken%2A?displayProperty=fullName&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This will ensure that the session token operates in reference mode for every request and is favored over merely setting the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.IsReferenceMode%2A?displayProperty=fullName&gt;</ph> property on the Session Authentication Module.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`true`</ph> if issued cookies are in reference mode; otherwise, <ph id="ph2">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>The default is <ph id="ph1">`false`</ph>, which specifies that issued cookies are not in reference mode.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>Handles the <ph id="ph1">&lt;xref href="System.Web.HttpApplication.AuthenticateRequest"&gt;&lt;/xref&gt;</ph> event from the <ph id="ph2">[!INCLUDE[vstecasp](~/includes/vstecasp-md.md)]</ph> pipeline.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method does the following:</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Invokes the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.TryReadSessionTokenFromCookie%2A&gt;</ph> method to read a <ph id="ph2">&lt;xref:System.IdentityModel.Tokens.SessionSecurityToken&gt;</ph> from the session cookie, if one is present.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If a session security token cannot be read (most likely because a session has not been established), return.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Invokes the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.OnSessionSecurityTokenReceived%2A&gt;</ph> method to raise the <ph id="ph2">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.SessionSecurityTokenReceived&gt;</ph> event.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This provides an opportunity for the token read from the cookie to be modified or for the request to be canceled.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The handler can also specify that the token should be reissued, by setting the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionSecurityTokenReceivedEventArgs.ReissueCookie%2A?displayProperty=fullName&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If the token is to be reissued, removes it from the cache and invokes the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.OnSessionSecurityTokenCreated%2A&gt;</ph> method to raise the <ph id="ph2">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.SessionSecurityTokenCreated&gt;</ph> event.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This provides opportunity for the token to again be modified.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The reissue behavior can also be modified by setting the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionSecurityTokenCreatedEventArgs.WriteSessionCookie%2A?displayProperty=fullName&gt;</ph> property in the event handler.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Invokes the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.AuthenticateSessionSecurityToken%2A&gt;</ph> method to authenticate the user.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If successful, this has the effect of setting the <ph id="ph1">&lt;xref:System.Threading.Thread.CurrentPrincipal%2A?displayProperty=fullName&gt;</ph> property to the principal that is contained in the <ph id="ph2">&lt;xref:System.IdentityModel.Tokens.SessionSecurityToken.ClaimsPrincipal%2A?displayProperty=fullName&gt;</ph> property of the incoming token.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If the session has expired, invokes the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.SignOut%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.OnAuthenticateRequest%2A&gt;</ph> method is added to the handlers for the <ph id="ph2">&lt;xref:System.Web.HttpApplication.AuthenticateRequest?displayProperty=fullName&gt;</ph> event in the <ph id="ph3">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.InitializeModule%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>The source for the event.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>This will be an <ph id="ph1">&lt;xref href="System.Web.HttpApplication"&gt;&lt;/xref&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>The data for the event.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>There is not a valid session token handler configured.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>(There is no <ph id="ph1">&lt;xref href="System.IdentityModel.Tokens.SessionSecurityTokenHandler"&gt;&lt;/xref&gt;</ph> configured in the <ph id="ph2">&lt;xref href="System.IdentityModel.Configuration.IdentityConfiguration.SecurityTokenHandlers"&gt;&lt;/xref&gt;</ph> property.)</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>Handles the <ph id="ph1">&lt;xref href="System.Web.HttpApplication.PostAuthenticateRequest"&gt;&lt;/xref&gt;</ph> event from the <ph id="ph2">[!INCLUDE[vstecasp](~/includes/vstecasp-md.md)]</ph> pipeline.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The default implementation is empty.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.OnPostAuthenticateRequest%2A&gt;</ph> handler is added to the handlers for the <ph id="ph2">&lt;xref:System.Web.HttpApplication.PostAuthenticateRequest?displayProperty=fullName&gt;</ph> event in the <ph id="ph3">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.InitializeModule%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>The source for the event.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>This will be an <ph id="ph1">&lt;xref href="System.Web.HttpApplication"&gt;&lt;/xref&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>The data for the event.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>Raises the <ph id="ph1">&lt;xref href="System.IdentityModel.Services.SessionAuthenticationModule.SessionSecurityTokenCreated"&gt;&lt;/xref&gt;</ph> event.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Called from the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.OnAuthenticateRequest%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>The data for the event.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>Raises the <ph id="ph1">&lt;xref href="System.IdentityModel.Services.SessionAuthenticationModule.SessionSecurityTokenReceived"&gt;&lt;/xref&gt;</ph> event.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Called from the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.OnAuthenticateRequest%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>The data for the event.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>Raises the <ph id="ph1">&lt;xref href="System.IdentityModel.Services.SessionAuthenticationModule.SignedOut"&gt;&lt;/xref&gt;</ph> event.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method is invoked from the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.SignOut%2A&gt;</ph> method after the sign-out has been performed and the session cookie has been deleted.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>The data for the event.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>Raises the <ph id="ph1">&lt;xref href="System.IdentityModel.Services.SessionAuthenticationModule.SigningOut"&gt;&lt;/xref&gt;</ph> event.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method is invoked from the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.SignOut%2A&gt;</ph> method to perform sign-out.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve" extradata="MT">
+          <source>It is invoked before the session cookie is deleted.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>The data for the event.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>Raises the <ph id="ph1">&lt;xref href="System.IdentityModel.Services.SessionAuthenticationModule.SignOutError"&gt;&lt;/xref&gt;</ph> event.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method is invoked from the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.SignOut%2A&gt;</ph> method if an error occurs during sign-out.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>The data for the event.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>Reads a <ph id="ph1">&lt;xref href="System.IdentityModel.Tokens.SessionSecurityToken"&gt;&lt;/xref&gt;</ph> from the specified session cookie.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>The cookie, in raw form, that contains the session token.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>The session token that was read from the cookie.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>There is not a valid session token handler configured.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>(There is no <ph id="ph1">&lt;xref href="System.IdentityModel.Tokens.SessionSecurityTokenHandler"&gt;&lt;/xref&gt;</ph> configured in the <ph id="ph2">&lt;xref href="System.IdentityModel.Configuration.IdentityConfiguration.SecurityTokenHandlers"&gt;&lt;/xref&gt;</ph> property.)</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>Occurs when a session security token has been created.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You can use this event to modify the session security token before it is written to a cookie.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.SessionSecurityTokenCreated&gt;</ph> event is raised from within the <ph id="ph2">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.OnAuthenticateRequest%2A&gt;</ph> method after a session token (<ph id="ph3">&lt;xref:System.IdentityModel.Tokens.SessionSecurityToken&gt;</ph>) has been created.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This happens, for example, if an event handler for the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.SessionSecurityTokenReceived&gt;</ph> event modifies the token.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You can use this event to modify properties of the session token before it is passed further along the pipeline and is used to authenticate the entity making the request (user).</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve" extradata="MT">
+          <source>In an event handler, you can access the token through the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionSecurityTokenCreatedEventArgs.SessionToken%2A?displayProperty=fullName&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve" extradata="MT">
+          <source>After modifying the token, you can ensure that it is written back to the cookie by setting the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionSecurityTokenCreatedEventArgs.WriteSessionCookie%2A?displayProperty=fullName&gt;</ph> property to <ph id="ph2">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Unlike, the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.SessionSecurityTokenCreated&gt;</ph> event, <ph id="ph2">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.SessionSecurityTokenCreated&gt;</ph> is not a cancelable event.</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>Occurs when a session security token has been read from a cookie.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.SessionSecurityTokenReceived&gt;</ph> event is raised from within the <ph id="ph2">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.OnAuthenticateRequest%2A&gt;</ph> method after a session token (<ph id="ph3">&lt;xref:System.IdentityModel.Tokens.SessionSecurityToken&gt;</ph>) has been successfully read from the session cookie.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You can use this event to modify properties of the session token before it is passed further along the pipeline and is used to authenticate the entity making the request (user).</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve" extradata="MT">
+          <source>One of the most common scenarios involves modifying the session expiration time (accessible through the <ph id="ph1">&lt;xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A?displayProperty=fullName&gt;</ph> property) to override the session expiration time set in configuration through the <ph id="ph2">`lifetime`</ph> attribute of the <bpt id="p1">[</bpt><ph id="ph3">\&amp;</ph>lt;sessionTokenRequirement<ph id="ph4">\&amp;</ph>gt;<ept id="p1">](~/docs/framework/configure-apps/file-schema/windows-identity-foundation/sessiontokenrequirement.md)</ept> element.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve" extradata="MT">
+          <source>By modifying this property on each request, you can implement a sliding session; that is, a session in which the lifetime is extended each time the user accesses the site.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve" extradata="MT">
+          <source>In an event handler, you can access the token through the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionSecurityTokenReceivedEventArgs.SessionToken%2A?displayProperty=fullName&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve" extradata="MT">
+          <source>After modifying the token, you can ensure that it is written back to the cookie by setting the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionSecurityTokenReceivedEventArgs.ReissueCookie%2A?displayProperty=fullName&gt;</ph> to <ph id="ph2">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Finally, the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.SessionSecurityTokenReceived&gt;</ph> event is a cancelable event, and you can set the <ph id="ph2">&lt;xref:System.ComponentModel.CancelEventArgs.Cancel%2A&gt;</ph> property of the <ph id="ph3">&lt;xref:System.IdentityModel.Services.SessionSecurityTokenReceivedEventArgs&gt;</ph> to abort further processing of the request.</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>Sets the principal on the <ph id="ph1">&lt;xref href="System.Web.HttpContext"&gt;&lt;/xref&gt;</ph> and <ph id="ph2">&lt;xref href="System.Threading.Thread"&gt;&lt;/xref&gt;</ph> to the principal that is contained in the specified session token.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Invokes the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.ValidateSessionToken%2A&gt;</ph> method and sets the <ph id="ph2">&lt;xref:System.Threading.Thread.CurrentPrincipal%2A?displayProperty=fullName&gt;</ph> property and the <ph id="ph3">&lt;xref:System.Web.HttpContext.User%2A?displayProperty=fullName&gt;</ph> property on <ph id="ph4">&lt;xref:System.Web.HttpContext.Current%2A?displayProperty=fullName&gt;</ph> using the identities that are returned.</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method is called from the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.AuthenticateSessionSecurityToken%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>The session token from which to set the principal.</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>Occurs after the user is signed out.</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Raised from the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.SignOut%2A&gt;</ph> method just after the <ph id="ph2">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.DeleteSessionTokenCookie%2A&gt;</ph> method is invoked.</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This event is not guaranteed to be called for every session.</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For example, the cookies may be deleted at the client-side, in which case, this event would never be raised because there is no server-side event for deleting the session.</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source>Occurs before deleting the sign-in session.</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Raised from the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.SignOut%2A&gt;</ph> method just before the <ph id="ph2">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.DeleteSessionTokenCookie%2A&gt;</ph> method is invoked.</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This event is not guaranteed to be called for every session.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For example, the cookies may be deleted at the client-side, in which case, this event would never be raised because there is no server-side event for deleting the session.</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>Signs the current user out and raises the associated events.</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Invokes the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.OnSigningOut%2A&gt;</ph>, <ph id="ph2">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.DeleteSessionTokenCookie%2A&gt;</ph>, and <ph id="ph3">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.OnSignedOut%2A&gt;</ph> methods to perform sign-out.</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If an exception occurs, the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.OnSignOutError%2A&gt;</ph> method is invoked to raise the <ph id="ph2">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.SignOutError&gt;</ph> event.</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You can set the <ph id="ph1">&lt;xref:System.ComponentModel.CancelEventArgs.Cancel%2A&gt;</ph> property of the <ph id="ph2">&lt;xref:System.IdentityModel.Services.ErrorEventArgs&gt;</ph> object passed into the event handler for this event to cancel the sign-out and prevent the exception from being propagated to the client.</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You can override this method to add application-specific behavior.</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve">
+          <source>Occurs when there is an error during sign-out.</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Raised from the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.SignOut%2A&gt;</ph> method when an error occurs during sign-out.</source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve" extradata="MT">
+          <source>In an event handler, you can get the exception that resulted in the event being raised from the <ph id="ph1">&lt;xref:System.IdentityModel.Services.ErrorEventArgs.Exception%2A?displayProperty=fullName&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You can cancel further processing of the exception, which has the result of not propagating the exception to the client, by setting the <ph id="ph1">&lt;xref:System.ComponentModel.CancelEventArgs.Cancel%2A&gt;</ph> property of the <ph id="ph2">&lt;xref:System.IdentityModel.Services.ErrorEventArgs&gt;</ph> to <ph id="ph3">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This event is not guaranteed to be called for every session.</source>
+        </trans-unit>
+        <trans-unit id="248" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For example, the cookies may be deleted at the client-side, in which case, this event would never be raised because there is no server-side event for deleting the session.</source>
+        </trans-unit>
+        <trans-unit id="249" translate="yes" xml:space="preserve">
+          <source>Attempts to read a <ph id="ph1">&lt;xref href="System.IdentityModel.Tokens.SessionSecurityToken"&gt;&lt;/xref&gt;</ph> from a session cookie and returns a value that indicates whether the session cookie was successfully read.</source>
+        </trans-unit>
+        <trans-unit id="250" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Reads the cookie by using the cookie handler that is configured in the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.CookieHandler%2A&gt;</ph> property and then invokes the <ph id="ph2">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.ReadSessionTokenFromCookie%2A&gt;</ph> method to read the token from the cookie.</source>
+        </trans-unit>
+        <trans-unit id="251" translate="yes" xml:space="preserve">
+          <source>When this method returns, contains the session security token that was read from the session cookie.</source>
+        </trans-unit>
+        <trans-unit id="252" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`true`</ph> if the session cookie was successfully read from the request; otherwise, <ph id="ph2">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="253" translate="yes" xml:space="preserve">
+          <source>Validates the specified <ph id="ph1">&lt;xref href="System.IdentityModel.Tokens.SessionSecurityToken"&gt;&lt;/xref&gt;</ph> and returns its identities.</source>
+        </trans-unit>
+        <trans-unit id="254" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method is called from the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.AuthenticateSessionSecurityToken%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="255" translate="yes" xml:space="preserve" extradata="MT">
+          <source>It invokes the <ph id="ph1">&lt;xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ValidateToken%2A?displayProperty=fullName&gt;</ph> method of the configured session token handler to validate the token and extract its identities.</source>
+        </trans-unit>
+        <trans-unit id="256" translate="yes" xml:space="preserve">
+          <source>The token to validate.</source>
+        </trans-unit>
+        <trans-unit id="257" translate="yes" xml:space="preserve">
+          <source>The collection of identities that are contained in the token.</source>
+        </trans-unit>
+        <trans-unit id="258" translate="yes" xml:space="preserve">
+          <source>The token has expired.</source>
+        </trans-unit>
+        <trans-unit id="259" translate="yes" xml:space="preserve">
+          <source>The token start time is not yet valid.</source>
+        </trans-unit>
+        <trans-unit id="260" translate="yes" xml:space="preserve">
+          <source>There is not a valid session token handler configured.</source>
+        </trans-unit>
+        <trans-unit id="261" translate="yes" xml:space="preserve">
+          <source>(There is no <ph id="ph1">&lt;xref href="System.IdentityModel.Tokens.SessionSecurityTokenHandler"&gt;&lt;/xref&gt;</ph> configured in the <ph id="ph2">&lt;xref href="System.IdentityModel.Configuration.IdentityConfiguration.SecurityTokenHandlers"&gt;&lt;/xref&gt;</ph> property.)</source>
+        </trans-unit>
+        <trans-unit id="262" translate="yes" xml:space="preserve">
+          <source>Writes the specified <ph id="ph1">&lt;xref href="System.IdentityModel.Tokens.SessionSecurityToken"&gt;&lt;/xref&gt;</ph> to a session cookie.</source>
+        </trans-unit>
+        <trans-unit id="263" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Writes the cookie by using the cookie handler that is configured in the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.CookieHandler%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="264" translate="yes" xml:space="preserve">
+          <source>The session security token to write.</source>
+        </trans-unit>
+        <trans-unit id="265" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;code&gt;sessionToken&lt;/code&gt;</ph> is <ph id="ph2">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="266" translate="yes" xml:space="preserve">
+          <source>There is not a valid session token handler configured.</source>
+        </trans-unit>
+        <trans-unit id="267" translate="yes" xml:space="preserve">
+          <source>(There is no <ph id="ph1">&lt;xref href="System.IdentityModel.Tokens.SessionSecurityTokenHandler"&gt;&lt;/xref&gt;</ph> configured in the <ph id="ph2">&lt;xref href="System.IdentityModel.Configuration.IdentityConfiguration.SecurityTokenHandlers"&gt;&lt;/xref&gt;</ph> property.)</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

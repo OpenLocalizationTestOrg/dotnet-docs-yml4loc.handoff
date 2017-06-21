@@ -1,0 +1,396 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ja-jp">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-fdd610b" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ec3e486bd7918670196bdb97f09a8dfe4d489451</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">System.Xaml.XamlXmlWriter.yml</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net47</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Human Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">7c6685e293d2da123471953d33a06a9898ab7c0d</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e0d87beb4a3630a59dafbc0454ab3d030b3587c0</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Uses a <ph id="ph1">&lt;xref href="System.IO.TextWriter"&gt;&lt;/xref&gt;</ph> or <ph id="ph2">&lt;xref href="System.Xml.XmlWriter"&gt;&lt;/xref&gt;</ph> support class to write a XAML node stream to a text or markup serialized form.</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This class is typically used in serialization scenarios.</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve" extradata="MT">
+          <source>How to Use XamlXmlWriter</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Xaml.XamlWriter&gt;</ph> API has several methods that write different types of XAML nodes.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Collectively, these are referred to in documentation as the <ph id="ph1">`Write`</ph> methods of a <ph id="ph2">&lt;xref:System.Xaml.XamlWriter&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">&lt;xref:System.Xaml.XamlXmlWriter&gt;</ph> uses several internal state classes to determine what to do when one of its <ph id="ph2">`Write`</ph> implementations is called.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A <ph id="ph1">`Write`</ph> call uses the states to determine whether the requested element, attribute, or value can be written, or whether an exception is thrown.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For example, if you call <ph id="ph1">&lt;xref:System.Xaml.XamlXmlWriter.WriteEndObject%2A&gt;</ph> and the state of the <ph id="ph2">&lt;xref:System.Xaml.XamlXmlWriter&gt;</ph> current node position is on a value or within a member, an exception is thrown.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Typically, callers of the <ph id="ph1">&lt;xref:System.Xaml.XamlXmlWriter&gt;</ph> API should be aware of the type of the current XAML node that is coming from the XAML reader and the XAML node stream.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Based on this knowledge, callers should avoid calling <ph id="ph1">`Write`</ph> APIs that are not relevant to the current node type.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve" extradata="MT">
+          <source>XAML Namespaces and XamlXmlWriter</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The XAML namespace writing behavior of <ph id="ph1">&lt;xref:System.Xaml.XamlXmlWriter&gt;</ph> is complex and is not limited to explicit calls to <ph id="ph2">&lt;xref:System.Xaml.XamlXmlWriter.WriteNamespace%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Instead, other <ph id="ph1">`Write`</ph> calls, such as <ph id="ph2">&lt;xref:System.Xaml.XamlXmlWriter.WriteStartObject%2A&gt;</ph>, might require that the namespace declaration be written at particular points in the node structure.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The XAML writer either generates a prefix by its own logic, or uses information from the <ph id="ph1">&lt;xref:System.Xaml.INamespacePrefixLookup&gt;</ph> service to determine a preferred prefix.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Also, explicit <ph id="ph1">&lt;xref:System.Xaml.XamlXmlWriter.WriteNamespace%2A&gt;</ph> calls might defer or might return nothing if the XAML namespace declaration is already applicable and declared elsewhere.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Write Method Exceptions</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Exceptions thrown by the <ph id="ph1">&lt;xref:System.Xaml.XamlXmlWriter&gt;</ph><ph id="ph2">`Write`</ph> methods are typically either <ph id="ph3">&lt;xref:System.InvalidOperationException&gt;</ph> or <ph id="ph4">&lt;xref:System.Xaml.XamlXmlWriterException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve" extradata="MT">
+          <source>An <ph id="ph1">&lt;xref:System.InvalidOperationException&gt;</ph> often indicates that a XAML reader passed an invalid node structure into the XAML node stream.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve" extradata="MT">
+          <source>In this case the node structure is invalid for reasons that are not related to validation of a XAML schema or a XAML schema context.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Rather, the node stream is invalid in its basic form.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For example, if a faulty XAML reader implementation generated a XAML node stream that contained two consecutive <ph id="ph1">`StartObject`</ph> nodes, the attempt to call the second <ph id="ph2">&lt;xref:System.Xaml.XamlXmlWriter.WriteStartObject%2A&gt;</ph> would throw an <ph id="ph3">&lt;xref:System.InvalidOperationException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve" extradata="MT">
+          <source>All XAML writers would consider such an operation to be invalid.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Another example of an <ph id="ph1">&lt;xref:System.InvalidOperationException&gt;</ph> is when XAML namespace information is unavailable through the XAML schema context that applies to the current node stream position.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A <ph id="ph1">&lt;xref:System.Xaml.XamlXmlWriterException&gt;</ph> indicates an exception where this particular XAML writer implementation chooses to throw an exception based on its intended functionality.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A <ph id="ph1">&lt;xref:System.Xaml.XamlXmlWriterException&gt;</ph> can indicate specific cases where a <ph id="ph2">&lt;xref:System.Xaml.XamlXmlWriter&gt;</ph> violates its own state or settings.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For example, a <ph id="ph1">&lt;xref:System.Xaml.XamlXmlWriterException&gt;</ph> might result from attempts to write XAML namespace information into a position that the <ph id="ph2">&lt;xref:System.Xaml.XamlXmlWriter&gt;</ph> and its serialization format do not support, or writing duplicate members when the instance's <ph id="ph3">&lt;xref:System.Xaml.XamlXmlWriterSettings&gt;</ph> forbid it.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Initializes a new instance of the <ph id="ph1">&lt;xref href="System.Xaml.XamlXmlWriter"&gt;&lt;/xref&gt;</ph> class from a stream.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The stream to write.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>The XAML schema context for the XAML writer.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;code&gt;stream&lt;/code&gt;</ph> is <ph id="ph2">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>-or-</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;code&gt;schemaContext&lt;/code&gt;</ph> is <ph id="ph2">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Initializes a new instance of the <ph id="ph1">&lt;xref href="System.Xaml.XamlXmlWriter"&gt;&lt;/xref&gt;</ph> class from a <ph id="ph2">&lt;xref href="System.IO.TextWriter"&gt;&lt;/xref&gt;</ph> basis.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.IO.TextWriter"&gt;&lt;/xref&gt;</ph> that writes the output.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The XAML schema context for the XAML writer.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;code&gt;textWriter&lt;/code&gt;</ph> or <ph id="ph2">&lt;code&gt;schemaContext&lt;/code&gt;</ph> is <ph id="ph3">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Initializes a new instance of the <ph id="ph1">&lt;xref href="System.Xaml.XamlXmlWriter"&gt;&lt;/xref&gt;</ph> class from a <ph id="ph2">&lt;xref href="System.Xml.XmlWriter"&gt;&lt;/xref&gt;</ph> basis.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Xml.XmlWriter"&gt;&lt;/xref&gt;</ph> that writes the output.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>The XAML schema context for the XAML writer.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;code&gt;xmlWriter&lt;/code&gt;</ph> or <ph id="ph2">&lt;code&gt;schemaContext&lt;/code&gt;</ph> is <ph id="ph3">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Initializes a new instance of the <ph id="ph1">&lt;xref href="System.Xaml.XamlXmlWriter"&gt;&lt;/xref&gt;</ph> class from a stream using a writer settings object.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Do not change any values of the <ph id="ph1">`settings`</ph> object after the <ph id="ph2">&lt;xref:System.Xaml.XamlXmlWriter&gt;</ph> instance is constructed.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">&lt;xref:System.Xaml.XamlXmlWriter&gt;</ph> cannot update its internal settings based on settings values that are mutable at run time.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Settings should be provided for initialization only.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You can merge settings from an active XAML writer by using one of the <ph id="ph1">&lt;xref:System.Xaml.XamlXmlWriterSettings&gt;</ph> constructor signatures; however, you must then apply these settings to a new XAML writer instance instead of attempting to adjust the existing one.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>The stream to write.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>The XAML schema context for the XAML writer.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>An instance of <ph id="ph1">&lt;xref href="System.Xaml.XamlXmlWriterSettings"&gt;&lt;/xref&gt;</ph>, which typically has specific non-default settings.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;code&gt;stream&lt;/code&gt;</ph> or <ph id="ph2">&lt;code&gt;schemaContext&lt;/code&gt;</ph> is <ph id="ph3">`null`</ph></source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Initializes a new instance of the <ph id="ph1">&lt;xref href="System.Xaml.XamlXmlWriter"&gt;&lt;/xref&gt;</ph> class from a <ph id="ph2">&lt;xref href="System.IO.TextWriter"&gt;&lt;/xref&gt;</ph> basis using a settings object.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Do not change any values of the <ph id="ph1">`settings`</ph> object after the <ph id="ph2">&lt;xref:System.Xaml.XamlXmlWriter&gt;</ph> instance is constructed.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">&lt;xref:System.Xaml.XamlXmlWriter&gt;</ph> cannot update its internal settings based on settings values that are mutable at run time.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Settings should be provided for initialization only.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You can merge settings from an active XAML writer by using one of the <ph id="ph1">&lt;xref:System.Xaml.XamlXmlWriterSettings&gt;</ph> constructor signatures; however, you must then apply these settings to a new XAML writer instance instead of attempting to adjust the existing one.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.IO.TextWriter"&gt;&lt;/xref&gt;</ph> that writes the output.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>The XAML schema context for the XAML writer.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>An instance of <ph id="ph1">&lt;xref href="System.Xaml.XamlXmlWriterSettings"&gt;&lt;/xref&gt;</ph>, which typically has specific non-default settings.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;code&gt;textWriter&lt;/code&gt;</ph> or <ph id="ph2">&lt;code&gt;schemaContext&lt;/code&gt;</ph> is <ph id="ph3">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Initializes a new instance of the <ph id="ph1">&lt;xref href="System.Xaml.XamlXmlWriter"&gt;&lt;/xref&gt;</ph> class from a <ph id="ph2">&lt;xref href="System.Xml.XmlWriter"&gt;&lt;/xref&gt;</ph> basis using a settings object.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Do not change any values of the <ph id="ph1">`settings`</ph> object after the <ph id="ph2">&lt;xref:System.Xaml.XamlXmlWriter&gt;</ph> instance is constructed.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">&lt;xref:System.Xaml.XamlXmlWriter&gt;</ph> cannot update its internal settings based on settings values that are mutable at run time.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Settings should be provided for initialization only.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You can merge settings from an active XAML writer by using one of the <ph id="ph1">&lt;xref:System.Xaml.XamlXmlWriterSettings&gt;</ph> constructor signatures; however, you must then apply these settings to a new XAML writer instance instead of attempting to adjust the existing one.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Xml.XmlWriter"&gt;&lt;/xref&gt;</ph> that writes the output.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>The XAML schema context for the XAML writer.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>An instance of <ph id="ph1">&lt;xref href="System.Xaml.XamlXmlWriterSettings"&gt;&lt;/xref&gt;</ph>, which typically has specific non-default settings.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;code&gt;xmlWriter&lt;/code&gt;</ph> or <ph id="ph2">&lt;code&gt;schemaContext&lt;/code&gt;</ph> is <ph id="ph3">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>Releases the unmanaged resources used by <ph id="ph1">&lt;xref href="System.Xaml.XamlXmlWriter"&gt;&lt;/xref&gt;</ph> and optionally releases the managed resources.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This implementation calls <ph id="ph1">`Close`</ph> on the underlying <ph id="ph2">&lt;xref:System.Xml.XmlWriter&gt;</ph> or <ph id="ph3">&lt;xref:System.IO.TextWriter&gt;</ph> for cases where <ph id="ph4">&lt;xref:System.Xaml.XamlXmlWriterSettings.CloseOutput%2A&gt;</ph> is <ph id="ph5">`true`</ph> in any supplied <ph id="ph6">&lt;xref:System.Xaml.XamlXmlWriterSettings&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Otherwise, it calls <ph id="ph1">&lt;xref:System.Xaml.XamlXmlWriter.Flush%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`true`</ph> to release the unmanaged resources; otherwise, <ph id="ph2">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Calls the <ph id="ph1">`Flush`</ph> method of the underlying <ph id="ph2">&lt;xref href="System.Xml.XmlWriter"&gt;&lt;/xref&gt;</ph> or <ph id="ph3">&lt;xref href="System.IO.TextWriter"&gt;&lt;/xref&gt;</ph>, which writes anything that is currently in the buffer, and then closes the writer.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">`Dispose`</ph> behavior for a <ph id="ph2">&lt;xref:System.Xaml.XamlXmlWriter&gt;</ph> can be influenced by its writer settings, especially by <ph id="ph3">&lt;xref:System.Xaml.XamlXmlWriterSettings.CloseOutput%2A?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Gets the XAML schema context that this <ph id="ph1">&lt;xref href="System.Xaml.XamlXmlWriter"&gt;&lt;/xref&gt;</ph> uses for processing.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A XAML writer typically gets its XAML schema context from the associated XAML reader that is supplying the XAML node stream.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>The XAML schema context that this <ph id="ph1">&lt;xref href="System.Xaml.XamlXmlWriter"&gt;&lt;/xref&gt;</ph> uses for XAML processing.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Gets the writer settings that this <ph id="ph1">&lt;xref href="System.Xaml.XamlXmlWriter"&gt;&lt;/xref&gt;</ph> uses for XAML processing.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The value that you get from this property is a copy and not a reference.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Changing property values on the settings does not affect the active <ph id="ph1">&lt;xref:System.Xaml.XamlXmlWriter&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>The writer settings that this <ph id="ph1">&lt;xref href="System.Xaml.XamlXmlWriter"&gt;&lt;/xref&gt;</ph> uses for XAML processing.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Writes a XAML end member node to the underlying <ph id="ph1">&lt;xref href="System.Xml.XmlWriter"&gt;&lt;/xref&gt;</ph> or <ph id="ph2">&lt;xref href="System.IO.TextWriter"&gt;&lt;/xref&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>Throws an exception if the current position of the XAML node stream is not within a member, or if the internal writer state does not support writing to an end member.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>The current position of the XAML node stream is not within a member.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>The current writer state does not support writing an end member.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>Writes a XAML end object node to the underlying <ph id="ph1">&lt;xref href="System.Xml.XmlWriter"&gt;&lt;/xref&gt;</ph> or <ph id="ph2">&lt;xref href="System.IO.TextWriter"&gt;&lt;/xref&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>Throws an exception if the current position of the XAML node stream that is being processed is incompatible with writing an end object.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve" extradata="MT">
+          <source>In markup and text representations of XAML, an end object is a closing tag.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The most common case where <ph id="ph1">&lt;xref:System.InvalidOperationException&gt;</ph> is thrown by <ph id="ph2">&lt;xref:System.Xaml.XamlXmlWriter.WriteEndObject%2A&gt;</ph> is when the current XAML node stream position is still within a member, and <ph id="ph3">&lt;xref:System.Xaml.XamlXmlWriter.WriteEndObject%2A&gt;</ph> is called.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>The current position of the XAML node stream is not in a scope where an end member can be written.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>The current writer state does not support writing an end object.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>Writes an object for cases where the specified object is a default or implicit value of the property that is being written, instead of being specified as an object value in the input XAML node set.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>Writes namespace information to the underlying <ph id="ph1">&lt;xref href="System.Xml.XmlWriter"&gt;&lt;/xref&gt;</ph> or <ph id="ph2">&lt;xref href="System.IO.TextWriter"&gt;&lt;/xref&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>May throw an exception for certain states; however, may instead defer writing the namespace information until the writer and the XAML node stream that is being processed reaches a position where a XAML namespace declaration can be inserted.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>The XAML namespace declaration to write.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;code&gt;namespaceDeclaration&lt;/code&gt;</ph> is <ph id="ph2">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;code&gt;namespaceDeclaration&lt;/code&gt;</ph> is not a valid XAML namespace declaration (has a null prefix or null identifier component).</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>The current writer state does not support writing a XAML namespace declaration.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>Writes a XAML start member node to the underlying <ph id="ph1">&lt;xref href="System.Xml.XmlWriter"&gt;&lt;/xref&gt;</ph> or <ph id="ph2">&lt;xref href="System.IO.TextWriter"&gt;&lt;/xref&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>Throws an exception if the current position of the XAML node stream is within another member, or if it is not in a scope or writer state where a start member can be written.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Internal default logic in the <ph id="ph1">&lt;xref:System.Xaml.XamlXmlWriter&gt;</ph> first attempts to write the member in attribute form.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If no attribute form is supported because the property or its value does not support text syntax, a property element is written instead.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If the property is a XAML content property, a <ph id="ph1">`GetObject`</ph> case, or an implicit property, other XAML forms might be written, such as inner text or an object child that has no intervening member.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The duplicate member exception is never thrown if <ph id="ph1">&lt;xref:System.Xaml.XamlXmlWriterSettings.AssumeValidInput%2A&gt;</ph> is <ph id="ph2">`true`</ph> in the <ph id="ph3">&lt;xref:System.Xaml.XamlXmlWriterSettings&gt;</ph> object that was used for settings for this <ph id="ph4">&lt;xref:System.Xaml.XamlXmlWriter&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>The XAML member identifier for the member to write.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;code&gt;property&lt;/code&gt;</ph> is <ph id="ph2">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;code&gt;property&lt;/code&gt;</ph> is not a valid <ph id="ph2">&lt;xref href="System.Xaml.XamlMember"&gt;&lt;/xref&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>The current position of the XAML node stream is invalid for writing a start member.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>The writer state is not valid for writing a start member.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>-or-</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>The XAML writer attempted to write a duplicate member.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>This exception may have a more precise inner exception.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>Writes a XAML start object node to the underlying <ph id="ph1">&lt;xref href="System.Xml.XmlWriter"&gt;&lt;/xref&gt;</ph> or <ph id="ph2">&lt;xref href="System.IO.TextWriter"&gt;&lt;/xref&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>Throws an exception if the current position of the XAML node stream is not in a scope where a start object can be written, or if the writer is not in a state that can write a start object.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Xaml.XamlType"&gt;&lt;/xref&gt;</ph> (XAML type identifier) for the object to write.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;code&gt;type&lt;/code&gt;</ph> is <ph id="ph2">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;code&gt;type&lt;/code&gt;</ph> is not a valid <ph id="ph2">&lt;xref href="System.Xaml.XamlType"&gt;&lt;/xref&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>The current position of the XAML node stream is not valid for writing a new start object.</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>The state of the XAML writer is not valid for writing a new start object.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>Writes a XAML value node to the underlying <ph id="ph1">&lt;xref href="System.Xml.XmlWriter"&gt;&lt;/xref&gt;</ph> or <ph id="ph2">&lt;xref href="System.IO.TextWriter"&gt;&lt;/xref&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>Throws an exception if the current position of the XAML node stream is invalid for writing a value, or the writer is in a state where a value cannot be written.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The input <ph id="ph1">`value`</ph> may be <ph id="ph2">`null`</ph>, which supports explicitly writing out null as a serialized value.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This behavior uses the <ph id="ph1">&lt;xref:System.Xaml.XamlLanguage.Null%2A?displayProperty=fullName&gt;</ph> definition as <ph id="ph2">&lt;xref:System.Xaml.XamlXmlWriter.WriteStartObject%2A&gt;</ph> input and then immediately calls <ph id="ph3">&lt;xref:System.Xaml.XamlXmlWriter.WriteEndObject%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>The value information to write.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>The current position of the XAML node stream is not valid for writing a value.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>The XAML writer state does not support the writing of a value node.</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;code&gt;value&lt;/code&gt;</ph> specifies a value that is not null or a string.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

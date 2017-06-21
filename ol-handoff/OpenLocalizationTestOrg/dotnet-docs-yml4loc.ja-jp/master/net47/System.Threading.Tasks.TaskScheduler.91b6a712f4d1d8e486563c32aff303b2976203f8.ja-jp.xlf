@@ -1,0 +1,537 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ja-jp">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-fdd610b" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">178e5b076653ab1916b7918c33e9928a2959d2fa</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">System.Threading.Tasks.TaskScheduler.yml</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net47</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Human Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">324fb65d385711b2b4260c3828492a32cb86637c</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">55c4520320780fb52c085d55345c9a39fd939258</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Represents an object that handles the low-level work of queuing tasks onto threads.</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve" extradata="MT">
+          <source>An instance of the <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskScheduler&gt;</ph> class represents a task scheduler.</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A task scheduler ensures that the work of a task is eventually executed.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The default task scheduler is based on the .NET Framework 4 thread pool, which provides work-stealing for load-balancing, thread injection/retirement for maximum throughput, and overall good performance.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve" extradata="MT">
+          <source>It should be sufficient for most scenarios.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskScheduler&gt;</ph> class also serves as the extension point for all customizable scheduling logic.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This includes mechanisms such as how to schedule a task for execution, and how scheduled tasks should be exposed to debuggers.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If you require special functionality, you can create a custom scheduler and enable it for specific tasks or queries.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve" extradata="MT">
+          <source>In this topic:</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve" extradata="MT">
+          <source><bpt id="p1">[</bpt>The default task scheduler and the thread pool<ept id="p1">](#Default)</ept></source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve" extradata="MT">
+          <source><bpt id="p1"> [</bpt>The global queue vs. local queues<ept id="p1">](#Queues)</ept></source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve" extradata="MT">
+          <source><bpt id="p1"> [</bpt>Work stealing<ept id="p1">](#Stealing)</ept></source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve" extradata="MT">
+          <source><bpt id="p1"> [</bpt>Long-running tasks<ept id="p1">](#LongRunning)</ept></source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve" extradata="MT">
+          <source><bpt id="p1"> [</bpt>Task inlining<ept id="p1">](#Inlining)</ept></source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve" extradata="MT">
+          <source><bpt id="p1">[</bpt>Specifying a synchronization context<ept id="p1">](#Sync)</ept></source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The default task scheduler and the thread pool</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The default scheduler for the Task Parallel Library and PLINQ uses the .NET Framework thread pool, which is represented by the <ph id="ph1">&lt;xref:System.Threading.ThreadPool&gt;</ph> class, to queue and execute work.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The thread pool uses the information that is provided by the <ph id="ph1">&lt;xref:System.Threading.Tasks.Task&gt;</ph> type to efficiently     support the fine-grained parallelism (short-lived units of work) that parallel tasks and queries often represent.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The global queue vs. local queues</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The thread pool maintains a global FIFO (first-in, first-out) work queue for threads in each application domain.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Whenever a program calls the <ph id="ph1">&lt;xref:System.Threading.ThreadPool.QueueUserWorkItem%2A?displayProperty=fullName&gt;</ph> (or <ph id="ph2">&lt;xref:System.Threading.ThreadPool.UnsafeQueueUserWorkItem%2A?displayProperty=fullName&gt;</ph>) method, the work is put on this shared queue and eventually de-queued onto the next thread that becomes available.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Starting with the .NET Framework 4, this queue has been improved to use a lock-free algorithm that resembles the <ph id="ph1">&lt;xref:System.Collections.Concurrent.ConcurrentQueue%601&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve" extradata="MT">
+          <source>By using this lock-free implementation, the thread pool spends less time when it queues and de-queues work items.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This performance benefit is available to all programs that use the thread pool.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Top-level tasks, which are tasks that are not created in the context of another task, are put on the global queue just like any other work item.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve" extradata="MT">
+          <source>However, nested or child tasks, which are created in the context of another task, are handled quite differently.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A child or nested task is put on a local queue that is specific to the thread on which the parent task is executing.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The parent task may be a top-level task or it also may be the child of another task.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve" extradata="MT">
+          <source>When this thread is ready for more work, it first looks in the local queue.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If work items are waiting there, they can be accessed quickly.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The local queues are accessed in last-in, first-out order (LIFO) to preserve cache locality and reduce contention.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For more information about child tasks and nested tasks, see <bpt id="p1">[</bpt>Attached and Detached Child Tasks<ept id="p1">](~/docs/standard/parallel-programming/attached-and-detached-child-tasks.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The use of local queues not only reduces pressure on the global queue, but also takes advantage of data locality.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Work items in the local queue frequently reference data structures that are physically near one another in memory.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve" extradata="MT">
+          <source>In these cases, the data is already in the cache after the first task has run and can be accessed quickly.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Both <bpt id="p1">[</bpt>Parallel LINQ (PLINQ)<ept id="p1">](~/docs/standard/parallel-programming/parallel-linq-plinq.md)</ept> and the <ph id="ph1">&lt;xref:System.Threading.Tasks.Parallel&gt;</ph> class use nested tasks and child tasks extensively, and achieve significant speedups by using the local work queues.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Work stealing</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Starting with the .NET Framework 4, the thread pool also features a work-stealing algorithm to help make sure that no threads are sitting idle while others still have work in their queues.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve" extradata="MT">
+          <source>When a thread-pool thread is ready for more work, it first looks at the head of its local queue, then in the global queue, and then in the local queues of other threads.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If it finds a work item in the local queue of another thread, it first applies heuristics to make sure that it can run the work efficiently.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If it can, it de-queues the work item from the tail (in FIFO order).</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This reduces contention on each local queue and preserves data locality.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This architecture helps the  thread pool load-balance work more efficiently than past versions did.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Long-running tasks</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You may want to explicitly prevent a task from being put on a local queue.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For example, you may know that a particular work item will run for a relatively long time and is likely to block all other work items on the local queue.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve" extradata="MT">
+          <source>In this case, you can specify the <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskCreationOptions?displayProperty=fullName&gt;</ph> option, which provides a hint to the scheduler that an additional thread might be required for the task so that it does not block the forward progress of other threads or work items on the local queue.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve" extradata="MT">
+          <source>By using this option you avoid the thread pool completely, including the global and local queues.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Task inlining</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve" extradata="MT">
+          <source>In some cases when a <ph id="ph1">&lt;xref:System.Threading.Tasks.Task&gt;</ph> is waited on, it may be executed synchronously on the thread that is performing the wait operation.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This enhances performance by preventing the need for an additional thread and instead using the existing thread, which would have blocked otherwise.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve" extradata="MT">
+          <source>To prevent errors due to re-entrancy, task inlining only occurs when the wait target is found in the relevant thread's local queue.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Specifying a synchronization context</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You can use the <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext%2A?displayProperty=fullName&gt;</ph> method to specify that a task should be scheduled to run on a particular thread.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This is useful in frameworks such as Windows Forms and Windows Presentation Foundation where access to user interface objects is often restricted to code that is running on the same thread on which the UI object was created.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For more information, see How to: Schedule Work on the User Interface (UI) Thread.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The following example uses the <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext%2A?displayProperty=fullName&gt;</ph> method in a Windows Presentation Foundation (WPF) app to schedule a task on the same thread that the user interface (UI) control was created on.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The example creates a mosaic of images that are randomly selected from a specified directory.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The WPF objects are used to load and resize the images.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The raw pixels are then passed to a task that uses a <ph id="ph1">`For`</ph> loop to write the pixel data into a large single-byte array.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve" extradata="MT">
+          <source>No synchronization is required because no two tiles occupy the same array elements.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The tiles can also be written in any order because their position is calculated independently of any other tile.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The large array is then passed to a task that runs on the UI thread, where the pixel data is loaded into an Image control.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The example moves data off the UI thread, modifies it by using parallel loops and <ph id="ph1">&lt;xref:System.Threading.Tasks.Task&gt;</ph> objects, and then passes it back to a task that runs on the UI thread.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This approach is useful when you have to use the Task Parallel Library to perform operations that either are not supported by the WPF API, or are not sufficiently fast.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Another way to create an image mosaic in WPF is to use a <ph id="ph1">&lt;xref:System.Windows.Controls.WrapPanel?displayProperty=fullName&gt;</ph> control and add images to it.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Windows.Controls.WrapPanel&gt;</ph> handles the work of positioning the tiles.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve" extradata="MT">
+          <source>However, this work can only be performed on the UI thread.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve" extradata="MT">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPL_SyncContext#01<ept id="p2">](~/samples/snippets/csharp/VS_Snippets_Misc/tpl_synccontext/cs/mainwindow.xaml.cs#01)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>TPL_SyncContext#01<ept id="p4">](~/samples/snippets/visualbasic/VS_Snippets_Misc/tpl_synccontext/vb/MainWindow.xaml.vb#01)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve" extradata="MT">
+          <source>To create the example, crate a WPF application project in Visual Studio and assign it a name of your choice.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Then do the following:</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve" extradata="MT">
+          <source>In design view, drag an <ph id="ph1">&lt;xref:System.Windows.Controls.Image&gt;</ph> control from the <bpt id="p1">**</bpt>Toolbox<ept id="p1">**</ept> to the design surface.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve" extradata="MT">
+          <source>In XAML view, specify the horizontal alignment as "Left."</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The size does not matter because the control is be dynamically resized at run time.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Accept the default name, "image".</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Drag a <ph id="ph1">&lt;xref:System.Windows.Controls.Button&gt;</ph> control from the <bpt id="p1">**</bpt>Toolbox<ept id="p1">**</ept> to the lower left part of the application window.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Double-click the button to add a <ph id="ph1">&lt;xref:System.Windows.Controls.Primitives.ButtonBase.Click&gt;</ph> event handler.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve" extradata="MT">
+          <source>In XAML view, specify the <ph id="ph1">&lt;xref:System.Windows.Controls.ContentControl.Content%2A&gt;</ph> property of the button as "Make a Mosaic" and specify its horizontal alignment as "Left".</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Accept the default name, "button".</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Replace the entire contents of the MainWindow.xaml.cs or MainWindow.xaml.vb file with the code from this example.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Make sure that the name of the workspace matches the project name.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The example reads JPEG images from a directory named C:\Users\Public\Pictures\Sample Pictures<ph id="ph1">\\</ph>.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Either create the directory and place some images in it, or change the path to refer to some other directory that contains images.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This example has some limitations.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For example, only 32-bits-per-pixel images are supported; images in other formats are corrupted by the <ph id="ph1">&lt;xref:System.Windows.Media.Imaging.BitmapImage&gt;</ph> object during the resizing operation.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Also, the source images must all be larger than the tile size.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve" extradata="MT">
+          <source>As a further exercise, you can add functionality to handle multiple pixel formats and file sizes.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>Initializes the <ph id="ph1">&lt;xref href="System.Threading.Tasks.TaskScheduler"&gt;&lt;/xref&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>Gets the <ph id="ph1">&lt;xref href="System.Threading.Tasks.TaskScheduler"&gt;&lt;/xref&gt;</ph> associated with the currently executing task.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve" extradata="MT">
+          <source>When not called from within a task, <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskScheduler.Current%2A&gt;</ph> will return the <ph id="ph2">&lt;xref:System.Threading.Tasks.TaskScheduler.Default%2A&gt;</ph> scheduler.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For more information, see <bpt id="p1">[</bpt>Task Schedulers<ept id="p1">](http://msdn.microsoft.com/library/638f8ea5-21db-47a2-a934-86e1e961bf65)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>Returns the <ph id="ph1">&lt;xref href="System.Threading.Tasks.TaskScheduler"&gt;&lt;/xref&gt;</ph> associated with the currently executing task.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>Gets the default <ph id="ph1">&lt;xref href="System.Threading.Tasks.TaskScheduler"&gt;&lt;/xref&gt;</ph> instance that is provided by the .NET Framework.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For more information, see <bpt id="p1">[</bpt>Task Schedulers<ept id="p1">](http://msdn.microsoft.com/library/638f8ea5-21db-47a2-a934-86e1e961bf65)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>Returns the default <ph id="ph1">&lt;xref href="System.Threading.Tasks.TaskScheduler"&gt;&lt;/xref&gt;</ph> instance.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>Creates a <ph id="ph1">&lt;xref href="System.Threading.Tasks.TaskScheduler"&gt;&lt;/xref&gt;</ph> associated with the current <ph id="ph2">&lt;xref href="System.Threading.SynchronizationContext"&gt;&lt;/xref&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve" extradata="MT">
+          <source>All <ph id="ph1">&lt;xref:System.Threading.Tasks.Task&gt;</ph> instances queued to the returned scheduler will be executed through a call to the <ph id="ph2">&lt;xref:System.Threading.SynchronizationContext.Post%2A&gt;</ph> method on that context.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For more information, see <bpt id="p1">[</bpt>Task Schedulers<ept id="p1">](http://msdn.microsoft.com/library/638f8ea5-21db-47a2-a934-86e1e961bf65)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.Threading.Tasks.TaskScheduler"&gt;&lt;/xref&gt;</ph> associated with the current <ph id="ph2">&lt;xref href="System.Threading.SynchronizationContext"&gt;&lt;/xref&gt;</ph>, as determined by <ph id="ph3">&lt;xref href="System.Threading.SynchronizationContext.Current"&gt;&lt;/xref&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>The current SynchronizationContext may not be used as a TaskScheduler.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>For debugger support only, generates an enumerable of <ph id="ph1">&lt;xref href="System.Threading.Tasks.Task"&gt;&lt;/xref&gt;</ph> instances currently queued to the scheduler waiting to be executed.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A class derived from <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskScheduler&gt;</ph> implements this method in order to support integration with debuggers.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method will only be invoked by the .NET Framework when the debugger requests access to the data.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The enumerable returned will be traversed by debugging utilities to access the tasks currently queued to this scheduler, enabling the debugger to provide a representation of this information in the user interface.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve" extradata="MT">
+          <source>It is important to note that, when this method is called, all other threads in the process will be frozen.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Therefore, it's important to avoid synchronization with other threads that may lead to blocking.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If synchronization is necessary, and you are unable to acquire the lock in this method, then you should throw an exception so that the debugger does not hang.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The following example shows one possible approach in C#:</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Additionally, this method and the enumerable returned must not modify any globally visible state.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The returned enumerable should never be null.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If there are currently no queued tasks, an empty enumerable should be returned instead.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Developers who are implementing custom debuggers shouldn't call this method directly, but should use the internal wrapper method <ph id="ph1">`GetScheduledTasksForDebugger`</ph> instead: <ph id="ph2">`internal Task[] GetScheduledTasksForDebugger()`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This wrapper method returns an array of tasks instead of an enumerable.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve" extradata="MT">
+          <source>To retrieve a list of active schedulers, use the internal method <ph id="ph1">`internal static TaskScheduler[] GetTaskSchedulersForDebugger()`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This static method returns an array of all active <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskScheduler&gt;</ph> instances.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You can then use <ph id="ph1">`GetScheduledTasksForDebugger`</ph> on each scheduler instance to retrieve its list of scheduled tasks.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>An enumerable that allows a debugger to traverse the tasks currently queued to this scheduler.</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>This scheduler is unable to generate a list of queued tasks at this time.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>Gets the unique ID for this <ph id="ph1">&lt;xref href="System.Threading.Tasks.TaskScheduler"&gt;&lt;/xref&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For more information, see <bpt id="p1">[</bpt>Task Schedulers<ept id="p1">](http://msdn.microsoft.com/library/638f8ea5-21db-47a2-a934-86e1e961bf65)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>Returns the unique ID for this <ph id="ph1">&lt;xref href="System.Threading.Tasks.TaskScheduler"&gt;&lt;/xref&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>Indicates the maximum concurrency level this <ph id="ph1">&lt;xref href="System.Threading.Tasks.TaskScheduler"&gt;&lt;/xref&gt;</ph> is able to support.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For more information, see <bpt id="p1">[</bpt>Task Schedulers<ept id="p1">](http://msdn.microsoft.com/library/638f8ea5-21db-47a2-a934-86e1e961bf65)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>Returns an integer that represents the maximum concurrency level.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>The default scheduler returns <ph id="ph1">&lt;xref href="System.Int32.MaxValue"&gt;&lt;/xref&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>Queues a <ph id="ph1">&lt;xref href="System.Threading.Tasks.Task"&gt;&lt;/xref&gt;</ph> to the scheduler.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A class derived from <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskScheduler&gt;</ph> implements this method to accept tasks being scheduled on the scheduler.</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A typical implementation would store the task in an internal data structure, which would be serviced by threads that would execute those tasks at some time in the future.</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method is only meant to be called by the .NET Framework and should not be called directly by the derived class.</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This is necessary for maintaining the consistency of the system.</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Threading.Tasks.Task"&gt;&lt;/xref&gt;</ph> to be queued.</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">&lt;code&gt;</bpt><ph id="ph1">task</ph><ept id="p1">&lt;/code&gt;</ept> argument is null.</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>Attempts to dequeue a <ph id="ph1">&lt;xref href="System.Threading.Tasks.Task"&gt;&lt;/xref&gt;</ph> that was previously queued to this scheduler.</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For more information, see <bpt id="p1">[</bpt>Task Schedulers<ept id="p1">](http://msdn.microsoft.com/library/638f8ea5-21db-47a2-a934-86e1e961bf65)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method may execute in a finally block; therefore it should return as quickly as possible so that any resources such as <ph id="ph1">&lt;xref:System.Threading.CancellationTokenRegistration&gt;</ph> objects can be disposed of in a timely manner.</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Threading.Tasks.Task"&gt;&lt;/xref&gt;</ph> to be dequeued.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>A Boolean denoting whether the <bpt id="p1">&lt;code&gt;</bpt><ph id="ph1">task</ph><ept id="p1">&lt;/code&gt;</ept> argument was successfully dequeued.</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">&lt;code&gt;</bpt><ph id="ph1">task</ph><ept id="p1">&lt;/code&gt;</ept> argument is null.</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source>Attempts to execute the provided <ph id="ph1">&lt;xref href="System.Threading.Tasks.Task"&gt;&lt;/xref&gt;</ph> on this scheduler.</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Scheduler implementations are provided with <ph id="ph1">&lt;xref:System.Threading.Tasks.Task&gt;</ph> instances to be executed through either the <ph id="ph2">&lt;xref:System.Threading.Tasks.TaskScheduler.QueueTask%2A&gt;</ph> method or the <ph id="ph3">&lt;xref:System.Threading.Tasks.TaskScheduler.TryExecuteTaskInline%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve" extradata="MT">
+          <source>When the scheduler deems it appropriate to run the provided task, <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskScheduler.TryExecuteTask%2A&gt;</ph> should be used to do so.</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve" extradata="MT">
+          <source>TryExecuteTask handles all aspects of executing a task, including action invocation, exception handling, state management, and lifecycle control.</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">&lt;xref:System.Threading.Tasks.TaskScheduler.TryExecuteTask%2A&gt;</ph> must only be used for tasks provided to this scheduler by the .NET Framework infrastructure.</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve" extradata="MT">
+          <source>It should not be used to execute arbitrary tasks obtained through custom mechanisms.</source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref href="System.Threading.Tasks.Task"&gt;&lt;/xref&gt;</ph> object to be executed.</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve">
+          <source>A Boolean that is true if <bpt id="p1">&lt;code&gt;</bpt><ph id="ph1">task</ph><ept id="p1">&lt;/code&gt;</ept> was successfully executed, false if it was not.</source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve">
+          <source>A common reason for execution failure is that the task had previously been executed or is in the process of being executed by another thread.</source>
+        </trans-unit>
+        <trans-unit id="248" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">&lt;code&gt;</bpt><ph id="ph1">task</ph><ept id="p1">&lt;/code&gt;</ept> is not associated with this scheduler.</source>
+        </trans-unit>
+        <trans-unit id="249" translate="yes" xml:space="preserve">
+          <source>Determines whether the provided <ph id="ph1">&lt;xref href="System.Threading.Tasks.Task"&gt;&lt;/xref&gt;</ph> can be executed synchronously in this call, and if it can, executes it.</source>
+        </trans-unit>
+        <trans-unit id="250" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A class derived from <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskScheduler&gt;</ph> implements this function to support inline execution of a task on a thread that initiates a wait on that task object.</source>
+        </trans-unit>
+        <trans-unit id="251" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Inline execution is optional, and the request may be rejected by returning false.</source>
+        </trans-unit>
+        <trans-unit id="252" translate="yes" xml:space="preserve" extradata="MT">
+          <source>However, the more tasks that can be inlined, the better the scheduler will scale.</source>
+        </trans-unit>
+        <trans-unit id="253" translate="yes" xml:space="preserve" extradata="MT">
+          <source>In fact, a scheduler that inlines too little may be prone to deadlocks.</source>
+        </trans-unit>
+        <trans-unit id="254" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A proper implementation should ensure that a request executing under the policies guaranteed by the scheduler can successfully inline.</source>
+        </trans-unit>
+        <trans-unit id="255" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For example, if a scheduler uses a dedicated thread to execute tasks, any inlining requests from that thread should succeed.</source>
+        </trans-unit>
+        <trans-unit id="256" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If a scheduler decides to perform the inline execution, it should do so by calling to the base TaskScheduler's <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskScheduler.TryExecuteTask%2A&gt;</ph> method with the provided task object, propagating the return value.</source>
+        </trans-unit>
+        <trans-unit id="257" translate="yes" xml:space="preserve" extradata="MT">
+          <source>It may also be appropriate for the scheduler to remove an inlined task from its internal data structures if it decides to honor the inlining request.</source>
+        </trans-unit>
+        <trans-unit id="258" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Note, however, that under some circumstances a scheduler may be asked to inline a task that was not previously provided to it with the <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskScheduler.QueueTask%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="259" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The derived scheduler is responsible for making sure that the calling thread is suitable for executing the given task as far as its own scheduling and execution policies are concerned.</source>
+        </trans-unit>
+        <trans-unit id="260" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For more information, see <bpt id="p1">[</bpt>Task Schedulers<ept id="p1">](http://msdn.microsoft.com/library/638f8ea5-21db-47a2-a934-86e1e961bf65)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="261" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Threading.Tasks.Task"&gt;&lt;/xref&gt;</ph> to be executed.</source>
+        </trans-unit>
+        <trans-unit id="262" translate="yes" xml:space="preserve">
+          <source>A Boolean denoting whether or not task has previously been queued.</source>
+        </trans-unit>
+        <trans-unit id="263" translate="yes" xml:space="preserve">
+          <source>If this parameter is True, then the task may have been previously queued (scheduled); if False, then the task is known not to have been queued, and this call is being made in order to execute the task inline without queuing it.</source>
+        </trans-unit>
+        <trans-unit id="264" translate="yes" xml:space="preserve">
+          <source>A Boolean value indicating whether the task was executed inline.</source>
+        </trans-unit>
+        <trans-unit id="265" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">&lt;code&gt;</bpt><ph id="ph1">task</ph><ept id="p1">&lt;/code&gt;</ept> argument is null.</source>
+        </trans-unit>
+        <trans-unit id="266" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">&lt;code&gt;</bpt><ph id="ph1">task</ph><ept id="p1">&lt;/code&gt;</ept> was already executed.</source>
+        </trans-unit>
+        <trans-unit id="267" translate="yes" xml:space="preserve">
+          <source>Occurs when a faulted task's unobserved exception is about to trigger exception escalation policy, which, by default, would terminate the process.</source>
+        </trans-unit>
+        <trans-unit id="268" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This application domain-wide event provides a mechanism to prevent exception escalation policy (which, by default, terminates the process) from triggering.</source>
+        </trans-unit>
+        <trans-unit id="269" translate="yes" xml:space="preserve" extradata="MT">
+          <source>To make it easier for developers to write asynchronous code based on tasks, the <ph id="ph1">[!INCLUDE[net_v45](~/includes/net-v45-md.md)]</ph> changes the default exception behavior for unobserved exceptions.</source>
+        </trans-unit>
+        <trans-unit id="270" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Although unobserved exceptions still raise the <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskScheduler.UnobservedTaskException&gt;</ph> exception, the process does not terminate by default.</source>
+        </trans-unit>
+        <trans-unit id="271" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Instead, the exception is handled by the runtime after the event is raised, regardless of whether an event handler observes the exception.</source>
+        </trans-unit>
+        <trans-unit id="272" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This behavior can be configured.</source>
+        </trans-unit>
+        <trans-unit id="273" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Starting with the <ph id="ph1">[!INCLUDE[net_v45](~/includes/net-v45-md.md)]</ph>, you can use the  configuration element to revert to the behavior of the <ph id="ph2">[!INCLUDE[net_v40_long](~/includes/net-v40-long-md.md)]</ph> and terminate the process:</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

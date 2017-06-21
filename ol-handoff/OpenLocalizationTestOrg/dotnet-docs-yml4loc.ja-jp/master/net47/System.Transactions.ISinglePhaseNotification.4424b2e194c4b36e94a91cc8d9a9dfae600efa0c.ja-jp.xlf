@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ja-jp">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-fdd610b" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">518a5f6a363242d8d621363f084f5dcc8b2a3857</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">System.Transactions.ISinglePhaseNotification.yml</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net47</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Human Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c833f3aced7fdc769178b70c4d154e36f2c9bad8</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ffc67a2b7d707161582443069f5cb3d5fc4f62e1</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Describes a resource object that supports single phase commit optimization to participate in a transaction.</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You should note that even when your resource manager implements this interface to support single phase commit optimization, it is not guaranteed that it receives a single phase commit.</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The transaction manager can still send two phase commit notifications instead.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve" extradata="MT">
+          <source>To enlist your resource manager as a participant in a transaction, call the <ph id="ph1">&lt;xref:System.Transactions.Transaction.EnlistVolatile%2A&gt;</ph> method or the <ph id="ph2">&lt;xref:System.Transactions.Transaction.EnlistDurable%2A&gt;</ph> method of the <ph id="ph3">&lt;xref:System.Transactions.Transaction&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Specifically, the <ph id="ph1">`EnlistmentOptions`</ph> parameter should equal to <ph id="ph2">&lt;xref:System.Transactions.EnlistmentOptions.None&gt;</ph> to ensure that a single phase commit is performed.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If it is mistakenly set to <ph id="ph1">&lt;xref:System.Transactions.EnlistmentOptions.EnlistDuringPrepareRequired&gt;</ph>, no single phase commit occurs.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Since the <ph id="ph1">&lt;xref:System.Transactions.ISinglePhaseNotification&gt;</ph> interface derives from the <ph id="ph2">&lt;xref:System.Transactions.IEnlistmentNotification&gt;</ph> interface, the resource manager must also implement all the methods of the latter for two phase commit notifications.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve" extradata="MT">
+          <source>It is the transaction manager's choice as to whether two phase commit or the single phase commit optimization is used with this resource manager.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve" extradata="MT">
+          <source>However, implementing this interface gives the resource manager the opportunity to take advantage of the optimization when it is available.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If the optimization is used and the transaction manager calls the <ph id="ph1">&lt;xref:System.Transactions.ISinglePhaseNotification.SinglePhaseCommit%2A&gt;</ph> method of the enlisted resource, the resource manager should respond to this call by using various methods of the <ph id="ph2">&lt;xref:System.Transactions.SinglePhaseEnlistment&gt;</ph> class to inform the transaction manager if the transaction is to be committed or rolled back.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Represents the resource manager's implementation of the callback for the single phase commit optimization.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve" extradata="MT">
+          <source>It is the transaction manager's choice as to whether two phase commit or the single phase commit optimization is used with this resource manager.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For more information on single phase and two phase commit, see <bpt id="p1">[</bpt>Committing A Transaction In Single-Phase and Multi-Phase<ept id="p1">](http://msdn.microsoft.com/en-us/74b3cfe1-d33a-45b8-91f4-dfd6f6598c4d)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Therefore, on this enlistment of the resource manager, either the <ph id="ph1">&lt;xref:System.Transactions.ISinglePhaseNotification.SinglePhaseCommit%2A&gt;</ph> method is called, or the two phase commit methods defined in ther <ph id="ph2">&lt;xref:System.Transactions.IEnlistmentNotification&gt;</ph> interface are called.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Your implementation of this method should call either the <ph id="ph1">&lt;xref:System.Transactions.SinglePhaseEnlistment.Committed%2A&gt;</ph> method or the <ph id="ph2">&lt;xref:System.Transactions.SinglePhaseEnlistment.Aborted%2A&gt;</ph> method of the <ph id="ph3">`singlePhaseEnlistment`</ph> parameter to indicate whether the transaction should be committed or rolled back.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The transaction manager calls this method when there is only one volatile enlistment that supports single phase commit, or when there are zero or more volatile enlistments and one durable enlistment.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve" extradata="MT">
+          <source>In the latter case, the volatile enlistments receive <ph id="ph1">&lt;xref:System.Transactions.IEnlistmentNotification.Prepare%2A&gt;</ph> notifications for two-phase-commit, and the sole durable enlistment receives a single-phase commit notification.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

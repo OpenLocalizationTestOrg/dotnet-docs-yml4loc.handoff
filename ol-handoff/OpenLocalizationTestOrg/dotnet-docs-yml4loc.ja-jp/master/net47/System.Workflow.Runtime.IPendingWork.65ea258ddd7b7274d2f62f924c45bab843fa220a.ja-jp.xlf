@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ja-jp">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-fdd610b" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d888d355e85862e22b111148c6e46bdfb1792d3e</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">System.Workflow.Runtime.IPendingWork.yml</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net47</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Human Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d83645948c64c909bf15d241250fdd5bd0232d78</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">bf8adf5c0d414eb977214509bf0de6185054410b</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Provides methods to participate in a work batch.</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Workflow.Runtime.IPendingWork&gt;</ph> interface is provided for services that want to participate in the workflow runtime engine batching mechanism.</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The batching mechanism is especially useful for services that use a durable store.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve" extradata="MT">
+          <source>It is often important in these cases to maintain consistency between the durable store used by the service and the internal state of the workflow runtime engine.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If you want your service to participate in workflow transaction batching provided by the <ph id="ph1">&lt;xref:System.Workflow.Runtime.Hosting.WorkflowCommitWorkBatchService&gt;</ph>, you must implement the methods defined by the <ph id="ph2">&lt;xref:System.Workflow.Runtime.IPendingWork&gt;</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The workflow runtime engine will call the <ph id="ph1">&lt;xref:System.Workflow.Runtime.IPendingWork.Commit%2A&gt;</ph> method on your service to commit the batch.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService&gt;</ph> class implements the <ph id="ph2">&lt;xref:System.Workflow.Runtime.IPendingWork&gt;</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Commits the list of work items by using the specified <ph id="ph1">&lt;xref href="System.Transactions.Transaction"&gt;&lt;/xref&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The workflow runtime engine calls the <ph id="ph1">&lt;xref:System.Workflow.Runtime.IPendingWork.Commit%2A&gt;</ph> method when its semantics dictate that the pending work in the work batch should be committed.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve" extradata="MT">
+          <source>When it reaches a commit point, the workflow runtime engine calls the <ph id="ph1">&lt;xref:System.Workflow.Runtime.IPendingWork.Commit%2A&gt;</ph> method on each <ph id="ph2">&lt;xref:System.Workflow.Runtime.IPendingWork&gt;</ph> object in its work batch; the workflow runtime engine passes the <ph id="ph3">&lt;xref:System.Workflow.Runtime.IPendingWork.Commit%2A&gt;</ph> method the collection of items associated with that <ph id="ph4">&lt;xref:System.Workflow.Runtime.IPendingWork&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Either all of the work in a batch succeeds or none of it succeeds.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You should throw an exception if any of the work items passed to the <ph id="ph1">&lt;xref:System.Workflow.Runtime.IPendingWork.Commit%2A&gt;</ph> method in your implementation cannot be committed.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Depending on your implementation, you may want to perform some rollback in your <ph id="ph1">&lt;xref:System.Workflow.Runtime.IPendingWork.Commit%2A&gt;</ph> method if it cannot commit its work items.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If the workflow runtime engine successfully commits all of the work in the work batch, it calls <ph id="ph1">&lt;xref:System.Workflow.Runtime.IPendingWork.Complete%2A&gt;</ph> with the <ph id="ph2">`succeeded`</ph> parameter set to <ph id="ph3">`true`</ph>; otherwise, it calls <ph id="ph4">&lt;xref:System.Workflow.Runtime.IPendingWork.Complete%2A&gt;</ph> with <ph id="ph5">`succeeded`</ph> set to <ph id="ph6">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Transactions.Transaction"&gt;&lt;/xref&gt;</ph> associated with the pending work.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The work items to be committed.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Called when the transaction has completed.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If <ph id="ph1">`succeeded`</ph> is <ph id="ph2">`true`</ph>, the transaction succeeded and any resources used by the work batch may be released.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If <ph id="ph1">`succeeded`</ph> is <ph id="ph2">`false`</ph>, the transaction failed.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Depending on your implementation, you can perform any appropriate roll back on the work in the work batch when the transaction fails.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`true`</ph> if the transaction succeeded; otherwise, <ph id="ph2">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>An <ph id="ph1">&lt;xref href="System.Collections.ICollection"&gt;&lt;/xref&gt;</ph> of work items.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Allows the items in the work batch to assert whether they must commit immediately.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If <ph id="ph1">&lt;xref:System.Workflow.Runtime.IPendingWork.MustCommit%2A&gt;</ph> returns <ph id="ph2">`false`</ph>, the work can be postponed to a future commit point.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If any of the items must be committed, then return <ph id="ph1">`true`</ph> and all items will be committed at the current commit point.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For a discussion about possible commit points, see the <ph id="ph1">&lt;xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>An <ph id="ph1">&lt;xref href="System.Collections.ICollection"&gt;&lt;/xref&gt;</ph> of work items.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`true`</ph> if any item in the collection must be committed immediately; otherwise, <ph id="ph2">`false`</ph>.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

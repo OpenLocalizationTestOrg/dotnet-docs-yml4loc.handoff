@@ -1,0 +1,450 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ja-jp">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-fdd610b" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">4c81b538c3579c48fd9fcb40d25c4948e4f2c03c</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">System.Runtime.InteropServices.SafeHandle.yml</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net47</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Human Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d013791acf518f09fd928356039047d2debcba73</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">3adb593146fe068d551274704dcc259f2f6f1821</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Represents a wrapper class for operating system handles.</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>This class must be inherited.</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> class provides critical finalization of handle resources, preventing handles from being reclaimed prematurely by garbage collection and from being recycled by Windows to reference unintended unmanaged objects.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This topic includes the following sections:</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve" extradata="MT">
+          <source><bpt id="p1">[</bpt>Why SafeHandle?<ept id="p1">](#Why)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve" extradata="MT">
+          <source><bpt id="p1"> [</bpt>What SafeHandle does<ept id="p1">](#Does)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve" extradata="MT">
+          <source><bpt id="p1"> [</bpt>Classes derived from SafeHandle<ept id="p1">](#Derived)</ept></source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Why SafeHandle?</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Before the .NET Framework version 2.0, all operating system handles could only be encapsulated in the <ph id="ph1">&lt;xref:System.IntPtr&gt;</ph> managed wrapper object.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve" extradata="MT">
+          <source>While this was a convenient way to interoperate with native code, handles could be leaked by asynchronous exceptions, such as a thread aborting unexpectedly or a stack overflow.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve" extradata="MT">
+          <source>These asynchronous exceptions are an obstacle to cleaning up operating system resources, and they can occur almost anywhere in your app.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Although overrides to the <ph id="ph1">&lt;xref:System.Object.Finalize%2A?displayProperty=fullName&gt;</ph> method allow cleanup of unmanaged resources when an object is being garbage collected, in some circumstances, finalizable objects can be reclaimed by garbage collection while executing a method within a platform invoke call.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If a finalizer frees the handle passed to that platform invoke call, it could lead to handle corruption.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The handle could also be reclaimed while your method is blocked during a platform invoke call, such as while reading a file.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve" extradata="MT">
+          <source>More critically, because Windows aggressively recycles handles, a handle could be recycled and point to another resource that might contain sensitive data.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This is known as a recycle attack and can potentially corrupt data and be a security threat.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve" extradata="MT">
+          <source>What SafeHandle does</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> class simplifies several of these object lifetime issues, and is integrated with platform invoke so that operating system resources are not leaked.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> class resolves object lifetime issues by assigning and releasing handles without interruption.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve" extradata="MT">
+          <source>It contains a critical finalizer that ensures that the handle is closed and is guaranteed to run during unexpected <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph> unloads, even in cases when the platform invoke call is assumed to be in a corrupted state.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Because <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> inherits from <ph id="ph2">&lt;xref:System.Runtime.ConstrainedExecution.CriticalFinalizerObject&gt;</ph>, all the noncritical finalizers are called before any of the critical finalizers.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The finalizers are called on objects that are no longer live during the same garbage collection pass.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For example, a <ph id="ph1">&lt;xref:System.IO.FileStream&gt;</ph> object can run a normal finalizer to flush out existing buffered data without the risk of the handle being leaked or recycled.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This very weak ordering between critical and noncritical finalizers is not intended for general use.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve" extradata="MT">
+          <source>It exists primarily to assist in the migration of existing libraries by allowing those libraries to use <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> without altering their semantics.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Additionally, the critical finalizer and anything it calls, such as the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.ReleaseHandle?displayProperty=fullName&gt;</ph> method, must be in a constrained execution region.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This imposes constraints on what code can be written within the finalizer's call graph.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Platform invoke operations automatically increment the reference count of handles encapsulated by a <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> and decrement them upon completion.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This ensures that the handle will not be recycled or closed unexpectedly.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You can specify ownership of the underlying handle when constructing <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> objects by supplying a value to the <ph id="ph2">`ownsHandle`</ph> argument in the <ph id="ph3">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> class constructor.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This controls whether the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> object will release the handle after the object has been disposed.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This is useful for handles with peculiar lifetime requirements or for consuming a handle whose lifetime is controlled by someone else.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Classes derived from SafeHandle</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> is an abstract wrapper class for operating system handles.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Deriving from this class is difficult.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Instead, use the derived classes in the <ph id="ph1">&lt;xref:Microsoft.Win32.SafeHandles&gt;</ph> namespace that provide safe handles for the following:</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Files (the <ph id="ph1">&lt;xref:Microsoft.Win32.SafeHandles.SafeFileHandle&gt;</ph> class).</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Memory mapped files (the <ph id="ph1">&lt;xref:Microsoft.Win32.SafeHandles.SafeMemoryMappedFileHandle&gt;</ph> class).</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Pipes (the <ph id="ph1">&lt;xref:Microsoft.Win32.SafeHandles.SafePipeHandle&gt;</ph> class).</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Memory views (the <ph id="ph1">&lt;xref:Microsoft.Win32.SafeHandles.SafeMemoryMappedViewHandle&gt;</ph> class).</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Cryptography constructs (the <ph id="ph1">&lt;xref:Microsoft.Win32.SafeHandles.SafeNCryptHandle&gt;</ph>, <ph id="ph2">&lt;xref:Microsoft.Win32.SafeHandles.SafeNCryptKeyHandle&gt;</ph>, <ph id="ph3">&lt;xref:Microsoft.Win32.SafeHandles.SafeNCryptProviderHandle&gt;</ph>, and <ph id="ph4">&lt;xref:Microsoft.Win32.SafeHandles.SafeNCryptSecretHandle&gt;</ph> classes).</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Processes (the <ph id="ph1">&lt;xref:Microsoft.Win32.SafeHandles.SafeProcessHandle&gt;</ph> class).</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Registry keys (the <ph id="ph1">&lt;xref:Microsoft.Win32.SafeHandles.SafeRegistryHandle&gt;</ph> class).</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Wait handles (the <ph id="ph1">&lt;xref:Microsoft.Win32.SafeHandles.SafeWaitHandle&gt;</ph> class).</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Initializes a new instance of the <ph id="ph1">&lt;xref href="System.Runtime.InteropServices.SafeHandle"&gt;&lt;/xref&gt;</ph> class with the specified invalid handle value.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If the <ph id="ph1">`ownsHandle`</ph> parameter is <ph id="ph2">`false`</ph>, <ph id="ph3">&lt;xref:System.Runtime.InteropServices.SafeHandle.ReleaseHandle%2A&gt;</ph> is never called; thus, it is not recommended to use this parameter value as your code may leak resources.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>The value of an invalid handle (usually 0 or -1).</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Your implementation of <ph id="ph1">&lt;xref href="System.Runtime.InteropServices.SafeHandle.IsInvalid"&gt;&lt;/xref&gt;</ph> should return <ph id="ph2">`true`</ph> for this value.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`true`</ph> to reliably let <ph id="ph2">&lt;xref href="System.Runtime.InteropServices.SafeHandle"&gt;&lt;/xref&gt;</ph> release the handle during the finalization phase; otherwise, <ph id="ph3">`false`</ph> (not recommended).</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>The derived class resides in an assembly without unmanaged code access permission.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Marks the handle for releasing and freeing resources.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Calling the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.Close%2A&gt;</ph> or <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle.Dispose%2A&gt;</ph> method allows the resources to be freed.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This might not happen immediately if other threads are using the same safe handle object, but will happen as soon as that is no longer the case.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Although most classes that use the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> class do not need to provide a finalizer, this is sometimes necessary (for example, to flush out file buffers or to write some data back into memory).</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve" extradata="MT">
+          <source>In this case, the class can provide a finalizer that is guaranteed to run before the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> critical finalizer runs.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Call the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.Close%2A&gt;</ph> or <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle.Dispose%2A&gt;</ph> method when you are finished using the <ph id="ph3">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Always call <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.Close%2A&gt;</ph> or <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle.Dispose%2A&gt;</ph> before you release your last reference to the <ph id="ph3">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Otherwise, the resources it is using will not be freed until the garbage collector calls the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> object's <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle.Finalize%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Manually increments the reference counter on <ph id="ph1">&lt;xref href="System.Runtime.InteropServices.SafeHandle"&gt;&lt;/xref&gt;</ph> instances.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.DangerousAddRef%2A&gt;</ph> method prevents the common language runtime from reclaiming memory used by a handle (which occurs when the runtime calls the <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle.ReleaseHandle%2A&gt;</ph> method).</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You can use this method to manually increment the reference count on a <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> instance.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.DangerousAddRef%2A&gt;</ph> returns a Boolean value using a <ph id="ph2">`ref`</ph> parameter (<ph id="ph3">`success`</ph>) that indicates whether the reference count was incremented successfully.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This allows your program logic to back out in case of failure.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You should set <ph id="ph1">`success`</ph> to <ph id="ph2">`false`</ph> before calling <ph id="ph3">&lt;xref:System.Runtime.InteropServices.SafeHandle.DangerousAddRef%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If <ph id="ph1">`success`</ph> is <ph id="ph2">`true`</ph>, avoid resource leaks by matching the call to <ph id="ph3">&lt;xref:System.Runtime.InteropServices.SafeHandle.DangerousAddRef%2A&gt;</ph> with a corresponding call to <ph id="ph4">&lt;xref:System.Runtime.InteropServices.SafeHandle.DangerousRelease%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method is intended for advanced users and must always be used carefully.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve" extradata="MT">
+          <source>To avoid leaking handle resources, always call this method inside a constrained execution region (CER), where a thread abort cannot interrupt processing.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`true`</ph> if the reference counter was successfully incremented; otherwise, <ph id="ph2">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Returns the value of the <ph id="ph1">&lt;xref href="System.Runtime.InteropServices.SafeHandle.handle"&gt;&lt;/xref&gt;</ph> field.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You can use this method to retrieve the actual handle value from an instance of the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> derived class.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method is needed for backwards compatibility because many properties in the .NET Framework return <ph id="ph1">`IntPtr`</ph> handle types.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">`IntPtr`</ph> handle types are platform-specific types used to represent a pointer or a handle.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Using the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.DangerousGetHandle%2A&gt;</ph> method can pose security risks because, if the handle has been marked as invalid with <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle.SetHandleAsInvalid%2A&gt;</ph>, <ph id="ph3">&lt;xref:System.Runtime.InteropServices.SafeHandle.DangerousGetHandle%2A&gt;</ph> still returns the original, potentially stale handle value.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The returned handle can also be recycled at any point.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve" extradata="MT">
+          <source>At best, this means the handle might suddenly stop working.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve" extradata="MT">
+          <source>At worst, if the handle or the resource that the handle represents is exposed to untrusted code, this can lead to a recycling security attack on the reused or returned handle.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For example, an untrusted caller can query data on the handle just returned and receive information for an entirely unrelated resource.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve" extradata="MT">
+          <source>See the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.DangerousAddRef%2A&gt;</ph> and the <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle.DangerousRelease%2A&gt;</ph> methods for more information about using the <ph id="ph3">&lt;xref:System.Runtime.InteropServices.SafeHandle.DangerousGetHandle%2A&gt;</ph> methodsafely.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>An <ph id="ph1">`IntPtr`</ph> representing the value of the <ph id="ph2">&lt;xref href="System.Runtime.InteropServices.SafeHandle.handle"&gt;&lt;/xref&gt;</ph> field.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>If the handle has been marked invalid with <ph id="ph1">&lt;xref href="System.Runtime.InteropServices.SafeHandle.SetHandleAsInvalid"&gt;&lt;/xref&gt;</ph>, this method still returns the original handle value, which can be a stale value.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Manually decrements the reference counter on a <ph id="ph1">&lt;xref href="System.Runtime.InteropServices.SafeHandle"&gt;&lt;/xref&gt;</ph> instance.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.DangerousRelease%2A&gt;</ph> method is the counterpart to <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle.DangerousAddRef%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You should always match a call to the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.DangerousRelease%2A&gt;</ph> method with a successful call to <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle.DangerousAddRef%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method is intended for advanced users and must always be used carefully.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve" extradata="MT">
+          <source>To avoid leaking handle resources, always call this method inside a constrained execution region (CER), where a thread abort cannot interrupt processing.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve" extradata="MT">
+          <source>In the same way that unmatched <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.DangerousAddRef%2A&gt;</ph> calls can cause resource leaks, unmatched <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle.DangerousRelease%2A&gt;</ph> calls can cause invalid handle states to become visible to other threads.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Do not expose <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.DangerousAddRef%2A&gt;</ph> or <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle.DangerousRelease%2A&gt;</ph> calls to untrusted code.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>Releases all resources used by the <ph id="ph1">&lt;xref href="System.Runtime.InteropServices.SafeHandle"&gt;&lt;/xref&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Calling the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.Close%2A&gt;</ph> or <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle.Dispose%2A&gt;</ph> method allows the resources to be freed.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This might not happen immediately if other threads are using the same instance of the safe handle, but will happen as soon as that is no longer the case.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Although most classes using <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> do not need to provide a finalizer, this is sometimes necessary (for example, to flush out file buffers or to write some data back into memory).</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve" extradata="MT">
+          <source>In this case, they can provide a finalizer that is guaranteed to run before the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> critical finalizer runs.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Call the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.Close%2A&gt;</ph> or <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle.Dispose%2A&gt;</ph> method when you are finished using the <ph id="ph3">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.Close%2A&gt;</ph> method leaves the <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> object in an unusable state.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Always call the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.Close%2A&gt;</ph> or <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle.Dispose%2A&gt;</ph> method before you release your last reference to the <ph id="ph3">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Otherwise, the resources it is using will not be freed until the garbage collector calls the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> object's <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle.Finalize%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>Releases the unmanaged resources used by the <ph id="ph1">&lt;xref href="System.Runtime.InteropServices.SafeHandle"&gt;&lt;/xref&gt;</ph> class specifying whether to perform a normal dispose operation.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You should never explicitly call the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.Dispose%2A&gt;</ph> method with the <ph id="ph2">`disposing`</ph> parameter set to <ph id="ph3">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`true`</ph> for a normal dispose operation; <ph id="ph2">`false`</ph> to finalize the handle.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>Frees all resources associated with the handle.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.Finalize%2A&gt;</ph> method is the destructor for the <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Application code should not call this method directly.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>Specifies the handle to be wrapped.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Do not expose the handle publicly (that is, outside of the derived class).</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>Gets a value indicating whether the handle is closed.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.IsClosed%2A&gt;</ph> method returns a value indicating whether the <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> object's handle is no longer associated with a native resource.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This differs from the definition of the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.IsInvalid%2A&gt;</ph> property, which computes whether a given handle is always considered invalid.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.IsClosed%2A&gt;</ph> method returns a <ph id="ph2">`true`</ph> value in the following cases:</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.SetHandleAsInvalid%2A&gt;</ph> method was called.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.Dispose%2A&gt;</ph> method or <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle.Close%2A&gt;</ph> method was called and there are no references to the <ph id="ph3">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> object on other threads.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`true`</ph> if the handle is closed; otherwise, <ph id="ph2">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>When overridden in a derived class, gets a value indicating whether the handle value is invalid.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Derived classes must implement the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.IsInvalid%2A&gt;</ph> property so that the common language runtime can determine whether critical finalization is required.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Derived classes must provide an implementation that suits the general type of handle they support (0 or -1 is invalid).</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve" extradata="MT">
+          <source>These classes can then be further derived for specific safe handle types.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Unlike the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.IsClosed%2A&gt;</ph> property, which reports whether the <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> object has finished using the underlying handle, the <ph id="ph3">&lt;xref:System.Runtime.InteropServices.SafeHandle.IsInvalid%2A&gt;</ph> property calculates whether the given handle value is always considered invalid.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Therefore, the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.IsInvalid%2A&gt;</ph> property always returns the same value for any one handle value.</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`true`</ph> if the handle value is invalid; otherwise, <ph id="ph2">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>When overridden in a derived class, executes the code required to free the handle.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.ReleaseHandle%2A&gt;</ph> method is guaranteed to be called only once and only if the handle is valid as defined by the <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle.IsInvalid%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Implement this method in your <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> derived classes to execute any code that is required to free the handle.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Because one of the functions of <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> is to guarantee prevention of resource leaks, the code in your implementation of <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle.ReleaseHandle%2A&gt;</ph> must never fail.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The garbage collector calls <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.ReleaseHandle%2A&gt;</ph>after normal finalizers have been run for objects that were garbage collected at the same time.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The garbage collector guarantees the resources to invoke this method and that the method will not be interrupted while it is in progress.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method will be prepared as a constrained execution region (CER) at instance construction time (along with all the methods in its statically determinable call graph).</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Although this prevents thread abort interrupts, you must still be careful not to introduce any fault paths in your overridden <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.ReleaseHandle%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve" extradata="MT">
+          <source>In particular, apply the <ph id="ph1">&lt;xref:System.Runtime.ConstrainedExecution.ReliabilityContractAttribute&gt;</ph> attribute to any methods you call from <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle.ReleaseHandle%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve" extradata="MT">
+          <source>In most cases this code should be:</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Additionally, for simple cleanup (for example, calling the Win32 API <ph id="ph1">`CloseHandle`</ph> on a file handle) you can check the return value for the single platform invoke call.</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For complex cleanup, you may have a lot of program logic and many method calls, some of which might fail.</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You must ensure that your program logic has fallback code for each of those cases.</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.ReleaseHandle%2A&gt;</ph> returns <ph id="ph2">`false`</ph> for any reason, it generates a <bpt id="p1">[</bpt>releaseHandleFailed<ept id="p1">](~/docs/framework/debug-trace-profile/releasehandlefailed-mda.md)</ept> Managed Debugging Assistant.</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This helps you detect cases where your attempt to release resources fails.</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`true`</ph> if the handle is released successfully; otherwise, in the event of a catastrophic failure, <ph id="ph2">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source>In this case, it generates a <bpt id="p1">[</bpt>releaseHandleFailed<ept id="p1">](~/docs/framework/debug-trace-profile/releasehandlefailed-mda.md)</ept> Managed Debugging Assistant.</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>Sets the handle to the specified pre-existing handle.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Use the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.SetHandle%2A&gt;</ph> method only if you need to support a pre-existing handle (for example, if the handle is returned in a structure) because the .NET Framework COM interop infrastructure does not support marshaling output handles in a structure.</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>The pre-existing handle to use.</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source>Marks a handle as no longer used.</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Call the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.SetHandleAsInvalid%2A&gt;</ph> method only when you know that your handle no longer references a resource.</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Doing so does not change the value of the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.handle&gt;</ph> field; it only marks the handle as closed.</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The handle might then contain a potentially stale value.</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The effect of this call is that no attempt is made to free the resources.</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve" extradata="MT">
+          <source>As with the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.SetHandle%2A&gt;</ph> method, use <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle.SetHandleAsInvalid%2A&gt;</ph> only if you need to support a pre-existing handle.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

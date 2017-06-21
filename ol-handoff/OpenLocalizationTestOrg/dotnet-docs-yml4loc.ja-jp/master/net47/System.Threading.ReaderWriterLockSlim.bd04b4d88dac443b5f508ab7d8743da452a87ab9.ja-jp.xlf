@@ -1,0 +1,1086 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ja-jp">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-fdd610b" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c90ca47fab8356627622fc0a1bd8ae4ce76221b5</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">System.Threading.ReaderWriterLockSlim.yml</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net47</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Human Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">0339f3fcb1f69f8fe40f7fde16d181a75dcebc89</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">95bd31fc010cdd58abb7cde846c70bf8c3b76e1f</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Represents a lock that is used to manage access to a resource, allowing multiple threads for reading or exclusive access for writing.</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Use <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim&gt;</ph> to protect a resource that is read by multiple threads and written to by one thread at a time.</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim&gt;</ph> allows multiple threads to be in read mode, allows one thread to be in write mode with exclusive ownership of the lock, and allows one thread that has read access to be in upgradeable read mode, from which the thread can upgrade to write mode without having to relinquish its read access to the resource.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim&gt;</ph> is similar to <ph id="ph2">&lt;xref:System.Threading.ReaderWriterLock&gt;</ph>, but it has simplified rules for recursion and for upgrading and downgrading lock state.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim&gt;</ph>avoids many cases of potential deadlock.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve" extradata="MT">
+          <source>In addition, the performance of <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim&gt;</ph> is significantly better than <ph id="ph2">&lt;xref:System.Threading.ReaderWriterLock&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim&gt;</ph> is recommended for all new development.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve" extradata="MT">
+          <source>By default, new instances of <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim&gt;</ph> are created with the <ph id="ph2">&lt;xref:System.Threading.LockRecursionPolicy?displayProperty=fullName&gt;</ph> flag and do not allow recursion.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This default policy is recommended for all new development, because recursion introduces unnecessary complications and makes your code more prone to deadlocks.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve" extradata="MT">
+          <source>To simplify migration from existing projects that use <ph id="ph1">&lt;xref:System.Threading.Monitor&gt;</ph> or <ph id="ph2">&lt;xref:System.Threading.ReaderWriterLock&gt;</ph>, you can use the <ph id="ph3">&lt;xref:System.Threading.LockRecursionPolicy?displayProperty=fullName&gt;</ph> flag to create instances of <ph id="ph4">&lt;xref:System.Threading.ReaderWriterLockSlim&gt;</ph> that allow recursion.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A thread can enter the lock in three modes: read mode, write mode, and upgradeable read mode.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve" extradata="MT">
+          <source>(In the rest of this topic, "upgradeable read mode" is referred to as "upgradeable mode", and the phrase "enter <ph id="ph1">`x`</ph> mode" is used in preference to the longer phrase "enter the lock in <ph id="ph2">`x`</ph> mode".)</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Regardless of recursion policy, only one thread can be in write mode at any time.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve" extradata="MT">
+          <source>When a thread is in write mode, no other thread can enter the lock in any mode.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Only one thread can be in upgradeable mode at any time.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Any number of threads can be in read mode, and there can be one thread in upgradeable mode while other threads are in read mode.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This type implements the <ph id="ph1">&lt;xref:System.IDisposable&gt;</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve" extradata="MT">
+          <source>When you have finished using the type, you should dispose of it either directly or indirectly.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve" extradata="MT">
+          <source>To dispose of the type directly, call its <ph id="ph1">&lt;xref:System.IDisposable.Dispose%2A&gt;</ph> method in a <ph id="ph2">`try`</ph><ph id="ph3">/</ph><ph id="ph4">`catch`</ph> block.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve" extradata="MT">
+          <source>To dispose of it indirectly, use a language construct such as <ph id="ph1">`using`</ph> (in C#) or <ph id="ph2">`Using`</ph> (in Visual Basic).</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For more information, see the "Using an Object that Implements IDisposable" section in the <ph id="ph1">&lt;xref:System.IDisposable&gt;</ph> interface topic.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim&gt;</ph> has managed thread affinity; that is, each <ph id="ph2">&lt;xref:System.Threading.Thread&gt;</ph> object must make its own method calls to enter and exit lock modes.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve" extradata="MT">
+          <source>No thread can change the mode of another thread.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If a <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim&gt;</ph> does not allow recursion, a thread that tries to enter the lock can block for several reasons:</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A thread that tries to enter read mode blocks if there are threads waiting to enter write mode or if there is a single thread in write mode.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Blocking new readers when writers are queued is a lock fairness policy that favors writers.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The current fairness policy balances fairness to readers and writers, to promote throughput in the most common scenarios.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Future versions of the <ph id="ph1">[!INCLUDE[dnprdnshort](~/includes/dnprdnshort-md.md)]</ph> may introduce new fairness policies.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A thread that tries to enter upgradeable mode blocks if there is already a thread in upgradeable mode, if there are threads waiting to enter write mode, or if there is a single thread in write mode.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A thread that tries to enter write mode blocks if there is a thread in any of the three modes.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Upgrading and Downgrading Locks</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Upgradeable mode is intended for cases where a thread usually reads from the protected resource, but might need to write to it if some condition is met.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A thread that has entered a <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim&gt;</ph> in upgradeable mode has read access to the protected resource, and can upgrade to write mode by calling the <ph id="ph2">&lt;xref:System.Threading.ReaderWriterLockSlim.EnterWriteLock%2A&gt;</ph> or <ph id="ph3">&lt;xref:System.Threading.ReaderWriterLockSlim.TryEnterWriteLock%2A&gt;</ph> methods.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Because there can be only one thread in upgradeable mode at a time, upgrading to write mode cannot deadlock when recursion is not allowed, which is the default policy.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Regardless of recursion policy, a thread that initially entered read mode is not allowed to upgrade to upgradeable mode or write mode, because that pattern creates a strong probability of deadlocks.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For example, if two threads in read mode both try to enter write mode, they will deadlock.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Upgradeable mode is designed to avoid such deadlocks.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If there are other threads in read mode, the thread that is upgrading blocks.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve" extradata="MT">
+          <source>While the thread is blocked, other threads that try to enter read mode are blocked.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve" extradata="MT">
+          <source>When all threads have exited from read mode, the blocked upgradeable thread enters write mode.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If there are other threads waiting to enter write mode, they remain blocked, because the single thread that is in upgradeable mode prevents them from gaining exclusive access to the resource.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve" extradata="MT">
+          <source>When the thread in upgradeable mode exits write mode, other threads that are waiting to enter read mode can do so, unless there are threads waiting to enter write mode.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The thread in upgradeable mode can upgrade and downgrade indefinitely, as long as it is the only thread that writes to the protected resource.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If you allow multiple threads to enter write mode or upgradeable mode, you must not allow one thread to monopolize upgradeable mode.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Otherwise, threads that try to enter write mode directly will be blocked indefinitely, and while they are blocked, other threads will be unable to enter read mode.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A thread in upgradeable mode can downgrade to read mode by first calling the <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim.EnterReadLock%2A&gt;</ph> method and then calling the <ph id="ph2">&lt;xref:System.Threading.ReaderWriterLockSlim.ExitUpgradeableReadLock%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This downgrade pattern is allowed for all lock recursion policies, even <ph id="ph1">&lt;xref:System.Threading.LockRecursionPolicy.NoRecursion&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve" extradata="MT">
+          <source>After downgrading to read mode, a thread cannot reenter upgradeable mode until it has exited from read mode.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Entering the Lock Recursively</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You can create a <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim&gt;</ph> that supports recursive lock entry by using the <ph id="ph2">&lt;xref:System.Threading.ReaderWriterLockSlim.%23ctor%28System.Threading.LockRecursionPolicy%29&gt;</ph> constructor that specifies lock policy, and specifying <ph id="ph3">&lt;xref:System.Threading.LockRecursionPolicy?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The use of recursion is not recommended for new development, because it introduces unnecessary complications and makes your code more prone to deadlocks.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For a <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim&gt;</ph> that allows recursion, the following can be said about the modes a thread can enter:</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A thread in read mode can enter read mode recursively, but cannot enter write mode or upgradeable mode.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If it tries to do this, a <ph id="ph1">&lt;xref:System.Threading.LockRecursionException&gt;</ph> is thrown.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Entering read mode and then entering write mode or upgradeable mode is a pattern with a strong probability of deadlocks, so it is not allowed.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve" extradata="MT">
+          <source>As discussed earlier, upgradeable mode is provided for cases where it is necessary to upgrade a lock.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A thread in upgradeable mode can enter write mode and/or read mode, and can enter any of the three modes recursively.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve" extradata="MT">
+          <source>However, an attempt to enter write mode blocks if there are other threads in read mode.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A thread in write mode can enter read mode and/or upgradeable mode, and can enter any of the three modes recursively.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A thread that has not entered the lock can enter any mode.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This attempt can block for the same reasons as an attempt to enter a non-recursive lock.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A thread can exit the modes it has entered in any order, as long as it exits each mode exactly as many times as it entered that mode.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If a thread tries to exit a mode too many times, or to exit a mode it has not entered, a <ph id="ph1">&lt;xref:System.Threading.SynchronizationLockException&gt;</ph> is thrown.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Lock States</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve" extradata="MT">
+          <source>You may find it useful to think of the lock in terms of its states.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim&gt;</ph> can be in one of four states: not entered, read, upgrade, and write.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Not entered: In this state, no threads have entered the lock (or all threads have exited the lock).</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Read: In this state, one or more threads have entered the lock for read access to the protected resource.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A thread can enter the lock in read mode by using the <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim.EnterReadLock%2A&gt;</ph> or <ph id="ph2">&lt;xref:System.Threading.ReaderWriterLockSlim.TryEnterReadLock%2A&gt;</ph> methods, or by downgrading from upgradeable mode.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Upgrade: In this state, one thread has entered the lock for read access with the option to upgrade to write access (that is, in upgradeable mode), and zero or more threads have entered the lock for read access.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve" extradata="MT">
+          <source>No more than one thread at a time can enter the lock with the option to upgrade; additional threads that try to enter upgradeable mode are blocked.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Write: In this state, one thread has entered the lock for write access to the protected resource.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve" extradata="MT">
+          <source>That thread has exclusive possession of the lock.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Any other thread that tries to enter the lock for any reason is blocked.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The following table describes the transitions between lock states, for locks that do not allow recursion, when a thread <ph id="ph1">`t`</ph> takes the action described in the leftmost column.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve" extradata="MT">
+          <source>At the time it takes the action, <ph id="ph1">`t`</ph> has no mode.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve" extradata="MT">
+          <source>(The special case where <ph id="ph1">`t`</ph> is in upgradeable mode is described in the table footnotes.) The top row describes the starting state of the lock.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The cells describe what happens to the thread, and show changes to the lock state in parentheses.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Not entered (N)</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Read (R)</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Upgrade (U)</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Write (W)</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">`t`</ph> enters read mode</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">`t`</ph> enters (R).</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">`t`</ph> blocks if threads are waiting for write mode; otherwise, <ph id="ph2">`t`</ph> enters.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">`t`</ph> blocks if threads are waiting for write mode; otherwise, <ph id="ph2">`t`</ph> enters.<bpt id="p1">&lt;sup&gt;</bpt>1<ept id="p1">&lt;/sup&gt;</ept></source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">`t`</ph> blocks.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">`t`</ph> enters upgradeable mode</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">`t`</ph> enters (U).</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">`t`</ph> blocks if threads are waiting for write mode or upgrade mode; otherwise, <ph id="ph2">`t`</ph> enters (U).</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">`t`</ph> blocks.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">`t`</ph> blocks.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">`t`</ph> enters write mode</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">`t`</ph> enters (W).</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">`t`</ph> blocks.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">`t`</ph> blocks.<bpt id="p1">&lt;sup&gt;</bpt>2<ept id="p1">&lt;/sup&gt;</ept></source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve" extradata="MT">
+          <source><ph id="ph1">`t`</ph> blocks.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve" extradata="MT">
+          <source><bpt id="p1">&lt;sup&gt;</bpt>1<ept id="p1">&lt;/sup&gt;</ept> If <ph id="ph1">`t`</ph> starts out in upgradeable mode, it enters read mode.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This action never blocks.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The lock state does not change.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve" extradata="MT">
+          <source>(The thread can then complete a downgrade to read mode by exiting upgradeable mode.)</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve" extradata="MT">
+          <source><bpt id="p1">&lt;sup&gt;</bpt>2<ept id="p1">&lt;/sup&gt;</ept> If <ph id="ph1">`t`</ph> starts out in upgradeable mode, it blocks if there are threads in read mode.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Otherwise it upgrades to write mode.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The lock state changes to Write (W).</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If <ph id="ph1">`t`</ph> blocks because there are threads in read mode, it enters write mode as soon as the last thread exits read mode, even if there are threads waiting to enter write mode.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve" extradata="MT">
+          <source>When a state change occurs because a thread exits the lock, the next thread to be awakened is selected as follows:</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve" extradata="MT">
+          <source>First, a thread that is waiting for write mode and is already in upgradeable mode (there can be at most one such thread).</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Failing that, a thread that is waiting for write mode.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Failing that, a thread that is waiting for upgradeable mode.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Failing that, all threads that are waiting for read mode.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The subsequent state of the lock is always Write (W) in the first two cases and Upgrade (U) in the third case, regardless of the state of the lock when the exiting thread triggered the state change.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve" extradata="MT">
+          <source>In the last case, the state of the lock is Upgrade (U) if there is a thread in upgradeable mode after the state change, and Read (R) otherwise, regardless of the prior state.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>Initializes a new instance of the <ph id="ph1">&lt;xref href="System.Threading.ReaderWriterLockSlim"&gt;&lt;/xref&gt;</ph> class with default property values.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim&gt;</ph> that is initialized with this constructor does not allow recursion.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve" extradata="MT">
+          <source>That is, the <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim.RecursionPolicy%2A&gt;</ph> property returns <ph id="ph2">&lt;xref:System.Threading.LockRecursionPolicy?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For more information about recursion policy and its effects, see the <ph id="ph1">&lt;xref:System.Threading.LockRecursionPolicy&gt;</ph> enumeration and the <ph id="ph2">&lt;xref:System.Threading.ReaderWriterLockSlim&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>Initializes a new instance of the <ph id="ph1">&lt;xref href="System.Threading.ReaderWriterLockSlim"&gt;&lt;/xref&gt;</ph> class, specifying the lock recursion policy.</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Recursion policy determines the restrictions on threads that enter the lock more than once.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For example, if a lock was created with <ph id="ph1">&lt;xref:System.Threading.LockRecursionPolicy?displayProperty=fullName&gt;</ph> and a thread has entered the lock in read mode, <ph id="ph2">&lt;xref:System.Threading.LockRecursionException&gt;</ph> is thrown if the thread tries to reenter the lock in read mode.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Similarly, if a thread has entered the lock in write mode, <ph id="ph1">&lt;xref:System.Threading.LockRecursionException&gt;</ph> is thrown if the thread tries to reenter the lock in any mode.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A thread in upgradeable mode can upgrade to write mode or downgrade to read mode regardless of the lock recursion policy setting.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Regardless of recursion policy, a thread that initially entered read mode is not allowed to upgrade to upgradeable mode or write mode, because that pattern creates a strong probability of deadlocks.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For more information about recursion policy and its effects, see the <ph id="ph1">&lt;xref:System.Threading.LockRecursionPolicy&gt;</ph> enumeration and the <ph id="ph2">&lt;xref:System.Threading.ReaderWriterLockSlim&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>One of the enumeration values that specifies the lock recursion policy.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>Gets the total number of unique threads that have entered the lock in read mode.</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A thread is counted only once, even if the lock allows recursion and the thread has entered read mode multiple times.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Use this property only for debugging, profiling, and logging purposes, and not to control the behavior of an algorithm.</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The results can change as soon as they have been calculated.</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Therefore, it is not safe to make decisions based on this property.</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>The number of unique threads that have entered the lock in read mode.</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>Releases all resources used by the current instance of the <ph id="ph1">&lt;xref href="System.Threading.ReaderWriterLockSlim"&gt;&lt;/xref&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Call <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim.Dispose%2A&gt;</ph> when you are finished using the <ph id="ph2">&lt;xref:System.Threading.ReaderWriterLockSlim&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim.Dispose%2A&gt;</ph> method leaves the <ph id="ph2">&lt;xref:System.Threading.ReaderWriterLockSlim&gt;</ph> in an unusable state.</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve" extradata="MT">
+          <source>After calling <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim.Dispose%2A&gt;</ph>, you must release all references to the <ph id="ph2">&lt;xref:System.Threading.ReaderWriterLockSlim&gt;</ph> so the garbage collector can reclaim the memory that the <ph id="ph3">&lt;xref:System.Threading.ReaderWriterLockSlim&gt;</ph> was occupying.</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For more information, see <bpt id="p1">[</bpt>Cleaning Up Unmanaged Resources<ept id="p1">](~/docs/standard/garbage-collection/unmanaged.md)</ept> and <bpt id="p2">[</bpt>Implementing a Dispose Method<ept id="p2">](~/docs/standard/garbage-collection/implementing-dispose.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Always call <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim.Dispose%2A&gt;</ph> before you release your last reference to the <ph id="ph2">&lt;xref:System.Threading.ReaderWriterLockSlim&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref href="System.Threading.ReaderWriterLockSlim.WaitingReadCount"&gt;&lt;/xref&gt;</ph> is greater than zero.</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>-or-</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref href="System.Threading.ReaderWriterLockSlim.WaitingUpgradeCount"&gt;&lt;/xref&gt;</ph> is greater than zero.</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source>-or-</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref href="System.Threading.ReaderWriterLockSlim.WaitingWriteCount"&gt;&lt;/xref&gt;</ph> is greater than zero.</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source>Tries to enter the lock in read mode.</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method blocks until the calling thread enters the lock, and therefore might never return.</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Use the <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim.TryEnterReadLock%2A&gt;</ph> method to block for a specified interval, and then return if the calling thread has not entered read mode during that interval.</source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Multiple threads can enter read mode at the same time.</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If one or more threads are waiting to enter write mode, a thread that calls the <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim.EnterReadLock%2A&gt;</ph> method blocks until those threads have either timed out or entered write mode and then exited from it.</source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If a lock allows recursion, a thread that has entered the lock in read mode can enter read mode recursively, even if other threads are waiting to enter write mode.</source>
+        </trans-unit>
+        <trans-unit id="248" translate="yes" xml:space="preserve" extradata="MT">
+          <source>At most one thread can be in upgradeable mode while other threads are in read mode.</source>
+        </trans-unit>
+        <trans-unit id="249" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If additional threads are waiting to enter upgradeable mode, and there are no threads waiting to enter write mode, threads that call the <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim.EnterReadLock%2A&gt;</ph> method enter read mode immediately and do not block.</source>
+        </trans-unit>
+        <trans-unit id="250" translate="yes" xml:space="preserve">
+          <source>The current thread cannot acquire the write lock when it holds the read lock.</source>
+        </trans-unit>
+        <trans-unit id="251" translate="yes" xml:space="preserve">
+          <source>-or-</source>
+        </trans-unit>
+        <trans-unit id="252" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Threading.ReaderWriterLockSlim.RecursionPolicy"&gt;&lt;/xref&gt;</ph> property is <ph id="ph2">&lt;xref href="System.Threading.LockRecursionPolicy.NoRecursion"&gt;&lt;/xref&gt;</ph>, and the current thread has attempted to acquire the read lock when it already holds the read lock.</source>
+        </trans-unit>
+        <trans-unit id="253" translate="yes" xml:space="preserve">
+          <source>-or-</source>
+        </trans-unit>
+        <trans-unit id="254" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Threading.ReaderWriterLockSlim.RecursionPolicy"&gt;&lt;/xref&gt;</ph> property is <ph id="ph2">&lt;xref href="System.Threading.LockRecursionPolicy.NoRecursion"&gt;&lt;/xref&gt;</ph>, and the current thread has attempted to acquire the read lock when it already holds the write lock.</source>
+        </trans-unit>
+        <trans-unit id="255" translate="yes" xml:space="preserve">
+          <source>-or-</source>
+        </trans-unit>
+        <trans-unit id="256" translate="yes" xml:space="preserve">
+          <source>The recursion number would exceed the capacity of the counter.</source>
+        </trans-unit>
+        <trans-unit id="257" translate="yes" xml:space="preserve">
+          <source>This limit is so large that applications should never encounter this exception.</source>
+        </trans-unit>
+        <trans-unit id="258" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Threading.ReaderWriterLockSlim"&gt;&lt;/xref&gt;</ph> object has been disposed.</source>
+        </trans-unit>
+        <trans-unit id="259" translate="yes" xml:space="preserve">
+          <source>Tries to enter the lock in upgradeable mode.</source>
+        </trans-unit>
+        <trans-unit id="260" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method blocks until the calling thread enters the lock, and therefore might never return.</source>
+        </trans-unit>
+        <trans-unit id="261" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Use the <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim.TryEnterUpgradeableReadLock%2A&gt;</ph> method to block for a specified interval, and then return if the calling thread has not entered upgradeable mode during that interval.</source>
+        </trans-unit>
+        <trans-unit id="262" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Use upgradeable mode when a thread usually accesses the resource that is protected by the <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim&gt;</ph> in read mode, but may need to enter write mode if certain conditions are met.</source>
+        </trans-unit>
+        <trans-unit id="263" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A thread in upgradeable mode can downgrade to read mode or upgrade to write mode.</source>
+        </trans-unit>
+        <trans-unit id="264" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Only one thread can enter upgradeable mode at any given time.</source>
+        </trans-unit>
+        <trans-unit id="265" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If a thread is in upgradeable mode, and there are no threads waiting to enter write mode, any number of other threads can enter read mode, even if there are threads waiting to enter upgradeable mode.</source>
+        </trans-unit>
+        <trans-unit id="266" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If one or more threads are waiting to enter write mode, a thread that calls the <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim.EnterUpgradeableReadLock%2A&gt;</ph> method blocks until those threads have either timed out or entered write mode and then exited from it.</source>
+        </trans-unit>
+        <trans-unit id="267" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If a lock allows recursion, a thread that has entered the lock in upgradeable mode can enter upgradeable mode recursively, even if other threads are waiting to enter write mode.</source>
+        </trans-unit>
+        <trans-unit id="268" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Threading.ReaderWriterLockSlim.RecursionPolicy"&gt;&lt;/xref&gt;</ph> property is <ph id="ph2">&lt;xref href="System.Threading.LockRecursionPolicy.NoRecursion"&gt;&lt;/xref&gt;</ph> and the current thread has already entered the lock in any mode.</source>
+        </trans-unit>
+        <trans-unit id="269" translate="yes" xml:space="preserve">
+          <source>-or-</source>
+        </trans-unit>
+        <trans-unit id="270" translate="yes" xml:space="preserve">
+          <source>The current thread has entered read mode, so trying to enter upgradeable mode would create the possibility of a deadlock.</source>
+        </trans-unit>
+        <trans-unit id="271" translate="yes" xml:space="preserve">
+          <source>-or-</source>
+        </trans-unit>
+        <trans-unit id="272" translate="yes" xml:space="preserve">
+          <source>The recursion number would exceed the capacity of the counter.</source>
+        </trans-unit>
+        <trans-unit id="273" translate="yes" xml:space="preserve">
+          <source>The limit is so large that applications should never encounter it.</source>
+        </trans-unit>
+        <trans-unit id="274" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Threading.ReaderWriterLockSlim"&gt;&lt;/xref&gt;</ph> object has been disposed.</source>
+        </trans-unit>
+        <trans-unit id="275" translate="yes" xml:space="preserve">
+          <source>Tries to enter the lock in write mode.</source>
+        </trans-unit>
+        <trans-unit id="276" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method blocks until the calling thread enters the lock, and therefore might never return.</source>
+        </trans-unit>
+        <trans-unit id="277" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Use the <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim.TryEnterWriteLock%2A&gt;</ph> method to block for a specified interval, and then return if the calling thread has not entered write mode during that interval.</source>
+        </trans-unit>
+        <trans-unit id="278" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If other threads have entered the lock in read mode, a thread that calls the <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim.EnterWriteLock%2A&gt;</ph> method blocks until those threads have exited read mode.</source>
+        </trans-unit>
+        <trans-unit id="279" translate="yes" xml:space="preserve" extradata="MT">
+          <source>When there are threads waiting to enter write mode, additional threads that try to enter read mode or upgradeable mode block until all the threads waiting to enter write mode have either timed out or entered write mode and then exited from it.</source>
+        </trans-unit>
+        <trans-unit id="280" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If a lock allows recursion, a thread that has entered the lock in write mode can enter write mode recursively, even if other threads are waiting to enter write mode.</source>
+        </trans-unit>
+        <trans-unit id="281" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Threading.ReaderWriterLockSlim.RecursionPolicy"&gt;&lt;/xref&gt;</ph> property is <ph id="ph2">&lt;xref href="System.Threading.LockRecursionPolicy.NoRecursion"&gt;&lt;/xref&gt;</ph> and the current thread has already entered the lock in any mode.</source>
+        </trans-unit>
+        <trans-unit id="282" translate="yes" xml:space="preserve">
+          <source>-or-</source>
+        </trans-unit>
+        <trans-unit id="283" translate="yes" xml:space="preserve">
+          <source>The current thread has entered read mode, so trying to enter the lock in write mode would create the possibility of a deadlock.</source>
+        </trans-unit>
+        <trans-unit id="284" translate="yes" xml:space="preserve">
+          <source>-or-</source>
+        </trans-unit>
+        <trans-unit id="285" translate="yes" xml:space="preserve">
+          <source>The recursion number would exceed the capacity of the counter.</source>
+        </trans-unit>
+        <trans-unit id="286" translate="yes" xml:space="preserve">
+          <source>The limit is so large that applications should never encounter it.</source>
+        </trans-unit>
+        <trans-unit id="287" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Threading.ReaderWriterLockSlim"&gt;&lt;/xref&gt;</ph> object has been disposed.</source>
+        </trans-unit>
+        <trans-unit id="288" translate="yes" xml:space="preserve">
+          <source>Reduces the recursion count for read mode, and exits read mode if the resulting count is 0 (zero).</source>
+        </trans-unit>
+        <trans-unit id="289" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method is not sensitive to recursion order.</source>
+        </trans-unit>
+        <trans-unit id="290" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For example, if a thread enters a lock in upgradeable mode and then enters the lock in read mode, the order in which the thread exits the two modes does not matter.</source>
+        </trans-unit>
+        <trans-unit id="291" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If a lock allows recursion, a thread can enter the lock in write mode and then enter it recursively in read mode; the order in which the thread exits read mode and write mode does not matter.</source>
+        </trans-unit>
+        <trans-unit id="292" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Exiting the lock might signal other waiting threads.</source>
+        </trans-unit>
+        <trans-unit id="293" translate="yes" xml:space="preserve">
+          <source>The current thread has not entered the lock in read mode.</source>
+        </trans-unit>
+        <trans-unit id="294" translate="yes" xml:space="preserve">
+          <source>Reduces the recursion count for upgradeable mode, and exits upgradeable mode if the resulting count is 0 (zero).</source>
+        </trans-unit>
+        <trans-unit id="295" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method is not sensitive to recursion order.</source>
+        </trans-unit>
+        <trans-unit id="296" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For example, if a thread enters a lock in upgradeable mode and then enters the lock in write mode, the order in which the thread exits the two modes does not matter.</source>
+        </trans-unit>
+        <trans-unit id="297" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If a lock allows recursion, a thread can enter the lock in write mode and then enter it recursively in upgradeable mode; the order in which the thread exits upgradeable mode and write mode does not matter.</source>
+        </trans-unit>
+        <trans-unit id="298" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Exiting the lock might signal other waiting threads.</source>
+        </trans-unit>
+        <trans-unit id="299" translate="yes" xml:space="preserve">
+          <source>The current thread has not entered the lock in upgradeable mode.</source>
+        </trans-unit>
+        <trans-unit id="300" translate="yes" xml:space="preserve">
+          <source>Reduces the recursion count for write mode, and exits write mode if the resulting count is 0 (zero).</source>
+        </trans-unit>
+        <trans-unit id="301" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This method is not sensitive to recursion order.</source>
+        </trans-unit>
+        <trans-unit id="302" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For example, if a thread enters a lock in upgradeable mode and then enters the lock in write mode, the order in which the thread exits the two modes does not matter.</source>
+        </trans-unit>
+        <trans-unit id="303" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If a lock allows recursion, a thread can enter the lock in write mode and then enter it recursively in read mode; the order in which the thread exits read mode and write mode does not matter.</source>
+        </trans-unit>
+        <trans-unit id="304" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Exiting the lock might signal other waiting threads.</source>
+        </trans-unit>
+        <trans-unit id="305" translate="yes" xml:space="preserve">
+          <source>The current thread has not entered the lock in write mode.</source>
+        </trans-unit>
+        <trans-unit id="306" translate="yes" xml:space="preserve">
+          <source>Gets a value that indicates whether the current thread has entered the lock in read mode.</source>
+        </trans-unit>
+        <trans-unit id="307" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This property is intended for use in asserts or for other debugging purposes.</source>
+        </trans-unit>
+        <trans-unit id="308" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Do not use it to control the flow of program execution.</source>
+        </trans-unit>
+        <trans-unit id="309" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`true`</ph> if the current thread has entered read mode; otherwise, <ph id="ph2">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="310" translate="yes" xml:space="preserve">
+          <source>Gets a value that indicates whether the current thread has entered the lock in upgradeable mode.</source>
+        </trans-unit>
+        <trans-unit id="311" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This property is intended for use in asserts or for other debugging purposes.</source>
+        </trans-unit>
+        <trans-unit id="312" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Do not use it to control the flow of program execution.</source>
+        </trans-unit>
+        <trans-unit id="313" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`true`</ph> if the current thread has entered upgradeable mode; otherwise, <ph id="ph2">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="314" translate="yes" xml:space="preserve">
+          <source>Gets a value that indicates whether the current thread has entered the lock in write mode.</source>
+        </trans-unit>
+        <trans-unit id="315" translate="yes" xml:space="preserve" extradata="MT">
+          <source>This property is intended for use in asserts or for other debugging purposes.</source>
+        </trans-unit>
+        <trans-unit id="316" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Do not use it to control the flow of program execution.</source>
+        </trans-unit>
+        <trans-unit id="317" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`true`</ph> if the current thread has entered write mode; otherwise, <ph id="ph2">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="318" translate="yes" xml:space="preserve">
+          <source>Gets a value that indicates the recursion policy for the current <ph id="ph1">&lt;xref href="System.Threading.ReaderWriterLockSlim"&gt;&lt;/xref&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="319" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Recursion policy determines the restrictions on threads that enter the lock more than once.</source>
+        </trans-unit>
+        <trans-unit id="320" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For example, if a lock was created with <ph id="ph1">&lt;xref:System.Threading.LockRecursionPolicy?displayProperty=fullName&gt;</ph> and a thread has entered the lock in read mode, <ph id="ph2">&lt;xref:System.Threading.LockRecursionException&gt;</ph> is thrown if the thread tries to reenter the lock in read mode.</source>
+        </trans-unit>
+        <trans-unit id="321" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A thread in upgradeable mode can upgrade to write mode or downgrade to read mode regardless of the lock recursion policy setting.</source>
+        </trans-unit>
+        <trans-unit id="322" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Regardless of recursion policy, a thread that initially entered read mode is not allowed to upgrade to upgradeable mode or write mode, because that pattern creates a strong probability of deadlocks.</source>
+        </trans-unit>
+        <trans-unit id="323" translate="yes" xml:space="preserve" extradata="MT">
+          <source>For more information about recursion policy and its effects, see the <ph id="ph1">&lt;xref:System.Threading.LockRecursionPolicy&gt;</ph> enumeration and the <ph id="ph2">&lt;xref:System.Threading.ReaderWriterLockSlim&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="324" translate="yes" xml:space="preserve">
+          <source>One of the enumeration values that specifies the lock recursion policy.</source>
+        </trans-unit>
+        <trans-unit id="325" translate="yes" xml:space="preserve">
+          <source>Gets the number of times the current thread has entered the lock in read mode, as an indication of recursion.</source>
+        </trans-unit>
+        <trans-unit id="326" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Use this property only for debugging, profiling, and logging purposes, and not to control the behavior of an algorithm.</source>
+        </trans-unit>
+        <trans-unit id="327" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The results can change as soon as they have been calculated.</source>
+        </trans-unit>
+        <trans-unit id="328" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Therefore, it is not safe to make decisions based on this property.</source>
+        </trans-unit>
+        <trans-unit id="329" translate="yes" xml:space="preserve">
+          <source>0 (zero) if the current thread has not entered read mode, 1 if the thread has entered read mode but has not entered it recursively, or <bpt id="p1">*</bpt><ph id="ph1">n</ph><ept id="p1">*</ept> if the thread has entered the lock recursively <bpt id="p2">*</bpt><ph id="ph2">n</ph><ept id="p2">*</ept> - 1 times.</source>
+        </trans-unit>
+        <trans-unit id="330" translate="yes" xml:space="preserve">
+          <source>Gets the number of times the current thread has entered the lock in upgradeable mode, as an indication of recursion.</source>
+        </trans-unit>
+        <trans-unit id="331" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Use this property only for debugging, profiling, and logging purposes, and not to control the behavior of an algorithm.</source>
+        </trans-unit>
+        <trans-unit id="332" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The results can change as soon as they have been calculated.</source>
+        </trans-unit>
+        <trans-unit id="333" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Therefore, it is not safe to make decisions based on this property.</source>
+        </trans-unit>
+        <trans-unit id="334" translate="yes" xml:space="preserve">
+          <source>0 if the current thread has not entered upgradeable mode, 1 if the thread has entered upgradeable mode but has not entered it recursively, or <bpt id="p1">*</bpt><ph id="ph1">n</ph><ept id="p1">*</ept> if the thread has entered upgradeable mode recursively <bpt id="p2">*</bpt><ph id="ph2">n</ph><ept id="p2">*</ept> - 1 times.</source>
+        </trans-unit>
+        <trans-unit id="335" translate="yes" xml:space="preserve">
+          <source>Gets the number of times the current thread has entered the lock in write mode, as an indication of recursion.</source>
+        </trans-unit>
+        <trans-unit id="336" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Use this property only for debugging, profiling, and logging purposes, and not to control the behavior of an algorithm.</source>
+        </trans-unit>
+        <trans-unit id="337" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The results can change as soon as they have been calculated.</source>
+        </trans-unit>
+        <trans-unit id="338" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Therefore, it is not safe to make decisions based on this property.</source>
+        </trans-unit>
+        <trans-unit id="339" translate="yes" xml:space="preserve">
+          <source>0 if the current thread has not entered write mode, 1 if the thread has entered write mode but has not entered it recursively, or <bpt id="p1">*</bpt><ph id="ph1">n</ph><ept id="p1">*</ept> if the thread has entered write mode recursively <bpt id="p2">*</bpt><ph id="ph2">n</ph><ept id="p2">*</ept> - 1 times.</source>
+        </trans-unit>
+        <trans-unit id="340" translate="yes" xml:space="preserve">
+          <source>Tries to enter the lock in read mode, with an optional integer time-out.</source>
+        </trans-unit>
+        <trans-unit id="341" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If <ph id="ph1">`millisecondsTimeout`</ph> is 0 (zero), this method checks the lock state and returns <ph id="ph2">`false`</ph> immediately if the desired state is unavailable.</source>
+        </trans-unit>
+        <trans-unit id="342" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Multiple threads can enter read mode at the same time.</source>
+        </trans-unit>
+        <trans-unit id="343" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If one or more threads are waiting to enter write mode, a thread that calls the <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim.TryEnterReadLock%2A&gt;</ph> method blocks until those threads have either timed out or entered write mode and then exited from it, or until the calling thread's own time-out interval expires.</source>
+        </trans-unit>
+        <trans-unit id="344" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If a lock allows recursion, a thread that has entered the lock in read mode can enter read mode recursively, even if other threads are waiting to enter write mode.</source>
+        </trans-unit>
+        <trans-unit id="345" translate="yes" xml:space="preserve" extradata="MT">
+          <source>One thread can be in upgradeable mode while other threads are in read mode.</source>
+        </trans-unit>
+        <trans-unit id="346" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If additional threads are waiting to enter upgradeable mode, and there are no threads waiting to enter write mode, threads that call the <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim.TryEnterReadLock%2A&gt;</ph> method enter read mode immediately and do not block.</source>
+        </trans-unit>
+        <trans-unit id="347" translate="yes" xml:space="preserve">
+          <source>The number of milliseconds to wait, or -1 (<ph id="ph1">&lt;xref href="System.Threading.Timeout.Infinite"&gt;&lt;/xref&gt;</ph>) to wait indefinitely.</source>
+        </trans-unit>
+        <trans-unit id="348" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`true`</ph> if the calling thread entered read mode, otherwise, <ph id="ph2">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="349" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Threading.ReaderWriterLockSlim.RecursionPolicy"&gt;&lt;/xref&gt;</ph> property is <ph id="ph2">&lt;xref href="System.Threading.LockRecursionPolicy.NoRecursion"&gt;&lt;/xref&gt;</ph> and the current thread has already entered the lock.</source>
+        </trans-unit>
+        <trans-unit id="350" translate="yes" xml:space="preserve">
+          <source>-or-</source>
+        </trans-unit>
+        <trans-unit id="351" translate="yes" xml:space="preserve">
+          <source>The recursion number would exceed the capacity of the counter.</source>
+        </trans-unit>
+        <trans-unit id="352" translate="yes" xml:space="preserve">
+          <source>The limit is so large that applications should never encounter it.</source>
+        </trans-unit>
+        <trans-unit id="353" translate="yes" xml:space="preserve">
+          <source>The value of <bpt id="p1">&lt;code&gt;</bpt><ph id="ph1">millisecondsTimeout</ph><ept id="p1">&lt;/code&gt;</ept> is negative, but it is not equal to <ph id="ph2">&lt;xref href="System.Threading.Timeout.Infinite"&gt;&lt;/xref&gt;</ph> (-1), which is the only negative value allowed.</source>
+        </trans-unit>
+        <trans-unit id="354" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Threading.ReaderWriterLockSlim"&gt;&lt;/xref&gt;</ph> object has been disposed.</source>
+        </trans-unit>
+        <trans-unit id="355" translate="yes" xml:space="preserve">
+          <source>Tries to enter the lock in read mode, with an optional time-out.</source>
+        </trans-unit>
+        <trans-unit id="356" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If <ph id="ph1">`timeout`</ph> is 0 (zero), this method checks the lock state and returns <ph id="ph2">`false`</ph> immediately if the desired state is unavailable.</source>
+        </trans-unit>
+        <trans-unit id="357" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Multiple threads can enter the lock in read mode at the same time.</source>
+        </trans-unit>
+        <trans-unit id="358" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If one or more threads are queued to enter write mode, a thread that calls the <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim.TryEnterReadLock%2A&gt;</ph> method blocks until those threads have either timed out or entered write mode and then exited from it, or until the calling thread's own time-out interval expires.</source>
+        </trans-unit>
+        <trans-unit id="359" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If a lock allows recursion, a thread that has entered the lock in read mode can enter read mode recursively, even if other threads are waiting to enter write mode.</source>
+        </trans-unit>
+        <trans-unit id="360" translate="yes" xml:space="preserve" extradata="MT">
+          <source>One thread can be in upgradeable mode while other threads are in read mode.</source>
+        </trans-unit>
+        <trans-unit id="361" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If additional threads are waiting to enter upgradeable mode, and there are no threads waiting to enter write mode, threads that call the <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim.TryEnterReadLock%2A&gt;</ph> method enter read mode immediately and do not block.</source>
+        </trans-unit>
+        <trans-unit id="362" translate="yes" xml:space="preserve">
+          <source>The interval to wait, or -1 milliseconds to wait indefinitely.</source>
+        </trans-unit>
+        <trans-unit id="363" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`true`</ph> if the calling thread entered read mode, otherwise, <ph id="ph2">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="364" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Threading.ReaderWriterLockSlim.RecursionPolicy"&gt;&lt;/xref&gt;</ph> property is <ph id="ph2">&lt;xref href="System.Threading.LockRecursionPolicy.NoRecursion"&gt;&lt;/xref&gt;</ph> and the current thread has already entered the lock.</source>
+        </trans-unit>
+        <trans-unit id="365" translate="yes" xml:space="preserve">
+          <source>-or-</source>
+        </trans-unit>
+        <trans-unit id="366" translate="yes" xml:space="preserve">
+          <source>The recursion number would exceed the capacity of the counter.</source>
+        </trans-unit>
+        <trans-unit id="367" translate="yes" xml:space="preserve">
+          <source>The limit is so large that applications should never encounter it.</source>
+        </trans-unit>
+        <trans-unit id="368" translate="yes" xml:space="preserve">
+          <source>The value of <bpt id="p1">&lt;code&gt;</bpt><ph id="ph1">timeout</ph><ept id="p1">&lt;/code&gt;</ept> is negative, but it is not equal to -1 milliseconds, which is the only negative value allowed.</source>
+        </trans-unit>
+        <trans-unit id="369" translate="yes" xml:space="preserve">
+          <source>-or-</source>
+        </trans-unit>
+        <trans-unit id="370" translate="yes" xml:space="preserve">
+          <source>The value of <bpt id="p1">&lt;code&gt;</bpt><ph id="ph1">timeout</ph><ept id="p1">&lt;/code&gt;</ept> is greater than <ph id="ph2">&lt;xref href="System.Int32.MaxValue"&gt;&lt;/xref&gt;</ph> milliseconds.</source>
+        </trans-unit>
+        <trans-unit id="371" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Threading.ReaderWriterLockSlim"&gt;&lt;/xref&gt;</ph> object has been disposed.</source>
+        </trans-unit>
+        <trans-unit id="372" translate="yes" xml:space="preserve">
+          <source>Tries to enter the lock in upgradeable mode, with an optional time-out.</source>
+        </trans-unit>
+        <trans-unit id="373" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If <ph id="ph1">`millisecondsTimeout`</ph> is 0 (zero), this method checks the lock state and returns <ph id="ph2">`false`</ph> immediately if the desired state is unavailable.</source>
+        </trans-unit>
+        <trans-unit id="374" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Use upgradeable mode when a thread usually accesses the resource that is protected by the <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim&gt;</ph> in read mode, but may need to enter write mode if certain conditions are met.</source>
+        </trans-unit>
+        <trans-unit id="375" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A thread in upgradeable mode can upgrade to write mode or downgrade to read mode.</source>
+        </trans-unit>
+        <trans-unit id="376" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Only one thread can enter a lock in upgradeable mode at any given time.</source>
+        </trans-unit>
+        <trans-unit id="377" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If a thread is in upgradeable mode, and there are no threads waiting to enter write mode, any number of other threads can enter read mode, even if there are threads waiting to enter upgradeable mode.</source>
+        </trans-unit>
+        <trans-unit id="378" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If one or more threads are waiting to enter write mode, a thread that calls the <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim.TryEnterUpgradeableReadLock%2A&gt;</ph> method blocks until those threads have either timed out or entered write mode and then exited from it, or until the calling thread's own time-out interval expires.</source>
+        </trans-unit>
+        <trans-unit id="379" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If a lock allows recursion, a thread that has entered the lock in upgradeable mode can enter upgradeable mode recursively, even if other threads are waiting to enter write mode.</source>
+        </trans-unit>
+        <trans-unit id="380" translate="yes" xml:space="preserve">
+          <source>The number of milliseconds to wait, or -1 (<ph id="ph1">&lt;xref href="System.Threading.Timeout.Infinite"&gt;&lt;/xref&gt;</ph>) to wait indefinitely.</source>
+        </trans-unit>
+        <trans-unit id="381" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`true`</ph> if the calling thread entered upgradeable mode, otherwise, <ph id="ph2">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="382" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Threading.ReaderWriterLockSlim.RecursionPolicy"&gt;&lt;/xref&gt;</ph> property is <ph id="ph2">&lt;xref href="System.Threading.LockRecursionPolicy.NoRecursion"&gt;&lt;/xref&gt;</ph> and the current thread has already entered the lock.</source>
+        </trans-unit>
+        <trans-unit id="383" translate="yes" xml:space="preserve">
+          <source>-or-</source>
+        </trans-unit>
+        <trans-unit id="384" translate="yes" xml:space="preserve">
+          <source>The current thread initially entered the lock in read mode, and therefore trying to enter upgradeable mode would create the possibility of a deadlock.</source>
+        </trans-unit>
+        <trans-unit id="385" translate="yes" xml:space="preserve">
+          <source>-or-</source>
+        </trans-unit>
+        <trans-unit id="386" translate="yes" xml:space="preserve">
+          <source>The recursion number would exceed the capacity of the counter.</source>
+        </trans-unit>
+        <trans-unit id="387" translate="yes" xml:space="preserve">
+          <source>The limit is so large that applications should never encounter it.</source>
+        </trans-unit>
+        <trans-unit id="388" translate="yes" xml:space="preserve">
+          <source>The value of <bpt id="p1">&lt;code&gt;</bpt><ph id="ph1">millisecondsTimeout</ph><ept id="p1">&lt;/code&gt;</ept> is negative, but it is not equal to <ph id="ph2">&lt;xref href="System.Threading.Timeout.Infinite"&gt;&lt;/xref&gt;</ph> (-1), which is the only negative value allowed.</source>
+        </trans-unit>
+        <trans-unit id="389" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Threading.ReaderWriterLockSlim"&gt;&lt;/xref&gt;</ph> object has been disposed.</source>
+        </trans-unit>
+        <trans-unit id="390" translate="yes" xml:space="preserve">
+          <source>Tries to enter the lock in upgradeable mode, with an optional time-out.</source>
+        </trans-unit>
+        <trans-unit id="391" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If <ph id="ph1">`timeout`</ph> is 0 (zero), this method checks the lock state and returns <ph id="ph2">`false`</ph> immediately if the desired state is unavailable.</source>
+        </trans-unit>
+        <trans-unit id="392" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Use upgradeable mode when a thread usually accesses the resource protected by the <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim&gt;</ph> in read mode, but may need to enter write mode if certain conditions are met.</source>
+        </trans-unit>
+        <trans-unit id="393" translate="yes" xml:space="preserve" extradata="MT">
+          <source>A thread in upgradeable mode can upgrade to write mode or downgrade to read mode.</source>
+        </trans-unit>
+        <trans-unit id="394" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Only one thread can enter a lock in upgradeable mode at any given time.</source>
+        </trans-unit>
+        <trans-unit id="395" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If a thread is in upgradeable mode, and there are no threads waiting to enter write mode, any number of other threads can enter read mode, even if there are threads waiting to enter upgradeable mode.</source>
+        </trans-unit>
+        <trans-unit id="396" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If one or more threads are waiting to enter write mode, a thread that calls the <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim.TryEnterUpgradeableReadLock%2A&gt;</ph> method blocks until those threads have either timed out or entered write mode and then exited from it, or until the calling thread's own time-out interval expires.</source>
+        </trans-unit>
+        <trans-unit id="397" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If a lock allows recursion, a thread that has entered the lock in upgradeable mode can enter upgradeable mode recursively, even if other threads are waiting to enter write mode.</source>
+        </trans-unit>
+        <trans-unit id="398" translate="yes" xml:space="preserve">
+          <source>The interval to wait, or -1 milliseconds to wait indefinitely.</source>
+        </trans-unit>
+        <trans-unit id="399" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`true`</ph> if the calling thread entered upgradeable mode, otherwise, <ph id="ph2">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="400" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Threading.ReaderWriterLockSlim.RecursionPolicy"&gt;&lt;/xref&gt;</ph> property is <ph id="ph2">&lt;xref href="System.Threading.LockRecursionPolicy.NoRecursion"&gt;&lt;/xref&gt;</ph> and the current thread has already entered the lock.</source>
+        </trans-unit>
+        <trans-unit id="401" translate="yes" xml:space="preserve">
+          <source>-or-</source>
+        </trans-unit>
+        <trans-unit id="402" translate="yes" xml:space="preserve">
+          <source>The current thread initially entered the lock in read mode, and therefore trying to enter upgradeable mode would create the possibility of a deadlock.</source>
+        </trans-unit>
+        <trans-unit id="403" translate="yes" xml:space="preserve">
+          <source>-or-</source>
+        </trans-unit>
+        <trans-unit id="404" translate="yes" xml:space="preserve">
+          <source>The recursion number would exceed the capacity of the counter.</source>
+        </trans-unit>
+        <trans-unit id="405" translate="yes" xml:space="preserve">
+          <source>The limit is so large that applications should never encounter it.</source>
+        </trans-unit>
+        <trans-unit id="406" translate="yes" xml:space="preserve">
+          <source>The value of <bpt id="p1">&lt;code&gt;</bpt><ph id="ph1">timeout</ph><ept id="p1">&lt;/code&gt;</ept> is negative, but it is not equal to -1 milliseconds, which is the only negative value allowed.</source>
+        </trans-unit>
+        <trans-unit id="407" translate="yes" xml:space="preserve">
+          <source>-or-</source>
+        </trans-unit>
+        <trans-unit id="408" translate="yes" xml:space="preserve">
+          <source>The value of <bpt id="p1">&lt;code&gt;</bpt><ph id="ph1">timeout</ph><ept id="p1">&lt;/code&gt;</ept> is greater than <ph id="ph2">&lt;xref href="System.Int32.MaxValue"&gt;&lt;/xref&gt;</ph> milliseconds.</source>
+        </trans-unit>
+        <trans-unit id="409" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Threading.ReaderWriterLockSlim"&gt;&lt;/xref&gt;</ph> object has been disposed.</source>
+        </trans-unit>
+        <trans-unit id="410" translate="yes" xml:space="preserve">
+          <source>Tries to enter the lock in write mode, with an optional time-out.</source>
+        </trans-unit>
+        <trans-unit id="411" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If <ph id="ph1">`millisecondsTimeout`</ph> is 0 (zero), this method checks the lock state and returns <ph id="ph2">`false`</ph> immediately if the desired state is unavailable.</source>
+        </trans-unit>
+        <trans-unit id="412" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If other threads have entered the lock in read mode, a thread that calls the <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim.TryEnterWriteLock%2A&gt;</ph> method blocks until those threads have exited read mode or until the time-out interval has elapsed.</source>
+        </trans-unit>
+        <trans-unit id="413" translate="yes" xml:space="preserve" extradata="MT">
+          <source>While threads are blocked waiting to enter write mode, additional threads that try to enter read mode or upgradeable mode block until all the threads waiting to enter write mode have either timed out or entered write mode and then exited from it.</source>
+        </trans-unit>
+        <trans-unit id="414" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If a lock allows recursion, a thread that has entered the lock in write mode can enter write mode recursively, even if other threads are waiting to enter write mode.</source>
+        </trans-unit>
+        <trans-unit id="415" translate="yes" xml:space="preserve">
+          <source>The number of milliseconds to wait, or -1 (<ph id="ph1">&lt;xref href="System.Threading.Timeout.Infinite"&gt;&lt;/xref&gt;</ph>) to wait indefinitely.</source>
+        </trans-unit>
+        <trans-unit id="416" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`true`</ph> if the calling thread entered write mode, otherwise, <ph id="ph2">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="417" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Threading.ReaderWriterLockSlim.RecursionPolicy"&gt;&lt;/xref&gt;</ph> property is <ph id="ph2">&lt;xref href="System.Threading.LockRecursionPolicy.NoRecursion"&gt;&lt;/xref&gt;</ph> and the current thread has already entered the lock.</source>
+        </trans-unit>
+        <trans-unit id="418" translate="yes" xml:space="preserve">
+          <source>-or-</source>
+        </trans-unit>
+        <trans-unit id="419" translate="yes" xml:space="preserve">
+          <source>The current thread initially entered the lock in read mode, and therefore trying to enter write mode would create the possibility of a deadlock.</source>
+        </trans-unit>
+        <trans-unit id="420" translate="yes" xml:space="preserve">
+          <source>-or-</source>
+        </trans-unit>
+        <trans-unit id="421" translate="yes" xml:space="preserve">
+          <source>The recursion number would exceed the capacity of the counter.</source>
+        </trans-unit>
+        <trans-unit id="422" translate="yes" xml:space="preserve">
+          <source>The limit is so large that applications should never encounter it.</source>
+        </trans-unit>
+        <trans-unit id="423" translate="yes" xml:space="preserve">
+          <source>The value of <bpt id="p1">&lt;code&gt;</bpt><ph id="ph1">millisecondsTimeout</ph><ept id="p1">&lt;/code&gt;</ept> is negative, but it is not equal to <ph id="ph2">&lt;xref href="System.Threading.Timeout.Infinite"&gt;&lt;/xref&gt;</ph> (-1), which is the only negative value allowed.</source>
+        </trans-unit>
+        <trans-unit id="424" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Threading.ReaderWriterLockSlim"&gt;&lt;/xref&gt;</ph> object has been disposed.</source>
+        </trans-unit>
+        <trans-unit id="425" translate="yes" xml:space="preserve">
+          <source>Tries to enter the lock in write mode, with an optional time-out.</source>
+        </trans-unit>
+        <trans-unit id="426" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If <ph id="ph1">`timeout`</ph> is 0 (zero), this method checks the lock state and returns <ph id="ph2">`false`</ph> immediately if the desired state is unavailable.</source>
+        </trans-unit>
+        <trans-unit id="427" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If other threads have entered the lock in read mode, a thread that calls the <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim.TryEnterWriteLock%2A&gt;</ph> method blocks until those threads have exited read mode or until the time-out interval has elapsed.</source>
+        </trans-unit>
+        <trans-unit id="428" translate="yes" xml:space="preserve" extradata="MT">
+          <source>While threads are blocked waiting to enter write mode, additional threads that try to enter read mode or upgradeable mode block until all the threads waiting to enter write mode have either timed out or entered write mode and then exited from it.</source>
+        </trans-unit>
+        <trans-unit id="429" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If a lock allows recursion, a thread that has entered the lock in write mode can enter write mode recursively, even if other threads are waiting to enter write mode.</source>
+        </trans-unit>
+        <trans-unit id="430" translate="yes" xml:space="preserve">
+          <source>The interval to wait, or -1 milliseconds to wait indefinitely.</source>
+        </trans-unit>
+        <trans-unit id="431" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`true`</ph> if the calling thread entered write mode, otherwise, <ph id="ph2">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="432" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Threading.ReaderWriterLockSlim.RecursionPolicy"&gt;&lt;/xref&gt;</ph> property is <ph id="ph2">&lt;xref href="System.Threading.LockRecursionPolicy.NoRecursion"&gt;&lt;/xref&gt;</ph> and the current thread has already entered the lock.</source>
+        </trans-unit>
+        <trans-unit id="433" translate="yes" xml:space="preserve">
+          <source>-or-</source>
+        </trans-unit>
+        <trans-unit id="434" translate="yes" xml:space="preserve">
+          <source>The current thread initially entered the lock in read mode, and therefore trying to enter write mode would create the possibility of a deadlock.</source>
+        </trans-unit>
+        <trans-unit id="435" translate="yes" xml:space="preserve">
+          <source>-or-</source>
+        </trans-unit>
+        <trans-unit id="436" translate="yes" xml:space="preserve">
+          <source>The recursion number would exceed the capacity of the counter.</source>
+        </trans-unit>
+        <trans-unit id="437" translate="yes" xml:space="preserve">
+          <source>The limit is so large that applications should never encounter it.</source>
+        </trans-unit>
+        <trans-unit id="438" translate="yes" xml:space="preserve">
+          <source>The value of <bpt id="p1">&lt;code&gt;</bpt><ph id="ph1">timeout</ph><ept id="p1">&lt;/code&gt;</ept> is negative, but it is not equal to -1 milliseconds, which is the only negative value allowed.</source>
+        </trans-unit>
+        <trans-unit id="439" translate="yes" xml:space="preserve">
+          <source>-or-</source>
+        </trans-unit>
+        <trans-unit id="440" translate="yes" xml:space="preserve">
+          <source>The value of <bpt id="p1">&lt;code&gt;</bpt><ph id="ph1">timeout</ph><ept id="p1">&lt;/code&gt;</ept> is greater than <ph id="ph2">&lt;xref href="System.Int32.MaxValue"&gt;&lt;/xref&gt;</ph> milliseconds.</source>
+        </trans-unit>
+        <trans-unit id="441" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref href="System.Threading.ReaderWriterLockSlim"&gt;&lt;/xref&gt;</ph> object has been disposed.</source>
+        </trans-unit>
+        <trans-unit id="442" translate="yes" xml:space="preserve">
+          <source>Gets the total number of threads that are waiting to enter the lock in read mode.</source>
+        </trans-unit>
+        <trans-unit id="443" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Use this property only for debugging, profiling, and logging purposes, and not to control the behavior of an algorithm.</source>
+        </trans-unit>
+        <trans-unit id="444" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The results can change as soon as they have been calculated.</source>
+        </trans-unit>
+        <trans-unit id="445" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Therefore, it is not safe to make decisions based on this property.</source>
+        </trans-unit>
+        <trans-unit id="446" translate="yes" xml:space="preserve">
+          <source>The total number of threads that are waiting to enter read mode.</source>
+        </trans-unit>
+        <trans-unit id="447" translate="yes" xml:space="preserve">
+          <source>Gets the total number of threads that are waiting to enter the lock in upgradeable mode.</source>
+        </trans-unit>
+        <trans-unit id="448" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Use this property only for debugging, profiling, and logging purposes, and not to control the behavior of an algorithm.</source>
+        </trans-unit>
+        <trans-unit id="449" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The results can change as soon as they have been calculated.</source>
+        </trans-unit>
+        <trans-unit id="450" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Therefore, it is not safe to make decisions based on this property.</source>
+        </trans-unit>
+        <trans-unit id="451" translate="yes" xml:space="preserve">
+          <source>The total number of threads that are waiting to enter upgradeable mode.</source>
+        </trans-unit>
+        <trans-unit id="452" translate="yes" xml:space="preserve">
+          <source>Gets the total number of threads that are waiting to enter the lock in write mode.</source>
+        </trans-unit>
+        <trans-unit id="453" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Use this property only for debugging, profiling, and logging purposes, and not to control the behavior of an algorithm.</source>
+        </trans-unit>
+        <trans-unit id="454" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The results can change as soon as they have been calculated.</source>
+        </trans-unit>
+        <trans-unit id="455" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Therefore, it is not safe to make decisions based on this property.</source>
+        </trans-unit>
+        <trans-unit id="456" translate="yes" xml:space="preserve">
+          <source>The total number of threads that are waiting to enter write mode.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

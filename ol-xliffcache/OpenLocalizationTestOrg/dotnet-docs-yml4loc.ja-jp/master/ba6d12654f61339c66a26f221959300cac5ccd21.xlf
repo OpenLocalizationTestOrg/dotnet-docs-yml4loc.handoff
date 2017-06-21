@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ja-jp">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-fdd610b" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ba6d12654f61339c66a26f221959300cac5ccd21</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Microsoft.Build.Utilities.MuxLogger.yml</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net47</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Human Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">0672f2acc7c35045a579af25a6aea6ed8818c08d</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">92b52459773696c16c9c1f4903d4c36a98fd1236</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Represents a multiplexing logger.</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>The purpose of this logger is to register and unregister multiple loggers during the build.</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Supports the Visual Studio IDE scenario in which loggers are registered and unregistered for each project system’s build request.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>One physical build can have multiple logical builds, each with its own set of loggers.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`MuxLogger`</ph> registers itself with the build manager as a regular central /l style logger.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>It receives messages from the build manager and routes them to the correct logger, based on the logical build that the message came from.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">`MuxLogger`</ph> generally functions as follows:</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">`MuxLogger`</ph> is registered at the beginning of the build manager’s Begin build.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Any loggers registered before the build manager starts the build get the build-started event at the same time as the <ph id="ph1">`MuxLogger`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Any loggers registered after the build manager starts the build get a synthesized build-started event.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The event cannot be cached because the timestamp of the build-started event is determined when the event is created, and caching the event would give incorrect build times in the loggers registered to the <ph id="ph1">`MuxLogger`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">`MuxLogger`</ph> is initialized by the build manager</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">`MuxLogger`</ph> listens to all events on the event source from the build manager and routes events correctly to the registered loggers.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">`MuxLogger`</ph> is shutdown when the build is finished in end build.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve" extradata="MT">
+          <source>At this time, it unregisters any loggers attached to it.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">`MuxLogger`</ph> logs the build-finished event when the project-finished event for the first project-started event is seen for each logger.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">`MuxLogger`</ph> registers loggers in the following way:</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The logger is passed to the <ph id="ph1">`MuxLogger.RegisterLogger`</ph> method with a submission ID that is used to route a message to that logger.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">`MuxLogger`</ph> registers the logger to the <ph id="ph2">`MuxLogger`</ph> event source.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve" extradata="MT">
+          <source>If the build-started event has already been logged, the <ph id="ph1">`MuxLogger`</ph> creates a new build-started event and sends it to the logger’s event source.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">`MuxLogger`</ph> unregisters loggers in the following way:</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve" extradata="MT">
+          <source>When a build submission is completed, the <ph id="ph1">`MuxLogger.UnregisterLogger`</ph> method is called with the submission ID for the logger.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">`MuxLogger`</ph> looks up the success state of the project-finished event for the submission ID and logs a build-finished event to the logger.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve" extradata="MT">
+          <source>The <ph id="ph1">`MuxLogger`</ph> cleans up the event source.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve" extradata="MT">
+          <source>Note that the unregister comes from a thread other than the logging thread and a synchronization issue could occur if unregister is called while events are being logged.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Creates a new instance of the multiplexing logger.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Initialize the <ph id="ph1">`MuxLogger`</ph> instance with the specified event source.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The event source.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Initialize the <ph id="ph1">`MuxLogger`</ph> instance with the specified event source and specified maximum number of nodes.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The event source.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The maximum number of nodes.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Gets and sets the Parameters attribute, required by the <ph id="ph1">`ILogger`</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Returns the Parameters attribute.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Registers a logger on the <ph id="ph1">`MuxLogger`</ph> and raises a build-started event if the build-started event has already been logged.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The submission ID of the logger being registered.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The logger to register.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Shuts down the <ph id="ph1">`MuxLogger`</ph> and clears out any state.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Removes the specified logger from the MuxLogger.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>The submission ID of the logger to be removed.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Returns <ph id="ph1">`true`</ph> if the method is successful in removing the logger, otherwise, returns <ph id="ph2">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Gets and sets the Verbosity attribute, required by the <ph id="ph1">`ILogger`</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Returns the Verbosity attribute.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
