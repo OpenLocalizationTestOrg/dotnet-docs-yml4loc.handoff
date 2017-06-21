@@ -116,7 +116,7 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: When overridden in a derived class, returns the name of the issuer of the specified security token.
+  summary: 'When overridden in a derived class, returns the name of the issuer of the specified security token.'
   remarks: "Implementations should return a non-null and non-empty string to identify a recognized issuer, or a null string to identify an unrecognized issuer.  \n  \n Called from the processing pipeline by the security token handler that is processing the token. The method should return a unique name for the issuer within the context of the RP application."
   example:
   - "The following code shows the <xref:System.IdentityModel.Tokens.IssuerNameRegistry.GetIssuerName%2A> method for an issuer name registry. The full sample is in the <xref:System.IdentityModel.Tokens.IssuerNameRegistry> class overview topic.  \n  \n> [!WARNING]\n>  The following code is for illustrative purposes only. Validating certificates based on subject name is not a good practice. This code should not be used as is in production.  \n  \n [!code-csharp[WifIssuerNameRegistry#2](~/samples/snippets/csharp/VS_Snippets_Misc/wifissuernameregistry/cs/mvcwepapp/trustedissuernameregistry.cs#2)]"
@@ -167,7 +167,7 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: When overridden in a derived class, returns the name of the issuer of the specified security token. The specified issuer name may be considered in determining the issuer name to return.
+  summary: 'When overridden in a derived class, returns the name of the issuer of the specified security token. The specified issuer name may be considered in determining the issuer name to return.'
   remarks: "The default implementation ignores the `requestedIssuerName` parameter and simply calls the <xref:System.IdentityModel.Tokens.IssuerNameRegistry.GetIssuerName%28System.IdentityModel.Tokens.SecurityToken%29?displayProperty=fullName> method.  \n  \n Called from the processing pipeline by the security token handler that is processing the token. The method should return a unique name for the issuer within the context of the RP application."
   syntax:
     content: public virtual string GetIssuerName (System.IdentityModel.Tokens.SecurityToken securityToken, string requestedIssuerName);
@@ -265,7 +265,7 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: When overridden in a derived class, loads custom configuration from XML.
+  summary: 'When overridden in a derived class, loads custom configuration from XML.'
   remarks: "The <xref:System.IdentityModel.Tokens.IssuerNameRegistry.LoadCustomConfiguration%2A> method is called by the configuration infrastructure. When this method is called, the `nodelist` will contain the top-level child elements of the [\\&lt;issuerNameRegistry\\&gt;](~/docs/framework/configure-apps/file-schema/windows-identity-foundation/issuernameregistry.md) element from the configuration file. Each of these may, in turn, contain attributes or child elements depending on the configuration schema you define for your derived class.  \n  \n The default implementation throws a <xref:System.NotImplementedException>. Override this method in your derived class to enable initialization of your issuer name registry from a configuration file."
   syntax:
     content: public virtual void LoadCustomConfiguration (System.Xml.XmlNodeList nodelist);

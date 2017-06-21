@@ -21,8 +21,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Diagnostics.Contracts
-  summary: Enables you to set contract and tool options at assembly, type, or method granularity.
-  remarks: "The following table shows the currently supported options.  \n  \n|Category|Setting|Value/effect|  \n|--------------|-------------|-------------------|  \n|contract|inheritance|`true` to turn contract inheritance on; `false` to turn it off.  The default is `true`.|  \n|runtime|checking|`true` to turn run-time checking on; `false` to turn it off. The default is `true`.|  \n  \n You can use this attribute as illustrated in the following examples.  \n  \n To turn off run-time checking for the entire assembly:  \n  \n```  \n[assembly:ContractOption(\"runtime\", \"checking\", false)]  \n```  \n  \n To turn run-time contract checking on for a specific type:  \n  \n```  \n   [ContractOption(\"runtime\", \"checking\", true)]  \n   class TypeWithRuntimeChecking {  \n  \n       ...  \n  \n```  \n  \n To turn run-time checking off for a specific method:  \n  \n```  \n// Turn off all contract inheritance from interface IList<T>  \n[ContractOption(\"contract\", \"inheritance\", false)]  \nclass MyConcurrentList<T> : IList<T> {  \n   ...  \n}  \n  \n[ContractOption(\"runtime\", \"checking\", false)]  \npublic override MyMethod(int x) {  \n   // no inherited contracts checked at runtime,  \n   // no invariants checked at runtime.  \n   ...  \n}  \n  \n       [ContractOption(\"runtime\", \"checking\", false)]  \n       public void MethodWithoutRuntimeChecking(...) {  \n          ...  \n       }  \n   }  \n  \n```"
+  summary: 'Enables you to set contract and tool options at assembly, type, or method granularity.'
+  remarks: "The following table shows the currently supported options.  \n  \n|Category|Setting|Value/effect|  \n|--------------|-------------|-------------------|  \n|contract|inheritance|`true` to turn contract inheritance on; `false` to turn it off.  The default is `true`.|  \n|runtime|checking|`true` to turn run-time checking on; `false` to turn it off. The default is `true`.|  \n  \n You can use this attribute as illustrated in the following examples.  \n  \n To turn off run-time checking for the entire assembly:  \n  \n```  \n[assembly:ContractOption(\"runtime\", \"checking\", false)]  \n```  \n  \n To turn run-time contract checking on for a specific type:  \n  \n```  \n   [ContractOption(\"runtime\", \"checking\", true)]  \n   class TypeWithRuntimeChecking {  \n  \n       ...  \n  \n```  \n  \n To turn run-time checking off for a specific method:  \n  \n```  \n// Turn off all contract inheritance from interface IList<T>  \n[ContractOption(\"contract\", \"inheritance\", false)]  \nclass MyConcurrentList<T> : IList<T> {  \n   ...  \n}  \n  \n[ContractOption(\"runtime\", \"checking\", false)]  \npublic override MyMethod(int x) {  \n   // no inherited contracts checked at runtime,  \n   // no invariants checked at runtime.  \n   ...  \n}  \n  \n       [ContractOption(\"runtime\", \"checking\", false)]  \n       public void MethodWithoutRuntimeChecking(...) {  \n          ...  \n       }  \n   }  \n  \n```"
   syntax:
     content: >-
       [System.AttributeUsage(System.AttributeTargets.All, AllowMultiple=true, Inherited=false)]
@@ -135,7 +135,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Diagnostics.Contracts
-  summary: Initializes a new instance of the <xref href="System.Diagnostics.Contracts.ContractOptionAttribute"></xref> class by using the provided category, setting, and enable/disable value.
+  summary: 'Initializes a new instance of the <xref href="System.Diagnostics.Contracts.ContractOptionAttribute"></xref> class by using the provided category, setting, and enable/disable value.'
   syntax:
     content: public ContractOptionAttribute (string category, string setting, bool enabled);
     parameters:
@@ -201,8 +201,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Diagnostics.Contracts
-  summary: Initializes a new instance of the <xref href="System.Diagnostics.Contracts.ContractOptionAttribute"></xref> class by using the provided category, setting, and value.
-  remarks: "There are only two category/setting options, and they can be set by either of the constructor overloads. You can use this overload with the same settings as the <xref:System.Diagnostics.Contracts.ContractOptionAttribute.%23ctor%28System.String%2CSystem.String%2CSystem.Boolean%29> overload by specifying \"true\" or \"false\" in string format; for example:  \n  \n```  \n[ContractOption(\"contract\", \"inheritance\", \"false\")]  \nclass MyConcurrentList<T> : IList<T> {  \n   ...  \n}  \n  \n```"
+  summary: 'Initializes a new instance of the <xref href="System.Diagnostics.Contracts.ContractOptionAttribute"></xref> class by using the provided category, setting, and value.'
+  remarks: "There are only two category/setting options, and they can be set by either of the constructor overloads. You can use this overload with the same settings as the <xref:System.Diagnostics.Contracts.ContractOptionAttribute.%23ctor%28System.String%2CSystem.String%2CSystem.Boolean%29> overload by specifying \"true\" or \"false\" in string format; for example:  \n  \n```  \n[ContractOption(\"contract\", \"inheritance\", \"false\")]  \nclass MyConcurrentList<T> : IList<T> {  \n   ...  \n}  \n  \n```"
   syntax:
     content: public ContractOptionAttribute (string category, string setting, string value);
     parameters:

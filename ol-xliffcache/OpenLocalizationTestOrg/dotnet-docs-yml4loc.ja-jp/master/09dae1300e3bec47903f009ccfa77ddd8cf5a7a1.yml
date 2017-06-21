@@ -138,7 +138,7 @@ items:
   - mscorlib
   namespace: System.Runtime.Remoting.Messaging
   summary: Implements the <xref href="System.Runtime.Remoting.Messaging.IMessageSink"></xref> interface.
-  remarks: The <xref:System.Runtime.Remoting.Messaging.AsyncResult.AsyncProcessMessage%2A> method of the <xref:System.Runtime.Remoting.Messaging.IMessageSink> interface is not relevant to the <xref:System.Runtime.Remoting.Messaging.AsyncResult> class. Implementation by <xref:System.Runtime.Remoting.Messaging.AsyncResult> throws a <xref:System.NotSupportedException>. Instead, obtain an <xref:System.Runtime.Remoting.Messaging.AsyncResult> by casting the <xref:System.IAsyncResult> interface returned by an asynchronous call made using a delegate.
+  remarks: 'The <xref:System.Runtime.Remoting.Messaging.AsyncResult.AsyncProcessMessage%2A> method of the <xref:System.Runtime.Remoting.Messaging.IMessageSink> interface is not relevant to the <xref:System.Runtime.Remoting.Messaging.AsyncResult> class. Implementation by <xref:System.Runtime.Remoting.Messaging.AsyncResult> throws a <xref:System.NotSupportedException>. Instead, obtain an <xref:System.Runtime.Remoting.Messaging.AsyncResult> by casting the <xref:System.IAsyncResult> interface returned by an asynchronous call made using a delegate.'
   syntax:
     content: public virtual System.Runtime.Remoting.Messaging.IMessageCtrl AsyncProcessMessage (System.Runtime.Remoting.Messaging.IMessage msg, System.Runtime.Remoting.Messaging.IMessageSink replySink);
     parameters:
@@ -193,7 +193,7 @@ items:
   - mscorlib
   namespace: System.Runtime.Remoting.Messaging
   summary: Gets the object provided as the last parameter of a `BeginInvoke` method call.
-  remarks: For more information about the `BeginInvoke` method, see [Asynchronous Programming Using Delegates](~/docs/standard/asynchronous-programming-patterns/asynchronous-programming-using-delegates.md).
+  remarks: 'For more information about the `BeginInvoke` method, see [Asynchronous Programming Using Delegates](~/docs/standard/asynchronous-programming-patterns/asynchronous-programming-using-delegates.md).'
   example:
   - "The following code example demonstrates how the <xref:System.Runtime.Remoting.Messaging.AsyncResult.AsyncState%2A> property is used to pass information to a callback method. The last parameter of the `BeginInvoke` method call is a format string, which the callback method uses to format an output message.  \n  \n The example consists of two classes, the class that contains the method which is called asynchronously, and the class that contains the `Main` method that makes the call.  \n  \n For more information on the way this callback example works, and more examples of calling methods asynchronously by using delegates, see [Calling Synchronous Methods Asynchronously](~/docs/standard/asynchronous-programming-patterns/calling-synchronous-methods-asynchronously.md).  \n  \n [!code-cpp[AsyncDelegateExamples#1](~/samples/snippets/cpp/VS_Snippets_CLR/AsyncDelegateExamples/cpp/TestMethod.cpp#1)]\n [!code-csharp[AsyncDelegateExamples#1](~/samples/snippets/csharp/VS_Snippets_CLR/AsyncDelegateExamples/CS/TestMethod.cs#1)]\n [!code-vb[AsyncDelegateExamples#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/AsyncDelegateExamples/VB/TestMethod.vb#1)]  \n[!code-cpp[AsyncDelegateExamples#5](~/samples/snippets/cpp/VS_Snippets_CLR/AsyncDelegateExamples/cpp/callback.cpp#5)]\n[!code-csharp[AsyncDelegateExamples#5](~/samples/snippets/csharp/VS_Snippets_CLR/AsyncDelegateExamples/CS/callback.cs#5)]\n[!code-vb[AsyncDelegateExamples#5](~/samples/snippets/visualbasic/VS_Snippets_CLR/AsyncDelegateExamples/VB/callback.vb#5)]"
   syntax:
@@ -242,7 +242,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Messaging
-  summary: Gets a <xref href="System.Threading.WaitHandle"></xref> that encapsulates Win32 synchronization handles, and allows the implementation of various synchronization schemes.
+  summary: 'Gets a <xref href="System.Threading.WaitHandle"></xref> that encapsulates Win32 synchronization handles, and allows the implementation of various synchronization schemes.'
   remarks: "The <xref:System.Threading.WaitHandle> returned by this method is automatically signaled when the asynchronous operation has completed.  \n  \n The wait handle is not closed automatically when you call `EndInvoke` on the delegate that was used to make the asynchronous method call. If you release all references to the wait handle, system resources are freed when garbage collection reclaims the wait handle. To free the system resources as soon as you are finished using the wait handle, call the <xref:System.Threading.WaitHandle.Close%2A?displayProperty=fullName> method. Garbage collection works more efficiently when disposable objects are explicitly closed or disposed.  \n  \n> [!CAUTION]\n>  The <xref:System.Threading.WaitHandle> contained in the <xref:System.Runtime.Remoting.Messaging.AsyncResult.AsyncWaitHandle%2A> property can be used to block the current thread until the asynchronous call is complete. However the <xref:System.Threading.WaitHandle> will ignore the <xref:System.AsyncCallback>, if one was specified during the `BeginInvoke` call. Therefore, a situation can occur where the application shuts down before the <xref:System.AsyncCallback> has finished executing, even if a <xref:System.Threading.WaitHandle> is used to block until the asynchronous call completion. For an example of such a situation, see the example for the <xref:System.Runtime.Remoting.Messaging.AsyncResult> class, and remove the <xref:System.Threading.Thread.Sleep%2A?displayProperty=fullName> statement."
   example:
   - "The following example demonstrates how to use the <xref:System.Runtime.Remoting.Messaging.AsyncResult.AsyncWaitHandle%2A> property to get a <xref:System.Threading.WaitHandle>, and how to wait for an asynchronous call on a delegate. The <xref:System.Threading.WaitHandle> is signaled when the asynchronous call completes, and you can wait for it by calling the <xref:System.Threading.WaitHandle.WaitOne%2A> method.  \n  \n The example consists of two classes, the class that contains the method which is called asynchronously, and the class that contains the `Main` method that makes the call.  \n  \n For more information and more examples of calling methods asynchronously by using delegates, see [Calling Synchronous Methods Asynchronously](~/docs/standard/asynchronous-programming-patterns/calling-synchronous-methods-asynchronously.md).  \n  \n [!code-cpp[AsyncDelegateExamples#1](~/samples/snippets/cpp/VS_Snippets_CLR/AsyncDelegateExamples/cpp/TestMethod.cpp#1)]\n [!code-csharp[AsyncDelegateExamples#1](~/samples/snippets/csharp/VS_Snippets_CLR/AsyncDelegateExamples/CS/TestMethod.cs#1)]\n [!code-vb[AsyncDelegateExamples#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/AsyncDelegateExamples/VB/TestMethod.vb#1)]  \n[!code-cpp[AsyncDelegateExamples#3](~/samples/snippets/cpp/VS_Snippets_CLR/AsyncDelegateExamples/cpp/waithandle.cpp#3)]\n[!code-csharp[AsyncDelegateExamples#3](~/samples/snippets/csharp/VS_Snippets_CLR/AsyncDelegateExamples/CS/waithandle.cs#3)]\n[!code-vb[AsyncDelegateExamples#3](~/samples/snippets/visualbasic/VS_Snippets_CLR/AsyncDelegateExamples/VB/WaitHandle.vb#3)]"
@@ -250,7 +250,7 @@ items:
     content: public virtual System.Threading.WaitHandle AsyncWaitHandle { get; }
     return:
       type: System.Threading.WaitHandle
-      description: A <xref href="System.Threading.WaitHandle"></xref> that encapsulates Win32 synchronization handles, and allows the implementation of various synchronization schemes.
+      description: 'A <xref href="System.Threading.WaitHandle"></xref> that encapsulates Win32 synchronization handles, and allows the implementation of various synchronization schemes.'
   overload: System.Runtime.Remoting.Messaging.AsyncResult.AsyncWaitHandle*
   exceptions: []
   version:
@@ -437,7 +437,7 @@ items:
   - mscorlib
   namespace: System.Runtime.Remoting.Messaging
   summary: Gets a value indicating whether the server has completed the call.
-  remarks: The server must not use any client supplied resources outside of the agreed upon sharing semantics after it sets the <xref:System.Runtime.Remoting.Messaging.AsyncResult.IsCompleted%2A> property to `true`. Thus, it is safe for the client to destroy the resources after the <xref:System.Runtime.Remoting.Messaging.AsyncResult.IsCompleted%2A> property returns `true`.
+  remarks: 'The server must not use any client supplied resources outside of the agreed upon sharing semantics after it sets the <xref:System.Runtime.Remoting.Messaging.AsyncResult.IsCompleted%2A> property to `true`. Thus, it is safe for the client to destroy the resources after the <xref:System.Runtime.Remoting.Messaging.AsyncResult.IsCompleted%2A> property returns `true`.'
   example:
   - "The following example shows how to use the <xref:System.IAsyncResult.IsCompleted%2A> property of the <xref:System.Runtime.Remoting.Messaging.AsyncResult> returned by `BeginInvoke` to discover when an asynchronous call completes. You might do this when making the asynchronous call from a thread that services the user interface. Polling for completion allows the calling thread to continue executing while the asynchronous call executes on a <xref:System.Threading.ThreadPool> thread.  \n  \n The example consists of two classes, the class that contains the method which is called asynchronously, and the class that contains the `Main` method that makes the call.  \n  \n For more information and more examples of calling methods asynchronously by using delegates, see [Calling Synchronous Methods Asynchronously](~/docs/standard/asynchronous-programming-patterns/calling-synchronous-methods-asynchronously.md).  \n  \n [!code-cpp[AsyncDelegateExamples#1](~/samples/snippets/cpp/VS_Snippets_CLR/AsyncDelegateExamples/cpp/TestMethod.cpp#1)]\n [!code-csharp[AsyncDelegateExamples#1](~/samples/snippets/csharp/VS_Snippets_CLR/AsyncDelegateExamples/CS/TestMethod.cs#1)]\n [!code-vb[AsyncDelegateExamples#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/AsyncDelegateExamples/VB/TestMethod.vb#1)]  \n[!code-cpp[AsyncDelegateExamples#4](~/samples/snippets/cpp/VS_Snippets_CLR/AsyncDelegateExamples/cpp/polling.cpp#4)]\n[!code-csharp[AsyncDelegateExamples#4](~/samples/snippets/csharp/VS_Snippets_CLR/AsyncDelegateExamples/CS/polling.cs#4)]\n[!code-vb[AsyncDelegateExamples#4](~/samples/snippets/visualbasic/VS_Snippets_CLR/AsyncDelegateExamples/VB/polling.vb#4)]"
   syntax:
@@ -487,7 +487,7 @@ items:
   - mscorlib
   namespace: System.Runtime.Remoting.Messaging
   summary: Gets the next message sink in the sink chain.
-  remarks: The current implementation of <xref:System.Runtime.Remoting.Messaging.AsyncResult.NextSink%2A> returns `null`.
+  remarks: 'The current implementation of <xref:System.Runtime.Remoting.Messaging.AsyncResult.NextSink%2A> returns `null`.'
   syntax:
     content: public System.Runtime.Remoting.Messaging.IMessageSink NextSink { get; }
     return:
@@ -534,8 +534,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Messaging
-  summary: Sets an <xref href="System.Runtime.Remoting.Messaging.IMessageCtrl"></xref> for the current remote method call, which provides a way to control asynchronous messages after they have been dispatched.
-  remarks: You do not need to call the <xref:System.Runtime.Remoting.Messaging.AsyncResult.SetMessageCtrl%2A> method.
+  summary: 'Sets an <xref href="System.Runtime.Remoting.Messaging.IMessageCtrl"></xref> for the current remote method call, which provides a way to control asynchronous messages after they have been dispatched.'
+  remarks: 'You do not need to call the <xref:System.Runtime.Remoting.Messaging.AsyncResult.SetMessageCtrl%2A> method.'
   syntax:
     content: public virtual void SetMessageCtrl (System.Runtime.Remoting.Messaging.IMessageCtrl mc);
     parameters:

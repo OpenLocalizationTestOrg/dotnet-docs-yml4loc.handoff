@@ -46,7 +46,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: Contains methods to create types of objects locally or remotely, or obtain references to existing remote objects. This class cannot be inherited.
+  summary: 'Contains methods to create types of objects locally or remotely, or obtain references to existing remote objects. This class cannot be inherited.'
   remarks: "The <xref:System.Activator.CreateInstance%2A> method creates an instance of a type defined in an assembly by invoking the constructor that best matches the specified arguments. If no arguments are specified, the constructor that takes no parameters, that is, the default constructor, is invoked.  \n  \n You must have sufficient permission to search for and call a constructor; otherwise, an exception is thrown. By default, only public constructors are considered during the search for a constructor. If no constructor or default constructor can be found, an exception is thrown.  \n  \n A binder parameter specifies an object that searches an assembly for a suitable constructor. You can specify your own binder and search criteria. If no binder is specified, a default binder is used. For more information, see the <xref:System.Reflection.Binder?displayProperty=fullName> and <xref:System.Reflection.BindingFlags?displayProperty=fullName> classes.  \n  \n An evidence parameter affects the security policy and permissions for the constructor. For more information, see the <xref:System.Security.Policy.Evidence?displayProperty=fullName> class.  \n  \n An instance of a type can be created at a local or remote site. If the type is created remotely, an activation attribute parameter specifies the URI of the remote site. The call to create the instance might pass through intermediary sites before it reaches the remote site. Other activation attributes can modify the environment, or context, in which the call operates at the remote and intermediary sites.  \n  \n If the instance is created locally, a reference to that object is returned. If the instance is created remotely, a reference to a proxy is returned. The remote object is manipulated through the proxy as if it were a local object.  \n  \n The <xref:System.Activator.GetObject%2A> method creates a proxy to a currently running remote object, server-activated well-known object, or XML Web service. You can specify the connection medium, that is, the channel. For more information, see the <xref:System.Runtime.Remoting.Channels.ChannelServices?displayProperty=fullName> class.  \n  \n Assemblies contain type definitions. The <xref:System.Activator.CreateInstance%2A> method creates an instance of a type from a currently running assembly. The <xref:System.Activator.CreateInstanceFrom%2A> method creates an instance from a file that contains an assembly. The <xref:System.Activator.CreateComInstanceFrom%2A> method creates an instance of a COM object from a file that contains an assembly."
   example:
   - "The following example shows how to use the <xref:System.Activator> class to dynamically construct objects at run time.  \n  \n [!code-cpp[ActivatorX#1](~/samples/snippets/cpp/VS_Snippets_CLR/ActivatorX/cpp/ActivatorX.cpp#1)]\n [!code-csharp[ActivatorX#1](~/samples/snippets/csharp/VS_Snippets_CLR/ActivatorX/cs/ActivatorX.cs#1)]\n [!code-vb[ActivatorX#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/ActivatorX/VB/ActivatorX.vb#1)]"
@@ -135,7 +135,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: Creates an instance of the COM object whose name is specified, using the named assembly file and the default constructor.
+  summary: 'Creates an instance of the COM object whose name is specified, using the named assembly file and the default constructor.'
   remarks: "Use the <xref:System.Runtime.Remoting.ObjectHandle.Unwrap%2A?displayProperty=fullName> method to unwrap the return value.  \n  \n A <xref:System.Runtime.InteropServices.ComVisibleAttribute?displayProperty=fullName> attribute with a value of `true` must be applied either explicitly or by default to the COM type so the <xref:System.Activator.CreateComInstanceFrom%2A> method can create an instance of that type; otherwise, <xref:System.TypeLoadException> is thrown.  \n  \n For information about other exceptions that can be thrown by invoked methods, see the Exceptions section of the <xref:System.Reflection.Assembly.LoadFrom%2A?displayProperty=fullName> and <xref:System.Activator.CreateInstance%2A> methods.  \n  \n> [!NOTE]\n>  Starting with the [!INCLUDE[net_v20sp1_long](~/includes/net-v20sp1-long-md.md)], this method can be used to create nonpublic types if the caller has been granted <xref:System.Security.Permissions.ReflectionPermission> with the <xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName> flag and if the grant set of the assembly that contains the nonpublic types is restricted to the caller’s grant set or to a subset thereof. (See [Security Considerations for Reflection](~/docs/framework/reflection-and-codedom/security-considerations-for-reflection.md).)  \n>   \n>  To use this functionality, your application should target the [!INCLUDE[net_v35_long](~/includes/net-v35-long-md.md)] or later."
   syntax:
     content: public static System.Runtime.Remoting.ObjectHandle CreateComInstanceFrom (string assemblyName, string typeName);
@@ -162,7 +162,7 @@ items:
     description: No matching constructor was found.
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
-    description: <code>assemblyName</code> is not found, or the module you are trying to load does not specify a file name extension.
+    description: '<code>assemblyName</code> is not found, or the module you are trying to load does not specify a file name extension.'
   - type: System.MemberAccessException
     commentId: T:System.MemberAccessException
     description: "Cannot create an instance of an abstract class.  \n  \n -or-  \n  \n This member was invoked with a late-binding mechanism."
@@ -213,7 +213,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: Creates an instance of the COM object whose name is specified, using the named assembly file and the default constructor.
+  summary: 'Creates an instance of the COM object whose name is specified, using the named assembly file and the default constructor.'
   remarks: "Use the <xref:System.Runtime.Remoting.ObjectHandle.Unwrap%2A?displayProperty=fullName> method to unwrap the return value.  \n  \n A <xref:System.Runtime.InteropServices.ComVisibleAttribute?displayProperty=fullName> attribute with a value of `true` must be applied either explicitly or by default to the COM type so the <xref:System.Activator.CreateComInstanceFrom%2A> method can create an instance of that type; otherwise, <xref:System.TypeLoadException> is thrown.  \n  \n For information about other exceptions that can be thrown by invoked methods, see the Exceptions section of the <xref:System.Reflection.Assembly.LoadFrom%2A?displayProperty=fullName> and <xref:System.Activator.CreateInstance%2A> methods.  \n  \n> [!NOTE]\n>  Starting with the [!INCLUDE[net_v20sp1_long](~/includes/net-v20sp1-long-md.md)], this method can be used to create nonpublic types if the caller has been granted <xref:System.Security.Permissions.ReflectionPermission> with the <xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName> flag and if the grant set of the assembly that contains the nonpublic types is restricted to the caller’s grant set or to a subset thereof. (See [Security Considerations for Reflection](~/docs/framework/reflection-and-codedom/security-considerations-for-reflection.md).)  \n>   \n>  To use this functionality, your application should target the [!INCLUDE[net_v35_long](~/includes/net-v35-long-md.md)] or later."
   syntax:
     content: public static System.Runtime.Remoting.ObjectHandle CreateComInstanceFrom (string assemblyName, string typeName, byte[] hashValue, System.Configuration.Assemblies.AssemblyHashAlgorithm hashAlgorithm);
@@ -243,10 +243,10 @@ items:
     description: <code>assemblyName</code> is the empty string ("").
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: An assembly or module was loaded twice with two different evidences, or the assembly name is longer than MAX_PATH characters.
+    description: 'An assembly or module was loaded twice with two different evidences, or the assembly name is longer than MAX_PATH characters.'
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
-    description: <code>assemblyName</code> is not found, or the module you are trying to load does not specify a file name extension.
+    description: '<code>assemblyName</code> is not found, or the module you are trying to load does not specify a file name extension.'
   - type: System.IO.FileLoadException
     commentId: T:System.IO.FileLoadException
     description: <code>assemblyName</code> is found but cannot be loaded.
@@ -255,7 +255,7 @@ items:
     description: <code>assemblyName</code> is not a valid assembly.
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: A code base that does not start with "file://" was specified without the required `WebPermission`.
+    description: 'A code base that does not start with "file://" was specified without the required `WebPermission`.'
   - type: System.TypeLoadException
     commentId: T:System.TypeLoadException
     description: "An instance cannot be created through COM.  \n  \n -or-  \n  \n <code>typename</code> was not found in <code>assemblyName</code>."
@@ -309,7 +309,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: Creates an instance of the type whose name is specified in the specified remote domain, using the named assembly and the constructor that best matches the specified parameters.
+  summary: 'Creates an instance of the type whose name is specified in the specified remote domain, using the named assembly and the constructor that best matches the specified parameters.'
   remarks: "Use <xref:System.Activator.CreateInstance%2A> when a host needs to execute code in an application domain that has restricted security permissions.  \n  \n Use <xref:System.Runtime.Remoting.ObjectHandle.Unwrap%2A?displayProperty=fullName> to unwrap the return value.  \n  \n> [!NOTE]\n>  This method uses <xref:System.Security.Permissions.SecurityAction?displayProperty=fullName> to require the immediate caller to have full trust."
   syntax:
     content: >-
@@ -324,7 +324,7 @@ items:
       description: The domain where the type named <code>typeName</code> is created.
     - id: assemblyName
       type: System.String
-      description: The name of the assembly where the type named <code>typeName</code> is sought. If <code>assemblyName</code> is `null`, the executing assembly is searched.
+      description: 'The name of the assembly where the type named <code>typeName</code> is sought. If <code>assemblyName</code> is `null`, the executing assembly is searched.'
     - id: typeName
       type: System.String
       description: The fully qualified name of the preferred type.
@@ -333,16 +333,16 @@ items:
       description: '`true` to specify that the search for <code>typeName</code> is not case-sensitive; `false` to specify that the search is case-sensitive.'
     - id: bindingAttr
       type: System.Reflection.BindingFlags
-      description: A combination of zero or more bit flags that affect the search for the <code>typeName</code> constructor. If <code>bindingAttr</code> is zero, a case-sensitive search for public constructors is conducted.
+      description: 'A combination of zero or more bit flags that affect the search for the <code>typeName</code> constructor. If <code>bindingAttr</code> is zero, a case-sensitive search for public constructors is conducted.'
     - id: binder
       type: System.Reflection.Binder
-      description: An object that uses <code>bindingAttr</code> and <code>args</code> to seek and identify the <code>typeName</code> constructor. If <code>binder</code> is `null`, the default binder is used.
+      description: 'An object that uses <code>bindingAttr</code> and <code>args</code> to seek and identify the <code>typeName</code> constructor. If <code>binder</code> is `null`, the default binder is used.'
     - id: args
       type: System.Object[]
-      description: An array of arguments that match in number, order, and type the parameters of the constructor to invoke. If <code>args</code> is an empty array or `null`, the constructor that takes no parameters (the default constructor) is invoked.
+      description: 'An array of arguments that match in number, order, and type the parameters of the constructor to invoke. If <code>args</code> is an empty array or `null`, the constructor that takes no parameters (the default constructor) is invoked.'
     - id: culture
       type: System.Globalization.CultureInfo
-      description: Culture-specific information that governs the coercion of <code>args</code> to the formal types declared for the <code>typeName</code> constructor. If <code>culture</code> is `null`, the <xref href="System.Globalization.CultureInfo"></xref> for the current thread is used.
+      description: 'Culture-specific information that governs the coercion of <code>args</code> to the formal types declared for the <code>typeName</code> constructor. If <code>culture</code> is `null`, the <xref href="System.Globalization.CultureInfo"></xref> for the current thread is used.'
     - id: activationAttributes
       type: System.Object[]
       description: An array of one or more attributes that can participate in activation. This is typically an array that contains a single <xref href="System.Runtime.Remoting.Activation.UrlAttribute"></xref> object. The <xref href="System.Runtime.Remoting.Activation.UrlAttribute"></xref> specifies the URL that is required to activate a remote object.
@@ -371,10 +371,10 @@ items:
     description: The caller does not have permission to call this constructor.
   - type: System.MemberAccessException
     commentId: T:System.MemberAccessException
-    description: Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.
+    description: 'Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.'
   - type: System.Reflection.TargetInvocationException
     commentId: T:System.Reflection.TargetInvocationException
-    description: The constructor, which was invoked through reflection, threw an exception.
+    description: 'The constructor, which was invoked through reflection, threw an exception.'
   - type: System.Runtime.InteropServices.InvalidComObjectException
     commentId: T:System.Runtime.InteropServices.InvalidComObjectException
     description: The COM type was not obtained through <xref href="System.Type.GetTypeFromProgID*"></xref> or <xref href="System.Type.GetTypeFromCLSID*"></xref>.
@@ -431,7 +431,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: Creates an instance of the type whose name is specified in the specified remote domain, using the named assembly and the constructor that best matches the specified parameters.
+  summary: 'Creates an instance of the type whose name is specified in the specified remote domain, using the named assembly and the constructor that best matches the specified parameters.'
   remarks: "Use <xref:System.Activator.CreateInstance%2A> when a host needs to execute code in an application domain that has restricted security permissions.  \n  \n Use <xref:System.Runtime.Remoting.ObjectHandle.Unwrap%2A?displayProperty=fullName> to unwrap the return value.  \n  \n> [!NOTE]\n>  This method uses <xref:System.Security.Permissions.SecurityAction?displayProperty=fullName> to require the immediate caller to have full trust."
   syntax:
     content: >-
@@ -444,7 +444,7 @@ items:
       description: The domain where the type named <code>typeName</code> is created.
     - id: assemblyName
       type: System.String
-      description: The name of the assembly where the type named <code>typeName</code> is sought. If <code>assemblyName</code> is `null`, the executing assembly is searched.
+      description: 'The name of the assembly where the type named <code>typeName</code> is sought. If <code>assemblyName</code> is `null`, the executing assembly is searched.'
     - id: typeName
       type: System.String
       description: The fully qualified name of the preferred type.
@@ -453,16 +453,16 @@ items:
       description: '`true` to specify that the search for <code>typeName</code> is not case-sensitive; `false` to specify that the search is case-sensitive.'
     - id: bindingAttr
       type: System.Reflection.BindingFlags
-      description: A combination of zero or more bit flags that affect the search for the <code>typeName</code> constructor. If <code>bindingAttr</code> is zero, a case-sensitive search for public constructors is conducted.
+      description: 'A combination of zero or more bit flags that affect the search for the <code>typeName</code> constructor. If <code>bindingAttr</code> is zero, a case-sensitive search for public constructors is conducted.'
     - id: binder
       type: System.Reflection.Binder
-      description: An object that uses <code>bindingAttr</code> and <code>args</code> to seek and identify the <code>typeName</code> constructor. If <code>binder</code> is `null`, the default binder is used.
+      description: 'An object that uses <code>bindingAttr</code> and <code>args</code> to seek and identify the <code>typeName</code> constructor. If <code>binder</code> is `null`, the default binder is used.'
     - id: args
       type: System.Object[]
-      description: An array of arguments that match in number, order, and type the parameters of the constructor to invoke. If <code>args</code> is an empty array or `null`, the constructor that takes no parameters (the default constructor) is invoked.
+      description: 'An array of arguments that match in number, order, and type the parameters of the constructor to invoke. If <code>args</code> is an empty array or `null`, the constructor that takes no parameters (the default constructor) is invoked.'
     - id: culture
       type: System.Globalization.CultureInfo
-      description: Culture-specific information that governs the coercion of <code>args</code> to the formal types declared for the <code>typeName</code> constructor. If <code>culture</code> is `null`, the <xref href="System.Globalization.CultureInfo"></xref> for the current thread is used.
+      description: 'Culture-specific information that governs the coercion of <code>args</code> to the formal types declared for the <code>typeName</code> constructor. If <code>culture</code> is `null`, the <xref href="System.Globalization.CultureInfo"></xref> for the current thread is used.'
     - id: activationAttributes
       type: System.Object[]
       description: "An array of one or more attributes that can participate in activation. This is typically an array that contains a single <xref href=\"System.Runtime.Remoting.Activation.UrlAttribute\"></xref> object that specifies the URL that is required to activate a remote object.  \n  \n This parameter is related to client-activated objects. Client activation is a legacy technology that is retained for backward compatibility but is not recommended for new development. Distributed applications should instead use Windows Communication Foundation."
@@ -488,10 +488,10 @@ items:
     description: The caller does not have permission to call this constructor.
   - type: System.MemberAccessException
     commentId: T:System.MemberAccessException
-    description: Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.
+    description: 'Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.'
   - type: System.Reflection.TargetInvocationException
     commentId: T:System.Reflection.TargetInvocationException
-    description: The constructor, which was invoked through reflection, threw an exception.
+    description: 'The constructor, which was invoked through reflection, threw an exception.'
   - type: System.Runtime.InteropServices.InvalidComObjectException
     commentId: T:System.Runtime.InteropServices.InvalidComObjectException
     description: The COM type was not obtained through <xref href="System.Type.GetTypeFromProgID*"></xref> or <xref href="System.Type.GetTypeFromCLSID*"></xref>.
@@ -547,14 +547,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: Creates an instance of the type whose name is specified, using the named assembly and the constructor that best matches the specified parameters.
+  summary: 'Creates an instance of the type whose name is specified, using the named assembly and the constructor that best matches the specified parameters.'
   remarks: "Use <xref:System.Runtime.Remoting.ObjectHandle.Unwrap%2A?displayProperty=fullName> to unwrap the return value.  \n  \n> [!NOTE]\n>  Starting with the [!INCLUDE[net_v20sp1_long](~/includes/net-v20sp1-long-md.md)], this method can be used to create nonpublic types and members if the caller has been granted <xref:System.Security.Permissions.ReflectionPermission> with the <xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName> flag and if the grant set of the assembly that contains the nonpublic types and members is restricted to the caller’s grant set or to a subset thereof. (See [Security Considerations for Reflection](~/docs/framework/reflection-and-codedom/security-considerations-for-reflection.md)42d9dc2a-8fcc-4ff3-b002-4ff260ef3dc5.)  \n>   \n>  To use this functionality, your application should target the [!INCLUDE[net_v35_long](~/includes/net-v35-long-md.md)] or later."
   syntax:
     content: public static System.Runtime.Remoting.ObjectHandle CreateInstance (string assemblyName, string typeName, bool ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, object[] args, System.Globalization.CultureInfo culture, object[] activationAttributes);
     parameters:
     - id: assemblyName
       type: System.String
-      description: The name of the assembly where the type named <code>typeName</code> is sought. If <code>assemblyName</code> is `null`, the executing assembly is searched.
+      description: 'The name of the assembly where the type named <code>typeName</code> is sought. If <code>assemblyName</code> is `null`, the executing assembly is searched.'
     - id: typeName
       type: System.String
       description: The fully qualified name of the preferred type.
@@ -563,16 +563,16 @@ items:
       description: '`true` to specify that the search for <code>typeName</code> is not case-sensitive; `false` to specify that the search is case-sensitive.'
     - id: bindingAttr
       type: System.Reflection.BindingFlags
-      description: A combination of zero or more bit flags that affect the search for the <code>typeName</code> constructor. If <code>bindingAttr</code> is zero, a case-sensitive search for public constructors is conducted.
+      description: 'A combination of zero or more bit flags that affect the search for the <code>typeName</code> constructor. If <code>bindingAttr</code> is zero, a case-sensitive search for public constructors is conducted.'
     - id: binder
       type: System.Reflection.Binder
-      description: An object that uses <code>bindingAttr</code> and <code>args</code> to seek and identify the <code>typeName</code> constructor. If <code>binder</code> is `null`, the default binder is used.
+      description: 'An object that uses <code>bindingAttr</code> and <code>args</code> to seek and identify the <code>typeName</code> constructor. If <code>binder</code> is `null`, the default binder is used.'
     - id: args
       type: System.Object[]
-      description: An array of arguments that match in number, order, and type the parameters of the constructor to invoke. If <code>args</code> is an empty array or `null`, the constructor that takes no parameters (the default constructor) is invoked.
+      description: 'An array of arguments that match in number, order, and type the parameters of the constructor to invoke. If <code>args</code> is an empty array or `null`, the constructor that takes no parameters (the default constructor) is invoked.'
     - id: culture
       type: System.Globalization.CultureInfo
-      description: Culture-specific information that governs the coercion of <code>args</code> to the formal types declared for the <code>typeName</code> constructor. If <code>culture</code> is `null`, the <xref href="System.Globalization.CultureInfo"></xref> for the current thread is used.
+      description: 'Culture-specific information that governs the coercion of <code>args</code> to the formal types declared for the <code>typeName</code> constructor. If <code>culture</code> is `null`, the <xref href="System.Globalization.CultureInfo"></xref> for the current thread is used.'
     - id: activationAttributes
       type: System.Object[]
       description: "An array of one or more attributes that can participate in activation. This is typically an array that contains a single <xref href=\"System.Runtime.Remoting.Activation.UrlAttribute\"></xref> object that specifies the URL that is required to activate a remote object.  \n  \n This parameter is related to client-activated objects. Client activation is a legacy technology that is retained for backward compatibility but is not recommended for new development. Distributed applications should instead use Windows Communication Foundation."
@@ -598,10 +598,10 @@ items:
     description: The caller does not have permission to call this constructor.
   - type: System.MemberAccessException
     commentId: T:System.MemberAccessException
-    description: Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.
+    description: 'Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.'
   - type: System.Reflection.TargetInvocationException
     commentId: T:System.Reflection.TargetInvocationException
-    description: The constructor, which was invoked through reflection, threw an exception.
+    description: 'The constructor, which was invoked through reflection, threw an exception.'
   - type: System.Runtime.InteropServices.InvalidComObjectException
     commentId: T:System.Runtime.InteropServices.InvalidComObjectException
     description: The COM type was not obtained through <xref href="System.Type.GetTypeFromProgID*"></xref> or <xref href="System.Type.GetTypeFromCLSID*"></xref>.
@@ -668,16 +668,16 @@ items:
       description: The type of object to create.
     - id: bindingAttr
       type: System.Reflection.BindingFlags
-      description: A combination of zero or more bit flags that affect the search for the <code>type</code> constructor. If <code>bindingAttr</code> is zero, a case-sensitive search for public constructors is conducted.
+      description: 'A combination of zero or more bit flags that affect the search for the <code>type</code> constructor. If <code>bindingAttr</code> is zero, a case-sensitive search for public constructors is conducted.'
     - id: binder
       type: System.Reflection.Binder
-      description: An object that uses <code>bindingAttr</code> and <code>args</code> to seek and identify the <code>type</code> constructor. If <code>binder</code> is `null`, the default binder is used.
+      description: 'An object that uses <code>bindingAttr</code> and <code>args</code> to seek and identify the <code>type</code> constructor. If <code>binder</code> is `null`, the default binder is used.'
     - id: args
       type: System.Object[]
-      description: An array of arguments that match in number, order, and type the parameters of the constructor to invoke. If <code>args</code> is an empty array or `null`, the constructor that takes no parameters (the default constructor) is invoked.
+      description: 'An array of arguments that match in number, order, and type the parameters of the constructor to invoke. If <code>args</code> is an empty array or `null`, the constructor that takes no parameters (the default constructor) is invoked.'
     - id: culture
       type: System.Globalization.CultureInfo
-      description: Culture-specific information that governs the coercion of <code>args</code> to the formal types declared for the <code>type</code> constructor. If <code>culture</code> is `null`, the <xref href="System.Globalization.CultureInfo"></xref> for the current thread is used.
+      description: 'Culture-specific information that governs the coercion of <code>args</code> to the formal types declared for the <code>type</code> constructor. If <code>culture</code> is `null`, the <xref href="System.Globalization.CultureInfo"></xref> for the current thread is used.'
     - id: activationAttributes
       type: System.Object[]
       description: "An array of one or more attributes that can participate in activation. This is typically an array that contains a single <xref href=\"System.Runtime.Remoting.Activation.UrlAttribute\"></xref> object that specifies the URL that is required to activate a remote object.  \n  \n This parameter is related to client-activated objects. Client activation is a legacy technology that is retained for backward compatibility but is not recommended for new development. Distributed applications should instead use Windows Communication Foundation."
@@ -703,7 +703,7 @@ items:
     description: The caller does not have permission to call this constructor.
   - type: System.MemberAccessException
     commentId: T:System.MemberAccessException
-    description: Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.
+    description: 'Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.'
   - type: System.Runtime.InteropServices.InvalidComObjectException
     commentId: T:System.Runtime.InteropServices.InvalidComObjectException
     description: The COM type was not obtained through <xref href="System.Type.GetTypeFromProgID*"></xref> or <xref href="System.Type.GetTypeFromCLSID*"></xref>.
@@ -712,7 +712,7 @@ items:
     description: No matching constructor was found.
   - type: System.Runtime.InteropServices.COMException
     commentId: T:System.Runtime.InteropServices.COMException
-    description: <code>type</code> is a COM object but the class identifier used to obtain the type is invalid, or the identified class is not registered.
+    description: '<code>type</code> is a COM object but the class identifier used to obtain the type is invalid, or the identified class is not registered.'
   - type: System.TypeLoadException
     commentId: T:System.TypeLoadException
     description: <code>type</code> is not a valid type.
@@ -774,16 +774,16 @@ items:
       description: The type of object to create.
     - id: bindingAttr
       type: System.Reflection.BindingFlags
-      description: A combination of zero or more bit flags that affect the search for the <code>type</code> constructor. If <code>bindingAttr</code> is zero, a case-sensitive search for public constructors is conducted.
+      description: 'A combination of zero or more bit flags that affect the search for the <code>type</code> constructor. If <code>bindingAttr</code> is zero, a case-sensitive search for public constructors is conducted.'
     - id: binder
       type: System.Reflection.Binder
-      description: An object that uses <code>bindingAttr</code> and <code>args</code> to seek and identify the <code>type</code> constructor. If <code>binder</code> is `null`, the default binder is used.
+      description: 'An object that uses <code>bindingAttr</code> and <code>args</code> to seek and identify the <code>type</code> constructor. If <code>binder</code> is `null`, the default binder is used.'
     - id: args
       type: System.Object[]
-      description: An array of arguments that match in number, order, and type the parameters of the constructor to invoke. If <code>args</code> is an empty array or `null`, the constructor that takes no parameters (the default constructor) is invoked.
+      description: 'An array of arguments that match in number, order, and type the parameters of the constructor to invoke. If <code>args</code> is an empty array or `null`, the constructor that takes no parameters (the default constructor) is invoked.'
     - id: culture
       type: System.Globalization.CultureInfo
-      description: Culture-specific information that governs the coercion of <code>args</code> to the formal types declared for the <code>type</code> constructor. If <code>culture</code> is `null`, the <xref href="System.Globalization.CultureInfo"></xref> for the current thread is used.
+      description: 'Culture-specific information that governs the coercion of <code>args</code> to the formal types declared for the <code>type</code> constructor. If <code>culture</code> is `null`, the <xref href="System.Globalization.CultureInfo"></xref> for the current thread is used.'
     return:
       type: System.Object
       description: A reference to the newly created object.
@@ -806,7 +806,7 @@ items:
     description: The caller does not have permission to call this constructor.
   - type: System.MemberAccessException
     commentId: T:System.MemberAccessException
-    description: Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.
+    description: 'Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.'
   - type: System.Runtime.InteropServices.InvalidComObjectException
     commentId: T:System.Runtime.InteropServices.InvalidComObjectException
     description: The COM type was not obtained through <xref href="System.Type.GetTypeFromProgID*"></xref> or <xref href="System.Type.GetTypeFromCLSID*"></xref>.
@@ -815,7 +815,7 @@ items:
     description: No matching constructor was found.
   - type: System.Runtime.InteropServices.COMException
     commentId: T:System.Runtime.InteropServices.COMException
-    description: <code>type</code> is a COM object but the class identifier used to obtain the type is invalid, or the identified class is not registered.
+    description: '<code>type</code> is a COM object but the class identifier used to obtain the type is invalid, or the identified class is not registered.'
   - type: System.TypeLoadException
     commentId: T:System.TypeLoadException
     description: <code>type</code> is not a valid type.
@@ -876,7 +876,7 @@ items:
       description: The type of object to create.
     - id: args
       type: System.Object[]
-      description: An array of arguments that match in number, order, and type the parameters of the constructor to invoke. If <code>args</code> is an empty array or `null`, the constructor that takes no parameters (the default constructor) is invoked.
+      description: 'An array of arguments that match in number, order, and type the parameters of the constructor to invoke. If <code>args</code> is an empty array or `null`, the constructor that takes no parameters (the default constructor) is invoked.'
     - id: activationAttributes
       type: System.Object[]
       description: "An array of one or more attributes that can participate in activation. This is typically an array that contains a single <xref href=\"System.Runtime.Remoting.Activation.UrlAttribute\"></xref> object that specifies the URL that is required to activate a remote object.  \n  \n This parameter is related to client-activated objects. Client activation is a legacy technology that is retained for backward compatibility but is not recommended for new development. Distributed applications should instead use Windows Communication Foundation."
@@ -902,7 +902,7 @@ items:
     description: The caller does not have permission to call this constructor.
   - type: System.MemberAccessException
     commentId: T:System.MemberAccessException
-    description: Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.
+    description: 'Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.'
   - type: System.Runtime.InteropServices.InvalidComObjectException
     commentId: T:System.Runtime.InteropServices.InvalidComObjectException
     description: The COM type was not obtained through <xref href="System.Type.GetTypeFromProgID*"></xref> or <xref href="System.Type.GetTypeFromCLSID*"></xref>.
@@ -911,7 +911,7 @@ items:
     description: No matching public constructor was found.
   - type: System.Runtime.InteropServices.COMException
     commentId: T:System.Runtime.InteropServices.COMException
-    description: <code>type</code> is a COM object but the class identifier used to obtain the type is invalid, or the identified class is not registered.
+    description: '<code>type</code> is a COM object but the class identifier used to obtain the type is invalid, or the identified class is not registered.'
   - type: System.TypeLoadException
     commentId: T:System.TypeLoadException
     description: <code>type</code> is not a valid type.
@@ -960,14 +960,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: Creates an instance of the type whose name is specified, using the named assembly and default constructor.
+  summary: 'Creates an instance of the type whose name is specified, using the named assembly and default constructor.'
   remarks: "Use <xref:System.Runtime.Remoting.ObjectHandle.Unwrap%2A?displayProperty=fullName> to unwrap the return value.  \n  \n> [!NOTE]\n>  Starting with the [!INCLUDE[net_v20sp1_long](~/includes/net-v20sp1-long-md.md)], this method can be used to create nonpublic types if the caller has been granted <xref:System.Security.Permissions.ReflectionPermission> with the <xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName> flag and if the grant set of the nonpublic types is restricted to the caller’s grant set or to a subset thereof. (See [Security Considerations for Reflection](~/docs/framework/reflection-and-codedom/security-considerations-for-reflection.md).)  \n>   \n>  To use this functionality, your application should target the [!INCLUDE[net_v35_long](~/includes/net-v35-long-md.md)] or later."
   syntax:
     content: public static System.Runtime.Remoting.ObjectHandle CreateInstance (string assemblyName, string typeName, object[] activationAttributes);
     parameters:
     - id: assemblyName
       type: System.String
-      description: The name of the assembly where the type named <code>typeName</code> is sought. If <code>assemblyName</code> is `null`, the executing assembly is searched.
+      description: 'The name of the assembly where the type named <code>typeName</code> is sought. If <code>assemblyName</code> is `null`, the executing assembly is searched.'
     - id: typeName
       type: System.String
       description: The fully qualified name of the preferred type.
@@ -996,7 +996,7 @@ items:
     description: The caller does not have permission to call this constructor.
   - type: System.MemberAccessException
     commentId: T:System.MemberAccessException
-    description: Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.
+    description: 'Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.'
   - type: System.Runtime.InteropServices.InvalidComObjectException
     commentId: T:System.Runtime.InteropServices.InvalidComObjectException
     description: The COM type was not obtained through <xref href="System.Type.GetTypeFromProgID*"></xref> or <xref href="System.Type.GetTypeFromCLSID*"></xref>.
@@ -1054,7 +1054,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: Creates an instance of the type whose name is specified, using the named assembly and the constructor that best matches the specified parameters.
+  summary: 'Creates an instance of the type whose name is specified, using the named assembly and the constructor that best matches the specified parameters.'
   remarks: "Use <xref:System.Runtime.Remoting.ObjectHandle.Unwrap%2A?displayProperty=fullName> to unwrap the return value.  \n  \n> [!NOTE]\n>  Starting with the [!INCLUDE[net_v20sp1_long](~/includes/net-v20sp1-long-md.md)], this method can be used to create nonpublic types and members if the caller has been granted <xref:System.Security.Permissions.ReflectionPermission> with the <xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName> flag and if the grant set of the assembly that contains the nonpublic types and members is restricted to the caller’s grant set or to a subset thereof. (See [Security Considerations for Reflection](~/docs/framework/reflection-and-codedom/security-considerations-for-reflection.md).)  \n>   \n>  To use this functionality, your application should target the [!INCLUDE[net_v35_long](~/includes/net-v35-long-md.md)] or later."
   syntax:
     content: >-
@@ -1064,7 +1064,7 @@ items:
     parameters:
     - id: assemblyName
       type: System.String
-      description: The name of the assembly where the type named <code>typeName</code> is sought. If <code>assemblyName</code> is `null`, the executing assembly is searched.
+      description: 'The name of the assembly where the type named <code>typeName</code> is sought. If <code>assemblyName</code> is `null`, the executing assembly is searched.'
     - id: typeName
       type: System.String
       description: The fully qualified name of the preferred type.
@@ -1073,16 +1073,16 @@ items:
       description: '`true` to specify that the search for <code>typeName</code> is not case-sensitive; `false` to specify that the search is case-sensitive.'
     - id: bindingAttr
       type: System.Reflection.BindingFlags
-      description: A combination of zero or more bit flags that affect the search for the <code>typeName</code> constructor. If <code>bindingAttr</code> is zero, a case-sensitive search for public constructors is conducted.
+      description: 'A combination of zero or more bit flags that affect the search for the <code>typeName</code> constructor. If <code>bindingAttr</code> is zero, a case-sensitive search for public constructors is conducted.'
     - id: binder
       type: System.Reflection.Binder
-      description: An object that uses <code>bindingAttr</code> and <code>args</code> to seek and identify the <code>typeName</code> constructor. If <code>binder</code> is `null`, the default binder is used.
+      description: 'An object that uses <code>bindingAttr</code> and <code>args</code> to seek and identify the <code>typeName</code> constructor. If <code>binder</code> is `null`, the default binder is used.'
     - id: args
       type: System.Object[]
-      description: An array of arguments that match in number, order, and type the parameters of the constructor to invoke. If <code>args</code> is an empty array or `null`, the constructor that takes no parameters (the default constructor) is invoked.
+      description: 'An array of arguments that match in number, order, and type the parameters of the constructor to invoke. If <code>args</code> is an empty array or `null`, the constructor that takes no parameters (the default constructor) is invoked.'
     - id: culture
       type: System.Globalization.CultureInfo
-      description: Culture-specific information that governs the coercion of <code>args</code> to the formal types declared for the <code>typeName</code> constructor. If <code>culture</code> is `null`, the <xref href="System.Globalization.CultureInfo"></xref> for the current thread is used.
+      description: 'Culture-specific information that governs the coercion of <code>args</code> to the formal types declared for the <code>typeName</code> constructor. If <code>culture</code> is `null`, the <xref href="System.Globalization.CultureInfo"></xref> for the current thread is used.'
     - id: activationAttributes
       type: System.Object[]
       description: "An array of one or more attributes that can participate in activation. This is typically an array that contains a single <xref href=\"System.Runtime.Remoting.Activation.UrlAttribute\"></xref> object that specifies the URL that is required to activate a remote object.  \n  \n This parameter is related to client-activated objects. Client activation is a legacy technology that is retained for backward compatibility but is not recommended for new development. Distributed applications should instead use Windows Communication Foundation."
@@ -1111,10 +1111,10 @@ items:
     description: The caller does not have permission to call this constructor.
   - type: System.MemberAccessException
     commentId: T:System.MemberAccessException
-    description: Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.
+    description: 'Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.'
   - type: System.Reflection.TargetInvocationException
     commentId: T:System.Reflection.TargetInvocationException
-    description: The constructor, which was invoked through reflection, threw an exception.
+    description: 'The constructor, which was invoked through reflection, threw an exception.'
   - type: System.Runtime.InteropServices.InvalidComObjectException
     commentId: T:System.Runtime.InteropServices.InvalidComObjectException
     description: The COM type was not obtained through <xref href="System.Type.GetTypeFromProgID*"></xref> or <xref href="System.Type.GetTypeFromCLSID*"></xref>.
@@ -1184,7 +1184,7 @@ items:
       description: The type of object to create.
     - id: args
       type: System.Object[]
-      description: An array of arguments that match in number, order, and type the parameters of the constructor to invoke. If <code>args</code> is an empty array or `null`, the constructor that takes no parameters (the default constructor) is invoked.
+      description: 'An array of arguments that match in number, order, and type the parameters of the constructor to invoke. If <code>args</code> is an empty array or `null`, the constructor that takes no parameters (the default constructor) is invoked.'
     return:
       type: System.Object
       description: A reference to the newly created object.
@@ -1207,7 +1207,7 @@ items:
     description: "<block subset=\"none\" type=\"note\">\n      <p>  \n In the [.NET for Windows Store apps](http://go.microsoft.com/fwlink/?LinkID=247912) or the [Portable Class Library](~/docs/standard/cross-platform/cross-platform-development-with-the-portable-class-library.md), catch the base class exception, <xref href=\"System.MemberAccessException\"></xref>, instead.  \n  \n</p>\n    </block>  \n  \n The caller does not have permission to call this constructor."
   - type: System.MemberAccessException
     commentId: T:System.MemberAccessException
-    description: Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.
+    description: 'Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.'
   - type: System.Runtime.InteropServices.InvalidComObjectException
     commentId: T:System.Runtime.InteropServices.InvalidComObjectException
     description: The COM type was not obtained through <xref href="System.Type.GetTypeFromProgID*"></xref> or <xref href="System.Type.GetTypeFromCLSID*"></xref>.
@@ -1216,7 +1216,7 @@ items:
     description: "<block subset=\"none\" type=\"note\">\n      <p>  \n In the [.NET for Windows Store apps](http://go.microsoft.com/fwlink/?LinkID=247912) or the [Portable Class Library](~/docs/standard/cross-platform/cross-platform-development-with-the-portable-class-library.md), catch the base class exception, <xref href=\"System.MissingMemberException\"></xref>, instead.  \n  \n</p>\n    </block>  \n  \n No matching public constructor was found."
   - type: System.Runtime.InteropServices.COMException
     commentId: T:System.Runtime.InteropServices.COMException
-    description: <code>type</code> is a COM object but the class identifier used to obtain the type is invalid, or the identified class is not registered.
+    description: '<code>type</code> is a COM object but the class identifier used to obtain the type is invalid, or the identified class is not registered.'
   - type: System.TypeLoadException
     commentId: T:System.TypeLoadException
     description: <code>type</code> is not a valid type.
@@ -1318,7 +1318,7 @@ items:
     description: The caller does not have permission to call this constructor.
   - type: System.MemberAccessException
     commentId: T:System.MemberAccessException
-    description: Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.
+    description: 'Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.'
   - type: System.Runtime.InteropServices.InvalidComObjectException
     commentId: T:System.Runtime.InteropServices.InvalidComObjectException
     description: The COM type was not obtained through <xref href="System.Type.GetTypeFromProgID*"></xref> or <xref href="System.Type.GetTypeFromCLSID*"></xref>.
@@ -1327,7 +1327,7 @@ items:
     description: No matching public constructor was found.
   - type: System.Runtime.InteropServices.COMException
     commentId: T:System.Runtime.InteropServices.COMException
-    description: <code>type</code> is a COM object but the class identifier used to obtain the type is invalid, or the identified class is not registered.
+    description: '<code>type</code> is a COM object but the class identifier used to obtain the type is invalid, or the identified class is not registered.'
   - type: System.TypeLoadException
     commentId: T:System.TypeLoadException
     description: <code>type</code> is not a valid type.
@@ -1384,7 +1384,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: Creates an instance of the type whose name is specified, using the named assembly and default constructor.
+  summary: 'Creates an instance of the type whose name is specified, using the named assembly and default constructor.'
   remarks: "Use <xref:System.Runtime.Remoting.ObjectHandle.Unwrap%2A?displayProperty=fullName> to unwrap the return value.  \n  \n `assemblyName` can be either of the following:  \n  \n-   The simple name of an assembly, without its path or file extension. For example, you would specify `TypeExtensions` for an assembly whose path and name are .\\bin\\TypeExtensions.dll.  \n  \n-   The full name of a signed assembly, which consists of its simple name, version, culture, and public key token; for example, \"TypeExtensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=181869f2f7435b51\".  \n  \n For more information on how the common language runtime identifies and loads assemblies, see [How the Runtime Locates Assemblies](~/docs/framework/deployment/how-the-runtime-locates-assemblies.md). For information on using the application configuration file to define assembly locations, see [Specifying an Assembly's Location](~/docs/framework/configure-apps/specify-assembly-location.md). If `assemblyName` is found, it is loaded in the default context.  \n  \n> [!NOTE]\n>  Starting with the [!INCLUDE[net_v20sp1_long](~/includes/net-v20sp1-long-md.md)], this method can be used to create nonpublic types if the caller has been granted <xref:System.Security.Permissions.ReflectionPermission> with the <xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName> flag and if the grant set of the assembly that contains the nonpublic types is restricted to the caller’s grant set or to a subset thereof. (See [Security Considerations for Reflection](~/docs/framework/reflection-and-codedom/security-considerations-for-reflection.md).)  \n>   \n>  To use this functionality, your application should target the [!INCLUDE[net_v35_long](~/includes/net-v35-long-md.md)] or later."
   example:
   - "The following example defines a class named `Person` in an assembly named `PersonInfo`. Note that the `Person` class has two constructors, one of which is parameterless.  \n  \n [!code-csharp[System.Activator.CreateInstance#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.activator.createinstance/cs/personinfo.cs#1)]\n [!code-vb[System.Activator.CreateInstance#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.activator.createinstance/vb/personinfo.vb#1)]  \n  \n The following example calls the <xref:System.Activator.CreateInstance%28System.String%2CSystem.String%29> method to instantiate the `Person` class. It requires a reference to PersonInfo.dll to be added to the project. Because the <xref:System.Activator.CreateInstance%28System.String%2CSystem.String%29> method calls the `Person` class default constructor,  the example assigns a value to its `Name` property.  \n  \n [!code-csharp[System.Activator.CreateInstance#2](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.activator.createinstance/cs/createinstanceex1.cs#2)]\n [!code-vb[System.Activator.CreateInstance#2](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.activator.createinstance/vb/createinstanceex1.vb#2)]  \n  \n However, <xref:System.Activator.CreateInstance%2A> is frequently called to instantiate a type that crosses machine boundaries or that is not known at design time. In this case, you cannot include a reference to the assembly in the project and cannot make early-bound calls to the type's members. To work around this limitation, the following example uses the <xref:System.Activator.CreateInstance%2A> method along with reflection to assign a value to the `Person` object's `Name` property and to display its value.  \n  \n [!code-csharp[System.Activator.CreateInstance#3](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.activator.createinstance/cs/createinstanceex1a.cs#3)]\n [!code-vb[System.Activator.CreateInstance#3](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.activator.createinstance/vb/createinstanceex1a.vb#3)]"
@@ -1393,7 +1393,7 @@ items:
     parameters:
     - id: assemblyName
       type: System.String
-      description: The name of the assembly where the type named <code>typeName</code> is sought. If <code>assemblyName</code> is `null`, the executing assembly is searched.
+      description: 'The name of the assembly where the type named <code>typeName</code> is sought. If <code>assemblyName</code> is `null`, the executing assembly is searched.'
     - id: typeName
       type: System.String
       description: The fully qualified name of the preferred type.
@@ -1419,16 +1419,16 @@ items:
     description: The caller does not have permission to call this constructor.
   - type: System.MemberAccessException
     commentId: T:System.MemberAccessException
-    description: You cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.
+    description: 'You cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.'
   - type: System.Reflection.TargetInvocationException
     commentId: T:System.Reflection.TargetInvocationException
-    description: The constructor, which was invoked through reflection, threw an exception.
+    description: 'The constructor, which was invoked through reflection, threw an exception.'
   - type: System.Runtime.InteropServices.InvalidComObjectException
     commentId: T:System.Runtime.InteropServices.InvalidComObjectException
     description: The COM type was not obtained through <xref href="System.Type.GetTypeFromProgID*"></xref> or <xref href="System.Type.GetTypeFromCLSID*"></xref>.
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: Creation of <xref href="System.TypedReference"></xref>, <xref href="System.ArgIterator"></xref>, <xref href="System.Void"></xref>, and <xref href="System.RuntimeArgumentHandle"></xref> types, or arrays of those types, is not supported.
+    description: 'Creation of <xref href="System.TypedReference"></xref>, <xref href="System.ArgIterator"></xref>, <xref href="System.Void"></xref>, and <xref href="System.RuntimeArgumentHandle"></xref> types, or arrays of those types, is not supported.'
   - type: System.BadImageFormatException
     commentId: T:System.BadImageFormatException
     description: "<code>assemblyName</code> is not a valid assembly.  \n  \n -or-  \n  \n The common language runtime (CLR) version 2.0 or later is currently loaded, and <code>assemblyName</code> was compiled for a version of the CLR that is later than the currently loaded version. Note that the .NET Framework versions 2.0, 3.0, and 3.5 all use CLR version 2.0."
@@ -1567,7 +1567,7 @@ items:
     description: "<block subset=\"none\" type=\"note\">\n      <p>  \n In the [.NET for Windows Store apps](http://go.microsoft.com/fwlink/?LinkID=247912) or the [Portable Class Library](~/docs/standard/cross-platform/cross-platform-development-with-the-portable-class-library.md), catch the base class exception, <xref href=\"System.MemberAccessException\"></xref>, instead.  \n  \n</p>\n    </block>  \n  \n The caller does not have permission to call this constructor."
   - type: System.MemberAccessException
     commentId: T:System.MemberAccessException
-    description: Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.
+    description: 'Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.'
   - type: System.Runtime.InteropServices.InvalidComObjectException
     commentId: T:System.Runtime.InteropServices.InvalidComObjectException
     description: The COM type was not obtained through <xref href="System.Type.GetTypeFromProgID*"></xref> or <xref href="System.Type.GetTypeFromCLSID*"></xref>.
@@ -1576,7 +1576,7 @@ items:
     description: "<block subset=\"none\" type=\"note\">\n      <p>  \n In the [.NET for Windows Store apps](http://go.microsoft.com/fwlink/?LinkID=247912) or the [Portable Class Library](~/docs/standard/cross-platform/cross-platform-development-with-the-portable-class-library.md), catch the base class exception, <xref href=\"System.MissingMemberException\"></xref>, instead.  \n  \n</p>\n    </block>  \n  \n No matching public constructor was found."
   - type: System.Runtime.InteropServices.COMException
     commentId: T:System.Runtime.InteropServices.COMException
-    description: <code>type</code> is a COM object but the class identifier used to obtain the type is invalid, or the identified class is not registered.
+    description: '<code>type</code> is a COM object but the class identifier used to obtain the type is invalid, or the identified class is not registered.'
   - type: System.TypeLoadException
     commentId: T:System.TypeLoadException
     description: <code>type</code> is not a valid type.
@@ -1696,7 +1696,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: Creates an instance of the type whose name is specified in the specified remote domain, using the named assembly and default constructor.
+  summary: 'Creates an instance of the type whose name is specified in the specified remote domain, using the named assembly and default constructor.'
   remarks: "Use <xref:System.Activator.CreateInstance%2A> when a host needs to execute code in an application domain that has restricted security permissions.  \n  \n Use <xref:System.Runtime.Remoting.ObjectHandle.Unwrap%2A?displayProperty=fullName> to unwrap the return value.  \n  \n> [!NOTE]\n>  This method uses <xref:System.Security.Permissions.SecurityAction?displayProperty=fullName> to require the immediate caller to have full trust."
   syntax:
     content: >-
@@ -1709,7 +1709,7 @@ items:
       description: The remote domain where the type named <code>typeName</code> is created.
     - id: assemblyName
       type: System.String
-      description: The name of the assembly where the type named <code>typeName</code> is sought. If <code>assemblyName</code> is `null`, the executing assembly is searched.
+      description: 'The name of the assembly where the type named <code>typeName</code> is sought. If <code>assemblyName</code> is `null`, the executing assembly is searched.'
     - id: typeName
       type: System.String
       description: The fully qualified name of the preferred type.
@@ -1738,13 +1738,13 @@ items:
     description: "Cannot create an instance of an abstract type.  \n  \n -or-  \n  \n This member was invoked with a late-binding mechanism."
   - type: System.Reflection.TargetInvocationException
     commentId: T:System.Reflection.TargetInvocationException
-    description: The constructor, which was invoked through reflection, threw an exception.
+    description: 'The constructor, which was invoked through reflection, threw an exception.'
   - type: System.Runtime.InteropServices.InvalidComObjectException
     commentId: T:System.Runtime.InteropServices.InvalidComObjectException
     description: The COM type was not obtained through <xref href="System.Type.GetTypeFromProgID*"></xref> or <xref href="System.Type.GetTypeFromCLSID*"></xref>.
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: Creation of <xref href="System.TypedReference"></xref>, <xref href="System.ArgIterator"></xref>, <xref href="System.Void"></xref>, and <xref href="System.RuntimeArgumentHandle"></xref> types, or arrays of those types, is not supported.
+    description: 'Creation of <xref href="System.TypedReference"></xref>, <xref href="System.ArgIterator"></xref>, <xref href="System.Void"></xref>, and <xref href="System.RuntimeArgumentHandle"></xref> types, or arrays of those types, is not supported.'
   - type: System.BadImageFormatException
     commentId: T:System.BadImageFormatException
     description: "<code>assemblyName</code> is not a valid assembly.  \n  \n -or-  \n  \n The common language runtime (CLR) version 2.0 or later is currently loaded, and <code>assemblyName</code> was compiled for a version of the CLR that is later than the currently loaded version. Note that the .NET Framework versions 2.0, 3.0, and 3.5 all use CLR version 2.0."
@@ -1796,8 +1796,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: Creates an instance of the type designated by the specified generic type parameter, using the parameterless constructor.
-  remarks: "The <xref:System.Activator.CreateInstance%60%601> generic method is used by compilers to implement the instantiation of types specified by type parameters. For example, in the following generic method, the implementation of `new T()` (`gcnew T()` in C++) uses the <xref:System.Activator.CreateInstance%60%601> generic method.  \n  \n [!code-cpp[System.Activation.CreateInstance~~1#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.activation.createinstance~~1/cpp/remarks.cpp#1)]\n [!code-csharp[System.Activation.CreateInstance~~1#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.activation.createinstance~~1/cs/remarks.cs#1)]\n [!code-vb[System.Activation.CreateInstance~~1#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.activation.createinstance~~1/vb/remarks.vb#1)]  \n  \n In general, there is no use for the <xref:System.Activator.CreateInstance%60%601> generic method in application code, because the type must be known at compile time. If the type is known at compile time, normal instantiation syntax can be used (`new` operator in C#, `New` in Visual Basic, `gcnew` in C++). If the type is not known at compile time, you can call a non-generic overload of <xref:System.Activator.CreateInstance%2A>.  \n  \n There are no overloads of the <xref:System.Activator.CreateInstance%60%601> generic method that take argument lists, because the non-generic overloads of <xref:System.Activator.CreateInstance%2A> already provide late-bound constructor resolution."
+  summary: 'Creates an instance of the type designated by the specified generic type parameter, using the parameterless constructor.'
+  remarks: "The <xref:System.Activator.CreateInstance%60%601> generic method is used by compilers to implement the instantiation of types specified by type parameters. For example, in the following generic method, the implementation of `new T()` (`gcnew T()` in C++) uses the <xref:System.Activator.CreateInstance%60%601> generic method.  \n  \n [!code-cpp[System.Activation.CreateInstance~~1#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.activation.createinstance~~1/cpp/remarks.cpp#1)] [!code-csharp[System.Activation.CreateInstance~~1#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.activation.createinstance~~1/cs/remarks.cs#1)] [!code-vb[System.Activation.CreateInstance~~1#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.activation.createinstance~~1/vb/remarks.vb#1)]  \n  \n In general, there is no use for the <xref:System.Activator.CreateInstance%60%601> generic method in application code, because the type must be known at compile time. If the type is known at compile time, normal instantiation syntax can be used (`new` operator in C#, `New` in Visual Basic, `gcnew` in C++). If the type is not known at compile time, you can call a non-generic overload of <xref:System.Activator.CreateInstance%2A>.  \n  \n There are no overloads of the <xref:System.Activator.CreateInstance%60%601> generic method that take argument lists, because the non-generic overloads of <xref:System.Activator.CreateInstance%2A> already provide late-bound constructor resolution."
   syntax:
     content: public static T CreateInstance<T> ();
     parameters: []
@@ -1875,7 +1875,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: Creates an instance of the type whose name is specified in the specified remote domain, using the named assembly file and the constructor that best matches the specified parameters.
+  summary: 'Creates an instance of the type whose name is specified in the specified remote domain, using the named assembly file and the constructor that best matches the specified parameters.'
   remarks: "Use <xref:System.Activator.CreateInstanceFrom%2A> when a host needs to execute code in an application domain that has restricted security permissions.  \n  \n Use the <xref:System.Runtime.Remoting.ObjectHandle.Unwrap%2A?displayProperty=fullName> method to unwrap the return value.  \n  \n> [!NOTE]\n>  This method uses <xref:System.Security.Permissions.SecurityAction?displayProperty=fullName> to require the immediate caller to have full trust.  \n  \n For information about other exceptions that can be thrown by invoked methods, see the Exceptions section of the <xref:System.Reflection.Assembly.LoadFrom%2A?displayProperty=fullName> and <xref:System.Activator.CreateInstance%2A> methods."
   syntax:
     content: >-
@@ -1899,16 +1899,16 @@ items:
       description: '`true` to specify that the search for <code>typeName</code> is not case-sensitive; `false` to specify that the search is case-sensitive.'
     - id: bindingAttr
       type: System.Reflection.BindingFlags
-      description: A combination of zero or more bit flags that affect the search for the <code>typeName</code> constructor. If <code>bindingAttr</code> is zero, a case-sensitive search for public constructors is conducted.
+      description: 'A combination of zero or more bit flags that affect the search for the <code>typeName</code> constructor. If <code>bindingAttr</code> is zero, a case-sensitive search for public constructors is conducted.'
     - id: binder
       type: System.Reflection.Binder
-      description: An object that uses <code>bindingAttr</code> and <code>args</code> to seek and identify the <code>typeName</code> constructor. If <code>binder</code> is `null`, the default binder is used.
+      description: 'An object that uses <code>bindingAttr</code> and <code>args</code> to seek and identify the <code>typeName</code> constructor. If <code>binder</code> is `null`, the default binder is used.'
     - id: args
       type: System.Object[]
-      description: An array of arguments that match in number, order, and type the parameters of the constructor to invoke. If <code>args</code> is an empty array or `null`, the constructor that takes no parameters (the default constructor) is invoked.
+      description: 'An array of arguments that match in number, order, and type the parameters of the constructor to invoke. If <code>args</code> is an empty array or `null`, the constructor that takes no parameters (the default constructor) is invoked.'
     - id: culture
       type: System.Globalization.CultureInfo
-      description: Culture-specific information that governs the coercion of <code>args</code> to the formal types declared for the <code>typeName</code> constructor. If <code>culture</code> is `null`, the <xref href="System.Globalization.CultureInfo"></xref> for the current thread is used.
+      description: 'Culture-specific information that governs the coercion of <code>args</code> to the formal types declared for the <code>typeName</code> constructor. If <code>culture</code> is `null`, the <xref href="System.Globalization.CultureInfo"></xref> for the current thread is used.'
     - id: activationAttributes
       type: System.Object[]
       description: "An array of one or more attributes that can participate in activation. This is typically an array that contains a single <xref href=\"System.Runtime.Remoting.Activation.UrlAttribute\"></xref> object that specifies the URL that is required to activate a remote object.  \n  \n This parameter is related to client-activated objects. Client activation is a legacy technology that is retained for backward compatibility but is not recommended for new development. Distributed applications should instead use Windows Communication Foundation."
@@ -1937,16 +1937,16 @@ items:
     description: The caller does not have permission to call this constructor.
   - type: System.MemberAccessException
     commentId: T:System.MemberAccessException
-    description: Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.
+    description: 'Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.'
   - type: System.Reflection.TargetInvocationException
     commentId: T:System.Reflection.TargetInvocationException
-    description: The constructor, which was invoked through reflection, threw an exception.
+    description: 'The constructor, which was invoked through reflection, threw an exception.'
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
     description: The caller does have the required <xref href="System.Security.Permissions.FileIOPermission"></xref>.
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: <code>activationAttributes</code> is not an empty array, and the type being created does not derive from <xref href="System.MarshalByRefObject"></xref>.
+    description: '<code>activationAttributes</code> is not an empty array, and the type being created does not derive from <xref href="System.MarshalByRefObject"></xref>.'
   - type: System.BadImageFormatException
     commentId: T:System.BadImageFormatException
     description: "<code>assemblyFile</code> is not a valid assembly.  \n  \n -or-  \n  \n The common language runtime (CLR) version 2.0 or later is currently loaded, and <code>assemblyName</code> was compiled for a version of the CLR that is later than the currently loaded version. Note that the .NET Framework versions 2.0, 3.0, and 3.5 all use CLR version 2.0."
@@ -1994,7 +1994,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: Creates an instance of the type whose name is specified, using the named assembly file and the constructor that best matches the specified parameters.
+  summary: 'Creates an instance of the type whose name is specified, using the named assembly file and the constructor that best matches the specified parameters.'
   remarks: "Use the <xref:System.Runtime.Remoting.ObjectHandle.Unwrap%2A?displayProperty=fullName> method to unwrap the return value.  \n  \n For information about other exceptions that can be thrown by invoked methods, see the Exceptions section of the <xref:System.Reflection.Assembly.LoadFrom%2A?displayProperty=fullName> and <xref:System.Activator.CreateInstance%2A> methods."
   syntax:
     content: >-
@@ -2013,16 +2013,16 @@ items:
       description: '`true` to specify that the search for <code>typeName</code> is not case-sensitive; `false` to specify that the search is case-sensitive.'
     - id: bindingAttr
       type: System.Reflection.BindingFlags
-      description: A combination of zero or more bit flags that affect the search for the <code>typeName</code> constructor. If <code>bindingAttr</code> is zero, a case-sensitive search for public constructors is conducted.
+      description: 'A combination of zero or more bit flags that affect the search for the <code>typeName</code> constructor. If <code>bindingAttr</code> is zero, a case-sensitive search for public constructors is conducted.'
     - id: binder
       type: System.Reflection.Binder
-      description: An object that uses <code>bindingAttr</code> and <code>args</code> to seek and identify the <code>typeName</code> constructor. If <code>binder</code> is `null`, the default binder is used.
+      description: 'An object that uses <code>bindingAttr</code> and <code>args</code> to seek and identify the <code>typeName</code> constructor. If <code>binder</code> is `null`, the default binder is used.'
     - id: args
       type: System.Object[]
-      description: An array of arguments that match in number, order, and type the parameters of the constructor to invoke. If <code>args</code> is an empty array or `null`, the constructor that takes no parameters (the default constructor) is invoked.
+      description: 'An array of arguments that match in number, order, and type the parameters of the constructor to invoke. If <code>args</code> is an empty array or `null`, the constructor that takes no parameters (the default constructor) is invoked.'
     - id: culture
       type: System.Globalization.CultureInfo
-      description: Culture-specific information that governs the coercion of <code>args</code> to the formal types declared for the <code>typeName</code> constructor. If <code>culture</code> is `null`, the <xref href="System.Globalization.CultureInfo"></xref> for the current thread is used.
+      description: 'Culture-specific information that governs the coercion of <code>args</code> to the formal types declared for the <code>typeName</code> constructor. If <code>culture</code> is `null`, the <xref href="System.Globalization.CultureInfo"></xref> for the current thread is used.'
     - id: activationAttributes
       type: System.Object[]
       description: "An array of one or more attributes that can participate in activation. This is typically an array that contains a single <xref href=\"System.Runtime.Remoting.Activation.UrlAttribute\"></xref> object that specifies the URL that is required to activate a remote object.  \n  \n This parameter is related to client-activated objects. Client activation is a legacy technology that is retained for backward compatibility but is not recommended for new development. Distributed applications should instead use Windows Communication Foundation."
@@ -2051,16 +2051,16 @@ items:
     description: The caller does not have permission to call this constructor.
   - type: System.MemberAccessException
     commentId: T:System.MemberAccessException
-    description: Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.
+    description: 'Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.'
   - type: System.Reflection.TargetInvocationException
     commentId: T:System.Reflection.TargetInvocationException
-    description: The constructor, which was invoked through reflection, threw an exception.
+    description: 'The constructor, which was invoked through reflection, threw an exception.'
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
     description: The caller does not have the required <xref href="System.Security.Permissions.FileIOPermission"></xref>.
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: <code>activationAttributes</code> is not an empty array, and the type being created does not derive from <xref href="System.MarshalByRefObject"></xref>.
+    description: '<code>activationAttributes</code> is not an empty array, and the type being created does not derive from <xref href="System.MarshalByRefObject"></xref>.'
   - type: System.BadImageFormatException
     commentId: T:System.BadImageFormatException
     description: "<code>assemblyFile</code> is not a valid assembly.  \n  \n -or-  \n  \n The common language runtime (CLR) version 2.0 or later is currently loaded, and <code>assemblyName</code> was compiled for a version of the CLR that is later than the currently loaded version. Note that the .NET Framework versions 2.0, 3.0, and 3.5 all use CLR version 2.0."
@@ -2107,7 +2107,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: Creates an instance of the type whose name is specified in the specified remote domain, using the named assembly file and the constructor that best matches the specified parameters.
+  summary: 'Creates an instance of the type whose name is specified in the specified remote domain, using the named assembly file and the constructor that best matches the specified parameters.'
   remarks: "Use <xref:System.Activator.CreateInstanceFrom%2A> when a host needs to execute code in an application domain that has restricted security permissions.  \n  \n Use the <xref:System.Runtime.Remoting.ObjectHandle.Unwrap%2A?displayProperty=fullName> method to unwrap the return value.  \n  \n For information about other exceptions that can be thrown by invoked methods, see the Exceptions sections of the <xref:System.Reflection.Assembly.LoadFrom%2A?displayProperty=fullName> and <xref:System.Activator.CreateInstance%2A> methods."
   syntax:
     content: >-
@@ -2129,16 +2129,16 @@ items:
       description: '`true` to specify that the search for <code>typeName</code> is not case-sensitive; `false` to specify that the search is case-sensitive.'
     - id: bindingAttr
       type: System.Reflection.BindingFlags
-      description: A combination of zero or more bit flags that affect the search for the <code>typeName</code> constructor. If <code>bindingAttr</code> is zero, a case-sensitive search for public constructors is conducted.
+      description: 'A combination of zero or more bit flags that affect the search for the <code>typeName</code> constructor. If <code>bindingAttr</code> is zero, a case-sensitive search for public constructors is conducted.'
     - id: binder
       type: System.Reflection.Binder
-      description: An object that uses <code>bindingAttr</code> and <code>args</code> to seek and identify the <code>typeName</code> constructor. If <code>binder</code> is `null`, the default binder is used.
+      description: 'An object that uses <code>bindingAttr</code> and <code>args</code> to seek and identify the <code>typeName</code> constructor. If <code>binder</code> is `null`, the default binder is used.'
     - id: args
       type: System.Object[]
-      description: An array of arguments that match in number, order, and type the parameters of the constructor to invoke. If <code>args</code> is an empty array or `null`, the constructor that takes no parameters (the default constructor) is invoked.
+      description: 'An array of arguments that match in number, order, and type the parameters of the constructor to invoke. If <code>args</code> is an empty array or `null`, the constructor that takes no parameters (the default constructor) is invoked.'
     - id: culture
       type: System.Globalization.CultureInfo
-      description: Culture-specific information that governs the coercion of <code>args</code> to the formal types declared for the <code>typeName</code> constructor. If <code>culture</code> is `null`, the <xref href="System.Globalization.CultureInfo"></xref> for the current thread is used.
+      description: 'Culture-specific information that governs the coercion of <code>args</code> to the formal types declared for the <code>typeName</code> constructor. If <code>culture</code> is `null`, the <xref href="System.Globalization.CultureInfo"></xref> for the current thread is used.'
     - id: activationAttributes
       type: System.Object[]
       description: "An array of one or more attributes that can participate in activation. This is typically an array that contains a single <xref href=\"System.Runtime.Remoting.Activation.UrlAttribute\"></xref> object that specifies the URL that is required to activate a remote object.  \n  \n This parameter is related to client-activated objects. Client activation is a legacy technology that is retained for backward compatibility but is not recommended for new development. Distributed applications should instead use Windows Communication Foundation."
@@ -2164,16 +2164,16 @@ items:
     description: The caller does not have permission to call this constructor.
   - type: System.MemberAccessException
     commentId: T:System.MemberAccessException
-    description: Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.
+    description: 'Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.'
   - type: System.Reflection.TargetInvocationException
     commentId: T:System.Reflection.TargetInvocationException
-    description: The constructor, which was invoked through reflection, threw an exception.
+    description: 'The constructor, which was invoked through reflection, threw an exception.'
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
     description: The caller does have the required <xref href="System.Security.Permissions.FileIOPermission"></xref>.
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: <code>activationAttributes</code> is not an empty array, and the type being created does not derive from <xref href="System.MarshalByRefObject"></xref>.
+    description: '<code>activationAttributes</code> is not an empty array, and the type being created does not derive from <xref href="System.MarshalByRefObject"></xref>.'
   - type: System.BadImageFormatException
     commentId: T:System.BadImageFormatException
     description: "<code>assemblyFile</code> is not a valid assembly.  \n  \n -or-  \n  \n <code>assemblyName</code> was compiled for a version of the common language runtime that is later than the version that is currently loaded."
@@ -2220,7 +2220,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: Creates an instance of the type whose name is specified, using the named assembly file and default constructor.
+  summary: 'Creates an instance of the type whose name is specified, using the named assembly file and default constructor.'
   remarks: "Use the <xref:System.Runtime.Remoting.ObjectHandle.Unwrap%2A?displayProperty=fullName> method to unwrap the return value.  \n  \n For information about other exceptions that can be thrown by invoked methods, see the Exceptions section of the <xref:System.Reflection.Assembly.LoadFrom%2A?displayProperty=fullName> and <xref:System.Activator.CreateInstance%2A> methods."
   syntax:
     content: public static System.Runtime.Remoting.ObjectHandle CreateInstanceFrom (string assemblyFile, string typeName, object[] activationAttributes);
@@ -2256,13 +2256,13 @@ items:
     description: The caller does not have permission to call this constructor.
   - type: System.MemberAccessException
     commentId: T:System.MemberAccessException
-    description: Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.
+    description: 'Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.'
   - type: System.Reflection.TargetInvocationException
     commentId: T:System.Reflection.TargetInvocationException
-    description: The constructor, which was invoked through reflection, threw an exception.
+    description: 'The constructor, which was invoked through reflection, threw an exception.'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: <code>activationAttributes</code> is not an empty array, and the type being created does not derive from <xref href="System.MarshalByRefObject"></xref>.
+    description: '<code>activationAttributes</code> is not an empty array, and the type being created does not derive from <xref href="System.MarshalByRefObject"></xref>.'
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
     description: The caller does have the required <xref href="System.Security.Permissions.FileIOPermission"></xref>.
@@ -2310,7 +2310,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: Creates an instance of the type whose name is specified in the specified remote domain, using the named assembly file and default constructor.
+  summary: 'Creates an instance of the type whose name is specified in the specified remote domain, using the named assembly file and default constructor.'
   remarks: "Use <xref:System.Activator.CreateInstanceFrom%2A> when a host needs to execute code in an application domain that has restricted security permissions.  \n  \n Use the <xref:System.Runtime.Remoting.ObjectHandle.Unwrap%2A?displayProperty=fullName> method to unwrap the return value.  \n  \n> [!NOTE]\n>  This method uses <xref:System.Security.Permissions.SecurityAction?displayProperty=fullName> to require the immediate caller to have full trust.  \n  \n For information about other exceptions that can be thrown by invoked methods, see the Exceptions section of the <xref:System.Reflection.Assembly.LoadFrom%2A?displayProperty=fullName> and <xref:System.Activator.CreateInstance%2A> methods."
   syntax:
     content: >-
@@ -2349,10 +2349,10 @@ items:
     description: The caller does not have permission to call this constructor.
   - type: System.MemberAccessException
     commentId: T:System.MemberAccessException
-    description: Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.
+    description: 'Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.'
   - type: System.Reflection.TargetInvocationException
     commentId: T:System.Reflection.TargetInvocationException
-    description: The constructor, which was invoked through reflection, threw an exception.
+    description: 'The constructor, which was invoked through reflection, threw an exception.'
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
     description: The caller does have the required <xref href="System.Security.Permissions.FileIOPermission"></xref>.
@@ -2402,7 +2402,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: Creates an instance of the type whose name is specified, using the named assembly file and default constructor.
+  summary: 'Creates an instance of the type whose name is specified, using the named assembly file and default constructor.'
   remarks: "Use the <xref:System.Runtime.Remoting.ObjectHandle.Unwrap%2A?displayProperty=fullName> method to unwrap the return value.  \n  \n For information about other exceptions that can be thrown by invoked methods, see the Exceptions section of the <xref:System.Reflection.Assembly.LoadFrom%2A?displayProperty=fullName> and <xref:System.Activator.CreateInstance%2A> methods."
   example:
   - "The following code example demonstrates how to call the <xref:System.Activator.CreateInstanceFrom%2A> method. This code example is part of a larger example provided for the <xref:System.Activator> class.  \n  \n [!code-cpp[ActivatorX#3](~/samples/snippets/cpp/VS_Snippets_CLR/ActivatorX/cpp/ActivatorX.cpp#3)]\n [!code-csharp[ActivatorX#3](~/samples/snippets/csharp/VS_Snippets_CLR/ActivatorX/cs/ActivatorX.cs#3)]\n [!code-vb[ActivatorX#3](~/samples/snippets/visualbasic/VS_Snippets_CLR/ActivatorX/VB/ActivatorX.vb#3)]"
@@ -2437,10 +2437,10 @@ items:
     description: The caller does not have permission to call this constructor.
   - type: System.MemberAccessException
     commentId: T:System.MemberAccessException
-    description: Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.
+    description: 'Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.'
   - type: System.Reflection.TargetInvocationException
     commentId: T:System.Reflection.TargetInvocationException
-    description: The constructor, which was invoked through reflection, threw an exception.
+    description: 'The constructor, which was invoked through reflection, threw an exception.'
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
     description: The caller does have the required <xref href="System.Security.Permissions.FileIOPermission"></xref>.
@@ -2488,7 +2488,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: Creates an instance of the type whose name is specified, using the named assembly file and the constructor that best matches the specified parameters.
+  summary: 'Creates an instance of the type whose name is specified, using the named assembly file and the constructor that best matches the specified parameters.'
   remarks: "Use the <xref:System.Runtime.Remoting.ObjectHandle.Unwrap%2A?displayProperty=fullName> method to unwrap the return value.  \n  \n For information about other exceptions that can be thrown by invoked methods, see the Exceptions section of the <xref:System.Reflection.Assembly.LoadFrom%2A?displayProperty=fullName> and <xref:System.Activator.CreateInstance%2A> methods."
   syntax:
     content: public static System.Runtime.Remoting.ObjectHandle CreateInstanceFrom (string assemblyFile, string typeName, bool ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, object[] args, System.Globalization.CultureInfo culture, object[] activationAttributes);
@@ -2504,16 +2504,16 @@ items:
       description: '`true` to specify that the search for <code>typeName</code> is not case-sensitive; `false` to specify that the search is case-sensitive.'
     - id: bindingAttr
       type: System.Reflection.BindingFlags
-      description: A combination of zero or more bit flags that affect the search for the <code>typeName</code> constructor. If <code>bindingAttr</code> is zero, a case-sensitive search for public constructors is conducted.
+      description: 'A combination of zero or more bit flags that affect the search for the <code>typeName</code> constructor. If <code>bindingAttr</code> is zero, a case-sensitive search for public constructors is conducted.'
     - id: binder
       type: System.Reflection.Binder
-      description: An object that uses <code>bindingAttr</code> and <code>args</code> to seek and identify the <code>typeName</code> constructor. If <code>binder</code> is `null`, the default binder is used.
+      description: 'An object that uses <code>bindingAttr</code> and <code>args</code> to seek and identify the <code>typeName</code> constructor. If <code>binder</code> is `null`, the default binder is used.'
     - id: args
       type: System.Object[]
-      description: An array of arguments that match in number, order, and type the parameters of the constructor to invoke. If <code>args</code> is an empty array or `null`, the constructor that takes no parameters (the default constructor) is invoked.
+      description: 'An array of arguments that match in number, order, and type the parameters of the constructor to invoke. If <code>args</code> is an empty array or `null`, the constructor that takes no parameters (the default constructor) is invoked.'
     - id: culture
       type: System.Globalization.CultureInfo
-      description: Culture-specific information that governs the coercion of <code>args</code> to the formal types declared for the <code>typeName</code> constructor. If <code>culture</code> is `null`, the <xref href="System.Globalization.CultureInfo"></xref> for the current thread is used.
+      description: 'Culture-specific information that governs the coercion of <code>args</code> to the formal types declared for the <code>typeName</code> constructor. If <code>culture</code> is `null`, the <xref href="System.Globalization.CultureInfo"></xref> for the current thread is used.'
     - id: activationAttributes
       type: System.Object[]
       description: "An array of one or more attributes that can participate in activation. This is typically an array that contains a single <xref href=\"System.Runtime.Remoting.Activation.UrlAttribute\"></xref> object that specifies the URL that is required to activate a remote object.  \n  \n This parameter is related to client-activated objects. Client activation is a legacy technology that is retained for backward compatibility but is not recommended for new development. Distributed applications should instead use Windows Communication Foundation."
@@ -2539,16 +2539,16 @@ items:
     description: The caller does not have permission to call this constructor.
   - type: System.MemberAccessException
     commentId: T:System.MemberAccessException
-    description: Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.
+    description: 'Cannot create an instance of an abstract class, or this member was invoked with a late-binding mechanism.'
   - type: System.Reflection.TargetInvocationException
     commentId: T:System.Reflection.TargetInvocationException
-    description: The constructor, which was invoked through reflection, threw an exception.
+    description: 'The constructor, which was invoked through reflection, threw an exception.'
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
     description: The caller does not have the required <xref href="System.Security.Permissions.FileIOPermission"></xref>.
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: <code>activationAttributes</code> is not an empty array, and the type being created does not derive from <xref href="System.MarshalByRefObject"></xref>.
+    description: '<code>activationAttributes</code> is not an empty array, and the type being created does not derive from <xref href="System.MarshalByRefObject"></xref>.'
   - type: System.BadImageFormatException
     commentId: T:System.BadImageFormatException
     description: "<code>assemblyFile</code> is not a valid assembly.  \n  \n -or-  \n  \n The common language runtime (CLR) version 2.0 or later is currently loaded, and <code>assemblyName</code> was compiled for a version of the CLR that is later than the currently loaded version. Note that the .NET Framework versions 2.0, 3.0, and 3.5 all use CLR version 2.0."
@@ -2664,7 +2664,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: Creates a proxy for the well-known object indicated by the specified type, URL, and channel data.
+  summary: 'Creates a proxy for the well-known object indicated by the specified type, URL, and channel data.'
   remarks: "Call the proxy to send messages to the remote object. No messages are sent over the network until a method is called on the proxy.  \n  \n The `state` parameter communicates information to the channel, and is passed to the <xref:System.Runtime.Remoting.Channels.IChannelSender.CreateMessageSink%2A?displayProperty=fullName> method."
   syntax:
     content: >-
@@ -2740,7 +2740,7 @@ items:
   - mscorlib
   namespace: System
   summary: Maps a set of names to a corresponding set of dispatch identifiers.
-  remarks: This method is used to access managed classes from unmanaged code, and should not be called from managed code. For more information about `IDispatch::GetIDsOfNames`, see the MSDN Library.
+  remarks: 'This method is used to access managed classes from unmanaged code, and should not be called from managed code. For more information about `IDispatch::GetIDsOfNames`, see the MSDN Library.'
   syntax:
     content: void _Activator.GetIDsOfNames (ref Guid riid, IntPtr rgszNames, uint cNames, uint lcid, IntPtr rgDispId);
     parameters:
@@ -2806,8 +2806,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: Retrieves the type information for an object, which can then be used to get the type information for an interface.
-  remarks: This method is used to access managed classes from unmanaged code, and should not be called from managed code. For more information about `IDispatch::GetTypeInfo`, see the MSDN Library.
+  summary: 'Retrieves the type information for an object, which can then be used to get the type information for an interface.'
+  remarks: 'This method is used to access managed classes from unmanaged code, and should not be called from managed code. For more information about `IDispatch::GetTypeInfo`, see the MSDN Library.'
   syntax:
     content: void _Activator.GetTypeInfo (uint iTInfo, uint lcid, IntPtr ppTInfo);
     parameters:
@@ -2868,13 +2868,13 @@ items:
   - mscorlib
   namespace: System
   summary: Retrieves the number of type information interfaces that an object provides (either 0 or 1).
-  remarks: This method is used to access managed classes from unmanaged code, and should not be called from managed code. For more information about `IDispatch::GetTypeInfoCount`, see the MSDN Library.
+  remarks: 'This method is used to access managed classes from unmanaged code, and should not be called from managed code. For more information about `IDispatch::GetTypeInfoCount`, see the MSDN Library.'
   syntax:
     content: void _Activator.GetTypeInfoCount (out uint pcTInfo);
     parameters:
     - id: pcTInfo
       type: System.UInt32
-      description: When this method returns, contains a pointer to a location that receives the number of type information interfaces provided by the object. This parameter is passed uninitialized.
+      description: 'When this method returns, contains a pointer to a location that receives the number of type information interfaces provided by the object. This parameter is passed uninitialized.'
   overload: System.Activator.System#Runtime#InteropServices#_Activator#GetTypeInfoCount*
   exceptions:
   - type: System.NotImplementedException
@@ -2923,7 +2923,7 @@ items:
   - mscorlib
   namespace: System
   summary: Provides access to properties and methods exposed by an object.
-  remarks: This method is used to access managed classes from unmanaged code, and should not be called from managed code. For more information about `IDispatch::Invoke`, see the MSDN Library.
+  remarks: 'This method is used to access managed classes from unmanaged code, and should not be called from managed code. For more information about `IDispatch::Invoke`, see the MSDN Library.'
   syntax:
     content: void _Activator.Invoke (uint dispIdMember, ref Guid riid, uint lcid, short wFlags, IntPtr pDispParams, IntPtr pVarResult, IntPtr pExcepInfo, IntPtr puArgErr);
     parameters:
@@ -2941,7 +2941,7 @@ items:
       description: Flags describing the context of the call.
     - id: pDispParams
       type: System.IntPtr
-      description: A pointer to a structure that contains an array of arguments, an array of argument DISPIDs for named arguments, and counts for the number of elements in the arrays.
+      description: 'A pointer to a structure that contains an array of arguments, an array of argument DISPIDs for named arguments, and counts for the number of elements in the arrays.'
     - id: pVarResult
       type: System.IntPtr
       description: A pointer to the location where the result is to be stored.

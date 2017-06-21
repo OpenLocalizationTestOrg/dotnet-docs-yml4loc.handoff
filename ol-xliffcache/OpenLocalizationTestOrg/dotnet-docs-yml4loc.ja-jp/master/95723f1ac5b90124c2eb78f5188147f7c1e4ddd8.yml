@@ -283,7 +283,7 @@ items:
     content: public override int FieldCount { get; }
     return:
       type: System.Int32
-      description: When not positioned in a valid record set, 0; otherwise the number of columns in the current record. The default is -1.
+      description: 'When not positioned in a valid record set, 0; otherwise the number of columns in the current record. The default is -1.'
   overload: System.Data.Odbc.OdbcDataReader.FieldCount*
   exceptions:
   - type: System.NotSupportedException
@@ -441,7 +441,7 @@ items:
   - System.Data
   - System.Data.Odbc
   namespace: System.Data.Odbc
-  summary: Reads a stream of bytes from the specified column offset into the buffer as an array, starting at the particular buffer offset.
+  summary: 'Reads a stream of bytes from the specified column offset into the buffer as an array, starting at the particular buffer offset.'
   remarks: "<xref:System.Data.Odbc.OdbcDataReader.GetBytes%2A> returns the number of available bytes in the field. Most of the time this is the exact length of the field. However, the number returned may be less than the true length of the field if <xref:System.Data.Odbc.OdbcDataReader.GetBytes%2A> has already been used to obtain bytes from the field. This may be the case, for example, if the <xref:System.Data.Odbc.OdbcDataReader> is reading a large data structure into a buffer. For more information, see the `SequentialAccess` setting for <xref:System.Data.CommandBehavior>.  \n  \n If you pass a buffer that is a null value, <xref:System.Data.Odbc.OdbcDataReader.GetBytes%2A> returns the length of the field in bytes.  \n  \n Conversions are performed based on the underlying capabilities of the ODBC driver. If the conversion is not supported then the method call will fail.  \n  \n> [!NOTE]\n>  No exception will be thrown if the value of `bufferIndex` is outside the array. No data will be read and the method will return 0."
   syntax:
     content: public override long GetBytes (int i, long dataIndex, byte[] buffer, int bufferIndex, int length);
@@ -562,7 +562,7 @@ items:
   - System.Data
   - System.Data.Odbc
   namespace: System.Data.Odbc
-  summary: Reads a stream of characters from the specified column offset into the buffer as an array, starting at the particular buffer offset.
+  summary: 'Reads a stream of characters from the specified column offset into the buffer as an array, starting at the particular buffer offset.'
   remarks: "<xref:System.Data.Odbc.OdbcDataReader.GetChars%2A> returns the number of available characters in the field. Most of the time this is the exact length of the field. However, the number returned may be less than the true length of the field if <xref:System.Data.Odbc.OdbcDataReader.GetChars%2A> has already been used to obtain characters from the field. This may be the case, for example, if the <xref:System.Data.Odbc.OdbcDataReader> is reading a large data structure into a buffer. For more information, see the `SequentialAccess` setting for <xref:System.Data.CommandBehavior>.  \n  \n If you pass a buffer that is a null value, <xref:System.Data.Odbc.OdbcDataReader.GetChars%2A> returns the length of the field in characters.  \n  \n Conversions are performed based on the underlying capabilities of the ODBC driver. If the conversion is not supported then the method call will fail.  \n  \n> [!NOTE]\n>  No exception will be thrown if the value of `bufferIndex` is outside the array. No data will be read and the method will return 0."
   syntax:
     content: public override long GetChars (int i, long dataIndex, char[] buffer, int bufferIndex, int length);
@@ -900,7 +900,7 @@ items:
   - System.Data.Odbc
   namespace: System.Data.Odbc
   summary: Returns an <xref href="System.Collections.IEnumerator"></xref> that can be used to iterate through the rows in the data reader.
-  remarks: Although you can use this method to retrieve an explicit enumerator, in languages that support a `foreach` construct, it is simpler to use the looping construct directly in order to iterate through the rows in the data reader.
+  remarks: 'Although you can use this method to retrieve an explicit enumerator, in languages that support a `foreach` construct, it is simpler to use the looping construct directly in order to iterate through the rows in the data reader.'
   syntax:
     content: public override System.Collections.IEnumerator GetEnumerator ();
     parameters: []
@@ -1333,7 +1333,7 @@ items:
   - System.Data
   - System.Data.Odbc
   namespace: System.Data.Odbc
-  summary: Gets the column ordinal, given the name of the column.
+  summary: 'Gets the column ordinal, given the name of the column.'
   remarks: "<xref:System.Data.Odbc.OdbcDataReader.GetOrdinal%2A> performs a case-sensitive lookup first. If it fails, a second case-insensitive search is made. The method throws an `IndexOutOfRange` exception if the zero-based column ordinal is not found.  \n  \n <xref:System.Data.Odbc.OdbcDataReader.GetOrdinal%2A> is kana-width insensitive.  \n  \n Because ordinal-based lookups are more efficient than named lookups, it is inefficient to call <xref:System.Data.Odbc.OdbcDataReader.GetOrdinal%2A> within a loop. Instead, call <xref:System.Data.Odbc.OdbcDataReader.GetOrdinal%2A> one time and then assign the results to an integer variable for use within the loop."
   example:
   - "The following example demonstrates how to use the <xref:System.Data.Odbc.OdbcDataReader.GetOrdinal%2A> method.  \n  \n [!code-csharp[Classic WebData OdbcDataReader.GetOrdinal#1](~/samples/snippets/csharp/VS_Snippets_ADO.NET/Classic WebData OdbcDataReader.GetOrdinal/CS/source.cs#1)]\n [!code-vb[Classic WebData OdbcDataReader.GetOrdinal#1](~/samples/snippets/visualbasic/VS_Snippets_ADO.NET/Classic WebData OdbcDataReader.GetOrdinal/VB/source.vb#1)]"
@@ -1550,7 +1550,7 @@ items:
   - System.Data.Odbc
   namespace: System.Data.Odbc
   summary: Gets the value of the column at the specified ordinal in its native format.
-  remarks: This method returns <xref:System.DBNull> for null database columns.
+  remarks: 'This method returns <xref:System.DBNull> for null database columns.'
   syntax:
     content: public override object GetValue (int i);
     parameters:
@@ -1708,7 +1708,7 @@ items:
   - System.Data.Odbc
   namespace: System.Data.Odbc
   summary: Indicates whether the <xref href="System.Data.Odbc.OdbcDataReader"></xref> is closed.
-  remarks: <xref:System.Data.Odbc.OdbcDataReader.IsClosed%2A> and <xref:System.Data.Odbc.OdbcDataReader.RecordsAffected%2A> are the only properties that you can call after the <xref:System.Data.Odbc.OdbcDataReader> is closed.
+  remarks: '<xref:System.Data.Odbc.OdbcDataReader.IsClosed%2A> and <xref:System.Data.Odbc.OdbcDataReader.RecordsAffected%2A> are the only properties that you can call after the <xref:System.Data.Odbc.OdbcDataReader> is closed.'
   syntax:
     content: public override bool IsClosed { get; }
     return:
@@ -1757,7 +1757,7 @@ items:
   - System.Data.Odbc
   namespace: System.Data.Odbc
   summary: Gets a value that indicates whether the column contains nonexistent or missing values.
-  remarks: To avoid raising an error, call this method to look for null column values before calling the typed Get methods (for example, <xref:System.Data.Odbc.OdbcDataReader.GetByte%2A>, <xref:System.Data.Odbc.OdbcDataReader.GetChar%2A>, and so on).
+  remarks: 'To avoid raising an error, call this method to look for null column values before calling the typed Get methods (for example, <xref:System.Data.Odbc.OdbcDataReader.GetByte%2A>, <xref:System.Data.Odbc.OdbcDataReader.GetChar%2A>, and so on).'
   syntax:
     content: public override bool IsDBNull (int i);
     parameters:
@@ -2022,13 +2022,13 @@ items:
   - System.Data
   - System.Data.Odbc
   namespace: System.Data.Odbc
-  summary: Gets the number of rows changed, inserted, or deleted by execution of the SQL statement.
+  summary: 'Gets the number of rows changed, inserted, or deleted by execution of the SQL statement.'
   remarks: "The <xref:System.Data.Odbc.OdbcDataReader.RecordsAffected%2A> property is not set until all rows are read and you close the <xref:System.Data.Odbc.OdbcDataReader>.  \n  \n The value of this property is cumulative. For example, if two records are inserted in batch mode, the value of <xref:System.Data.Odbc.OdbcDataReader.RecordsAffected%2A> will be 2.  \n  \n <xref:System.Data.Odbc.OdbcDataReader.IsClosed%2A> and <xref:System.Data.Odbc.OdbcDataReader.RecordsAffected%2A> are the only properties that you can call after the <xref:System.Data.Odbc.OdbcDataReader> is closed."
   syntax:
     content: public override int RecordsAffected { get; }
     return:
       type: System.Int32
-      description: The number of rows changed, inserted, or deleted. -1 for SELECT statements; 0 if no rows were affected, or the statement failed.
+      description: 'The number of rows changed, inserted, or deleted. -1 for SELECT statements; 0 if no rows were affected, or the statement failed.'
   overload: System.Data.Odbc.OdbcDataReader.RecordsAffected*
   exceptions: []
   version:

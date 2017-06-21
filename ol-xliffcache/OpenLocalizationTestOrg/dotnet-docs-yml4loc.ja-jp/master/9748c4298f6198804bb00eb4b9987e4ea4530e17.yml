@@ -346,7 +346,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows
-  summary: Occurs just before an application shuts down, and cannot be canceled.
+  summary: 'Occurs just before an application shuts down, and cannot be canceled.'
   remarks: "An application can shut down for either of the following reasons:  \n  \n-   The <xref:System.Windows.Application.Shutdown%2A> method of the <xref:System.Windows.Application> object is called, either explicitly or as determined by the <xref:System.Windows.Application.ShutdownMode%2A> property.  \n  \n-   The user ends the session by logging off or shutting down.  \n  \n You can detect when application shutdown occurs by handling the <xref:System.Windows.Application.Exit> event, and perform any additional processing as required.  \n  \n You can also handle <xref:System.Windows.Application.Exit> to inspect or change the application exit code when you don't need to call <xref:System.Windows.Application.Shutdown%2A> explicitly. The exit code is exposed from the <xref:System.Windows.ExitEventArgs.ApplicationExitCode%2A> property of the <xref:System.Windows.ExitEventArgs> argument that's passed to the <xref:System.Windows.Application.Exit> event handler. When the application stops running, the exit code is passed to the operating system for subsequent processing.  \n  \n If your application handles the <xref:System.Windows.Application.SessionEnding> event and subsequently cancels it, <xref:System.Windows.Application.Exit> is not raised and the application continues running in accordance with the shutdown mode.  \n  \n The exit code can be set from an [!INCLUDE[TLA#tla_xbap](~/includes/tlasharptla-xbap-md.md)], although the value is ignored.  \n  \n For [!INCLUDE[TLA2#tla_xbap#plural](~/includes/tla2sharptla-xbapsharpplural-md.md)], <xref:System.Windows.Application.Exit> is raised in the following circumstances:  \n  \n-   An [!INCLUDE[TLA2#tla_xbap](~/includes/tla2sharptla-xbap-md.md)] is navigated away from.  \n  \n-   In [!INCLUDE[TLA2#tla_ie7](~/includes/tla2sharptla-ie7-md.md)], when the tab that is hosting the [!INCLUDE[TLA2#tla_xbap](~/includes/tla2sharptla-xbap-md.md)] is closed.  \n  \n-   When the browser is closed.  \n  \n In all cases, the value of the <xref:System.Windows.ExitEventArgs.ApplicationExitCode%2A> property is ignored."
   example:
   - "The following example demonstrates how to:  \n  \n-   Handle the <xref:System.Windows.Application.Exit> event.  \n  \n-   Inspect and update the <xref:System.Windows.ExitEventArgs.ApplicationExitCode%2A> property of the <xref:System.Windows.ExitEventArgs>.  \n  \n-   Write an entry to an application log in isolated storage.  \n  \n-   Persist the application state to isolated storage.  \n  \n [!code-xml[ApplicationExitSnippets#HandleExitXAML](~/samples/snippets/csharp/VS_Snippets_Wpf/ApplicationExitSnippets/CSharp/App.xaml#handleexitxaml)]  \n  \n [!code-csharp[ApplicationExitSnippets#HandleExitCODEBEHIND](~/samples/snippets/csharp/VS_Snippets_Wpf/ApplicationExitSnippets/CSharp/App.xaml.cs#handleexitcodebehind)]\n [!code-vb[ApplicationExitSnippets#HandleExitCODEBEHIND](~/samples/snippets/visualbasic/VS_Snippets_Wpf/ApplicationExitSnippets/visualbasic/application.xaml.vb#handleexitcodebehind)]"
@@ -391,7 +391,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows
-  summary: Searches for a [!INCLUDE[TLA#tla_ui](~/includes/tlasharptla-ui-md.md)] resource, such as a <xref href="System.Windows.Style"></xref> or <xref href="System.Windows.Media.Brush"></xref>, with the specified key, and throws an exception if the requested resource is not found (see [XAML Resources](~/docs/framework/wpf/advanced/xaml-resources.md)).
+  summary: 'Searches for a [!INCLUDE[TLA#tla_ui](~/includes/tlasharptla-ui-md.md)] resource, such as a <xref href="System.Windows.Style"></xref> or <xref href="System.Windows.Media.Brush"></xref>, with the specified key, and throws an exception if the requested resource is not found (see [XAML Resources](~/docs/framework/wpf/advanced/xaml-resources.md)).'
   remarks: "<xref:System.Windows.Application.FindResource%2A> will first look in application-scope resources for the specified resource. Application-scope resources are managed by <xref:System.Windows.Application>, and are exposed from the <xref:System.Windows.Application.Resources%2A> property. If the specified resource is not found in the set of application-scope resources, <xref:System.Windows.Application.FindResource%2A> then next searches the system resources. System resources are shell resources defined by the user, and include colors, fonts, and shell configurations. These are exposed from the <xref:System.Windows.SystemColors>, <xref:System.Windows.SystemFonts>, and <xref:System.Windows.SystemParameters> types, respectively, as static properties. To use <xref:System.Windows.Application.FindResource%2A> to acquire them, these types also expose resource key properties that are designed to be passed to <xref:System.Windows.Application.FindResource%2A>; for example, <xref:System.Windows.SystemParameters.IconWidthKey%2A>.  \n  \n Because <xref:System.Windows.Application.FindResource%2A> returns an object, you must cast the returned value to the appropriate type if the resource is found.  \n  \n> [!IMPORTANT]\n>  If you call this method for a key that cannot be found, an exception is thrown. If you do not want to handle exceptions that result from calling <xref:System.Windows.Application.FindResource%2A>, call <xref:System.Windows.Application.TryFindResource%2A> instead; <xref:System.Windows.Application.TryFindResource%2A> returns a `null` reference when a requested resource cannot be found, and does not throw an exception.  \n  \n This method is thread safe and can be called from any thread."
   example:
   - "The following example shows how to use <xref:System.Windows.Application.FindResource%2A> to find a resource, and to handle <xref:System.Windows.ResourceReferenceKeyNotFoundException> if the resource is not found.  \n  \n [!code-csharp[ApplicationFindResourceSnippets#ApplicationCallFindResourceCODEBEHIND](~/samples/snippets/csharp/VS_Snippets_Wpf/ApplicationFindResourceSnippets/CSharp/MainWindow.xaml.cs#applicationcallfindresourcecodebehind)]\n [!code-vb[ApplicationFindResourceSnippets#ApplicationCallFindResourceCODEBEHIND](~/samples/snippets/visualbasic/VS_Snippets_Wpf/ApplicationFindResourceSnippets/visualbasic/mainwindow.xaml.vb#applicationcallfindresourcecodebehind)]"
@@ -403,7 +403,7 @@ items:
       description: The name of the resource to find.
     return:
       type: System.Object
-      description: The requested resource object. If the requested resource is not found, a <xref href="System.Windows.ResourceReferenceKeyNotFoundException"></xref> is thrown.
+      description: 'The requested resource object. If the requested resource is not found, a <xref href="System.Windows.ResourceReferenceKeyNotFoundException"></xref> is thrown.'
   overload: System.Windows.Application.FindResource*
   exceptions:
   - type: System.Windows.ResourceReferenceKeyNotFoundException
@@ -444,7 +444,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows
-  summary: Occurs when a navigator in the application begins navigation to a content fragment, Navigation occurs immediately if the desired fragment is in the current content, or after the source [!INCLUDE[TLA2#tla_titlexaml](~/includes/tla2sharptla-titlexaml-md.md)] content has been loaded if the desired fragment is in different content.
+  summary: 'Occurs when a navigator in the application begins navigation to a content fragment, Navigation occurs immediately if the desired fragment is in the current content, or after the source [!INCLUDE[TLA2#tla_titlexaml](~/includes/tla2sharptla-titlexaml-md.md)] content has been loaded if the desired fragment is in different content.'
   remarks: "A navigator is either a <xref:System.Windows.Navigation.NavigationWindow> or a <xref:System.Windows.Controls.Frame>.  \n  \n See <xref:System.Windows.Navigation.NavigationService.FragmentNavigation?displayProperty=fullName>."
   syntax:
     content: public event System.Windows.Navigation.FragmentNavigationEventHandler FragmentNavigation;
@@ -487,7 +487,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows
-  summary: Returns a resource stream for a content data file that is located at the specified <xref href="System.Uri"></xref> (see [WPF Application Resource, Content, and Data Files](~/docs/framework/wpf/app-development/wpf-application-resource-content-and-data-files.md)).
+  summary: 'Returns a resource stream for a content data file that is located at the specified <xref href="System.Uri"></xref> (see [WPF Application Resource, Content, and Data Files](~/docs/framework/wpf/app-development/wpf-application-resource-content-and-data-files.md)).'
   remarks: This method is not thread safe.
   syntax:
     content: >-
@@ -500,7 +500,7 @@ items:
       description: The relative <xref href="System.Uri"></xref> that maps to a loose resource.
     return:
       type: System.Windows.Resources.StreamResourceInfo
-      description: A <xref href="System.Windows.Resources.StreamResourceInfo"></xref> that contains a content data file that is located at the specified <xref href="System.Uri"></xref>. If a loose resource is not found, null is returned.
+      description: 'A <xref href="System.Windows.Resources.StreamResourceInfo"></xref> that contains a content data file that is located at the specified <xref href="System.Uri"></xref>. If a loose resource is not found, null is returned.'
   overload: System.Windows.Application.GetContentStream*
   exceptions:
   - type: System.ArgumentNullException
@@ -556,12 +556,12 @@ items:
       description: The <xref href="System.Uri"></xref> that specifies the location for which a cookie was created.
     return:
       type: System.String
-      description: A <xref href="System.String"></xref> value, if the cookie exists; otherwise, a <xref href="System.ComponentModel.Win32Exception"></xref> is thrown.
+      description: 'A <xref href="System.String"></xref> value, if the cookie exists; otherwise, a <xref href="System.ComponentModel.Win32Exception"></xref> is thrown.'
   overload: System.Windows.Application.GetCookie*
   exceptions:
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: A [!INCLUDE[TLA#tla_win32](~/includes/tlasharptla-win32-md.md)] error is raised by the `InternetGetCookie` function (called by <xref href="System.Windows.Application.GetCookie(System.Uri)"></xref>) if a problem occurs when attempting to retrieve the specified cookie.
+    description: 'A [!INCLUDE[TLA#tla_win32](~/includes/tlasharptla-win32-md.md)] error is raised by the `InternetGetCookie` function (called by <xref href="System.Windows.Application.GetCookie(System.Uri)"></xref>) if a problem occurs when attempting to retrieve the specified cookie.'
   version:
   - netframework-4.5.1
   - netframework-4.5.2
@@ -597,7 +597,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows
-  summary: Returns a resource stream for a site-of-origin data file that is located at the specified <xref href="System.Uri"></xref> (see [WPF Application Resource, Content, and Data Files](~/docs/framework/wpf/app-development/wpf-application-resource-content-and-data-files.md)).
+  summary: 'Returns a resource stream for a site-of-origin data file that is located at the specified <xref href="System.Uri"></xref> (see [WPF Application Resource, Content, and Data Files](~/docs/framework/wpf/app-development/wpf-application-resource-content-and-data-files.md)).'
   remarks: This method is not thread safe.
   syntax:
     content: >-
@@ -610,7 +610,7 @@ items:
       description: The <xref href="System.Uri"></xref> that maps to a loose resource at the site of origin.
     return:
       type: System.Windows.Resources.StreamResourceInfo
-      description: A <xref href="System.Windows.Resources.StreamResourceInfo"></xref> that contains a resource stream for a site-of-origin data file that is located at the specified <xref href="System.Uri"></xref>. If the loose resource is not found, `null` is returned.
+      description: 'A <xref href="System.Windows.Resources.StreamResourceInfo"></xref> that contains a resource stream for a site-of-origin data file that is located at the specified <xref href="System.Uri"></xref>. If the loose resource is not found, `null` is returned.'
   overload: System.Windows.Application.GetRemoteStream*
   exceptions:
   - type: System.ArgumentNullException
@@ -618,7 +618,7 @@ items:
     description: The <xref href="System.Uri"></xref> that is passed to <xref href="System.Windows.Application.GetRemoteStream(System.Uri)"></xref> is null.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: The <xref href="System.Uri"></xref> that is passed to <xref href="System.Windows.Application.GetRemoteStream(System.Uri)"></xref> is either not relative, or is absolute but not in the <code>pack://siteoforigin:,,,/</code> form.
+    description: 'The <xref href="System.Uri"></xref> that is passed to <xref href="System.Windows.Application.GetRemoteStream(System.Uri)"></xref> is either not relative, or is absolute but not in the <code>pack://siteoforigin:,,,/</code> form.'
   attributes:
   - type: System.Security.SecurityCriticalAttribute
   version:
@@ -656,7 +656,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows
-  summary: Returns a resource stream for a resource data file that is located at the specified <xref href="System.Uri"></xref> (see [WPF Application Resource, Content, and Data Files](~/docs/framework/wpf/app-development/wpf-application-resource-content-and-data-files.md)).
+  summary: 'Returns a resource stream for a resource data file that is located at the specified <xref href="System.Uri"></xref> (see [WPF Application Resource, Content, and Data Files](~/docs/framework/wpf/app-development/wpf-application-resource-content-and-data-files.md)).'
   remarks: This method is not thread safe.
   syntax:
     content: >-
@@ -677,7 +677,7 @@ items:
     description: The <xref href="System.Uri"></xref> that is passed to <xref href="System.Windows.Application.GetResourceStream(System.Uri)"></xref> is null.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: The <xref href="System.Uri"></xref> that is passed to <xref href="System.Windows.Application.GetResourceStream(System.Uri)"></xref> is either not relative, or is absolute but not in the <code>pack://application:,,,/</code> form.
+    description: 'The <xref href="System.Uri"></xref> that is passed to <xref href="System.Windows.Application.GetResourceStream(System.Uri)"></xref> is either not relative, or is absolute but not in the <code>pack://application:,,,/</code> form.'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: The <xref href="System.Uri"></xref> that is passed to <xref href="System.Windows.Application.GetResourceStream(System.Uri)"></xref> cannot be found.
@@ -718,7 +718,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows
-  summary: Occurs when content that was navigated to by a navigator in the application has been loaded, parsed, and has begun rendering.
+  summary: 'Occurs when content that was navigated to by a navigator in the application has been loaded, parsed, and has begun rendering.'
   remarks: "A navigator is either a <xref:System.Windows.Navigation.NavigationWindow> or a <xref:System.Windows.Controls.Frame>.  \n  \n See <xref:System.Windows.Navigation.NavigationService.LoadCompleted?displayProperty=fullName>.  \n  \n> [!NOTE]\n>  Listen for events on the navigated content such as the <xref:System.Windows.FrameworkElement.Loaded>event on <xref:System.Windows.Controls.Page> before you access properties of the navigated content."
   syntax:
     content: public event System.Windows.Navigation.LoadCompletedEventHandler LoadCompleted;
@@ -760,14 +760,14 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows
-  summary: Loads a [!INCLUDE[TLA#tla_titlexaml](~/includes/tlasharptla-titlexaml-md.md)] file that is located at the specified [!INCLUDE[TLA#tla_uri](~/includes/tlasharptla-uri-md.md)], and converts it to an instance of the object that is specified by the root element of the [!INCLUDE[TLA#tla_titlexaml](~/includes/tlasharptla-titlexaml-md.md)] file.
+  summary: 'Loads a [!INCLUDE[TLA#tla_titlexaml](~/includes/tlasharptla-titlexaml-md.md)] file that is located at the specified [!INCLUDE[TLA#tla_uri](~/includes/tlasharptla-uri-md.md)], and converts it to an instance of the object that is specified by the root element of the [!INCLUDE[TLA#tla_titlexaml](~/includes/tlasharptla-titlexaml-md.md)] file.'
   remarks: "You must explicitly convert the return value to the same type as the root element of the [!INCLUDE[TLA#tla_titlexaml](~/includes/tlasharptla-titlexaml-md.md)] file.  \n  \n The [!INCLUDE[TLA2#tla_titlexaml](~/includes/tla2sharptla-titlexaml-md.md)] file can be an application code file (configured as an [!INCLUDE[TLA#tla_msbuild](~/includes/tlasharptla-msbuild-md.md)] Page item) or an application data file (a resource file, content file, or site-of-origin file; see [WPF Application Resource, Content, and Data Files](~/docs/framework/wpf/app-development/wpf-application-resource-content-and-data-files.md)).  \n  \n> [!NOTE]\n>  This method is not thread-safe."
   syntax:
     content: public static object LoadComponent (Uri resourceLocator);
     parameters:
     - id: resourceLocator
       type: System.Uri
-      description: A <xref href="System.Uri"></xref> that maps to a relative [!INCLUDE[TLA2#tla_xaml](~/includes/tla2sharptla-xaml-md.md)] file.
+      description: 'A <xref href="System.Uri"></xref> that maps to a relative [!INCLUDE[TLA2#tla_xaml](~/includes/tla2sharptla-xaml-md.md)] file.'
     return:
       type: System.Object
       description: An instance of the root element specified by the XAML file loaded.
@@ -778,10 +778,10 @@ items:
     description: <code>resourceLocator</code> is null.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: The <code>resourceLocator</code> is an absolute [!INCLUDE[TLA2#tla_uri](~/includes/tla2sharptla-uri-md.md)].
+    description: 'The <code>resourceLocator</code> is an absolute [!INCLUDE[TLA2#tla_uri](~/includes/tla2sharptla-uri-md.md)].'
   - type: System.Exception
     commentId: T:System.Exception
-    description: The file is not a [!INCLUDE[TLA2#tla_titlexaml](~/includes/tla2sharptla-titlexaml-md.md)] file.
+    description: 'The file is not a [!INCLUDE[TLA2#tla_titlexaml](~/includes/tla2sharptla-titlexaml-md.md)] file.'
   version:
   - netframework-4.5.1
   - netframework-4.5.2
@@ -817,7 +817,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows
-  summary: Loads a [!INCLUDE[TLA#tla_titlexaml](~/includes/tlasharptla-titlexaml-md.md)] file that is located at the specified [!INCLUDE[TLA#tla_uri](~/includes/tlasharptla-uri-md.md)] and converts it to an instance of the object that is specified by the root element of the [!INCLUDE[TLA#tla_titlexaml](~/includes/tlasharptla-titlexaml-md.md)] file.
+  summary: 'Loads a [!INCLUDE[TLA#tla_titlexaml](~/includes/tlasharptla-titlexaml-md.md)] file that is located at the specified [!INCLUDE[TLA#tla_uri](~/includes/tlasharptla-uri-md.md)] and converts it to an instance of the object that is specified by the root element of the [!INCLUDE[TLA#tla_titlexaml](~/includes/tlasharptla-titlexaml-md.md)] file.'
   remarks: "The [!INCLUDE[TLA2#tla_titlexaml](~/includes/tla2sharptla-titlexaml-md.md)] file can be an application code file (configured as an [!INCLUDE[TLA#tla_msbuild](~/includes/tlasharptla-msbuild-md.md)] Page item) or an application data file (a resource file, content file, or site-of-origin file; see [WPF Application Resource, Content, and Data Files](~/docs/framework/wpf/app-development/wpf-application-resource-content-and-data-files.md)).  \n  \n> [!NOTE]\n>  This method is not thread-safe."
   syntax:
     content: >-
@@ -827,10 +827,10 @@ items:
     parameters:
     - id: component
       type: System.Object
-      description: An object of the same type as the root element of the [!INCLUDE[TLA2#tla_xaml](~/includes/tla2sharptla-xaml-md.md)] file.
+      description: 'An object of the same type as the root element of the [!INCLUDE[TLA2#tla_xaml](~/includes/tla2sharptla-xaml-md.md)] file.'
     - id: resourceLocator
       type: System.Uri
-      description: A <xref href="System.Uri"></xref> that maps to a relative [!INCLUDE[TLA2#tla_xaml](~/includes/tla2sharptla-xaml-md.md)] file.
+      description: 'A <xref href="System.Uri"></xref> that maps to a relative [!INCLUDE[TLA2#tla_xaml](~/includes/tla2sharptla-xaml-md.md)] file.'
   overload: System.Windows.Application.LoadComponent*
   exceptions:
   - type: System.ArgumentNullException
@@ -838,10 +838,10 @@ items:
     description: <code>resourceLocator</code> is null.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: The <code>resourceLocator</code> is an absolute [!INCLUDE[TLA2#tla_uri](~/includes/tla2sharptla-uri-md.md)].
+    description: 'The <code>resourceLocator</code> is an absolute [!INCLUDE[TLA2#tla_uri](~/includes/tla2sharptla-uri-md.md)].'
   - type: System.Exception
     commentId: T:System.Exception
-    description: <code>component</code> is of a type that does not match the root element of the [!INCLUDE[TLA2#tla_xaml](~/includes/tla2sharptla-xaml-md.md)] file.
+    description: '<code>component</code> is of a type that does not match the root element of the [!INCLUDE[TLA2#tla_xaml](~/includes/tla2sharptla-xaml-md.md)] file.'
   attributes:
   - type: System.Security.SecurityCriticalAttribute
   version:
@@ -892,7 +892,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: <xref href="System.Windows.Application.MainWindow"></xref> is set from an application that's hosted in a browser, such as an [!INCLUDE[TLA#tla_xbap#plural](~/includes/tlasharptla-xbapsharpplural-md.md)].
+    description: '<xref href="System.Windows.Application.MainWindow"></xref> is set from an application that''s hosted in a browser, such as an [!INCLUDE[TLA#tla_xbap#plural](~/includes/tlasharptla-xbapsharpplural-md.md)].'
   version:
   - netframework-4.5.1
   - netframework-4.5.2
@@ -927,7 +927,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows
-  summary: Occurs when the content that is being navigated to by a navigator in the application has been found, although it may not have completed loading.
+  summary: 'Occurs when the content that is being navigated to by a navigator in the application has been found, although it may not have completed loading.'
   remarks: "A navigator is either a <xref:System.Windows.Navigation.NavigationWindow> or a <xref:System.Windows.Controls.Frame>.  \n  \n See <xref:System.Windows.Navigation.NavigationService.NavigationFailed?displayProperty=fullName>."
   syntax:
     content: public event System.Windows.Navigation.NavigatedEventHandler Navigated;
@@ -1098,7 +1098,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows
-  summary: Occurs when the `StopLoading` method of a navigator in the application is called, or when a new navigation is requested by a navigator while a current navigation is in progress.
+  summary: 'Occurs when the `StopLoading` method of a navigator in the application is called, or when a new navigation is requested by a navigator while a current navigation is in progress.'
   remarks: "A navigator is either a <xref:System.Windows.Navigation.NavigationWindow> or a <xref:System.Windows.Controls.Frame>.  \n  \n See <xref:System.Windows.Navigation.NavigationService.NavigationStopped?displayProperty=fullName>."
   syntax:
     content: public event System.Windows.Navigation.NavigationStoppedEventHandler NavigationStopped;
@@ -1726,18 +1726,18 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows
-  summary: Gets or sets the <xref href="System.Reflection.Assembly"></xref> that provides the pack [!INCLUDE[TLA#tla_uri#plural](~/includes/tlasharptla-urisharpplural-md.md)] for resources in a [!INCLUDE[TLA2#tla_wpf](~/includes/tla2sharptla-wpf-md.md)] application.
+  summary: 'Gets or sets the <xref href="System.Reflection.Assembly"></xref> that provides the pack [!INCLUDE[TLA#tla_uri#plural](~/includes/tlasharptla-urisharpplural-md.md)] for resources in a [!INCLUDE[TLA2#tla_wpf](~/includes/tla2sharptla-wpf-md.md)] application.'
   remarks: "By default, [!INCLUDE[TLA2#tla_wpf](~/includes/tla2sharptla-wpf-md.md)] resources are resolved at run time with respect to the entry assembly, which is identified by the value returned from the <xref:System.Reflection.Assembly.GetEntryAssembly%2A> method.  \n  \n The entry assembly is the assembly that is returned by <xref:System.Reflection.Assembly.GetEntryAssembly%2A> and could be the following:  \n  \n-   The executable assembly in the default application domain.  \n  \n-   The first assembly to be executed by calling <xref:System.AppDomain.ExecuteAssembly%2A>.  \n  \n In the following cases, however, a [!INCLUDE[TLA2#tla_wpf](~/includes/tla2sharptla-wpf-md.md)] assembly cannot get a reference to the entry assembly:  \n  \n-   An unmanaged (native) application hosts the [!INCLUDE[TLA2#tla_wpf](~/includes/tla2sharptla-wpf-md.md)] assembly.  \n  \n-   A managed application hosts the [!INCLUDE[TLA2#tla_wpf](~/includes/tla2sharptla-wpf-md.md)] assembly by loading it into a new application domain using a method other than <xref:System.AppDomain.ExecuteAssembly%2A>.  \n  \n In both of these cases, <xref:System.Reflection.Assembly.GetEntryAssembly%2A> returns `null`, and the [!INCLUDE[TLA2#tla_wpf](~/includes/tla2sharptla-wpf-md.md)] assembly's resources cannot be resolved. In these cases, <xref:System.Windows.Application.ResourceAssembly%2A> can be set, once only, with a reference to the assembly that should be used to resolve resources.  \n  \n <xref:System.Windows.Application.ResourceAssembly%2A> can only be set once because it is unlikely that the resource assembly will change after the [!INCLUDE[TLA2#tla_wpf](~/includes/tla2sharptla-wpf-md.md)] assembly is loaded.  \n  \n> [!NOTE]\n>  <xref:System.Windows.Application.ResourceAssembly%2A> cannot be set when a [!INCLUDE[TLA2#tla_wpf](~/includes/tla2sharptla-wpf-md.md)] assembly can discover the entry assembly—that is, when <xref:System.Reflection.Assembly.GetEntryAssembly%2A> returns a reference to an assembly rather than `null`.  \n  \n This property is thread safe and is available from any thread.  \n  \n <xref:System.Windows.Application.ResourceAssembly%2A> is introduced in the .NET Framework version 3.5.  For more information, see [Versions and Dependencies](~/docs/framework/migration-guide/versions-and-dependencies.md)."
   syntax:
     content: public static System.Reflection.Assembly ResourceAssembly { get; set; }
     return:
       type: System.Reflection.Assembly
-      description: A reference to the <xref href="System.Reflection.Assembly"></xref> that provides the pack [!INCLUDE[TLA#tla_uri#plural](~/includes/tlasharptla-urisharpplural-md.md)] for resources in a [!INCLUDE[TLA2#tla_wpf](~/includes/tla2sharptla-wpf-md.md)] application.
+      description: 'A reference to the <xref href="System.Reflection.Assembly"></xref> that provides the pack [!INCLUDE[TLA#tla_uri#plural](~/includes/tlasharptla-urisharpplural-md.md)] for resources in a [!INCLUDE[TLA2#tla_wpf](~/includes/tla2sharptla-wpf-md.md)] application.'
   overload: System.Windows.Application.ResourceAssembly*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: A [!INCLUDE[TLA2#tla_wpf](~/includes/tla2sharptla-wpf-md.md)] application has an entry assembly, or <xref href="System.Windows.Application.ResourceAssembly"></xref> has already been set.
+    description: 'A [!INCLUDE[TLA2#tla_wpf](~/includes/tla2sharptla-wpf-md.md)] application has an entry assembly, or <xref href="System.Windows.Application.ResourceAssembly"></xref> has already been set.'
   version:
   - netframework-4.5.1
   - netframework-4.5.2
@@ -1773,7 +1773,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows
-  summary: Gets or sets a collection of application-scope resources, such as styles and brushes.
+  summary: 'Gets or sets a collection of application-scope resources, such as styles and brushes.'
   remarks: "The <xref:System.Windows.Application.Resources%2A> property can be used to share resources across the windows and elements of an application. Additionally, the <xref:System.Windows.Application.Resources%2A> property is included in the resource lookup path, which is traversed in the following order:  \n  \n1.  Elements  \n  \n2.  Windows  \n  \n3.  <xref:System.Windows.Application.Resources%2A?displayProperty=fullName>  \n  \n4.  System  \n  \n Consequently, [!INCLUDE[TLA#tla_ui](~/includes/tlasharptla-ui-md.md)] elements can bind to application-scope resources. Additionally, if resources change, the resource system ensures that element properties which are bound to those resources are automatically updated to reflect the change.  \n  \n Application-scope resources provide a simple way to support a consistent theme across your application. You can easily create a theme in [!INCLUDE[TLA#tla_titlexaml](~/includes/tlasharptla-titlexaml-md.md)] by using the `Application.Resources` tag. However, if your application supports multiple themes, which may contain a large number of theme elements, it might be easier to manage them using one <xref:System.Windows.ResourceDictionary> instance for each theme. In this way, a new theme can be applied by setting the Resources property to the appropriate <xref:System.Windows.ResourceDictionary>.  \n  \n There are two considerations to make when using <xref:System.Windows.Application.Resources%2A>. First, the dictionary *key* is an object, so you need to use exactly the same object instance when both setting and getting a property value (note that the key is case-sensitive when using a string). Second, the dictionary *value* is an object, so you will need to convert the value to the desired type when getting a property value.  \n  \n <xref:System.Windows.Application.Resources%2A> is thread safe and is available from any thread."
   example:
   - "This example illustrates how to use [!INCLUDE[TLA#tla_titlexaml](~/includes/tlasharptla-titlexaml-md.md)] together with application-scope resources to create a consistent visual appearance.  \n  \n [!code-xml[ApplicationResourcesSnippets#ResourcesPropertyXAML](~/samples/snippets/csharp/VS_Snippets_Wpf/ApplicationResourcesSnippets/CS/App.xaml#resourcespropertyxaml)]  \n  \n [!code-xml[ApplicationResourcesSnippets#WindowBackgroundPropertyXAML1](~/samples/snippets/csharp/VS_Snippets_Wpf/ApplicationResourcesSnippets/CS/MainWindow.xaml#windowbackgroundpropertyxaml1)]  \n[!code-xml[ApplicationResourcesSnippets#WindowBackgroundPropertyXAML2](~/samples/snippets/csharp/VS_Snippets_Wpf/ApplicationResourcesSnippets/CS/MainWindow.xaml#windowbackgroundpropertyxaml2)]  \n  \n The following example shows how to set an application resource in code and XAML.  \n  \n [!code-csharp[HOWTOApplicationModelSnippets#SetApplicationScopeResourceCODE](~/samples/snippets/csharp/VS_Snippets_Wpf/HOWTOApplicationModelSnippets/CSharp/ApplicationPropertiesSnippet.xaml.cs#setapplicationscoperesourcecode)]\n [!code-vb[HOWTOApplicationModelSnippets#SetApplicationScopeResourceCODE](~/samples/snippets/visualbasic/VS_Snippets_Wpf/HOWTOApplicationModelSnippets/visualbasic/applicationpropertiessnippet.xaml.vb#setapplicationscoperesourcecode)]  \n  \n [!code-xml[HOWTOApplicationModelSnippets#SetApplicationScopeResourceXAML](~/samples/snippets/csharp/VS_Snippets_Wpf/HOWTOApplicationModelSnippets/CSharp/App.xaml#setapplicationscoperesourcexaml)]  \n  \n The following example shows how to get an application resource in code.  \n  \n [!code-csharp[HOWTOApplicationModelSnippets#GetApplicationScopeResourceCODE](~/samples/snippets/csharp/VS_Snippets_Wpf/HOWTOApplicationModelSnippets/CSharp/ApplicationPropertiesSnippet.xaml.cs#getapplicationscoperesourcecode)]\n [!code-vb[HOWTOApplicationModelSnippets#GetApplicationScopeResourceCODE](~/samples/snippets/visualbasic/VS_Snippets_Wpf/HOWTOApplicationModelSnippets/visualbasic/applicationpropertiessnippet.xaml.vb#getapplicationscoperesourcecode)]"
@@ -1824,7 +1824,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows
-  summary: Starts a [!INCLUDE[TLA#tla_wpf](~/includes/tlasharptla-wpf-md.md)] application.
+  summary: 'Starts a [!INCLUDE[TLA#tla_wpf](~/includes/tlasharptla-wpf-md.md)] application.'
   remarks: "<xref:System.Windows.Application.Run%2A> is called to start a [!INCLUDE[TLA2#tla_wpf](~/includes/tla2sharptla-wpf-md.md)] application. If you define your <xref:System.Windows.Application> using markup, or markup and code-behind, <xref:System.Windows.Application.Run%2A> will be called implicitly. However, if you define your <xref:System.Windows.Application> using code, you will need to explicitly call <xref:System.Windows.Application.Run%2A>.  \n  \n When <xref:System.Windows.Application.Run%2A> is called, <xref:System.Windows.Application> attaches a new <xref:System.Windows.Threading.Dispatcher> instance to the [!INCLUDE[TLA2#tla_ui](~/includes/tla2sharptla-ui-md.md)] thread. Next, the <xref:System.Windows.Threading.Dispatcher> object's <xref:System.Windows.Threading.Dispatcher.Run%2A> method is called, which starts a message pump to process windows messages. Finally, the <xref:System.Windows.Threading.Dispatcher> object calls the <xref:System.Windows.Application> object's the <xref:System.Windows.Application.OnStartup%2A> method to raise the <xref:System.Windows.Application.Startup> event. Consequently, the application execution model has been established by the time you handle <xref:System.Windows.Application.Startup>, at which point the application is considered to be running.  \n  \n An application stops running when <xref:System.Windows.Application.Shutdown%2A> is called; the value of the <xref:System.Windows.Application.ShutdownMode%2A> property determines when <xref:System.Windows.Application.Shutdown%2A> is called, and whether it happens automatically or you need to explicitly call it.  \n  \n <xref:System.Windows.Application.Run%2A> can be called only from the thread that creates the <xref:System.Windows.Application> object. Also, <xref:System.Windows.Application.Run%2A> cannot be called from a [!INCLUDE[TLA2#tla_xbap](~/includes/tla2sharptla-xbap-md.md)]."
   example:
   - "The following example shows an application that uses a custom <xref:System.Windows.Application> and must therefore explicitly call <xref:System.Windows.Application.Run%2A>.  \n  \n [!code-csharp[ApplicationRunSnippets#CustomEntryPointAndRunCODE](~/samples/snippets/csharp/VS_Snippets_Wpf/ApplicationRunSnippets/CSharp/App.cs#customentrypointandruncode)]\n [!code-vb[ApplicationRunSnippets#CustomEntryPointAndRunCODE](~/samples/snippets/visualbasic/VS_Snippets_Wpf/ApplicationRunSnippets/visualbasic/app.vb#customentrypointandruncode)]"
@@ -1833,12 +1833,12 @@ items:
     parameters: []
     return:
       type: System.Int32
-      description: The <xref href="System.Int32"></xref> application exit code that is returned to the operating system when the application shuts down. By default, the exit code value is 0.
+      description: 'The <xref href="System.Int32"></xref> application exit code that is returned to the operating system when the application shuts down. By default, the exit code value is 0.'
   overload: System.Windows.Application.Run*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: <xref href="System.Windows.Application.Run"></xref> is called from a browser-hosted application (for example, an [!INCLUDE[TLA#tla_xbap](~/includes/tlasharptla-xbap-md.md)]).
+    description: '<xref href="System.Windows.Application.Run"></xref> is called from a browser-hosted application (for example, an [!INCLUDE[TLA#tla_xbap](~/includes/tlasharptla-xbap-md.md)]).'
   version:
   - netframework-4.5.1
   - netframework-4.5.2
@@ -1874,7 +1874,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows
-  summary: Starts a [!INCLUDE[TLA#tla_wpf](~/includes/tlasharptla-wpf-md.md)] application and opens the specified window.
+  summary: 'Starts a [!INCLUDE[TLA#tla_wpf](~/includes/tlasharptla-wpf-md.md)] application and opens the specified window.'
   remarks: "This overload extends the <xref:System.Windows.Application.Run%2A> method to open the specified window after an application starts running.  \n  \n If you define a code <xref:System.Windows.Application> that opens a window when it starts running, you explicitly call <xref:System.Windows.Application.Run%2A>.  \n  \n If you create your <xref:System.Windows.Application> using markup, or markup and code-behind, you can automatically open a window during using either of the following techniques:  \n  \n-   Declaratively, by setting <xref:System.Windows.Application.StartupUri%2A>.  \n  \n-   Programmatically, by handling <xref:System.Windows.Application.Startup>."
   example:
   - "The following example shows an application with a manually-created static entry point method that instantiates <xref:System.Windows.Application>, before calling <xref:System.Windows.Application.Run%2A>.  \n  \n [!code-csharp[ApplicationRunOL1Snippets#CustomEntryPointAndRunOL1CODE](~/samples/snippets/csharp/VS_Snippets_Wpf/ApplicationRunOL1Snippets/CSharp/App.cs#customentrypointandrunol1code)]\n [!code-vb[ApplicationRunOL1Snippets#CustomEntryPointAndRunOL1CODE](~/samples/snippets/visualbasic/VS_Snippets_Wpf/ApplicationRunOL1Snippets/visualbasic/app.vb#customentrypointandrunol1code)]"
@@ -1889,12 +1889,12 @@ items:
       description: A <xref href="System.Windows.Window"></xref> that opens automatically when an application starts.
     return:
       type: System.Int32
-      description: The <xref href="System.Int32"></xref> application exit code that is returned to the operating system when the application shuts down. By default, the exit code value is 0.
+      description: 'The <xref href="System.Int32"></xref> application exit code that is returned to the operating system when the application shuts down. By default, the exit code value is 0.'
   overload: System.Windows.Application.Run*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: <xref href="System.Windows.Application.Run"></xref> is called from a browser-hosted application (for example, an [!INCLUDE[TLA#tla_xbap](~/includes/tlasharptla-xbap-md.md)]).
+    description: '<xref href="System.Windows.Application.Run"></xref> is called from a browser-hosted application (for example, an [!INCLUDE[TLA#tla_xbap](~/includes/tlasharptla-xbap-md.md)]).'
   attributes:
   - type: System.Security.SecurityCriticalAttribute
   version:
@@ -1932,7 +1932,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows
-  summary: Occurs when the user ends the [!INCLUDE[TLA#tla_mswin](~/includes/tlasharptla-mswin-md.md)] session by logging off or shutting down the operating system.
+  summary: 'Occurs when the user ends the [!INCLUDE[TLA#tla_mswin](~/includes/tlasharptla-mswin-md.md)] session by logging off or shutting down the operating system.'
   remarks: "By default, an application shuts down when the [!INCLUDE[TLA#tla_mswin](~/includes/tlasharptla-mswin-md.md)] session ends, which occurs when a user logs off or shuts down. When this happens, [!INCLUDE[TLA2#tla_mswin](~/includes/tla2sharptla-mswin-md.md)] asks each open application to shut down. However, it is possible that an application may not be ready to shut down when this occurs. For example, an application may have data that is in an inconsistent state, or in the middle of a long-running operation. In these situations, it may be desirable to prevent the session from ending, and may be more desirable to allow users the option to decide whether or not to let the session to end.  \n  \n You can detect when a session ends by handling the <xref:System.Windows.Application.SessionEnding> event. If an application needs to prevent the session from ending, the <xref:System.Windows.SessionEndingCancelEventArgs> argument that is passed to the event handler exposes the <xref:System.ComponentModel.CancelEventArgs.Cancel%2A> that you set to `true` (the default value is `false`).  \n  \n If <xref:System.Windows.Application.SessionEnding> is unhandled, or is handled without being cancelled, <xref:System.Windows.Application.Shutdown%2A> is called and the <xref:System.Windows.Application.Exit> event is raised.  \n  \n To obtain more information about why the session is ending, an application can inspect <xref:System.Windows.SessionEndingCancelEventArgs.ReasonSessionEnding%2A>, which is one of the <xref:System.Windows.ReasonSessionEnding> values (<xref:System.Windows.ReasonSessionEnding.Logoff> and <xref:System.Windows.ReasonSessionEnding.Shutdown>).  \n  \n <xref:System.Windows.Application.SessionEnding> is not raised by console applications.  \n  \n <xref:System.Windows.Application.SessionEnding> is raised only on the thread that creates the <xref:System.Windows.Application> object.  \n  \n <xref:System.Windows.Application.SessionEnding> is not raised for [!INCLUDE[TLA#tla_xbap#plural](~/includes/tlasharptla-xbapsharpplural-md.md)]."
   example:
   - "The following example demonstrates how to handle the <xref:System.Windows.Application.SessionEnding> event and allow the user to cancel it.  \n  \n [!code-xml[ApplicationSessionEndingSnippets#HandlingSessionEndingXAML](~/samples/snippets/csharp/VS_Snippets_Wpf/ApplicationSessionEndingSnippets/CSharp/App.xaml#handlingsessionendingxaml)]  \n  \n [!code-csharp[ApplicationSessionEndingSnippets#HandlingSessionEndingCODEBEHIND](~/samples/snippets/csharp/VS_Snippets_Wpf/ApplicationSessionEndingSnippets/CSharp/App.xaml.cs#handlingsessionendingcodebehind)]\n [!code-vb[ApplicationSessionEndingSnippets#HandlingSessionEndingCODEBEHIND](~/samples/snippets/visualbasic/VS_Snippets_Wpf/ApplicationSessionEndingSnippets/visualbasic/application.xaml.vb#handlingsessionendingcodebehind)]"
@@ -1991,7 +1991,7 @@ items:
   exceptions:
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: A [!INCLUDE[TLA#tla_win32](~/includes/tlasharptla-win32-md.md)] error is raised by the `InternetSetCookie` function (called by <xref href="System.Windows.Application.SetCookie(System.Uri,System.String)"></xref>) if a problem occurs when attempting to create the specified cookie.
+    description: 'A [!INCLUDE[TLA#tla_win32](~/includes/tlasharptla-win32-md.md)] error is raised by the `InternetSetCookie` function (called by <xref href="System.Windows.Application.SetCookie(System.Uri,System.String)"></xref>) if a problem occurs when attempting to create the specified cookie.'
   version:
   - netframework-4.5.1
   - netframework-4.5.2
@@ -2207,13 +2207,13 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows
-  summary: Gets or sets a [!INCLUDE[TLA2#tla_ui](~/includes/tla2sharptla-ui-md.md)] that is automatically shown when an application starts.
+  summary: 'Gets or sets a [!INCLUDE[TLA2#tla_ui](~/includes/tla2sharptla-ui-md.md)] that is automatically shown when an application starts.'
   remarks: "You can use <xref:System.Windows.Application.StartupUri%2A> to automatically load a [!INCLUDE[TLA2#tla_ui](~/includes/tla2sharptla-ui-md.md)] resource when an application starts.  \n  \n The following table shows the types of [!INCLUDE[TLA2#tla_ui](~/includes/tla2sharptla-ui-md.md)] resources that can be loaded, the type of window they are opened into, and the type of application that these resources can be set as the <xref:System.Windows.Application.StartupUri%2A>.  \n  \n|Type|Window|Application type|  \n|----------|------------|----------------------|  \n|<xref:System.Windows.Window>|<xref:System.Windows.Window>|Standalone only|  \n|<xref:System.Windows.Navigation.NavigationWindow>|<xref:System.Windows.Navigation.NavigationWindow>|Standalone only|  \n|<xref:System.Windows.Controls.Page>|<xref:System.Windows.Navigation.NavigationWindow>|Standalone/browser-hosted|  \n|<xref:System.Windows.Controls.UserControl>|<xref:System.Windows.Navigation.NavigationWindow>|Standalone/browser-hosted|  \n|<xref:System.Windows.Documents.FlowDocument>|<xref:System.Windows.Navigation.NavigationWindow>|Standalone/browser-hosted|  \n|<xref:System.Windows.Navigation.PageFunction%601>|<xref:System.Windows.Navigation.NavigationWindow>|Standalone/browser-hosted|  \n  \n Typically, you set the <xref:System.Windows.Application.StartupUri%2A> property declaratively in [!INCLUDE[TLA#tla_titlexaml](~/includes/tlasharptla-titlexaml-md.md)]. However, you can set <xref:System.Windows.Application.StartupUri%2A> programmatically, such as from a <xref:System.Windows.Application.Startup> event handler, which is useful if for applications that can only load the necessary [!INCLUDE[TLA2#tla_ui](~/includes/tla2sharptla-ui-md.md)] resources at run time. For example, an application might wait until run time to load its resources if the name of the [!INCLUDE[TLA2#tla_ui](~/includes/tla2sharptla-ui-md.md)] resource is stored in a configuration file.  \n  \n Whether you set <xref:System.Windows.Application.StartupUri%2A> declaratively or programmatically, the corresponding [!INCLUDE[TLA2#tla_ui](~/includes/tla2sharptla-ui-md.md)] resource is not loaded until after the <xref:System.Windows.Application.Startup> event is handled. Consequently, you won't have access to the resulting window from either the <xref:System.Windows.Application.Windows%2A> property or the <xref:System.Windows.Application.MainWindow%2A> property when handling <xref:System.Windows.Application.Startup>."
   syntax:
     content: public Uri StartupUri { get; set; }
     return:
       type: System.Uri
-      description: A <xref href="System.Uri"></xref> that refers to the [!INCLUDE[TLA2#tla_ui](~/includes/tla2sharptla-ui-md.md)] that automatically opens when an application starts.
+      description: 'A <xref href="System.Uri"></xref> that refers to the [!INCLUDE[TLA2#tla_ui](~/includes/tla2sharptla-ui-md.md)] that automatically opens when an application starts.'
   overload: System.Windows.Application.StartupUri*
   exceptions:
   - type: System.ArgumentNullException
@@ -2266,7 +2266,7 @@ items:
       description: The name of the resource to find.
     return:
       type: System.Object
-      description: The requested resource object. If the requested resource is not found, a null reference is returned.
+      description: 'The requested resource object. If the requested resource is not found, a null reference is returned.'
   overload: System.Windows.Application.TryFindResource*
   exceptions: []
   version:
@@ -2351,7 +2351,7 @@ items:
   - PresentationFramework
   namespace: System.Windows
   summary: Queries for whether a specified ambient property is available in the current scope.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Windows.Application> instance is cast to an <xref:System.Windows.Markup.IQueryAmbient> interface.
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Windows.Application> instance is cast to an <xref:System.Windows.Markup.IQueryAmbient> interface.'
   syntax:
     content: bool IQueryAmbient.IsAmbientPropertyAvailable (string propertyName);
     parameters:

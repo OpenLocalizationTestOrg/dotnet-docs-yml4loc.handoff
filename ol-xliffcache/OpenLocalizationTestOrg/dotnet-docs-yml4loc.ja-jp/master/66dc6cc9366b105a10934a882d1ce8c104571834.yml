@@ -54,7 +54,7 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: Provides a unified way of converting types of values to other types, as well as for accessing standard values and subproperties.
+  summary: 'Provides a unified way of converting types of values to other types, as well as for accessing standard values and subproperties.'
   remarks: "The most common type of converter is one that converts to and from a text representation. The type converter for a class is bound to the class with a <xref:System.ComponentModel.TypeConverterAttribute>. Unless this attribute is overridden, all classes that inherit from this class use the same type converter as the base class.  \n  \n> [!NOTE]\n>  For general type system purposes, do not access a type converter directly. Instead, access the appropriate converter by using <xref:System.ComponentModel.TypeDescriptor>. For more information, see the code examples provided.  \n  \n **Note** For XAML purposes, a XAML processor searches for the <xref:System.ComponentModel.TypeConverterAttribute> directly, instead of going through <xref:System.ComponentModel.TypeDescriptor>. For cases where you do want a <xref:System.ComponentModel.TypeDescriptor> instance from code, or where you create a shared instance in WPF resources, it is acceptable to construct it directly without referencing <xref:System.ComponentModel.TypeDescriptor> or other reflection and type system support.  \n  \n Classes derived from <xref:System.ComponentModel.TypeConverter> are often referenced as part of how a XAML processor converts an attribute or initialization text value from markup (which is inherently a string) and generates an object for a run-time representation. Custom type authors that intend to support a type conversion behavior for XAML typically implement a <xref:System.ComponentModel.TypeConverter> class that supports their own unique `ConvertFrom` behavior from a string. This behavior enables type conversion from the string provided as a XAML attribute value and provides a XAML processor with the support needed to create an object from the string, so that the object can be produced in a parsed object graph. Custom types or members of custom types are indicated by applying <xref:System.ComponentModel.TypeConverterAttribute> to the definitions, with the attribute referencing the custom <xref:System.ComponentModel.TypeConverter> implementation. For more information, see [Type Converters for XAML Overview](~/docs/framework/xaml-services/type-converters-for-xaml-overview.md)."
   example:
   - "The following code example shows how to create an instance of a type converter and bind it to a class. The class implementing the converter, `MyClassConverter`, must inherit from the <xref:System.ComponentModel.TypeConverter> class.  \n  \n [!code-cpp[Classic TypeConverter Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic TypeConverter Example/CPP/source.cpp#1)]\n [!code-csharp[Classic TypeConverter Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic TypeConverter Example/CS/source.cs#1)]\n [!code-vb[Classic TypeConverter Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic TypeConverter Example/VB/source.vb#1)]  \n  \n When you have a property that has an enumeration, check to see whether an enumeration value is valid before setting the property. The next code example requires that an enumeration called `MyPropertyEnum` has been declared.  \n  \n [!code-cpp[Classic TypeConverter Example#2](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic TypeConverter Example/CPP/source.cpp#2)]\n [!code-csharp[Classic TypeConverter Example#2](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic TypeConverter Example/CS/source.cs#2)]\n [!code-vb[Classic TypeConverter Example#2](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic TypeConverter Example/VB/source.vb#2)]  \n  \n Another common type converter usage is to convert an object to a string. The following code example prints out the name of the <xref:System.Drawing.Color> stored in the variable `c`.  \n  \n [!code-cpp[Classic TypeConverter Example#3](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic TypeConverter Example/CPP/source.cpp#3)]\n [!code-csharp[Classic TypeConverter Example#3](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic TypeConverter Example/CS/source.cs#3)]\n [!code-vb[Classic TypeConverter Example#3](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic TypeConverter Example/VB/source.vb#3)]  \n  \n You can also use a type converter to convert a value from its name, as shown in the next code example.  \n  \n [!code-cpp[Classic TypeConverter Example#4](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic TypeConverter Example/CPP/source.cpp#4)]\n [!code-csharp[Classic TypeConverter Example#4](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic TypeConverter Example/CS/source.cs#4)]\n [!code-vb[Classic TypeConverter Example#4](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic TypeConverter Example/VB/source.vb#4)]  \n  \n In the following code example, you can use a type converter to print out the set of standard values that the object supports.  \n  \n [!code-cpp[Classic TypeConverter Example#5](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic TypeConverter Example/CPP/source.cpp#5)]\n [!code-csharp[Classic TypeConverter Example#5](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic TypeConverter Example/CS/source.cs#5)]\n [!code-vb[Classic TypeConverter Example#5](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic TypeConverter Example/VB/source.vb#5)]"
@@ -333,7 +333,7 @@ items:
   - netstandard
   namespace: System.ComponentModel
   summary: Returns whether this converter can convert an object of the given type to the type of this converter.
-  remarks: As implemented in this class, this method always returns `false`. It never returns `true`.
+  remarks: 'As implemented in this class, this method always returns `false`. It never returns `true`.'
   syntax:
     content: public bool CanConvertFrom (Type sourceType);
     parameters:
@@ -396,8 +396,8 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: Returns whether this converter can convert an object of the given type to the type of this converter, using the specified context.
-  remarks: As implemented in this class, this method returns `false`, unless `sourceType` is an <xref:System.ComponentModel.Design.Serialization.InstanceDescriptor>.
+  summary: 'Returns whether this converter can convert an object of the given type to the type of this converter, using the specified context.'
+  remarks: 'As implemented in this class, this method returns `false`, unless `sourceType` is an <xref:System.ComponentModel.Design.Serialization.InstanceDescriptor>.'
   syntax:
     content: public virtual bool CanConvertFrom (System.ComponentModel.ITypeDescriptorContext context, Type sourceType);
     parameters:
@@ -464,7 +464,7 @@ items:
   - netstandard
   namespace: System.ComponentModel
   summary: Returns whether this converter can convert the object to the specified type.
-  remarks: If `destinationType` is a string, the default implementation of <xref:System.ComponentModel.TypeConverter.CanConvertTo%2A> always returns `true`.
+  remarks: 'If `destinationType` is a string, the default implementation of <xref:System.ComponentModel.TypeConverter.CanConvertTo%2A> always returns `true`.'
   syntax:
     content: public bool CanConvertTo (Type destinationType);
     parameters:
@@ -527,7 +527,7 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: Returns whether this converter can convert the object to the specified type, using the specified context.
+  summary: 'Returns whether this converter can convert the object to the specified type, using the specified context.'
   remarks: "Use the `context` parameter to extract additional information about the environment from which this converter is invoked. This parameter can be `null`, so always check it. Also, properties on the context object can return `null`.  \n  \n If `destinationType` is a string, the default implementation of <xref:System.ComponentModel.TypeConverter.CanConvertTo%2A> always returns `true`."
   syntax:
     content: public virtual bool CanConvertTo (System.ComponentModel.ITypeDescriptorContext context, Type destinationType);
@@ -660,7 +660,7 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: Converts the given object to the type of this converter, using the specified context and culture information.
+  summary: 'Converts the given object to the type of this converter, using the specified context and culture information.'
   remarks: "Custom type authors that intend to support a type conversion behavior for XAML typically implement a <xref:System.ComponentModel.TypeConverter> class that supports <xref:System.ComponentModel.TypeConverter.ConvertFrom%2A> behavior from a string. This behavior enables type conversion from the string provided as a XAML attribute value and provides a XAML processor with the support needed to create an object from the string, so that the object can be produced in a parsed object graph. Custom types or members of custom types are indicated by applying <xref:System.ComponentModel.TypeConverterAttribute> to the definitions, with the attribute referencing the custom <xref:System.ComponentModel.TypeConverter> implementation.  \n  \n For XAML purposes, you do not typically provide branching implementations based on `culture`. This is because XAML is precompiled in a development environment context, and culture-specific information for runtime XAML is not relevant for XAML type conversion. For more information, see [Type Converters for XAML Overview](~/docs/framework/xaml-services/type-converters-for-xaml-overview.md)."
   syntax:
     content: public virtual object ConvertFrom (System.ComponentModel.ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value);
@@ -733,7 +733,7 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: Converts the given string to the type of this converter, using the invariant culture.
+  summary: 'Converts the given string to the type of this converter, using the invariant culture.'
   remarks: The default implementation always returns `null`.
   syntax:
     content: public object ConvertFromInvariantString (string text);
@@ -800,7 +800,7 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: Converts the given string to the type of this converter, using the invariant culture and the specified context.
+  summary: 'Converts the given string to the type of this converter, using the invariant culture and the specified context.'
   remarks: "An exception is raised if the string cannot be converted into the appropriate object. The default implementation always returns `null`.  \n  \n Use the `context` parameter to extract additional information about the environment from which this converter is invoked. This parameter can be `null`, so always check it. Also, properties on the context object can return `null`."
   syntax:
     content: public object ConvertFromInvariantString (System.ComponentModel.ITypeDescriptorContext context, string text);
@@ -870,7 +870,7 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: Converts the given text to an object, using the specified context and culture information.
+  summary: 'Converts the given text to an object, using the specified context and culture information.'
   remarks: "An exception is raised if the string cannot be converted into the appropriate object. The default implementation always returns `null`.  \n  \n Use the `context` parameter to extract additional information about the environment from which this converter is invoked. This parameter can be `null`, so always check it. Also, properties on the context object can return `null`."
   syntax:
     content: public object ConvertFromString (System.ComponentModel.ITypeDescriptorContext context, System.Globalization.CultureInfo culture, string text);
@@ -880,7 +880,7 @@ items:
       description: An <xref href="System.ComponentModel.ITypeDescriptorContext"></xref> that provides a format context.
     - id: culture
       type: System.Globalization.CultureInfo
-      description: A <xref href="System.Globalization.CultureInfo"></xref>. If `null` is passed, the current culture is assumed.
+      description: 'A <xref href="System.Globalization.CultureInfo"></xref>. If `null` is passed, the current culture is assumed.'
     - id: text
       type: System.String
       description: The <xref href="System.String"></xref> to convert.
@@ -1012,7 +1012,7 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: Converts the given text to an object, using the specified context.
+  summary: 'Converts the given text to an object, using the specified context.'
   remarks: "An exception is raised if the string cannot be converted into the appropriate object. The default implementation always returns `null`.  \n  \n Use the `context` parameter to extract additional information about the environment from which this converter is invoked. This parameter can be `null`, so always check it. Also, properties on the context object can return `null`."
   syntax:
     content: public object ConvertFromString (System.ComponentModel.ITypeDescriptorContext context, string text);
@@ -1082,8 +1082,8 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: Converts the given value object to the specified type, using the arguments.
-  remarks: The most common type to convert to and from is a string object. This implementation calls <xref:System.Object.ToString%2A> on the object, if the object is valid and if the destination type is a string.
+  summary: 'Converts the given value object to the specified type, using the arguments.'
+  remarks: 'The most common type to convert to and from is a string object. This implementation calls <xref:System.Object.ToString%2A> on the object, if the object is valid and if the destination type is a string.'
   syntax:
     content: public object ConvertTo (object value, Type destinationType);
     parameters:
@@ -1155,7 +1155,7 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: Converts the given value object to the specified type, using the specified context and culture information.
+  summary: 'Converts the given value object to the specified type, using the specified context and culture information.'
   remarks: "The most common types to convert are to and from a string object. This implementation calls <xref:System.Object.ToString%2A> on the object if the object is valid and if the destination type is a string.  \n  \n Use the `context` parameter to extract additional information about the environment from which this converter is invoked. This parameter can be `null`, so always check it. Also, properties on the context object can return `null`.  \n  \n Custom type authors that intend to support a type conversion behavior for XAML typically implement a <xref:System.ComponentModel.TypeConverter> class that supports <xref:System.ComponentModel.TypeConverter.ConvertFrom%2A> behavior from a string. These type converters might also implement <xref:System.ComponentModel.TypeConverter.ConvertTo%2A> to support serialization back to XAML.  \n  \n Some XAML serialization scenarios cannot be adequately addressed with <xref:System.ComponentModel.TypeConverter> alone. In these cases, it may be necessary to also define a <xref:System.Windows.Markup.ValueSerializer> that handles the serialization cases that would otherwise be handled by <xref:System.ComponentModel.TypeConverter.ConvertTo%2A>. For more information, see <xref:System.Windows.Markup.ValueSerializer>."
   syntax:
     content: public virtual object ConvertTo (System.ComponentModel.ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value, Type destinationType);
@@ -1165,7 +1165,7 @@ items:
       description: An <xref href="System.ComponentModel.ITypeDescriptorContext"></xref> that provides a format context.
     - id: culture
       type: System.Globalization.CultureInfo
-      description: A <xref href="System.Globalization.CultureInfo"></xref>. If `null` is passed, the current culture is assumed.
+      description: 'A <xref href="System.Globalization.CultureInfo"></xref>. If `null` is passed, the current culture is assumed.'
     - id: value
       type: System.Object
       description: The <xref href="System.Object"></xref> to convert.
@@ -1301,7 +1301,7 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: Converts the specified value to a culture-invariant string representation, using the specified context.
+  summary: 'Converts the specified value to a culture-invariant string representation, using the specified context.'
   remarks: "Use the `context` parameter to extract additional information about the environment from which this converter is invoked. This parameter can be `null`, so always check it. Also, properties on the context object can return `null`.  \n  \n Depending on the implementation of the value formatter, it might be possible to pass the returned string back into the value formatter to re-create an instance of the object."
   syntax:
     content: public string ConvertToInvariantString (System.ComponentModel.ITypeDescriptorContext context, object value);
@@ -1371,7 +1371,7 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: Converts the given value to a string representation, using the specified context and culture information.
+  summary: 'Converts the given value to a string representation, using the specified context and culture information.'
   remarks: "Use the `context` parameter to extract additional information about the environment from which this converter is invoked. This parameter can be `null`, so always check it. Also, properties on the context object can return `null`.  \n  \n Depending on the implementation of the value formatter, it might be possible to pass the returned string back into the value formatter to re-create an instance of the object."
   syntax:
     content: public string ConvertToString (System.ComponentModel.ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value);
@@ -1381,7 +1381,7 @@ items:
       description: An <xref href="System.ComponentModel.ITypeDescriptorContext"></xref> that provides a format context.
     - id: culture
       type: System.Globalization.CultureInfo
-      description: A <xref href="System.Globalization.CultureInfo"></xref>. If `null` is passed, the current culture is assumed.
+      description: 'A <xref href="System.Globalization.CultureInfo"></xref>. If `null` is passed, the current culture is assumed.'
     - id: value
       type: System.Object
       description: The <xref href="System.Object"></xref> to convert.
@@ -1445,7 +1445,7 @@ items:
   - netstandard
   namespace: System.ComponentModel
   summary: Converts the specified value to a string representation.
-  remarks: Depending on the implementation of the value formatter, it might be possible to pass the returned string back into the value formatter to re-create an instance of the object.
+  remarks: 'Depending on the implementation of the value formatter, it might be possible to pass the returned string back into the value formatter to re-create an instance of the object.'
   example:
   - For an example on this function, see the <xref:System.ComponentModel.TypeConverter> class.
   syntax:
@@ -1513,7 +1513,7 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: Converts the given value to a string representation, using the given context.
+  summary: 'Converts the given value to a string representation, using the given context.'
   remarks: "Use the `context` parameter to extract additional information about the environment from which this converter is invoked. This parameter can be `null`, so always check it. Also, properties on the context object can return `null`.  \n  \n Depending on the implementation of the value formatter, it might be possible to pass the returned string back into the value formatter to re-create an instance of the object."
   syntax:
     content: public string ConvertToString (System.ComponentModel.ITypeDescriptorContext context, object value);
@@ -1583,8 +1583,8 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: Creates an instance of the type that this <xref href="System.ComponentModel.TypeConverter"></xref> is associated with, using the specified context, given a set of property values for the object.
-  remarks: Use this method for objects that are immutable, but for which you want to provide changeable properties.
+  summary: 'Creates an instance of the type that this <xref href="System.ComponentModel.TypeConverter"></xref> is associated with, using the specified context, given a set of property values for the object.'
+  remarks: 'Use this method for objects that are immutable, but for which you want to provide changeable properties.'
   syntax:
     content: public virtual object CreateInstance (System.ComponentModel.ITypeDescriptorContext context, System.Collections.IDictionary propertyValues);
     parameters:
@@ -1596,7 +1596,7 @@ items:
       description: An <xref href="System.Collections.IDictionary"></xref> of new property values.
     return:
       type: System.Object
-      description: An <xref href="System.Object"></xref> representing the given <xref href="System.Collections.IDictionary"></xref>, or `null` if the object cannot be created. This method always returns `null`.
+      description: 'An <xref href="System.Object"></xref> representing the given <xref href="System.Collections.IDictionary"></xref>, or `null` if the object cannot be created. This method always returns `null`.'
   overload: System.ComponentModel.TypeConverter.CreateInstance*
   exceptions: []
   version:
@@ -1660,7 +1660,7 @@ items:
       description: An <xref href="System.Collections.IDictionary"></xref> that represents a dictionary of new property values.
     return:
       type: System.Object
-      description: An <xref href="System.Object"></xref> representing the given <xref href="System.Collections.IDictionary"></xref>, or `null` if the object cannot be created. This method always returns `null`.
+      description: 'An <xref href="System.Object"></xref> representing the given <xref href="System.Collections.IDictionary"></xref>, or `null` if the object cannot be created. This method always returns `null`.'
   overload: System.ComponentModel.TypeConverter.CreateInstance*
   exceptions: []
   version:
@@ -1720,7 +1720,7 @@ items:
     parameters:
     - id: value
       type: System.Object
-      description: The <xref href="System.Object"></xref> to convert, or `null` if the object is not available.
+      description: 'The <xref href="System.Object"></xref> to convert, or `null` if the object is not available.'
     return:
       type: System.Exception
       description: An <xref href="System.Exception"></xref> that represents the exception to throw when a conversion cannot be performed.
@@ -1786,7 +1786,7 @@ items:
     parameters:
     - id: value
       type: System.Object
-      description: The <xref href="System.Object"></xref> to convert, or `null` if the object is not available.
+      description: 'The <xref href="System.Object"></xref> to convert, or `null` if the object is not available.'
     - id: destinationType
       type: System.Type
       description: A <xref href="System.Type"></xref> that represents the type the conversion was trying to convert to.
@@ -1909,8 +1909,8 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: Returns whether changing a value on this object requires a call to <xref href="System.ComponentModel.TypeConverter.CreateInstance(System.Collections.IDictionary)"></xref> to create a new value, using the specified context.
-  remarks: As implemented in this class, this method always returns `false`.
+  summary: 'Returns whether changing a value on this object requires a call to <xref href="System.ComponentModel.TypeConverter.CreateInstance(System.Collections.IDictionary)"></xref> to create a new value, using the specified context.'
+  remarks: 'As implemented in this class, this method always returns `false`.'
   syntax:
     content: public virtual bool GetCreateInstanceSupported (System.ComponentModel.ITypeDescriptorContext context);
     parameters:
@@ -1983,7 +1983,7 @@ items:
       description: An <xref href="System.Object"></xref> that specifies the type of array for which to get properties.
     return:
       type: System.ComponentModel.PropertyDescriptorCollection
-      description: A <xref href="System.ComponentModel.PropertyDescriptorCollection"></xref> with the properties that are exposed for this data type, or `null` if there are no properties.
+      description: 'A <xref href="System.ComponentModel.PropertyDescriptorCollection"></xref> with the properties that are exposed for this data type, or `null` if there are no properties.'
   overload: System.ComponentModel.TypeConverter.GetProperties*
   exceptions: []
   version:
@@ -2037,7 +2037,7 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: Returns a collection of properties for the type of array specified by the value parameter, using the specified context.
+  summary: 'Returns a collection of properties for the type of array specified by the value parameter, using the specified context.'
   remarks: "Use the `context` parameter to extract additional information about the environment from which this converter is invoked. This parameter can be `null`, so always check it. Also, properties on the context object can return `null`.  \n  \n As implemented in this class, this method always returns `null`.  \n  \n By default, a type does not return properties. An easy implementation of this method can call <xref:System.ComponentModel.TypeDescriptor.GetProperties%2A> for the correct data type."
   syntax:
     content: public System.ComponentModel.PropertyDescriptorCollection GetProperties (System.ComponentModel.ITypeDescriptorContext context, object value);
@@ -2050,7 +2050,7 @@ items:
       description: An <xref href="System.Object"></xref> that specifies the type of array for which to get properties.
     return:
       type: System.ComponentModel.PropertyDescriptorCollection
-      description: A <xref href="System.ComponentModel.PropertyDescriptorCollection"></xref> with the properties that are exposed for this data type, or `null` if there are no properties.
+      description: 'A <xref href="System.ComponentModel.PropertyDescriptorCollection"></xref> with the properties that are exposed for this data type, or `null` if there are no properties.'
   overload: System.ComponentModel.TypeConverter.GetProperties*
   exceptions: []
   version:
@@ -2104,8 +2104,8 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: Returns a collection of properties for the type of array specified by the value parameter, using the specified context and attributes.
-  remarks: As implemented in this class, this method always returns `null`.
+  summary: 'Returns a collection of properties for the type of array specified by the value parameter, using the specified context and attributes.'
+  remarks: 'As implemented in this class, this method always returns `null`.'
   syntax:
     content: public virtual System.ComponentModel.PropertyDescriptorCollection GetProperties (System.ComponentModel.ITypeDescriptorContext context, object value, Attribute[] attributes);
     parameters:
@@ -2120,7 +2120,7 @@ items:
       description: An array of type <xref href="System.Attribute"></xref> that is used as a filter.
     return:
       type: System.ComponentModel.PropertyDescriptorCollection
-      description: A <xref href="System.ComponentModel.PropertyDescriptorCollection"></xref> with the properties that are exposed for this data type, or `null` if there are no properties.
+      description: 'A <xref href="System.ComponentModel.PropertyDescriptorCollection"></xref> with the properties that are exposed for this data type, or `null` if there are no properties.'
   overload: System.ComponentModel.TypeConverter.GetProperties*
   exceptions: []
   version:
@@ -2174,8 +2174,8 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: Returns whether this object supports properties, using the specified context.
-  remarks: As implemented in this class, this method always returns `false`.
+  summary: 'Returns whether this object supports properties, using the specified context.'
+  remarks: 'As implemented in this class, this method always returns `false`.'
   syntax:
     content: public virtual bool GetPropertiesSupported (System.ComponentModel.ITypeDescriptorContext context);
     parameters:
@@ -2239,7 +2239,7 @@ items:
   - netstandard
   namespace: System.ComponentModel
   summary: Returns whether this object supports properties.
-  remarks: As implemented in this class, this method always returns `false`.
+  remarks: 'As implemented in this class, this method always returns `false`.'
   syntax:
     content: public bool GetPropertiesSupported ();
     parameters: []
@@ -2300,13 +2300,13 @@ items:
   - netstandard
   namespace: System.ComponentModel
   summary: Returns a collection of standard values from the default context for the data type this type converter is designed for.
-  remarks: As implemented in this class, this method always returns `null`.
+  remarks: 'As implemented in this class, this method always returns `null`.'
   syntax:
     content: public System.Collections.ICollection GetStandardValues ();
     parameters: []
     return:
       type: System.Collections.ICollection
-      description: A <xref href="System.ComponentModel.TypeConverter.StandardValuesCollection"></xref> containing a standard set of valid values, or `null` if the data type does not support a standard set of values.
+      description: 'A <xref href="System.ComponentModel.TypeConverter.StandardValuesCollection"></xref> containing a standard set of valid values, or `null` if the data type does not support a standard set of values.'
   overload: System.ComponentModel.TypeConverter.GetStandardValues*
   exceptions: []
   version:
@@ -2361,7 +2361,7 @@ items:
   - netstandard
   namespace: System.ComponentModel
   summary: Returns a collection of standard values for the data type this type converter is designed for when provided with a format context.
-  remarks: As implemented in <xref:System.ComponentModel.TypeConverter>, this method always returns `null`.
+  remarks: 'As implemented in <xref:System.ComponentModel.TypeConverter>, this method always returns `null`.'
   example:
   - For an example on this function, see the <xref:System.ComponentModel.TypeConverter> class.
   syntax:
@@ -2372,7 +2372,7 @@ items:
       description: An <xref href="System.ComponentModel.ITypeDescriptorContext"></xref> that provides a format context that can be used to extract additional information about the environment from which this converter is invoked. This parameter or properties of this parameter can be `null`.
     return:
       type: System.ComponentModel.TypeConverter+StandardValuesCollection
-      description: A <xref href="System.ComponentModel.TypeConverter.StandardValuesCollection"></xref> that holds a standard set of valid values, or `null` if the data type does not support a standard set of values.
+      description: 'A <xref href="System.ComponentModel.TypeConverter.StandardValuesCollection"></xref> that holds a standard set of valid values, or `null` if the data type does not support a standard set of values.'
   overload: System.ComponentModel.TypeConverter.GetStandardValues*
   exceptions: []
   version:
@@ -2487,7 +2487,7 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: Returns whether the collection of standard values returned from <xref href="System.ComponentModel.TypeConverter.GetStandardValues"></xref> is an exclusive list of possible values, using the specified context.
+  summary: 'Returns whether the collection of standard values returned from <xref href="System.ComponentModel.TypeConverter.GetStandardValues"></xref> is an exclusive list of possible values, using the specified context.'
   remarks: "As implemented in this class, this method always returns `false`.  \n  \n If the list is exclusive, such as in an enumeration data type, then no other values are valid. If the list is not exclusive, then other valid values might exist in addition to the list of standard values that the <xref:System.ComponentModel.TypeConverter.GetStandardValues%2A> method provides. If the values are exclusive, the list returned by <xref:System.ComponentModel.TypeConverter.GetStandardValues%2A> should not allow these values to be edited."
   syntax:
     content: public virtual bool GetStandardValuesExclusive (System.ComponentModel.ITypeDescriptorContext context);
@@ -2611,7 +2611,7 @@ items:
   - System
   - netstandard
   namespace: System.ComponentModel
-  summary: Returns whether this object supports a standard set of values that can be picked from a list, using the specified context.
+  summary: 'Returns whether this object supports a standard set of values that can be picked from a list, using the specified context.'
   remarks: "As implemented in this class, this method always returns `false`.  \n  \n Use the `context` parameter to extract additional information about the environment from which this converter is invoked. This parameter can be `null`, so always check it. Also, properties on the context object can return `null`."
   syntax:
     content: public virtual bool GetStandardValuesSupported (System.ComponentModel.ITypeDescriptorContext context);
@@ -2809,7 +2809,7 @@ items:
   - netstandard
   namespace: System.ComponentModel
   summary: Sorts a collection of properties.
-  remarks: All properties in the collection that are not already in the array of names are added alphabetically to the end. If the `names` parameter is an empty array or `null`, all the properties in the collection are sorted alphabetically.
+  remarks: 'All properties in the collection that are not already in the array of names are added alphabetically to the end. If the `names` parameter is an empty array or `null`, all the properties in the collection are sorted alphabetically.'
   syntax:
     content: protected System.ComponentModel.PropertyDescriptorCollection SortProperties (System.ComponentModel.PropertyDescriptorCollection props, string[] names);
     parameters:

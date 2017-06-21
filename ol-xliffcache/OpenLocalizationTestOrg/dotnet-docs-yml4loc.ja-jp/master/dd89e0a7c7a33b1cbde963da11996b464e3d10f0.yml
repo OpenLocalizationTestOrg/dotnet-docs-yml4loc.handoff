@@ -21,7 +21,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Manages security tokens for the client.
-  remarks: This class handles security token serialization, security token provision and security token authentication for the client. There is one instance of this class for each client channel factory.
+  remarks: 'This class handles security token serialization, security token provision and security token authentication for the client. There is one instance of this class for each client channel factory.'
   example:
   - "The following code shows how you can override this class to create a custom Client Credentials Security Token Manager.  \n  \n [!code-csharp[c_CustomCredentials#2](~/samples/snippets/csharp/VS_Snippets_CFX/c_customcredentials/cs/source.cs#2)]\n [!code-vb[c_CustomCredentials#2](~/samples/snippets/visualbasic/VS_Snippets_CFX/c_customcredentials/vb/client/client.vb#2)]"
   syntax:
@@ -124,7 +124,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Gets the client credentials.
-  remarks: The <xref:System.ServiceModel.Description.ClientCredentials> object allows the user to configure client credentials to be used for authentication to the service.
+  remarks: 'The <xref:System.ServiceModel.Description.ClientCredentials> object allows the user to configure client credentials to be used for authentication to the service.'
   syntax:
     content: public System.ServiceModel.Description.ClientCredentials ClientCredentials { get; }
     return:
@@ -168,7 +168,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Creates a security token authenticator.
-  remarks: The <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator> is responsible for validating security tokens and providing a <xref:System.IdentityModel.Policy.IAuthorizationPolicy> to obtain claims for security tokens that meet the requirements specified in <xref:System.ServiceModel.Security.Tokens.ServiceModelSecurityTokenRequirement>.
+  remarks: 'The <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator> is responsible for validating security tokens and providing a <xref:System.IdentityModel.Policy.IAuthorizationPolicy> to obtain claims for security tokens that meet the requirements specified in <xref:System.ServiceModel.Security.Tokens.ServiceModelSecurityTokenRequirement>.'
   syntax:
     content: public override System.IdentityModel.Selectors.SecurityTokenAuthenticator CreateSecurityTokenAuthenticator (System.IdentityModel.Selectors.SecurityTokenRequirement tokenRequirement, out System.IdentityModel.Selectors.SecurityTokenResolver outOfBandTokenResolver);
     parameters:
@@ -177,7 +177,7 @@ items:
       description: The <xref href="System.IdentityModel.Selectors.SecurityTokenRequirement"></xref>.
     - id: outOfBandTokenResolver
       type: System.IdentityModel.Selectors.SecurityTokenResolver
-      description: When this method returns, contains a <xref href="System.IdentityModel.Selectors.SecurityTokenResolver"></xref>. This parameter is passed uninitialized.
+      description: 'When this method returns, contains a <xref href="System.IdentityModel.Selectors.SecurityTokenResolver"></xref>. This parameter is passed uninitialized.'
     return:
       type: System.IdentityModel.Selectors.SecurityTokenAuthenticator
       description: The <xref href="System.IdentityModel.Selectors.SecurityTokenAuthenticator"></xref> object.
@@ -222,7 +222,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Creates a security token provider.
-  remarks: The <xref:System.IdentityModel.Selectors.SecurityTokenProvider> class is responsible for obtaining tokens for a given <xref:System.ServiceModel.Security.Tokens.ServiceModelSecurityTokenRequirement>. Optionally token providers support renewing and canceling tokens as well.
+  remarks: 'The <xref:System.IdentityModel.Selectors.SecurityTokenProvider> class is responsible for obtaining tokens for a given <xref:System.ServiceModel.Security.Tokens.ServiceModelSecurityTokenRequirement>. Optionally token providers support renewing and canceling tokens as well.'
   example:
   - "The following code shows how to override this method.  \n  \n [!code-csharp[ClientCredentialsSecurityTokenManager#2](~/samples/snippets/csharp/VS_Snippets_CFX/clientcredentialssecuritytokenmanager/cs/source.cs#2)]\n [!code-vb[ClientCredentialsSecurityTokenManager#2](~/samples/snippets/visualbasic/VS_Snippets_CFX/clientcredentialssecuritytokenmanager/vb/source.vb#2)]"
   syntax:
@@ -275,7 +275,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Creates a security token serializer.
-  remarks: The <xref:System.IdentityModel.Selectors.SecurityTokenSerializer> is used to write and read security tokens, security key identifiers, and security key identifier clauses. When deserializing the token from XML, the returned token must be able to perform cryptographic operations. The token serializer therefore must ensure the deserialized token can perform cryptographic operations (Kerberos ticket processing, X.509 decoding, SAML decoding and other operations) but should defer application trust decisions to the security token authenticator.
+  remarks: 'The <xref:System.IdentityModel.Selectors.SecurityTokenSerializer> is used to write and read security tokens, security key identifiers, and security key identifier clauses. When deserializing the token from XML, the returned token must be able to perform cryptographic operations. The token serializer therefore must ensure the deserialized token can perform cryptographic operations (Kerberos ticket processing, X.509 decoding, SAML decoding and other operations) but should defer application trust decisions to the security token authenticator.'
   syntax:
     content: public override System.IdentityModel.Selectors.SecurityTokenSerializer CreateSecurityTokenSerializer (System.IdentityModel.Selectors.SecurityTokenVersion version);
     parameters:
@@ -323,7 +323,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Creates a security token serializer.
-  remarks: The <xref:System.IdentityModel.Selectors.SecurityTokenSerializer> is used to write and read security tokens, security key identifiers and security key identifier clauses. When deserializing the token from XML, the returned token must be able to perform cryptographic operations. The token serializer therefore must ensure the deserialized token can perform cryptographic operations (Kerberos ticket processing, X.509 decoding, SAML decoding and other operations) but should defer application trust decisions to the security token authenticator.
+  remarks: 'The <xref:System.IdentityModel.Selectors.SecurityTokenSerializer> is used to write and read security tokens, security key identifiers and security key identifier clauses. When deserializing the token from XML, the returned token must be able to perform cryptographic operations. The token serializer therefore must ensure the deserialized token can perform cryptographic operations (Kerberos ticket processing, X.509 decoding, SAML decoding and other operations) but should defer application trust decisions to the security token authenticator.'
   syntax:
     content: protected System.IdentityModel.Selectors.SecurityTokenSerializer CreateSecurityTokenSerializer (System.ServiceModel.Security.SecurityVersion version);
     parameters:

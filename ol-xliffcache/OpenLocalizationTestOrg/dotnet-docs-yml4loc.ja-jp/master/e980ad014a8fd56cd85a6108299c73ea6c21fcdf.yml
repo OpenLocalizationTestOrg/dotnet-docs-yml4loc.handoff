@@ -32,7 +32,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Represents the base functionality for all menus. Although <xref href="System.Windows.Forms.ToolStripDropDown"></xref> and <xref href="System.Windows.Forms.ToolStripDropDownMenu"></xref> replace and add functionality to the <xref href="System.Windows.Forms.Menu"></xref> control of previous versions, <xref href="System.Windows.Forms.Menu"></xref> is retained for both backward compatibility and future use if you choose.
+  summary: 'Represents the base functionality for all menus. Although <xref href="System.Windows.Forms.ToolStripDropDown"></xref> and <xref href="System.Windows.Forms.ToolStripDropDownMenu"></xref> replace and add functionality to the <xref href="System.Windows.Forms.Menu"></xref> control of previous versions, <xref href="System.Windows.Forms.Menu"></xref> is retained for both backward compatibility and future use if you choose.'
   remarks: "This class is the base class for the <xref:System.Windows.Forms.MainMenu>, <xref:System.Windows.Forms.MenuItem>, and <xref:System.Windows.Forms.ContextMenu> classes. You cannot create an instance of this class. The menus for an application consist of <xref:System.Windows.Forms.MenuItem> objects. These can contain other <xref:System.Windows.Forms.MenuItem> objects, representing submenu items. The <xref:System.Windows.Forms.MenuItem> objects can be stored in a <xref:System.Windows.Forms.MainMenu> for display as an entire menu structure for a form or a <xref:System.Windows.Forms.ContextMenu> that is used to display shortcut menus. This class provides functionality that is common for all the menu classes.  \n  \n Unlike many base classes, the <xref:System.Windows.Forms.Menu> class uses its derived classes to define many of its properties. If you are using your menu in a multiple-document interface (MDI) application, you can use the <xref:System.Windows.Forms.Menu.MdiListItem%2A> property to specify a <xref:System.Windows.Forms.MenuItem> that displays a list of open MDI child forms in your application. The <xref:System.Windows.Forms.Menu.MenuItems%2A> property contains a list of <xref:System.Windows.Forms.MenuItem> objects stored in the menu class. For a <xref:System.Windows.Forms.MainMenu> or <xref:System.Windows.Forms.ContextMenu>, this property contains all the <xref:System.Windows.Forms.MenuItem> objects that are displayed. For a <xref:System.Windows.Forms.MenuItem>, the <xref:System.Windows.Forms.Menu.MenuItems%2A> property represents the submenu items associated with it.  \n  \n In addition to the properties that are provided for all the derived menu classes, the <xref:System.Windows.Forms.Menu> class also provides methods, such as <xref:System.Windows.Forms.Menu.CloneMenu%2A> and <xref:System.Windows.Forms.Menu.MergeMenu%2A>, that enable you to create new menus from existing menus, and also merge two menu structures together.  \n  \n The <xref:System.Windows.Forms.Menu> class also defines the nested class <xref:System.Windows.Forms.Menu.MenuItemCollection>. This class defines the collection of <xref:System.Windows.Forms.MenuItem> objects used by the <xref:System.Windows.Forms.Menu.MenuItems%2A> property. You can use the methods of the <xref:System.Windows.Forms.Menu.MenuItemCollection> class to add and remove menu items from a <xref:System.Windows.Forms.MainMenu>, <xref:System.Windows.Forms.ContextMenu>, or <xref:System.Windows.Forms.MenuItem>."
   example:
   - "The following code example uses the derived class, <xref:System.Windows.Forms.MenuItem>, to create a menu structure for a form. The example code adds a <xref:System.Windows.Forms.MenuItem> to represent the top-level menu item, adds a submenu item to it for selecting a font size, and then adds two submenu items to that menu item that represent large and small font choices in an application. The example requires that there is a <xref:System.Windows.Forms.MainMenu> object named `mainMenu1` and four <xref:System.Windows.Forms.MenuItem> objects named `menuItem1`, `menuItem2`, `menuItem3`, and `menuItem4`.  \n  \n [!code-cpp[Classic Menu Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic Menu Example/CPP/source.cpp#1)]\n [!code-csharp[Classic Menu Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic Menu Example/CS/source.cs#1)]\n [!code-vb[Classic Menu Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic Menu Example/VB/source.vb#1)]"
@@ -107,7 +107,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Initializes a new instance of the <xref href="System.Windows.Forms.Menu"></xref> class.
-  remarks: Since <xref:System.Windows.Forms.Menu> is an abstract class, only inherited classes can call the Menu constructor.
+  remarks: 'Since <xref:System.Windows.Forms.Menu> is an abstract class, only inherited classes can call the Menu constructor.'
   syntax:
     content: protected Menu (System.Windows.Forms.MenuItem[] items);
     parameters:
@@ -152,7 +152,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Copies the <xref href="System.Windows.Forms.Menu"></xref> that is passed as a parameter to the current <xref href="System.Windows.Forms.Menu"></xref>.
-  remarks: This method copies the entire list of <xref:System.Windows.Forms.MenuItem> objects (stored in the <xref:System.Windows.Forms.Menu> passed in to `menuSrc`) into the current menu. You can use this method in your derived class to clone <xref:System.Windows.Forms.MenuItem> objects. They can then be reused by other classes that derive from <xref:System.Windows.Forms.Menu>, such as <xref:System.Windows.Forms.MainMenu>, <xref:System.Windows.Forms.ContextMenu>, and <xref:System.Windows.Forms.MenuItem>.
+  remarks: 'This method copies the entire list of <xref:System.Windows.Forms.MenuItem> objects (stored in the <xref:System.Windows.Forms.Menu> passed in to `menuSrc`) into the current menu. You can use this method in your derived class to clone <xref:System.Windows.Forms.MenuItem> objects. They can then be reused by other classes that derive from <xref:System.Windows.Forms.Menu>, such as <xref:System.Windows.Forms.MainMenu>, <xref:System.Windows.Forms.ContextMenu>, and <xref:System.Windows.Forms.MenuItem>.'
   example:
   - "This example creates a main menu, `mainMenu1`, with three menu items: `File`, `Edit`, and `View`. It then uses the <xref:System.Windows.Forms.Menu.CloneMenu%2A> method to copy `mainMenu1` into `mainMenu2`. The cloned menu is then assigned to the form and displayed. This program requires that you have already created a <xref:System.Windows.Forms.Form> named `Form1`.  \n  \n [!code-cpp[CloneMenu#1](~/samples/snippets/cpp/VS_Snippets_Winforms/CloneMenu/CPP/form1.cpp#1)]\n [!code-csharp[CloneMenu#1](~/samples/snippets/csharp/VS_Snippets_Winforms/CloneMenu/CS/form1.cs#1)]\n [!code-vb[CloneMenu#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/CloneMenu/VB/form1.vb#1)]"
   syntax:
@@ -204,7 +204,7 @@ items:
     parameters: []
     return:
       type: System.IntPtr
-      description: A handle to the menu if the method succeeds; otherwise, `null`.
+      description: 'A handle to the menu if the method succeeds; otherwise, `null`.'
   overload: System.Windows.Forms.Menu.CreateMenuHandle*
   exceptions: []
   version:
@@ -242,7 +242,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Disposes of the resources, other than memory, used by the <xref href="System.Windows.Forms.Menu"></xref>.
+  summary: 'Disposes of the resources, other than memory, used by the <xref href="System.Windows.Forms.Menu"></xref>.'
   remarks: "Call <xref:System.Windows.Forms.Menu.Dispose%2A> when you are finished using the <xref:System.Windows.Forms.Menu>. The <xref:System.Windows.Forms.Menu.Dispose%2A> method leaves the <xref:System.Windows.Forms.Menu> in an unusable state. After calling <xref:System.Windows.Forms.Menu.Dispose%2A>, you must release all references to the <xref:System.Windows.Forms.Menu> so the memory it was occupying can be reclaimed by garbage collection.  \n  \n> [!NOTE]\n>  Always call <xref:System.Windows.Forms.Menu.Dispose%2A> before you release your last reference to the <xref:System.Windows.Forms.Menu>. Otherwise, the resources the <xref:System.Windows.Forms.Menu> is using will not be freed until garbage collection calls the <xref:System.Windows.Forms.Menu> object's destructor."
   syntax:
     content: protected override void Dispose (bool disposing);
@@ -286,7 +286,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Specifies that the <xref href="System.Windows.Forms.Menu.FindMenuItem(System.Int32,System.IntPtr)"></xref> method should search for a handle.
+  summary: 'Specifies that the <xref href="System.Windows.Forms.Menu.FindMenuItem(System.Int32,System.IntPtr)"></xref> method should search for a handle.'
   syntax:
     content: public const int FindHandle = 0;
     return:
@@ -341,7 +341,7 @@ items:
       description: The item to use to find the <xref href="System.Windows.Forms.MenuItem"></xref>.
     return:
       type: System.Windows.Forms.MenuItem
-      description: The <xref href="System.Windows.Forms.MenuItem"></xref> that matches value; otherwise, `null`.
+      description: 'The <xref href="System.Windows.Forms.MenuItem"></xref> that matches value; otherwise, `null`.'
   overload: System.Windows.Forms.Menu.FindMenuItem*
   exceptions: []
   version:
@@ -379,7 +379,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Returns the position at which a menu item should be inserted into the menu.
-  remarks: The merge order of a menu item specifies the relative position that this menu item will assume if the menu structure that the <xref:System.Windows.Forms.MenuItem> is contained in is merged with another.
+  remarks: 'The merge order of a menu item specifies the relative position that this menu item will assume if the menu structure that the <xref:System.Windows.Forms.MenuItem> is contained in is merged with another.'
   syntax:
     content: protected int FindMergePosition (int mergeOrder);
     parameters:
@@ -426,7 +426,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Specifies that the <xref href="System.Windows.Forms.Menu.FindMenuItem(System.Int32,System.IntPtr)"></xref> method should search for a shortcut.
+  summary: 'Specifies that the <xref href="System.Windows.Forms.Menu.FindMenuItem(System.Int32,System.IntPtr)"></xref> method should search for a shortcut.'
   syntax:
     content: public const int FindShortcut = 1;
     return:
@@ -468,7 +468,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets the <xref href="System.Windows.Forms.ContextMenu"></xref> that contains this menu.
-  remarks: This method allows you to obtain a reference to the <xref:System.Windows.Forms.ContextMenu> that this menu is contained in. This property returns `null` if the menu is not contained in a <xref:System.Windows.Forms.ContextMenu>. This can occur if the menu is contained in a <xref:System.Windows.Forms.MenuItem> or <xref:System.Windows.Forms.MainMenu>, or if the menu is not contained in any menu. You can use this property to determine whether a menu is currently being used, and also to determine where.
+  remarks: 'This method allows you to obtain a reference to the <xref:System.Windows.Forms.ContextMenu> that this menu is contained in. This property returns `null` if the menu is not contained in a <xref:System.Windows.Forms.ContextMenu>. This can occur if the menu is contained in a <xref:System.Windows.Forms.MenuItem> or <xref:System.Windows.Forms.MainMenu>, or if the menu is not contained in any menu. You can use this property to determine whether a menu is currently being used, and also to determine where.'
   example:
   - "In this example, you use the <xref:System.Windows.Forms.Menu.GetContextMenu%2A> method to obtain a reference to the shortcut menu that contains `menuItem1` or `menuItem2`, and display the shortcut menu information in a message box. You programmatically create a shortcut menu with two items, `New` and `Open`. You then add functionality to these items by creating the appropriate event handlers. When you run the example, you get a message box that tells you to right-click the form in order to display the shortcut menu. Then, when you click a menu item, you get another message that tells which item has been clicked and displays the information on the containing shortcut menu. This example requires that you have already created a <xref:System.Windows.Forms.Form> named `Form1`.  \n  \n [!code-cpp[GetContextMenu2#1](~/samples/snippets/cpp/VS_Snippets_Winforms/GetContextMenu2/CPP/form1.cpp#1)]\n [!code-csharp[GetContextMenu2#1](~/samples/snippets/csharp/VS_Snippets_Winforms/GetContextMenu2/CS/form1.cs#1)]\n [!code-vb[GetContextMenu2#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/GetContextMenu2/VB/form1.vb#1)]"
   syntax:
@@ -515,7 +515,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets the <xref href="System.Windows.Forms.MainMenu"></xref> that contains this menu.
-  remarks: This method allows you to obtain a reference to the <xref:System.Windows.Forms.MainMenu> this menu is currently located in. This property returns `null` if the menu is not contained in a <xref:System.Windows.Forms.MainMenu>. This can occur if the menu is contained in a <xref:System.Windows.Forms.MenuItem> or <xref:System.Windows.Forms.ContextMenu>, or if the menu is not contained in any menu. You can use this property to determine whether a menu is currently being used, and also to determine where.
+  remarks: 'This method allows you to obtain a reference to the <xref:System.Windows.Forms.MainMenu> this menu is currently located in. This property returns `null` if the menu is not contained in a <xref:System.Windows.Forms.MainMenu>. This can occur if the menu is contained in a <xref:System.Windows.Forms.MenuItem> or <xref:System.Windows.Forms.ContextMenu>, or if the menu is not contained in any menu. You can use this property to determine whether a menu is currently being used, and also to determine where.'
   example:
   - "This example declares a <xref:System.Windows.Forms.MainMenu>, `mainMenu1`, and four menu items, `menuItem1`, `menuItem2`, `menuItem3`, and `menuItem4`. Only the first three menu items are added to `mainMenu1` for display. The program then checks to see if `menuItem3` is being used, which is `true`, and determines the form in which it is used. A label text is used to display the name of the form that hosts the <xref:System.Windows.Forms.MainMenu>. If you change the menu item being tested to `menuItem4`, the condition evaluates to `false` because `menuItem4` has never been used. This example requires that you have created a <xref:System.Windows.Forms.Form> named `MyForm` that includes a <xref:System.Windows.Forms.Label> named `label1`.  \n  \n [!code-cpp[GetMainMenu#1](~/samples/snippets/cpp/VS_Snippets_Winforms/GetMainMenu/CPP/form1.cpp#1)]\n [!code-csharp[GetMainMenu#1](~/samples/snippets/csharp/VS_Snippets_Winforms/GetMainMenu/CS/form1.cs#1)]\n [!code-vb[GetMainMenu#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/GetMainMenu/VB/form1.vb#1)]"
   syntax:
@@ -611,7 +611,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets a value indicating whether this menu contains any menu items. This property is read-only.
-  remarks: You can use this method to determine whether any <xref:System.Windows.Forms.MenuItem> objects are assigned to this menu. This is equivalent to checking for `null` in the <xref:System.Windows.Forms.Menu.MenuItems%2A> property.
+  remarks: 'You can use this method to determine whether any <xref:System.Windows.Forms.MenuItem> objects are assigned to this menu. This is equivalent to checking for `null` in the <xref:System.Windows.Forms.Menu.MenuItems%2A> property.'
   example:
   - "The following code example creates a <xref:System.Windows.Forms.MainMenu> with two <xref:System.Windows.Forms.MenuItem> objects. It then uses the <xref:System.Windows.Forms.Menu.IsParent%2A> property to determine whether `mainMenu1` contains menu items. If the condition evaluates `true`, it sets the <xref:System.Windows.Forms.MainMenu.RightToLeft%2A> property to `true` and binds the main menu to the <xref:System.Windows.Forms.Form>. This example requires that you have a <xref:System.Windows.Forms.Form> created that is named `Form1`.  \n  \n [!code-cpp[IsParent#1](~/samples/snippets/cpp/VS_Snippets_Winforms/IsParent/CPP/form1.cpp#1)]\n [!code-csharp[IsParent#1](~/samples/snippets/csharp/VS_Snippets_Winforms/IsParent/CS/form1.cs#1)]\n [!code-vb[IsParent#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/IsParent/VB/form1.vb#1)]"
   syntax:
@@ -662,7 +662,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets a value indicating the <xref href="System.Windows.Forms.MenuItem"></xref> that is used to display a list of multiple document interface (MDI) child forms.
-  remarks: You can use this property to determine whether a <xref:System.Windows.Forms.MenuItem> has been specified to display the list of open child windows in an MDI application. To use a specific <xref:System.Windows.Forms.MenuItem> as an MDI list, set the <xref:System.Windows.Forms.MenuItem.MdiList%2A> property in the <xref:System.Windows.Forms.MenuItem> to be used.
+  remarks: 'You can use this property to determine whether a <xref:System.Windows.Forms.MenuItem> has been specified to display the list of open child windows in an MDI application. To use a specific <xref:System.Windows.Forms.MenuItem> as an MDI list, set the <xref:System.Windows.Forms.MenuItem.MdiList%2A> property in the <xref:System.Windows.Forms.MenuItem> to be used.'
   syntax:
     content: >-
       [System.ComponentModel.Browsable(false)]
@@ -710,7 +710,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets a value indicating the collection of <xref href="System.Windows.Forms.MenuItem"></xref> objects associated with the menu.
-  remarks: You can use this property to obtain a reference to the list of menu items that are currently stored in the menu. For <xref:System.Windows.Forms.MainMenu> and <xref:System.Windows.Forms.ContextMenu> objects, the <xref:System.Windows.Forms.Menu.MenuItems%2A> property contains the entire menu structure in the control. For the <xref:System.Windows.Forms.MenuItem> class, the <xref:System.Windows.Forms.Menu.MenuItems%2A> property contains the list of submenu items associated with the <xref:System.Windows.Forms.MenuItem>. With the reference to the collection of menu items for the menu (provided by this property), you can add and remove menu items, determine the total number of menu items, and clear the list of menu items from the collection. For more information on maintaining the menu item collection for a menu, see the <xref:System.Windows.Forms.Menu.MenuItemCollection?displayProperty=fullName> documentation.
+  remarks: 'You can use this property to obtain a reference to the list of menu items that are currently stored in the menu. For <xref:System.Windows.Forms.MainMenu> and <xref:System.Windows.Forms.ContextMenu> objects, the <xref:System.Windows.Forms.Menu.MenuItems%2A> property contains the entire menu structure in the control. For the <xref:System.Windows.Forms.MenuItem> class, the <xref:System.Windows.Forms.Menu.MenuItems%2A> property contains the list of submenu items associated with the <xref:System.Windows.Forms.MenuItem>. With the reference to the collection of menu items for the menu (provided by this property), you can add and remove menu items, determine the total number of menu items, and clear the list of menu items from the collection. For more information on maintaining the menu item collection for a menu, see the <xref:System.Windows.Forms.Menu.MenuItemCollection?displayProperty=fullName> documentation.'
   example:
   - "The following code example creates an instance of the derived class, <xref:System.Windows.Forms.MainMenu>, and adds a <xref:System.Windows.Forms.MenuItem> object to its collection of <xref:System.Windows.Forms.MenuItem> objects. This example requires that the method defined in this example is located within the class for a form and called by a method in that form class.  \n  \n [!code-cpp[Classic Menu.MenuItems Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic Menu.MenuItems Example/CPP/source.cpp#1)]\n [!code-csharp[Classic Menu.MenuItems Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic Menu.MenuItems Example/CS/source.cs#1)]\n [!code-vb[Classic Menu.MenuItems Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic Menu.MenuItems Example/VB/source.vb#1)]"
   syntax:
@@ -810,7 +810,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets the name of the <xref href="System.Windows.Forms.Menu"></xref>.
-  remarks: At design time, this property is set to the programmatic identifier of the control. However, this property has no bearing on the control at run time.
+  remarks: 'At design time, this property is set to the programmatic identifier of the control. However, this property has no bearing on the control at run time.'
   syntax:
     content: >-
       [System.ComponentModel.Browsable(false)]
@@ -864,7 +864,7 @@ items:
     parameters:
     - id: msg
       type: System.Windows.Forms.Message
-      description: A <xref href="System.Windows.Forms.Message"></xref>, passed by reference that represents the window message to process.
+      description: 'A <xref href="System.Windows.Forms.Message"></xref>, passed by reference that represents the window message to process.'
     - id: keyData
       type: System.Windows.Forms.Keys
       description: One of the <xref href="System.Windows.Forms.Keys"></xref> values that represents the key to process.
@@ -960,7 +960,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Returns a <xref href="System.String"></xref> that represents the <xref href="System.Windows.Forms.Menu"></xref> control.
-  remarks: The <xref:System.Windows.Forms.Menu.ToString%2A> method returns a <xref:System.String> that includes the type and the number of items in the <xref:System.Windows.Forms.Menu.MenuItems%2A> property of the control.
+  remarks: 'The <xref:System.Windows.Forms.Menu.ToString%2A> method returns a <xref:System.String> that includes the type and the number of items in the <xref:System.Windows.Forms.Menu.MenuItems%2A> property of the control.'
   syntax:
     content: public override string ToString ();
     parameters: []

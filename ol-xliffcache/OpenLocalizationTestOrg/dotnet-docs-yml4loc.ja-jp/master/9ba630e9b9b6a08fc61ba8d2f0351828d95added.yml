@@ -81,7 +81,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Caching
-  summary: Initializes a new instance of the <xref href="System.Web.Caching.SqlCacheDependency"></xref> class, using the supplied <xref href="System.Data.SqlClient.SqlCommand"></xref> to create a cache-key dependency.
+  summary: 'Initializes a new instance of the <xref href="System.Web.Caching.SqlCacheDependency"></xref> class, using the supplied <xref href="System.Data.SqlClient.SqlCommand"></xref> to create a cache-key dependency.'
   remarks: "This constructor is used to create <xref:System.Web.Caching.SqlCacheDependency> objects that use the query-notification feature of [!INCLUDE[sqprsqlong](~/includes/sqprsqlong-md.md)] products.  \n  \n SQL statements that are associated with the `sqlCmd` parameter must include the following:  \n  \n-   Fully qualified table names, including the name of the table owner. For example, to refer to a table named Customersthat is owned by the database owner, the SQL statement must refer to `dbo.customers`.  \n  \n-   Explicit column names in the Select statement. You cannot use the asterisk (*) wildcard character to select all columns from a table. For example, instead of `select * from dbo.customers`, you must use `select name, address, city, state from dbo.customers`.  \n  \n This constructor cannot be used to associate a <xref:System.Data.SqlClient.SqlCommand> instance with a <xref:System.Web.Caching.SqlCacheDependency> instance on a page using [!INCLUDE[sqprsqlong](~/includes/sqprsqlong-md.md)] query notifications with page-level output caching."
   syntax:
     content: public SqlCacheDependency (System.Data.SqlClient.SqlCommand sqlCmd);
@@ -131,7 +131,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Caching
-  summary: Initializes a new instance of the <xref href="System.Web.Caching.SqlCacheDependency"></xref> class, using the supplied parameters to create a cache-key dependency.
+  summary: 'Initializes a new instance of the <xref href="System.Web.Caching.SqlCacheDependency"></xref> class, using the supplied parameters to create a cache-key dependency.'
   remarks: "This constructor is used to create <xref:System.Web.Caching.SqlCacheDependency> objects for SQL Server 7.0 and SQL Server 2000 products.  \n  \n The database name passed to the `database` parameter must be defined in the application's Web.config file. For example, the following Web.config file defines a database named pubs for <xref:System.Web.Caching.SqlCacheDependency> change notifications.  \n  \n```  \n<configuration>  \n  <connectionStrings>  \n    <add name=\"Pubs\" connectionString=\"Data Source=(local); Initial Catalog=pubs; Integrated Security=true\"; providerName=\"System.Data.SqlClient\" />  \n  </connectionStrings>  \n  <system.web>  \n    <caching>  \n      <sqlCacheDependency enabled = \"true\" pollTime = \"60000\" >  \n        <databases>  \n          <add name=\"pubs\"   \n            connectionStringName=\"pubs\"  \n            pollTime=\"9000000\"  \n            />  \n        </databases>  \n      </sqlCacheDependency>  \n    </caching>  \n  </system.web>  \n</configuration>  \n```  \n  \n Two exceptions are commonly thrown when this constructor is used: <xref:System.Web.Caching.DatabaseNotEnabledForNotificationException> and <xref:System.Web.Caching.TableNotEnabledForNotificationException>. If a <xref:System.Web.Caching.DatabaseNotEnabledForNotificationException> is thrown, you can call the <xref:System.Web.Caching.SqlCacheDependencyAdmin.EnableNotifications%2A?displayProperty=fullName> method in exception-handling code, or use the  command-line tool to set up the database for notifications. If a <xref:System.Web.Caching.TableNotEnabledForNotificationException> is thrown, you can call the <xref:System.Web.Caching.SqlCacheDependencyAdmin.EnableTableForNotifications%2A?displayProperty=fullName> method or use  to set up the table for notifications."
   example:
   - "The following code example uses this constructor to create an instance of the <xref:System.Web.Caching.SqlCacheDependency> class that is associated with a database table named Categories in a SQL Server database named Northwind.  \n  \n [!code-csharp[CachingSamples_SqlCacheDependency#2](~/samples/snippets/csharp/VS_Snippets_WebNet/CachingSamples_SqlCacheDependency/CS/sqlcachedepsamplecs.aspx#2)]\n [!code-vb[CachingSamples_SqlCacheDependency#2](~/samples/snippets/visualbasic/VS_Snippets_WebNet/CachingSamples_SqlCacheDependency/VB/sqlcachedepsamplevb.aspx#2)]"
@@ -199,7 +199,7 @@ items:
   - System.Web
   namespace: System.Web.Caching
   summary: Creates a dependency relationship between an item that is stored in an ASP.NET application's <xref href="System.Web.Caching.OutputCache"></xref> object and a SQL Server database table.
-  remarks: "The following markup shows a typical output-cache dependency directive.  \n  \n```  \n<%@ OutputCache Duration=\"3600\" SqlDependency=\"Northwind:Employees\" VaryByParam=\"none\" %>  \n```"
+  remarks: "The following markup shows a typical output-cache dependency directive.  \n  \n```  \n<%@ OutputCache Duration=\"3600\" SqlDependency=\"Northwind:Employees\" VaryByParam=\"none\" %>  \n```"
   syntax:
     content: public static System.Web.Caching.CacheDependency CreateOutputCacheDependency (string dependency);
     parameters:
@@ -287,7 +287,7 @@ items:
     parameters: []
     return:
       type: System.String
-      description: The unique identifier for the <xref href="System.Web.Caching.SqlCacheDependency"></xref> object, or null if no identifier can be generated.
+      description: 'The unique identifier for the <xref href="System.Web.Caching.SqlCacheDependency"></xref> object, or null if no identifier can be generated.'
   overload: System.Web.Caching.SqlCacheDependency.GetUniqueID*
   exceptions: []
   version:

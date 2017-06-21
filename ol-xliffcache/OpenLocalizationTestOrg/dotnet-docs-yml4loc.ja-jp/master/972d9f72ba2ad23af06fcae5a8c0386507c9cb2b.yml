@@ -210,7 +210,7 @@ items:
     parameters:
     - id: selectCommand
       type: System.Data.OracleClient.OracleCommand
-      description: An <xref href="System.Data.OracleClient.OracleCommand"></xref> that is an SQL SELECT statement or stored procedure, and is set as the <xref href="System.Data.OracleClient.OracleDataAdapter.SelectCommand"></xref> property of the <xref href="System.Data.OracleClient.OracleDataAdapter"></xref>.
+      description: 'An <xref href="System.Data.OracleClient.OracleCommand"></xref> that is an SQL SELECT statement or stored procedure, and is set as the <xref href="System.Data.OracleClient.OracleDataAdapter.SelectCommand"></xref> property of the <xref href="System.Data.OracleClient.OracleDataAdapter"></xref>.'
   overload: System.Data.OracleClient.OracleDataAdapter.#ctor*
   exceptions: []
   version:
@@ -249,7 +249,7 @@ items:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
   summary: Initializes a new instance of the <xref href="System.Data.OracleClient.OracleDataAdapter"></xref> class with an SQL SELECT statement and an <xref href="System.Data.OracleClient.OracleConnection"></xref>.
-  remarks: This implementation of the <xref:System.Data.OracleClient.OracleDataAdapter> can be useful in an application that must call the `Fill` method for two or more <xref:System.Data.OracleClient.OracleDataAdapter> objects.
+  remarks: 'This implementation of the <xref:System.Data.OracleClient.OracleDataAdapter> can be useful in an application that must call the `Fill` method for two or more <xref:System.Data.OracleClient.OracleDataAdapter> objects.'
   example:
   - "The following example creates an <xref:System.Data.OracleClient.OracleDataAdapter> and sets some of its properties.  \n  \n```vb  \nPublic Sub CreateOracleDataAdapter()  \n    Dim myOracleConnection As OracleConnection = New OracleConnection(\"Data Source=Oracle8i;Integrated Security=yes\")  \n    Dim mySelectText As String = \"SELECT DeptNo, DName FROM Dept\"  \n    Dim custDA As OracleDataAdapter = New OracleDataAdapter(mySelectText, myOracleConnection)   \n    custDA.MissingSchemaAction = MissingSchemaAction.AddWithKey  \n  \n    custDA.InsertCommand = New OracleCommand(\"INSERT INTO Dept (DeptNo, DName) \" & _  \n                                            \"VALUES (:pDeptNo, :pDName)\", myOracleConnection)  \n    custDA.UpdateCommand = New OracleCommand(\"UPDATE Dept SET DeptNo = :pDeptNo, DName = :pDName \" & _  \n                                            \"WHERE DeptNo = :pDeptNo\", myOracleConnection)  \n    custDA.DeleteCommand = New OracleCommand(\"DELETE FROM Dept WHERE DeptNo = :pDeptNo\", myOracleConnection)  \n  \n    custDA.InsertCommand.Parameters.Add(\"pDeptNo\", OracleType.Number, 2, \"DeptNo\")  \n    custDA.InsertCommand.Parameters.Add(\"pDName\", OracleType.VarChar, 14, \"DName\")  \n  \n    custDA.UpdateCommand.Parameters.Add(\"pDeptNo\", OracleType.Number, 2, \"DeptNo\")  \n    custDA.UpdateCommand.Parameters.Add(\"pDName\", OracleType.VarChar, 14, \"DName\")  \n    custDA.UpdateCommand.Parameters.Add(\"poldDeptNo\", OracleType.Number, 2, \"DeptNo\").SourceVersion = DataRowVersion.Original  \n  \n    custDA.DeleteCommand.Parameters.Add(\"pDeptNo\", OracleType.Number, 2, \"DeptNo\").SourceVersion = DataRowVersion.Original  \nEnd Sub  \n```  \n  \n```csharp  \npublic static void CreateOracleDataAdapter()   \n{  \n    OracleConnection myOracleConnection = new OracleConnection(\"Data Source=Oracle8i;Integrated Security=yes\");  \n  \n    string mySelectText = \"SELECT DeptNo, DName FROM Dept\";  \n  \n    OracleDataAdapter custDA = new OracleDataAdapter(mySelectText, myOracleConnection );  \n    custDA.MissingSchemaAction = MissingSchemaAction.AddWithKey;  \n  \n    custDA.InsertCommand = new OracleCommand(\"INSERT INTO Dept (DeptNo, DName) \" +  \n                                            \"VALUES (:pDeptNo, :pDName)\", myOracleConnection);  \n    custDA.UpdateCommand = new OracleCommand(\"UPDATE Dept SET DeptNo = :pDeptNo, DName = :pDName \" +  \n                                            \"WHERE DeptNo = :pDeptNo\", myOracleConnection);  \n    custDA.DeleteCommand = new OracleCommand(\"DELETE FROM Dept WHERE DeptNo = :pDeptNo\", myOracleConnection);  \n  \n    custDA.InsertCommand.Parameters.Add(\"pDeptNo\", OracleType.Number, 2, \"DeptNo\");  \n    custDA.InsertCommand.Parameters.Add(\"pDName\", OracleType.VarChar, 14, \"DName\");  \n  \n    custDA.UpdateCommand.Parameters.Add(\"pDeptNo\", OracleType.Number, 2, \"DeptNo\");  \n    custDA.UpdateCommand.Parameters.Add(\"pDName\", OracleType.VarChar, 14, \"DName\");  \n    custDA.UpdateCommand.Parameters.Add(\"poldDeptNo\", OracleType.Number, 2, \"DeptNo\").SourceVersion = DataRowVersion.Original;  \n  \n    custDA.DeleteCommand.Parameters.Add(\"pDeptNo\", OracleType.Number, 2, \"DeptNo\").SourceVersion = DataRowVersion.Original;  \n}  \n```"
   syntax:
@@ -1026,13 +1026,13 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: Gets or sets a value that enables or disables batch processing support, and specifies the number of commands that can be executed in a batch.
+  summary: 'Gets or sets a value that enables or disables batch processing support, and specifies the number of commands that can be executed in a batch.'
   remarks: "Use the <xref:System.Data.OracleClient.OracleDataAdapter.UpdateBatchSize%2A> property to update a data source with changes from a <xref:System.Data.DataSet>. This can increase application performance by reducing the number of round-trips to the server.  \n  \n Executing an extremely large batch could decrease performance. Therefore, you should test for the optimum batch size setting before you implement your application.  \n  \n An <xref:System.ArgumentOutOfRangeException> is thrown if the value is set to a number less than zero."
   syntax:
     content: public override int UpdateBatchSize { get; set; }
     return:
       type: System.Int32
-      description: "The number of rows to process per batch.  \n  \n <table><thead><tr><th> Value:  \n  \n </th><th> Effect:  \n  \n </th></tr></thead><tbody><tr><td> 0  \n  \n </td><td> There is no limit on the batch size.  \n  \n </td></tr><tr><td> 1  \n  \n </td><td> Disables batch updating.  \n  \n </td></tr><tr><td> > 1  \n  \n </td><td> Changes are sent using batches of <xref href=\"System.Data.OracleClient.OracleDataAdapter.UpdateBatchSize\"></xref> operations at a time.  \n  \n </td></tr></tbody></table>  \n  \n When setting this to a value other than 1 all the commands associated with the <xref href=\"System.Data.OracleClient.OracleDataAdapter\"></xref> have to have their <xref href=\"System.Data.IDbCommand.UpdatedRowSource\"></xref> property set to `None` or `OutputParameters`. An exception is thrown otherwise."
+      description: "The number of rows to process per batch.  \n  \n <table><thead><tr><th> Value:\n </th><th> Effect:\n </th></tr></thead><tbody><tr><td> 0\n </td><td> There is no limit on the batch size.  \n  \n </td></tr><tr><td> 1\n </td><td> Disables batch updating.  \n  \n </td></tr><tr><td> > 1\n </td><td> Changes are sent using batches of <xref href=\"System.Data.OracleClient.OracleDataAdapter.UpdateBatchSize\"></xref> operations at a time.  \n  \n </td></tr></tbody></table>  \n  \n When setting this to a value other than 1 all the commands associated with the <xref href=\"System.Data.OracleClient.OracleDataAdapter\"></xref> have to have their <xref href=\"System.Data.IDbCommand.UpdatedRowSource\"></xref> property set to `None` or `OutputParameters`. An exception is thrown otherwise."
   overload: System.Data.OracleClient.OracleDataAdapter.UpdateBatchSize*
   exceptions: []
   version:
@@ -1118,8 +1118,8 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: For a description of this member, see <xref href="System.Data.IDbDataAdapter.DeleteCommand"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.OracleClient.OracleDataAdapter> instance is cast to an <xref:System.Data.IDbDataAdapter> interface.
+  summary: 'For a description of this member, see <xref href="System.Data.IDbDataAdapter.DeleteCommand"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.OracleClient.OracleDataAdapter> instance is cast to an <xref:System.Data.IDbDataAdapter> interface.'
   syntax:
     content: System.Data.IDbCommand System.Data.IDbDataAdapter.DeleteCommand { get; set; }
     return:
@@ -1161,8 +1161,8 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: For a description of this member, see <xref href="System.Data.IDbDataAdapter.InsertCommand"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.OracleClient.OracleDataAdapter> instance is cast to an <xref:System.Data.IDbDataAdapter> interface.
+  summary: 'For a description of this member, see <xref href="System.Data.IDbDataAdapter.InsertCommand"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.OracleClient.OracleDataAdapter> instance is cast to an <xref:System.Data.IDbDataAdapter> interface.'
   syntax:
     content: System.Data.IDbCommand System.Data.IDbDataAdapter.InsertCommand { get; set; }
     return:
@@ -1204,8 +1204,8 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: For a description of this member, see <xref href="System.Data.IDbDataAdapter.SelectCommand"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.OracleClient.OracleDataAdapter> instance is cast to an <xref:System.Data.IDbDataAdapter> interface.
+  summary: 'For a description of this member, see <xref href="System.Data.IDbDataAdapter.SelectCommand"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.OracleClient.OracleDataAdapter> instance is cast to an <xref:System.Data.IDbDataAdapter> interface.'
   syntax:
     content: System.Data.IDbCommand System.Data.IDbDataAdapter.SelectCommand { get; set; }
     return:
@@ -1247,8 +1247,8 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: For a description of this member, see <xref href="System.Data.IDbDataAdapter.UpdateCommand"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.OracleClient.OracleDataAdapter> instance is cast to an <xref:System.Data.IDbDataAdapter> interface.
+  summary: 'For a description of this member, see <xref href="System.Data.IDbDataAdapter.UpdateCommand"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.OracleClient.OracleDataAdapter> instance is cast to an <xref:System.Data.IDbDataAdapter> interface.'
   syntax:
     content: System.Data.IDbCommand System.Data.IDbDataAdapter.UpdateCommand { get; set; }
     return:
@@ -1290,8 +1290,8 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: For a description of this member, see <xref href="System.ICloneable.Clone"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.OracleClient.OracleDataAdapter> instance is cast to an <xref:System.ICloneable> interface.
+  summary: 'For a description of this member, see <xref href="System.ICloneable.Clone"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.OracleClient.OracleDataAdapter> instance is cast to an <xref:System.ICloneable> interface.'
   syntax:
     content: object ICloneable.Clone ();
     parameters: []

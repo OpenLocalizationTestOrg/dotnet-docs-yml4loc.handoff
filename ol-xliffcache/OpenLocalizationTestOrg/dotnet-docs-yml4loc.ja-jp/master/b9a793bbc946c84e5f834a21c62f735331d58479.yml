@@ -21,7 +21,7 @@ items:
   - netstandard
   namespace: System.Threading
   summary: Provides lazy initialization routines.
-  remarks: These routines avoid needing to allocate a dedicated, lazy-initialization instance, instead using references to ensure targets have been initialized as they are accessed.
+  remarks: 'These routines avoid needing to allocate a dedicated, lazy-initialization instance, instead using references to ensure targets have been initialized as they are accessed.'
   example:
   - "The following example demonstrates how to use EnsureInitialized to lazily initialize a value using a Boolean value to track whether initialization has already happened and an object to use as the mutual exclusion lock.  \n  \n```vb  \nDim _data As ExpensiveData = Nothing  \nDim _dataInitialized As Boolean = False  \nDim _dataLock As Object = Nothing  \n'    ...  \nDim name = LazyInitializer.EnsureInitialized(_data, _dataInitialized, _dataLock)  \n```  \n  \n```csharp  \nExpensiveData _data = null;  \n                     bool _dataInitialized = false;  \n                     object _dataLock = new object();  \n                  //  ...  \n  \n                    ExpensiveData dataToUse = LazyInitializer.EnsureInitialized(ref _data, ref _dataInitialized, ref _dataLock);  \n```"
   syntax:
@@ -274,7 +274,7 @@ items:
   - netstandard
   namespace: System.Threading
   summary: Initializes a target reference or value type with its default constructor if it hasn't already been initialized.
-  remarks: If `intialized` is specified as true, then no further initialization occurs.
+  remarks: 'If `intialized` is specified as true, then no further initialization occurs.'
   syntax:
     content: public static T EnsureInitialized<T> (ref T target, ref bool initialized, ref object syncLock);
     parameters:
@@ -286,7 +286,7 @@ items:
       description: A reference to a Boolean value that determines whether the target has already been initialized.
     - id: syncLock
       type: System.Object
-      description: A reference to an object used as the mutually exclusive lock for initializing <code>target</code>. If <code>syncLock</code> is `null`, a new object will be instantiated.
+      description: 'A reference to an object used as the mutually exclusive lock for initializing <code>target</code>. If <code>syncLock</code> is `null`, a new object will be instantiated.'
     typeParameters:
     - id: T
       description: The type of the reference to be initialized.
@@ -403,7 +403,7 @@ items:
   - netstandard
   namespace: System.Threading
   summary: Initializes a target reference or value type by using a specified function if it hasn't already been initialized.
-  remarks: If `intialized` is specified as true, then no further initialization occurs.
+  remarks: 'If `intialized` is specified as true, then no further initialization occurs.'
   syntax:
     content: public static T EnsureInitialized<T> (ref T target, ref bool initialized, ref object syncLock, Func<T> valueFactory);
     parameters:
@@ -415,7 +415,7 @@ items:
       description: A reference to a Boolean value that determines whether the target has already been initialized.
     - id: syncLock
       type: System.Object
-      description: A reference to an object used as the mutually exclusive lock for initializing <code>target</code>. If <code>syncLock</code> is `null`, a new object will be instantiated.
+      description: 'A reference to an object used as the mutually exclusive lock for initializing <code>target</code>. If <code>syncLock</code> is `null`, a new object will be instantiated.'
     - id: valueFactory
       type: System.Func{T}
       description: The function that is called to initialize the reference or value.

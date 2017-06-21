@@ -37,7 +37,7 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Globalization
-  summary: Represents a calendar that divides time into months, days, years, and eras, and has dates that are based on cycles of the sun and the moon.
+  summary: 'Represents a calendar that divides time into months, days, years, and eras, and has dates that are based on cycles of the sun and the moon.'
   remarks: "The <xref:System.Globalization.EastAsianLunisolarCalendar> class supports the sexagenary cycle of years (which repeats every 60 years) in addition to solar years and lunar months. Each solar year in the calendar is associated with a Sexagenary Year (see <xref:System.Globalization.EastAsianLunisolarCalendar.GetSexagenaryYear%2A>), a Celestial Stem (see <xref:System.Globalization.EastAsianLunisolarCalendar.GetCelestialStem%2A>), and a Terrestrial Branch (see <xref:System.Globalization.EastAsianLunisolarCalendar.GetTerrestrialBranch%2A>).  \n  \n> [!NOTE]\n>  For information about using the <xref:System.Globalization.HebrewCalendar> class and the other calendar classes in the .NET Framework, see [Working with Calendars](~/docs/standard/datetime/working-with-calendars.md).  \n  \n A year can have a leap month after any month of the year, and a month can have a leap day. For example, the <xref:System.Globalization.EastAsianLunisolarCalendar.GetMonth%2A> method returns a positive integer that indicates the month associated with a specified date. If there is a leap month between the eighth and ninth months of the year, the <xref:System.Globalization.EastAsianLunisolarCalendar.GetMonth%2A> method returns 8 for the eighth month, 9 for the leap eighth month, and 10 for the ninth month.  \n  \n Each <xref:System.Globalization.CultureInfo> supports a set of calendars. Currently, none of the lunisolar calendar classes that derive from <xref:System.Globalization.EastAsianLunisolarCalendar> is used by any of the cultures supported by the <xref:System.Globalization.CultureInfo> class. Therefore, this class and those that derive from it can be used only to calculate dates in the East Asian lunisolar calendars. This class supports several \"get\" methods to describe a <xref:System.DateTime> in the terms used by lunisolar calendars, and the <xref:System.Globalization.EastAsianLunisolarCalendar.ToDateTime%2A> method to convert from lunisolar calendar data to a <xref:System.DateTime>."
   syntax:
     content: >-
@@ -150,7 +150,7 @@ items:
   - System.Runtime
   namespace: System.Globalization
   summary: Calculates the date that is the specified number of months away from the specified date.
-  remarks: "The day part of the resulting <xref:System.DateTime> is affected if the resulting day is not a valid day in the resulting month of the resulting year. In this case, the day part is changed to the last valid day in the resulting month of the resulting year. The year part of the resulting <xref:System.DateTime> is affected if the resulting month is outside the year of the specified <xref:System.DateTime>. This implementation supports only the current era. Therefore, <xref:System.ArgumentException> is thrown if the resulting year is outside the era of the specified <xref:System.DateTime>. The time-of-day part of the resulting <xref:System.DateTime> remains the same as the specified <xref:System.DateTime>.  \n  \n For example, if the specified month is October, which has 31 days, the specified day is the thirty-first day of that month, and the value of the `months` parameter is 6, the resulting year is one more than the specified year, the resulting month is April, and the resulting day is the thirtieth day, which is the last day in April.  \n  \n If the value of the `months` parameter is negative, the resulting <xref:System.DateTime> is earlier than the specified <xref:System.DateTime>.  \n  \n The<xref:System.DateTime.Kind%2A> property of the returned <xref:System.DateTime> value always equals <xref:System.DateTimeKind?displayProperty=fullName>. You can preserve the <xref:System.DateTime.Kind%2A> property of the `time` parameter by calling the <xref:System.DateTime.SpecifyKind%2A?displayProperty=fullName> method, as the following example shows.  \n  \n [!code-csharp[System.Globalization.Calendar.AddMethods#5](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.globalization.calendar.addmethods/cs/add1.cs#5)]\n [!code-vb[System.Globalization.Calendar.AddMethods#5](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.globalization.calendar.addmethods/vb/add1.vb#5)]"
+  remarks: "The day part of the resulting <xref:System.DateTime> is affected if the resulting day is not a valid day in the resulting month of the resulting year. In this case, the day part is changed to the last valid day in the resulting month of the resulting year. The year part of the resulting <xref:System.DateTime> is affected if the resulting month is outside the year of the specified <xref:System.DateTime>. This implementation supports only the current era. Therefore, <xref:System.ArgumentException> is thrown if the resulting year is outside the era of the specified <xref:System.DateTime>. The time-of-day part of the resulting <xref:System.DateTime> remains the same as the specified <xref:System.DateTime>.  \n  \n For example, if the specified month is October, which has 31 days, the specified day is the thirty-first day of that month, and the value of the `months` parameter is 6, the resulting year is one more than the specified year, the resulting month is April, and the resulting day is the thirtieth day, which is the last day in April.  \n  \n If the value of the `months` parameter is negative, the resulting <xref:System.DateTime> is earlier than the specified <xref:System.DateTime>.  \n  \n The<xref:System.DateTime.Kind%2A> property of the returned <xref:System.DateTime> value always equals <xref:System.DateTimeKind?displayProperty=fullName>. You can preserve the <xref:System.DateTime.Kind%2A> property of the `time` parameter by calling the <xref:System.DateTime.SpecifyKind%2A?displayProperty=fullName> method, as the following example shows.  \n  \n [!code-csharp[System.Globalization.Calendar.AddMethods#5](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.globalization.calendar.addmethods/cs/add1.cs#5)] [!code-vb[System.Globalization.Calendar.AddMethods#5](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.globalization.calendar.addmethods/vb/add1.vb#5)]"
   syntax:
     content: public override DateTime AddMonths (DateTime time, int months);
     parameters:
@@ -230,7 +230,7 @@ items:
   - System.Runtime
   namespace: System.Globalization
   summary: Calculates the date that is the specified number of years away from the specified date.
-  remarks: "The day part of the resulting <xref:System.DateTime> is affected if the resulting day is not a valid day in the resulting month of the resulting year. In this case, the day part is changed to the last valid day in the resulting month of the resulting year. The month part of the resulting <xref:System.DateTime> remains the same as the specified <xref:System.DateTime>. This implementation supports only the current era. Therefore, <xref:System.ArgumentException> is thrown if the resulting year is outside the era of the specified <xref:System.DateTime>. The time-of-day part of the resulting <xref:System.DateTime> remains the same as the specified <xref:System.DateTime>.  \n  \n For example, February has 28 days, except during leap years when it has 29 days. If the specified date is the twenty-ninth day of February in a leap year and the value of the `years` parameter is 1, the resulting date will be the twenty-eighth day of February in the following year.  \n  \n If `years` is negative, the resulting <xref:System.DateTime> is earlier than the specified <xref:System.DateTime>.  \n  \n The<xref:System.DateTime.Kind%2A> property of the returned <xref:System.DateTime> value always equals <xref:System.DateTimeKind?displayProperty=fullName>. You can preserve the <xref:System.DateTime.Kind%2A> property of the `time` parameter by calling the <xref:System.DateTime.SpecifyKind%2A?displayProperty=fullName> method, as the following example shows.  \n  \n [!code-csharp[System.Globalization.Calendar.AddMethods#8](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.globalization.calendar.addmethods/cs/add1.cs#8)]\n [!code-vb[System.Globalization.Calendar.AddMethods#8](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.globalization.calendar.addmethods/vb/add1.vb#8)]"
+  remarks: "The day part of the resulting <xref:System.DateTime> is affected if the resulting day is not a valid day in the resulting month of the resulting year. In this case, the day part is changed to the last valid day in the resulting month of the resulting year. The month part of the resulting <xref:System.DateTime> remains the same as the specified <xref:System.DateTime>. This implementation supports only the current era. Therefore, <xref:System.ArgumentException> is thrown if the resulting year is outside the era of the specified <xref:System.DateTime>. The time-of-day part of the resulting <xref:System.DateTime> remains the same as the specified <xref:System.DateTime>.  \n  \n For example, February has 28 days, except during leap years when it has 29 days. If the specified date is the twenty-ninth day of February in a leap year and the value of the `years` parameter is 1, the resulting date will be the twenty-eighth day of February in the following year.  \n  \n If `years` is negative, the resulting <xref:System.DateTime> is earlier than the specified <xref:System.DateTime>.  \n  \n The<xref:System.DateTime.Kind%2A> property of the returned <xref:System.DateTime> value always equals <xref:System.DateTimeKind?displayProperty=fullName>. You can preserve the <xref:System.DateTime.Kind%2A> property of the `time` parameter by calling the <xref:System.DateTime.SpecifyKind%2A?displayProperty=fullName> method, as the following example shows.  \n  \n [!code-csharp[System.Globalization.Calendar.AddMethods#8](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.globalization.calendar.addmethods/cs/add1.cs#8)] [!code-vb[System.Globalization.Calendar.AddMethods#8](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.globalization.calendar.addmethods/vb/add1.vb#8)]"
   syntax:
     content: public override DateTime AddYears (DateTime time, int years);
     parameters:
@@ -308,7 +308,7 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Globalization
-  summary: Gets a value indicating whether the current calendar is solar-based, lunar-based, or a combination of both.
+  summary: 'Gets a value indicating whether the current calendar is solar-based, lunar-based, or a combination of both.'
   syntax:
     content: public override System.Globalization.CalendarAlgorithmType AlgorithmType { get; }
     return:
@@ -581,7 +581,7 @@ items:
   - System.Runtime
   namespace: System.Globalization
   summary: Calculates the day of the year in the specified date.
-  remarks: The day of the year is defined as the number of days from the first day of the year. For example, <xref:System.Globalization.EastAsianLunisolarCalendar.GetDayOfYear%2A> for the first day of the first month returns 1, and <xref:System.Globalization.EastAsianLunisolarCalendar.GetDayOfYear%2A> for the last day of the last month returns the total number of days in that year, which is the same value returned by <xref:System.Globalization.EastAsianLunisolarCalendar.GetDaysInYear%2A>.
+  remarks: 'The day of the year is defined as the number of days from the first day of the year. For example, <xref:System.Globalization.EastAsianLunisolarCalendar.GetDayOfYear%2A> for the first day of the first month returns 1, and <xref:System.Globalization.EastAsianLunisolarCalendar.GetDayOfYear%2A> for the last day of the last month returns the total number of days in that year, which is the same value returned by <xref:System.Globalization.EastAsianLunisolarCalendar.GetDaysInYear%2A>.'
   syntax:
     content: public override int GetDayOfYear (DateTime time);
     parameters:
@@ -590,7 +590,7 @@ items:
       description: The <xref href="System.DateTime"></xref> to read.
     return:
       type: System.Int32
-      description: An integer from 1 through 354 in a common year, or 1 through 384 in a leap year, that represents the day of the year specified in the <code>time</code> parameter.
+      description: 'An integer from 1 through 354 in a common year, or 1 through 384 in a leap year, that represents the day of the year specified in the <code>time</code> parameter.'
   overload: System.Globalization.EastAsianLunisolarCalendar.GetDayOfYear*
   exceptions: []
   version:
@@ -652,7 +652,7 @@ items:
   - System.Runtime
   namespace: System.Globalization
   summary: Calculates the number of days in the specified month of the specified year and era.
-  remarks: Ifthe `month` parameter is the second month, the <xref:System.Globalization.EastAsianLunisolarCalendar.GetDaysInMonth%2A> method returns 28 or 29, depending on whether the `year` parameter is a leap year.
+  remarks: 'Ifthe `month` parameter is the second month, the <xref:System.Globalization.EastAsianLunisolarCalendar.GetDaysInMonth%2A> method returns 28 or 29, depending on whether the `year` parameter is a leap year.'
   syntax:
     content: public override int GetDaysInMonth (int year, int month, int era);
     parameters:
@@ -661,7 +661,7 @@ items:
       description: An integer that represents the year.
     - id: month
       type: System.Int32
-      description: An integer from 1 through 12 in a common year, or 1 through 13 in a leap year, that represents the month.
+      description: 'An integer from 1 through 12 in a common year, or 1 through 13 in a leap year, that represents the month.'
     - id: era
       type: System.Int32
       description: An integer that represents the era.
@@ -672,7 +672,7 @@ items:
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: <code>year</code>, <code>month</code>, or <code>era</code> is outside the range supported by this calendar.
+    description: '<code>year</code>, <code>month</code>, or <code>era</code> is outside the range supported by this calendar.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -732,7 +732,7 @@ items:
   - System.Runtime
   namespace: System.Globalization
   summary: Calculates the number of days in the specified year and era.
-  remarks: The <xref:System.Globalization.EastAsianLunisolarCalendar.GetDaysInYear%2A> method returns 365 or 366, depending on whether the `year` parameter is a leap year.
+  remarks: 'The <xref:System.Globalization.EastAsianLunisolarCalendar.GetDaysInYear%2A> method returns 365 or 366, depending on whether the `year` parameter is a leap year.'
   syntax:
     content: public override int GetDaysInYear (int year, int era);
     parameters:
@@ -809,7 +809,7 @@ items:
   - System.Runtime
   namespace: System.Globalization
   summary: Calculates the leap month for the specified year and era.
-  remarks: In a calendar that supports a leap month, the leap month can occur either after a particular month or after any month in a year. For example, the <xref:System.Globalization.EastAsianLunisolarCalendar.GetMonth%2A> method returns a number from 1 through 13 that indicates the month associated with a specified date. If there is a leap month between the eighth and ninth months of the year, the <xref:System.Globalization.EastAsianLunisolarCalendar.GetMonth%2A> method returns 8 for the eighth month, 9 for the leap eighth month, and 10 for the ninth month.
+  remarks: 'In a calendar that supports a leap month, the leap month can occur either after a particular month or after any month in a year. For example, the <xref:System.Globalization.EastAsianLunisolarCalendar.GetMonth%2A> method returns a number from 1 through 13 that indicates the month associated with a specified date. If there is a leap month between the eighth and ninth months of the year, the <xref:System.Globalization.EastAsianLunisolarCalendar.GetMonth%2A> method returns 8 for the eighth month, 9 for the leap eighth month, and 10 for the ninth month.'
   syntax:
     content: public override int GetLeapMonth (int year, int era);
     parameters:
@@ -1264,7 +1264,7 @@ items:
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: <code>year</code>, <code>month</code>, <code>day</code>, or <code>era</code> is outside the range supported by this calendar.
+    description: '<code>year</code>, <code>month</code>, <code>day</code>, or <code>era</code> is outside the range supported by this calendar.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -1343,7 +1343,7 @@ items:
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: <code>year</code>, <code>month</code>, or <code>era</code> is outside the range supported by this calendar.
+    description: '<code>year</code>, <code>month</code>, or <code>era</code> is outside the range supported by this calendar.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -1478,8 +1478,8 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Globalization
-  summary: Returns a <xref href="System.DateTime"></xref> that is set to the specified date, time, and era.
-  remarks: The <xref:System.Globalization.EastAsianLunisolarCalendar.ToDateTime%2A> method can convert any date in the current calendar to a Gregorian calendar date. The Gregorian date can subsequently be used, for example, to compare dates in different calendars or create an equivalent date in a particular calendar.
+  summary: 'Returns a <xref href="System.DateTime"></xref> that is set to the specified date, time, and era.'
+  remarks: 'The <xref:System.Globalization.EastAsianLunisolarCalendar.ToDateTime%2A> method can convert any date in the current calendar to a Gregorian calendar date. The Gregorian date can subsequently be used, for example, to compare dates in different calendars or create an equivalent date in a particular calendar.'
   syntax:
     content: public override DateTime ToDateTime (int year, int month, int day, int hour, int minute, int second, int millisecond, int era);
     parameters:
@@ -1509,12 +1509,12 @@ items:
       description: An integer that represents the era.
     return:
       type: System.DateTime
-      description: A <xref href="System.DateTime"></xref> that is set to the specified date, time, and era.
+      description: 'A <xref href="System.DateTime"></xref> that is set to the specified date, time, and era.'
   overload: System.Globalization.EastAsianLunisolarCalendar.ToDateTime*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: <code>year</code>, <code>month</code>, <code>day</code>, <code>hour</code>, <code>minute</code>, <code>second</code>, <code>millisecond</code>, or <code>era</code> is outside the range supported by this calendar.
+    description: '<code>year</code>, <code>month</code>, <code>day</code>, <code>hour</code>, <code>minute</code>, <code>second</code>, <code>millisecond</code>, or <code>era</code> is outside the range supported by this calendar.'
   version:
   - netcore-1.0
   - netcore-1.1

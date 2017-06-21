@@ -41,7 +41,7 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media
-  summary: Describes visual content using draw, push, and pop commands.
+  summary: 'Describes visual content using draw, push, and pop commands.'
   remarks: "Use a <xref:System.Windows.Media.DrawingContext> to populate a <xref:System.Windows.Media.Visual> or a <xref:System.Windows.Media.Drawing> with visual content.  \n  \n Although the <xref:System.Windows.Media.DrawingContext> draw methods appear similar to the draw methods of the <xref:System.Drawing.Graphics?displayProperty=fullName> type, they function very differently: <xref:System.Windows.Media.DrawingContext> is used with a retained mode graphics system, while the <xref:System.Drawing.Graphics?displayProperty=fullName> type is used with an immediate mode graphics system. When you use a <xref:System.Windows.Media.DrawingContext> object's draw commands, you are actually storing a set of rendering instructions (although the exact storage mechanism depends on the type of object that supplies the <xref:System.Windows.Media.DrawingContext>) that will later be used by the graphics system; you are not drawing to the screen in real-time. For more information about how the [!INCLUDE[TLA#tla_wpf](~/includes/tlasharptla-wpf-md.md)] graphics system works, see [WPF Graphics Rendering Overview](~/docs/framework/wpf/graphics-multimedia/wpf-graphics-rendering-overview.md).  \n  \n You never directly instantiate a <xref:System.Windows.Media.DrawingContext>; you can, however, acquire a drawing context from certain methods, such as <xref:System.Windows.Media.DrawingGroup.Open%2A?displayProperty=fullName> and <xref:System.Windows.Media.DrawingVisual.RenderOpen%2A?displayProperty=fullName>."
   example:
   - "The following example retrieves a <xref:System.Windows.Media.DrawingContext> from a <xref:System.Windows.Media.DrawingVisual> and uses it to draw a rectangle.  \n  \n [!code-csharp[drawingvisualsample#101](~/samples/snippets/csharp/VS_Snippets_Wpf/DrawingVisualSample/CSharp/Window1.xaml.cs#101)]\n [!code-vb[drawingvisualsample#101](~/samples/snippets/visualbasic/VS_Snippets_Wpf/DrawingVisualSample/visualbasic/window1.xaml.vb#101)]  \n  \n The next example demonstrates the <xref:System.Windows.Media.DrawingContext.PushOpacity%2A>, <xref:System.Windows.Media.DrawingContext.PushEffect%2A>, and <xref:System.Windows.Media.DrawingContext.Pop%2A> commands. The <xref:System.Windows.Media.DrawingContext> is obtained from a <xref:System.Windows.Media.DrawingGroup> and displayed using an <xref:System.Windows.Controls.Image> control.  \n  \n [!code-csharp[DrawingContext_procedural_snip#PushEffectExampleWholePage](~/samples/snippets/csharp/VS_Snippets_Wpf/DrawingContext_procedural_snip/CSharp/PushEffectExample.cs#pusheffectexamplewholepage)]\n [!code-vb[DrawingContext_procedural_snip#PushEffectExampleWholePage](~/samples/snippets/visualbasic/VS_Snippets_Wpf/DrawingContext_procedural_snip/visualbasic/pusheffectexample.vb#pusheffectexamplewholepage)]"
@@ -98,8 +98,8 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media
-  summary: Closes the <xref href="System.Windows.Media.DrawingContext"></xref> and flushes the content. Afterward, the <xref href="System.Windows.Media.DrawingContext"></xref> cannot be modified.
-  remarks: A <xref:System.Windows.Media.DrawingContext> must be closed before its content can be rendered, but after it has been closed, it cannot be modified. This call does not require all Push calls to have been Popped.
+  summary: 'Closes the <xref href="System.Windows.Media.DrawingContext"></xref> and flushes the content. Afterward, the <xref href="System.Windows.Media.DrawingContext"></xref> cannot be modified.'
+  remarks: 'A <xref:System.Windows.Media.DrawingContext> must be closed before its content can be rendered, but after it has been closed, it cannot be modified. This call does not require all Push calls to have been Popped.'
   syntax:
     content: public abstract void Close ();
     parameters: []
@@ -144,7 +144,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Releases all resources used by the <xref href="System.Windows.Media.DrawingContext"></xref>.
-  remarks: Do not call this method directly from your code; use the <xref:System.Windows.Media.DrawingContext.System%23IDisposable%23Dispose%2A> method instead.
+  remarks: 'Do not call this method directly from your code; use the <xref:System.Windows.Media.DrawingContext.System%23IDisposable%23Dispose%2A> method instead.'
   syntax:
     content: protected abstract void DisposeCore ();
     parameters: []
@@ -232,16 +232,16 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Draws an ellipse with the specified <xref href="System.Windows.Media.Brush"></xref> and <xref href="System.Windows.Media.Pen"></xref>.
-  remarks: The brush and the pen can both be `null`.  If the brush is `null`, then no fill is performed.  If the pen is `null`, then no stoke is performed.  If both the pen and the brush are `null`, then the drawing is not visible.
+  remarks: 'The brush and the pen can both be `null`.  If the brush is `null`, then no fill is performed.  If the pen is `null`, then no stoke is performed.  If both the pen and the brush are `null`, then the drawing is not visible.'
   syntax:
     content: public abstract void DrawEllipse (System.Windows.Media.Brush brush, System.Windows.Media.Pen pen, System.Windows.Point center, double radiusX, double radiusY);
     parameters:
     - id: brush
       type: System.Windows.Media.Brush
-      description: The brush with which to fill the ellipse.  This is optional, and can be `null`. If the brush is `null`, no fill is drawn.
+      description: 'The brush with which to fill the ellipse.  This is optional, and can be `null`. If the brush is `null`, no fill is drawn.'
     - id: pen
       type: System.Windows.Media.Pen
-      description: The pen with which to stroke the ellipse.  This is optional, and can be `null`. If the pen is `null`, no stroke is drawn.
+      description: 'The pen with which to stroke the ellipse.  This is optional, and can be `null`. If the pen is `null`, no stroke is drawn.'
     - id: center
       type: System.Windows.Point
       description: The location of the center of the ellipse.
@@ -288,34 +288,34 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Draws an ellipse with the specified <xref href="System.Windows.Media.Brush"></xref> and <xref href="System.Windows.Media.Pen"></xref> and applies the specified animation clocks.
-  remarks: The brush and the pen can both be `null`.  If the brush is `null`, then no fill is performed.  If the pen is `null`, then no stoke is performed.  If both the pen and the brush are `null`, then the drawing is not visible.
+  remarks: 'The brush and the pen can both be `null`.  If the brush is `null`, then no fill is performed.  If the pen is `null`, then no stoke is performed.  If both the pen and the brush are `null`, then the drawing is not visible.'
   syntax:
     content: public abstract void DrawEllipse (System.Windows.Media.Brush brush, System.Windows.Media.Pen pen, System.Windows.Point center, System.Windows.Media.Animation.AnimationClock centerAnimations, double radiusX, System.Windows.Media.Animation.AnimationClock radiusXAnimations, double radiusY, System.Windows.Media.Animation.AnimationClock radiusYAnimations);
     parameters:
     - id: brush
       type: System.Windows.Media.Brush
-      description: The brush with which to fill the ellipse.  This is optional, and can be `null`. If the brush is `null`, no fill is drawn.
+      description: 'The brush with which to fill the ellipse.  This is optional, and can be `null`. If the brush is `null`, no fill is drawn.'
     - id: pen
       type: System.Windows.Media.Pen
-      description: The pen with which to stroke the ellipse.  This is optional, and can be `null`. If the pen is `null`, no stroke is drawn.
+      description: 'The pen with which to stroke the ellipse.  This is optional, and can be `null`. If the pen is `null`, no stroke is drawn.'
     - id: center
       type: System.Windows.Point
       description: The location of the center of the ellipse.
     - id: centerAnimations
       type: System.Windows.Media.Animation.AnimationClock
-      description: The clock with which to animate the ellipse's center position, or `null` for no animation. This clock must be created from an <xref href="System.Windows.Media.Animation.AnimationTimeline"></xref> that can animate <xref href="System.Windows.Point"></xref> objects.
+      description: 'The clock with which to animate the ellipse''s center position, or `null` for no animation. This clock must be created from an <xref href="System.Windows.Media.Animation.AnimationTimeline"></xref> that can animate <xref href="System.Windows.Point"></xref> objects.'
     - id: radiusX
       type: System.Double
       description: The horizontal radius of the ellipse.
     - id: radiusXAnimations
       type: System.Windows.Media.Animation.AnimationClock
-      description: The clock with which to animate the ellipse's x-radius, or `null` for no animation. This clock must be created from an <xref href="System.Windows.Media.Animation.AnimationTimeline"></xref> that can animate <xref href="System.Double"></xref> objects.
+      description: 'The clock with which to animate the ellipse''s x-radius, or `null` for no animation. This clock must be created from an <xref href="System.Windows.Media.Animation.AnimationTimeline"></xref> that can animate <xref href="System.Double"></xref> objects.'
     - id: radiusY
       type: System.Double
       description: The vertical radius of the ellipse.
     - id: radiusYAnimations
       type: System.Windows.Media.Animation.AnimationClock
-      description: The clock with which to animate the ellipse's y-radius, or `null` for no animation. This clock must be created from an <xref href="System.Windows.Media.Animation.AnimationTimeline"></xref> that can animate <xref href="System.Double"></xref> objects.
+      description: 'The clock with which to animate the ellipse''s y-radius, or `null` for no animation. This clock must be created from an <xref href="System.Windows.Media.Animation.AnimationTimeline"></xref> that can animate <xref href="System.Double"></xref> objects.'
   overload: System.Windows.Media.DrawingContext.DrawEllipse*
   exceptions: []
   version:
@@ -358,10 +358,10 @@ items:
     parameters:
     - id: brush
       type: System.Windows.Media.Brush
-      description: The <xref href="System.Windows.Media.Brush"></xref> with which to fill the <xref href="System.Windows.Media.Geometry"></xref>. This is optional, and can be `null`. If the brush is `null`, no fill is drawn.
+      description: 'The <xref href="System.Windows.Media.Brush"></xref> with which to fill the <xref href="System.Windows.Media.Geometry"></xref>. This is optional, and can be `null`. If the brush is `null`, no fill is drawn.'
     - id: pen
       type: System.Windows.Media.Pen
-      description: The <xref href="System.Windows.Media.Pen"></xref> with which to stroke the <xref href="System.Windows.Media.Geometry"></xref>. This is optional, and can be `null`. If the pen is `null`, no stroke is drawn.
+      description: 'The <xref href="System.Windows.Media.Pen"></xref> with which to stroke the <xref href="System.Windows.Media.Geometry"></xref>. This is optional, and can be `null`. If the pen is `null`, no stroke is drawn.'
     - id: geometry
       type: System.Windows.Media.Geometry
       description: The <xref href="System.Windows.Media.Geometry"></xref> to draw.
@@ -508,7 +508,7 @@ items:
       description: The region in which to draw <code>bitmapSource</code>.
     - id: rectangleAnimations
       type: System.Windows.Media.Animation.AnimationClock
-      description: The clock with which to animate the rectangle's size and dimensions, or `null` for no animation. This clock must be created from an <xref href="System.Windows.Media.Animation.AnimationTimeline"></xref> that can animate <xref href="System.Windows.Rect"></xref> objects.
+      description: 'The clock with which to animate the rectangle''s size and dimensions, or `null` for no animation. This clock must be created from an <xref href="System.Windows.Media.Animation.AnimationTimeline"></xref> that can animate <xref href="System.Windows.Rect"></xref> objects.'
   overload: System.Windows.Media.DrawingContext.DrawImage*
   exceptions: []
   version:
@@ -608,13 +608,13 @@ items:
       description: The start point of the line.
     - id: point0Animations
       type: System.Windows.Media.Animation.AnimationClock
-      description: The clock with which to animate the start point of the line, or `null` for no animation. This clock must be created from an <xref href="System.Windows.Media.Animation.AnimationTimeline"></xref> that can animate <xref href="System.Windows.Point"></xref> objects.
+      description: 'The clock with which to animate the start point of the line, or `null` for no animation. This clock must be created from an <xref href="System.Windows.Media.Animation.AnimationTimeline"></xref> that can animate <xref href="System.Windows.Point"></xref> objects.'
     - id: point1
       type: System.Windows.Point
       description: The end point of the line.
     - id: point1Animations
       type: System.Windows.Media.Animation.AnimationClock
-      description: The clock with which to animate the end point of the line, or `null` for no animation. This clock must be created from an <xref href="System.Windows.Media.Animation.AnimationTimeline"></xref> that can animate <xref href="System.Windows.Point"></xref> objects.
+      description: 'The clock with which to animate the end point of the line, or `null` for no animation. This clock must be created from an <xref href="System.Windows.Media.Animation.AnimationTimeline"></xref> that can animate <xref href="System.Windows.Point"></xref> objects.'
   overload: System.Windows.Media.DrawingContext.DrawLine*
   exceptions: []
   version:
@@ -652,16 +652,16 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Draws a rectangle with the specified <xref href="System.Windows.Media.Brush"></xref> and <xref href="System.Windows.Media.Pen"></xref>. The pen and the brush can be `null`.
-  remarks: The brush and the pen can both be `null`.  If the brush is `null`, then no fill is performed.  If the pen is `null`, then no stoke is performed.  If both the pen and the brush are `null`, then the drawing is not visible.
+  remarks: 'The brush and the pen can both be `null`.  If the brush is `null`, then no fill is performed.  If the pen is `null`, then no stoke is performed.  If both the pen and the brush are `null`, then the drawing is not visible.'
   syntax:
     content: public abstract void DrawRectangle (System.Windows.Media.Brush brush, System.Windows.Media.Pen pen, System.Windows.Rect rectangle);
     parameters:
     - id: brush
       type: System.Windows.Media.Brush
-      description: The brush with which to fill the rectangle.  This is optional, and can be `null`. If the brush is `null`, no fill is drawn.
+      description: 'The brush with which to fill the rectangle.  This is optional, and can be `null`. If the brush is `null`, no fill is drawn.'
     - id: pen
       type: System.Windows.Media.Pen
-      description: The pen with which to stroke the rectangle.  This is optional, and can be `null`. If the pen is `null`, no stroke is drawn.
+      description: 'The pen with which to stroke the rectangle.  This is optional, and can be `null`. If the pen is `null`, no stroke is drawn.'
     - id: rectangle
       type: System.Windows.Rect
       description: The rectangle to draw.
@@ -703,22 +703,22 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Draws a rectangle with the specified <xref href="System.Windows.Media.Brush"></xref> and <xref href="System.Windows.Media.Pen"></xref> and applies the specified animation clocks.
-  remarks: The brush and the pen can both be `null`.  If the brush is `null`, then no fill is performed.  If the pen is `null`, then no stoke is performed.  If both the pen and the brush are `null`, then the drawing is not visible.
+  remarks: 'The brush and the pen can both be `null`.  If the brush is `null`, then no fill is performed.  If the pen is `null`, then no stoke is performed.  If both the pen and the brush are `null`, then the drawing is not visible.'
   syntax:
     content: public abstract void DrawRectangle (System.Windows.Media.Brush brush, System.Windows.Media.Pen pen, System.Windows.Rect rectangle, System.Windows.Media.Animation.AnimationClock rectangleAnimations);
     parameters:
     - id: brush
       type: System.Windows.Media.Brush
-      description: The brush with which to fill the rectangle.  This is optional, and can be `null`. If the brush is `null`, no fill is drawn.
+      description: 'The brush with which to fill the rectangle.  This is optional, and can be `null`. If the brush is `null`, no fill is drawn.'
     - id: pen
       type: System.Windows.Media.Pen
-      description: The pen with which to stroke the rectangle.  This is optional, and can be `null`. If the pen is `null`, no stroke is drawn.
+      description: 'The pen with which to stroke the rectangle.  This is optional, and can be `null`. If the pen is `null`, no stroke is drawn.'
     - id: rectangle
       type: System.Windows.Rect
       description: The rectangle to draw.
     - id: rectangleAnimations
       type: System.Windows.Media.Animation.AnimationClock
-      description: The clock with which to animate the rectangle's size and dimensions, or `null` for no animation. This clock must be created from an <xref href="System.Windows.Media.Animation.AnimationTimeline"></xref> that can animate <xref href="System.Windows.Rect"></xref> objects.
+      description: 'The clock with which to animate the rectangle''s size and dimensions, or `null` for no animation. This clock must be created from an <xref href="System.Windows.Media.Animation.AnimationTimeline"></xref> that can animate <xref href="System.Windows.Rect"></xref> objects.'
   overload: System.Windows.Media.DrawingContext.DrawRectangle*
   exceptions: []
   version:
@@ -757,34 +757,34 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Draws a rounded rectangle with the specified <xref href="System.Windows.Media.Brush"></xref> and <xref href="System.Windows.Media.Pen"></xref> and applies the specified animation clocks.
-  remarks: The brush and the pen can both be `null`.  If the brush is `null`, then no fill is performed.  If the pen is `null`, then no stoke is performed.  If both the pen and the brush are `null`, then the drawing is not visible.
+  remarks: 'The brush and the pen can both be `null`.  If the brush is `null`, then no fill is performed.  If the pen is `null`, then no stoke is performed.  If both the pen and the brush are `null`, then the drawing is not visible.'
   syntax:
     content: public abstract void DrawRoundedRectangle (System.Windows.Media.Brush brush, System.Windows.Media.Pen pen, System.Windows.Rect rectangle, System.Windows.Media.Animation.AnimationClock rectangleAnimations, double radiusX, System.Windows.Media.Animation.AnimationClock radiusXAnimations, double radiusY, System.Windows.Media.Animation.AnimationClock radiusYAnimations);
     parameters:
     - id: brush
       type: System.Windows.Media.Brush
-      description: The brush used to fill the rectangle, or `null` for no fill.
+      description: 'The brush used to fill the rectangle, or `null` for no fill.'
     - id: pen
       type: System.Windows.Media.Pen
-      description: The pen used to stroke the rectangle, or `null` for no stroke.
+      description: 'The pen used to stroke the rectangle, or `null` for no stroke.'
     - id: rectangle
       type: System.Windows.Rect
       description: The rectangle to draw.
     - id: rectangleAnimations
       type: System.Windows.Media.Animation.AnimationClock
-      description: The clock with which to animate the rectangle's size and dimensions, or `null` for no animation. This clock must be created from an <xref href="System.Windows.Media.Animation.AnimationTimeline"></xref> that can animate <xref href="System.Windows.Rect"></xref> objects.
+      description: 'The clock with which to animate the rectangle''s size and dimensions, or `null` for no animation. This clock must be created from an <xref href="System.Windows.Media.Animation.AnimationTimeline"></xref> that can animate <xref href="System.Windows.Rect"></xref> objects.'
     - id: radiusX
       type: System.Double
       description: The radius in the X dimension of the rounded corners.  This value will be clamped to the range of 0 to <xref href="System.Windows.Rect.Width"></xref>/2
     - id: radiusXAnimations
       type: System.Windows.Media.Animation.AnimationClock
-      description: The clock with which to animate the rectangle's <code>radiusX</code> value, or `null` for no animation. This clock must be created from an <xref href="System.Windows.Media.Animation.AnimationTimeline"></xref> that can animate <xref href="System.Double"></xref> values.
+      description: 'The clock with which to animate the rectangle''s <code>radiusX</code> value, or `null` for no animation. This clock must be created from an <xref href="System.Windows.Media.Animation.AnimationTimeline"></xref> that can animate <xref href="System.Double"></xref> values.'
     - id: radiusY
       type: System.Double
       description: The radius in the Y dimension of the rounded corners.  This value will be clamped to a value between 0 to <xref href="System.Windows.Rect.Height"></xref>/2.
     - id: radiusYAnimations
       type: System.Windows.Media.Animation.AnimationClock
-      description: The clock with which to animate the rectangle's <code>radiusY</code> value, or `null` for no animation. This clock must be created from an <xref href="System.Windows.Media.Animation.AnimationTimeline"></xref> that can animate <xref href="System.Double"></xref> values.
+      description: 'The clock with which to animate the rectangle''s <code>radiusY</code> value, or `null` for no animation. This clock must be created from an <xref href="System.Windows.Media.Animation.AnimationTimeline"></xref> that can animate <xref href="System.Double"></xref> values.'
   overload: System.Windows.Media.DrawingContext.DrawRoundedRectangle*
   exceptions: []
   version:
@@ -822,7 +822,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Draws a rounded rectangle with the specified <xref href="System.Windows.Media.Brush"></xref> and <xref href="System.Windows.Media.Pen"></xref>.
-  remarks: The brush and the pen can both be `null`.  If the brush is `null`, then no fill is performed.  If the pen is `null`, then no stoke is performed.  If both the pen and the brush are `null`, then the drawing is not visible.
+  remarks: 'The brush and the pen can both be `null`.  If the brush is `null`, then no fill is performed.  If the pen is `null`, then no stoke is performed.  If both the pen and the brush are `null`, then the drawing is not visible.'
   syntax:
     content: public abstract void DrawRoundedRectangle (System.Windows.Media.Brush brush, System.Windows.Media.Pen pen, System.Windows.Rect rectangle, double radiusX, double radiusY);
     parameters:
@@ -929,7 +929,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Draws a video into the specified region.
-  remarks: Note that the media will be stretched to fit inside the area defined by the rectangle parameter. If rectangle and media have different aspect ratios, distortion will occur. For more control over how media is used to fill an area, use the <xref:System.Windows.Media.DrawingContext.DrawRectangle%2A> command to draw a rectangle and fill it with a <xref:System.Windows.Media.VisualBrush> that contains media.
+  remarks: 'Note that the media will be stretched to fit inside the area defined by the rectangle parameter. If rectangle and media have different aspect ratios, distortion will occur. For more control over how media is used to fill an area, use the <xref:System.Windows.Media.DrawingContext.DrawRectangle%2A> command to draw a rectangle and fill it with a <xref:System.Windows.Media.VisualBrush> that contains media.'
   syntax:
     content: public abstract void DrawVideo (System.Windows.Media.MediaPlayer player, System.Windows.Rect rectangle);
     parameters:
@@ -977,7 +977,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Draws a video into the specified region and applies the specified animation clock.
-  remarks: Note that the media will be stretched to fit inside the area defined by the rectangle parameter. If rectangle and media have different aspect ratios, distortion will occur. For more control over how media is used to fill an area, use the <xref:System.Windows.Media.DrawingContext.DrawRectangle%2A> command to draw a rectangle and fill it with a <xref:System.Windows.Media.VisualBrush> that contains media.
+  remarks: 'Note that the media will be stretched to fit inside the area defined by the rectangle parameter. If rectangle and media have different aspect ratios, distortion will occur. For more control over how media is used to fill an area, use the <xref:System.Windows.Media.DrawingContext.DrawRectangle%2A> command to draw a rectangle and fill it with a <xref:System.Windows.Media.VisualBrush> that contains media.'
   syntax:
     content: public abstract void DrawVideo (System.Windows.Media.MediaPlayer player, System.Windows.Rect rectangle, System.Windows.Media.Animation.AnimationClock rectangleAnimations);
     parameters:
@@ -989,7 +989,7 @@ items:
       description: The area in which to draw the media.
     - id: rectangleAnimations
       type: System.Windows.Media.Animation.AnimationClock
-      description: The clock with which to animate the rectangle's size and dimensions, or `null` for no animation. This clock must be created from an <xref href="System.Windows.Media.Animation.AnimationTimeline"></xref> that can animate <xref href="System.Windows.Rect"></xref> objects.
+      description: 'The clock with which to animate the rectangle''s size and dimensions, or `null` for no animation. This clock must be created from an <xref href="System.Windows.Media.Animation.AnimationTimeline"></xref> that can animate <xref href="System.Windows.Rect"></xref> objects.'
   overload: System.Windows.Media.DrawingContext.DrawVideo*
   exceptions: []
   version:
@@ -1027,8 +1027,8 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media
-  summary: Pops the last opacity mask, opacity, clip, effect, or transform operation that was pushed onto the drawing context.
-  remarks: Once an operation is popped, it is no longer applied to subsequent drawing commands.
+  summary: 'Pops the last opacity mask, opacity, clip, effect, or transform operation that was pushed onto the drawing context.'
+  remarks: 'Once an operation is popped, it is no longer applied to subsequent drawing commands.'
   example:
   - "The following example shows the effect of the <xref:System.Windows.Media.DrawingContext.Pop%2A> command.  \n  \n [!code-csharp[DrawingContext_procedural_snip#PopExampleWholePage](~/samples/snippets/csharp/VS_Snippets_Wpf/DrawingContext_procedural_snip/CSharp/PopExample.cs#popexamplewholepage)]\n [!code-vb[DrawingContext_procedural_snip#PopExampleWholePage](~/samples/snippets/visualbasic/VS_Snippets_Wpf/DrawingContext_procedural_snip/visualbasic/popexample.vb#popexamplewholepage)]  \n  \n The following illustration shows this example's output:  \n  \n ![Rectangles drawn with different opacity values](~/add/media/graphicsmm-drawingcontextpopexample.gif \"Rectangles drawn with different opacity values\")"
   syntax:
@@ -1072,7 +1072,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Pushes the specified clip region onto the drawing context.
-  remarks: The clip region applies to all subsequent drawing commands until it is removed by the <xref:System.Windows.Media.DrawingContext.Pop%2A> command.
+  remarks: 'The clip region applies to all subsequent drawing commands until it is removed by the <xref:System.Windows.Media.DrawingContext.Pop%2A> command.'
   syntax:
     content: public abstract void PushClip (System.Windows.Media.Geometry clipGeometry);
     parameters:
@@ -1117,7 +1117,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Pushes the specified <xref href="System.Windows.Media.Effects.BitmapEffect"></xref> onto the drawing context.
-  remarks: The effect is applied to all subsequent drawing operations until it is removed by the <xref:System.Windows.Media.DrawingContext.Pop%2A> command.
+  remarks: 'The effect is applied to all subsequent drawing operations until it is removed by the <xref:System.Windows.Media.DrawingContext.Pop%2A> command.'
   example:
   - "The following example demonstrates the <xref:System.Windows.Media.DrawingContext.PushOpacity%2A>, <xref:System.Windows.Media.DrawingContext.PushEffect%2A>, and <xref:System.Windows.Media.DrawingContext.Pop%2A> commands.  \n  \n [!code-csharp[DrawingContext_procedural_snip#PushEffectExampleWholePage](~/samples/snippets/csharp/VS_Snippets_Wpf/DrawingContext_procedural_snip/CSharp/PushEffectExample.cs#pusheffectexamplewholepage)]\n [!code-vb[DrawingContext_procedural_snip#PushEffectExampleWholePage](~/samples/snippets/visualbasic/VS_Snippets_Wpf/DrawingContext_procedural_snip/visualbasic/pusheffectexample.vb#pusheffectexamplewholepage)]"
   syntax:
@@ -1131,7 +1131,7 @@ items:
       description: The effect to apply to subsequent drawings.
     - id: effectInput
       type: System.Windows.Media.Effects.BitmapEffectInput
-      description: The area to which the effect is applied, or `null` if the effect is to be applied to the entire area of subsequent drawings.
+      description: 'The area to which the effect is applied, or `null` if the effect is to be applied to the entire area of subsequent drawings.'
   overload: System.Windows.Media.DrawingContext.PushEffect*
   exceptions: []
   attributes:
@@ -1172,7 +1172,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Pushes the specified <xref href="System.Windows.Media.GuidelineSet"></xref> onto the drawing context.
-  remarks: The guideline set applies to all subsequent drawing commands until it is removed by the <xref:System.Windows.Media.DrawingContext.Pop%2A> operation.
+  remarks: 'The guideline set applies to all subsequent drawing commands until it is removed by the <xref:System.Windows.Media.DrawingContext.Pop%2A> operation.'
   syntax:
     content: public abstract void PushGuidelineSet (System.Windows.Media.GuidelineSet guidelines);
     parameters:
@@ -1217,7 +1217,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Pushes the specified opacity setting onto the drawing context.
-  remarks: The opacity is blended into all subsequent drawing commands until it is removed by the <xref:System.Windows.Media.DrawingContext.Pop%2A> command.
+  remarks: 'The opacity is blended into all subsequent drawing commands until it is removed by the <xref:System.Windows.Media.DrawingContext.Pop%2A> command.'
   example:
   - "The following example demonstrates the <xref:System.Windows.Media.DrawingContext.PushOpacity%2A>, <xref:System.Windows.Media.DrawingContext.PushEffect%2A>, and <xref:System.Windows.Media.DrawingContext.Pop%2A> commands.  \n  \n [!code-csharp[DrawingContext_procedural_snip#PushEffectExampleWholePage](~/samples/snippets/csharp/VS_Snippets_Wpf/DrawingContext_procedural_snip/CSharp/PushEffectExample.cs#pusheffectexamplewholepage)]\n [!code-vb[DrawingContext_procedural_snip#PushEffectExampleWholePage](~/samples/snippets/visualbasic/VS_Snippets_Wpf/DrawingContext_procedural_snip/visualbasic/pusheffectexample.vb#pusheffectexamplewholepage)]"
   syntax:
@@ -1264,7 +1264,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Pushes the specified opacity setting onto the drawing context and applies the specified animation clock.
-  remarks: The opacity is blended into all subsequent drawing commands until it is removed by the <xref:System.Windows.Media.DrawingContext.Pop%2A> command.
+  remarks: 'The opacity is blended into all subsequent drawing commands until it is removed by the <xref:System.Windows.Media.DrawingContext.Pop%2A> command.'
   syntax:
     content: public abstract void PushOpacity (double opacity, System.Windows.Media.Animation.AnimationClock opacityAnimations);
     parameters:
@@ -1273,7 +1273,7 @@ items:
       description: The opacity factor to apply to subsequent drawing commands. This factor is cumulative with previous <xref href="System.Windows.Media.DrawingContext.PushOpacity(System.Double)"></xref> operations.
     - id: opacityAnimations
       type: System.Windows.Media.Animation.AnimationClock
-      description: The clock with which to animate the opacity value, or `null` for no animation. This clock must be created from an <xref href="System.Windows.Media.Animation.AnimationTimeline"></xref> that can animate <xref href="System.Double"></xref> values.
+      description: 'The clock with which to animate the opacity value, or `null` for no animation. This clock must be created from an <xref href="System.Windows.Media.Animation.AnimationTimeline"></xref> that can animate <xref href="System.Double"></xref> values.'
   overload: System.Windows.Media.DrawingContext.PushOpacity*
   exceptions: []
   version:
@@ -1357,7 +1357,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Pushes the specified <xref href="System.Windows.Media.Transform"></xref> onto the drawing context.
-  remarks: The transform applies to all subsequent drawing commands until it is removed by the <xref:System.Windows.Media.DrawingContext.Pop%2A> command.
+  remarks: 'The transform applies to all subsequent drawing commands until it is removed by the <xref:System.Windows.Media.DrawingContext.Pop%2A> command.'
   syntax:
     content: public abstract void PushTransform (System.Windows.Media.Transform transform);
     parameters:
@@ -1401,7 +1401,7 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media
-  summary: This member supports the [!INCLUDE[TLA2#tla_winclient](~/includes/tla2sharptla-winclient-md.md)] infrastructure and is not intended to be used directly from your code.
+  summary: 'This member supports the [!INCLUDE[TLA2#tla_winclient](~/includes/tla2sharptla-winclient-md.md)] infrastructure and is not intended to be used directly from your code.'
   syntax:
     content: protected virtual void VerifyApiNonstructuralChange ();
     parameters: []
@@ -1442,7 +1442,7 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media
-  summary: This member supports the [!INCLUDE[TLA#tla_winclient](~/includes/tlasharptla-winclient-md.md)] infrastructure and is not intended to be used directly from your code.
+  summary: 'This member supports the [!INCLUDE[TLA#tla_winclient](~/includes/tlasharptla-winclient-md.md)] infrastructure and is not intended to be used directly from your code.'
   syntax:
     content: void IDisposable.Dispose ();
     parameters: []

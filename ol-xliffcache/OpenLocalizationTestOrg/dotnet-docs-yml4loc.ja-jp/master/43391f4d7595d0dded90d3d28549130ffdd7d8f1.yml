@@ -79,8 +79,8 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography
-  summary: Creates a new instance of the <xref href="System.Security.Cryptography.DataProtector"></xref> class by using the provided application name, primary purpose, and specific purposes.
-  remarks: This constructor sets the <xref:System.Security.Cryptography.DataProtector.ApplicationName%2A>, <xref:System.Security.Cryptography.DataProtector.PrimaryPurpose%2A>, and <xref:System.Security.Cryptography.DataProtector.SpecificPurposes%2A> properties. The combination of these three properties must uniquely identify the data you are protecting. If the data is not uniquely identified, you might inadvertently read the wrong data, or other data might be substituted for yours. Examples of primary and specific purpose pairs are "invoice" and invoice number, "gift card" and gift card number, "password" and URL string.
+  summary: 'Creates a new instance of the <xref href="System.Security.Cryptography.DataProtector"></xref> class by using the provided application name, primary purpose, and specific purposes.'
+  remarks: 'This constructor sets the <xref:System.Security.Cryptography.DataProtector.ApplicationName%2A>, <xref:System.Security.Cryptography.DataProtector.PrimaryPurpose%2A>, and <xref:System.Security.Cryptography.DataProtector.SpecificPurposes%2A> properties. The combination of these three properties must uniquely identify the data you are protecting. If the data is not uniquely identified, you might inadvertently read the wrong data, or other data might be substituted for yours. Examples of primary and specific purpose pairs are "invoice" and invoice number, "gift card" and gift card number, "password" and URL string.'
   syntax:
     content: protected DataProtector (string applicationName, string primaryPurpose, string[] specificPurposes);
     parameters:
@@ -176,7 +176,7 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography
-  summary: Creates an instance of a data protector implementation by using the specified class name of the data protector, the application name, the primary purpose, and the specific purposes.
+  summary: 'Creates an instance of a data protector implementation by using the specified class name of the data protector, the application name, the primary purpose, and the specific purposes.'
   syntax:
     content: public static System.Security.Cryptography.DataProtector Create (string providerClass, string applicationName, string primaryPurpose, string[] specificPurposes);
     parameters:
@@ -236,7 +236,7 @@ items:
   - System.Security
   namespace: System.Security.Cryptography
   summary: Creates a hash of the property values specified by the constructor.
-  remarks: <xref:System.Security.Cryptography.DataProtector.GetHashedPurpose%2A> computes the hash of the application name and the full purpose.  The full purpose is a concatenation of all the <xref:System.Security.Cryptography.DataProtector.PrimaryPurpose%2A> and <xref:System.Security.Cryptography.DataProtector.SpecificPurposes%2A> properties.  Each of the three parts is prefaced with its length so the hash can be reversed.
+  remarks: '<xref:System.Security.Cryptography.DataProtector.GetHashedPurpose%2A> computes the hash of the application name and the full purpose.  The full purpose is a concatenation of all the <xref:System.Security.Cryptography.DataProtector.PrimaryPurpose%2A> and <xref:System.Security.Cryptography.DataProtector.SpecificPurposes%2A> properties.  Each of the three parts is prefaced with its length so the hash can be reversed.'
   example:
   - "The following example shows how to use the <xref:System.Security.Cryptography.DataProtector.GetHashedPurpose%2A> method to hash the purpose properties for use as extra entropy.  It is part of a larger code example for the <xref:System.Security.Cryptography.DataProtector> class.  \n  \n [!code-csharp[Cryptography.DataProtector#3](~/samples/snippets/csharp/VS_Snippets_CLR/cryptography.dataprotector/cs/class1.cs#3)]\n [!code-vb[Cryptography.DataProtector#3](~/samples/snippets/visualbasic/VS_Snippets_CLR/cryptography.dataprotector/vb/class1.vb#3)]"
   syntax:
@@ -244,7 +244,7 @@ items:
     parameters: []
     return:
       type: System.Byte[]
-      description: An array of bytes that contain the hash of the <xref href="System.Security.Cryptography.DataProtector.ApplicationName"></xref>, <xref href="System.Security.Cryptography.DataProtector.PrimaryPurpose"></xref>, and <xref href="System.Security.Cryptography.DataProtector.SpecificPurposes"></xref> properties.
+      description: 'An array of bytes that contain the hash of the <xref href="System.Security.Cryptography.DataProtector.ApplicationName"></xref>, <xref href="System.Security.Cryptography.DataProtector.PrimaryPurpose"></xref>, and <xref href="System.Security.Cryptography.DataProtector.SpecificPurposes"></xref> properties.'
   overload: System.Security.Cryptography.DataProtector.GetHashedPurpose*
   exceptions: []
   version:
@@ -330,7 +330,7 @@ items:
   - System.Security
   namespace: System.Security.Cryptography
   summary: Specifies whether the hash is prepended to the text array before encryption.
-  remarks: By default, it is assumed that derived classes will prepend the hash of the <xref:System.Security.Cryptography.DataProtector.ApplicationName%2A>, <xref:System.Security.Cryptography.DataProtector.PrimaryPurpose%2A>, and <xref:System.Security.Cryptography.DataProtector.SpecificPurposes%2A> properties to the plain text before encryption, and will check and verify  the hash during decryption.  If a derived class wants to specify the prepended data on its own (for example as an optional entropy value), this property can be overridden and set to return `false`.  If <xref:System.Security.Cryptography.DataProtector.PrependHashedPurposeToPlaintext%2A> is `false`, <xref:System.Security.Cryptography.DataProtector.Protect%2A> and <xref:System.Security.Cryptography.DataProtector.Unprotect%2A> passes directly through to the <xref:System.Security.Cryptography.DataProtector.ProviderProtect%2A> and <xref:System.Security.Cryptography.DataProtector.ProviderUnprotect%2A> overrides without altering the byte array.
+  remarks: 'By default, it is assumed that derived classes will prepend the hash of the <xref:System.Security.Cryptography.DataProtector.ApplicationName%2A>, <xref:System.Security.Cryptography.DataProtector.PrimaryPurpose%2A>, and <xref:System.Security.Cryptography.DataProtector.SpecificPurposes%2A> properties to the plain text before encryption, and will check and verify  the hash during decryption.  If a derived class wants to specify the prepended data on its own (for example as an optional entropy value), this property can be overridden and set to return `false`.  If <xref:System.Security.Cryptography.DataProtector.PrependHashedPurposeToPlaintext%2A> is `false`, <xref:System.Security.Cryptography.DataProtector.Protect%2A> and <xref:System.Security.Cryptography.DataProtector.Unprotect%2A> passes directly through to the <xref:System.Security.Cryptography.DataProtector.ProviderProtect%2A> and <xref:System.Security.Cryptography.DataProtector.ProviderUnprotect%2A> overrides without altering the byte array.'
   syntax:
     content: protected virtual bool PrependHashedPurposeToPlaintext { get; }
     return:
@@ -466,7 +466,7 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography
-  summary: Specifies the delegate method in the derived class that the <xref href="System.Security.Cryptography.DataProtector.Protect(System.Byte[])"></xref> method in the base class calls back into.
+  summary: 'Specifies the delegate method in the derived class that the <xref href="System.Security.Cryptography.DataProtector.Protect(System.Byte[])"></xref> method in the base class calls back into.'
   remarks: ''
   example:
   - "The following example shows an implementation of the <xref:System.Security.Cryptography.DataProtector.ProviderProtect%2A> method.  It is part of a larger code example for the <xref:System.Security.Cryptography.DataProtector> class.  \n  \n [!code-csharp[Cryptography.MemoryProtector#3](~/samples/snippets/csharp/VS_Snippets_CLR/cryptography.memoryprotector/cs/class1.cs#3)]\n [!code-vb[Cryptography.MemoryProtector#3](~/samples/snippets/visualbasic/VS_Snippets_CLR/cryptography.memoryprotector/vb/class1.vb#3)]"
@@ -516,7 +516,7 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography
-  summary: Specifies the delegate method in the derived class that the <xref href="System.Security.Cryptography.DataProtector.Unprotect(System.Byte[])"></xref> method in the base class calls back into.
+  summary: 'Specifies the delegate method in the derived class that the <xref href="System.Security.Cryptography.DataProtector.Unprotect(System.Byte[])"></xref> method in the base class calls back into.'
   remarks: ''
   example:
   - "The following example shows an implementation of the <xref:System.Security.Cryptography.DataProtector.ProviderUnprotect%2A> method.  It is part of a larger code example for the <xref:System.Security.Cryptography.DataProtector> class.  \n  \n [!code-csharp[Cryptography.MemoryProtector#4](~/samples/snippets/csharp/VS_Snippets_CLR/cryptography.memoryprotector/cs/class1.cs#4)]\n [!code-vb[Cryptography.MemoryProtector#4](~/samples/snippets/visualbasic/VS_Snippets_CLR/cryptography.memoryprotector/vb/class1.vb#4)]"

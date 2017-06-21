@@ -118,7 +118,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Adds two 32-bit integers and replaces the first integer with the sum, as an atomic operation.
+  summary: 'Adds two 32-bit integers and replaces the first integer with the sum, as an atomic operation.'
   remarks: 'This method handles an overflow condition by wrapping: if the value at `location1` is <xref:System.Int32?displayProperty=fullName> and `value` is 1, the result is <xref:System.Int32?displayProperty=fullName>; if `value` is 2, the result is (<xref:System.Int32?displayProperty=fullName> + 1); and so on. No exception is thrown.'
   syntax:
     content: public static int Add (ref int location1, int value);
@@ -201,7 +201,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Adds two 64-bit integers and replaces the first integer with the sum, as an atomic operation.
+  summary: 'Adds two 64-bit integers and replaces the first integer with the sum, as an atomic operation.'
   remarks: "This method handles an overflow condition by wrapping: if the value at `location1` is <xref:System.Int64?displayProperty=fullName> and `value` is 1, the result is <xref:System.Int64?displayProperty=fullName>; if `value` is 2, the result is (<xref:System.Int64?displayProperty=fullName> + 1); and so on. No exception is thrown.  \n  \n The <xref:System.Threading.Interlocked.Read%2A> method and the 64-bit overloads of the <xref:System.Threading.Interlocked.Increment%2A>, <xref:System.Threading.Interlocked.Decrement%2A>, and <xref:System.Threading.Interlocked.Add%2A> methods are truly atomic only on systems where a <xref:System.IntPtr?displayProperty=fullName> is 64 bits long. On other systems, these methods are atomic with respect to each other, but not with respect to other means of accessing the data. Thus, to be thread safe on 32-bit systems, any access to a 64-bit value must be made through the members of the <xref:System.Threading.Interlocked> class."
   syntax:
     content: public static long Add (ref long location1, long value);
@@ -284,8 +284,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Compares two double-precision floating point numbers for equality and, if they are equal, replaces the first value.
-  remarks: If `comparand` and the value in `location1` are equal, then `value` is stored in `location1`. Otherwise, no operation is performed. The compare and exchange operations are performed as an atomic operation. The return value of <xref:System.Threading.Interlocked.CompareExchange%2A> is the original value in `location1`, whether or not the exchange takes place.
+  summary: 'Compares two double-precision floating point numbers for equality and, if they are equal, replaces the first value.'
+  remarks: 'If `comparand` and the value in `location1` are equal, then `value` is stored in `location1`. Otherwise, no operation is performed. The compare and exchange operations are performed as an atomic operation. The return value of <xref:System.Threading.Interlocked.CompareExchange%2A> is the original value in `location1`, whether or not the exchange takes place.'
   example:
   - "The following code example demonstrates a thread-safe method that accumulates a running total of <xref:System.Double> values. Two threads add a series of <xref:System.Double> values using the thread-safe method and ordinary addition, and when the threads complete the totals are compared. On a dual-processor computer, there is a significant difference in the totals.  \n  \n In the thread-safe method, the initial value of the running total is saved, and then the <xref:System.Threading.Interlocked.CompareExchange%2A> method is used to exchange the newly computed total with the old total. If the return value is not equal to the saved value of the running total, then another thread has updated the total in the meantime. In that case, the attempt to update the running total must be repeated.  \n  \n [!code-csharp[System.Threading.Interlocked CompareExchange Double#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Threading.Interlocked CompareExchange Double/cs/source.cs#1)]\n [!code-vb[System.Threading.Interlocked CompareExchange Double#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Threading.Interlocked CompareExchange Double/vb/source.vb#1)]"
   syntax:
@@ -293,7 +293,7 @@ items:
     parameters:
     - id: location1
       type: System.Double
-      description: The destination, whose value is compared with <code>comparand</code> and possibly replaced.
+      description: 'The destination, whose value is compared with <code>comparand</code> and possibly replaced.'
     - id: value
       type: System.Double
       description: The value that replaces the destination value if the comparison results in equality.
@@ -371,8 +371,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Compares two 32-bit signed integers for equality and, if they are equal, replaces the first value.
-  remarks: If `comparand` and the value in `location1` are equal, then `value` is stored in `location1`. Otherwise, no operation is performed. The compare and exchange operations are performed as an atomic operation. The return value of <xref:System.Threading.Interlocked.CompareExchange%2A> is the original value in `location1`, whether or not the exchange takes place.
+  summary: 'Compares two 32-bit signed integers for equality and, if they are equal, replaces the first value.'
+  remarks: 'If `comparand` and the value in `location1` are equal, then `value` is stored in `location1`. Otherwise, no operation is performed. The compare and exchange operations are performed as an atomic operation. The return value of <xref:System.Threading.Interlocked.CompareExchange%2A> is the original value in `location1`, whether or not the exchange takes place.'
   example:
   - "The following code example demonstrates a thread-safe method that accumulates a running total. The initial value of the running total is saved, and then the <xref:System.Threading.Interlocked.CompareExchange%2A> method is used to exchange the newly computed total with the old total. If the return value is not equal to the saved value of the running total, then another thread has updated the total in the meantime. In that case, the attempt to update the running total must be repeated.  \n  \n> [!NOTE]\n>  The <xref:System.Threading.Interlocked.Add%2A> method, introduced in version 2.0 of the .NET Framework, provides a more convenient way to accumulate thread-safe running totals for integers.  \n  \n [!code-cpp[System.Threading.Interlocked CompareExchange0#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.Threading.Interlocked CompareExchange0/CPP/source.cpp#1)]\n [!code-csharp[System.Threading.Interlocked CompareExchange0#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Threading.Interlocked CompareExchange0/CS/source.cs#1)]\n [!code-vb[System.Threading.Interlocked CompareExchange0#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Threading.Interlocked CompareExchange0/VB/source.vb#1)]"
   syntax:
@@ -380,7 +380,7 @@ items:
     parameters:
     - id: location1
       type: System.Int32
-      description: The destination, whose value is compared with <code>comparand</code> and possibly replaced.
+      description: 'The destination, whose value is compared with <code>comparand</code> and possibly replaced.'
     - id: value
       type: System.Int32
       description: The value that replaces the destination value if the comparison results in equality.
@@ -459,14 +459,14 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Compares two 64-bit signed integers for equality and, if they are equal, replaces the first value.
-  remarks: If `comparand` and the value in `location1` are equal, then `value` is stored in `location1`. Otherwise, no operation is performed. The compare and exchange operations are performed as an atomic operation. The return value of <xref:System.Threading.Interlocked.CompareExchange%2A> is the original value in `location1`, whether or not the exchange takes place.
+  summary: 'Compares two 64-bit signed integers for equality and, if they are equal, replaces the first value.'
+  remarks: 'If `comparand` and the value in `location1` are equal, then `value` is stored in `location1`. Otherwise, no operation is performed. The compare and exchange operations are performed as an atomic operation. The return value of <xref:System.Threading.Interlocked.CompareExchange%2A> is the original value in `location1`, whether or not the exchange takes place.'
   syntax:
     content: public static long CompareExchange (ref long location1, long value, long comparand);
     parameters:
     - id: location1
       type: System.Int64
-      description: The destination, whose value is compared with <code>comparand</code> and possibly replaced.
+      description: 'The destination, whose value is compared with <code>comparand</code> and possibly replaced.'
     - id: value
       type: System.Int64
       description: The value that replaces the destination value if the comparison results in equality.
@@ -544,14 +544,14 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Compares two platform-specific handles or pointers for equality and, if they are equal, replaces the first one.
+  summary: 'Compares two platform-specific handles or pointers for equality and, if they are equal, replaces the first one.'
   remarks: "If `comparand` and the value in `location1` are equal, then `value` is stored in `location1`. Otherwise, no operation is performed. The compare and exchange operations are performed as an atomic operation. The return value of this method is the original value in `location1`, whether or not the exchange takes place.  \n  \n> [!NOTE]\n>  <xref:System.IntPtr> is a platform-specific type."
   syntax:
     content: public static IntPtr CompareExchange (ref IntPtr location1, IntPtr value, IntPtr comparand);
     parameters:
     - id: location1
       type: System.IntPtr
-      description: The destination <xref href="System.IntPtr"></xref>, whose value is compared with the value of <code>comparand</code> and possibly replaced by <code>value</code>.
+      description: 'The destination <xref href="System.IntPtr"></xref>, whose value is compared with the value of <code>comparand</code> and possibly replaced by <code>value</code>.'
     - id: value
       type: System.IntPtr
       description: The <xref href="System.IntPtr"></xref> that replaces the destination value if the comparison results in equality.
@@ -630,7 +630,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Compares two objects for reference equality and, if they are equal, replaces the first object.
+  summary: 'Compares two objects for reference equality and, if they are equal, replaces the first object.'
   remarks: "If `comparand` and the object in `location1` are equal, then `value` is stored in `location1`. Otherwise, no operation is performed. The compare and exchange operations are performed as an atomic operation. The return value of <xref:System.Threading.Interlocked.CompareExchange%2A> is the original value in `location1`, whether or not the exchange takes place.  \n  \n Beginning with .NET Framework version 2.0, the <xref:System.Threading.Interlocked.CompareExchange%60%601%28%60%600%40%2C%60%600%2C%60%600%29> method overload provides a type-safe alternative for reference types.  \n  \n> [!NOTE]\n>  The objects are compared for reference equality, rather than <xref:System.Object.Equals%2A?displayProperty=fullName>. As a result, two boxed instances of the same value type (for example, the integer 3) always appear to be unequal, and no operation is performed. Do not use this overload with value types."
   syntax:
     content: public static object CompareExchange (ref object location1, object value, object comparand);
@@ -716,8 +716,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Compares two single-precision floating point numbers for equality and, if they are equal, replaces the first value.
-  remarks: If `comparand` and the value in `location1` are equal, then `value` is stored in `location1`. Otherwise, no operation is performed. The compare and exchange operations are performed as an atomic operation. The return value of <xref:System.Threading.Interlocked.CompareExchange%2A> is the original value in `location1`, whether or not the exchange takes place.
+  summary: 'Compares two single-precision floating point numbers for equality and, if they are equal, replaces the first value.'
+  remarks: 'If `comparand` and the value in `location1` are equal, then `value` is stored in `location1`. Otherwise, no operation is performed. The compare and exchange operations are performed as an atomic operation. The return value of <xref:System.Threading.Interlocked.CompareExchange%2A> is the original value in `location1`, whether or not the exchange takes place.'
   example:
   - "The following code example demonstrates a thread-safe method that accumulates a running total of <xref:System.Single> values. Two threads add a series of <xref:System.Single> values using the thread-safe method and ordinary addition, and when the threads complete the totals are compared. On a dual-processor computer, there is a significant difference in the totals.  \n  \n In the thread-safe method, the initial value of the running total is saved, and then the <xref:System.Threading.Interlocked.CompareExchange%2A> method is used to exchange the newly computed total with the old total. If the return value is not equal to the saved value of the running total, then another thread has updated the total in the meantime. In that case, the attempt to update the running total must be repeated.  \n  \n [!code-csharp[System.Threading.Interlocked CompareExchange Single#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Threading.Interlocked CompareExchange Single/cs/source.cs#1)]\n [!code-vb[System.Threading.Interlocked CompareExchange Single#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Threading.Interlocked CompareExchange Single/vb/source.vb#1)]"
   syntax:
@@ -725,7 +725,7 @@ items:
     parameters:
     - id: location1
       type: System.Single
-      description: The destination, whose value is compared with <code>comparand</code> and possibly replaced.
+      description: 'The destination, whose value is compared with <code>comparand</code> and possibly replaced.'
     - id: value
       type: System.Single
       description: The value that replaces the destination value if the comparison results in equality.
@@ -803,7 +803,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Compares two instances of the specified reference type <code>T</code> for equality and, if they are equal, replaces the first one.
+  summary: 'Compares two instances of the specified reference type <code>T</code> for equality and, if they are equal, replaces the first one.'
   remarks: "If `comparand` and the value in `location1` are equal, then `value` is stored in `location1`. Otherwise, no operation is performed. The comparison and the exchange are performed as an atomic operation. The return value of this method is the original value in `location1`, whether or not the exchange takes place.  \n  \n This method only supports reference types. There are overloads of the <xref:System.Threading.Interlocked.CompareExchange%2A> method for the value types <xref:System.Int32>, <xref:System.Int64>, <xref:System.IntPtr>, <xref:System.Single>, and <xref:System.Double>, but there is no support for other value types.  \n  \n> [!NOTE]\n>  This method overload is preferable to the <xref:System.Threading.Interlocked.CompareExchange%28System.Object%40%2CSystem.Object%2CSystem.Object%29> method overload, because the latter requires the destination object to be accessed late-bound."
   syntax:
     content: >-
@@ -813,7 +813,7 @@ items:
     parameters:
     - id: location1
       type: T
-      description: The destination, whose value is compared with <code>comparand</code> and possibly replaced. This is a reference parameter (`ref` in C#, `ByRef` in Visual Basic).
+      description: 'The destination, whose value is compared with <code>comparand</code> and possibly replaced. This is a reference parameter (`ref` in C#, `ByRef` in Visual Basic).'
     - id: value
       type: T
       description: The value that replaces the destination value if the comparison results in equality.
@@ -822,7 +822,7 @@ items:
       description: The value that is compared to the value at <code>location1</code>.
     typeParameters:
     - id: T
-      description: The type to be used for <code>location1</code>, <code>value</code>, and <code>comparand</code>. This type must be a reference type.
+      description: 'The type to be used for <code>location1</code>, <code>value</code>, and <code>comparand</code>. This type must be a reference type.'
     return:
       type: T
       description: The original value in <code>location1</code>.
@@ -896,7 +896,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Decrements a specified variable and stores the result, as an atomic operation.
+  summary: 'Decrements a specified variable and stores the result, as an atomic operation.'
   remarks: 'This method handles an overflow condition by wrapping: If `location` = <xref:System.Int32?displayProperty=fullName>, `location` - 1 = <xref:System.Int32?displayProperty=fullName>. No exception is thrown.'
   example:
   - "The following example determines how many random numbers that range from 0 to 1,000 are required to generate 1,000 random numbers with a midpoint value. To keep track of the number of midpoint values, a variable, `midpointCount`, is set equal to 1,000 and decremented each time the random number generator returns a midpoint value. Because three threads generate the random numbers, the <xref:System.Threading.Interlocked.Decrement%28System.Int32%40%29> method is called to ensure that multiple threads don't update `midpointCount` concurrently. Note that a lock is also used to protect the random number generator, and that a <xref:System.Threading.CountdownEvent> object is used to ensure that the `Main` method doesn't finish execution before the three threads.  \n  \n [!code-csharp[System.Threading.Interlocked.Decrement#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.threading.interlocked.decrement/cs/decrement1.cs#1)]\n [!code-vb[System.Threading.Interlocked.Decrement#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.threading.interlocked.decrement/vb/decrement1.vb#1)]  \n  \n The following example is similar to the previous one, except that it uses the  instead of a thread procedure to generate 50,000 random midpoint integers. In this example, a lambda expression replaces the `GenerateNumbers` thread procedure, and the call to the <xref:System.Threading.Tasks.Task.WaitAll%2A?displayProperty=fullName> method eliminates the need for the <xref:System.Threading.CountdownEvent> object.  \n  \n [!code-csharp[System.Threading.Interlocked.Decrement#2](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.threading.interlocked.decrement/cs/decrement2.cs#2)]\n [!code-vb[System.Threading.Interlocked.Decrement#2](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.threading.interlocked.decrement/vb/decrement2.vb#2)]"
@@ -978,7 +978,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Decrements the specified variable and stores the result, as an atomic operation.
+  summary: 'Decrements the specified variable and stores the result, as an atomic operation.'
   remarks: "This method handles an overflow condition by wrapping: if `location` = <xref:System.Int64?displayProperty=fullName>, `location` - 1 = <xref:System.Int64?displayProperty=fullName>. No exception is thrown.  \n  \n The <xref:System.Threading.Interlocked.Read%2A> method and the 64-bit overloads of the <xref:System.Threading.Interlocked.Increment%2A>, <xref:System.Threading.Interlocked.Decrement%2A>, and <xref:System.Threading.Interlocked.Add%2A> methods are truly atomic only on systems where a <xref:System.IntPtr?displayProperty=fullName> is 64 bits long. On other systems, these methods are atomic with respect to each other, but not with respect to other means of accessing the data. Thus, to be thread safe on 32-bit systems, any access to a 64-bit value must be made through the members of the <xref:System.Threading.Interlocked> class."
   syntax:
     content: public static long Decrement (ref long location);
@@ -1057,7 +1057,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Sets a single-precision floating point number to a specified value and returns the original value, as an atomic operation.
+  summary: 'Sets a single-precision floating point number to a specified value and returns the original value, as an atomic operation.'
   syntax:
     content: public static float Exchange (ref float location1, float value);
     parameters:
@@ -1138,8 +1138,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Sets an object to a specified value and returns a reference to the original object, as an atomic operation.
-  remarks: Beginning with .NET Framework version 2.0, the <xref:System.Threading.Interlocked.Exchange%60%601%28%60%600%40%2C%60%600%29> method overload provides a type-safe alternative for reference types.
+  summary: 'Sets an object to a specified value and returns a reference to the original object, as an atomic operation.'
+  remarks: 'Beginning with .NET Framework version 2.0, the <xref:System.Threading.Interlocked.Exchange%60%601%28%60%600%40%2C%60%600%29> method overload provides a type-safe alternative for reference types.'
   example:
   - "The following code example shows the syntax for using `Exchange` with any reference type object.  \n  \n [!code-cpp[System.Threading.Interlocked.Exchange#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.Threading.Interlocked.Exchange/CPP/source.cpp#1)]\n [!code-csharp[System.Threading.Interlocked.Exchange#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Threading.Interlocked.Exchange/CS/source.cs#1)]\n [!code-vb[System.Threading.Interlocked.Exchange#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Threading.Interlocked.Exchange/VB/source.vb#1)]"
   syntax:
@@ -1223,7 +1223,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Sets a platform-specific handle or pointer to a specified value and returns the original value, as an atomic operation.
+  summary: 'Sets a platform-specific handle or pointer to a specified value and returns the original value, as an atomic operation.'
   syntax:
     content: public static IntPtr Exchange (ref IntPtr location1, IntPtr value);
     parameters:
@@ -1305,7 +1305,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Sets a double-precision floating point number to a specified value and returns the original value, as an atomic operation.
+  summary: 'Sets a double-precision floating point number to a specified value and returns the original value, as an atomic operation.'
   syntax:
     content: public static double Exchange (ref double location1, double value);
     parameters:
@@ -1386,7 +1386,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Sets a 32-bit signed integer to a specified value and returns the original value, as an atomic operation.
+  summary: 'Sets a 32-bit signed integer to a specified value and returns the original value, as an atomic operation.'
   remarks: ''
   example:
   - "The following code example shows a thread-safe resource locking mechanism.  \n  \n [!code-cpp[System.Threading.Interlocked.Exchange Int32 Example#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.Threading.Interlocked.Exchange Int32 Example/CPP/class1.cpp#1)]\n [!code-csharp[System.Threading.Interlocked.Exchange Int32 Example#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Threading.Interlocked.Exchange Int32 Example/CS/class1.cs#1)]\n [!code-vb[System.Threading.Interlocked.Exchange Int32 Example#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Threading.Interlocked.Exchange Int32 Example/VB/class1.vb#1)]"
@@ -1471,7 +1471,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Sets a 64-bit signed integer to a specified value and returns the original value, as an atomic operation.
+  summary: 'Sets a 64-bit signed integer to a specified value and returns the original value, as an atomic operation.'
   syntax:
     content: public static long Exchange (ref long location1, long value);
     parameters:
@@ -1552,7 +1552,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Sets a variable of the specified type <code>T</code> to a specified value and returns the original value, as an atomic operation.
+  summary: 'Sets a variable of the specified type <code>T</code> to a specified value and returns the original value, as an atomic operation.'
   remarks: "This method only supports reference types. There are overloads of the <xref:System.Threading.Interlocked.Exchange%2A> method for the <xref:System.Int32>, <xref:System.Int64>, <xref:System.IntPtr>, <xref:System.Single>, and <xref:System.Double> value types, but there is no support for other value types.  \n  \n> [!NOTE]\n>  This method overload is preferable to the <xref:System.Threading.Interlocked.Exchange%28System.Object%40%2CSystem.Object%29> method overload, because the latter requires late-bound access to the destination object ."
   example:
   - "The following example launches ten tasks, each of which generates  100 ten-character part numbers. It then the part number that is first alphabetically.  \n  \n [!code-csharp[System.Threading.Interlocked.Exchange#2](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Threading.Interlocked.Exchange/CS/Exchange5.cs#2)]\n [!code-vb[System.Threading.Interlocked.Exchange#2](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Threading.Interlocked.Exchange/VB/Exchange5.vb#2)]  \n  \n The example uses the `firstWidget` variable to store the ID that occurs first in the sort order. It compares each ID that it generates with the `firstWidget` value.  If the new value precedes the current value of `firstWidget` in the sort order, the example calls the <xref:System.Threading.Interlocked.Exchange%2A> method to assign the new value to `firstWidget`."
@@ -1564,7 +1564,7 @@ items:
     parameters:
     - id: location1
       type: T
-      description: The variable to set to the specified value. This is a reference parameter (`ref` in C#, `ByRef` in Visual Basic).
+      description: 'The variable to set to the specified value. This is a reference parameter (`ref` in C#, `ByRef` in Visual Basic).'
     - id: value
       type: T
       description: The value to which the <code>location1</code> parameter is set.
@@ -1644,7 +1644,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Increments a specified variable and stores the result, as an atomic operation.
+  summary: 'Increments a specified variable and stores the result, as an atomic operation.'
   remarks: 'This method handles an overflow condition by wrapping: if `location` = <xref:System.Int32?displayProperty=fullName>, `location` + 1 = <xref:System.Int32?displayProperty=fullName>. No exception is thrown.'
   example:
   - "The following example determines how many random numbers that range from 0 to 1,000 are required to generate 1,000 random numbers with a midpoint value. To keep track of the number of midpoint values, a variable, `midpointCount`, is set equal to 0 and incremented each time the random number generator returns a midpoint value until it reaches 10,000. Because three threads generate the random numbers, the <xref:System.Threading.Interlocked.Increment%28System.Int32%40%29> method is called to ensure that multiple threads don't update `midpointCount` concurrently. Note that a lock is also used to protect the random number generator, and that a <xref:System.Threading.CountdownEvent> object is used to ensure that the `Main` method doesn't finish execution before the three threads.  \n  \n [!code-csharp[System.Threading.Interlocked.Increment2#3](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.threading.interlocked.increment2/cs/increment3.cs#3)]\n [!code-vb[System.Threading.Interlocked.Increment2#3](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.threading.interlocked.increment2/vb/Increment3.vb#3)]  \n  \n The following example is similar to the previous one, except that it uses the  instead of a thread procedure to generate 50,000 random midpoint integers. In this example, a lambda expression replaces the `GenerateNumbers` thread procedure, and the call to the <xref:System.Threading.Tasks.Task.WaitAll%2A?displayProperty=fullName> method eliminates the need for the <xref:System.Threading.CountdownEvent> object.  \n  \n [!code-csharp[System.Threading.Interlocked.Increment2#4](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.threading.interlocked.increment2/cs/increment4.cs#4)]\n [!code-vb[System.Threading.Interlocked.Increment2#4](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.threading.interlocked.increment2/vb/Increment4.vb#4)]"
@@ -1726,7 +1726,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Increments a specified variable and stores the result, as an atomic operation.
+  summary: 'Increments a specified variable and stores the result, as an atomic operation.'
   remarks: "This method handles an overflow condition by wrapping: if `location` = <xref:System.Int64?displayProperty=fullName>, `location` + 1 = <xref:System.Int64?displayProperty=fullName>. No exception is thrown.  \n  \n The <xref:System.Threading.Interlocked.Read%2A> method and the 64-bit overloads of the <xref:System.Threading.Interlocked.Increment%2A>, <xref:System.Threading.Interlocked.Decrement%2A>, and <xref:System.Threading.Interlocked.Add%2A> methods are truly atomic only on systems where a <xref:System.IntPtr?displayProperty=fullName> is 64 bits long. On other systems, these methods are atomic with respect to each other, but not with respect to other means of accessing the data. Thus, to be thread safe on 32-bit systems, any access to a 64-bit value must be made through the members of the <xref:System.Threading.Interlocked> class."
   syntax:
     content: public static long Increment (ref long location);
@@ -1899,7 +1899,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Threading
-  summary: Returns a 64-bit value, loaded as an atomic operation.
+  summary: 'Returns a 64-bit value, loaded as an atomic operation.'
   remarks: "The <xref:System.Threading.Interlocked.Read%2A> method is unnecessary on 64-bit systems, because 64-bit read operations are already atomic. On 32-bit systems, 64-bit read operations are not atomic unless performed using <xref:System.Threading.Interlocked.Read%2A>.  \n  \n The <xref:System.Threading.Interlocked.Read%2A> method and the 64-bit overloads of the <xref:System.Threading.Interlocked.Increment%2A>, <xref:System.Threading.Interlocked.Decrement%2A>, and <xref:System.Threading.Interlocked.Add%2A> methods are truly atomic only on systems where a <xref:System.IntPtr?displayProperty=fullName> is 64 bits long. On other systems, these methods are atomic with respect to each other, but not with respect to other means of accessing the data. Thus, to be thread safe on 32-bit systems, any access to a 64-bit value must be made through the members of the <xref:System.Threading.Interlocked> class.  \n  \n> [!NOTE]\n>  <xref:System.IntPtr> is a platform-specific type."
   syntax:
     content: public static long Read (ref long location);

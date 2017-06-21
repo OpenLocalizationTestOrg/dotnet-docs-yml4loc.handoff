@@ -95,7 +95,7 @@ items:
   - System.Diagnostics.StackTrace
   namespace: System.Diagnostics.SymbolStore
   summary: Closes <xref href="System.Diagnostics.SymbolStore.ISymbolWriter"></xref> and commits the symbols to the symbol store.
-  remarks: After this call, <xref:System.Diagnostics.SymbolStore.ISymbolWriter> becomes invalid for further updates.
+  remarks: 'After this call, <xref:System.Diagnostics.SymbolStore.ISymbolWriter> becomes invalid for further updates.'
   syntax:
     content: public void Close ();
     parameters: []
@@ -149,7 +149,7 @@ items:
   - System.Diagnostics.StackTrace
   namespace: System.Diagnostics.SymbolStore
   summary: Closes the current method.
-  remarks: After a method is closed, you cannot define a symbol from within it.
+  remarks: 'After a method is closed, you cannot define a symbol from within it.'
   syntax:
     content: public void CloseMethod ();
     parameters: []
@@ -256,7 +256,7 @@ items:
   - System.Diagnostics.StackTrace
   namespace: System.Diagnostics.SymbolStore
   summary: Closes the current lexical scope.
-  remarks: After a scope is closed, you cannot define a variable from within it.
+  remarks: 'After a scope is closed, you cannot define a variable from within it.'
   syntax:
     content: public void CloseScope (int endOffset);
     parameters:
@@ -381,7 +381,7 @@ items:
   - System.Diagnostics.StackTrace
   namespace: System.Diagnostics.SymbolStore
   summary: Defines a field in a type or a global field.
-  remarks: The <xref:System.Diagnostics.SymbolStore.ISymbolWriter.DefineField%2A> method defines a single variable that is not within a method by using specified fields in classes, bit fields, and so on.
+  remarks: 'The <xref:System.Diagnostics.SymbolStore.ISymbolWriter.DefineField%2A> method defines a single variable that is not within a method by using specified fields in classes, bit fields, and so on.'
   syntax:
     content: public void DefineField (System.Diagnostics.SymbolStore.SymbolToken parent, string name, System.Reflection.FieldAttributes attributes, byte[] signature, System.Diagnostics.SymbolStore.SymAddressKind addrKind, int addr1, int addr2, int addr3);
     parameters:
@@ -473,7 +473,7 @@ items:
       description: The global variable signature.
     - id: addrKind
       type: System.Diagnostics.SymbolStore.SymAddressKind
-      description: The address types for <code>addr1</code>, <code>addr2</code>, and <code>addr3</code>.
+      description: 'The address types for <code>addr1</code>, <code>addr2</code>, and <code>addr3</code>.'
     - id: addr1
       type: System.Int32
       description: The first address for the global variable specification.
@@ -548,7 +548,7 @@ items:
       description: The local variable signature.
     - id: addrKind
       type: System.Diagnostics.SymbolStore.SymAddressKind
-      description: The address types for <code>addr1</code>, <code>addr2</code>, and <code>addr3</code>.
+      description: 'The address types for <code>addr1</code>, <code>addr2</code>, and <code>addr3</code>.'
     - id: addr1
       type: System.Int32
       description: The first address for the local variable specification.
@@ -560,10 +560,10 @@ items:
       description: The third address for the local variable specification.
     - id: startOffset
       type: System.Int32
-      description: The start offset for the variable. If this parameter is zero, it is ignored and the variable is defined throughout the entire scope. If the parameter is nonzero, the variable falls within the offsets of the current scope.
+      description: 'The start offset for the variable. If this parameter is zero, it is ignored and the variable is defined throughout the entire scope. If the parameter is nonzero, the variable falls within the offsets of the current scope.'
     - id: endOffset
       type: System.Int32
-      description: The end offset for the variable. If this parameter is zero, it is ignored and the variable is defined throughout the entire scope. If the parameter is nonzero, the variable falls within the offsets of the current scope.
+      description: 'The end offset for the variable. If this parameter is zero, it is ignored and the variable is defined throughout the entire scope. If the parameter is nonzero, the variable falls within the offsets of the current scope.'
   overload: System.Diagnostics.SymbolStore.ISymbolWriter.DefineLocalVariable*
   exceptions: []
   version:
@@ -614,7 +614,7 @@ items:
   - System.Diagnostics.StackTrace
   namespace: System.Diagnostics.SymbolStore
   summary: Defines a single parameter in the current method. The type of each parameter is taken from its position within the signature of the method.
-  remarks: If parameters are defined in the metadata for a given method, you do not have to define them again with calls to this method. Symbol readers need to check for these in the normal metadata first, and then use the symbol store.
+  remarks: 'If parameters are defined in the metadata for a given method, you do not have to define them again with calls to this method. Symbol readers need to check for these in the normal metadata first, and then use the symbol store.'
   syntax:
     content: public void DefineParameter (string name, System.Reflection.ParameterAttributes attributes, int sequence, System.Diagnostics.SymbolStore.SymAddressKind addrKind, int addr1, int addr2, int addr3);
     parameters:
@@ -629,7 +629,7 @@ items:
       description: The parameter signature.
     - id: addrKind
       type: System.Diagnostics.SymbolStore.SymAddressKind
-      description: The address types for <code>addr1</code>, <code>addr2</code>, and <code>addr3</code>.
+      description: 'The address types for <code>addr1</code>, <code>addr2</code>, and <code>addr3</code>.'
     - id: addr1
       type: System.Int32
       description: The first address for the parameter specification.
@@ -689,7 +689,7 @@ items:
   - System.Diagnostics.StackTrace
   namespace: System.Diagnostics.SymbolStore
   summary: Defines a group of sequence points within the current method.
-  remarks: Each line and each column defines the start of a statement within a method. The arrays should be sorted in increasing order of offsets. The offset is always the offset from the start of the method, in bytes.
+  remarks: 'Each line and each column defines the start of a statement within a method. The arrays should be sorted in increasing order of offsets. The offset is always the offset from the start of the method, in bytes.'
   syntax:
     content: public void DefineSequencePoints (System.Diagnostics.SymbolStore.ISymbolDocumentWriter document, int[] offsets, int[] lines, int[] columns, int[] endLines, int[] endColumns);
     parameters:
@@ -761,7 +761,7 @@ items:
   - System.Diagnostics.StackTrace
   namespace: System.Diagnostics.SymbolStore
   summary: Sets the metadata emitter interface to associate with a writer.
-  remarks: <xref:System.Diagnostics.SymbolStore.ISymbolWriter.Initialize%2A> also sets the output file name where the debugging symbols are written. This method can be called only once and must be called before any other writer methods.
+  remarks: '<xref:System.Diagnostics.SymbolStore.ISymbolWriter.Initialize%2A> also sets the output file name where the debugging symbols are written. This method can be called only once and must be called before any other writer methods.'
   syntax:
     content: public void Initialize (IntPtr emitter, string filename, bool fFullBuild);
     parameters:
@@ -770,7 +770,7 @@ items:
       description: The metadata emitter interface.
     - id: filename
       type: System.String
-      description: The file name for which the debugging symbols are written. Some writers require a file name, and others do not. If a file name is specified for a writer that does not use file names, this parameter is ignored.
+      description: 'The file name for which the debugging symbols are written. Some writers require a file name, and others do not. If a file name is specified for a writer that does not use file names, this parameter is ignored.'
     - id: fFullBuild
       type: System.Boolean
       description: '`true` indicates that this is a full rebuild; `false` indicates that this is an incremental compilation.'
@@ -824,7 +824,7 @@ items:
   - System.Diagnostics.StackTrace
   namespace: System.Diagnostics.SymbolStore
   summary: Opens a method to place symbol information into.
-  remarks: The specified method becomes the current method for calls to define sequence points, parameters, and lexical scopes. There is an implicit lexical scope around the entire method. Reopening a method that has been previously closed erases any previously defined symbols for the method.
+  remarks: 'The specified method becomes the current method for calls to define sequence points, parameters, and lexical scopes. There is an implicit lexical scope around the entire method. Reopening a method that has been previously closed erases any previously defined symbols for the method.'
   syntax:
     content: public void OpenMethod (System.Diagnostics.SymbolStore.SymbolToken method);
     parameters:
@@ -944,10 +944,10 @@ items:
     parameters:
     - id: startOffset
       type: System.Int32
-      description: The offset, in bytes, from the beginning of the method to the first instruction in the lexical scope.
+      description: 'The offset, in bytes, from the beginning of the method to the first instruction in the lexical scope.'
     return:
       type: System.Int32
-      description: An opaque scope identifier that can be used with <xref href="System.Diagnostics.SymbolStore.ISymbolWriter.SetScopeRange(System.Int32,System.Int32,System.Int32)"></xref> to define the start and end offsets of a scope at a later time. In this case, the offsets passed to <xref href="System.Diagnostics.SymbolStore.ISymbolWriter.OpenScope(System.Int32)"></xref> and <xref href="System.Diagnostics.SymbolStore.ISymbolWriter.CloseScope(System.Int32)"></xref> are ignored. A scope identifier is valid only in the current method.
+      description: 'An opaque scope identifier that can be used with <xref href="System.Diagnostics.SymbolStore.ISymbolWriter.SetScopeRange(System.Int32,System.Int32,System.Int32)"></xref> to define the start and end offsets of a scope at a later time. In this case, the offsets passed to <xref href="System.Diagnostics.SymbolStore.ISymbolWriter.OpenScope(System.Int32)"></xref> and <xref href="System.Diagnostics.SymbolStore.ISymbolWriter.CloseScope(System.Int32)"></xref> are ignored. A scope identifier is valid only in the current method.'
   overload: System.Diagnostics.SymbolStore.ISymbolWriter.OpenScope*
   exceptions: []
   version:
@@ -997,7 +997,7 @@ items:
   - netstandard
   - System.Diagnostics.StackTrace
   namespace: System.Diagnostics.SymbolStore
-  summary: Specifies the true start and end of a method within a source file. Use <xref href="System.Diagnostics.SymbolStore.ISymbolWriter.SetMethodSourceRange(System.Diagnostics.SymbolStore.ISymbolDocumentWriter,System.Int32,System.Int32,System.Diagnostics.SymbolStore.ISymbolDocumentWriter,System.Int32,System.Int32)"></xref> to specify the extent of a method, independent of the sequence points that exist within the method.
+  summary: 'Specifies the true start and end of a method within a source file. Use <xref href="System.Diagnostics.SymbolStore.ISymbolWriter.SetMethodSourceRange(System.Diagnostics.SymbolStore.ISymbolDocumentWriter,System.Int32,System.Int32,System.Diagnostics.SymbolStore.ISymbolDocumentWriter,System.Int32,System.Int32)"></xref> to specify the extent of a method, independent of the sequence points that exist within the method.'
   syntax:
     content: public void SetMethodSourceRange (System.Diagnostics.SymbolStore.ISymbolDocumentWriter startDoc, int startLine, int startColumn, System.Diagnostics.SymbolStore.ISymbolDocumentWriter endDoc, int endLine, int endColumn);
     parameters:
@@ -1131,7 +1131,7 @@ items:
   - System.Diagnostics.StackTrace
   namespace: System.Diagnostics.SymbolStore
   summary: Defines an attribute when given the attribute name and the attribute value.
-  remarks: The <xref:System.Diagnostics.SymbolStore.ISymbolWriter.SetSymAttribute%2A> method is only associated with symbolic information and is not a metadata custom attribute.
+  remarks: 'The <xref:System.Diagnostics.SymbolStore.ISymbolWriter.SetSymAttribute%2A> method is only associated with symbolic information and is not a metadata custom attribute.'
   syntax:
     content: public void SetSymAttribute (System.Diagnostics.SymbolStore.SymbolToken parent, string name, byte[] data);
     parameters:
@@ -1194,7 +1194,7 @@ items:
   - System.Diagnostics.StackTrace
   namespace: System.Diagnostics.SymbolStore
   summary: Sets the underlying `ISymUnmanagedWriter` (the corresponding unmanaged interface) that a managed <xref href="System.Diagnostics.SymbolStore.ISymbolWriter"></xref> uses to emit symbols.
-  remarks: The underlying `ISymUnmanagedWriter` (the corresponding unmanaged interface) represents a symbol writer for managed code. The interface provides methods for defining documents, sequence points, lexical scopes, and variables.
+  remarks: 'The underlying `ISymUnmanagedWriter` (the corresponding unmanaged interface) represents a symbol writer for managed code. The interface provides methods for defining documents, sequence points, lexical scopes, and variables.'
   syntax:
     content: public void SetUnderlyingWriter (IntPtr underlyingWriter);
     parameters:
@@ -1251,7 +1251,7 @@ items:
   - System.Diagnostics.StackTrace
   namespace: System.Diagnostics.SymbolStore
   summary: Identifies the user-defined method as the entry point for the current module.
-  remarks: This is normally your main method, rather than compiler-generated stubs before the main method.
+  remarks: 'This is normally your main method, rather than compiler-generated stubs before the main method.'
   syntax:
     content: public void SetUserEntryPoint (System.Diagnostics.SymbolStore.SymbolToken entryMethod);
     parameters:
@@ -1307,7 +1307,7 @@ items:
   - netstandard
   - System.Diagnostics.StackTrace
   namespace: System.Diagnostics.SymbolStore
-  summary: Specifies that the given, fully qualified namespace name is used within the open lexical scope.
+  summary: 'Specifies that the given, fully qualified namespace name is used within the open lexical scope.'
   remarks: Closing the current scope prevents this scope from using the namespace. The namespace remains in use in all scopes that inherit from the current open scope.
   syntax:
     content: public void UsingNamespace (string fullName);

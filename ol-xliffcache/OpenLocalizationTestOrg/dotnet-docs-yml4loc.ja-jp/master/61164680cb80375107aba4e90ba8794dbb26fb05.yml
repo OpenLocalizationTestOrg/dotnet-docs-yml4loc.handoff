@@ -245,7 +245,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml.Schema
   summary: Ends validation and checks identity constraints for the entire XML document.
-  remarks: The <xref:System.Xml.Schema.XmlSchemaValidator.EndValidation%2A> method ends validation and checks identity constraints for the entire XML document if the <xref:System.Xml.Schema.XmlSchemaValidationFlags.ProcessIdentityConstraints> validation option is set.
+  remarks: 'The <xref:System.Xml.Schema.XmlSchemaValidator.EndValidation%2A> method ends validation and checks identity constraints for the entire XML document if the <xref:System.Xml.Schema.XmlSchemaValidationFlags.ProcessIdentityConstraints> validation option is set.'
   syntax:
     content: public void EndValidation ();
     parameters: []
@@ -416,7 +416,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml.Schema
   summary: Validates identity constraints on the default attributes and populates the <xref href="System.Collections.ArrayList"></xref> specified with <xref href="System.Xml.Schema.XmlSchemaAttribute"></xref> objects for any attributes with default values that have not been previously validated using the <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateAttribute*"></xref> method in the element context.
-  remarks: The <xref:System.Xml.Schema.XmlSchemaValidator.GetUnspecifiedDefaultAttributes%2A> method must be called after validating all the attributes for the current element with the <xref:System.Xml.Schema.XmlSchemaValidator.ValidateAttribute%2A> method. The <xref:System.Xml.Schema.XmlSchemaValidator.GetUnspecifiedDefaultAttributes%2A> method should be used to determine what default attributes are to be inserted into the XML document being validated.
+  remarks: 'The <xref:System.Xml.Schema.XmlSchemaValidator.GetUnspecifiedDefaultAttributes%2A> method must be called after validating all the attributes for the current element with the <xref:System.Xml.Schema.XmlSchemaValidator.ValidateAttribute%2A> method. The <xref:System.Xml.Schema.XmlSchemaValidator.GetUnspecifiedDefaultAttributes%2A> method should be used to determine what default attributes are to be inserted into the XML document being validated.'
   syntax:
     content: public void GetUnspecifiedDefaultAttributes (System.Collections.ArrayList defaultAttributes);
     parameters:
@@ -473,7 +473,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml.Schema
   summary: Initializes the state of the <xref href="System.Xml.Schema.XmlSchemaValidator"></xref> object.
-  remarks: The <xref:System.Xml.Schema.XmlSchemaValidator.Initialize%2A> method is only valid if called immediately after the construction of an <xref:System.Xml.Schema.XmlSchemaValidator> object or after a call to <xref:System.Xml.Schema.XmlSchemaValidator.EndValidation%2A>.
+  remarks: 'The <xref:System.Xml.Schema.XmlSchemaValidator.Initialize%2A> method is only valid if called immediately after the construction of an <xref:System.Xml.Schema.XmlSchemaValidator> object or after a call to <xref:System.Xml.Schema.XmlSchemaValidator.EndValidation%2A>.'
   example:
   - "The following example validates the `contosoBooks.xml` file against the `contosoBooks.xsd` schema. The example uses the <xref:System.Xml.Serialization.XmlSerializer> class to deserialize the `contosoBooks.xml` file and pass the value of the nodes to the methods of the <xref:System.Xml.Schema.XmlSchemaValidator> class.  \n  \n [!code-csharp[XmlSchemaValidatorExamples#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlSchemaValidatorExamples/CS/XmlSchemaValidatorExamples.cs#1)]\n [!code-vb[XmlSchemaValidatorExamples#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlSchemaValidatorExamples/VB/XmlSchemaValidatorExamples.vb#1)]  \n  \n The example takes the `contosoBooks.xml` file as input.  \n  \n [!code-xml[XPathXMLExamples#2](~/samples/snippets/xml/VS_Snippets_Data/XPathXMLExamples/XML/contosoBooks.xml#2)]  \n  \n The example also takes the `contosoBooks.xsd` as an input.  \n  \n [!code-xml[XPathXMLExamples#3](~/samples/snippets/xml/VS_Snippets_Data/XPathXMLExamples/XML/contosoBooks.xsd#3)]"
   syntax:
@@ -532,7 +532,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml.Schema
   summary: Initializes the state of the <xref href="System.Xml.Schema.XmlSchemaValidator"></xref> object using the <xref href="System.Xml.Schema.XmlSchemaObject"></xref> specified for partial validation.
-  remarks: The <xref:System.Xml.Schema.XmlSchemaValidator.Initialize%2A> method that takes an <xref:System.Xml.Schema.XmlSchemaObject> as a parameter initializes an <xref:System.Xml.Schema.XmlSchemaValidator> object to its starting state for partial validation.
+  remarks: 'The <xref:System.Xml.Schema.XmlSchemaValidator.Initialize%2A> method that takes an <xref:System.Xml.Schema.XmlSchemaObject> as a parameter initializes an <xref:System.Xml.Schema.XmlSchemaValidator> object to its starting state for partial validation.'
   example:
   - "In the following example, an <xref:System.Xml.Schema.XmlSchemaObject> is initialized for partial validation using the <xref:System.Xml.Schema.XmlSchemaValidator.Initialize%2A> method. The `orderNumber` schema element is passed by selecting the schema element by <xref:System.Xml.XmlQualifiedName> in the <xref:System.Xml.Schema.XmlSchemaObjectTable> collection returned by the <xref:System.Xml.Schema.XmlSchemaSet.GlobalElements%2A> property of the <xref:System.Xml.Schema.XmlSchemaSet> object. The <xref:System.Xml.Schema.XmlSchemaValidator> object then validates this specific element.  \n  \n```vb  \nDim schemaSet As XmlSchemaSet = New XmlSchemaSet()  \nschemaSet.Add(Nothing, \"schema.xsd\")  \nschemaSet.Compile()  \nDim nameTable As NameTable = New NameTable()  \nDim manager As XmlNamespaceManager = New XmlNamespaceManager(nameTable)  \n  \nDim validator As XmlSchemaValidator = New XmlSchemaValidator(nameTable, schemaSet, manager, XmlSchemaValidationFlags.None)  \nvalidator.Initialize(schemaSet.GlobalElements.Item(New XmlQualifiedName(\"orderNumber\")))  \n  \nvalidator.ValidateElement(\"orderNumber\", \"\", Nothing)  \nvalidator.GetUnspecifiedDefaultAttributes(New ArrayList())  \nvalidator.ValidateEndOfAttributes(Nothing)  \nvalidator.ValidateText(\"123\")  \nvalidator.ValidateEndElement(Nothing)  \n```  \n  \n```csharp  \nXmlSchemaSet schemaSet = new XmlSchemaSet();  \nschemaSet.Add(null, \"schema.xsd\");  \nschemaSet.Compile();  \nNameTable nameTable = new NameTable();  \nXmlNamespaceManager manager = new XmlNamespaceManager(nameTable);  \n  \nXmlSchemaValidator validator = new XmlSchemaValidator(nameTable, schemaSet, manager, XmlSchemaValidationFlags.None);  \nvalidator.Initialize(schemaSet.GlobalElements[new XmlQualifiedName(\"orderNumber\")]);  \n  \nvalidator.ValidateElement(\"orderNumber\", \"\", null);  \nvalidator.GetUnspecifiedDefaultAttributes(new ArrayList());  \nvalidator.ValidateEndOfAttributes(null);  \nvalidator.ValidateText(\"123\");  \nvalidator.ValidateEndElement(null);  \n```  \n  \n The example takes the following XML schema as input.  \n  \n `<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\">`  \n  \n `<xs:element name=\"orderNumber\" type=\"xs:int\" />`  \n  \n `</xs:schema>`"
   syntax:
@@ -540,7 +540,7 @@ items:
     parameters:
     - id: partialValidationType
       type: System.Xml.Schema.XmlSchemaObject
-      description: An <xref href="System.Xml.Schema.XmlSchemaElement"></xref>, <xref href="System.Xml.Schema.XmlSchemaAttribute"></xref>, or <xref href="System.Xml.Schema.XmlSchemaType"></xref> object used to initialize the validation context of the <xref href="System.Xml.Schema.XmlSchemaValidator"></xref> object for partial validation.
+      description: 'An <xref href="System.Xml.Schema.XmlSchemaElement"></xref>, <xref href="System.Xml.Schema.XmlSchemaAttribute"></xref>, or <xref href="System.Xml.Schema.XmlSchemaType"></xref> object used to initialize the validation context of the <xref href="System.Xml.Schema.XmlSchemaValidator"></xref> object for partial validation.'
   overload: System.Xml.Schema.XmlSchemaValidator.Initialize*
   exceptions:
   - type: System.InvalidOperationException
@@ -548,7 +548,7 @@ items:
     description: Calling the <xref href="System.Xml.Schema.XmlSchemaValidator.Initialize*"></xref> method is valid immediately after the construction of an <xref href="System.Xml.Schema.XmlSchemaValidator"></xref> object or after a call to <xref href="System.Xml.Schema.XmlSchemaValidator.EndValidation"></xref> only.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: The <xref href="System.Xml.Schema.XmlSchemaObject"></xref> parameter is not an <xref href="System.Xml.Schema.XmlSchemaElement"></xref>, <xref href="System.Xml.Schema.XmlSchemaAttribute"></xref>, or <xref href="System.Xml.Schema.XmlSchemaType"></xref> object.
+    description: 'The <xref href="System.Xml.Schema.XmlSchemaObject"></xref> parameter is not an <xref href="System.Xml.Schema.XmlSchemaElement"></xref>, <xref href="System.Xml.Schema.XmlSchemaAttribute"></xref>, or <xref href="System.Xml.Schema.XmlSchemaType"></xref> object.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: The <xref href="System.Xml.Schema.XmlSchemaObject"></xref> parameter cannot be `null`.
@@ -667,7 +667,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The <xref href="System.Xml.Schema.XmlSchemaValidator.SkipToEndElement(System.Xml.Schema.XmlSchemaInfo)"></xref> method was not called in the correct sequence. For example, calling <xref href="System.Xml.Schema.XmlSchemaValidator.SkipToEndElement(System.Xml.Schema.XmlSchemaInfo)"></xref> after calling <xref href="System.Xml.Schema.XmlSchemaValidator.SkipToEndElement(System.Xml.Schema.XmlSchemaInfo)"></xref>.
+    description: 'The <xref href="System.Xml.Schema.XmlSchemaValidator.SkipToEndElement(System.Xml.Schema.XmlSchemaInfo)"></xref> method was not called in the correct sequence. For example, calling <xref href="System.Xml.Schema.XmlSchemaValidator.SkipToEndElement(System.Xml.Schema.XmlSchemaInfo)"></xref> after calling <xref href="System.Xml.Schema.XmlSchemaValidator.SkipToEndElement(System.Xml.Schema.XmlSchemaInfo)"></xref>.'
   version:
   - netcore-2.0
   - netframework-4.5.1
@@ -771,7 +771,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.Schema
-  summary: Validates the attribute name, namespace URI, and value in the current element context.
+  summary: 'Validates the attribute name, namespace URI, and value in the current element context.'
   remarks: "The following are important notes to consider when using the <xref:System.Xml.Schema.XmlSchemaValidator.ValidateAttribute%2A> method.  \n  \n-   The <xref:System.Xml.Schema.XmlSchemaValidator.GetUnspecifiedDefaultAttributes%2A> method must be called after validating all the attributes for the current element with the <xref:System.Xml.Schema.XmlSchemaValidator.ValidateAttribute%2A> method.  \n  \n-   If an <xref:System.Xml.Schema.XmlSchemaAttribute> object was passed to the <xref:System.Xml.Schema.XmlSchemaValidator.Initialize%2A> method, the <xref:System.Xml.Schema.XmlSchemaValidator.ValidateAttribute%2A> method validates the attribute against the <xref:System.Xml.Schema.XmlSchemaAttribute> object.  \n  \n-   If the attribute is successfully validated in the current element context, the <xref:System.Xml.Schema.XmlSchemaInfo> object's (if specified) <xref:System.Xml.Schema.XmlSchemaInfo.SchemaAttribute%2A>, <xref:System.Xml.Schema.XmlSchemaInfo.SchemaType%2A>, <xref:System.Xml.Schema.XmlSchemaInfo.MemberType%2A>, and <xref:System.Xml.Schema.XmlSchemaInfo.Validity%2A> properties are set with the results of the validation."
   example:
   - "The following example validates the `contosoBooks.xml` file against the `contosoBooks.xsd` schema. The example uses the <xref:System.Xml.Serialization.XmlSerializer> class to deserialize the `contosoBooks.xml` file and pass the value of the nodes to the methods of the <xref:System.Xml.Schema.XmlSchemaValidator> class.  \n  \n [!code-csharp[XmlSchemaValidatorExamples#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlSchemaValidatorExamples/CS/XmlSchemaValidatorExamples.cs#1)]\n [!code-vb[XmlSchemaValidatorExamples#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlSchemaValidatorExamples/VB/XmlSchemaValidatorExamples.vb#1)]  \n  \n The example takes the `contosoBooks.xml` file as input.  \n  \n [!code-xml[XPathXMLExamples#2](~/samples/snippets/xml/VS_Snippets_Data/XPathXMLExamples/XML/contosoBooks.xml#2)]  \n  \n The example also takes the `contosoBooks.xsd` as an input.  \n  \n [!code-xml[XPathXMLExamples#3](~/samples/snippets/xml/VS_Snippets_Data/XPathXMLExamples/XML/contosoBooks.xsd#3)]"
@@ -800,7 +800,7 @@ items:
     description: The attribute is not valid in the current element context.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateAttribute*"></xref> method was not called in the correct sequence. For example, calling <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateAttribute*"></xref> after calling <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateEndOfAttributes(System.Xml.Schema.XmlSchemaInfo)"></xref>.
+    description: 'The <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateAttribute*"></xref> method was not called in the correct sequence. For example, calling <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateAttribute*"></xref> after calling <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateEndOfAttributes(System.Xml.Schema.XmlSchemaInfo)"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: One or more of the parameters specified are `null`.
@@ -851,7 +851,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.Schema
-  summary: Validates the attribute name, namespace URI, and value in the current element context.
+  summary: 'Validates the attribute name, namespace URI, and value in the current element context.'
   remarks: "The following are important notes to consider when using the <xref:System.Xml.Schema.XmlSchemaValidator.ValidateAttribute%2A> method.  \n  \n-   The <xref:System.Xml.Schema.XmlSchemaValidator.GetUnspecifiedDefaultAttributes%2A> method must be called after validating all the attributes for the current element with the <xref:System.Xml.Schema.XmlSchemaValidator.ValidateAttribute%2A> method.  \n  \n-   If an <xref:System.Xml.Schema.XmlSchemaAttribute> object was passed to the <xref:System.Xml.Schema.XmlSchemaValidator.Initialize%2A> method, the <xref:System.Xml.Schema.XmlSchemaValidator.ValidateAttribute%2A> method validates the attribute against the <xref:System.Xml.Schema.XmlSchemaAttribute> object.  \n  \n-   If the attribute is successfully validated in the current element context, the <xref:System.Xml.Schema.XmlSchemaInfo> object's (if specified) <xref:System.Xml.Schema.XmlSchemaInfo.SchemaAttribute%2A>, <xref:System.Xml.Schema.XmlSchemaInfo.SchemaType%2A>, <xref:System.Xml.Schema.XmlSchemaInfo.MemberType%2A>, and <xref:System.Xml.Schema.XmlSchemaInfo.Validity%2A> properties are set with the results of the validation."
   example:
   - "The following example validates the `contosoBooks.xml` file against the `contosoBooks.xsd` schema. The example uses the <xref:System.Xml.Serialization.XmlSerializer> class to deserialize the `contosoBooks.xml` file and pass the value of the nodes to the methods of the <xref:System.Xml.Schema.XmlSchemaValidator> class.  \n  \n [!code-csharp[XmlSchemaValidatorExamples#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlSchemaValidatorExamples/CS/XmlSchemaValidatorExamples.cs#1)]\n [!code-vb[XmlSchemaValidatorExamples#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlSchemaValidatorExamples/VB/XmlSchemaValidatorExamples.vb#1)]  \n  \n The example takes the `contosoBooks.xml` file as input.  \n  \n [!code-xml[XPathXMLExamples#2](~/samples/snippets/xml/VS_Snippets_Data/XPathXMLExamples/XML/contosoBooks.xml#2)]  \n  \n The example also takes the `contosoBooks.xsd` as an input.  \n  \n [!code-xml[XPathXMLExamples#3](~/samples/snippets/xml/VS_Snippets_Data/XPathXMLExamples/XML/contosoBooks.xsd#3)]"
@@ -880,7 +880,7 @@ items:
     description: The attribute is not valid in the current element context.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateAttribute*"></xref> method was not called in the correct sequence. For example, calling <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateAttribute*"></xref> after calling <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateEndOfAttributes(System.Xml.Schema.XmlSchemaInfo)"></xref>.
+    description: 'The <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateAttribute*"></xref> method was not called in the correct sequence. For example, calling <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateAttribute*"></xref> after calling <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateEndOfAttributes(System.Xml.Schema.XmlSchemaInfo)"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: One or more of the parameters specified are `null`.
@@ -954,7 +954,7 @@ items:
     description: The element's name is not valid in the current context.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateElement*"></xref> method was not called in the correct sequence. For example, the <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateElement*"></xref> method is called after calling <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateAttribute*"></xref>.
+    description: 'The <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateElement*"></xref> method was not called in the correct sequence. For example, the <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateElement*"></xref> method is called after calling <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateAttribute*"></xref>.'
   version:
   - netcore-2.0
   - netframework-4.5.1
@@ -1002,7 +1002,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.Schema
-  summary: Validates the element in the current context with the <code>xsi:Type</code>, <code>xsi:Nil</code>, <code>xsi:SchemaLocation</code>, and <code>xsi:NoNamespaceSchemaLocation</code> attribute values specified.
+  summary: 'Validates the element in the current context with the <code>xsi:Type</code>, <code>xsi:Nil</code>, <code>xsi:SchemaLocation</code>, and <code>xsi:NoNamespaceSchemaLocation</code> attribute values specified.'
   remarks: "The following are important notes to consider when using the <xref:System.Xml.Schema.XmlSchemaValidator.ValidateElement%2A> method.  \n  \n-   If the element name is successfully validated in the current context, the <xref:System.Xml.Schema.XmlSchemaInfo> object's (if specified) <xref:System.Xml.Schema.XmlSchemaInfo.IsNil%2A>, <xref:System.Xml.Schema.XmlSchemaInfo.SchemaType%2A>, <xref:System.Xml.Schema.XmlSchemaInfo.SchemaElement%2A>, and <xref:System.Xml.Schema.XmlSchemaInfo.Validity%2A> properties are set with the results of the validation.  \n  \n-   If the element name or any of its attributes are invalid in the current context, the <xref:System.Xml.Schema.XmlSchemaInfo.Validity%2A> property is set to <xref:System.Xml.Schema.XmlSchemaValidity.Invalid>; otherwise the <xref:System.Xml.Schema.XmlSchemaInfo.Validity%2A> property is set to <xref:System.Xml.Schema.XmlSchemaValidity.NotKnown>.  \n  \n-   If the <xref:System.Xml.Schema.XmlSchemaValidationFlags.ProcessSchemaLocation> value was not passed as a parameter to the <xref:System.Xml.Schema.XmlSchemaValidator.%23ctor%2A> constructor, `xsi:SchemaLocation` and `xsi:NoNamespaceSchemaLocation` attribute values are ignored."
   syntax:
     content: public void ValidateElement (string localName, string namespaceUri, System.Xml.Schema.XmlSchemaInfo schemaInfo, string xsiType, string xsiNil, string xsiSchemaLocation, string xsiNoNamespaceSchemaLocation);
@@ -1018,16 +1018,16 @@ items:
       description: An <xref href="System.Xml.Schema.XmlSchemaInfo"></xref> object whose properties are set on successful validation of the element's name. This parameter can be `null`.
     - id: xsiType
       type: System.String
-      description: The <code>xsi:Type</code> attribute value of the element. This parameter can be `null`.
+      description: 'The <code>xsi:Type</code> attribute value of the element. This parameter can be `null`.'
     - id: xsiNil
       type: System.String
-      description: The <code>xsi:Nil</code> attribute value of the element. This parameter can be `null`.
+      description: 'The <code>xsi:Nil</code> attribute value of the element. This parameter can be `null`.'
     - id: xsiSchemaLocation
       type: System.String
-      description: The <code>xsi:SchemaLocation</code> attribute value of the element. This parameter can be `null`.
+      description: 'The <code>xsi:SchemaLocation</code> attribute value of the element. This parameter can be `null`.'
     - id: xsiNoNamespaceSchemaLocation
       type: System.String
-      description: The <code>xsi:NoNamespaceSchemaLocation</code> attribute value of the element. This parameter can be `null`.
+      description: 'The <code>xsi:NoNamespaceSchemaLocation</code> attribute value of the element. This parameter can be `null`.'
   overload: System.Xml.Schema.XmlSchemaValidator.ValidateElement*
   exceptions:
   - type: System.Xml.Schema.XmlSchemaValidationException
@@ -1035,7 +1035,7 @@ items:
     description: The element's name is not valid in the current context.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateElement*"></xref> method was not called in the correct sequence. For example, the <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateElement*"></xref> method is called after calling <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateAttribute*"></xref>.
+    description: 'The <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateElement*"></xref> method was not called in the correct sequence. For example, the <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateElement*"></xref> method is called after calling <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateAttribute*"></xref>.'
   version:
   - netcore-2.0
   - netframework-4.5.1
@@ -1083,7 +1083,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.Schema
-  summary: Verifies if the text content of the element is valid according to its data type for elements with simple content, and verifies if the content of the current element is complete for elements with complex content.
+  summary: 'Verifies if the text content of the element is valid according to its data type for elements with simple content, and verifies if the content of the current element is complete for elements with complex content.'
   remarks: "The following are important notes to consider when using the <xref:System.Xml.Schema.XmlSchemaValidator.ValidateEndElement%2A> method.  \n  \n-   For elements with simple content, the <xref:System.Xml.Schema.XmlSchemaValidator.ValidateEndElement%2A> method verifies that the text content of the element is valid according to its data type and returns the parsed typed value. The text content of the element is obtained from the results of previous calls to <xref:System.Xml.Schema.XmlSchemaValidator.ValidateText%2A>.  \n  \n-   For elements with complex content, the <xref:System.Xml.Schema.XmlSchemaValidator.ValidateEndElement%2A> method verifies if the content of the current element is complete.  \n  \n-   If the element has a default value, the value returned from the <xref:System.Xml.Schema.XmlSchemaValidator.ValidateEndElement%2A> method is the default value for the element.  \n  \n-   If the <xref:System.Xml.Schema.XmlSchemaValidator> object was constructed with the <xref:System.Xml.Schema.XmlSchemaValidationFlags.ProcessIdentityConstraints> value as a parameter, the <xref:System.Xml.Schema.XmlSchemaValidator.ValidateEndElement%2A> method checks the identity constraint rules (if any) that apply to the element.  \n  \n-   If the element is successfully validated in the current context, the <xref:System.Xml.Schema.XmlSchemaInfo> object's (if specified) <xref:System.Xml.Schema.XmlSchemaInfo.IsDefault%2A>, <xref:System.Xml.Schema.XmlSchemaInfo.MemberType%2A>, and <xref:System.Xml.Schema.XmlSchemaInfo.Validity%2A> properties are set with the results of the validation."
   syntax:
     content: public object ValidateEndElement (System.Xml.Schema.XmlSchemaInfo schemaInfo);
@@ -1093,7 +1093,7 @@ items:
       description: An <xref href="System.Xml.Schema.XmlSchemaInfo"></xref> object whose properties are set on successful validation of the element. This parameter can be `null`.
     return:
       type: System.Object
-      description: The parsed, typed text value of the element if the element has simple content.
+      description: 'The parsed, typed text value of the element if the element has simple content.'
   overload: System.Xml.Schema.XmlSchemaValidator.ValidateEndElement*
   exceptions:
   - type: System.Xml.Schema.XmlSchemaValidationException
@@ -1101,7 +1101,7 @@ items:
     description: The element's content is not valid.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateEndElement*"></xref> method was not called in the correct sequence. For example, if the <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateEndElement*"></xref> method is called after calling <xref href="System.Xml.Schema.XmlSchemaValidator.SkipToEndElement(System.Xml.Schema.XmlSchemaInfo)"></xref>.
+    description: 'The <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateEndElement*"></xref> method was not called in the correct sequence. For example, if the <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateEndElement*"></xref> method is called after calling <xref href="System.Xml.Schema.XmlSchemaValidator.SkipToEndElement(System.Xml.Schema.XmlSchemaInfo)"></xref>.'
   version:
   - netcore-2.0
   - netframework-4.5.1
@@ -1164,7 +1164,7 @@ items:
       description: The typed text content of the element.
     return:
       type: System.Object
-      description: The parsed, typed simple content of the element.
+      description: 'The parsed, typed simple content of the element.'
   overload: System.Xml.Schema.XmlSchemaValidator.ValidateEndElement*
   exceptions:
   - type: System.Xml.Schema.XmlSchemaValidationException
@@ -1172,7 +1172,7 @@ items:
     description: The element's text content is not valid.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateEndElement*"></xref> method was not called in the correct sequence (for example, if the <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateEndElement*"></xref> method is called after calling <xref href="System.Xml.Schema.XmlSchemaValidator.SkipToEndElement(System.Xml.Schema.XmlSchemaInfo)"></xref>), calls to the <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateText*"></xref> method have been previously made, or the element has complex content.
+    description: 'The <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateEndElement*"></xref> method was not called in the correct sequence (for example, if the <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateEndElement*"></xref> method is called after calling <xref href="System.Xml.Schema.XmlSchemaValidator.SkipToEndElement(System.Xml.Schema.XmlSchemaInfo)"></xref>), calls to the <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateText*"></xref> method have been previously made, or the element has complex content.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: The typed text content parameter cannot be `null`.
@@ -1240,7 +1240,7 @@ items:
     description: One or more of the required attributes in the current element context were not found.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateEndOfAttributes(System.Xml.Schema.XmlSchemaInfo)"></xref> method was not called in the correct sequence. For example, calling <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateEndOfAttributes(System.Xml.Schema.XmlSchemaInfo)"></xref> after calling <xref href="System.Xml.Schema.XmlSchemaValidator.SkipToEndElement(System.Xml.Schema.XmlSchemaInfo)"></xref>.
+    description: 'The <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateEndOfAttributes(System.Xml.Schema.XmlSchemaInfo)"></xref> method was not called in the correct sequence. For example, calling <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateEndOfAttributes(System.Xml.Schema.XmlSchemaInfo)"></xref> after calling <xref href="System.Xml.Schema.XmlSchemaValidator.SkipToEndElement(System.Xml.Schema.XmlSchemaInfo)"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: One or more of the parameters specified are `null`.
@@ -1291,7 +1291,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.Schema
-  summary: Validates whether the text `string` specified is allowed in the current element context, and accumulates the text for validation if the current element has simple content.
+  summary: 'Validates whether the text `string` specified is allowed in the current element context, and accumulates the text for validation if the current element has simple content.'
   remarks: "The following are important notes to consider when using the <xref:System.Xml.Schema.XmlSchemaValidator.ValidateText%2A> method.  \n  \n-   If the element has simple content, the text `string` specified is concatenated on each call to the <xref:System.Xml.Schema.XmlSchemaValidator.ValidateText%2A> method until the <xref:System.Xml.Schema.XmlSchemaValidator.ValidateEndElement%2A> method is called. When the <xref:System.Xml.Schema.XmlSchemaValidator.ValidateEndElement%2A> method is called, all the text is validated.  \n  \n-   If the element has complex content, no text concatenation occurs."
   syntax:
     content: public void ValidateText (string elementValue);
@@ -1306,7 +1306,7 @@ items:
     description: The text `string` specified is not allowed in the current element context.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateText*"></xref> method was not called in the correct sequence. For example, the <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateText*"></xref> method is called after calling <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateAttribute*"></xref>.
+    description: 'The <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateText*"></xref> method was not called in the correct sequence. For example, the <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateText*"></xref> method is called after calling <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateAttribute*"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: The text `string` parameter cannot be `null`.
@@ -1357,7 +1357,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.Schema
-  summary: Validates whether the text returned by the <xref href="System.Xml.Schema.XmlValueGetter"></xref> object specified is allowed in the current element context, and accumulates the text for validation if the current element has simple content.
+  summary: 'Validates whether the text returned by the <xref href="System.Xml.Schema.XmlValueGetter"></xref> object specified is allowed in the current element context, and accumulates the text for validation if the current element has simple content.'
   remarks: "The following are important notes to consider when using the <xref:System.Xml.Schema.XmlSchemaValidator.ValidateText%2A> method.  \n  \n-   If the element has simple content, the text `string` specified is concatenated on each call to the <xref:System.Xml.Schema.XmlSchemaValidator.ValidateText%2A> method until the <xref:System.Xml.Schema.XmlSchemaValidator.ValidateEndElement%2A> method is called. When the <xref:System.Xml.Schema.XmlSchemaValidator.ValidateEndElement%2A> method is called, all the text is validated.  \n  \n-   If the element has complex content, no text concatenation occurs."
   syntax:
     content: public void ValidateText (System.Xml.Schema.XmlValueGetter elementValue);
@@ -1372,7 +1372,7 @@ items:
     description: The text `string` specified is not allowed in the current element context.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateText*"></xref> method was not called in the correct sequence. For example, the <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateText*"></xref> method is called after calling <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateAttribute*"></xref>.
+    description: 'The <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateText*"></xref> method was not called in the correct sequence. For example, the <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateText*"></xref> method is called after calling <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateAttribute*"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: The text `string` parameter cannot be `null`.
@@ -1423,7 +1423,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.Schema
-  summary: Validates whether the white space in the `string` specified is allowed in the current element context, and accumulates the white space for validation if the current element has simple content.
+  summary: 'Validates whether the white space in the `string` specified is allowed in the current element context, and accumulates the white space for validation if the current element has simple content.'
   syntax:
     content: public void ValidateWhitespace (string elementValue);
     parameters:
@@ -1437,7 +1437,7 @@ items:
     description: White space is not allowed in the current element context.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateWhitespace*"></xref> method was not called in the correct sequence. For example, if the <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateWhitespace*"></xref> method is called after calling <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateAttribute*"></xref>.
+    description: 'The <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateWhitespace*"></xref> method was not called in the correct sequence. For example, if the <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateWhitespace*"></xref> method is called after calling <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateAttribute*"></xref>.'
   version:
   - netcore-2.0
   - netframework-4.5.1
@@ -1485,7 +1485,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.Schema
-  summary: Validates whether the white space returned by the <xref href="System.Xml.Schema.XmlValueGetter"></xref> object specified is allowed in the current element context, and accumulates the white space for validation if the current element has simple content.
+  summary: 'Validates whether the white space returned by the <xref href="System.Xml.Schema.XmlValueGetter"></xref> object specified is allowed in the current element context, and accumulates the white space for validation if the current element has simple content.'
   syntax:
     content: public void ValidateWhitespace (System.Xml.Schema.XmlValueGetter elementValue);
     parameters:
@@ -1499,7 +1499,7 @@ items:
     description: White space is not allowed in the current element context.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateWhitespace*"></xref> method was not called in the correct sequence. For example, if the <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateWhitespace*"></xref> method is called after calling <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateAttribute*"></xref>.
+    description: 'The <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateWhitespace*"></xref> method was not called in the correct sequence. For example, if the <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateWhitespace*"></xref> method is called after calling <xref href="System.Xml.Schema.XmlSchemaValidator.ValidateAttribute*"></xref>.'
   version:
   - netcore-2.0
   - netframework-4.5.1
@@ -1548,7 +1548,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml.Schema
   summary: The <xref href="System.Xml.Schema.ValidationEventHandler"></xref> that receives schema validation warnings and errors encountered during schema validation.
-  remarks: If no <xref:System.Xml.Schema.ValidationEventHandler> is specified, an <xref:System.Xml.Schema.XmlSchemaValidationException> is thrown for all schema validation errors with an <xref:System.Xml.Schema.XmlSeverityType> value of <xref:System.Xml.Schema.XmlSeverityType.Error>. An <xref:System.Xml.Schema.XmlSchemaValidationException> is not thrown for validation warnings with an <xref:System.Xml.Schema.XmlSeverityType> value of <xref:System.Xml.Schema.XmlSeverityType.Warning>.
+  remarks: 'If no <xref:System.Xml.Schema.ValidationEventHandler> is specified, an <xref:System.Xml.Schema.XmlSchemaValidationException> is thrown for all schema validation errors with an <xref:System.Xml.Schema.XmlSeverityType> value of <xref:System.Xml.Schema.XmlSeverityType.Error>. An <xref:System.Xml.Schema.XmlSchemaValidationException> is not thrown for validation warnings with an <xref:System.Xml.Schema.XmlSeverityType> value of <xref:System.Xml.Schema.XmlSeverityType.Warning>.'
   example:
   - "The following example validates the `contosoBooks.xml` file against the `contosoBooks.xsd` schema. The example uses the <xref:System.Xml.Serialization.XmlSerializer> class to deserialize the `contosoBooks.xml` file and pass the value of the nodes to the methods of the <xref:System.Xml.Schema.XmlSchemaValidator> class.  \n  \n [!code-csharp[XmlSchemaValidatorExamples#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlSchemaValidatorExamples/CS/XmlSchemaValidatorExamples.cs#1)]\n [!code-vb[XmlSchemaValidatorExamples#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlSchemaValidatorExamples/VB/XmlSchemaValidatorExamples.vb#1)]  \n  \n The example takes the `contosoBooks.xml` file as input.  \n  \n [!code-xml[XPathXMLExamples#2](~/samples/snippets/xml/VS_Snippets_Data/XPathXMLExamples/XML/contosoBooks.xml#2)]  \n  \n The example also takes the `contosoBooks.xsd` as an input.  \n  \n [!code-xml[XPathXMLExamples#3](~/samples/snippets/xml/VS_Snippets_Data/XPathXMLExamples/XML/contosoBooks.xsd#3)]"
   syntax:
@@ -1662,11 +1662,8 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.Schema
-  summary: Sets the <xref href="System.Xml.XmlResolver"></xref> object used to resolve <code>xs:import</code> and <code>xs:include</code> elements as well as <code>xsi:schemaLocation</code> and <code>xsi:noNamespaceSchemaLocation</code> attributes.
-  remarks: >-
-    > [!IMPORTANT]
-
-    >  The <xref:System.Xml.Schema.XmlSchemaValidationFlags.ProcessInlineSchema> and <xref:System.Xml.Schema.XmlSchemaValidationFlags.ProcessSchemaLocation> validation flags of an <xref:System.Xml.Schema.XmlSchemaValidator> object are not set be default. Additionally, the <xref:System.Xml.Schema.XmlSchemaValidator.XmlResolver%2A> property of an <xref:System.Xml.Schema.XmlSchemaValidator> object is `null` by default. As a result, external schemas referenced in include, imports, or redefine elements are not resolved by default.
+  summary: 'Sets the <xref href="System.Xml.XmlResolver"></xref> object used to resolve <code>xs:import</code> and <code>xs:include</code> elements as well as <code>xsi:schemaLocation</code> and <code>xsi:noNamespaceSchemaLocation</code> attributes.'
+  remarks: "> [!IMPORTANT]\n>  The <xref:System.Xml.Schema.XmlSchemaValidationFlags.ProcessInlineSchema> and <xref:System.Xml.Schema.XmlSchemaValidationFlags.ProcessSchemaLocation> validation flags of an <xref:System.Xml.Schema.XmlSchemaValidator> object are not set be default. Additionally, the <xref:System.Xml.Schema.XmlSchemaValidator.XmlResolver%2A> property of an <xref:System.Xml.Schema.XmlSchemaValidator> object is `null` by default. As a result, external schemas referenced in include, imports, or redefine elements are not resolved by default."
   syntax:
     content: public System.Xml.XmlResolver XmlResolver { set; }
     return:

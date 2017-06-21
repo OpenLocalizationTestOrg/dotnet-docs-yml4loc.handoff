@@ -51,7 +51,7 @@ items:
   - netstandard
   namespace: System
   summary: Represents an 8-bit unsigned integer.
-  remarks: "<xref:System.Byte> is an immutable value type that represents unsigned integers with values that range from 0 (which is represented by the <xref:System.Byte.MinValue?displayProperty=fullName> constant) to 255 (which is represented by the <xref:System.Byte.MaxValue?displayProperty=fullName> constant). The .NET Framework also includes a signed 8-bit integer value type, <xref:System.SByte>, which represents values that range from -128 to 127.  \n  \n## Instantiating a Byte Value  \n You can instantiate a <xref:System.Byte> value in several ways:  \n  \n-   You can declare a <xref:System.Byte> variable and assign it a literal integer value that is within the range of the <xref:System.Byte> data type. The following example declares two <xref:System.Byte> variables and assigns them values in this way.  \n  \n     [!code-csharp[System.Byte.Instantiation#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.byte.instantiation/cs/byteinstantiation1.cs#1)]\n     [!code-vb[System.Byte.Instantiation#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.byte.instantiation/vb/byteinstantiate1.vb#1)]  \n  \n-   You can assign a non-byte numeric value to a byte. This is a narrowing conversion, so it requires a cast operator in C# and a conversion method in Visual Basic if `Option Strict` is on. If the non-byte value is a <xref:System.Single>, <xref:System.Double>, or <xref:System.Decimal> value that includes a fractional component, the handling of its fractional part depends on the compiler performing the conversion. The following example assigns several numeric values to <xref:System.Byte> variables.  \n  \n     [!code-csharp[System.Byte.Instantiation#2](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.byte.instantiation/cs/byteinstantiation1.cs#2)]\n     [!code-vb[System.Byte.Instantiation#2](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.byte.instantiation/vb/byteinstantiate1.vb#2)]  \n  \n-   You can call a method of the <xref:System.Convert> class to convert any supported type to a <xref:System.Byte> value. This is possible because <xref:System.Byte> supports the <xref:System.IConvertible> interface. The following example illustrates the conversion of an array of <xref:System.Int32> values to <xref:System.Byte> values.  \n  \n     [!code-csharp[System.Convert.ToByte#4](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.convert.tobyte/cs/tobyte1.cs#4)]\n     [!code-vb[System.Convert.ToByte#4](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.convert.tobyte/vb/tobyte1.vb#4)]  \n  \n-   You can call the <xref:System.Byte.Parse%2A> or <xref:System.Byte.TryParse%2A> method to convert the string representation of a <xref:System.Byte> value to a <xref:System.Byte>. The string can contain either decimal or hexadecimal digits. The following example illustrates the parse operation by using both a decimal and a hexadecimal string.  \n  \n     [!code-csharp[System.Byte.Instantiation#3](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.byte.instantiation/cs/byteinstantiation1.cs#3)]\n     [!code-vb[System.Byte.Instantiation#3](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.byte.instantiation/vb/byteinstantiate1.vb#3)]  \n  \n## Performing Operations on Byte Values  \n The <xref:System.Byte> type supports standard mathematical operations such as addition, subtraction, division, multiplication, subtraction, negation, and unary negation. Like the other integral types, the <xref:System.Byte> type also supports the bitwise `AND`, `OR`, `XOR`, left shift, and right shift operators.  \n  \n You can use the standard numeric operators to compare two <xref:System.Byte> values, or you can call the <xref:System.Byte.CompareTo%2A> or <xref:System.Byte.Equals%2A> method.  \n  \n You can also call the members of the <xref:System.Math> class to perform a wide range of numeric operations, including getting the absolute value of a number, calculating the quotient and remainder from integral division, determining the maximum or minimum value of two integers, getting the sign of a number, and rounding a number.  \n  \n## Representing a Byte as a String  \n The <xref:System.Byte> type provides full support for standard and custom numeric format strings. (For more information, see [Formatting Types](~/docs/standard/base-types/formatting-types.md), [Standard Numeric Format Strings](~/docs/standard/base-types/standard-numeric-format-strings.md), and [Custom Numeric Format Strings](~/docs/standard/base-types/custom-numeric-format-strings.md).) However, most commonly, byte values are represented as one-digit to three-digit values without any additional formatting, or as two-digit hexadecimal values.  \n  \n To format a <xref:System.Byte> value as an integral string with no leading zeros, you can call the parameterless <xref:System.Byte.ToString> method. By using the \"D\" format specifier, you can also include a specified number of leading zeros in the string representation. By using the \"X\" format specifier, you can represent a <xref:System.Byte> value as a hexadecimal string. The following example formats the elements in an array of <xref:System.Byte> values in these three ways.  \n  \n [!code-csharp[System.Byte.Formatting#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.byte.formatting/cs/formatting1.cs#1)]\n [!code-vb[System.Byte.Formatting#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.byte.formatting/vb/formatting1.vb#1)]  \n  \n You can also format a <xref:System.Byte> value as a binary, octal, decimal, or hexadecimal string by calling the <xref:System.Convert.ToString%28System.Byte%2CSystem.Int32%29> method and supplying the base as the method's second parameter. The following example calls this method to display the binary, octal, and hexadecimal representations of an array of byte values.  \n  \n [!code-csharp[System.Byte.Formatting#2](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.byte.formatting/cs/formatting1.cs#2)]\n [!code-vb[System.Byte.Formatting#2](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.byte.formatting/vb/formatting1.vb#2)]  \n  \n## Working with Non-Decimal Byte Values  \n In addition to working with individual bytes as decimal values, you may want to perform bitwise operations with byte values, or work with byte arrays or with the binary or hexadecimal representations of byte values. For example, overloads of the <xref:System.BitConverter.GetBytes%2A?displayProperty=fullName> method can convert each of the primitive data types to a byte array, and the <xref:System.Numerics.BigInteger.ToByteArray%2A?displayProperty=fullName> method converts a <xref:System.Numerics.BigInteger> value to a byte array.  \n  \n <xref:System.Byte> values are represented in 8 bits by their magnitude only, without a sign bit. This is important to keep in mind when you perform bitwise operations on <xref:System.Byte> values or when you work with individual bits. In order to perform a numeric, Boolean, or comparison operation on any two non-decimal values, both values must use the same representation.  \n  \n When an operation is performed on two <xref:System.Byte> values, the values share the same representation, so the result is accurate. This is illustrated in the following example, which masks the lowest-order bit of a <xref:System.Byte> value to ensure that it is even.  \n  \n [!code-csharp[System.Byte.Bitwise#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.byte.bitwise/cs/bitwise1.cs#1)]\n [!code-vb[System.Byte.Bitwise#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.byte.bitwise/vb/bitwise1.vb#1)]  \n  \n On the other hand, when you work with both unsigned and signed bits, bitwise operations are complicated by the fact that the <xref:System.SByte> values use sign-and-magnitude representation for positive values, and two's complement representation for negative values. In order to perform a meaningful bitwise operation, the values must be converted to two equivalent representations, and information about the sign bit must be preserved. The following example does this to mask out bits 2 and 4 of an array of 8-bit signed and unsigned values.  \n  \n [!code-csharp[System.Byte.Bitwise#2](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.byte.bitwise/cs/bitwise2.cs#2)]\n [!code-vb[System.Byte.Bitwise#2](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.byte.bitwise/vb/bitwise2.vb#2)]"
+  remarks: "<xref:System.Byte> is an immutable value type that represents unsigned integers with values that range from 0 (which is represented by the <xref:System.Byte.MinValue?displayProperty=fullName> constant) to 255 (which is represented by the <xref:System.Byte.MaxValue?displayProperty=fullName> constant). The .NET Framework also includes a signed 8-bit integer value type, <xref:System.SByte>, which represents values that range from -128 to 127.  \n  \n## <a name=\"instantiating-a-byte-value\"></a>Instantiating a Byte Value  \n You can instantiate a <xref:System.Byte> value in several ways:  \n  \n-   You can declare a <xref:System.Byte> variable and assign it a literal integer value that is within the range of the <xref:System.Byte> data type. The following example declares two <xref:System.Byte> variables and assigns them values in this way.  \n  \n     [!code-csharp[System.Byte.Instantiation#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.byte.instantiation/cs/byteinstantiation1.cs#1)]  [!code-vb[System.Byte.Instantiation#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.byte.instantiation/vb/byteinstantiate1.vb#1)]  \n  \n-   You can assign a non-byte numeric value to a byte. This is a narrowing conversion, so it requires a cast operator in C# and a conversion method in Visual Basic if `Option Strict` is on. If the non-byte value is a <xref:System.Single>, <xref:System.Double>, or <xref:System.Decimal> value that includes a fractional component, the handling of its fractional part depends on the compiler performing the conversion. The following example assigns several numeric values to <xref:System.Byte> variables.  \n  \n     [!code-csharp[System.Byte.Instantiation#2](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.byte.instantiation/cs/byteinstantiation1.cs#2)]  [!code-vb[System.Byte.Instantiation#2](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.byte.instantiation/vb/byteinstantiate1.vb#2)]  \n  \n-   You can call a method of the <xref:System.Convert> class to convert any supported type to a <xref:System.Byte> value. This is possible because <xref:System.Byte> supports the <xref:System.IConvertible> interface. The following example illustrates the conversion of an array of <xref:System.Int32> values to <xref:System.Byte> values.  \n  \n     [!code-csharp[System.Convert.ToByte#4](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.convert.tobyte/cs/tobyte1.cs#4)]  [!code-vb[System.Convert.ToByte#4](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.convert.tobyte/vb/tobyte1.vb#4)]  \n  \n-   You can call the <xref:System.Byte.Parse%2A> or <xref:System.Byte.TryParse%2A> method to convert the string representation of a <xref:System.Byte> value to a <xref:System.Byte>. The string can contain either decimal or hexadecimal digits. The following example illustrates the parse operation by using both a decimal and a hexadecimal string.  \n  \n     [!code-csharp[System.Byte.Instantiation#3](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.byte.instantiation/cs/byteinstantiation1.cs#3)]  [!code-vb[System.Byte.Instantiation#3](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.byte.instantiation/vb/byteinstantiate1.vb#3)]  \n  \n## <a name=\"performing-operations-on-byte-values\"></a>Performing Operations on Byte Values  \n The <xref:System.Byte> type supports standard mathematical operations such as addition, subtraction, division, multiplication, subtraction, negation, and unary negation. Like the other integral types, the <xref:System.Byte> type also supports the bitwise `AND`, `OR`, `XOR`, left shift, and right shift operators.  \n  \n You can use the standard numeric operators to compare two <xref:System.Byte> values, or you can call the <xref:System.Byte.CompareTo%2A> or <xref:System.Byte.Equals%2A> method.  \n  \n You can also call the members of the <xref:System.Math> class to perform a wide range of numeric operations, including getting the absolute value of a number, calculating the quotient and remainder from integral division, determining the maximum or minimum value of two integers, getting the sign of a number, and rounding a number.  \n  \n## <a name=\"representing-a-byte-as-a-string\"></a>Representing a Byte as a String  \n The <xref:System.Byte> type provides full support for standard and custom numeric format strings. (For more information, see [Formatting Types](~/docs/standard/base-types/formatting-types.md), [Standard Numeric Format Strings](~/docs/standard/base-types/standard-numeric-format-strings.md), and [Custom Numeric Format Strings](~/docs/standard/base-types/custom-numeric-format-strings.md).) However, most commonly, byte values are represented as one-digit to three-digit values without any additional formatting, or as two-digit hexadecimal values.  \n  \n To format a <xref:System.Byte> value as an integral string with no leading zeros, you can call the parameterless <xref:System.Byte.ToString> method. By using the \"D\" format specifier, you can also include a specified number of leading zeros in the string representation. By using the \"X\" format specifier, you can represent a <xref:System.Byte> value as a hexadecimal string. The following example formats the elements in an array of <xref:System.Byte> values in these three ways.  \n  \n [!code-csharp[System.Byte.Formatting#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.byte.formatting/cs/formatting1.cs#1)] [!code-vb[System.Byte.Formatting#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.byte.formatting/vb/formatting1.vb#1)]  \n  \n You can also format a <xref:System.Byte> value as a binary, octal, decimal, or hexadecimal string by calling the <xref:System.Convert.ToString%28System.Byte%2CSystem.Int32%29> method and supplying the base as the method's second parameter. The following example calls this method to display the binary, octal, and hexadecimal representations of an array of byte values.  \n  \n [!code-csharp[System.Byte.Formatting#2](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.byte.formatting/cs/formatting1.cs#2)] [!code-vb[System.Byte.Formatting#2](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.byte.formatting/vb/formatting1.vb#2)]  \n  \n## <a name=\"working-with-non-decimal-byte-values\"></a>Working with Non-Decimal Byte Values  \n In addition to working with individual bytes as decimal values, you may want to perform bitwise operations with byte values, or work with byte arrays or with the binary or hexadecimal representations of byte values. For example, overloads of the <xref:System.BitConverter.GetBytes%2A?displayProperty=fullName> method can convert each of the primitive data types to a byte array, and the <xref:System.Numerics.BigInteger.ToByteArray%2A?displayProperty=fullName> method converts a <xref:System.Numerics.BigInteger> value to a byte array.  \n  \n <xref:System.Byte> values are represented in 8 bits by their magnitude only, without a sign bit. This is important to keep in mind when you perform bitwise operations on <xref:System.Byte> values or when you work with individual bits. In order to perform a numeric, Boolean, or comparison operation on any two non-decimal values, both values must use the same representation.  \n  \n When an operation is performed on two <xref:System.Byte> values, the values share the same representation, so the result is accurate. This is illustrated in the following example, which masks the lowest-order bit of a <xref:System.Byte> value to ensure that it is even.  \n  \n [!code-csharp[System.Byte.Bitwise#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.byte.bitwise/cs/bitwise1.cs#1)] [!code-vb[System.Byte.Bitwise#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.byte.bitwise/vb/bitwise1.vb#1)]  \n  \n On the other hand, when you work with both unsigned and signed bits, bitwise operations are complicated by the fact that the <xref:System.SByte> values use sign-and-magnitude representation for positive values, and two's complement representation for negative values. In order to perform a meaningful bitwise operation, the values must be converted to two equivalent representations, and information about the sign bit must be preserved. The following example does this to mask out bits 2 and 4 of an array of 8-bit signed and unsigned values.  \n  \n [!code-csharp[System.Byte.Bitwise#2](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.byte.bitwise/cs/bitwise2.cs#2)] [!code-vb[System.Byte.Bitwise#2](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.byte.bitwise/vb/bitwise2.vb#2)]"
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -145,7 +145,7 @@ items:
       description: An 8-bit unsigned integer to compare.
     return:
       type: System.Int32
-      description: "A signed integer that indicates the relative order of this instance and <code>value</code>.  \n  \n <table><thead><tr><th> Return Value  \n  \n </th><th> Description  \n  \n </th></tr></thead><tbody><tr><td> Less than zero  \n  \n </td><td> This instance is less than <code>value</code>.  \n  \n </td></tr><tr><td> Zero  \n  \n </td><td> This instance is equal to <code>value</code>.  \n  \n </td></tr><tr><td> Greater than zero  \n  \n </td><td> This instance is greater than <code>value</code>.  \n  \n </td></tr></tbody></table>"
+      description: "A signed integer that indicates the relative order of this instance and <code>value</code>.  \n  \n <table><thead><tr><th> Return Value\n </th><th> Description\n </th></tr></thead><tbody><tr><td> Less than zero\n </td><td> This instance is less than <code>value</code>.  \n  \n </td></tr><tr><td> Zero\n </td><td> This instance is equal to <code>value</code>.  \n  \n </td></tr><tr><td> Greater than zero\n </td><td> This instance is greater than <code>value</code>.  \n  \n </td></tr></tbody></table>"
   overload: System.Byte.CompareTo*
   exceptions: []
   version:
@@ -222,10 +222,10 @@ items:
     parameters:
     - id: value
       type: System.Object
-      description: An object to compare, or `null`.
+      description: 'An object to compare, or `null`.'
     return:
       type: System.Int32
-      description: "A signed integer that indicates the relative order of this instance and <code>value</code>.  \n  \n <table><thead><tr><th> Return Value  \n  \n </th><th> Description  \n  \n </th></tr></thead><tbody><tr><td> Less than zero  \n  \n </td><td> This instance is less than <code>value</code>.  \n  \n </td></tr><tr><td> Zero  \n  \n </td><td> This instance is equal to <code>value</code>.  \n  \n </td></tr><tr><td> Greater than zero  \n  \n </td><td> This instance is greater than <code>value</code>.  \n  \n -or-  \n  \n <code>value</code> is `null`.  \n  \n </td></tr></tbody></table>"
+      description: "A signed integer that indicates the relative order of this instance and <code>value</code>.  \n  \n <table><thead><tr><th> Return Value\n </th><th> Description\n </th></tr></thead><tbody><tr><td> Less than zero\n </td><td> This instance is less than <code>value</code>.  \n  \n </td></tr><tr><td> Zero\n </td><td> This instance is equal to <code>value</code>.  \n  \n </td></tr><tr><td> Greater than zero\n </td><td> This instance is greater than <code>value</code>.  \n  \n -or-  \n  \n <code>value</code> is `null`.  \n  \n </td></tr></tbody></table>"
   overload: System.Byte.CompareTo*
   exceptions:
   - type: System.ArgumentException
@@ -279,7 +279,7 @@ items:
   - netstandard
   namespace: System
   summary: Returns a value indicating whether this instance and a specified <xref href="System.Byte"></xref> object represent the same value.
-  remarks: This method implements the <xref:System.IEquatable%601?displayProperty=fullName> interface, and performs slightly better than <xref:System.Byte.Equals%28System.Object%29> because it does not have to convert the `obj` parameter to an object.
+  remarks: 'This method implements the <xref:System.IEquatable%601?displayProperty=fullName> interface, and performs slightly better than <xref:System.Byte.Equals%28System.Object%29> because it does not have to convert the `obj` parameter to an object.'
   example:
   - "The following code example determines whether the first <xref:System.Byte> value is equal to the second <xref:System.Byte> value, and whether the first <xref:System.Byte> value is equal to the boxed version of the second <xref:System.Byte> value.  \n  \n [!code-cpp[system.byte.equals#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.byte.equals/cpp/eq.cpp#1)]\n [!code-csharp[system.byte.equals#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.byte.equals/cs/eq.cs#1)]\n [!code-vb[system.byte.equals#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.byte.equals/vb/eq.vb#1)]"
   syntax:
@@ -367,7 +367,7 @@ items:
     parameters:
     - id: obj
       type: System.Object
-      description: An object to compare with this instance, or `null`.
+      description: 'An object to compare with this instance, or `null`.'
     return:
       type: System.Boolean
       description: '`true` if <code>obj</code> is an instance of <xref href="System.Byte"></xref> and equals the value of this instance; otherwise, `false`.'
@@ -518,7 +518,7 @@ items:
     parameters: []
     return:
       type: System.TypeCode
-      description: The enumerated constant, <xref href="System.TypeCode.Byte"></xref>.
+      description: 'The enumerated constant, <xref href="System.TypeCode.Byte"></xref>.'
   overload: System.Byte.GetTypeCode*
   exceptions: []
   version:
@@ -733,7 +733,7 @@ items:
       description: A bitwise combination of enumeration values that indicates the style elements that can be present in <code>s</code>. A typical value to specify is <xref href="System.Globalization.NumberStyles.Integer"></xref>.
     - id: provider
       type: System.IFormatProvider
-      description: An object that supplies culture-specific information about the format of <code>s</code>. If <code>provider</code> is `null`, the thread current culture is used.
+      description: 'An object that supplies culture-specific information about the format of <code>s</code>. If <code>provider</code> is `null`, the thread current culture is used.'
     return:
       type: System.Byte
       description: A byte value that is equivalent to the number contained in <code>s</code>.
@@ -828,7 +828,7 @@ items:
       description: A string that contains a number to convert. The string is interpreted using the <xref href="System.Globalization.NumberStyles.Integer"></xref> style.
     - id: provider
       type: System.IFormatProvider
-      description: An object that supplies culture-specific parsing information about <code>s</code>. If <code>provider</code> is `null`, the thread current culture is used.
+      description: 'An object that supplies culture-specific parsing information about <code>s</code>. If <code>provider</code> is `null`, the thread current culture is used.'
     return:
       type: System.Byte
       description: A byte value that is equivalent to the number contained in <code>s</code>.
@@ -1101,7 +1101,7 @@ items:
     parameters: []
     return:
       type: System.String
-      description: The string representation of the value of this object, which consists of a sequence of digits that range from 0 to 9 with no leading zeroes.
+      description: 'The string representation of the value of this object, which consists of a sequence of digits that range from 0 to 9 with no leading zeroes.'
   overload: System.Byte.ToString*
   exceptions: []
   attributes: []
@@ -1185,7 +1185,7 @@ items:
       description: An object that supplies culture-specific formatting information.
     return:
       type: System.String
-      description: The string representation of the current <xref href="System.Byte"></xref> object, formatted as specified by the <code>format</code> and <code>provider</code> parameters.
+      description: 'The string representation of the current <xref href="System.Byte"></xref> object, formatted as specified by the <code>format</code> and <code>provider</code> parameters.'
   overload: System.Byte.ToString*
   exceptions:
   - type: System.FormatException
@@ -1269,7 +1269,7 @@ items:
       description: A numeric format string.
     return:
       type: System.String
-      description: The string representation of the current <xref href="System.Byte"></xref> object, formatted as specified by the <code>format</code> parameter.
+      description: 'The string representation of the current <xref href="System.Byte"></xref> object, formatted as specified by the <code>format</code> parameter.'
   overload: System.Byte.ToString*
   exceptions:
   - type: System.FormatException
@@ -1422,7 +1422,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: Tries to convert the string representation of a number to its <xref href="System.Byte"></xref> equivalent, and returns a value that indicates whether the conversion succeeded.
+  summary: 'Tries to convert the string representation of a number to its <xref href="System.Byte"></xref> equivalent, and returns a value that indicates whether the conversion succeeded.'
   remarks: "The conversion fails and the method returns `false` if the `s` parameter is not in the correct format, if it is `null` or <xref:System.String?displayProperty=fullName>, or if it represents a number less than <xref:System.Byte.MinValue> or greater than <xref:System.Byte.MaxValue>.  \n  \n The <xref:System.Byte.TryParse%28System.String%2CSystem.Byte%40%29?displayProperty=fullName> method is similar to the <xref:System.Byte.Parse%28System.String%29?displayProperty=fullName> method, except that <xref:System.Byte.TryParse%28System.String%2CSystem.Byte%40%29> does not throw an exception if the conversion fails.  \n  \n The `s` parameter should be the string representation of a number in the following form:  \n  \n```  \n[ws][sign]digits[ws]  \n```  \n  \n Elements in square brackets ([ and ]) are optional. The following table describes each element.  \n  \n|Element|Description|  \n|-------------|-----------------|  \n|*ws*|Optional white space.|  \n|*sign*|An optional positive sign, as specified by the <xref:System.Globalization.NumberFormatInfo.PositiveSign%2A?displayProperty=fullName> property of the current culture.|  \n|*digits*|A sequence of decimal digits that range from 0 to 9.|  \n  \n The `s` parameter is interpreted using the <xref:System.Globalization.NumberStyles.Integer> style. In addition to the byte value's decimal digits, only leading and trailing spaces together with a leading sign are allowed. (If the sign is present, it must be a positive sign or the method throws an <xref:System.OverflowException>.) To explicitly define the style elements together with the culture-specific formatting information that can be present in `s`, use the <xref:System.Byte.Parse%28System.String%2CSystem.Globalization.NumberStyles%2CSystem.IFormatProvider%29?displayProperty=fullName> method.  \n  \n The `s` parameter is parsed using the formatting information in a <xref:System.Globalization.NumberFormatInfo> object for the current culture. For more information, see <xref:System.Globalization.NumberFormatInfo.CurrentInfo%2A?displayProperty=fullName>.  \n  \n This overload of the <xref:System.Byte.TryParse%28System.String%2CSystem.Byte%40%29?displayProperty=fullName> method interprets all digits in the `s` parameter as decimal digits. To parse the string representation of a hexadecimal number, call the <xref:System.Byte.TryParse%28System.String%2CSystem.Globalization.NumberStyles%2CSystem.IFormatProvider%2CSystem.Byte%40%29?displayProperty=fullName> overload."
   example:
   - "The following example calls the <xref:System.Byte.TryParse%28System.String%2CSystem.Byte%40%29> method with a number of different string values.  \n  \n [!code-cpp[System.Byte.TryParse#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.Byte.TryParse/cpp/tryparse.cpp#1)]\n [!code-csharp[System.Byte.TryParse#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Byte.TryParse/cs/TryParse.cs#1)]\n [!code-vb[System.Byte.TryParse#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Byte.TryParse/vb/TryParse.vb#1)]"
@@ -1434,7 +1434,7 @@ items:
       description: A string that contains a number to convert. The string is interpreted using the <xref href="System.Globalization.NumberStyles.Integer"></xref> style.
     - id: result
       type: System.Byte
-      description: When this method returns, contains the <xref href="System.Byte"></xref> value equivalent to the number contained in <code>s</code> if the conversion succeeded, or zero if the conversion failed. This parameter is passed uninitialized; any value originally supplied in <code>result</code> will be overwritten.
+      description: 'When this method returns, contains the <xref href="System.Byte"></xref> value equivalent to the number contained in <code>s</code> if the conversion succeeded, or zero if the conversion failed. This parameter is passed uninitialized; any value originally supplied in <code>result</code> will be overwritten.'
     return:
       type: System.Boolean
       description: '`true` if <code>s</code> was converted successfully; otherwise, `false`.'
@@ -1520,10 +1520,10 @@ items:
       description: A bitwise combination of enumeration values that indicates the style elements that can be present in <code>s</code>. A typical value to specify is <xref href="System.Globalization.NumberStyles.Integer"></xref>.
     - id: provider
       type: System.IFormatProvider
-      description: An object that supplies culture-specific formatting information about <code>s</code>. If <code>provider</code> is `null`, the thread current culture is used.
+      description: 'An object that supplies culture-specific formatting information about <code>s</code>. If <code>provider</code> is `null`, the thread current culture is used.'
     - id: result
       type: System.Byte
-      description: When this method returns, contains the 8-bit unsigned integer value equivalent to the number contained in <code>s</code> if the conversion succeeded, or zero if the conversion failed. The conversion fails if the <code>s</code> parameter is `null` or <xref href="System.String.Empty"></xref>, is not of the correct format, or represents a number less than <xref href="System.Byte.MinValue"></xref> or greater than <xref href="System.Byte.MaxValue"></xref>. This parameter is passed uninitialized; any value originally supplied in <code>result</code> will be overwritten.
+      description: 'When this method returns, contains the 8-bit unsigned integer value equivalent to the number contained in <code>s</code> if the conversion succeeded, or zero if the conversion failed. The conversion fails if the <code>s</code> parameter is `null` or <xref href="System.String.Empty"></xref>, is not of the correct format, or represents a number less than <xref href="System.Byte.MinValue"></xref> or greater than <xref href="System.Byte.MaxValue"></xref>. This parameter is passed uninitialized; any value originally supplied in <code>result</code> will be overwritten.'
     return:
       type: System.Boolean
       description: '`true` if <code>s</code> was converted successfully; otherwise, `false`.'
@@ -1681,8 +1681,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: For a description of this member, see <xref href="System.IConvertible.ToBoolean(System.IFormatProvider)"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Byte> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToBoolean%28System.Byte%29?displayProperty=fullName> method.
+  summary: 'For a description of this member, see <xref href="System.IConvertible.ToBoolean(System.IFormatProvider)"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Byte> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToBoolean%28System.Byte%29?displayProperty=fullName> method.'
   syntax:
     content: bool IConvertible.ToBoolean (IFormatProvider provider);
     parameters:
@@ -1754,8 +1754,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: For a description of this member, see <xref href="System.IConvertible.ToByte(System.IFormatProvider)"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Byte> instance is cast to an <xref:System.IConvertible> interface.
+  summary: 'For a description of this member, see <xref href="System.IConvertible.ToByte(System.IFormatProvider)"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Byte> instance is cast to an <xref:System.IConvertible> interface.'
   syntax:
     content: byte IConvertible.ToByte (IFormatProvider provider);
     parameters:
@@ -1764,7 +1764,7 @@ items:
       description: This parameter is ignored.
     return:
       type: System.Byte
-      description: The value of the current instance, unchanged.
+      description: 'The value of the current instance, unchanged.'
   overload: System.Byte.System#IConvertible#ToByte*
   exceptions: []
   version:
@@ -1827,8 +1827,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: For a description of this member, see <xref href="System.IConvertible.ToChar(System.IFormatProvider)"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Byte> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToChar%28System.Byte%29?displayProperty=fullName> method.
+  summary: 'For a description of this member, see <xref href="System.IConvertible.ToChar(System.IFormatProvider)"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Byte> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToChar%28System.Byte%29?displayProperty=fullName> method.'
   syntax:
     content: char IConvertible.ToChar (IFormatProvider provider);
     parameters:
@@ -1837,7 +1837,7 @@ items:
       description: This parameter is ignored.
     return:
       type: System.Char
-      description: The value of the current instance, converted to a <xref href="System.Char"></xref>.
+      description: 'The value of the current instance, converted to a <xref href="System.Char"></xref>.'
   overload: System.Byte.System#IConvertible#ToChar*
   exceptions: []
   version:
@@ -1975,8 +1975,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: For a description of this member, see <xref href="System.IConvertible.ToDecimal(System.IFormatProvider)"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Byte> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToDecimal%28System.Byte%29?displayProperty=fullName> method.
+  summary: 'For a description of this member, see <xref href="System.IConvertible.ToDecimal(System.IFormatProvider)"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Byte> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToDecimal%28System.Byte%29?displayProperty=fullName> method.'
   syntax:
     content: decimal IConvertible.ToDecimal (IFormatProvider provider);
     parameters:
@@ -1985,7 +1985,7 @@ items:
       description: This parameter is ignored.
     return:
       type: System.Decimal
-      description: The value of the current instance, converted to a <xref href="System.Decimal"></xref>.
+      description: 'The value of the current instance, converted to a <xref href="System.Decimal"></xref>.'
   overload: System.Byte.System#IConvertible#ToDecimal*
   exceptions: []
   version:
@@ -2048,8 +2048,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: For a description of this member, see <xref href="System.IConvertible.ToDouble(System.IFormatProvider)"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Byte> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToDouble%28System.Byte%29?displayProperty=fullName> method.
+  summary: 'For a description of this member, see <xref href="System.IConvertible.ToDouble(System.IFormatProvider)"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Byte> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToDouble%28System.Byte%29?displayProperty=fullName> method.'
   syntax:
     content: double IConvertible.ToDouble (IFormatProvider provider);
     parameters:
@@ -2058,7 +2058,7 @@ items:
       description: This parameter is ignored.
     return:
       type: System.Double
-      description: The value of the current instance, converted to a <xref href="System.Double"></xref>.
+      description: 'The value of the current instance, converted to a <xref href="System.Double"></xref>.'
   overload: System.Byte.System#IConvertible#ToDouble*
   exceptions: []
   version:
@@ -2121,8 +2121,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: For a description of this member, see <xref href="System.IConvertible.ToInt16(System.IFormatProvider)"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Byte> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToInt16%28System.Byte%29?displayProperty=fullName> method.
+  summary: 'For a description of this member, see <xref href="System.IConvertible.ToInt16(System.IFormatProvider)"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Byte> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToInt16%28System.Byte%29?displayProperty=fullName> method.'
   syntax:
     content: short IConvertible.ToInt16 (IFormatProvider provider);
     parameters:
@@ -2131,7 +2131,7 @@ items:
       description: This parameter is ignored.
     return:
       type: System.Int16
-      description: The value of the current instance, converted to an <xref href="System.Int16"></xref>.
+      description: 'The value of the current instance, converted to an <xref href="System.Int16"></xref>.'
   overload: System.Byte.System#IConvertible#ToInt16*
   exceptions: []
   version:
@@ -2194,8 +2194,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: For a description of this member, see <xref href="System.IConvertible.ToInt32(System.IFormatProvider)"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Byte> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToInt32%28System.Byte%29?displayProperty=fullName> method.
+  summary: 'For a description of this member, see <xref href="System.IConvertible.ToInt32(System.IFormatProvider)"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Byte> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToInt32%28System.Byte%29?displayProperty=fullName> method.'
   syntax:
     content: int IConvertible.ToInt32 (IFormatProvider provider);
     parameters:
@@ -2204,7 +2204,7 @@ items:
       description: This parameter is ignored.
     return:
       type: System.Int32
-      description: The value of the current instance, converted to an <xref href="System.Int32"></xref>.
+      description: 'The value of the current instance, converted to an <xref href="System.Int32"></xref>.'
   overload: System.Byte.System#IConvertible#ToInt32*
   exceptions: []
   version:
@@ -2267,8 +2267,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: For a description of this member, see <xref href="System.IConvertible.ToInt64(System.IFormatProvider)"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Byte> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToInt64%28System.Byte%29?displayProperty=fullName> method.
+  summary: 'For a description of this member, see <xref href="System.IConvertible.ToInt64(System.IFormatProvider)"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Byte> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToInt64%28System.Byte%29?displayProperty=fullName> method.'
   syntax:
     content: long IConvertible.ToInt64 (IFormatProvider provider);
     parameters:
@@ -2277,7 +2277,7 @@ items:
       description: This parameter is ignored.
     return:
       type: System.Int64
-      description: The value of the current instance, converted to an <xref href="System.Int64"></xref>.
+      description: 'The value of the current instance, converted to an <xref href="System.Int64"></xref>.'
   overload: System.Byte.System#IConvertible#ToInt64*
   exceptions: []
   version:
@@ -2340,8 +2340,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: For a description of this member, see <xref href="System.IConvertible.ToSByte(System.IFormatProvider)"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Byte> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToSByte%28System.Byte%29?displayProperty=fullName> method.
+  summary: 'For a description of this member, see <xref href="System.IConvertible.ToSByte(System.IFormatProvider)"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Byte> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToSByte%28System.Byte%29?displayProperty=fullName> method.'
   syntax:
     content: sbyte IConvertible.ToSByte (IFormatProvider provider);
     parameters:
@@ -2350,7 +2350,7 @@ items:
       description: This parameter is ignored.
     return:
       type: System.SByte
-      description: The value of the current instance, converted to an <xref href="System.SByte"></xref>.
+      description: 'The value of the current instance, converted to an <xref href="System.SByte"></xref>.'
   overload: System.Byte.System#IConvertible#ToSByte*
   exceptions: []
   version:
@@ -2413,8 +2413,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: For a description of this member, see <xref href="System.IConvertible.ToSingle(System.IFormatProvider)"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Byte> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToSingle%28System.Byte%29?displayProperty=fullName> method.
+  summary: 'For a description of this member, see <xref href="System.IConvertible.ToSingle(System.IFormatProvider)"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Byte> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToSingle%28System.Byte%29?displayProperty=fullName> method.'
   syntax:
     content: float IConvertible.ToSingle (IFormatProvider provider);
     parameters:
@@ -2423,7 +2423,7 @@ items:
       description: This parameter is ignored.
     return:
       type: System.Single
-      description: The value of the current instance, converted to a <xref href="System.Single"></xref>.
+      description: 'The value of the current instance, converted to a <xref href="System.Single"></xref>.'
   overload: System.Byte.System#IConvertible#ToSingle*
   exceptions: []
   version:
@@ -2486,8 +2486,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: For a description of this member, see <xref href="System.IConvertible.ToType(System.Type,System.IFormatProvider)"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Byte> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the `static` (`Shared` in Visual Basic) <xref:System.Convert.ChangeType%2A?displayProperty=fullName> method instead.
+  summary: 'For a description of this member, see <xref href="System.IConvertible.ToType(System.Type,System.IFormatProvider)"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Byte> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the `static` (`Shared` in Visual Basic) <xref:System.Convert.ChangeType%2A?displayProperty=fullName> method instead.'
   syntax:
     content: object IConvertible.ToType (Type type, IFormatProvider provider);
     parameters:
@@ -2499,7 +2499,7 @@ items:
       description: An <xref href="System.IFormatProvider"></xref> implementation that supplies information about the format of the returned value.
     return:
       type: System.Object
-      description: The value of the current instance, converted to <code>type</code>.
+      description: 'The value of the current instance, converted to <code>type</code>.'
   overload: System.Byte.System#IConvertible#ToType*
   exceptions:
   - type: System.ArgumentNullException
@@ -2568,8 +2568,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: For a description of this member, see <xref href="System.IConvertible.ToUInt16(System.IFormatProvider)"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Byte> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToUInt16%28System.Byte%29?displayProperty=fullName> method.
+  summary: 'For a description of this member, see <xref href="System.IConvertible.ToUInt16(System.IFormatProvider)"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Byte> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToUInt16%28System.Byte%29?displayProperty=fullName> method.'
   syntax:
     content: ushort IConvertible.ToUInt16 (IFormatProvider provider);
     parameters:
@@ -2578,7 +2578,7 @@ items:
       description: This parameter is ignored.
     return:
       type: System.UInt16
-      description: The value of the current instance, converted to a <xref href="System.UInt16"></xref>.
+      description: 'The value of the current instance, converted to a <xref href="System.UInt16"></xref>.'
   overload: System.Byte.System#IConvertible#ToUInt16*
   exceptions: []
   version:
@@ -2641,8 +2641,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: For a description of this member, see <xref href="System.IConvertible.ToUInt32(System.IFormatProvider)"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Byte> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToUInt32%28System.Byte%29?displayProperty=fullName> method.
+  summary: 'For a description of this member, see <xref href="System.IConvertible.ToUInt32(System.IFormatProvider)"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Byte> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToUInt32%28System.Byte%29?displayProperty=fullName> method.'
   syntax:
     content: uint IConvertible.ToUInt32 (IFormatProvider provider);
     parameters:
@@ -2651,7 +2651,7 @@ items:
       description: This parameter is ignored.
     return:
       type: System.UInt32
-      description: The value of the current instance, converted to a <xref href="System.UInt32"></xref>.
+      description: 'The value of the current instance, converted to a <xref href="System.UInt32"></xref>.'
   overload: System.Byte.System#IConvertible#ToUInt32*
   exceptions: []
   version:
@@ -2714,8 +2714,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: For a description of this member, see <xref href="System.IConvertible.ToUInt64(System.IFormatProvider)"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Byte> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToUInt64%28System.Byte%29?displayProperty=fullName> method.
+  summary: 'For a description of this member, see <xref href="System.IConvertible.ToUInt64(System.IFormatProvider)"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Byte> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToUInt64%28System.Byte%29?displayProperty=fullName> method.'
   syntax:
     content: ulong IConvertible.ToUInt64 (IFormatProvider provider);
     parameters:
@@ -2724,7 +2724,7 @@ items:
       description: This parameter is ignored.
     return:
       type: System.UInt64
-      description: The value of the current instance, converted to a <xref href="System.UInt64"></xref>.
+      description: 'The value of the current instance, converted to a <xref href="System.UInt64"></xref>.'
   overload: System.Byte.System#IConvertible#ToUInt64*
   exceptions: []
   version:

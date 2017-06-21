@@ -78,7 +78,7 @@ items:
     parameters:
     - id: value
       type: System.Object
-      description: The value managed by <xref href="System.Speech.Recognition.SemanticResultValue"></xref>. Must be of type `bool`, `int`, `float`, or `string`.
+      description: 'The value managed by <xref href="System.Speech.Recognition.SemanticResultValue"></xref>. Must be of type `bool`, `int`, `float`, or `string`.'
   overload: System.Speech.Recognition.SemanticResultValue.#ctor*
   exceptions: []
   version:
@@ -127,7 +127,7 @@ items:
       description: A grammar component to be used in recognition.
     - id: value
       type: System.Object
-      description: The value managed by <xref href="System.Speech.Recognition.SemanticResultValue"></xref>. Must be of type `bool`, `int`, `float`, or `string`.
+      description: 'The value managed by <xref href="System.Speech.Recognition.SemanticResultValue"></xref>. Must be of type `bool`, `int`, `float`, or `string`.'
   overload: System.Speech.Recognition.SemanticResultValue.#ctor*
   exceptions: []
   version:
@@ -176,7 +176,7 @@ items:
       description: A phrase to be used in recognition.
     - id: value
       type: System.Object
-      description: The value managed by <xref href="System.Speech.Recognition.SemanticResultValue"></xref>. Must be of type `bool`, `int`, `float`, or `string`.
+      description: 'The value managed by <xref href="System.Speech.Recognition.SemanticResultValue"></xref>. Must be of type `bool`, `int`, `float`, or `string`.'
   overload: System.Speech.Recognition.SemanticResultValue.#ctor*
   exceptions: []
   version:
@@ -214,7 +214,7 @@ items:
   - System.Speech
   namespace: System.Speech.Recognition
   summary: Returns an instance of <xref href="System.Speech.Recognition.GrammarBuilder"></xref> constructed from the current <xref href="System.Speech.Recognition.SemanticResultValue"></xref> instance.
-  remarks: The use of <xref:System.Speech.Recognition.SemanticResultValue.ToGrammarBuilder%2A> is equivalent to using the <xref:System.Speech.Recognition.GrammarBuilder> constructor that takes a <xref:System.Speech.Recognition.SemanticResultValue> as an argument (<xref:System.Speech.Recognition.GrammarBuilder.%23ctor%28System.Speech.Recognition.SemanticResultValue%29>).
+  remarks: 'The use of <xref:System.Speech.Recognition.SemanticResultValue.ToGrammarBuilder%2A> is equivalent to using the <xref:System.Speech.Recognition.GrammarBuilder> constructor that takes a <xref:System.Speech.Recognition.SemanticResultValue> as an argument (<xref:System.Speech.Recognition.GrammarBuilder.%23ctor%28System.Speech.Recognition.SemanticResultValue%29>).'
   example:
   - "The following example creates <xref:System.Speech.Recognition.Grammar> objects that support commands to change the background color.  \n  \n A <xref:System.Speech.Recognition.Choices> object (`colorChoice`) containing the list of options for background colors is filled using the <xref:System.Speech.Recognition.Choices.Add%28System.Speech.Recognition.GrammarBuilder%5B%5D%29> method with <xref:System.Speech.Recognition.GrammarBuilder> instances that are obtained from the <xref:System.Speech.Recognition.SemanticResultKey.ToGrammarBuilder> method on the `SemanticResultValue` objects created from color strings.  \n  \n A <xref:System.Speech.Recognition.GrammarBuilder> is then obtained by calling <xref:System.Speech.Recognition.SemanticResultKey.ToGrammarBuilder> on a <xref:System.Speech.Recognition.SemanticResultKey> instance, which will be used to key the semantic choices in the `colorChoice` instance.  \n  \n```csharp  \n  \nprivate Grammar CreateGrammarBuilderRGBSemantics()   \n{  \n  \n  // Create a set of choices, each a lookup from a color name to RBG.  \n  // Choices constructors do not take a SemanticResultValue parameter, so  \n  // cast SemanticResultValue to GrammarBuilder.  \n  Choices colorChoice = new Choices();  \n  foreach (string colorName in System.Enum.GetNames(typeof(KnownColor)))   \n  {  \n  \n    // Use implicit conversion of SemanticResultValue to GrammarBuilder.      \n    SemanticResultValue colorValue =   \n        new SemanticResultValue(colorName, Color.FromName(colorName).ToArgb());  \n    colorChoice.Add(colorValue.ToGrammarBuilder());  \n  }  \n  \n  SemanticResultKey choiceKey = new SemanticResultKey(\"rgb\", colorChoice);  \n  GrammarBuilder choiceBuilder = choiceKey.ToGrammarBuilder();  \n  \n  // Create two intermediate grammars with an introductory phrase and the  \n  // color choice.  \n  GrammarBuilder makeBackgroundBuilder = \"Make background\";  \n  makeBackgroundBuilder.Append(choiceBuilder);  \n  \n  GrammarBuilder configureBackgroundBuilder = new GrammarBuilder(\"Configure background as\");  \n  configureBackgroundBuilder.Append((new SemanticResultKey(\"rgb\", colorChoice)).ToGrammarBuilder());  \n  \n  // Create the final grammar, which recognizes either intermediate grammar.  \n  Grammar grammar = new Grammar(new Choices(new GrammarBuilder[] { makeBackgroundBuilder, configureBackgroundBuilder }));  \n  grammar.Name = \"Set Background Color\";  \n  \n  return grammar;  \n}  \n  \n```"
   syntax:

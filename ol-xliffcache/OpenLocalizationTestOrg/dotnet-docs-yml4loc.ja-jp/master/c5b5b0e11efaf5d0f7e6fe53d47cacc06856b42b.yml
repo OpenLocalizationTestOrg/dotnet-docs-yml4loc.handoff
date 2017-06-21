@@ -19,7 +19,7 @@ items:
   assemblies:
   - CustomMarshalers
   namespace: System.Runtime.InteropServices.CustomMarshalers
-  summary: Marshals the unmanaged `ITypeInfo` interface to the managed <xref href="System.Type"></xref> class, and marshals the managed <xref href="System.Type"></xref> class to the unmanaged `ITypeInfo` interface.
+  summary: 'Marshals the unmanaged `ITypeInfo` interface to the managed <xref href="System.Type"></xref> class, and marshals the managed <xref href="System.Type"></xref> class to the unmanaged `ITypeInfo` interface.'
   remarks: "The `ITypeInfo` interface exposed for a .NET type is based on the metadata that would appear in an exported type library. Likewise, the <xref:System.Type> instance exposed for an `ITypeInfo` interface is based on the metadata that would appear in an imported assembly.  \n  \n The Type Library Importer (Tlbimp.exe) marks `ITypeInfo` parameters with the appropriate <xref:System.Runtime.InteropServices.MarshalAsAttribute> with the <xref:System.Runtime.InteropServices.UnmanagedType.CustomMarshaler> enumeration member when converting signatures that use `ITypeInfo` parameters to signatures that use <xref:System.Type> parameters.  \n  \n The same conversion functionality can be accomplished without the custom marshaler, by calling <xref:System.Runtime.InteropServices.Marshal.GetITypeInfoForType%2A> and <xref:System.Runtime.InteropServices.Marshal.GetTypeForITypeInfo%2A>."
   syntax:
     content: 'public class TypeToTypeInfoMarshaler : System.Runtime.InteropServices.ICustomMarshaler'
@@ -71,7 +71,7 @@ items:
   - CustomMarshalers
   namespace: System.Runtime.InteropServices.CustomMarshalers
   summary: Performs necessary cleanup of the managed data when it is no longer needed.
-  remarks: The CLR calls this method to clean up managed data allocated in the <xref:System.Runtime.InteropServices.CustomMarshalers.TypeToTypeInfoMarshaler.MarshalNativeToManaged%2A> method.
+  remarks: 'The CLR calls this method to clean up managed data allocated in the <xref:System.Runtime.InteropServices.CustomMarshalers.TypeToTypeInfoMarshaler.MarshalNativeToManaged%2A> method.'
   syntax:
     content: public virtual void CleanUpManagedData (object pManagedObj);
     parameters:
@@ -116,7 +116,7 @@ items:
   - CustomMarshalers
   namespace: System.Runtime.InteropServices.CustomMarshalers
   summary: Performs necessary cleanup of the unmanaged data when it is no longer needed.
-  remarks: The CLR calls this method to clean up the unmanaged data allocated in the <xref:System.Runtime.InteropServices.CustomMarshalers.TypeToTypeInfoMarshaler.MarshalManagedToNative%2A> method.
+  remarks: 'The CLR calls this method to clean up the unmanaged data allocated in the <xref:System.Runtime.InteropServices.CustomMarshalers.TypeToTypeInfoMarshaler.MarshalManagedToNative%2A> method.'
   syntax:
     content: public virtual void CleanUpNativeData (IntPtr pNativeData);
     parameters:
@@ -161,7 +161,7 @@ items:
   - CustomMarshalers
   namespace: System.Runtime.InteropServices.CustomMarshalers
   summary: Returns an instance of the custom marshaler.
-  remarks: All custom marshalers must implement this method, although it is not part of the <xref:System.Runtime.InteropServices.ICustomMarshaler> interface definition.
+  remarks: 'All custom marshalers must implement this method, although it is not part of the <xref:System.Runtime.InteropServices.ICustomMarshaler> interface definition.'
   syntax:
     content: public static System.Runtime.InteropServices.ICustomMarshaler GetInstance (string pstrCookie);
     parameters:
@@ -209,13 +209,13 @@ items:
   - CustomMarshalers
   namespace: System.Runtime.InteropServices.CustomMarshalers
   summary: Returns the size in bytes of the unmanaged data to be marshaled.
-  remarks: Because custom marshaling of value types is not supported in the .NET Framework, this method always returns -1.
+  remarks: 'Because custom marshaling of value types is not supported in the .NET Framework, this method always returns -1.'
   syntax:
     content: public virtual int GetNativeDataSize ();
     parameters: []
     return:
       type: System.Int32
-      description: -1 to indicate the type this marshaler handles is not a value type.
+      description: '-1 to indicate the type this marshaler handles is not a value type.'
   overload: System.Runtime.InteropServices.CustomMarshalers.TypeToTypeInfoMarshaler.GetNativeDataSize*
   exceptions: []
   version:
@@ -254,7 +254,7 @@ items:
   - CustomMarshalers
   namespace: System.Runtime.InteropServices.CustomMarshalers
   summary: Marshals an object from managed code to unmanaged code.
-  remarks: The CLR calls this method with the specified instance of a managed object to convert that object from managed code to unmanaged code, and it returns a pointer to the appropriate unmanaged object, representing the COM view of that object.
+  remarks: 'The CLR calls this method with the specified instance of a managed object to convert that object from managed code to unmanaged code, and it returns a pointer to the appropriate unmanaged object, representing the COM view of that object.'
   syntax:
     content: public virtual IntPtr MarshalManagedToNative (object pManagedObj);
     parameters:
@@ -305,7 +305,7 @@ items:
   - CustomMarshalers
   namespace: System.Runtime.InteropServices.CustomMarshalers
   summary: Marshals an object from unmanaged code to managed code.
-  remarks: The CLR calls this method with the specified pointer to an unmanaged object to convert that object from unmanaged code to managed code, and returns a managed object representing the managed view of the unmanaged data.
+  remarks: 'The CLR calls this method with the specified pointer to an unmanaged object to convert that object from unmanaged code to managed code, and returns a managed object representing the managed view of the unmanaged data.'
   syntax:
     content: public virtual object MarshalNativeToManaged (IntPtr pNativeData);
     parameters:

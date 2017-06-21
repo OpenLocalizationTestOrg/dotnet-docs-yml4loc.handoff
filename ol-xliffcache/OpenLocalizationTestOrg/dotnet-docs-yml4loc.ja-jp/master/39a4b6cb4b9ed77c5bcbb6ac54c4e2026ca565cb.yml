@@ -63,8 +63,8 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: Encapsulates a set of related projects, their toolsets, a default set of global properties, and the loggers that should be used to build them. A global version of this class acts as the default project collection.
-  remarks: Multiple project collections can exist within an app domain. However, these must not build concurrently.
+  summary: 'Encapsulates a set of related projects, their toolsets, a default set of global properties, and the loggers that should be used to build them. A global version of this class acts as the default project collection.'
+  remarks: 'Multiple project collections can exist within an app domain. However, these must not build concurrently.'
   syntax:
     content: 'public class ProjectCollection : IDisposable'
   inheritance:
@@ -190,7 +190,7 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: Instantiates a project collection with specified global properties, no loggers, and that reads toolset information from the configuration file and registry.
+  summary: 'Instantiates a project collection with specified global properties, no loggers, and that reads toolset information from the configuration file and registry.'
   remarks: May throw InvalidToolsetDefinitionException.
   syntax:
     content: public ProjectCollection (System.Collections.Generic.IDictionary<string,string> globalProperties);
@@ -280,7 +280,7 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: Creates a project collection with specified global properties, loggers, node count, and onlyLogCriticalEvents value. The project collection toolset is initialized from toolsets in the given locations.
+  summary: 'Creates a project collection with specified global properties, loggers, node count, and onlyLogCriticalEvents value. The project collection toolset is initialized from toolsets in the given locations.'
   remarks: Throws InvalidProjectFileException if any of the global properties are reserved.
   syntax:
     content: public ProjectCollection (System.Collections.Generic.IDictionary<string,string> globalProperties, System.Collections.Generic.IEnumerable<Microsoft.Build.Framework.ILogger> loggers, System.Collections.Generic.IEnumerable<Microsoft.Build.Logging.ForwardingLoggerRecord> remoteLoggers, Microsoft.Build.Evaluation.ToolsetDefinitionLocations toolsetDefinitionLocations, int maxNodeCount, bool onlyLogCriticalEvents);
@@ -302,7 +302,7 @@ items:
       description: The maximum number of nodes to use for building.
     - id: onlyLogCriticalEvents
       type: System.Boolean
-      description: If set to true, only critical events will be logged.
+      description: 'If set to true, only critical events will be logged.'
   overload: Microsoft.Build.Evaluation.ProjectCollection.#ctor*
   exceptions: []
   version:
@@ -468,7 +468,7 @@ items:
     content: public string DefaultToolsVersion { get; set; }
     return:
       type: System.String
-      description: Returns the default tools version of this project collection, which is always defined.
+      description: 'Returns the default tools version of this project collection, which is always defined.'
   overload: Microsoft.Build.Evaluation.ProjectCollection.DefaultToolsVersion*
   exceptions: []
   version:
@@ -503,7 +503,7 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: Gets or sets a flag that determines whether <xref href="Microsoft.Build.Evaluation.Project.MarkDirty"></xref> is temporarily disabled on projects in this collection. This allows, for example, a global properties to be set without projects getting marked dirty for reevaluation as a consequence.
+  summary: 'Gets or sets a flag that determines whether <xref href="Microsoft.Build.Evaluation.Project.MarkDirty"></xref> is temporarily disabled on projects in this collection. This allows, for example, a global properties to be set without projects getting marked dirty for reevaluation as a consequence.'
   syntax:
     content: public bool DisableMarkDirty { get; set; }
     return:
@@ -550,7 +550,7 @@ items:
     parameters:
     - id: disposing
       type: System.Boolean
-      description: If true, releases both managed and unmanaged resources; otherwise releases only unmanaged resources..
+      description: 'If true, releases both managed and unmanaged resources; otherwise releases only unmanaged resources..'
   overload: Microsoft.Build.Evaluation.ProjectCollection.Dispose*
   exceptions: []
   version:
@@ -586,7 +586,7 @@ items:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
   summary: Releases both managed and unmanaged resources.  Called when a host no longer needs the project collection.
-  remarks: In the MSBuild versions that were delivered with .Net 4.5 and Visual Studio 12.0, you must call UnloadProject() before the ProjectCollection goes out of scope."
+  remarks: 'In the MSBuild versions that were delivered with .Net 4.5 and Visual Studio 12.0, you must call UnloadProject() before the ProjectCollection goes out of scope."'
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -625,7 +625,7 @@ items:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
   summary: Converts special characters in a string to MSBuild escape format.
-  remarks: For example, "%3b" for ";". Only characters that are especially significant to MSBuild parsing are converted. Callers can use this method to make a string safe to be parsed by other methods that would otherwise expand it. Callers can also use this method to make a string safe to be written to a project file.
+  remarks: 'For example, "%3b" for ";". Only characters that are especially significant to MSBuild parsing are converted. Callers can use this method to make a string safe to be parsed by other methods that would otherwise expand it. Callers can also use this method to make a string safe to be written to a project file.'
   syntax:
     content: public static string Escape (string unescapedString);
     parameters:
@@ -844,7 +844,7 @@ items:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
   summary: Gets the read-only default global properties for all projects in this collection.
-  remarks: Use <xref:Microsoft.Build.Evaluation.ProjectCollection.SetGlobalProperty%2A> and <xref:Microsoft.Build.Evaluation.ProjectCollection.RemoveGlobalProperty%2A> to add, set, and remove global properties.
+  remarks: 'Use <xref:Microsoft.Build.Evaluation.ProjectCollection.SetGlobalProperty%2A> and <xref:Microsoft.Build.Evaluation.ProjectCollection.RemoveGlobalProperty%2A> to add, set, and remove global properties.'
   syntax:
     content: public System.Collections.Generic.IDictionary<string,string> GlobalProperties { get; }
     return:
@@ -885,7 +885,7 @@ items:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
   summary: Gets or sets an object that provides host services to tasks during builds of projects contained in the project collection.
-  remarks: By default, returns <xref:Microsoft.Build.Evaluation.ProjectCollection.HostServices%2A>, which may be null.
+  remarks: 'By default, returns <xref:Microsoft.Build.Evaluation.ProjectCollection.HostServices%2A>, which may be null.'
   syntax:
     content: public Microsoft.Build.Execution.HostServices HostServices { get; set; }
     return:
@@ -926,7 +926,7 @@ items:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
   summary: Gets or sets a property that selects by default whether the targets and tasks of projects in the project collection can be built.
-  remarks: Can be used for security purposes. By default, a new project has the same IsBuildEnabled setting as the parent project collection that contains it. When IsBuildEnabled is false, the Build method on this project fails.
+  remarks: 'Can be used for security purposes. By default, a new project has the same IsBuildEnabled setting as the parent project collection that contains it. When IsBuildEnabled is false, the Build method on this project fails.'
   syntax:
     content: >-
       [get: System.Diagnostics.DebuggerStepThrough]
@@ -975,7 +975,7 @@ items:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
   summary: Gets all the projects currently loaded into this collection.
-  remarks: Each project has a unique combination of path, global properties, and tools version.
+  remarks: 'Each project has a unique combination of path, global properties, and tools version.'
   syntax:
     content: public System.Collections.Generic.ICollection<Microsoft.Build.Evaluation.Project> LoadedProjects { get; }
     return:
@@ -1067,7 +1067,7 @@ items:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
   summary: Evaluates a project from the source code read from the given project file. The source code is evaluated with the given global properties and tools version.
-  remarks: In the MSBuild versions that were delivered with .Net 4.5 and Visual Studio 12.0, you must call UnloadProject before the ProjectCollection goes out of scope.
+  remarks: 'In the MSBuild versions that were delivered with .Net 4.5 and Visual Studio 12.0, you must call UnloadProject before the ProjectCollection goes out of scope.'
   syntax:
     content: public Microsoft.Build.Evaluation.Project LoadProject (string fileName, System.Collections.Generic.IDictionary<string,string> globalProperties, string toolsVersion);
     parameters:
@@ -1076,13 +1076,13 @@ items:
       description: The project file to be evaluated.
     - id: globalProperties
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: The global properties to use. May be null, in which case the containing project collection's global properties will be used.
+      description: 'The global properties to use. May be null, in which case the containing project collection''s global properties will be used.'
     - id: toolsVersion
       type: System.String
       description: The tools version. May be null.
     return:
       type: Microsoft.Build.Evaluation.Project
-      description: If an existing project in the collection has already been evaluated from the given project file, and with the given global properties and tools version, then the existing project is returned. Otherwise, a new project is created, evaluated, added to the project collection, and returned.
+      description: 'If an existing project in the collection has already been evaluated from the given project file, and with the given global properties and tools version, then the existing project is returned. Otherwise, a new project is created, evaluated, added to the project collection, and returned.'
   overload: Microsoft.Build.Evaluation.ProjectCollection.LoadProject*
   exceptions: []
   version:
@@ -1211,7 +1211,7 @@ items:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
   summary: Evaluates a project from the source code in the given project file. The source code is evaluated with the global properties and tools version of this project collection.
-  remarks: In the MSBuild versions that were delivered with .Net 4.5 and Visual Studio 12.0, you must call UnloadProject before the ProjectCollection goes out of scope.
+  remarks: 'In the MSBuild versions that were delivered with .Net 4.5 and Visual Studio 12.0, you must call UnloadProject before the ProjectCollection goes out of scope.'
   syntax:
     content: public Microsoft.Build.Evaluation.Project LoadProject (string fileName);
     parameters:
@@ -1220,7 +1220,7 @@ items:
       description: The project file to evaluate.
     return:
       type: Microsoft.Build.Evaluation.Project
-      description: If an existing project in the collection has already been evaluated from the given project file, the existing project is returned. Otherwise, a new project is created, evaluated, added to the project collection, and returned.
+      description: 'If an existing project in the collection has already been evaluated from the given project file, the existing project is returned. Otherwise, a new project is created, evaluated, added to the project collection, and returned.'
   overload: Microsoft.Build.Evaluation.ProjectCollection.LoadProject*
   exceptions: []
   version:
@@ -1256,7 +1256,7 @@ items:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
   summary: Evaluates a project from the source code read from the given project file. The source code is evaluated with the global properties of this project collection and the given tools version.
-  remarks: In the MSBuild versions that were delivered with .Net 4.5 and Visual Studio 12.0, you must call UnloadProject before the ProjectCollection goes out of scope.
+  remarks: 'In the MSBuild versions that were delivered with .Net 4.5 and Visual Studio 12.0, you must call UnloadProject before the ProjectCollection goes out of scope.'
   syntax:
     content: public Microsoft.Build.Evaluation.Project LoadProject (string fileName, string toolsVersion);
     parameters:
@@ -1268,7 +1268,7 @@ items:
       description: The tools version to use. May be null.
     return:
       type: Microsoft.Build.Evaluation.Project
-      description: If an existing project in the collection has already been evaluated from the given project file, and with the given tools version, then the existing project is returned. Otherwise, a new project is created, evaluated, added to the project collection, and returned.
+      description: 'If an existing project in the collection has already been evaluated from the given project file, and with the given tools version, then the existing project is returned. Otherwise, a new project is created, evaluated, added to the project collection, and returned.'
   overload: Microsoft.Build.Evaluation.ProjectCollection.LoadProject*
   exceptions: []
   version:
@@ -1304,7 +1304,7 @@ items:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
   summary: Gets all loggers that projects in this collection can use for their builds.
-  remarks: Loggers are added with the <xref:Microsoft.Build.Evaluation.ProjectCollection.RegisterLogger%2A> method.
+  remarks: 'Loggers are added with the <xref:Microsoft.Build.Evaluation.ProjectCollection.RegisterLogger%2A> method.'
   syntax:
     content: >-
       [get: System.Diagnostics.DebuggerStepThrough]
@@ -1354,7 +1354,7 @@ items:
     content: public bool OnlyLogCriticalEvents { get; set; }
     return:
       type: System.Boolean
-      description: If true, only critical events such as warnings and errors are logged; false otherwise.
+      description: 'If true, only critical events such as warnings and errors are logged; false otherwise.'
   overload: Microsoft.Build.Evaluation.ProjectCollection.OnlyLogCriticalEvents*
   exceptions: []
   version:
@@ -1509,7 +1509,7 @@ items:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
   summary: Raised when a <xref href="Microsoft.Build.Construction.ProjectRootElement"></xref> contained by this instance is changed.
-  remarks: This event is NOT raised for changes to global properties, or any other change that doesn't actually dirty the XML.
+  remarks: 'This event is NOT raised for changes to global properties, or any other change that doesn''t actually dirty the XML.'
   syntax:
     content: public event EventHandler<Microsoft.Build.Evaluation.ProjectXmlChangedEventArgs> ProjectXmlChanged;
     return:
@@ -1590,7 +1590,7 @@ items:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
   summary: Adds the given logger to the collection of loggers used for builds of projects in this collection.
-  remarks: If the logger object is already in the collection, does nothing.
+  remarks: 'If the logger object is already in the collection, does nothing.'
   syntax:
     content: public void RegisterLogger (Microsoft.Build.Framework.ILogger logger);
     parameters:
@@ -1800,7 +1800,7 @@ items:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
   summary: Sets the value of a property in the default set of global properties.
-  remarks: If no matching property is found, the property is created and initialized with the given value.
+  remarks: 'If no matching property is found, the property is created and initialized with the given value.'
   syntax:
     content: public void SetGlobalProperty (string name, string value);
     parameters:
@@ -1844,7 +1844,7 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: Gets or sets a flag the determines whether ReevaluateIfNecessary is temporarily disabled on projects in this collection. This is useful when the host expects to make a number of reads and writes to projects, and wants to temporarily sacrifice correctness for performance.
+  summary: 'Gets or sets a flag the determines whether ReevaluateIfNecessary is temporarily disabled on projects in this collection. This is useful when the host expects to make a number of reads and writes to projects, and wants to temporarily sacrifice correctness for performance.'
   syntax:
     content: public bool SkipEvaluation { get; set; }
     return:
@@ -2014,7 +2014,7 @@ items:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
   summary: Converts escaped characters in a string to MSBuild characters with special meaning.
-  remarks: For example, "%3b" is converted to ";".
+  remarks: 'For example, "%3b" is converted to ";".'
   syntax:
     content: public static string Unescape (string escapedString);
     parameters:
@@ -2098,7 +2098,7 @@ items:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
   summary: Removes a project root element from the project root cache.
-  remarks: This method is useful for the case where the host knows that all projects using this root element have been removed, and that any unsaved changes should be discarded.
+  remarks: 'This method is useful for the case where the host knows that all projects using this root element have been removed, and that any unsaved changes should be discarded.'
   syntax:
     content: public void UnloadProject (Microsoft.Build.Construction.ProjectRootElement projectRootElement);
     parameters:
@@ -2223,7 +2223,7 @@ items:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
   summary: Gets the file version of the assembly file that contains the MSBuild engine.
-  remarks: This is the Windows file version (specifically the value of the ProductVersion resource), which is not necessarily the assembly version. To obtain the assembly version, use Constants.AssemblyVersion.
+  remarks: 'This is the Windows file version (specifically the value of the ProductVersion resource), which is not necessarily the assembly version. To obtain the assembly version, use Constants.AssemblyVersion.'
   syntax:
     content: public static Version Version { get; }
     return:

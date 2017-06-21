@@ -113,7 +113,7 @@ items:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
   summary: Adds an issuer to the dictionary of trusted issuers.
-  remarks: You can call this method to add issuers to the <xref:System.IdentityModel.Tokens.ConfigurationBasedIssuerNameRegistry.ConfiguredTrustedIssuers%2A> dictionary. In derived classes, you can call this method from the <xref:System.IdentityModel.Tokens.ConfigurationBasedIssuerNameRegistry.LoadCustomConfiguration%2A> method to add issuers to the dictionary.
+  remarks: 'You can call this method to add issuers to the <xref:System.IdentityModel.Tokens.ConfigurationBasedIssuerNameRegistry.ConfiguredTrustedIssuers%2A> dictionary. In derived classes, you can call this method from the <xref:System.IdentityModel.Tokens.ConfigurationBasedIssuerNameRegistry.LoadCustomConfiguration%2A> method to add issuers to the dictionary.'
   syntax:
     content: public void AddTrustedIssuer (string certificateThumbprint, string name);
     parameters:
@@ -166,7 +166,7 @@ items:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
   summary: Gets the dictionary of trusted issuers that have been configured for this instance.
-  remarks: The key to the dictionary is the ASN.1 encoded form of the thumbprint of the trusted issuer's certificate and the value is the issuer name. The dictionary contains the issuers that were specified in configuration and any additional issuers that have been added with the <xref:System.IdentityModel.Tokens.ConfigurationBasedIssuerNameRegistry.AddTrustedIssuer%2A> method.
+  remarks: 'The key to the dictionary is the ASN.1 encoded form of the thumbprint of the trusted issuer''s certificate and the value is the issuer name. The dictionary contains the issuers that were specified in configuration and any additional issuers that have been added with the <xref:System.IdentityModel.Tokens.ConfigurationBasedIssuerNameRegistry.AddTrustedIssuer%2A> method.'
   syntax:
     content: public System.Collections.Generic.IDictionary<string,string> ConfiguredTrustedIssuers { get; }
     return:
@@ -209,7 +209,7 @@ items:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
   summary: Returns the issuer name associated with the specified <xref href="System.IdentityModel.Tokens.X509SecurityToken"></xref> by mapping the certificate thumbprint to a name in the trusted issuers dictionary.
-  remarks: The default implementation searches the <xref:System.IdentityModel.Tokens.ConfigurationBasedIssuerNameRegistry.ConfiguredTrustedIssuers%2A> dictionary for the thumbprint of the X.509 certificate specified in `securityToken`. If an entry is found, the issuer name is returned; otherwise, `null` is returned. If `securityToken` is not assignable from <xref:System.IdentityModel.Tokens.X509SecurityToken>, `null` is returned.
+  remarks: 'The default implementation searches the <xref:System.IdentityModel.Tokens.ConfigurationBasedIssuerNameRegistry.ConfiguredTrustedIssuers%2A> dictionary for the thumbprint of the X.509 certificate specified in `securityToken`. If an entry is found, the issuer name is returned; otherwise, `null` is returned. If `securityToken` is not assignable from <xref:System.IdentityModel.Tokens.X509SecurityToken>, `null` is returned.'
   syntax:
     content: public override string GetIssuerName (System.IdentityModel.Tokens.SecurityToken securityToken);
     parameters:
@@ -218,7 +218,7 @@ items:
       description: The security token for which the issuer name is requested. Should be assignable as <xref href="System.IdentityModel.Tokens.X509SecurityToken"></xref>.
     return:
       type: System.String
-      description: The issuer name if an entry for the certificate thumbprint of the token exists in the <xref href="System.IdentityModel.Tokens.ConfigurationBasedIssuerNameRegistry.ConfiguredTrustedIssuers"></xref> dictionary; otherwise, `null`.
+      description: 'The issuer name if an entry for the certificate thumbprint of the token exists in the <xref href="System.IdentityModel.Tokens.ConfigurationBasedIssuerNameRegistry.ConfiguredTrustedIssuers"></xref> dictionary; otherwise, `null`.'
   overload: System.IdentityModel.Tokens.ConfigurationBasedIssuerNameRegistry.GetIssuerName*
   exceptions:
   - type: System.ArgumentNullException

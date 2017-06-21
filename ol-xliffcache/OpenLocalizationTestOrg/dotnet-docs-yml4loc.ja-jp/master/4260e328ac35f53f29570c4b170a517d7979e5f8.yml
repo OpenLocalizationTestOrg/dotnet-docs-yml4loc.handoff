@@ -46,7 +46,7 @@ items:
   - System.Xml.Linq
   - netstandard
   namespace: System.Xml.Linq
-  summary: Represents the abstract concept of a node (element, comment, document type, processing instruction, or text node) in the XML tree.
+  summary: 'Represents the abstract concept of a node (element, comment, document type, processing instruction, or text node) in the XML tree.'
   remarks: "<xref:System.Xml.Linq.XNode> is an abstract common base class for the following types:  \n  \n-   <xref:System.Xml.Linq.XComment>  \n  \n-   <xref:System.Xml.Linq.XContainer>  \n  \n-   <xref:System.Xml.Linq.XDocumentType>  \n  \n-   <xref:System.Xml.Linq.XProcessingInstruction>  \n  \n-   <xref:System.Xml.Linq.XText>  \n  \n <xref:System.Xml.Linq.XContainer> is an abstract common base class for the following types:  \n  \n-   <xref:System.Xml.Linq.XDocument>  \n  \n-   <xref:System.Xml.Linq.XElement>  \n  \n Objects of classes that derive from <xref:System.Xml.Linq.XContainer> can contain child nodes.  \n  \n> [!NOTE]\n>  An <xref:System.Xml.Linq.XAttribute> is not an <xref:System.Xml.Linq.XNode>. Attributes are maintained as a list of name/value pairs on an element.  \n  \n If you are writing a complex XML application, such as an XML editor or a word processor that stores content as XML, you will often work at the node level. Typical activities when working at the node level include adding nodes, deleting nodes, transforming nodes, and iterating through axes that return collections of nodes."
   syntax:
     content: 'public abstract class XNode : System.Xml.Linq.XObject'
@@ -622,7 +622,7 @@ items:
   - netstandard
   namespace: System.Xml.Linq
   summary: Compares two nodes to determine their relative XML document order.
-  remarks: The <xref:System.Xml.Linq.XContainer> stores its child nodes as a singly-linked list of <xref:System.Xml.Linq.XNode> objects. This means that the <xref:System.Xml.Linq.XNode.CompareDocumentOrder%2A> method must traverse the ancestors of the two nodes being compared until it finds the common parent. Then it must traverse the list of the common parent’s child nodes to determine the order of the two nodes being compared. Therefore, using this method might affect your performance.
+  remarks: 'The <xref:System.Xml.Linq.XContainer> stores its child nodes as a singly-linked list of <xref:System.Xml.Linq.XNode> objects. This means that the <xref:System.Xml.Linq.XNode.CompareDocumentOrder%2A> method must traverse the ancestors of the two nodes being compared until it finds the common parent. Then it must traverse the list of the common parent’s child nodes to determine the order of the two nodes being compared. Therefore, using this method might affect your performance.'
   example:
   - "The following example uses this method.  \n  \n```csharp  \n  \n                XElement xmlTree = new XElement(\"Root\",  \n    new XElement(\"Child1\",  \n        new XElement(\"GrandChild1\", 1),  \n        new XElement(\"GrandChild2\", 2),  \n        new XElement(\"GrandChild3\", 3)  \n    ),  \n    new XElement(\"Child2\",  \n        new XElement(\"GrandChild4\", 4),  \n        new XElement(\"GrandChild5\", 5),  \n        new XElement(\"GrandChild6\", 6)  \n    )  \n);  \nXElement el1 = xmlTree.Descendants(\"GrandChild2\").First();  \nXElement el2 = xmlTree.Descendants(\"GrandChild6\").First();  \nif (XElement.CompareDocumentOrder(el1, el2) == 0)  \n    Console.WriteLine(\"Compared elements are the same element\");  \nelse if (XElement.CompareDocumentOrder(el1, el2) > 0)  \n    Console.WriteLine(\"el1 is after el2\");  \nelse  \n    Console.WriteLine(\"el1 is before el2\");  \n```  \n  \n```vb  \n  \n                Dim xmlTree As XElement = _   \n        <Root>  \n            <Child1>  \n                <GrandChild1>1</GrandChild1>  \n                <GrandChild2>2</GrandChild2>  \n                <GrandChild3>3</GrandChild3>  \n            </Child1>  \n            <Child2>  \n                <GrandChild4>4</GrandChild4>  \n                <GrandChild5>5</GrandChild5>  \n                <GrandChild6>6</GrandChild6>  \n            </Child2>  \n        </Root>  \n  \nDim el1 As XElement = xmlTree...<GrandChild2>(0)  \nDim el2 As XElement = xmlTree...<GrandChild6>(0)  \n  \nIf (XElement.CompareDocumentOrder(el1, el2) = 0) Then  \n    Console.WriteLine(\"Compared elements are the same element\")  \nElseIf (XElement.CompareDocumentOrder(el1, el2) > 0) Then  \n    Console.WriteLine(\"el1 is after el2\")  \nElse  \n    Console.WriteLine(\"el1 is before el2\")  \nEnd If  \n```  \n  \n This example produces the following output:  \n  \n```  \n  \nel1 is before el2  \n```"
   syntax:
@@ -855,7 +855,7 @@ items:
   - System.Xml.Linq
   - netstandard
   namespace: System.Xml.Linq
-  summary: Compares the values of two nodes, including the values of all descendant nodes.
+  summary: 'Compares the values of two nodes, including the values of all descendant nodes.'
   remarks: "The following criteria determine whether two nodes are equal:  \n  \n-   A `null` node is equal to another `null` node but unequal to a non-`null` node.  \n  \n-   Two <xref:System.Xml.Linq.XNode> objects of different types are never equal.  \n  \n-   Two <xref:System.Xml.Linq.XText> nodes are equal if they contain the same text.  \n  \n-   Two <xref:System.Xml.Linq.XElement> nodes are equal if they have the same tag name, the same set of attributes with the same values, and (ignoring comments and processing instructions) contain two equal length sequences of equal content nodes.  \n  \n-   Two <xref:System.Xml.Linq.XDocument> nodes are equal if their root nodes are equal.  \n  \n-   Two <xref:System.Xml.Linq.XComment> nodes are equal if they contain the same comment text.  \n  \n-   Two <xref:System.Xml.Linq.XProcessingInstruction> nodes are equal if they have the same target and data.  \n  \n-   Two <xref:System.Xml.Linq.XDocumentType> nodes are equal if the have the same name, public ID, system ID, and internal subset."
   example:
   - "The following example uses this method to compare two XML trees.  \n  \n```csharp  \n  \n                XElement xmlTree1 = new XElement(\"Root\",  \n    new XAttribute(\"Att1\", 1),  \n    new XAttribute(\"Att2\", 2),  \n    new XElement(\"Child1\", 1),  \n    new XElement(\"Child2\", \"some content\")  \n);  \nXElement xmlTree2 = new XElement(\"Root\",  \n    new XAttribute(\"Att1\", 1),  \n    new XAttribute(\"Att2\", 2),  \n    new XElement(\"Child1\", 1),  \n    new XElement(\"Child2\", \"some content\")  \n);  \nConsole.WriteLine(XNode.DeepEquals(xmlTree1, xmlTree2));  \n```  \n  \n```vb  \n  \n                Dim xmlTree1 As XElement = _   \n        <Root Att1=\"1\" Att2=\"2\">  \n            <Child1>1</Child1>  \n            <Child2>some content</Child2>  \n        </Root>  \n  \nDim xmlTree2 As XElement = _   \n        <Root Att1=\"1\" Att2=\"2\">  \n            <Child1>1</Child1>  \n            <Child2>some content</Child2>  \n        </Root>  \n  \nConsole.WriteLine(XNode.DeepEquals(xmlTree1, xmlTree2))  \n```  \n  \n This example produces the following output:  \n  \n```  \n  \nTrue  \n```"
@@ -937,7 +937,7 @@ items:
   - netstandard
   namespace: System.Xml.Linq
   summary: Gets a comparer that can compare the relative position of two nodes.
-  remarks: This property is primarily used internally for implementing the <xref:System.Xml.Linq.Extensions.InDocumentOrder%2A> extension method. The recommended approach is to use that extension method instead of using this property directly.
+  remarks: 'This property is primarily used internally for implementing the <xref:System.Xml.Linq.Extensions.InDocumentOrder%2A> extension method. The recommended approach is to use that extension method instead of using this property directly.'
   example:
   - "The following example creates an XML tree with some elements. It then creates a <xref:System.Collections.Generic.List%601> of <xref:System.Xml.Linq.XNode> that contains some elements from the XML tree at random. It sorts the list, using this property to retrieve a <xref:System.Xml.Linq.XNodeDocumentOrderComparer>, which implements the <xref:System.Collections.IComparer?displayProperty=fullName> and <xref:System.Collections.Generic.IComparer%601?displayProperty=fullName> interfaces.  \n  \n```csharp  \n  \n                XElement xmlTree = new XElement(\"Root\",  \n    new XElement(\"Child1\", 1),  \n    new XElement(\"Child2\", 2),  \n    new XElement(\"Child3\", 3),  \n    new XElement(\"Child4\", 4),  \n    new XElement(\"Child5\", 5)  \n);  \n  \nList<XNode> nodeList = new List<XNode>();  \nnodeList.Add(xmlTree.Element(\"Child5\"));  \nnodeList.Add(xmlTree.Element(\"Child3\"));  \nnodeList.Add(xmlTree.Element(\"Child1\"));  \n  \n// Sort nodes in document order.  \nnodeList.Sort(XNode.DocumentOrderComparer);  \n  \nforeach (XElement el in nodeList)  \n    Console.WriteLine(el);  \n```  \n  \n```vb  \n  \n                Dim xmlTree As XElement = _   \n        <Root>  \n            <Child1>1</Child1>  \n            <Child2>2</Child2>  \n            <Child3>3</Child3>  \n            <Child4>4</Child4>  \n            <Child5>5</Child5>  \n        </Root>  \n  \nDim nodeList As List(Of XNode) = New List(Of XNode)()  \nnodeList.Add(xmlTree.Element(\"Child5\"))  \nnodeList.Add(xmlTree.Element(\"Child3\"))  \nnodeList.Add(xmlTree.Element(\"Child1\"))  \n  \n' Sort nodes in document order.  \nnodeList.Sort(XNode.DocumentOrderComparer)  \n  \nFor Each el In nodeList  \n    Console.WriteLine(el)  \nNext  \n```  \n  \n This example produces the following output:  \n  \n```  \n  \n                <Child1>1</Child1>  \n<Child3>3</Child3>  \n<Child5>5</Child5>  \n```"
   syntax:
@@ -1010,7 +1010,7 @@ items:
   - System.Xml.Linq
   - netstandard
   namespace: System.Xml.Linq
-  summary: Returns a collection of the sibling elements after this node, in document order.
+  summary: 'Returns a collection of the sibling elements after this node, in document order.'
   remarks: "This method only includes siblings in the returned collection. It does not include descendants.  \n  \n This method uses deferred execution."
   example:
   - "The following example creates an element with some complex content. It then uses this method to retrieve the nodes in document order.  \n  \n```csharp  \n  \n                XElement xmlTree = new XElement(\"Root\",  \n    new XText(\"Text content.\"),  \n    new XElement(\"Child1\", \"child1 content\"),  \n    new XElement(\"Child2\", \"child2 content\"),  \n    new XElement(\"Child3\", \"child3 content\"),  \n    new XText(\"More text content.\"),  \n    new XElement(\"Child4\", \"child4 content\"),  \n    new XElement(\"Child5\", \"child5 content\")  \n);  \nXElement child = xmlTree.Element(\"Child3\");  \nIEnumerable<XElement> elements = child.ElementsAfterSelf();  \nforeach (XElement el in elements)  \n    Console.WriteLine(el.Name);  \n```  \n  \n```vb  \n  \n                Dim xmlTree As XElement = _  \n        <Root>Text content.  \n            <Child1>child1 content</Child1>  \n            <Child2>child2 content</Child2>  \n            <Child3>child3 content</Child3>More text content.  \n            <Child4>child4 content</Child4>  \n            <Child5>child5 content</Child5>  \n        </Root>  \n  \nDim child As XElement = xmlTree.<Child3>(0)  \nDim elements As IEnumerable(Of XElement) = child.ElementsAfterSelf()  \nFor Each el In elements  \n    Console.WriteLine(el.Name)  \nNext  \n```  \n  \n This example produces the following output:  \n  \n```  \n  \n                Child4  \nChild5  \n```"
@@ -1019,7 +1019,7 @@ items:
     parameters: []
     return:
       type: System.Collections.Generic.IEnumerable{System.Xml.Linq.XElement}
-      description: An <xref href="System.Collections.Generic.IEnumerable`1"></xref> of <xref href="System.Xml.Linq.XElement"></xref> of the sibling elements after this node, in document order.
+      description: 'An <xref href="System.Collections.Generic.IEnumerable`1"></xref> of <xref href="System.Xml.Linq.XElement"></xref> of the sibling elements after this node, in document order.'
   overload: System.Xml.Linq.XNode.ElementsAfterSelf*
   exceptions: []
   version:
@@ -1085,7 +1085,7 @@ items:
   - System.Xml.Linq
   - netstandard
   namespace: System.Xml.Linq
-  summary: Returns a filtered collection of the sibling elements after this node, in document order. Only elements that have a matching <xref href="System.Xml.Linq.XName"></xref> are included in the collection.
+  summary: 'Returns a filtered collection of the sibling elements after this node, in document order. Only elements that have a matching <xref href="System.Xml.Linq.XName"></xref> are included in the collection.'
   remarks: "This method only includes siblings in the returned collection. It does not include descendants.  \n  \n This method uses deferred execution."
   example:
   - "The following example creates an element with some complex content. It then uses this method to retrieve the sibling elements, in document order.  \n  \n```csharp  \n  \n                XElement xmlTree = new XElement(\"Root\",  \n    new XText(\"Text content.\"),  \n    new XElement(\"Child1\", \"child1 content\"),  \n    new XElement(\"Child2\", \"child2 content\"),  \n    new XElement(\"Child3\", \"child3 content\"),  \n    new XText(\"More text content.\"),  \n    new XElement(\"Child4\", \"child4 content\"),  \n    new XElement(\"Child5\", \"child5 content\")  \n);  \nXElement child = xmlTree.Element(\"Child3\");  \nIEnumerable<XElement> elements = child.ElementsAfterSelf(\"Child4\");  \nforeach (XElement el in elements)  \n    Console.WriteLine(el.Name);  \n```  \n  \n```vb  \n  \n                Dim xmlTree As XElement = _   \n        <Root>Text content.  \n            <Child1>child1 content</Child1>  \n            <Child2>child2 content</Child2>  \n            <Child3>child3 content</Child3>More text content.  \n            <Child4>child4 content</Child4>  \n            <Child5>child5 content</Child5>  \n        </Root>  \n  \nDim child As XElement = xmlTree.<Child3>(0)  \nDim elements As IEnumerable(Of XElement) = child.ElementsAfterSelf(\"Child4\")  \n  \nFor Each el In elements  \n    Console.WriteLine(el.Name)  \nNext  \n```  \n  \n This example produces the following output:  \n  \n```  \n  \nChild4  \n```"
@@ -1097,7 +1097,7 @@ items:
       description: The <xref href="System.Xml.Linq.XName"></xref> to match.
     return:
       type: System.Collections.Generic.IEnumerable{System.Xml.Linq.XElement}
-      description: An <xref href="System.Collections.Generic.IEnumerable`1"></xref> of <xref href="System.Xml.Linq.XElement"></xref> of the sibling elements after this node, in document order. Only elements that have a matching <xref href="System.Xml.Linq.XName"></xref> are included in the collection.
+      description: 'An <xref href="System.Collections.Generic.IEnumerable`1"></xref> of <xref href="System.Xml.Linq.XElement"></xref> of the sibling elements after this node, in document order. Only elements that have a matching <xref href="System.Xml.Linq.XName"></xref> are included in the collection.'
   overload: System.Xml.Linq.XNode.ElementsAfterSelf*
   exceptions: []
   version:
@@ -1163,7 +1163,7 @@ items:
   - System.Xml.Linq
   - netstandard
   namespace: System.Xml.Linq
-  summary: Returns a collection of the sibling elements before this node, in document order.
+  summary: 'Returns a collection of the sibling elements before this node, in document order.'
   remarks: "This method only includes siblings in the returned collection. It does not include descendants.  \n  \n This method uses deferred execution."
   example:
   - "The following example uses this axis method.  \n  \n```csharp  \n  \n                XElement xmlTree = new XElement(\"Root\",  \n    new XText(\"Text content.\"),  \n    new XElement(\"Child1\", \"child1 content\"),  \n    new XElement(\"Child2\", \"child2 content\"),  \n    new XElement(\"Child3\", \"child3 content\"),  \n    new XText(\"More text content.\"),  \n    new XElement(\"Child4\", \"child4 content\"),  \n    new XElement(\"Child5\", \"child5 content\")  \n);  \nXElement child = xmlTree.Element(\"Child3\");  \nIEnumerable<XElement> elements = child.ElementsBeforeSelf();  \nforeach (XElement el in elements)  \n    Console.WriteLine(el.Name);  \n```  \n  \n```vb  \n  \n                Dim xmlTree As XElement = _   \n        <Root>Text content.  \n            <Child1>child1 content</Child1>  \n            <Child2>child2 content</Child2>  \n            <Child3>child3 content</Child3>More text content.  \n            <Child4>child4 content</Child4>  \n            <Child5>child5 content</Child5>  \n        </Root>  \n  \nDim child As XElement = xmlTree.<Child3>(0)  \nDim elements As IEnumerable(Of XElement) = child.ElementsBeforeSelf()  \n  \nFor Each el In elements  \n    Console.WriteLine(el.Name)  \nNext  \n```  \n  \n This example produces the following output:  \n  \n```  \n  \n                Child1  \nChild2  \n```"
@@ -1172,7 +1172,7 @@ items:
     parameters: []
     return:
       type: System.Collections.Generic.IEnumerable{System.Xml.Linq.XElement}
-      description: An <xref href="System.Collections.Generic.IEnumerable`1"></xref> of <xref href="System.Xml.Linq.XElement"></xref> of the sibling elements before this node, in document order.
+      description: 'An <xref href="System.Collections.Generic.IEnumerable`1"></xref> of <xref href="System.Xml.Linq.XElement"></xref> of the sibling elements before this node, in document order.'
   overload: System.Xml.Linq.XNode.ElementsBeforeSelf*
   exceptions: []
   version:
@@ -1238,7 +1238,7 @@ items:
   - System.Xml.Linq
   - netstandard
   namespace: System.Xml.Linq
-  summary: Returns a filtered collection of the sibling elements before this node, in document order. Only elements that have a matching <xref href="System.Xml.Linq.XName"></xref> are included in the collection.
+  summary: 'Returns a filtered collection of the sibling elements before this node, in document order. Only elements that have a matching <xref href="System.Xml.Linq.XName"></xref> are included in the collection.'
   remarks: "This method only includes siblings in the returned collection. It does not include descendants.  \n  \n This method uses deferred execution."
   example:
   - "The following example uses this method.  \n  \n```csharp  \n  \n                XElement xmlTree = new XElement(\"Root\",  \n    new XText(\"Text content.\"),  \n    new XElement(\"Child1\", \"child1 content\"),  \n    new XElement(\"Child2\", \"child2 content\"),  \n    new XElement(\"Child3\", \"child3 content\"),  \n    new XText(\"More text content.\"),  \n    new XElement(\"Child4\", \"child4 content\"),  \n    new XElement(\"Child5\", \"child5 content\")  \n);  \nXElement child = xmlTree.Element(\"Child3\");  \nIEnumerable<XElement> elements = child.ElementsBeforeSelf(\"Child2\");  \nforeach (XElement el in elements)  \n    Console.WriteLine(el.Name);  \n```  \n  \n```vb  \n  \n                Dim xmlTree As XElement = _   \n        <Root>Text content.  \n            <Child1>child1 content</Child1>  \n            <Child2>child2 content</Child2>  \n            <Child3>child3 content</Child3>More text content.  \n            <Child4>child4 content</Child4>  \n            <Child5>child5 content</Child5>  \n        </Root>  \n  \nDim child As XElement = xmlTree.<Child3>(0)  \nDim elements As IEnumerable(Of XElement) = child.ElementsBeforeSelf(\"Child2\")  \n  \nFor Each el In elements  \n    Console.WriteLine(el.Name)  \nNext  \n```  \n  \n This example produces the following output:  \n  \n```  \n  \nChild2  \n```"
@@ -1250,7 +1250,7 @@ items:
       description: The <xref href="System.Xml.Linq.XName"></xref> to match.
     return:
       type: System.Collections.Generic.IEnumerable{System.Xml.Linq.XElement}
-      description: An <xref href="System.Collections.Generic.IEnumerable`1"></xref> of <xref href="System.Xml.Linq.XElement"></xref> of the sibling elements before this node, in document order. Only elements that have a matching <xref href="System.Xml.Linq.XName"></xref> are included in the collection.
+      description: 'An <xref href="System.Collections.Generic.IEnumerable`1"></xref> of <xref href="System.Xml.Linq.XElement"></xref> of the sibling elements before this node, in document order. Only elements that have a matching <xref href="System.Xml.Linq.XName"></xref> are included in the collection.'
   overload: System.Xml.Linq.XNode.ElementsBeforeSelf*
   exceptions: []
   version:
@@ -1391,7 +1391,7 @@ items:
   - netstandard
   namespace: System.Xml.Linq
   summary: Determines if the current node appears after a specified node in terms of document order.
-  remarks: The <xref:System.Xml.Linq.XContainer> stores its child nodes as a singly-linked list of <xref:System.Xml.Linq.XNode> objects. This means that the <xref:System.Xml.Linq.XNode.CompareDocumentOrder%2A> method must traverse the ancestors of the two nodes being compared until it finds the common parent. Then it must traverse the list of the common parent’s child nodes to determine the order of the two nodes being compared. Therefore, using this method might affect your performance.
+  remarks: 'The <xref:System.Xml.Linq.XContainer> stores its child nodes as a singly-linked list of <xref:System.Xml.Linq.XNode> objects. This means that the <xref:System.Xml.Linq.XNode.CompareDocumentOrder%2A> method must traverse the ancestors of the two nodes being compared until it finds the common parent. Then it must traverse the list of the common parent’s child nodes to determine the order of the two nodes being compared. Therefore, using this method might affect your performance.'
   example:
   - "The following example uses this method.  \n  \n```csharp  \n  \n                XElement xmlTree = new XElement(\"Root\",  \n    new XText(\"Text content.\"),  \n    new XElement(\"Child1\", \"child1 content\"),  \n    new XElement(\"Child2\", \"child2 content\"),  \n    new XElement(\"Child3\", \"child3 content\"),  \n    new XText(\"More text content.\"),  \n    new XElement(\"Child4\", \"child4 content\"),  \n    new XElement(\"Child5\", \"child5 content\")  \n);  \nXElement child3 = xmlTree.Element(\"Child3\");  \nXElement child5 = xmlTree.Element(\"Child5\");  \nif (child5.IsAfter(child3))  \n    Console.WriteLine(\"Child5 is after Child3\");  \nelse  \n    Console.WriteLine(\"Child5 is not after Child3\");  \n```  \n  \n```vb  \n  \n                Dim xmlTree As XElement = _   \n        <Root>Text content.  \n            <Child1>child1 content</Child1>  \n            <Child2>child2 content</Child2>  \n            <Child3>child3 content</Child3>More text content.  \n            <Child4>child4 content</Child4>  \n            <Child5>child5 content</Child5>  \n        </Root>  \n  \nDim child3 As XElement = xmlTree.<Child3>(0)  \nDim child5 As XElement = xmlTree.<Child5>(0)  \nIf (child5.IsAfter(child3)) Then  \n    Console.WriteLine(\"Child5 is after Child3\")  \nElse  \n    Console.WriteLine(\"Child5 is not after Child3\")  \nEnd If  \n```  \n  \n This example produces the following output:  \n  \n```  \n  \nChild5 is after Child3  \n```"
   syntax:
@@ -1469,7 +1469,7 @@ items:
   - netstandard
   namespace: System.Xml.Linq
   summary: Determines if the current node appears before a specified node in terms of document order.
-  remarks: The <xref:System.Xml.Linq.XContainer> stores its child nodes as a singly-linked list of <xref:System.Xml.Linq.XNode> objects. This means that the <xref:System.Xml.Linq.XNode.IsBefore%2A> method must traverse the ancestors of the two nodes being compared until it finds the common parent. Then it must traverse the list of the common parent’s child nodes to determine the order of the two nodes being compared. Therefore, using this method might affect your performance.
+  remarks: 'The <xref:System.Xml.Linq.XContainer> stores its child nodes as a singly-linked list of <xref:System.Xml.Linq.XNode> objects. This means that the <xref:System.Xml.Linq.XNode.IsBefore%2A> method must traverse the ancestors of the two nodes being compared until it finds the common parent. Then it must traverse the list of the common parent’s child nodes to determine the order of the two nodes being compared. Therefore, using this method might affect your performance.'
   example:
   - "The following example uses this method.  \n  \n```csharp  \n  \n                XElement xmlTree = new XElement(\"Root\",  \n    new XText(\"Text content.\"),  \n    new XElement(\"Child1\", \"child1 content\"),  \n    new XElement(\"Child2\", \"child2 content\"),  \n    new XElement(\"Child3\", \"child3 content\"),  \n    new XText(\"More text content.\"),  \n    new XElement(\"Child4\", \"child4 content\"),  \n    new XElement(\"Child5\", \"child5 content\")  \n);  \nXElement child3 = xmlTree.Element(\"Child3\");  \nXElement child5 = xmlTree.Element(\"Child5\");  \nif (child5.IsBefore(child3))  \n    Console.WriteLine(\"Child5 is before Child3\");  \nelse  \n    Console.WriteLine(\"Child5 is not before Child3\");  \n```  \n  \n [vb]  \n  \n```  \n  \n                Dim xmlTree As XElement = _   \n        <Root>Text content.  \n            <Child1>child1 content</Child1>  \n            <Child2>child2 content</Child2>  \n            <Child3>child3 content</Child3>More text content.  \n            <Child4>child4 content</Child4>  \n            <Child5>child5 content</Child5>  \n        </Root>  \n  \nDim child3 As XElement = xmlTree.<Child3>(0)  \nDim child5 As XElement = xmlTree.<Child5>(0)  \nIf (child5.IsBefore(child3)) Then  \n    Console.WriteLine(\"Child5 is before Child3\")  \nElse  \n    Console.WriteLine(\"Child5 is not before Child3\")  \nEnd If  \n```  \n  \n This example produces the following output:  \n  \n```  \n  \nChild5 is not before Child3  \n```"
   syntax:
@@ -1547,7 +1547,7 @@ items:
   - netstandard
   namespace: System.Xml.Linq
   summary: Gets the next sibling node of this node.
-  remarks: If this <xref:System.Xml.Linq.XNode> does not have a parent, or if there is no next node, this property returns `null`.
+  remarks: 'If this <xref:System.Xml.Linq.XNode> does not have a parent, or if there is no next node, this property returns `null`.'
   example:
   - "The following example uses this property to loop through nodes.  \n  \n```csharp  \n  \n                XElement xmlTree = new XElement(\"Root\",  \n    new XElement(\"Child1\", 1),  \n    new XText(\"Some Text\"),  \n    new XElement(\"Child2\",  \n        2,  \n        new XElement(\"GrandChild\", \"GrandChild Content\")  \n    ),  \n    new XComment(\"a comment\"),  \n    new XElement(\"Child3\")  \n);  \nXNode node = xmlTree.Element(\"Child2\");  \ndo {  \n    StringBuilder sb = new StringBuilder();  \n    sb.Append(String.Format(\"NodeType: {0}\", node.NodeType.ToString().PadRight(10)));  \n    switch (node.NodeType)  \n    {  \n        case XmlNodeType.Text:  \n            sb.Append((node as XText).Value);  \n            break;  \n        case XmlNodeType.Element:  \n            sb.Append((node as XElement).Name);  \n            break;  \n        case XmlNodeType.Comment:  \n            sb.Append((node as XComment).Value);  \n            break;  \n    }  \n    Console.WriteLine(sb.ToString());  \n}  \nwhile ((node = node.NextNode) != null);  \n```  \n  \n```vb  \n  \n                Dim xmlTree As XElement = _   \n        <Root>  \n            <Child1>1</Child1>Some Text  \n            <Child2>2  \n                <GrandChild>GrandChild Content</GrandChild>  \n            </Child2>  \n            <!--a comment-->  \n            <Child3>3</Child3>  \n        </Root>  \n  \nDim node As XNode = xmlTree.Element(\"Child2\")  \nDo  \n    Dim sb As StringBuilder = New StringBuilder()  \n    sb.Append(String.Format(\"NodeType: {0}\", node.NodeType.ToString().PadRight(10)))  \n    Select Case node.NodeType  \n        Case XmlNodeType.Text  \n            sb.Append(DirectCast(node, XText).Value)  \n        Case XmlNodeType.Element  \n            sb.Append(DirectCast(node, XElement).Name)  \n        Case XmlNodeType.Comment  \n            sb.Append(DirectCast(node, XComment).Value)  \n    End Select  \n    Console.WriteLine(sb.ToString())  \n  \n    node = node.NextNode  \nLoop While (Not (node Is Nothing))  \n```  \n  \n This example produces the following output:  \n  \n```  \n  \n                NodeType: Element   Child2  \nNodeType: Comment   a comment  \nNodeType: Element   Child3  \n```"
   syntax:
@@ -1620,7 +1620,7 @@ items:
   - System.Xml.Linq
   - netstandard
   namespace: System.Xml.Linq
-  summary: Returns a collection of the sibling nodes after this node, in document order.
+  summary: 'Returns a collection of the sibling nodes after this node, in document order.'
   remarks: "This method only includes siblings in the returned collection. It does not include descendants.  \n  \n This method uses deferred execution."
   example:
   - "The following example creates an XML tree, and then queries the tree using this axis method.  \n  \n```csharp  \n  \n                XElement xmlTree = new XElement(\"Root\",  \n    new XText(\"Text content.\"),  \n    new XElement(\"Child1\", \"child1 content\"),  \n    new XElement(\"Child2\", \"child2 content\"),  \n    new XText(\"More text content.\"),  \n    new XElement(\"child3\", \"child3 content\")  \n);  \nXElement child = xmlTree.Element(\"Child2\");  \nIEnumerable<XNode> nodes =  \n    from node in child.NodesAfterSelf()  \n    select node;  \nforeach (XNode node in nodes)  \n{  \n    Console.WriteLine(\"Node type: {0}  {1}\",  \n        node.NodeType,  \n        node.NodeType == XmlNodeType.Text ? (node as XText).Value : \"\");  \n}  \n```  \n  \n```vb  \n  \n                Dim xmlTree As XElement = New XElement(\"Root\", _New XText(\"Text content.\"), _  \n    New XElement(\"Child1\", \"child1 content\"), _  \n    New XElement(\"Child2\", \"child2 content\"), _  \n    New XText(\"More text content.\"), _  \n    New XElement(\"child3\", \"child3 content\") _  \n)  \n  \nDim child As XElement = xmlTree.Element(\"Child2\")  \nDim nodes As IEnumerable(Of XNode) = _  \n    From node In child.NodesAfterSelf() _  \n    Select node  \nFor Each node As XNode In nodes  \n    Dim s As String = \"\"  \n    If node.NodeType = XmlNodeType.Text Then  \n        s = DirectCast(node, XText).Value  \n    End If  \n    Console.WriteLine(\"Node type: {0}  {1}\", node.NodeType, s)  \nNext  \n```  \n  \n This example produces the following output:  \n  \n```  \n  \n                Node type: Text  More text content.  \nNode type: Element  \n```"
@@ -1629,7 +1629,7 @@ items:
     parameters: []
     return:
       type: System.Collections.Generic.IEnumerable{System.Xml.Linq.XNode}
-      description: An <xref href="System.Collections.Generic.IEnumerable`1"></xref> of <xref href="System.Xml.Linq.XNode"></xref> of the sibling nodes after this node, in document order.
+      description: 'An <xref href="System.Collections.Generic.IEnumerable`1"></xref> of <xref href="System.Xml.Linq.XNode"></xref> of the sibling nodes after this node, in document order.'
   overload: System.Xml.Linq.XNode.NodesAfterSelf*
   exceptions: []
   version:
@@ -1695,7 +1695,7 @@ items:
   - System.Xml.Linq
   - netstandard
   namespace: System.Xml.Linq
-  summary: Returns a collection of the sibling nodes before this node, in document order.
+  summary: 'Returns a collection of the sibling nodes before this node, in document order.'
   remarks: "This method only includes siblings in the returned collection. It does not include descendants.  \n  \n This method uses deferred execution."
   example:
   - "The following example creates an XML tree, and then queries the tree using this axis method.  \n  \n```csharp  \n  \n                XElement xmlTree = new XElement(\"Root\",  \n    new XText(\"Text content.\"),  \n    new XElement(\"Child1\", \"child1 content\"),  \n    new XElement(\"Child2\", \"child2 content\"),  \n    new XText(\"More text content.\"),  \n    new XElement(\"child3\", \"child3 content\")  \n);  \nXElement child = xmlTree.Element(\"Child2\");  \nIEnumerable<XNode> nodes =  \n    from node in child.NodesBeforeSelf()  \n    select node;  \nforeach (XNode node in nodes)  \n    Console.WriteLine(\"Node type: {0}  {1}\",  \n        node.NodeType,  \n        node.NodeType == XmlNodeType.Text ? (node as XText).Value : \"\");  \n```  \n  \n```vb  \n  \n                Dim xmlTree As XElement = New XElement(\"Root\", _  \n    New XText(\"Text content.\"), _  \n    New XElement(\"Child1\", \"child1 content\"), _  \n    New XElement(\"Child2\", \"child2 content\"), _  \n    New XText(\"More text content.\"), _  \n    New XElement(\"child3\", \"child3 content\") _  \n)  \n  \nDim child As XElement = xmlTree.Element(\"Child2\")  \nDim nodes As IEnumerable(Of XNode) = _  \n    From node In child.NodesBeforeSelf() _  \n    Select node  \nFor Each node As XNode In nodes  \n    Dim s As String = \"\"  \n    If node.NodeType = XmlNodeType.Text Then  \n        s = DirectCast(node, XText).Value  \n    End If  \n    Console.WriteLine(\"Node type: {0}  {1}\", node.NodeType, s)  \nNext  \n```  \n  \n This example produces the following output:  \n  \n```  \n  \n                Node type: Text  Text content.  \nNode type: Element  \n```"
@@ -1704,7 +1704,7 @@ items:
     parameters: []
     return:
       type: System.Collections.Generic.IEnumerable{System.Xml.Linq.XNode}
-      description: An <xref href="System.Collections.Generic.IEnumerable`1"></xref> of <xref href="System.Xml.Linq.XNode"></xref> of the sibling nodes before this node, in document order.
+      description: 'An <xref href="System.Collections.Generic.IEnumerable`1"></xref> of <xref href="System.Xml.Linq.XNode"></xref> of the sibling nodes before this node, in document order.'
   overload: System.Xml.Linq.XNode.NodesBeforeSelf*
   exceptions: []
   version:
@@ -2260,7 +2260,7 @@ items:
   - System.Xml.Linq
   - netstandard
   namespace: System.Xml.Linq
-  summary: Returns the XML for this node, optionally disabling formatting.
+  summary: 'Returns the XML for this node, optionally disabling formatting.'
   remarks: ''
   example:
   - "The following example uses this method to retrieve unformatted and formatted XML.  \n  \n```csharp  \n  \n                XElement root = XElement.Parse(\"<Root><Child/></Root>\");  \nConsole.WriteLine(root.ToString(SaveOptions.DisableFormatting));  \nConsole.WriteLine(\"---\");  \nConsole.WriteLine(root.ToString(SaveOptions.None));  \n```  \n  \n```vb  \n  \n                Dim root As XElement = <Root>  \n                           <Child/>  \n                       </Root>  \nConsole.WriteLine(root.ToString(SaveOptions.DisableFormatting))  \nConsole.WriteLine(\"---\")  \nConsole.WriteLine(root.ToString(SaveOptions.None))  \n```  \n  \n This example produces the following output:  \n  \n```  \n  \n                <Root><Child /></Root>  \n---  \n<Root>  \n  <Child />  \n</Root>  \n```"

@@ -312,7 +312,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Returns a value that indicates whether the binding element can build a channel factory for a specific type of channel.
-  remarks: Use this method if you want to check that the channel factory for channels of type `TChannel` can be build for the `context` provided before attempting to build the factory. Alternatively, build the channel factory by calling <xref:System.ServiceModel.Channels.BindingElement.BuildChannelFactory%2A> and catch the exception generated if it cannot be built.
+  remarks: 'Use this method if you want to check that the channel factory for channels of type `TChannel` can be build for the `context` provided before attempting to build the factory. Alternatively, build the channel factory by calling <xref:System.ServiceModel.Channels.BindingElement.BuildChannelFactory%2A> and catch the exception generated if it cannot be built.'
   example:
   - '[!code-csharp[S_UEChannels#18](~/samples/snippets/csharp/VS_Snippets_CFX/s_uechannels/cs/clientsnippets.cs#18)]'
   syntax:
@@ -374,7 +374,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Returns a value that indicates whether the binding element can build a listener for a specific type of channel.
-  remarks: Use this method if you want to check that the channel listener for channels of type `TChannel` can be build for the `context` provided before attempting to build the listener. Alternatively, build the channel listener by calling <xref:System.ServiceModel.Channels.BindingElement.BuildChannelListener%2A> and catch the exception generated if it cannot be built.
+  remarks: 'Use this method if you want to check that the channel listener for channels of type `TChannel` can be build for the `context` provided before attempting to build the listener. Alternatively, build the channel listener by calling <xref:System.ServiceModel.Channels.BindingElement.BuildChannelListener%2A> and catch the exception generated if it cannot be built.'
   example:
   - '[!code-csharp[S_UEChannels#19](~/samples/snippets/csharp/VS_Snippets_CFX/s_uechannels/cs/servicesnippets.cs#19)]'
   syntax:
@@ -431,7 +431,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: When overridden in a derived class, returns a copy of the binding element object.
+  summary: 'When overridden in a derived class, returns a copy of the binding element object.'
   remarks: "Implement the <xref:System.ServiceModel.Channels.BindingElement.Clone%2A> method to return a deep clone of your binding element. Returning a clone enables the runtime to support the case in which multiple custom bindings share a custom binding element. If a clone is not returned, the run-time behavior is undefined.  \n  \n A deep clone of an object creates a copy of the object and a copy of everything directly or indirectly referenced by that object. (This is also called copying the entire object graph.) A shallow clone of an object, by contrast, is a copy of the object only. If the object contains references to other objects, the shallow copy does not create copies of the referred objects; instead, it copies only the references to the original objects."
   syntax:
     content: public abstract System.ServiceModel.Channels.BindingElement Clone ();
@@ -482,7 +482,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: When overridden in a derived class, returns a typed object requested, if present, from the appropriate layer in the binding stack.
+  summary: 'When overridden in a derived class, returns a typed object requested, if present, from the appropriate layer in the binding stack.'
   remarks: "Use this to retrieve capabilities, requirements and parameters from the binding element stack. If a binding element supports returning the requested object, it returns it. If not, it delegates the call down to the next binding element in the stack. If it gets to the bottom of the stack and no binding element supported the requested object, then the method returns `null`.  \n  \n> [!NOTE]\n>  If you are adding message headers that must be encrypted you must return a <xref:System.ServiceModel.Security.ChannelProtectionRequirements> instance with your requirements from this method when asked for <xref:System.ServiceModel.Security.ChannelProtectionRequirements>."
   example:
   - '[!code-csharp[S_UEChannels#20](~/samples/snippets/csharp/VS_Snippets_CFX/s_uechannels/cs/servicesnippets.cs#20)]'

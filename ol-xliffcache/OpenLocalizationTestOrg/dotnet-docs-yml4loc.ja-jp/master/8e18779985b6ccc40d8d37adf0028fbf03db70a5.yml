@@ -26,7 +26,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Represents a custom binding element that supports channel security using symmetric encryption.
-  remarks: "A custom binding contains a collection of binding elements arranged in a specific order: the element that represents the top of the binding stack is added first, the next element down in the binding stack, is added second, and so forth.  \n  \n### To add this class to a binding  \n  \n1.  Create a <xref:System.ServiceModel.Channels.BindingElementCollection>.  \n  \n2.  Create custom binding elements that is above this binding element in the binding stack, such as the optional <xref:System.ServiceModel.Channels.TransactionFlowBindingElement> and <xref:System.ServiceModel.Channels.ReliableSessionBindingElement>.  \n  \n3.  Add the created elements, in the order mentioned previously, to the <xref:System.ServiceModel.Channels.BindingElementCollection> using the <xref:System.ServiceModel.Channels.BindingElementCollection.InsertItem%2A> method.  \n  \n4.  Create an instance of <xref:System.ServiceModel.Channels.SymmetricSecurityBindingElement> and add it to the collection.  \n  \n5.  Add any additional custom binding elements to the collection, such as <xref:System.ServiceModel.Channels.TcpTransportBindingElement>.  \n  \n> [!NOTE]\n>  Once an instance of this object is created, you should treat the properties of its base class, <xref:System.ServiceModel.Channels.SecurityBindingElement>, as immutable. Calling `set` on some properties may have unpredictable effects: the binding may behave as if the property retained its old value, with a run-time failure being the only indication of an issue. Two properties known to behave this way are <xref:System.ServiceModel.Security.Tokens.IssuedSecurityTokenParameters.KeyType%2A> and <xref:System.ServiceModel.Channels.SecurityBindingElement.MessageSecurityVersion%2A>. There may be other properties for which this is true."
+  remarks: "A custom binding contains a collection of binding elements arranged in a specific order: the element that represents the top of the binding stack is added first, the next element down in the binding stack, is added second, and so forth.  \n  \n### <a name=\"to-add-this-class-to-a-binding\"></a>To add this class to a binding  \n  \n1.  Create a <xref:System.ServiceModel.Channels.BindingElementCollection>.  \n  \n2.  Create custom binding elements that is above this binding element in the binding stack, such as the optional <xref:System.ServiceModel.Channels.TransactionFlowBindingElement> and <xref:System.ServiceModel.Channels.ReliableSessionBindingElement>.  \n  \n3.  Add the created elements, in the order mentioned previously, to the <xref:System.ServiceModel.Channels.BindingElementCollection> using the <xref:System.ServiceModel.Channels.BindingElementCollection.InsertItem%2A> method.  \n  \n4.  Create an instance of <xref:System.ServiceModel.Channels.SymmetricSecurityBindingElement> and add it to the collection.  \n  \n5.  Add any additional custom binding elements to the collection, such as <xref:System.ServiceModel.Channels.TcpTransportBindingElement>.  \n  \n> [!NOTE]\n>  Once an instance of this object is created, you should treat the properties of its base class, <xref:System.ServiceModel.Channels.SecurityBindingElement>, as immutable. Calling `set` on some properties may have unpredictable effects: the binding may behave as if the property retained its old value, with a run-time failure being the only indication of an issue. Two properties known to behave this way are <xref:System.ServiceModel.Security.Tokens.IssuedSecurityTokenParameters.KeyType%2A> and <xref:System.ServiceModel.Channels.SecurityBindingElement.MessageSecurityVersion%2A>. There may be other properties for which this is true."
   syntax:
     content: 'public sealed class SymmetricSecurityBindingElement : System.ServiceModel.Channels.SecurityBindingElement, System.ServiceModel.Description.IPolicyExportExtension'
   inheritance:
@@ -347,7 +347,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Gets a specified object from the <xref href="System.ServiceModel.Channels.BindingContext"></xref>.
-  remarks: This method gets the specified object from the base class or from one of that class's ancestors. The object returned is usually a collection of properties, for example an object that implements <xref:System.ServiceModel.Channels.ISecurityCapabilities>.
+  remarks: 'This method gets the specified object from the base class or from one of that class''s ancestors. The object returned is usually a collection of properties, for example an object that implements <xref:System.ServiceModel.Channels.ISecurityCapabilities>.'
   syntax:
     content: 'public override T GetProperty<T> (System.ServiceModel.Channels.BindingContext context) where T : class;'
     parameters:
@@ -359,7 +359,7 @@ items:
       description: The type of the object to get.
     return:
       type: T
-      description: The specified object of type <code>T</code> from the <xref href="System.ServiceModel.Channels.BindingContext"></xref>, or `null` if the object is not found.
+      description: 'The specified object of type <code>T</code> from the <xref href="System.ServiceModel.Channels.BindingContext"></xref>, or `null` if the object is not found.'
   overload: System.ServiceModel.Channels.SymmetricSecurityBindingElement.GetProperty``1*
   exceptions: []
   version:
@@ -493,7 +493,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Gets or sets a value that indicates whether message signatures must be confirmed.
-  remarks: This property specifies whether the signature must be encrypted. If the value is `true`, the primary signature must be encrypted and any signature confirmation elements must also be encrypted. If the value is `false`, the primary signature must not be encrypted and any signature confirmation elements must not be encrypted.
+  remarks: 'This property specifies whether the signature must be encrypted. If the value is `true`, the primary signature must be encrypted and any signature confirmation elements must also be encrypted. If the value is `false`, the primary signature must not be encrypted and any signature confirmation elements must not be encrypted.'
   syntax:
     content: public bool RequireSignatureConfirmation { get; set; }
     return:
@@ -582,7 +582,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Returns a string that represents this <xref href="System.ServiceModel.Channels.SymmetricSecurityBindingElement"></xref> instance.
-  remarks: Information returned by <xref:System.ServiceModel.Channels.SymmetricSecurityBindingElement.ToString%2A> includes the <xref:System.ServiceModel.Channels.SymmetricSecurityBindingElement.MessageProtectionOrder%2A>, <xref:System.ServiceModel.Channels.SymmetricSecurityBindingElement.RequireSignatureConfirmation%2A>, and <xref:System.ServiceModel.Channels.SymmetricSecurityBindingElement.ProtectionTokenParameters%2A> values of the current instance.
+  remarks: 'Information returned by <xref:System.ServiceModel.Channels.SymmetricSecurityBindingElement.ToString%2A> includes the <xref:System.ServiceModel.Channels.SymmetricSecurityBindingElement.MessageProtectionOrder%2A>, <xref:System.ServiceModel.Channels.SymmetricSecurityBindingElement.RequireSignatureConfirmation%2A>, and <xref:System.ServiceModel.Channels.SymmetricSecurityBindingElement.ProtectionTokenParameters%2A> values of the current instance.'
   syntax:
     content: public override string ToString ();
     parameters: []

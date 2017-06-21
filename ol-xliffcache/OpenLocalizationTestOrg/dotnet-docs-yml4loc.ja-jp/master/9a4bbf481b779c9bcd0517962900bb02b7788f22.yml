@@ -564,7 +564,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: Creates a new child element node at the end of the list of child nodes of the current node using the namespace prefix, local name and namespace URI specified with the value specified.
+  summary: 'Creates a new child element node at the end of the list of child nodes of the current node using the namespace prefix, local name and namespace URI specified with the value specified.'
   remarks: "Appending a child node adds the new node to the end of the list of child nodes for the current node. For example, when three child nodes exist for an element node, the appended node becomes the fourth child node. If no child nodes exist, then a new child node is created.  \n  \n Namespace prefix and URI values can be obtained by using the <xref:System.Xml.XPath.XPathNavigator.LookupPrefix%2A> method or the  <xref:System.Xml.XPath.XPathNavigator.LookupNamespace%2A> method. For example, the following syntax appends a child element by using the in-scope namespace `xmlns:bk=http://www.contoso.com/books`:  \n  \n```  \nnavigator.AppendChildElement(navigator.Prefix, \"pages\", LookupNamespaceURI(navigator.Prefix), String.Empty)  \n```  \n  \n This creates the new child `<bk:pages/>` element.  \n  \n The following are important notes to consider when using the <xref:System.Xml.XPath.XPathNavigator.AppendChildElement%2A> method.  \n  \n-   If the namespace prefix specified is `null` or <xref:System.String.Empty?displayProperty=fullName>, then the prefix for the namespace URI of the new element is obtained from the current namespaces in-scope. If there is no namespace prefix assigned to the specified namespace URI at the current scope, then a namespace prefix is automatically generated.  \n  \n-   The <xref:System.Xml.XPath.XPathNavigator.AppendChildElement%2A> method is valid only when the <xref:System.Xml.XPath.XPathNavigator> is positioned on the root node or an element node.  \n  \n-   The <xref:System.Xml.XPath.XPathNavigator.AppendChildElement%2A> method does not affect the position of the <xref:System.Xml.XPath.XPathNavigator>."
   example:
   - "In the following example, a new `pages` child element is appended to the list of child elements of the first `book` element in the `contosoBooks.xml` file.  \n  \n [!code-cpp[XPathNavigatorMethods#5](~/samples/snippets/cpp/VS_Snippets_Data/XPathNavigatorMethods/CPP/xpathnavigatormethods.cpp#5)]\n [!code-csharp[XPathNavigatorMethods#5](~/samples/snippets/csharp/VS_Snippets_Data/XPathNavigatorMethods/CS/xpathnavigatormethods.cs#5)]\n [!code-vb[XPathNavigatorMethods#5](~/samples/snippets/visualbasic/VS_Snippets_Data/XPathNavigatorMethods/VB/xpathnavigatormethods.vb#5)]  \n  \n The example takes the `contosoBooks.xml` file as an input.  \n  \n```xml  \n  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>  \n<bookstore xmlns=\"http://www.contoso.com/books\">  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
@@ -582,7 +582,7 @@ items:
       description: The namespace URI of the new child element node (if any). <xref href="System.String.Empty"></xref> and `null` are equivalent.
     - id: value
       type: System.String
-      description: The value of the new child element node. If <xref href="System.String.Empty"></xref> or `null` are passed, an empty element is created.
+      description: 'The value of the new child element node. If <xref href="System.String.Empty"></xref> or `null` are passed, an empty element is created.'
   overload: System.Xml.XPath.XPathNavigator.AppendChildElement*
   exceptions:
   - type: System.InvalidOperationException
@@ -643,13 +643,13 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: When overridden in a derived class, gets the base URI for the current node.
+  summary: 'When overridden in a derived class, gets the base URI for the current node.'
   remarks: "A networked XML document is comprised of chunks of data, aggregated using various W3C standard inclusion mechanisms, and therefore contains nodes that come from different places. DTD entities are an example of this aggregated data, but it is not limited to DTDs. The <xref:System.Xml.XPath.XPathNavigator.BaseURI%2A> property tells you where these nodes originate from.  \n  \n For example, if the XML data is loaded from http://server/mydata.xml, the <xref:System.Xml.XPath.XPathNavigator.BaseURI%2A> property returns http://server/mydata.xml.  \n  \n> [!NOTE]\n>  Nodes created using the <xref:System.Xml.XPath.XPathNavigator> class have the same <xref:System.Xml.XPath.XPathNavigator.BaseURI%2A> as the XML document the <xref:System.Xml.XPath.XPathNavigator> was created from."
   syntax:
     content: public abstract string BaseURI { get; }
     return:
       type: System.String
-      description: The location from which the node was loaded, or <xref href="System.String.Empty"></xref> if there is no value.
+      description: 'The location from which the node was loaded, or <xref href="System.String.Empty"></xref> if there is no value.'
   overload: System.Xml.XPath.XPathNavigator.BaseURI*
   exceptions: []
   version:
@@ -784,13 +784,13 @@ items:
   exceptions:
   - type: System.Xml.Schema.XmlSchemaValidationException
     commentId: T:System.Xml.Schema.XmlSchemaValidationException
-    description: A schema validation error occurred, and no <xref href="System.Xml.Schema.ValidationEventHandler"></xref> was specified to handle validation errors.
+    description: 'A schema validation error occurred, and no <xref href="System.Xml.Schema.ValidationEventHandler"></xref> was specified to handle validation errors.'
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The <xref href="System.Xml.XPath.XPathNavigator"></xref> is positioned on a node that is not an element, attribute, or the root node or there is not type information to perform validation.
+    description: 'The <xref href="System.Xml.XPath.XPathNavigator"></xref> is positioned on a node that is not an element, attribute, or the root node or there is not type information to perform validation.'
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: The <xref href="System.Xml.XPath.XPathNavigator.CheckValidity(System.Xml.Schema.XmlSchemaSet,System.Xml.Schema.ValidationEventHandler)"></xref> method was called with an <xref href="System.Xml.Schema.XmlSchemaSet"></xref> parameter when the <xref href="System.Xml.XPath.XPathNavigator"></xref> was not positioned on the root node of the XML data.
+    description: 'The <xref href="System.Xml.XPath.XPathNavigator.CheckValidity(System.Xml.Schema.XmlSchemaSet,System.Xml.Schema.ValidationEventHandler)"></xref> method was called with an <xref href="System.Xml.Schema.XmlSchemaSet"></xref> parameter when the <xref href="System.Xml.XPath.XPathNavigator"></xref> was not positioned on the root node of the XML data.'
   version:
   - netcore-2.0
   - netframework-4.5.1
@@ -839,7 +839,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: When overridden in a derived class, creates a new <xref href="System.Xml.XPath.XPathNavigator"></xref> positioned at the same node as this <xref href="System.Xml.XPath.XPathNavigator"></xref>.
+  summary: 'When overridden in a derived class, creates a new <xref href="System.Xml.XPath.XPathNavigator"></xref> positioned at the same node as this <xref href="System.Xml.XPath.XPathNavigator"></xref>.'
   remarks: "The <xref:System.Xml.XPath.XPathNavigator.Clone%2A> method is especially useful in conjunction with the <xref:System.Xml.XPath.XPathNodeIterator>. An <xref:System.Xml.XPath.XPathNodeIterator> is used to iterate over a selected node set, and contains a <xref:System.Xml.XPath.XPathNodeIterator.Current%2A> property which returns an <xref:System.Xml.XPath.XPathNavigator> positioned on the context node of the <xref:System.Xml.XPath.XPathNodeIterator>. However, the <xref:System.Xml.XPath.XPathNavigator> returned by the <xref:System.Xml.XPath.XPathNodeIterator.Current%2A> property cannot be used to move away from the node set. Instead, you clone the returned <xref:System.Xml.XPath.XPathNavigator> and use the cloned navigator to do any additional moves.  \n  \n The cloned <xref:System.Xml.XPath.XPathNavigator> is not affected by subsequent changes to the original <xref:System.Xml.XPath.XPathNavigator>."
   example:
   - "The following example gets all book titles authored by Herman Melville.  \n  \n [!code-cpp[XPathNavigatorMethods#6](~/samples/snippets/cpp/VS_Snippets_Data/XPathNavigatorMethods/CPP/xpathnavigatormethods.cpp#6)]\n [!code-csharp[XPathNavigatorMethods#6](~/samples/snippets/csharp/VS_Snippets_Data/XPathNavigatorMethods/CS/xpathnavigatormethods.cs#6)]\n [!code-vb[XPathNavigatorMethods#6](~/samples/snippets/visualbasic/VS_Snippets_Data/XPathNavigatorMethods/VB/xpathnavigatormethods.vb#6)]  \n  \n The example takes the `books.xml` file as an input.  \n  \n```xml  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>   \n<bookstore>  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
@@ -1039,7 +1039,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: Creates an attribute node on the current element node using the namespace prefix, local name and namespace URI specified with the value specified.
+  summary: 'Creates an attribute node on the current element node using the namespace prefix, local name and namespace URI specified with the value specified.'
   remarks: "Namespace prefix and URI values can be obtained using the <xref:System.Xml.XPath.XPathNavigator.LookupPrefix%2A> or <xref:System.Xml.XPath.XPathNavigator.LookupNamespace%2A> method. For example, the following syntax creates an attribute by using the in-scope namespace `xmlns:bk=\"http://www.contoso.com/books\"`:  \n  \n```  \neditor.CreateAttribute(navigator.Prefix, \"attributeName\", LookupNamespace(navigator.Prefix), \"text\")  \n```  \n  \n This creates the new attribute `<bk:element attributeName=\"text\"/>` on the current element.  \n  \n The following are important notes to consider when using the <xref:System.Xml.XPath.XPathNavigator.CreateAttribute%2A> method.  \n  \n-   If the namespace prefix specified is <xref:System.String.Empty?displayProperty=fullName> or `null`, the prefix for the namespace URI of the new attribute is obtained from the current namespaces in-scope. If there is no namespace prefix assigned to the specified namespace URI at the current scope, a namespace prefix is automatically generated. For example to create a new attribute on an element in the default namespace of the `contosoBooks.xml` file, (`xmlns=\"http://www.contoso.com/books\"`), you specify `null` or <xref:System.String.Empty?displayProperty=fullName> for both the namespace prefix and namespace URI parameters. Specifying `http://www.contoso.com/books` as the namespace URI parameter will cause the <xref:System.Xml.XPath.XPathNavigator.CreateAttribute%2A> method to auto generate a namespace prefix for the new attribute.  \n  \n-   If the new attribute created is a namespace node which conflicts with a namespace declaration on the element, either because the namespace prefix chosen is used by another namespace declaration at the same scope, or because the prefix chosen is the same as that of the element but is bound to a different namespace URI, an exception is thrown.  \n  \n-   The <xref:System.Xml.XPath.XPathNavigator.CreateAttribute%2A> method does not affect the position of the <xref:System.Xml.XPath.XPathNavigator>."
   example:
   - "In the following example, a new `discount` attribute is created on the `price` child element of the first `book` element in the `contosoBooks.xml` file.  \n  \n [!code-cpp[XPathNavigatorMethods#7](~/samples/snippets/cpp/VS_Snippets_Data/XPathNavigatorMethods/CPP/xpathnavigatormethods.cpp#7)]\n [!code-csharp[XPathNavigatorMethods#7](~/samples/snippets/csharp/VS_Snippets_Data/XPathNavigatorMethods/CS/xpathnavigatormethods.cs#7)]\n [!code-vb[XPathNavigatorMethods#7](~/samples/snippets/visualbasic/VS_Snippets_Data/XPathNavigatorMethods/VB/xpathnavigatormethods.vb#7)]  \n  \n The example takes the `contosoBooks.xml` file as an input.  \n  \n```xml  \n  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>  \n<bookstore xmlns=\"http://www.contoso.com/books\">  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
@@ -1057,7 +1057,7 @@ items:
       description: The namespace URI for the new attribute node (if any).
     - id: value
       type: System.String
-      description: The value of the new attribute node. If <xref href="System.String.Empty"></xref> or `null` are passed, an empty attribute node is created.
+      description: 'The value of the new attribute node. If <xref href="System.String.Empty"></xref> or `null` are passed, an empty attribute node is created.'
   overload: System.Xml.XPath.XPathNavigator.CreateAttribute*
   exceptions:
   - type: System.InvalidOperationException
@@ -1189,7 +1189,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
   summary: Returns a copy of the <xref href="System.Xml.XPath.XPathNavigator"></xref>.
-  remarks: This method is equivalent to the <xref:System.Xml.XPath.XPathNavigator.Clone%2A> method.
+  remarks: 'This method is equivalent to the <xref:System.Xml.XPath.XPathNavigator.Clone%2A> method.'
   syntax:
     content: public virtual System.Xml.XPath.XPathNavigator CreateNavigator ();
     parameters: []
@@ -1251,7 +1251,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
   summary: Deletes a range of sibling nodes from the current node to the node specified.
-  remarks: The <xref:System.Xml.XPath.XPathNavigator.DeleteRange%2A> method deletes a range of sibling nodes from the current node the <xref:System.Xml.XPath.XPathNavigator> is positioned on (inclusive) to the node specified by the <xref:System.Xml.XPath.XPathNavigator> parameter (inclusive). The <xref:System.Xml.XPath.XPathNavigator> is then positioned on its parent node.
+  remarks: 'The <xref:System.Xml.XPath.XPathNavigator.DeleteRange%2A> method deletes a range of sibling nodes from the current node the <xref:System.Xml.XPath.XPathNavigator> is positioned on (inclusive) to the node specified by the <xref:System.Xml.XPath.XPathNavigator> parameter (inclusive). The <xref:System.Xml.XPath.XPathNavigator> is then positioned on its parent node.'
   example:
   - "In the following example, the first and second `book` elements of the `contosoBooks.xml` file are deleted using the <xref:System.Xml.XPath.XPathNavigator.DeleteRange%2A> method.  \n  \n [!code-cpp[XPathNavigatorMethods#52](~/samples/snippets/cpp/VS_Snippets_Data/XPathNavigatorMethods/CPP/xpathnavigatormethods.cpp#52)]\n [!code-csharp[XPathNavigatorMethods#52](~/samples/snippets/csharp/VS_Snippets_Data/XPathNavigatorMethods/CS/xpathnavigatormethods.cs#52)]\n [!code-vb[XPathNavigatorMethods#52](~/samples/snippets/visualbasic/VS_Snippets_Data/XPathNavigatorMethods/VB/xpathnavigatormethods.vb#52)]  \n  \n The example takes the `contosoBooks.xml` file as an input.  \n  \n```xml  \n  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>  \n<bookstore xmlns=\"http://www.contoso.com/books\">  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
   syntax:
@@ -1402,7 +1402,7 @@ items:
       description: A string representing an XPath expression that can be evaluated.
     return:
       type: System.Object
-      description: The result of the expression (Boolean, number, string, or node set). This maps to <xref href="System.Boolean"></xref>, <xref href="System.Double"></xref>, <xref href="System.String"></xref>, or <xref href="System.Xml.XPath.XPathNodeIterator"></xref> objects respectively.
+      description: 'The result of the expression (Boolean, number, string, or node set). This maps to <xref href="System.Boolean"></xref>, <xref href="System.Double"></xref>, <xref href="System.String"></xref>, or <xref href="System.Xml.XPath.XPathNodeIterator"></xref> objects respectively.'
   overload: System.Xml.XPath.XPathNavigator.Evaluate*
   exceptions:
   - type: System.ArgumentException
@@ -1475,7 +1475,7 @@ items:
       description: An <xref href="System.Xml.XPath.XPathExpression"></xref> that can be evaluated.
     return:
       type: System.Object
-      description: The result of the expression (Boolean, number, string, or node set). This maps to <xref href="System.Boolean"></xref>, <xref href="System.Double"></xref>, <xref href="System.String"></xref>, or <xref href="System.Xml.XPath.XPathNodeIterator"></xref> objects respectively.
+      description: 'The result of the expression (Boolean, number, string, or node set). This maps to <xref href="System.Boolean"></xref>, <xref href="System.Double"></xref>, <xref href="System.String"></xref>, or <xref href="System.Xml.XPath.XPathNodeIterator"></xref> objects respectively.'
   overload: System.Xml.XPath.XPathNavigator.Evaluate*
   exceptions:
   - type: System.ArgumentException
@@ -1536,7 +1536,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: Evaluates the specified XPath expression and returns the typed result, using the <xref href="System.Xml.IXmlNamespaceResolver"></xref> object specified to resolve namespace prefixes in the XPath expression.
+  summary: 'Evaluates the specified XPath expression and returns the typed result, using the <xref href="System.Xml.IXmlNamespaceResolver"></xref> object specified to resolve namespace prefixes in the XPath expression.'
   remarks: "The following C# code returns a number after converting the `Price/text()` node to a number and multiplying the value by 10.  \n  \n```  \nXPathExpression expr = nav.Compile(\"Price/text()*10\");  \nnav.Evaluate(expr);  \n```  \n  \n> [!NOTE]\n>  The XPath position() and last() functions, unless used as a predicate in a location step, require a reference to a node set in order to be evaluated. In this case, you must use the overload which takes an <xref:System.Xml.XPath.XPathNodeIterator> as an argument; otherwise, position() and last() return 0.  \n  \n This method has no effect on the state of the <xref:System.Xml.XPath.XPathNavigator>."
   example:
   - "The following example evaluates an XPath expression and returns a <xref:System.Double> using the <xref:System.Xml.XmlNamespaceManager> object specified to resolve namespace prefixes in the XPath expression.  \n  \n [!code-cpp[XPathNavigatorMethods#12](~/samples/snippets/cpp/VS_Snippets_Data/XPathNavigatorMethods/CPP/xpathnavigatormethods.cpp#12)]\n [!code-csharp[XPathNavigatorMethods#12](~/samples/snippets/csharp/VS_Snippets_Data/XPathNavigatorMethods/CS/xpathnavigatormethods.cs#12)]\n [!code-vb[XPathNavigatorMethods#12](~/samples/snippets/visualbasic/VS_Snippets_Data/XPathNavigatorMethods/VB/xpathnavigatormethods.vb#12)]  \n  \n The example takes the `contosoBooks.xml` file as an input.  \n  \n```xml  \n  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>  \n<bookstore xmlns=\"http://www.contoso.com/books\">  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
@@ -1551,7 +1551,7 @@ items:
       description: The <xref href="System.Xml.IXmlNamespaceResolver"></xref> object used to resolve namespace prefixes in the XPath expression.
     return:
       type: System.Object
-      description: The result of the expression (Boolean, number, string, or node set). This maps to <xref href="System.Boolean"></xref>, <xref href="System.Double"></xref>, <xref href="System.String"></xref>, or <xref href="System.Xml.XPath.XPathNodeIterator"></xref> objects respectively.
+      description: 'The result of the expression (Boolean, number, string, or node set). This maps to <xref href="System.Boolean"></xref>, <xref href="System.Double"></xref>, <xref href="System.String"></xref>, or <xref href="System.Xml.XPath.XPathNodeIterator"></xref> objects respectively.'
   overload: System.Xml.XPath.XPathNavigator.Evaluate*
   exceptions:
   - type: System.ArgumentException
@@ -1612,7 +1612,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: Uses the supplied context to evaluate the <xref href="System.Xml.XPath.XPathExpression"></xref>, and returns the typed result.
+  summary: 'Uses the supplied context to evaluate the <xref href="System.Xml.XPath.XPathExpression"></xref>, and returns the typed result.'
   remarks: "The expression is evaluated using the <xref:System.Xml.XPath.XPathNodeIterator.Current%2A> node of the <xref:System.Xml.XPath.XPathNodeIterator> as the context node. If `context` is `null`, the node on which the <xref:System.Xml.XPath.XPathNavigator> is currently positioned is used as the context node.  \n  \n The position() and last() functions, unless used as a predicate in a location step, always return 0 under the following conditions:  \n  \n-   The `context` argument is `null`.  \n  \n-   <xref:System.Xml.XPath.XPathNodeIterator.MoveNext%2A> has not been called on the <xref:System.Xml.XPath.XPathNodeIterator>.  \n  \n Because the position() and last() functions work on the current node, you should not use the <xref:System.Xml.XPath.XPathNodeIterator.Current%2A> property to move away from the selected node set. This could invalidate the state of the <xref:System.Xml.XPath.XPathNavigator>.  \n  \n This method has no effect on the state of the <xref:System.Xml.XPath.XPathNavigator>."
   example:
   - "The following example evaluates an <xref:System.Xml.XPath.XPathExpression> and returns a <xref:System.Double> using the <xref:System.Xml.XPath.XPathNodeIterator.Current%2A> node of the <xref:System.Xml.XPath.XPathNodeIterator> as the context node.  \n  \n [!code-cpp[XPathNavigatorMethods#13](~/samples/snippets/cpp/VS_Snippets_Data/XPathNavigatorMethods/CPP/xpathnavigatormethods.cpp#13)]\n [!code-csharp[XPathNavigatorMethods#13](~/samples/snippets/csharp/VS_Snippets_Data/XPathNavigatorMethods/CS/xpathnavigatormethods.cs#13)]\n [!code-vb[XPathNavigatorMethods#13](~/samples/snippets/visualbasic/VS_Snippets_Data/XPathNavigatorMethods/VB/xpathnavigatormethods.vb#13)]  \n  \n The example takes the `books.xml` file as an input.  \n  \n```xml  \n  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>   \n<bookstore>  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
@@ -1627,7 +1627,7 @@ items:
       description: An <xref href="System.Xml.XPath.XPathNodeIterator"></xref> that points to the selected node set that the evaluation is to be performed on.
     return:
       type: System.Object
-      description: The result of the expression (Boolean, number, string, or node set). This maps to <xref href="System.Boolean"></xref>, <xref href="System.Double"></xref>, <xref href="System.String"></xref>, or <xref href="System.Xml.XPath.XPathNodeIterator"></xref> objects respectively.
+      description: 'The result of the expression (Boolean, number, string, or node set). This maps to <xref href="System.Boolean"></xref>, <xref href="System.Double"></xref>, <xref href="System.String"></xref>, or <xref href="System.Xml.XPath.XPathNodeIterator"></xref> objects respectively.'
   overload: System.Xml.XPath.XPathNavigator.Evaluate*
   exceptions:
   - type: System.ArgumentException
@@ -1701,7 +1701,7 @@ items:
       description: The namespace URI of the attribute.
     return:
       type: System.String
-      description: A <xref href="System.String"></xref> that contains the value of the specified attribute; <xref href="System.String.Empty"></xref> if a matching attribute is not found, or if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is not positioned on an element node.
+      description: 'A <xref href="System.String"></xref> that contains the value of the specified attribute; <xref href="System.String.Empty"></xref> if a matching attribute is not found, or if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is not positioned on an element node.'
   overload: System.Xml.XPath.XPathNavigator.GetAttribute*
   exceptions: []
   version:
@@ -1766,7 +1766,7 @@ items:
       description: The local name of the namespace node.
     return:
       type: System.String
-      description: A <xref href="System.String"></xref> that contains the value of the namespace node; <xref href="System.String.Empty"></xref> if a matching namespace node is not found, or if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is not positioned on an element node.
+      description: 'A <xref href="System.String"></xref> that contains the value of the namespace node; <xref href="System.String.Empty"></xref> if a matching namespace node is not found, or if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is not positioned on an element node.'
   overload: System.Xml.XPath.XPathNavigator.GetNamespace*
   exceptions: []
   version:
@@ -1891,7 +1891,7 @@ items:
     content: public virtual bool HasAttributes { get; }
     return:
       type: System.Boolean
-      description: Returns `true` if the current node has attributes; returns `false` if the current node has no attributes, or if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is not positioned on an element node.
+      description: 'Returns `true` if the current node has attributes; returns `false` if the current node has no attributes, or if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is not positioned on an element node.'
   overload: System.Xml.XPath.XPathNavigator.HasAttributes*
   exceptions: []
   version:
@@ -2008,10 +2008,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
   summary: Gets or sets the markup representing the child nodes of the current node.
-  remarks: >-
-    > [!NOTE]
-
-    >  The <xref:System.Xml.XPath.XPathNavigator.InnerXml%2A> and <xref:System.Xml.XPath.XPathNavigator.OuterXml%2A> properties are not very efficient. If performance is a priority, it is more efficient to use the node navigation methods of the <xref:System.Xml.XPath.XPathNavigator> to get values of child nodes.
+  remarks: "> [!NOTE]\n>  The <xref:System.Xml.XPath.XPathNavigator.InnerXml%2A> and <xref:System.Xml.XPath.XPathNavigator.OuterXml%2A> properties are not very efficient. If performance is a priority, it is more efficient to use the node navigation methods of the <xref:System.Xml.XPath.XPathNavigator> to get values of child nodes."
   example:
   - "The following example uses the <xref:System.Xml.XPath.XPathNavigator.InnerXml%2A> property to display the contents of the first `book` element in the `contosoBooks.xml` file and its child nodes in the <xref:System.Xml.XPath.XPathNavigator>.  \n  \n [!code-cpp[XPathNavigatorProperties#2](~/samples/snippets/cpp/VS_Snippets_Data/XPathNavigatorProperties/CPP/xpathnavigatorproperties.cpp#2)]\n [!code-csharp[XPathNavigatorProperties#2](~/samples/snippets/csharp/VS_Snippets_Data/XPathNavigatorProperties/CS/xpathnavigatorproperties.cs#2)]\n [!code-vb[XPathNavigatorProperties#2](~/samples/snippets/visualbasic/VS_Snippets_Data/XPathNavigatorProperties/VB/xpathnavigatorproperties.vb#2)]  \n  \n The example takes the `contosoBooks.xml` file as an input.  \n  \n```xml  \n  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>  \n<bookstore xmlns=\"http://www.contoso.com/books\">  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
   syntax:
@@ -2672,7 +2669,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: Creates a new sibling element after the current node using the namespace prefix, local name and namespace URI specified, with the value specified.
+  summary: 'Creates a new sibling element after the current node using the namespace prefix, local name and namespace URI specified, with the value specified.'
   remarks: "Namespace prefix and URI values can be obtained using the <xref:System.Xml.XPath.XPathNavigator.LookupPrefix%2A> or <xref:System.Xml.XPath.XPathNavigator.LookupNamespace%2A> method. For example, the following syntax inserts a sibling element by using the in-scope namespace `xmlns:bk=\"http://www.contoso.com/books\"`:  \n  \n```  \nnavigator.InsertElementAfter(navigator.Prefix, \"pages\", LookupNamespaceURI(navigator.Prefix), String.Empty)  \n```  \n  \n This creates the new sibling `<bk:pages/>` element.  \n  \n The following are important notes to consider when using the <xref:System.Xml.XPath.XPathNavigator.InsertElementAfter%2A> method.  \n  \n-   If the namespace prefix specified is `null` or <xref:System.String.Empty?displayProperty=fullName>, then the prefix for the namespace URI of the new element is obtained from the current namespaces in-scope. If there is no namespace prefix assigned to the specified namespace URI at the current scope, then a namespace prefix is automatically generated.  \n  \n-   The <xref:System.Xml.XPath.XPathNavigator.InsertElementAfter%2A> method is valid only when the <xref:System.Xml.XPath.XPathNavigator> is positioned on an element, text, processing instruction, or comment node.  \n  \n-   The <xref:System.Xml.XPath.XPathNavigator.InsertElementAfter%2A> method does not affect the position of the <xref:System.Xml.XPath.XPathNavigator>."
   example:
   - "In the following example a new `pages` element is inserted after the `price` child element of the first `book` element in the `contosoBooks.xml` file.  \n  \n [!code-cpp[XPathNavigatorMethods#22](~/samples/snippets/cpp/VS_Snippets_Data/XPathNavigatorMethods/CPP/xpathnavigatormethods.cpp#22)]\n [!code-csharp[XPathNavigatorMethods#22](~/samples/snippets/csharp/VS_Snippets_Data/XPathNavigatorMethods/CS/xpathnavigatormethods.cs#22)]\n [!code-vb[XPathNavigatorMethods#22](~/samples/snippets/visualbasic/VS_Snippets_Data/XPathNavigatorMethods/VB/xpathnavigatormethods.vb#22)]  \n  \n The example takes the `contosoBooks.xml` file as an input.  \n  \n```xml  \n  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>  \n<bookstore xmlns=\"http://www.contoso.com/books\">  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
@@ -2690,7 +2687,7 @@ items:
       description: The namespace URI of the new child element (if any). <xref href="System.String.Empty"></xref> and `null` are equivalent.
     - id: value
       type: System.String
-      description: The value of the new child element. If <xref href="System.String.Empty"></xref> or `null` are passed, an empty element is created.
+      description: 'The value of the new child element. If <xref href="System.String.Empty"></xref> or `null` are passed, an empty element is created.'
   overload: System.Xml.XPath.XPathNavigator.InsertElementAfter*
   exceptions:
   - type: System.InvalidOperationException
@@ -2751,7 +2748,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: Creates a new sibling element before the current node using the namespace prefix, local name, and namespace URI specified, with the value specified.
+  summary: 'Creates a new sibling element before the current node using the namespace prefix, local name, and namespace URI specified, with the value specified.'
   remarks: "Namespace prefix and URI values can be obtained using the <xref:System.Xml.XPath.XPathNavigator.LookupPrefix%2A> or <xref:System.Xml.XPath.XPathNavigator.LookupNamespace%2A> method. For example, the following syntax inserts a sibling element by using the in-scope namespace `xmlns:bk=\"http://www.contoso.com/books\"`:  \n  \n```  \nnavigator.InsertElementBefore(navigator.Prefix, \"pages\", LookupNamespaceURI(navigator.Prefix), String.Empty)  \n```  \n  \n This creates the new sibling `<bk:pages/>` element.  \n  \n The following are important notes to consider when using the <xref:System.Xml.XPath.XPathNavigator.InsertElementBefore%2A> method.  \n  \n-   If the namespace prefix specified is `null` or <xref:System.String.Empty?displayProperty=fullName>, then the prefix for the namespace URI of the new element is obtained from the current namespaces in-scope. If there is no namespace prefix assigned to the specified namespace URI at the current scope, then a namespace prefix is automatically generated.  \n  \n-   The <xref:System.Xml.XPath.XPathNavigator.InsertElementBefore%2A> method is valid only when the <xref:System.Xml.XPath.XPathNavigator> is positioned on an element, text, processing instruction, or comment node.  \n  \n-   The <xref:System.Xml.XPath.XPathNavigator.InsertElementBefore%2A> method does not affect the position of the <xref:System.Xml.XPath.XPathNavigator>."
   example:
   - "In the following example a new `pages` element is inserted before the `price` child element of the first `book` element in the `contosoBooks.xml` file.  \n  \n [!code-cpp[XPathNavigatorMethods#23](~/samples/snippets/cpp/VS_Snippets_Data/XPathNavigatorMethods/CPP/xpathnavigatormethods.cpp#23)]\n [!code-csharp[XPathNavigatorMethods#23](~/samples/snippets/csharp/VS_Snippets_Data/XPathNavigatorMethods/CS/xpathnavigatormethods.cs#23)]\n [!code-vb[XPathNavigatorMethods#23](~/samples/snippets/visualbasic/VS_Snippets_Data/XPathNavigatorMethods/VB/xpathnavigatormethods.vb#23)]  \n  \n The example takes the `contosoBooks.xml` file as an input.  \n  \n```xml  \n  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>  \n<bookstore xmlns=\"http://www.contoso.com/books\">  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
@@ -2769,7 +2766,7 @@ items:
       description: The namespace URI of the new child element (if any). <xref href="System.String.Empty"></xref> and `null` are equivalent.
     - id: value
       type: System.String
-      description: The value of the new child element. If <xref href="System.String.Empty"></xref> or `null` are passed, an empty element is created.
+      description: 'The value of the new child element. If <xref href="System.String.Empty"></xref> or `null` are passed, an empty element is created.'
   overload: System.Xml.XPath.XPathNavigator.InsertElementBefore*
   exceptions:
   - type: System.InvalidOperationException
@@ -2895,7 +2892,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: When overridden in a derived class, gets a value indicating whether the current node is an empty element without an end element tag.
+  summary: 'When overridden in a derived class, gets a value indicating whether the current node is an empty element without an end element tag.'
   remarks: "This property enables you to determine the difference between the following different elements.  \n  \n|Element|IsEmptyElement Value|  \n|-------------|--------------------------|  \n|`<item num=\"123\"/>`|`true`|  \n|`<item num=\"123\">test</item>`|`false`|  \n|`<item num=\"123\"></item>`|`false`|"
   syntax:
     content: public abstract bool IsEmptyElement { get; }
@@ -3016,7 +3013,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: When overridden in a derived class, determines whether the current <xref href="System.Xml.XPath.XPathNavigator"></xref> is at the same position as the specified <xref href="System.Xml.XPath.XPathNavigator"></xref>.
+  summary: 'When overridden in a derived class, determines whether the current <xref href="System.Xml.XPath.XPathNavigator"></xref> is at the same position as the specified <xref href="System.Xml.XPath.XPathNavigator"></xref>.'
   remarks: "The <xref:System.Xml.XPath.XPathNavigator.IsSamePosition%2A> method assumes that the <xref:System.Xml.XPath.XPathNavigator> specified shares the same implementation and is points at the same document instance as the current <xref:System.Xml.XPath.XPathNavigator>.  \n  \n This method always returns `false` under the following conditions:  \n  \n-   The <xref:System.Xml.XPath.XPathNavigator> specified shares the same implementation but points at a different document instance than the current <xref:System.Xml.XPath.XPathNavigator>.  \n  \n-   The <xref:System.Xml.XPath.XPathNavigator> has a different implementation than the current <xref:System.Xml.XPath.XPathNavigator>."
   syntax:
     content: public abstract bool IsSamePosition (System.Xml.XPath.XPathNavigator other);
@@ -3081,7 +3078,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: When overridden in a derived class, gets the <xref href="System.Xml.XPath.XPathNavigator.Name"></xref> of the current node without any namespace prefix.
+  summary: 'When overridden in a derived class, gets the <xref href="System.Xml.XPath.XPathNavigator.Name"></xref> of the current node without any namespace prefix.'
   remarks: "The local name returned depends on the <xref:System.Xml.XPath.XPathNodeType> of the current node. For example, the local name for the `<bk:book>` element is `book`.  \n  \n The following table lists the value returned by the <xref:System.Xml.XPath.XPathNavigator.LocalName%2A> property, based on the <xref:System.Xml.XPath.XPathNodeType> of the current node.  \n  \n|XPathNodeType|Property Value|  \n|-------------------|--------------------|  \n|<xref:System.Xml.XPath.XPathNodeType.Element>|The local name of the element.|  \n|<xref:System.Xml.XPath.XPathNodeType.Attribute>|The local name of the attribute.|  \n|<xref:System.Xml.XPath.XPathNodeType.Namespace>|The prefix associated with the namespace URI.|  \n|<xref:System.Xml.XPath.XPathNodeType.ProcessingInstruction>|The target of the processing instruction.|  \n|All other <xref:System.Xml.XPath.XPathNodeType> nodes|<xref:System.String.Empty?displayProperty=fullName>.|"
   example:
   - "The following example iterates over the node tree recursively, and displays information about <xref:System.Xml.XPath.XPathNodeType.Element> and <xref:System.Xml.XPath.XPathNodeType.Text> nodes.  \n  \n [!code-cpp[XPathNavigatorMethods#29](~/samples/snippets/cpp/VS_Snippets_Data/XPathNavigatorMethods/CPP/xpathnavigatormethods.cpp#29)]\n [!code-csharp[XPathNavigatorMethods#29](~/samples/snippets/csharp/VS_Snippets_Data/XPathNavigatorMethods/CS/xpathnavigatormethods.cs#29)]\n [!code-vb[XPathNavigatorMethods#29](~/samples/snippets/visualbasic/VS_Snippets_Data/XPathNavigatorMethods/VB/xpathnavigatormethods.vb#29)]  \n  \n The example takes the `books.xml` file as an input.  \n  \n```xml  \n  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>   \n<bookstore>  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
@@ -3089,7 +3086,7 @@ items:
     content: public abstract string LocalName { get; }
     return:
       type: System.String
-      description: A <xref href="System.String"></xref> that contains the local name of the current node, or <xref href="System.String.Empty"></xref> if the current node does not have a name (for example, text or comment nodes).
+      description: 'A <xref href="System.String"></xref> that contains the local name of the current node, or <xref href="System.String.Empty"></xref> if the current node does not have a name (for example, text or comment nodes).'
   overload: System.Xml.XPath.XPathNavigator.LocalName*
   exceptions: []
   version:
@@ -3153,7 +3150,7 @@ items:
     parameters:
     - id: prefix
       type: System.String
-      description: The prefix whose namespace URI you want to resolve. To match the default namespace, pass <xref href="System.String.Empty"></xref>.
+      description: 'The prefix whose namespace URI you want to resolve. To match the default namespace, pass <xref href="System.String.Empty"></xref>.'
     return:
       type: System.String
       description: A <xref href="System.String"></xref> that contains the namespace URI assigned to the namespace prefix specified; `null` if no namespace URI is assigned to the prefix specified. The <xref href="System.String"></xref> returned is atomized.
@@ -3221,7 +3218,7 @@ items:
       description: The namespace URI to resolve for the prefix.
     return:
       type: System.String
-      description: A <xref href="System.String"></xref> that contains the namespace prefix assigned to the namespace URI specified; otherwise, <xref href="System.String.Empty"></xref> if no prefix is assigned to the namespace URI specified. The <xref href="System.String"></xref> returned is atomized.
+      description: 'A <xref href="System.String"></xref> that contains the namespace prefix assigned to the namespace URI specified; otherwise, <xref href="System.String.Empty"></xref> if no prefix is assigned to the namespace URI specified. The <xref href="System.String"></xref> returned is atomized.'
   overload: System.Xml.XPath.XPathNavigator.LookupPrefix*
   exceptions: []
   version:
@@ -3277,7 +3274,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
   summary: Determines whether the current node matches the specified XPath expression.
-  remarks: This method has no affect on the state of the <xref:System.Xml.XPath.XPathNavigator>.
+  remarks: 'This method has no affect on the state of the <xref:System.Xml.XPath.XPathNavigator>.'
   example:
   - For an example of the <xref:System.Xml.XPath.XPathNavigator.Matches%2A> method, see the <xref:System.Xml.XPath.XPathNavigator.Matches%2A?displayProperty=fullName> method.
   syntax:
@@ -3350,7 +3347,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
   summary: Determines whether the current node matches the specified <xref href="System.Xml.XPath.XPathExpression"></xref>.
-  remarks: This method has no effect on the state of the <xref:System.Xml.XPath.XPathNavigator>. This method is identical to the <xref:System.Xml.XPath.XPathNavigator.Matches%2A?displayProperty=fullName> method, except that a <xref:System.Xml.XPath.XPathExpression> object containing the compiled XPath expression is specified, rather than an XPath expression <xref:System.String>.
+  remarks: 'This method has no effect on the state of the <xref:System.Xml.XPath.XPathNavigator>. This method is identical to the <xref:System.Xml.XPath.XPathNavigator.Matches%2A?displayProperty=fullName> method, except that a <xref:System.Xml.XPath.XPathExpression> object containing the compiled XPath expression is specified, rather than an XPath expression <xref:System.String>.'
   example:
   - "The following example displays the titles of all novels.  \n  \n [!code-cpp[XPathNavigatorMethods#24](~/samples/snippets/cpp/VS_Snippets_Data/XPathNavigatorMethods/CPP/xpathnavigatormethods.cpp#24)]\n [!code-csharp[XPathNavigatorMethods#24](~/samples/snippets/csharp/VS_Snippets_Data/XPathNavigatorMethods/CS/xpathnavigatormethods.cs#24)]\n [!code-vb[XPathNavigatorMethods#24](~/samples/snippets/visualbasic/VS_Snippets_Data/XPathNavigatorMethods/VB/xpathnavigatormethods.vb#24)]  \n  \n The example uses the file, `books.xml`, as input.  \n  \n```xml  \n  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>   \n<bookstore>  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
   syntax:
@@ -3422,7 +3419,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: When overridden in a derived class, moves the <xref href="System.Xml.XPath.XPathNavigator"></xref> to the same position as the specified <xref href="System.Xml.XPath.XPathNavigator"></xref>.
+  summary: 'When overridden in a derived class, moves the <xref href="System.Xml.XPath.XPathNavigator"></xref> to the same position as the specified <xref href="System.Xml.XPath.XPathNavigator"></xref>.'
   remarks: "This method always returns `true` if the <xref:System.Xml.XPath.XPathNavigator> specified is an <xref:System.Xml.XPath.XPathNavigator> that shares the same implementation and points at the same document instance as the current <xref:System.Xml.XPath.XPathNavigator>.  \n  \n This method always returns `false` if the <xref:System.Xml.XPath.XPathNavigator> specified is an <xref:System.Xml.XPath.XPathNavigator> that has a different implementation than the current <xref:System.Xml.XPath.XPathNavigator>."
   syntax:
     content: public abstract bool MoveTo (System.Xml.XPath.XPathNavigator other);
@@ -3432,7 +3429,7 @@ items:
       description: The <xref href="System.Xml.XPath.XPathNavigator"></xref> positioned on the node that you want to move to.
     return:
       type: System.Boolean
-      description: Returns `true` if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is successful moving to the same position as the specified <xref href="System.Xml.XPath.XPathNavigator"></xref>; otherwise, `false`. If `false`, the position of the <xref href="System.Xml.XPath.XPathNavigator"></xref> is unchanged.
+      description: 'Returns `true` if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is successful moving to the same position as the specified <xref href="System.Xml.XPath.XPathNavigator"></xref>; otherwise, `false`. If `false`, the position of the <xref href="System.Xml.XPath.XPathNavigator"></xref> is unchanged.'
   overload: System.Xml.XPath.XPathNavigator.MoveTo*
   exceptions: []
   version:
@@ -3500,7 +3497,7 @@ items:
       description: The namespace URI of the attribute; `null` for an empty namespace.
     return:
       type: System.Boolean
-      description: Returns `true` if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is successful moving to the attribute; otherwise, `false`. If `false`, the position of the <xref href="System.Xml.XPath.XPathNavigator"></xref> is unchanged.
+      description: 'Returns `true` if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is successful moving to the attribute; otherwise, `false`. If `false`, the position of the <xref href="System.Xml.XPath.XPathNavigator"></xref> is unchanged.'
   overload: System.Xml.XPath.XPathNavigator.MoveToAttribute*
   exceptions: []
   version:
@@ -3565,7 +3562,7 @@ items:
       description: The <xref href="System.Xml.XPath.XPathNodeType"></xref> of the child node to move to.
     return:
       type: System.Boolean
-      description: Returns `true` if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is successful moving to the child node; otherwise, `false`. If `false`, the position of the <xref href="System.Xml.XPath.XPathNavigator"></xref> is unchanged.
+      description: 'Returns `true` if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is successful moving to the child node; otherwise, `false`. If `false`, the position of the <xref href="System.Xml.XPath.XPathNavigator"></xref> is unchanged.'
   overload: System.Xml.XPath.XPathNavigator.MoveToChild*
   exceptions: []
   version:
@@ -3635,7 +3632,7 @@ items:
       description: The namespace URI of the child node to move to.
     return:
       type: System.Boolean
-      description: Returns `true` if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is successful moving to the child node; otherwise, `false`. If `false`, the position of the <xref href="System.Xml.XPath.XPathNavigator"></xref> is unchanged.
+      description: 'Returns `true` if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is successful moving to the child node; otherwise, `false`. If `false`, the position of the <xref href="System.Xml.XPath.XPathNavigator"></xref> is unchanged.'
   overload: System.Xml.XPath.XPathNavigator.MoveToChild*
   exceptions: []
   version:
@@ -3751,7 +3748,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: When overridden in a derived class, moves the <xref href="System.Xml.XPath.XPathNavigator"></xref> to the first attribute of the current node.
+  summary: 'When overridden in a derived class, moves the <xref href="System.Xml.XPath.XPathNavigator"></xref> to the first attribute of the current node.'
   remarks: "If the <xref:System.Xml.XPath.XPathNavigator> is not currently positioned on an element, this method returns `false` and the position of the <xref:System.Xml.XPath.XPathNavigator> does not change.  \n  \n After a successful call to <xref:System.Xml.XPath.XPathNavigator.MoveToFirstAttribute%2A>, the <xref:System.Xml.XPath.XPathNavigator.LocalName%2A>, <xref:System.Xml.XPath.XPathNavigator.NamespaceURI%2A> and <xref:System.Xml.XPath.XPathNavigator.Prefix%2A> properties reflect the values of the attribute. When the <xref:System.Xml.XPath.XPathNavigator> is positioned on an attribute, the methods <xref:System.Xml.XPath.XPathNavigator.MoveToNext%2A>, <xref:System.Xml.XPath.XPathNavigator.MoveToPrevious%2A>, and <xref:System.Xml.XPath.XPathNavigator.MoveToFirst%2A> are not applicable. These methods always return `false` and do not change the position of the <xref:System.Xml.XPath.XPathNavigator>. Rather, you can call <xref:System.Xml.XPath.XPathNavigator.MoveToNextAttribute%2A> to move to the next attribute node.  \n  \n After the <xref:System.Xml.XPath.XPathNavigator> is positioned on an attribute, you can call <xref:System.Xml.XPath.XPathNavigator.MoveToParent%2A> to move to the owner element."
   example:
   - "The following example uses the <xref:System.Xml.XPath.XPathNavigator.MoveToFirstAttribute%2A> and <xref:System.Xml.XPath.XPathNavigator.MoveToNextAttribute%2A> methods to display all the attributes for each book in the `books.xml` file.  \n  \n [!code-cpp[XPathNavigatorMethods#49](~/samples/snippets/cpp/VS_Snippets_Data/XPathNavigatorMethods/CPP/xpathnavigatormethods.cpp#49)]\n [!code-csharp[XPathNavigatorMethods#49](~/samples/snippets/csharp/VS_Snippets_Data/XPathNavigatorMethods/CS/xpathnavigatormethods.cs#49)]\n [!code-vb[XPathNavigatorMethods#49](~/samples/snippets/visualbasic/VS_Snippets_Data/XPathNavigatorMethods/VB/xpathnavigatormethods.vb#49)]  \n  \n The example takes the `books.xml` file as an input.  \n  \n```xml  \n  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>   \n<bookstore>  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
@@ -3760,7 +3757,7 @@ items:
     parameters: []
     return:
       type: System.Boolean
-      description: Returns `true` if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is successful moving to the first attribute of the current node; otherwise, `false`. If `false`, the position of the <xref href="System.Xml.XPath.XPathNavigator"></xref> is unchanged.
+      description: 'Returns `true` if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is successful moving to the first attribute of the current node; otherwise, `false`. If `false`, the position of the <xref href="System.Xml.XPath.XPathNavigator"></xref> is unchanged.'
   overload: System.Xml.XPath.XPathNavigator.MoveToFirstAttribute*
   exceptions: []
   version:
@@ -3815,8 +3812,8 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: When overridden in a derived class, moves the <xref href="System.Xml.XPath.XPathNavigator"></xref> to the first child node of the current node.
-  remarks: <xref:System.Xml.XPath.XPathNodeType.Root> and <xref:System.Xml.XPath.XPathNodeType.Element> are the only two <xref:System.Xml.XPath.XPathNodeType> values that can have children. This property always returns `false` for all other <xref:System.Xml.XPath.XPathNodeType> node types.
+  summary: 'When overridden in a derived class, moves the <xref href="System.Xml.XPath.XPathNavigator"></xref> to the first child node of the current node.'
+  remarks: '<xref:System.Xml.XPath.XPathNodeType.Root> and <xref:System.Xml.XPath.XPathNodeType.Element> are the only two <xref:System.Xml.XPath.XPathNodeType> values that can have children. This property always returns `false` for all other <xref:System.Xml.XPath.XPathNodeType> node types.'
   example:
   - For an example of the <xref:System.Xml.XPath.XPathNavigator.MoveToFirstChild%2A> method, see the <xref:System.Xml.XPath.XPathNavigator.Clone%2A> method.
   syntax:
@@ -3824,7 +3821,7 @@ items:
     parameters: []
     return:
       type: System.Boolean
-      description: Returns `true` if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is successful moving to the first child node of the current node; otherwise, `false`. If `false`, the position of the <xref href="System.Xml.XPath.XPathNavigator"></xref> is unchanged.
+      description: 'Returns `true` if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is successful moving to the first child node of the current node; otherwise, `false`. If `false`, the position of the <xref href="System.Xml.XPath.XPathNavigator"></xref> is unchanged.'
   overload: System.Xml.XPath.XPathNavigator.MoveToFirstChild*
   exceptions: []
   version:
@@ -3879,7 +3876,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: When overridden in a derived class, moves the <xref href="System.Xml.XPath.XPathNavigator"></xref> to the first namespace node that matches the <xref href="System.Xml.XPath.XPathNamespaceScope"></xref> specified.
+  summary: 'When overridden in a derived class, moves the <xref href="System.Xml.XPath.XPathNavigator"></xref> to the first namespace node that matches the <xref href="System.Xml.XPath.XPathNamespaceScope"></xref> specified.'
   remarks: "The <xref:System.Xml.XPath.XPathNavigator> class returns namespace nodes in reverse document order. Therefore, <xref:System.Xml.XPath.XPathNavigator.MoveToFirstNamespace%2A> essentially moves to the last namespace node in the current scope.  \n  \n Using the following XML fragment as an example, if the <xref:System.Xml.XPath.XPathNavigator> is positioned on the `data` node, <xref:System.Xml.XPath.XPathNavigator.MoveToFirstNamespace%2A> behaves in the following manner.  \n  \n-   `MoveToFirstNamespace(XPathNamespaceScope.All)` moves to one of the following namespace nodes: `xmlns:c='C'`, `xmlns:a='A2'`, `xmlns=''`, `xmlns:b='B'`, or `xmlns:xml='http://www.w3.org/XML/1998/namespace'`.  \n  \n-   `MoveToFirstNamespace(XPathNamespaceScope.ExcludeXml)` moves to one of the following namespace nodes: `xmlns:c='C'`, `xmlns:a='A2'`, `xmlns=''`, or `xmlns:b='B'`.  \n  \n-   `MoveToFirstNamespace(XPathNamespaceScope.Local)` moves to the `xmlns:c='C'` node.  \n  \n```  \n<root xmlns='urn:default' xmlns:a='A1' xmlns:b='B'>  \n    <item xmlns='' xmlns:a='A2'>  \n        <data xmlns:c='C' />  \n    </item>  \n</root>  \n```  \n  \n If the <xref:System.Xml.XPath.XPathNavigator> is not currently positioned on an element, this method returns `false` and the position of the <xref:System.Xml.XPath.XPathNavigator> does not change. After the <xref:System.Xml.XPath.XPathNavigator> has been moved to the namespace node, the <xref:System.Xml.XPath.XPathNavigator.Name%2A> property reflects the name of the namespace.  \n  \n When the <xref:System.Xml.XPath.XPathNavigator> is positioned on a namespace node, the methods <xref:System.Xml.XPath.XPathNavigator.MoveToNext%2A>, <xref:System.Xml.XPath.XPathNavigator.MoveToPrevious%2A>, and <xref:System.Xml.XPath.XPathNavigator.MoveToFirst%2A> are not applicable. These methods always return `false` and do not change the position of the <xref:System.Xml.XPath.XPathNavigator>. Rather, you can call <xref:System.Xml.XPath.XPathNavigator.MoveToNextNamespace%2A> to move to the next namespace node.  \n  \n After the <xref:System.Xml.XPath.XPathNavigator> is positioned on an namespace node, call <xref:System.Xml.XPath.XPathNavigator.MoveToParent%2A> to move back to the element node.  \n  \n For a definition of namespace nodes, see section 5.4 of the W3C XML Path Language (XPath) recommendation located at http://www.w3.org/TR/xpath#data-model."
   syntax:
     content: public abstract bool MoveToFirstNamespace (System.Xml.XPath.XPathNamespaceScope namespaceScope);
@@ -3889,7 +3886,7 @@ items:
       description: An <xref href="System.Xml.XPath.XPathNamespaceScope"></xref> value describing the namespace scope.
     return:
       type: System.Boolean
-      description: Returns `true` if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is successful moving to the first namespace node; otherwise, `false`. If `false`, the position of the <xref href="System.Xml.XPath.XPathNavigator"></xref> is unchanged.
+      description: 'Returns `true` if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is successful moving to the first namespace node; otherwise, `false`. If `false`, the position of the <xref href="System.Xml.XPath.XPathNavigator"></xref> is unchanged.'
   overload: System.Xml.XPath.XPathNavigator.MoveToFirstNamespace*
   exceptions: []
   version:
@@ -3951,7 +3948,7 @@ items:
     parameters: []
     return:
       type: System.Boolean
-      description: Returns `true` if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is successful moving to the first namespace node; otherwise, `false`. If `false`, the position of the <xref href="System.Xml.XPath.XPathNavigator"></xref> is unchanged.
+      description: 'Returns `true` if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is successful moving to the first namespace node; otherwise, `false`. If `false`, the position of the <xref href="System.Xml.XPath.XPathNavigator"></xref> is unchanged.'
   overload: System.Xml.XPath.XPathNavigator.MoveToFirstNamespace*
   exceptions: []
   version:
@@ -4006,7 +4003,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: Moves the <xref href="System.Xml.XPath.XPathNavigator"></xref> to the element with the local name and namespace URI specified, to the boundary specified, in document order.
+  summary: 'Moves the <xref href="System.Xml.XPath.XPathNavigator"></xref> to the element with the local name and namespace URI specified, to the boundary specified, in document order.'
   remarks: "-   If the <xref:System.Xml.XPath.XPathNavigator> boundary passed as a parameter is not positioned after the position of the current <xref:System.Xml.XPath.XPathNavigator> it is ignored.  \n  \n-   If the <xref:System.Xml.XPath.XPathNavigator> boundary parameter is `null`, the following element with the local name and namespace URI specified is located in document order.  \n  \n-   The <xref:System.Xml.XPath.XPathNavigator.MoveToFollowing%2A> methods cannot be used to move to attribute or namespace nodes. If the <xref:System.Xml.XPath.XPathNavigator> boundary passed as a parameter is positioned over an attribute or namespace node, it is equivalent to the <xref:System.Xml.XPath.XPathNavigator> boundary parameter having been positioned on the first child node of its parent element. This ensures that the parent element of the attribute or namespace node that the <xref:System.Xml.XPath.XPathNavigator> boundary parameter is positioned on can be matched by this method.  \n  \n-   If the <xref:System.Xml.XPath.XPathNavigator.MoveToFollowing%2A> method returns `false`, the position of the <xref:System.Xml.XPath.XPathNavigator> is unchanged."
   example:
   - "In the following example, the <xref:System.Xml.XPath.XPathNavigator> is moved from the root of the `contosoBooks.xml` file to the following `book` element. A clone of the <xref:System.Xml.XPath.XPathNavigator> object is made using the <xref:System.Xml.XPath.XPathNavigator.Clone%2A> method and is moved from the `book` element to the following `first-name` element. The cloned <xref:System.Xml.XPath.XPathNavigator>, positioned on the `first-name` element, will be used as a boundary. Changes in the position of the cloned <xref:System.Xml.XPath.XPathNavigator> do not affect the original <xref:System.Xml.XPath.XPathNavigator>. The original <xref:System.Xml.XPath.XPathNavigator> then attempts to move to the following `price` element using the <xref:System.Xml.XPath.XPathNavigator.MoveToFollowing%2A> method with the boundary passed as a parameter. This move fails because the following `price` element is beyond the boundary. The original <xref:System.Xml.XPath.XPathNavigator> then attempts to move to the following `title` element which is before the boundary using the same method and succeeds.  \n  \n [!code-cpp[XPathNavigatorMethods#28](~/samples/snippets/cpp/VS_Snippets_Data/XPathNavigatorMethods/CPP/xpathnavigatormethods.cpp#28)]\n [!code-csharp[XPathNavigatorMethods#28](~/samples/snippets/csharp/VS_Snippets_Data/XPathNavigatorMethods/CS/xpathnavigatormethods.cs#28)]\n [!code-vb[XPathNavigatorMethods#28](~/samples/snippets/visualbasic/VS_Snippets_Data/XPathNavigatorMethods/VB/xpathnavigatormethods.vb#28)]  \n  \n The example takes the `contosoBooks.xml` file as an input.  \n  \n```xml  \n  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>  \n<bookstore xmlns=\"http://www.contoso.com/books\">  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
@@ -4079,7 +4076,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: Moves the <xref href="System.Xml.XPath.XPathNavigator"></xref> to the following element of the <xref href="System.Xml.XPath.XPathNodeType"></xref> specified, to the boundary specified, in document order.
+  summary: 'Moves the <xref href="System.Xml.XPath.XPathNavigator"></xref> to the following element of the <xref href="System.Xml.XPath.XPathNodeType"></xref> specified, to the boundary specified, in document order.'
   remarks: "-   The <xref:System.Xml.XPath.XPathNavigator.MoveToFollowing%2A> method does not move to attribute or namespace nodes. If the <xref:System.Xml.XPath.XPathNodeType> parameter value is <xref:System.Xml.XPath.XPathNodeType.Attribute> or <xref:System.Xml.XPath.XPathNodeType.Namespace>, the <xref:System.Xml.XPath.XPathNavigator.MoveToFollowing%2A> method returns `false` and the position of the <xref:System.Xml.XPath.XPathNavigator> is unchanged.  \n  \n-   If the <xref:System.Xml.XPath.XPathNavigator> boundary passed as a parameter is not positioned after the position of the current <xref:System.Xml.XPath.XPathNavigator> it is ignored.  \n  \n-   If <xref:System.Xml.XPath.XPathNavigator> boundary passed as a parameter is `null` the next following node with the specified <xref:System.Xml.XPath.XPathNodeType> is located in document order.  \n  \n-   The <xref:System.Xml.XPath.XPathNavigator.MoveToFollowing%2A> methods cannot be used to move to attribute or namespace nodes. If the <xref:System.Xml.XPath.XPathNavigator> boundary passed as a parameter is positioned over an attribute or namespace node, it is equivalent to the <xref:System.Xml.XPath.XPathNavigator> boundary parameter having been positioned on the first child node of its parent element. This ensures that the parent element of the attribute or namespace node that the <xref:System.Xml.XPath.XPathNavigator> boundary parameter is positioned on can be matched by this method.  \n  \n-   If the <xref:System.Xml.XPath.XPathNavigator.MoveToFollowing%2A> method returns `false`, the position of the <xref:System.Xml.XPath.XPathNavigator> is unchanged."
   example:
   - "In the following example, the <xref:System.Xml.XPath.XPathNavigator> is moved from the root of the `contosoBooks.xml` file to the following `price` element. A clone of the <xref:System.Xml.XPath.XPathNavigator> object is made using the <xref:System.Xml.XPath.XPathNavigator.Clone%2A> method. The cloned <xref:System.Xml.XPath.XPathNavigator>, positioned on the `price` element, will be used as a boundary. Changes in the position of the cloned <xref:System.Xml.XPath.XPathNavigator> do not affect the original <xref:System.Xml.XPath.XPathNavigator>. The original <xref:System.Xml.XPath.XPathNavigator> is moved back to the root of the `contosoBooks.xml` file using the <xref:System.Xml.XPath.XPathNavigator.MoveToRoot%2A> method. The title and first and last name of the author are retrieved using the <xref:System.Xml.XPath.XPathNavigator.MoveToFollowing%2A> method and an <xref:System.Xml.XPath.XPathNodeType> of <xref:System.Xml.XPath.XPathNodeType.Text>. The <xref:System.Xml.XPath.XPathNavigator.MoveToFollowing%2A> method will return true until the `price` element boundary is reached.  \n  \n [!code-cpp[XPathNavigatorMethods#27](~/samples/snippets/cpp/VS_Snippets_Data/XPathNavigatorMethods/CPP/xpathnavigatormethods.cpp#27)]\n [!code-csharp[XPathNavigatorMethods#27](~/samples/snippets/csharp/VS_Snippets_Data/XPathNavigatorMethods/CS/xpathnavigatormethods.cs#27)]\n [!code-vb[XPathNavigatorMethods#27](~/samples/snippets/visualbasic/VS_Snippets_Data/XPathNavigatorMethods/VB/xpathnavigatormethods.vb#27)]  \n  \n The example takes the `contosoBooks.xml` file as an input.  \n  \n```xml  \n  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>  \n<bookstore xmlns=\"http://www.contoso.com/books\">  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
@@ -4150,7 +4147,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
   summary: Moves the <xref href="System.Xml.XPath.XPathNavigator"></xref> to the element with the local name and namespace URI specified in document order.
-  remarks: If the <xref:System.Xml.XPath.XPathNavigator.MoveToFollowing%2A> method returns `false`, the position of the <xref:System.Xml.XPath.XPathNavigator> is unchanged.
+  remarks: 'If the <xref:System.Xml.XPath.XPathNavigator.MoveToFollowing%2A> method returns `false`, the position of the <xref:System.Xml.XPath.XPathNavigator> is unchanged.'
   example:
   - "In the following example, the <xref:System.Xml.XPath.XPathNavigator> is moved from the root of the `contosoBooks.xml` file to the first `price` element.  \n  \n [!code-cpp[XPathNavigatorMethods#26](~/samples/snippets/cpp/VS_Snippets_Data/XPathNavigatorMethods/CPP/xpathnavigatormethods.cpp#26)]\n [!code-csharp[XPathNavigatorMethods#26](~/samples/snippets/csharp/VS_Snippets_Data/XPathNavigatorMethods/CS/xpathnavigatormethods.cs#26)]\n [!code-vb[XPathNavigatorMethods#26](~/samples/snippets/visualbasic/VS_Snippets_Data/XPathNavigatorMethods/VB/xpathnavigatormethods.vb#26)]  \n  \n The example takes the `contosoBooks.xml` file as an input.  \n  \n```xml  \n  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>  \n<bookstore xmlns=\"http://www.contoso.com/books\">  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
   syntax:
@@ -4286,7 +4283,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: When overridden in a derived class, moves to the node that has an attribute of type <code>ID</code> whose value matches the specified <xref href="System.String"></xref>.
+  summary: 'When overridden in a derived class, moves to the node that has an attribute of type <code>ID</code> whose value matches the specified <xref href="System.String"></xref>.'
   remarks: "This method can be used to identify nodes by unique `ID` provided the source document explicitly declares attributes of type `ID` using a DTD.  \n  \n For example, suppose the following XML data, `<data><x a=\"a1\"/></data>`, was loaded using a DTD that included the following: `<!ATTLIST x a ID #REQUIRED>`.  \n  \n If the <xref:System.Xml.XPath.XPathNavigator> was positioned somewhere in the XML data, calling `MoveToId(\"a1\")` positions the <xref:System.Xml.XPath.XPathNavigator> on the element node `x`."
   syntax:
     content: public abstract bool MoveToId (string id);
@@ -4416,7 +4413,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: When overridden in a derived class, moves the <xref href="System.Xml.XPath.XPathNavigator"></xref> to the next sibling node of the current node.
+  summary: 'When overridden in a derived class, moves the <xref href="System.Xml.XPath.XPathNavigator"></xref> to the next sibling node of the current node.'
   remarks: ''
   example:
   - "The following example iterates over the node tree recursively, and displays information about element and text nodes.  \n  \n [!code-cpp[XPathNavigatorMethods#29](~/samples/snippets/cpp/VS_Snippets_Data/XPathNavigatorMethods/CPP/xpathnavigatormethods.cpp#29)]\n [!code-csharp[XPathNavigatorMethods#29](~/samples/snippets/csharp/VS_Snippets_Data/XPathNavigatorMethods/CS/xpathnavigatormethods.cs#29)]\n [!code-vb[XPathNavigatorMethods#29](~/samples/snippets/visualbasic/VS_Snippets_Data/XPathNavigatorMethods/VB/xpathnavigatormethods.vb#29)]  \n  \n The example takes the `books.xml` file as an input.  \n  \n```xml  \n  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>   \n<bookstore>  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
@@ -4557,7 +4554,7 @@ items:
       description: The namespace URI of the next sibling node to move to.
     return:
       type: System.Boolean
-      description: Returns `true` if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is successful moving to the next sibling node; `false` if there are no more siblings, or if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is currently positioned on an attribute node. If `false`, the position of the <xref href="System.Xml.XPath.XPathNavigator"></xref> is unchanged.
+      description: 'Returns `true` if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is successful moving to the next sibling node; `false` if there are no more siblings, or if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is currently positioned on an attribute node. If `false`, the position of the <xref href="System.Xml.XPath.XPathNavigator"></xref> is unchanged.'
   overload: System.Xml.XPath.XPathNavigator.MoveToNext*
   exceptions: []
   version:
@@ -4612,7 +4609,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: When overridden in a derived class, moves the <xref href="System.Xml.XPath.XPathNavigator"></xref> to the next attribute.
+  summary: 'When overridden in a derived class, moves the <xref href="System.Xml.XPath.XPathNavigator"></xref> to the next attribute.'
   remarks: "If the <xref:System.Xml.XPath.XPathNavigator> is not currently positioned on an attribute, this method returns `false` and the position of the <xref:System.Xml.XPath.XPathNavigator> does not change.  \n  \n When the <xref:System.Xml.XPath.XPathNavigator> is positioned on an attribute, the methods <xref:System.Xml.XPath.XPathNavigator.MoveToNext%2A>, <xref:System.Xml.XPath.XPathNavigator.MoveToPrevious%2A>, and <xref:System.Xml.XPath.XPathNavigator.MoveToFirst%2A> methods are not applicable. These methods always return `false` and do not change the position of the <xref:System.Xml.XPath.XPathNavigator>.  \n  \n After the <xref:System.Xml.XPath.XPathNavigator> is positioned on an attribute, you can call <xref:System.Xml.XPath.XPathNavigator.MoveToParent%2A> to move to the owner element."
   example:
   - "The following example uses the <xref:System.Xml.XPath.XPathNavigator.MoveToFirstAttribute%2A> and <xref:System.Xml.XPath.XPathNavigator.MoveToNextAttribute%2A> methods to display all the attributes for each book in the `books.xml` file.  \n  \n [!code-cpp[XPathNavigatorMethods#49](~/samples/snippets/cpp/VS_Snippets_Data/XPathNavigatorMethods/CPP/xpathnavigatormethods.cpp#49)]\n [!code-csharp[XPathNavigatorMethods#49](~/samples/snippets/csharp/VS_Snippets_Data/XPathNavigatorMethods/CS/xpathnavigatormethods.cs#49)]\n [!code-vb[XPathNavigatorMethods#49](~/samples/snippets/visualbasic/VS_Snippets_Data/XPathNavigatorMethods/VB/xpathnavigatormethods.vb#49)]  \n  \n The example takes the `books.xml` file as an input.  \n  \n```xml  \n  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>   \n<bookstore>  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
@@ -4621,7 +4618,7 @@ items:
     parameters: []
     return:
       type: System.Boolean
-      description: Returns `true` if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is successful moving to the next attribute; `false` if there are no more attributes. If `false`, the position of the <xref href="System.Xml.XPath.XPathNavigator"></xref> is unchanged.
+      description: 'Returns `true` if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is successful moving to the next attribute; `false` if there are no more attributes. If `false`, the position of the <xref href="System.Xml.XPath.XPathNavigator"></xref> is unchanged.'
   overload: System.Xml.XPath.XPathNavigator.MoveToNextAttribute*
   exceptions: []
   version:
@@ -4683,7 +4680,7 @@ items:
     parameters: []
     return:
       type: System.Boolean
-      description: Returns `true` if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is successful moving to the next namespace node; otherwise, `false`. If `false`, the position of the <xref href="System.Xml.XPath.XPathNavigator"></xref> is unchanged.
+      description: 'Returns `true` if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is successful moving to the next namespace node; otherwise, `false`. If `false`, the position of the <xref href="System.Xml.XPath.XPathNavigator"></xref> is unchanged.'
   overload: System.Xml.XPath.XPathNavigator.MoveToNextNamespace*
   exceptions: []
   version:
@@ -4738,7 +4735,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: When overridden in a derived class, moves the <xref href="System.Xml.XPath.XPathNavigator"></xref> to the next namespace node matching the <xref href="System.Xml.XPath.XPathNamespaceScope"></xref> specified.
+  summary: 'When overridden in a derived class, moves the <xref href="System.Xml.XPath.XPathNavigator"></xref> to the next namespace node matching the <xref href="System.Xml.XPath.XPathNamespaceScope"></xref> specified.'
   remarks: "The <xref:System.Xml.XPath.XPathNavigator> class returns namespace nodes in reverse document order.  \n  \n If the <xref:System.Xml.XPath.XPathNavigator> is not currently positioned on a namespace node, this method returns `false` and the position of the <xref:System.Xml.XPath.XPathNavigator> does not change.  \n  \n When the <xref:System.Xml.XPath.XPathNavigator> is positioned on a namespace node, the methods <xref:System.Xml.XPath.XPathNavigator.MoveToNext%2A>, <xref:System.Xml.XPath.XPathNavigator.MoveToPrevious%2A>, and <xref:System.Xml.XPath.XPathNavigator.MoveToFirst%2A> are not applicable. These methods always return `false` and do not change the position of the <xref:System.Xml.XPath.XPathNavigator>.  \n  \n After the <xref:System.Xml.XPath.XPathNavigator> is positioned on an namespace node, call <xref:System.Xml.XPath.XPathNavigator.MoveToParent%2A> to move back to the element node.  \n  \n For a definition of namespace nodes, see section 5.4 of the W3C XML Path Language (XPath) recommendation located at http://www.w3.org/TR/xpath#data-model."
   syntax:
     content: public abstract bool MoveToNextNamespace (System.Xml.XPath.XPathNamespaceScope namespaceScope);
@@ -4748,7 +4745,7 @@ items:
       description: An <xref href="System.Xml.XPath.XPathNamespaceScope"></xref> value describing the namespace scope.
     return:
       type: System.Boolean
-      description: Returns `true` if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is successful moving to the next namespace node; otherwise, `false`. If `false`, the position of the <xref href="System.Xml.XPath.XPathNavigator"></xref> is unchanged.
+      description: 'Returns `true` if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is successful moving to the next namespace node; otherwise, `false`. If `false`, the position of the <xref href="System.Xml.XPath.XPathNavigator"></xref> is unchanged.'
   overload: System.Xml.XPath.XPathNavigator.MoveToNextNamespace*
   exceptions: []
   version:
@@ -4803,7 +4800,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: When overridden in a derived class, moves the <xref href="System.Xml.XPath.XPathNavigator"></xref> to the parent node of the current node.
+  summary: 'When overridden in a derived class, moves the <xref href="System.Xml.XPath.XPathNavigator"></xref> to the parent node of the current node.'
   remarks: "The return value of the <xref:System.Xml.XPath.XPathNavigator.MoveToParent%2A> method depends on the <xref:System.Xml.XPath.XPathNodeType> of the current node, and the <xref:System.Xml.XPath.XPathNodeType> of the parent node to move to.  \n  \n The following table shows the different <xref:System.Xml.XPath.XPathNodeType> nodes, and the parent nodes they can move to.  \n  \n|XPathNodeType|Parent Node|  \n|-------------------|-----------------|  \n|<xref:System.Xml.XPath.XPathNodeType.Root>|<xref:System.Xml.XPath.XPathNodeType.Root> nodes do not have parents.|  \n|<xref:System.Xml.XPath.XPathNodeType.Element>|<xref:System.Xml.XPath.XPathNodeType.Element> or <xref:System.Xml.XPath.XPathNodeType.Root> node.|  \n|<xref:System.Xml.XPath.XPathNodeType.Attribute>|<xref:System.Xml.XPath.XPathNodeType.Element> node.|  \n|<xref:System.Xml.XPath.XPathNodeType.Text>|<xref:System.Xml.XPath.XPathNodeType.Element> node.|  \n|<xref:System.Xml.XPath.XPathNodeType.Namespace>|<xref:System.Xml.XPath.XPathNodeType.Element> node.|  \n|<xref:System.Xml.XPath.XPathNodeType.ProcessingInstruction>|<xref:System.Xml.XPath.XPathNodeType.Element> or <xref:System.Xml.XPath.XPathNodeType.Root> node.|  \n|<xref:System.Xml.XPath.XPathNodeType.Comment>|<xref:System.Xml.XPath.XPathNodeType.Element> or <xref:System.Xml.XPath.XPathNodeType.Root> node.|  \n|<xref:System.Xml.XPath.XPathNodeType.Whitespace>|<xref:System.Xml.XPath.XPathNodeType.Element> or <xref:System.Xml.XPath.XPathNodeType.Root> node.|  \n|<xref:System.Xml.XPath.XPathNodeType.SignificantWhitespace>|<xref:System.Xml.XPath.XPathNodeType.Element> or <xref:System.Xml.XPath.XPathNodeType.Root> node.|"
   example:
   - For an example of the <xref:System.Xml.XPath.XPathNavigator.MoveToParent%2A> method, see the <xref:System.Xml.XPath.XPathNavigator.CreateAttribute%2A> method.
@@ -4812,7 +4809,7 @@ items:
     parameters: []
     return:
       type: System.Boolean
-      description: Returns `true` if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is successful moving to the parent node of the current node; otherwise, `false`. If `false`, the position of the <xref href="System.Xml.XPath.XPathNavigator"></xref> is unchanged.
+      description: 'Returns `true` if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is successful moving to the parent node of the current node; otherwise, `false`. If `false`, the position of the <xref href="System.Xml.XPath.XPathNavigator"></xref> is unchanged.'
   overload: System.Xml.XPath.XPathNavigator.MoveToParent*
   exceptions: []
   version:
@@ -4867,13 +4864,13 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: When overridden in a derived class, moves the <xref href="System.Xml.XPath.XPathNavigator"></xref> to the previous sibling node of the current node.
+  summary: 'When overridden in a derived class, moves the <xref href="System.Xml.XPath.XPathNavigator"></xref> to the previous sibling node of the current node.'
   syntax:
     content: public abstract bool MoveToPrevious ();
     parameters: []
     return:
       type: System.Boolean
-      description: Returns `true` if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is successful moving to the previous sibling node; otherwise, `false` if there is no previous sibling node or if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is currently positioned on an attribute node. If `false`, the position of the <xref href="System.Xml.XPath.XPathNavigator"></xref> is unchanged.
+      description: 'Returns `true` if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is successful moving to the previous sibling node; otherwise, `false` if there is no previous sibling node or if the <xref href="System.Xml.XPath.XPathNavigator"></xref> is currently positioned on an attribute node. If `false`, the position of the <xref href="System.Xml.XPath.XPathNavigator"></xref> is unchanged.'
   overload: System.Xml.XPath.XPathNavigator.MoveToPrevious*
   exceptions: []
   version:
@@ -4929,7 +4926,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
   summary: Moves the <xref href="System.Xml.XPath.XPathNavigator"></xref> to the root node that the current node belongs to.
-  remarks: All nodes belong to one and only one document. Therefore, this method is always successful.
+  remarks: 'All nodes belong to one and only one document. Therefore, this method is always successful.'
   example:
   - For an example of the <xref:System.Xml.XPath.XPathNavigator.MoveToRoot%2A> method, see the <xref:System.Xml.XPath.XPathNavigator.MoveToFollowing%2A> method.
   syntax:
@@ -4989,7 +4986,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: When overridden in a derived class, gets the qualified name of the current node.
+  summary: 'When overridden in a derived class, gets the qualified name of the current node.'
   remarks: "The <xref:System.Xml.XPath.XPathNavigator.Name%2A> returned depends on the <xref:System.Xml.XPath.XPathNodeType> of the current node. For example, the name for the `<bk:book>` element is `bk:book`.  \n  \n The following table lists the value returned by the <xref:System.Xml.XPath.XPathNavigator.Name%2A> property, based on the <xref:System.Xml.XPath.XPathNodeType> of the current node.  \n  \n|XPathNodeType|Property Value|  \n|-------------------|--------------------|  \n|<xref:System.Xml.XPath.XPathNodeType.Element>|The qualified name of the <xref:System.Xml.XPath.XPathNodeType.Element>. In the following example, `<bk:book>`, the name of the element node is `bk:book`.|  \n|<xref:System.Xml.XPath.XPathNodeType.Attribute>|The qualified name of the <xref:System.Xml.XPath.XPathNodeType.Attribute>. In the following example, `<book bk:genre='novel'>`, the name of the <xref:System.Xml.XPath.XPathNodeType.Attribute> node is `bk:genre`.|  \n|<xref:System.Xml.XPath.XPathNodeType.Namespace>|The prefix associated with the namespace URI. In the following namespace declaration, `xmlns:bk='urn:samples'`, the <xref:System.Xml.XPath.XPathNavigator.Name%2A> property returns `bk`.|  \n|<xref:System.Xml.XPath.XPathNodeType.ProcessingInstruction>|The target of the <xref:System.Xml.XPath.XPathNodeType.ProcessingInstruction>. In the following example, `<?xml-stylesheet type='text/xsl' href= 'books.xsl'?>`, the <xref:System.Xml.XPath.XPathNavigator.Name%2A> property returns `xml-stylesheet`.|  \n|All other <xref:System.Xml.XPath.XPathNodeType> nodes|<xref:System.String.Empty?displayProperty=fullName>.|"
   example:
   - "The following example iterates over the node tree recursively, and displays information about <xref:System.Xml.XPath.XPathNodeType.Element> and <xref:System.Xml.XPath.XPathNodeType.Text> nodes.  \n  \n [!code-cpp[XPathNavigatorMethods#29](~/samples/snippets/cpp/VS_Snippets_Data/XPathNavigatorMethods/CPP/xpathnavigatormethods.cpp#29)]\n [!code-csharp[XPathNavigatorMethods#29](~/samples/snippets/csharp/VS_Snippets_Data/XPathNavigatorMethods/CS/xpathnavigatormethods.cs#29)]\n [!code-vb[XPathNavigatorMethods#29](~/samples/snippets/visualbasic/VS_Snippets_Data/XPathNavigatorMethods/VB/xpathnavigatormethods.vb#29)]  \n  \n The example takes the `books.xml` file as an input.  \n  \n```xml  \n  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>   \n<bookstore>  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
@@ -4997,7 +4994,7 @@ items:
     content: public abstract string Name { get; }
     return:
       type: System.String
-      description: A <xref href="System.String"></xref> that contains the qualified <xref href="System.Xml.XPath.XPathNavigator.Name"></xref> of the current node, or <xref href="System.String.Empty"></xref> if the current node does not have a name (for example, text or comment nodes).
+      description: 'A <xref href="System.String"></xref> that contains the qualified <xref href="System.Xml.XPath.XPathNavigator.Name"></xref> of the current node, or <xref href="System.String.Empty"></xref> if the current node does not have a name (for example, text or comment nodes).'
   overload: System.Xml.XPath.XPathNavigator.Name*
   exceptions: []
   version:
@@ -5052,7 +5049,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: When overridden in a derived class, gets the namespace URI of the current node.
+  summary: 'When overridden in a derived class, gets the namespace URI of the current node.'
   remarks: "The namespace URI returned depends on the <xref:System.Xml.XPath.XPathNodeType> of the current node.  \n  \n The <xref:System.Xml.XPath.XPathNavigator.NamespaceURI%2A> property returns `urn:samples` for the node `<bk:book xmlns:bk='urn:samples'>`.  \n  \n Only <xref:System.Xml.XPath.XPathNodeType.Element> and <xref:System.Xml.XPath.XPathNodeType.Attribute><xref:System.Xml.XPath.XPathNodeType> nodes can have a namespace URI."
   example:
   - "The following example iterates over the node tree recursively, and displays information about <xref:System.Xml.XPath.XPathNodeType.Element> and <xref:System.Xml.XPath.XPathNodeType.Text> nodes.  \n  \n [!code-cpp[XPathNavigatorMethods#29](~/samples/snippets/cpp/VS_Snippets_Data/XPathNavigatorMethods/CPP/xpathnavigatormethods.cpp#29)]\n [!code-csharp[XPathNavigatorMethods#29](~/samples/snippets/csharp/VS_Snippets_Data/XPathNavigatorMethods/CS/xpathnavigatormethods.cs#29)]\n [!code-vb[XPathNavigatorMethods#29](~/samples/snippets/visualbasic/VS_Snippets_Data/XPathNavigatorMethods/VB/xpathnavigatormethods.vb#29)]  \n  \n The example takes the `books.xml` file as an input.  \n  \n```xml  \n  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>   \n<bookstore>  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
@@ -5060,7 +5057,7 @@ items:
     content: public abstract string NamespaceURI { get; }
     return:
       type: System.String
-      description: A <xref href="System.String"></xref> that contains the namespace URI of the current node, or <xref href="System.String.Empty"></xref> if the current node has no namespace URI.
+      description: 'A <xref href="System.String"></xref> that contains the namespace URI of the current node, or <xref href="System.String.Empty"></xref> if the current node has no namespace URI.'
   overload: System.Xml.XPath.XPathNavigator.NamespaceURI*
   exceptions: []
   version:
@@ -5115,8 +5112,8 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: When overridden in a derived class, gets the <xref href="System.Xml.XmlNameTable"></xref> of the <xref href="System.Xml.XPath.XPathNavigator"></xref>.
-  remarks: The <xref:System.Xml.XmlNameTable> stores atomized strings of any local name, namespace URI, and prefix used by the <xref:System.Xml.XPath.XPathNavigator>. This means that when the same <xref:System.Xml.XPath.XPathNavigator.Name%2A> is returned multiple times (like "book"), the same <xref:System.String> object is returned for that <xref:System.Xml.XPath.XPathNavigator.Name%2A>. This makes it possible to write efficient code that does object comparisons on these strings, instead of expensive string comparisons.
+  summary: 'When overridden in a derived class, gets the <xref href="System.Xml.XmlNameTable"></xref> of the <xref href="System.Xml.XPath.XPathNavigator"></xref>.'
+  remarks: 'The <xref:System.Xml.XmlNameTable> stores atomized strings of any local name, namespace URI, and prefix used by the <xref:System.Xml.XPath.XPathNavigator>. This means that when the same <xref:System.Xml.XPath.XPathNavigator.Name%2A> is returned multiple times (like "book"), the same <xref:System.String> object is returned for that <xref:System.Xml.XPath.XPathNavigator.Name%2A>. This makes it possible to write efficient code that does object comparisons on these strings, instead of expensive string comparisons.'
   syntax:
     content: public abstract System.Xml.XmlNameTable NameTable { get; }
     return:
@@ -5177,7 +5174,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
   summary: Gets an <xref href="System.Collections.IEqualityComparer"></xref> used for equality comparison of <xref href="System.Xml.XPath.XPathNavigator"></xref> objects.
-  remarks: The <xref:System.Xml.XPath.XPathNavigator.NavigatorComparer%2A> property allows <xref:System.Xml.XPath.XPathNavigator> objects to be compared on the basis of position rather than reference to the object. The <xref:System.Xml.XPath.XPathNavigator.ComparePosition%2A> and <xref:System.Object.Equals%2A> methods implemented by this class are based on the position of the <xref:System.Xml.XPath.XPathNavigator> objects passed as parameters. The <xref:System.Object.GetHashCode%2A> method implemented by this class uses the properties of the node such as its local name and namespace URI to create a hash code for the node.
+  remarks: 'The <xref:System.Xml.XPath.XPathNavigator.NavigatorComparer%2A> property allows <xref:System.Xml.XPath.XPathNavigator> objects to be compared on the basis of position rather than reference to the object. The <xref:System.Xml.XPath.XPathNavigator.ComparePosition%2A> and <xref:System.Object.Equals%2A> methods implemented by this class are based on the position of the <xref:System.Xml.XPath.XPathNavigator> objects passed as parameters. The <xref:System.Object.GetHashCode%2A> method implemented by this class uses the properties of the node such as its local name and namespace URI to create a hash code for the node.'
   example:
   - "The following example illustrates the use of the <xref:System.Xml.XPath.XPathNavigator.NavigatorComparer%2A> property.  \n  \n [!code-cpp[XPathNavigatorProperties#3](~/samples/snippets/cpp/VS_Snippets_Data/XPathNavigatorProperties/CPP/xpathnavigatorproperties.cpp#3)]\n [!code-csharp[XPathNavigatorProperties#3](~/samples/snippets/csharp/VS_Snippets_Data/XPathNavigatorProperties/CS/xpathnavigatorproperties.cs#3)]\n [!code-vb[XPathNavigatorProperties#3](~/samples/snippets/visualbasic/VS_Snippets_Data/XPathNavigatorProperties/VB/xpathnavigatorproperties.vb#3)]  \n  \n The example takes the `books.xml` file as an input.  \n  \n```xml  \n  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>   \n<bookstore>  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
   syntax:
@@ -5239,7 +5236,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: When overridden in a derived class, gets the <xref href="System.Xml.XPath.XPathNodeType"></xref> of the current node.
+  summary: 'When overridden in a derived class, gets the <xref href="System.Xml.XPath.XPathNodeType"></xref> of the current node.'
   remarks: ''
   example:
   - "The following example iterates over the node tree recursively, and displays information about <xref:System.Xml.XPath.XPathNodeType.Element> and <xref:System.Xml.XPath.XPathNodeType.Text> nodes.  \n  \n [!code-cpp[XPathNavigatorMethods#29](~/samples/snippets/cpp/VS_Snippets_Data/XPathNavigatorMethods/CPP/xpathnavigatormethods.cpp#29)]\n [!code-csharp[XPathNavigatorMethods#29](~/samples/snippets/csharp/VS_Snippets_Data/XPathNavigatorMethods/CS/xpathnavigatormethods.cs#29)]\n [!code-vb[XPathNavigatorMethods#29](~/samples/snippets/visualbasic/VS_Snippets_Data/XPathNavigatorMethods/VB/xpathnavigatormethods.vb#29)]  \n  \n The example takes the `books.xml` file as an input.  \n  \n```xml  \n  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>   \n<bookstore>  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
@@ -5303,10 +5300,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
   summary: Gets or sets the markup representing the opening and closing tags of the current node and its child nodes.
-  remarks: >-
-    > [!NOTE]
-
-    >  The <xref:System.Xml.XPath.XPathNavigator.InnerXml%2A> and <xref:System.Xml.XPath.XPathNavigator.OuterXml%2A> properties are not very efficient. If performance is a priority, it is more efficient to use the node navigation methods of the <xref:System.Xml.XPath.XPathNavigator> to get values of child nodes.
+  remarks: "> [!NOTE]\n>  The <xref:System.Xml.XPath.XPathNavigator.InnerXml%2A> and <xref:System.Xml.XPath.XPathNavigator.OuterXml%2A> properties are not very efficient. If performance is a priority, it is more efficient to use the node navigation methods of the <xref:System.Xml.XPath.XPathNavigator> to get values of child nodes."
   example:
   - "The following example uses the <xref:System.Xml.XPath.XPathNavigator.OuterXml%2A> property to display the contents of the first `book` element in the `contosoBooks.xml` file, its child nodes, and its opening and closing tags in the <xref:System.Xml.XPath.XPathNavigator>.  \n  \n [!code-cpp[XPathNavigatorProperties#4](~/samples/snippets/cpp/VS_Snippets_Data/XPathNavigatorProperties/CPP/xpathnavigatorproperties.cpp#4)]\n [!code-csharp[XPathNavigatorProperties#4](~/samples/snippets/csharp/VS_Snippets_Data/XPathNavigatorProperties/CS/xpathnavigatorproperties.cs#4)]\n [!code-vb[XPathNavigatorProperties#4](~/samples/snippets/visualbasic/VS_Snippets_Data/XPathNavigatorProperties/VB/xpathnavigatorproperties.vb#4)]  \n  \n The example takes the `contosoBooks.xml` file as an input.  \n  \n```xml  \n  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>  \n<bookstore xmlns=\"http://www.contoso.com/books\">  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
   syntax:
@@ -5368,8 +5362,8 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: When overridden in a derived class, gets the namespace prefix associated with the current node.
-  remarks: The <xref:System.Xml.XPath.XPathNavigator.Prefix%2A> property gets the namespace prefix associated with the current node. For example, the <xref:System.Xml.XPath.XPathNavigator.Prefix%2A> property returns `bk` for the `<bk:book>` element. If a prefix does not exist, or the <xref:System.Xml.XPath.XPathNodeType> of the current node is not <xref:System.Xml.XPath.XPathNodeType.Element> or <xref:System.Xml.XPath.XPathNodeType.Attribute>, the <xref:System.Xml.XPath.XPathNavigator.Prefix%2A> property returns <xref:System.String.Empty?displayProperty=fullName>.
+  summary: 'When overridden in a derived class, gets the namespace prefix associated with the current node.'
+  remarks: 'The <xref:System.Xml.XPath.XPathNavigator.Prefix%2A> property gets the namespace prefix associated with the current node. For example, the <xref:System.Xml.XPath.XPathNavigator.Prefix%2A> property returns `bk` for the `<bk:book>` element. If a prefix does not exist, or the <xref:System.Xml.XPath.XPathNodeType> of the current node is not <xref:System.Xml.XPath.XPathNodeType.Element> or <xref:System.Xml.XPath.XPathNodeType.Attribute>, the <xref:System.Xml.XPath.XPathNavigator.Prefix%2A> property returns <xref:System.String.Empty?displayProperty=fullName>.'
   example:
   - "The following example iterates over the node tree recursively, and displays information about <xref:System.Xml.XPath.XPathNodeType.Element> and <xref:System.Xml.XPath.XPathNodeType.Text> nodes.  \n  \n [!code-cpp[XPathNavigatorMethods#29](~/samples/snippets/cpp/VS_Snippets_Data/XPathNavigatorMethods/CPP/xpathnavigatormethods.cpp#29)]\n [!code-csharp[XPathNavigatorMethods#29](~/samples/snippets/csharp/VS_Snippets_Data/XPathNavigatorMethods/CS/xpathnavigatormethods.cs#29)]\n [!code-vb[XPathNavigatorMethods#29](~/samples/snippets/visualbasic/VS_Snippets_Data/XPathNavigatorMethods/VB/xpathnavigatormethods.vb#29)]  \n  \n The example takes the `books.xml` file as an input.  \n  \n```xml  \n  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>   \n<bookstore>  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
   syntax:
@@ -5729,7 +5723,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: Creates a new child element at the beginning of the list of child nodes of the current node using the namespace prefix, local name, and namespace URI specified with the value specified.
+  summary: 'Creates a new child element at the beginning of the list of child nodes of the current node using the namespace prefix, local name, and namespace URI specified with the value specified.'
   remarks: "Prepending a child node adds the new node to the beginning of the list of child nodes for the current node. For example, when three child nodes exist for an element, the prepended node becomes the first child node. If no child nodes exist, then a new child node is created.  \n  \n Namespace prefix and URI values can be obtained by using the <xref:System.Xml.XPath.XPathNavigator.LookupPrefix%2A> or <xref:System.Xml.XPath.XPathNavigator.LookupNamespace%2A> method. For example, the following syntax prepends a child element by using the in-scope namespace `xmlns:bk=\"http://www.contoso.com/books\"`:  \n  \n```  \nnavigator.PrependChildElement(navigator.Prefix, \"pages\", LookupNamespaceURI(navigator.Prefix), String.Empty)  \n```  \n  \n This creates the new child `<bk:pages/>` element.  \n  \n The following are important notes to consider when using the <xref:System.Xml.XPath.XPathNavigator.PrependChildElement%2A> method.  \n  \n-   If the namespace prefix specified is `null` or <xref:System.String.Empty?displayProperty=fullName>, then the prefix for the namespace URI of the new element is obtained from the current namespaces in-scope. If there is no namespace prefix assigned to the specified namespace URI at the current scope, then a namespace prefix is automatically generated.  \n  \n-   The <xref:System.Xml.XPath.XPathNavigator.PrependChildElement%2A> method is valid only when the <xref:System.Xml.XPath.XPathNavigator> is positioned on an element node.  \n  \n-   The <xref:System.Xml.XPath.XPathNavigator.PrependChildElement%2A> method does not affect the position of the <xref:System.Xml.XPath.XPathNavigator>."
   example:
   - "In the following example, a new `pages` child element is prepended to the beginning of the list of child elements of the first `book` element in the `contosoBooks.xml` file.  \n  \n [!code-cpp[XPathNavigatorMethods#34](~/samples/snippets/cpp/VS_Snippets_Data/XPathNavigatorMethods/CPP/xpathnavigatormethods.cpp#34)]\n [!code-csharp[XPathNavigatorMethods#34](~/samples/snippets/csharp/VS_Snippets_Data/XPathNavigatorMethods/CS/xpathnavigatormethods.cs#34)]\n [!code-vb[XPathNavigatorMethods#34](~/samples/snippets/visualbasic/VS_Snippets_Data/XPathNavigatorMethods/VB/xpathnavigatormethods.vb#34)]  \n  \n The example takes the `contosoBooks.xml` file as an input.  \n  \n```xml  \n  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>  \n<bookstore xmlns=\"http://www.contoso.com/books\">  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
@@ -5747,7 +5741,7 @@ items:
       description: The namespace URI of the new child element (if any). <xref href="System.String.Empty"></xref> and `null` are equivalent.
     - id: value
       type: System.String
-      description: The value of the new child element. If <xref href="System.String.Empty"></xref> or `null` are passed, an empty element is created.
+      description: 'The value of the new child element. If <xref href="System.String.Empty"></xref> or `null` are passed, an empty element is created.'
   overload: System.Xml.XPath.XPathNavigator.PrependChildElement*
   exceptions:
   - type: System.InvalidOperationException
@@ -5968,7 +5962,7 @@ items:
     description: The <xref href="System.Xml.XPath.XPathNavigator"></xref> object parameter is `null`.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The <xref href="System.Xml.XPath.XPathNavigator"></xref> is not positioned on an element, text, processing instruction, or comment node.
+    description: 'The <xref href="System.Xml.XPath.XPathNavigator"></xref> is not positioned on an element, text, processing instruction, or comment node.'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
     description: The <xref href="System.Xml.XPath.XPathNavigator"></xref> does not support editing.
@@ -6044,7 +6038,7 @@ items:
     description: The XML string parameter is `null`.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The <xref href="System.Xml.XPath.XPathNavigator"></xref> is not positioned on an element, text, processing instruction, or comment node.
+    description: 'The <xref href="System.Xml.XPath.XPathNavigator"></xref> is not positioned on an element, text, processing instruction, or comment node.'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
     description: The <xref href="System.Xml.XPath.XPathNavigator"></xref> does not support editing.
@@ -6123,7 +6117,7 @@ items:
     description: The <xref href="System.Xml.XmlReader"></xref> object parameter is `null`.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The <xref href="System.Xml.XPath.XPathNavigator"></xref> is not positioned on an element, text, processing instruction, or comment node.
+    description: 'The <xref href="System.Xml.XPath.XPathNavigator"></xref> is not positioned on an element, text, processing instruction, or comment node.'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
     description: The <xref href="System.Xml.XPath.XPathNavigator"></xref> does not support editing.
@@ -6182,7 +6176,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
   summary: Gets the schema information that has been assigned to the current node as a result of schema validation.
-  remarks: Schema information can be set on <xref:System.Xml.XPath.XPathNodeType.Element>, <xref:System.Xml.XPath.XPathNodeType.Attribute>, or on <xref:System.Xml.XPath.XPathNodeType.Text> nodes with a non-`null`<xref:System.Xml.XPath.XPathNavigator.ValueType%2A>. If the current node is not one of the above node types, or if the <xref:System.Xml.XPath.XPathNavigator> instance does not report schema information, the <xref:System.Xml.XPath.XPathNavigator.SchemaInfo%2A> property returns `null`.
+  remarks: 'Schema information can be set on <xref:System.Xml.XPath.XPathNodeType.Element>, <xref:System.Xml.XPath.XPathNodeType.Attribute>, or on <xref:System.Xml.XPath.XPathNodeType.Text> nodes with a non-`null`<xref:System.Xml.XPath.XPathNavigator.ValueType%2A>. If the current node is not one of the above node types, or if the <xref:System.Xml.XPath.XPathNavigator> instance does not report schema information, the <xref:System.Xml.XPath.XPathNavigator.SchemaInfo%2A> property returns `null`.'
   syntax:
     content: public virtual System.Xml.Schema.IXmlSchemaInfo SchemaInfo { get; }
     return:
@@ -6238,7 +6232,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: Selects a node set, using the specified XPath expression.
+  summary: 'Selects a node set, using the specified XPath expression.'
   remarks: "The context for the selection is the position of the <xref:System.Xml.XPath.XPathNavigator> when this method is called. After calling this method, the <xref:System.Xml.XPath.XPathNodeIterator> returned represents the set of selected nodes. Use <xref:System.Xml.XPath.XPathNodeIterator.MoveNext%2A> method of the <xref:System.Xml.XPath.XPathNodeIterator> to iterate over the selected node set.  \n  \n The following C# code iterates over the selected set of nodes.  \n  \n```  \nXPathNodeIterator iterator = nav.Select(\"/bookstore/book\");  \nwhile (iterator.MoveNext())  \n{  \n    Console.WriteLine(Iterator.Current.Name);  \n}  \n```  \n  \n The following are important notes to consider when using the <xref:System.Xml.XPath.XPathNavigator.Select%2A> method.  \n  \n-   You can still use any of the <xref:System.Xml.XPath.XPathNavigator> object's navigation methods to move within the <xref:System.Xml.XPath.XPathNavigator>. The <xref:System.Xml.XPath.XPathNavigator> navigation methods are independent of the selected nodes in the <xref:System.Xml.XPath.XPathNodeIterator>.  \n  \n-   Future calls to the <xref:System.Xml.XPath.XPathNavigator.Select%2A> method return a new <xref:System.Xml.XPath.XPathNodeIterator> object that points to the selected set of nodes that matches the new <xref:System.Xml.XPath.XPathNavigator.Select%2A> call. The two <xref:System.Xml.XPath.XPathNodeIterator> objects are completely independent of each other.  \n  \n-   If the XPath expression requires namespace resolution, use the <xref:System.Xml.XPath.XPathNavigator.Select%2A> overload, which takes an <xref:System.Xml.XPath.XPathExpression> as its argument.  \n  \n-   This method has no effect on the state of the <xref:System.Xml.XPath.XPathNavigator>."
   example:
   - "The following example uses the <xref:System.Xml.XPath.XPathNavigator.Select%2A> method to select a node set.  \n  \n [!code-cpp[XPathNavigatorMethods#39](~/samples/snippets/cpp/VS_Snippets_Data/XPathNavigatorMethods/CPP/xpathnavigatormethods.cpp#39)]\n [!code-csharp[XPathNavigatorMethods#39](~/samples/snippets/csharp/VS_Snippets_Data/XPathNavigatorMethods/CS/xpathnavigatormethods.cs#39)]\n [!code-vb[XPathNavigatorMethods#39](~/samples/snippets/visualbasic/VS_Snippets_Data/XPathNavigatorMethods/VB/xpathnavigatormethods.vb#39)]  \n  \n The example takes the `books.xml` file as an input.  \n  \n```xml  \n  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>   \n<bookstore>  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
@@ -6461,7 +6455,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
   summary: Selects all the ancestor nodes of the current node that have a matching <xref href="System.Xml.XPath.XPathNodeType"></xref>.
-  remarks: The <xref:System.Xml.XPath.XPathNavigator.SelectAncestors%2A> method has no effect on the state of the <xref:System.Xml.XPath.XPathNavigator>.
+  remarks: 'The <xref:System.Xml.XPath.XPathNavigator.SelectAncestors%2A> method has no effect on the state of the <xref:System.Xml.XPath.XPathNavigator>.'
   example:
   - For an example of selecting ancestor nodes, see <xref:System.Xml.XPath.XPathNavigator.SelectAncestors%2A?displayProperty=fullName>.
   syntax:
@@ -6472,7 +6466,7 @@ items:
       description: The <xref href="System.Xml.XPath.XPathNodeType"></xref> of the ancestor nodes.
     - id: matchSelf
       type: System.Boolean
-      description: To include the context node in the selection, `true`; otherwise, `false`.
+      description: 'To include the context node in the selection, `true`; otherwise, `false`.'
     return:
       type: System.Xml.XPath.XPathNodeIterator
       description: An <xref href="System.Xml.XPath.XPathNodeIterator"></xref> that contains the selected nodes. The returned nodes are in reverse document order.
@@ -6545,7 +6539,7 @@ items:
       description: The namespace URI of the ancestor nodes.
     - id: matchSelf
       type: System.Boolean
-      description: To include the context node in the selection, `true`; otherwise, `false`.
+      description: 'To include the context node in the selection, `true`; otherwise, `false`.'
     return:
       type: System.Xml.XPath.XPathNodeIterator
       description: An <xref href="System.Xml.XPath.XPathNodeIterator"></xref> that contains the selected nodes. The returned nodes are in reverse document order.
@@ -6607,7 +6601,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
   summary: Selects all the child nodes of the current node that have the matching <xref href="System.Xml.XPath.XPathNodeType"></xref>.
-  remarks: The <xref:System.Xml.XPath.XPathNavigator.SelectChildren%2A> method has no effect on the state of the <xref:System.Xml.XPath.XPathNavigator>.
+  remarks: 'The <xref:System.Xml.XPath.XPathNavigator.SelectChildren%2A> method has no effect on the state of the <xref:System.Xml.XPath.XPathNavigator>.'
   example:
   - For an example of selecting ancestor, child and descendant nodes, see <xref:System.Xml.XPath.XPathNavigator.SelectAncestors%2A>.
   syntax:
@@ -6747,7 +6741,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
   summary: Selects all the descendant nodes of the current node that have a matching <xref href="System.Xml.XPath.XPathNodeType"></xref>.
-  remarks: The <xref:System.Xml.XPath.XPathNavigator.SelectDescendants%2A> method has no effect on the state of the <xref:System.Xml.XPath.XPathNavigator>.
+  remarks: 'The <xref:System.Xml.XPath.XPathNavigator.SelectDescendants%2A> method has no effect on the state of the <xref:System.Xml.XPath.XPathNavigator>.'
   example:
   - For an example of selecting ancestor, child and descendant nodes, see <xref:System.Xml.XPath.XPathNavigator.SelectAncestors%2A>.
   syntax:
@@ -6969,7 +6963,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
   summary: Selects a single node in the <xref href="System.Xml.XPath.XPathNavigator"></xref> using the specified XPath query.
-  remarks: The <xref:System.Xml.XPath.XPathNavigator.SelectSingleNode%2A> method selects the first node that matches the XPath query in the <xref:System.Xml.XPath.XPathNavigator> object.
+  remarks: 'The <xref:System.Xml.XPath.XPathNavigator.SelectSingleNode%2A> method selects the first node that matches the XPath query in the <xref:System.Xml.XPath.XPathNavigator> object.'
   example:
   - "The following example selects a single node from the <xref:System.Xml.XPath.XPathNavigator> based on the XPath query specified.  \n  \n [!code-cpp[XPathNavigatorMethods#43](~/samples/snippets/cpp/VS_Snippets_Data/XPathNavigatorMethods/CPP/xpathnavigatormethods.cpp#43)]\n [!code-csharp[XPathNavigatorMethods#43](~/samples/snippets/csharp/VS_Snippets_Data/XPathNavigatorMethods/CS/xpathnavigatormethods.cs#43)]\n [!code-vb[XPathNavigatorMethods#43](~/samples/snippets/visualbasic/VS_Snippets_Data/XPathNavigatorMethods/VB/xpathnavigatormethods.vb#43)]  \n  \n The example takes the `books.xml` file as an input.  \n  \n```xml  \n  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>   \n<bookstore>  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
   syntax:
@@ -6980,7 +6974,7 @@ items:
       description: A <xref href="System.String"></xref> representing an XPath expression.
     return:
       type: System.Xml.XPath.XPathNavigator
-      description: An <xref href="System.Xml.XPath.XPathNavigator"></xref> object that contains the first matching node for the XPath query specified; otherwise, `null` if there are no query results.
+      description: 'An <xref href="System.Xml.XPath.XPathNavigator"></xref> object that contains the first matching node for the XPath query specified; otherwise, `null` if there are no query results.'
   overload: System.Xml.XPath.XPathNavigator.SelectSingleNode*
   exceptions:
   - type: System.ArgumentException
@@ -7042,7 +7036,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
   summary: Selects a single node in the <xref href="System.Xml.XPath.XPathNavigator"></xref> using the specified <xref href="System.Xml.XPath.XPathExpression"></xref> object.
-  remarks: The <xref:System.Xml.XPath.XPathNavigator.SelectSingleNode%2A> method selects the first node that matches the compiled XPath query contained in the <xref:System.Xml.XPath.XPathExpression> object in the <xref:System.Xml.XPath.XPathNavigator>.
+  remarks: 'The <xref:System.Xml.XPath.XPathNavigator.SelectSingleNode%2A> method selects the first node that matches the compiled XPath query contained in the <xref:System.Xml.XPath.XPathExpression> object in the <xref:System.Xml.XPath.XPathNavigator>.'
   example:
   - "The following example selects a single node from the <xref:System.Xml.XPath.XPathNavigator> based on the XPath query contained in the <xref:System.Xml.XPath.XPathExpression>.  \n  \n [!code-cpp[XPathNavigatorMethods#44](~/samples/snippets/cpp/VS_Snippets_Data/XPathNavigatorMethods/CPP/xpathnavigatormethods.cpp#44)]\n [!code-csharp[XPathNavigatorMethods#44](~/samples/snippets/csharp/VS_Snippets_Data/XPathNavigatorMethods/CS/xpathnavigatormethods.cs#44)]\n [!code-vb[XPathNavigatorMethods#44](~/samples/snippets/visualbasic/VS_Snippets_Data/XPathNavigatorMethods/VB/xpathnavigatormethods.vb#44)]  \n  \n The example takes the `books.xml` file as an input.  \n  \n```xml  \n  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>   \n<bookstore>  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
   syntax:
@@ -7207,7 +7201,7 @@ items:
     description: The value parameter is `null`.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The <xref href="System.Xml.XPath.XPathNavigator"></xref> is positioned on the root node, a namespace node, or the specified value is invalid.
+    description: 'The <xref href="System.Xml.XPath.XPathNavigator"></xref> is positioned on the root node, a namespace node, or the specified value is invalid.'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
     description: The <xref href="System.Xml.XPath.XPathNavigator"></xref> does not support editing.
@@ -7386,7 +7380,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: Used by <xref href="System.Xml.XPath.XPathNavigator"></xref> implementations which provide a "virtualized" XML view over a store, to provide access to underlying objects.
+  summary: 'Used by <xref href="System.Xml.XPath.XPathNavigator"></xref> implementations which provide a "virtualized" XML view over a store, to provide access to underlying objects.'
   remarks: "The <xref:System.Xml.XPath.XPathNavigator.UnderlyingObject%2A> property can be used by <xref:System.Xml.XPath.XPathNavigator> implementations which provide a \"virtualized\" XML view over a store, to provide access to underlying objects. For example, if an <xref:System.Xml.XPath.XPathNavigator> object is used to provide a virtual XML view over a Common Language Runtime (CLR) object graph, you may wish to perform XPath queries using the <xref:System.Xml.XPath.XPathNavigator.Select%2A> method and then access the CLR objects underlying the selected nodes. The <xref:System.Xml.XPath.XPathNavigator.UnderlyingObject%2A> property would expose these underlying objects.  \n  \n In many cases, this value will be `null`, and the object returned by the <xref:System.Xml.XPath.XPathNavigator.UnderlyingObject%2A> property will always be implementation specific.  \n  \n The <xref:System.Xml.XPath.XPathNavigator.UnderlyingObject%2A> property should preserve object identity and should only be used to return objects that have a one-to-one correspondence to their respective overlaid items. A user should always get the same object on successive visits to the same node using the same <xref:System.Xml.XPath.XPathNavigator> object or a cloned one.  \n  \n> [!NOTE]\n>  The <xref:System.Xml.XPath.XPathNavigator.UnderlyingObject%2A> property of an <xref:System.Xml.XPath.XPathNavigator> object created by an <xref:System.Xml.XmlDocument> object returns the corresponding <xref:System.Xml.XmlNode>."
   syntax:
     content: public virtual object UnderlyingObject { get; }
@@ -7447,7 +7441,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: Gets the current node's value as the <xref href="System.Type"></xref> specified, using the <xref href="System.Xml.IXmlNamespaceResolver"></xref> object specified to resolve namespace prefixes.
+  summary: 'Gets the current node''s value as the <xref href="System.Type"></xref> specified, using the <xref href="System.Xml.IXmlNamespaceResolver"></xref> object specified to resolve namespace prefixes.'
   remarks: "The <xref:System.Xml.XPath.XPathItem.ValueAs%2A> method attempts to convert the value of the current node to the .NET Framework type, specified according to the XPath 2.0 rules for casting the current node's type.  \n  \n The <xref:System.Xml.IXmlNamespaceResolver> object is used to resolve namespace prefixes related to type conversions. For example, when converting an `xs:QName` to an `xs:string`."
   syntax:
     content: public override object ValueAs (Type returnType, System.Xml.IXmlNamespaceResolver nsResolver);
@@ -7993,13 +7987,13 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml.XPath
-  summary: Gets the <code>xml:lang</code> scope for the current node.
+  summary: 'Gets the <code>xml:lang</code> scope for the current node.'
   remarks: "In the example XML below, when the <xref:System.Xml.XPath.XPathNavigator> is positioned on the `name` element, the <xref:System.Xml.XPath.XPathNavigator.XmlLang%2A> property returns a scope of `en-us` indicating that the node is in the scope of a `xml:lang=\"en-us\"` attribute.  \n  \n```  \n<root xml:lang=\"en-us\">  \n    <name>Name</name>  \n</root>  \n```"
   syntax:
     content: public virtual string XmlLang { get; }
     return:
       type: System.String
-      description: A <xref href="System.String"></xref> that contains the value of the <code>xml:lang</code> scope, or <xref href="System.String.Empty"></xref> if the current node has no <code>xml:lang</code> scope value to return.
+      description: 'A <xref href="System.String"></xref> that contains the value of the <code>xml:lang</code> scope, or <xref href="System.String.Empty"></xref> if the current node has no <code>xml:lang</code> scope value to return.'
   overload: System.Xml.XPath.XPathNavigator.XmlLang*
   exceptions: []
   version:

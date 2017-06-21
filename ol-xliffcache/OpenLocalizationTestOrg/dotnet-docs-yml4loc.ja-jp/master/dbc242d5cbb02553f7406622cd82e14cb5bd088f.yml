@@ -56,7 +56,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml
   summary: "Represents a writer that provides a fast, non-cached, forward-only way of generating streams or files containing XML data that conforms to the W3C Extensible Markup Language (XML) 1.0 and the Namespaces in XML recommendations.  \n  \n Starting with the .NET Framework 2.0, we recommend that you use the <xref href=\"System.Xml.XmlWriter\"></xref> class instead."
-  remarks: "This class implements the <xref:System.Xml.XmlWriter> class.  \n  \n> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlWriter> instances by using the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method and the <xref:System.Xml.XmlWriterSettings> class to take advantage of new functionality.  \n  \n `XmlTextWriter` maintains a namespace stack corresponding to all the namespaces defined in the current element stack. Using `XmlTextWriter` you can declare namespaces manually.  \n  \n```  \nw.WriteStartElement(\"root\");  \nw.WriteAttributeString(\"xmlns\", \"x\", null, \"urn:1\");  \n w.WriteStartElement(\"item\",\"urn:1\");  \n w.WriteEndElement();  \n w.WriteStartElement(\"item\",\"urn:1\");  \n w.WriteEndElement();  \nw.WriteEndElement();  \n```  \n  \n The above C# code produces the following output. `XmlTextWriter` promotes the namespace declaration to the root element to avoid having it duplicated on the two child elements. The child elements pick up the prefix from the namespace declaration.  \n  \n```  \n<root xmlns:x=\"urn:1\">  \n <x:item/>  \n <x:item/>  \n</x:root>  \n```  \n  \n `XmlTextWriter` also allows you to override the current namespace declaration. In the following example, the namespace URI \"123\" is overridden by \"abc\" to produce the XML element `<x:node xmlns:x=\"abc\"/>`.  \n  \n```  \nw.WriteStartElement(\"x\",\"node\",\"123\");  \nw.WriteAttributeString(\"xmlns\",\"x\",null,\"abc\");  \n```  \n  \n By using the write methods that take a prefix as an argument you can also specify which prefix to use. In the following example, two different prefixes are mapped to the same namespace URI to produce the XML text `<x:root xmlns:x=\"urn:1\"><y:item xmlns:y=\"urn:1\"/></x:root>`.  \n  \n```  \nXmlTextWriter w = new XmlTextWriter(Console.Out);  \nw.WriteStartElement(\"x\",\"root\",\"urn:1\");  \n w.WriteStartElement(\"y\",\"item\",\"urn:1\");  \n w.WriteEndElement();  \nw.WriteEndElement();  \nw.Close();  \n```  \n  \n If there are multiple namespace declarations mapping different prefixes to the same namespace URI, `XmlTextWriter` walks the stack of namespace declarations backwards and picks the closest one.  \n  \n```  \nXmlTextWriter w = new XmlTextWriter(Console.Out);  \nw.Formatting = Formatting.Indented;  \nw.WriteStartElement(\"x\",\"root\",\"urn:1\");  \nw.WriteStartElement(\"y\",\"item\",\"urn:1\");  \nw.WriteAttributeString(\"attr\",\"urn:1\",\"123\");  \nw.WriteEndElement();  \nw.WriteEndElement();  \nw.Close();  \n```  \n  \n In the above C# example, because the `WriteAttributeString` call does not specify a prefix, the writer uses the last prefix pushed onto the namespace stack, and produces the following XML:  \n  \n```  \n<x:root xmlns:x=\"urn:1\">  \n <y:item y:attr=\"123\" xmlns:y=\"urn:1\" />  \n</x:root>  \n```  \n  \n If namespace conflicts occur, `XmlTextWriter` resolves them by generating alternate prefixes. For example, if an attribute and element have the same prefix but different namespaces, `XmlWriter` generates an alternate prefix for the attribute. The generated prefixes are named `n{i}` where `i` is a number beginning at 1. The number is reset to 1 for each element.  \n  \n Attributes which are associated with a namespace URI must have a prefix (default namespaces do not apply to attributes). This conforms to section 5.2 of the W3C Namespaces in XML recommendation. If an attribute references a namespace URI, but does not specify a prefix, the writer generates a prefix for the attribute.  \n  \n When writing an empty element, an additional space is added between tag name and the closing tag, for example `<item />`. This provides compatibility with older browsers.  \n  \n When a `String` is used as method parameter, `null` and `String.Empty` are equivalent. `String.Empty` follows the W3C rules.  \n  \n To write strongly typed data, use the <xref:System.Xml.XmlConvert> class to convert data types to string. For example, the following C# code converts the data from `Double` to `String` and writes the element `<price>19.95</price>`.  \n  \n```  \nDouble price = 19.95;  \nwriter.WriteElementString(\"price\", XmlConvert.ToString(price));  \n```  \n  \n `XmlTextWriter` does not check for the following:  \n  \n-   Invalid characters in attribute and element names.  \n  \n-   Unicode characters that do not fit the specified encoding. If the Unicode characters do not fit the specified encoding, the `XmlTextWriter` does not escape the Unicode characters into character entities.  \n  \n-   Duplicate attributes.  \n  \n-   Characters in the DOCTYPE public identifier or system identifier.  \n  \n## Security Considerations  \n The following items are things to consider when working with the <xref:System.Xml.XmlTextWriter> class.  \n  \n-   Exceptions thrown by the <xref:System.Xml.XmlTextWriter> can disclose path information that you do not want bubbled up to the application. Your applications must catch exceptions and process them appropriately.  \n  \n-   When you pass the <xref:System.Xml.XmlTextWriter> to another application the underlying stream is exposed to that application. If you need to pass the <xref:System.Xml.XmlTextWriter> to a semi-trusted application, you should use an <xref:System.Xml.XmlWriter> object created by the <xref:System.Xml.XmlWriter.Create%2A> method instead.  \n  \n-   The <xref:System.Xml.XmlTextWriter> does not validate any data that is passed to the <xref:System.Xml.XmlTextWriter.WriteDocType%2A> or <xref:System.Xml.XmlTextWriter.WriteRaw%2A> methods. You should not pass arbitrary data to these methods.  \n  \n-   If the default settings are changed, there is no guarantee that the generated output is well-formed XML data.  \n  \n-   Do not accept supporting components, such as an <xref:System.Text.Encoding> object, from an untrusted source."
+  remarks: "This class implements the <xref:System.Xml.XmlWriter> class.  \n  \n> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlWriter> instances by using the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method and the <xref:System.Xml.XmlWriterSettings> class to take advantage of new functionality.  \n  \n `XmlTextWriter` maintains a namespace stack corresponding to all the namespaces defined in the current element stack. Using `XmlTextWriter` you can declare namespaces manually.  \n  \n```  \nw.WriteStartElement(\"root\");  \nw.WriteAttributeString(\"xmlns\", \"x\", null, \"urn:1\");  \n w.WriteStartElement(\"item\",\"urn:1\");  \n w.WriteEndElement();  \n w.WriteStartElement(\"item\",\"urn:1\");  \n w.WriteEndElement();  \nw.WriteEndElement();  \n```  \n  \n The above C# code produces the following output. `XmlTextWriter` promotes the namespace declaration to the root element to avoid having it duplicated on the two child elements. The child elements pick up the prefix from the namespace declaration.  \n  \n```  \n<root xmlns:x=\"urn:1\">  \n <x:item/>  \n <x:item/>  \n</x:root>  \n```  \n  \n `XmlTextWriter` also allows you to override the current namespace declaration. In the following example, the namespace URI \"123\" is overridden by \"abc\" to produce the XML element `<x:node xmlns:x=\"abc\"/>`.  \n  \n```  \nw.WriteStartElement(\"x\",\"node\",\"123\");  \nw.WriteAttributeString(\"xmlns\",\"x\",null,\"abc\");  \n```  \n  \n By using the write methods that take a prefix as an argument you can also specify which prefix to use. In the following example, two different prefixes are mapped to the same namespace URI to produce the XML text `<x:root xmlns:x=\"urn:1\"><y:item xmlns:y=\"urn:1\"/></x:root>`.  \n  \n```  \nXmlTextWriter w = new XmlTextWriter(Console.Out);  \nw.WriteStartElement(\"x\",\"root\",\"urn:1\");  \n w.WriteStartElement(\"y\",\"item\",\"urn:1\");  \n w.WriteEndElement();  \nw.WriteEndElement();  \nw.Close();  \n```  \n  \n If there are multiple namespace declarations mapping different prefixes to the same namespace URI, `XmlTextWriter` walks the stack of namespace declarations backwards and picks the closest one.  \n  \n```  \nXmlTextWriter w = new XmlTextWriter(Console.Out);  \nw.Formatting = Formatting.Indented;  \nw.WriteStartElement(\"x\",\"root\",\"urn:1\");  \nw.WriteStartElement(\"y\",\"item\",\"urn:1\");  \nw.WriteAttributeString(\"attr\",\"urn:1\",\"123\");  \nw.WriteEndElement();  \nw.WriteEndElement();  \nw.Close();  \n```  \n  \n In the above C# example, because the `WriteAttributeString` call does not specify a prefix, the writer uses the last prefix pushed onto the namespace stack, and produces the following XML:  \n  \n```  \n<x:root xmlns:x=\"urn:1\">  \n <y:item y:attr=\"123\" xmlns:y=\"urn:1\" />  \n</x:root>  \n```  \n  \n If namespace conflicts occur, `XmlTextWriter` resolves them by generating alternate prefixes. For example, if an attribute and element have the same prefix but different namespaces, `XmlWriter` generates an alternate prefix for the attribute. The generated prefixes are named `n{i}` where `i` is a number beginning at 1. The number is reset to 1 for each element.  \n  \n Attributes which are associated with a namespace URI must have a prefix (default namespaces do not apply to attributes). This conforms to section 5.2 of the W3C Namespaces in XML recommendation. If an attribute references a namespace URI, but does not specify a prefix, the writer generates a prefix for the attribute.  \n  \n When writing an empty element, an additional space is added between tag name and the closing tag, for example `<item />`. This provides compatibility with older browsers.  \n  \n When a `String` is used as method parameter, `null` and `String.Empty` are equivalent. `String.Empty` follows the W3C rules.  \n  \n To write strongly typed data, use the <xref:System.Xml.XmlConvert> class to convert data types to string. For example, the following C# code converts the data from `Double` to `String` and writes the element `<price>19.95</price>`.  \n  \n```  \nDouble price = 19.95;  \nwriter.WriteElementString(\"price\", XmlConvert.ToString(price));  \n```  \n  \n `XmlTextWriter` does not check for the following:  \n  \n-   Invalid characters in attribute and element names.  \n  \n-   Unicode characters that do not fit the specified encoding. If the Unicode characters do not fit the specified encoding, the `XmlTextWriter` does not escape the Unicode characters into character entities.  \n  \n-   Duplicate attributes.  \n  \n-   Characters in the DOCTYPE public identifier or system identifier.  \n  \n## <a name=\"security-considerations\"></a>Security Considerations  \n The following items are things to consider when working with the <xref:System.Xml.XmlTextWriter> class.  \n  \n-   Exceptions thrown by the <xref:System.Xml.XmlTextWriter> can disclose path information that you do not want bubbled up to the application. Your applications must catch exceptions and process them appropriately.  \n  \n-   When you pass the <xref:System.Xml.XmlTextWriter> to another application the underlying stream is exposed to that application. If you need to pass the <xref:System.Xml.XmlTextWriter> to a semi-trusted application, you should use an <xref:System.Xml.XmlWriter> object created by the <xref:System.Xml.XmlWriter.Create%2A> method instead.  \n  \n-   The <xref:System.Xml.XmlTextWriter> does not validate any data that is passed to the <xref:System.Xml.XmlTextWriter.WriteDocType%2A> or <xref:System.Xml.XmlTextWriter.WriteRaw%2A> methods. You should not pass arbitrary data to these methods.  \n  \n-   If the default settings are changed, there is no guarantee that the generated output is well-formed XML data.  \n  \n-   Do not accept supporting components, such as an <xref:System.Text.Encoding> object, from an untrusted source."
   syntax:
     content: 'public class XmlTextWriter : System.Xml.XmlWriter'
   inheritance:
@@ -187,10 +187,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml
   summary: Creates an instance of the `XmlTextWriter` class using the specified <xref href="System.IO.TextWriter"></xref>.
-  remarks: >-
-    > [!NOTE]
-
-    >  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlWriter> instances by using the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method and the <xref:System.Xml.XmlWriterSettings> class to take advantage of new functionality.
+  remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlWriter> instances by using the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method and the <xref:System.Xml.XmlWriterSettings> class to take advantage of new functionality."
   syntax:
     content: public XmlTextWriter (System.IO.TextWriter w);
     parameters:
@@ -247,10 +244,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml
   summary: Creates an instance of the `XmlTextWriter` class using the specified stream and encoding.
-  remarks: >-
-    > [!NOTE]
-
-    >  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlWriter> instances by using the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method and the <xref:System.Xml.XmlWriterSettings> class to take advantage of new functionality.
+  remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlWriter> instances by using the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method and the <xref:System.Xml.XmlWriterSettings> class to take advantage of new functionality."
   syntax:
     content: public XmlTextWriter (System.IO.Stream w, System.Text.Encoding encoding);
     parameters:
@@ -316,24 +310,21 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml
   summary: Creates an instance of the <xref href="System.Xml.XmlTextWriter"></xref> class using the specified file.
-  remarks: >-
-    > [!NOTE]
-
-    >  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlWriter> instances by using the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method and the <xref:System.Xml.XmlWriterSettings> class to take advantage of new functionality.
+  remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlWriter> instances by using the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method and the <xref:System.Xml.XmlWriterSettings> class to take advantage of new functionality."
   syntax:
     content: public XmlTextWriter (string filename, System.Text.Encoding encoding);
     parameters:
     - id: filename
       type: System.String
-      description: The filename to write to. If the file exists, it truncates it and overwrites it with the new content.
+      description: 'The filename to write to. If the file exists, it truncates it and overwrites it with the new content.'
     - id: encoding
       type: System.Text.Encoding
-      description: The encoding to generate. If encoding is `null` it writes the file out as UTF-8, and omits the encoding attribute from the `ProcessingInstruction`.
+      description: 'The encoding to generate. If encoding is `null` it writes the file out as UTF-8, and omits the encoding attribute from the `ProcessingInstruction`.'
   overload: System.Xml.XmlTextWriter.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: The encoding is not supported; the filename is empty, contains only white space, or contains one or more invalid characters.
+    description: 'The encoding is not supported; the filename is empty, contains only white space, or contains one or more invalid characters.'
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
     description: Access is denied.
@@ -345,7 +336,7 @@ items:
     description: The directory to write to is not found.
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: The filename includes an incorrect or invalid syntax for file name, directory name, or volume label syntax.
+    description: 'The filename includes an incorrect or invalid syntax for file name, directory name, or volume label syntax.'
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
     description: The caller does not have the required permission.
@@ -684,10 +675,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml
   summary: Gets or sets which character to use for indenting when <xref href="System.Xml.XmlTextWriter.Formatting"></xref> is set to `Formatting.Indented`.
-  remarks: >-
-    > [!NOTE]
-
-    >  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlWriter> instances by using the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method and the <xref:System.Xml.XmlWriterSettings> class to take advantage of new functionality.
+  remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlWriter> instances by using the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method and the <xref:System.Xml.XmlWriterSettings> class to take advantage of new functionality."
   syntax:
     content: public char IndentChar { get; set; }
     return:
@@ -743,10 +731,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml
   summary: Returns the closest prefix defined in the current namespace scope for the namespace URI.
-  remarks: >-
-    > [!NOTE]
-
-    >  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlWriter> instances by using the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method and the <xref:System.Xml.XmlWriterSettings> class to take advantage of new functionality.
+  remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlWriter> instances by using the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method and the <xref:System.Xml.XmlWriterSettings> class to take advantage of new functionality."
   example:
   - "The following example writes out a book.  \n  \n [!code-cpp[Classic WebData XmlTextWriter.WriteStartElement Example#1](~/samples/snippets/cpp/VS_Snippets_Data/Classic WebData XmlTextWriter.WriteStartElement Example/CPP/source.cpp#1)]\n [!code-csharp[Classic WebData XmlTextWriter.WriteStartElement Example#1](~/samples/snippets/csharp/VS_Snippets_Data/Classic WebData XmlTextWriter.WriteStartElement Example/CS/source.cs#1)]\n [!code-vb[Classic WebData XmlTextWriter.WriteStartElement Example#1](~/samples/snippets/visualbasic/VS_Snippets_Data/Classic WebData XmlTextWriter.WriteStartElement Example/VB/source.vb#1)]"
   syntax:
@@ -870,15 +855,12 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml
   summary: Gets or sets which character to use to quote attribute values.
-  remarks: >-
-    > [!NOTE]
-
-    >  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlWriter> instances by using the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method and the <xref:System.Xml.XmlWriterSettings> class to take advantage of new functionality.
+  remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlWriter> instances by using the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method and the <xref:System.Xml.XmlWriterSettings> class to take advantage of new functionality."
   syntax:
     content: public char QuoteChar { get; set; }
     return:
       type: System.Char
-      description: The character to use to quote attribute values. This must be a single quote (&#39;) or a double quote (&#34;). The default is a double quote.
+      description: 'The character to use to quote attribute values. This must be a single quote (&#39;) or a double quote (&#34;). The default is a double quote.'
   overload: System.Xml.XmlTextWriter.QuoteChar*
   exceptions:
   - type: System.ArgumentException
@@ -932,10 +914,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml
   summary: Encodes the specified binary bytes as base64 and writes out the resulting text.
-  remarks: >-
-    > [!NOTE]
-
-    >  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlWriter> instances by using the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method and the <xref:System.Xml.XmlWriterSettings> class to take advantage of new functionality.
+  remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlWriter> instances by using the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method and the <xref:System.Xml.XmlWriterSettings> class to take advantage of new functionality."
   example:
   - "The following example encodes an input file using `WriteBase64` and generates a temporary XML file. The temporary XML file is decoded using the <xref:System.Xml.XmlTextReader.ReadBase64%2A> method and compared to the original file.  \n  \n [!code-cpp[XmlWriter.WriteBase64#1](~/samples/snippets/cpp/VS_Snippets_Data/XmlWriter.WriteBase64/CPP/writebase64.cpp#1)]\n [!code-csharp[XmlWriter.WriteBase64#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlWriter.WriteBase64/CS/writebase64.cs#1)]\n [!code-vb[XmlWriter.WriteBase64#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlWriter.WriteBase64/VB/writebase64.vb#1)]"
   syntax:
@@ -1012,10 +991,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml
   summary: Encodes the specified binary bytes as binhex and writes out the resulting text.
-  remarks: >-
-    > [!NOTE]
-
-    >  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlWriter> instances by using the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method and the <xref:System.Xml.XmlWriterSettings> class to take advantage of new functionality.
+  remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlWriter> instances by using the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method and the <xref:System.Xml.XmlWriterSettings> class to take advantage of new functionality."
   syntax:
     content: public override void WriteBinHex (byte[] buffer, int index, int count);
     parameters:
@@ -1089,7 +1065,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml
-  summary: Writes out a <![CDATA[...]]> block containing the specified text.
+  summary: 'Writes out a <![CDATA[...]]> block containing the specified text.'
   remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlWriter> instances by using the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method and the <xref:System.Xml.XmlWriterSettings> class to take advantage of new functionality.  \n  \n If `text` is either `null` or `String.Empty`, this method writes an empty CDATA block, for example \\<![CDATA[]]>."
   example:
   - "The following example writes an XML file representing a book.  \n  \n [!code-cpp[Classic WebData XmlTextWriter.WriteStartDocument Example#1](~/samples/snippets/cpp/VS_Snippets_Data/Classic WebData XmlTextWriter.WriteStartDocument Example/CPP/source.cpp#1)]\n [!code-csharp[Classic WebData XmlTextWriter.WriteStartDocument Example#1](~/samples/snippets/csharp/VS_Snippets_Data/Classic WebData XmlTextWriter.WriteStartDocument Example/CS/source.cs#1)]\n [!code-vb[Classic WebData XmlTextWriter.WriteStartDocument Example#1](~/samples/snippets/visualbasic/VS_Snippets_Data/Classic WebData XmlTextWriter.WriteStartDocument Example/VB/source.vb#1)]"
@@ -1168,7 +1144,7 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: The character is in the surrogate pair character range, `0xd800` - `0xdfff`; or the text would result in a non-well formed XML document.
+    description: 'The character is in the surrogate pair character range, `0xd800` - `0xdfff`; or the text would result in a non-well formed XML document.'
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
     description: The <xref href="System.Xml.XmlTextWriter.WriteState"></xref> is `Closed`.
@@ -1376,7 +1352,7 @@ items:
       description: If <code>pubid</code> is null and <code>sysid</code> is non-null it writes SYSTEM "sysid" where <code>sysid</code> is replaced with the value of this argument.
     - id: subset
       type: System.String
-      description: If non-null it writes [subset] where subset is replaced with the value of this argument.
+      description: 'If non-null it writes [subset] where subset is replaced with the value of this argument.'
   overload: System.Xml.XmlTextWriter.WriteDocType*
   exceptions:
   - type: System.InvalidOperationException
@@ -1432,7 +1408,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml
-  summary: Closes the previous <xref href="System.Xml.XmlTextWriter.WriteStartAttribute(System.String,System.String,System.String)"></xref> call.
+  summary: 'Closes the previous <xref href="System.Xml.XmlTextWriter.WriteStartAttribute(System.String,System.String,System.String)"></xref> call.'
   remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlWriter> instances by using the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method and the <xref:System.Xml.XmlWriterSettings> class to take advantage of new functionality.  \n  \n If you call `WriteStartAttribute`, you can close the attribute with this method.  \n  \n You can also close the attribute by calling `WriteStartAttribute` again, calling <xref:System.Xml.XmlWriter.WriteAttributeString%2A>, or calling <xref:System.Xml.XmlTextWriter.WriteEndElement%2A>."
   example:
   - "The following example writes out a book.  \n  \n [!code-cpp[Classic WebData XmlTextWriter.WriteStartElement Example#1](~/samples/snippets/cpp/VS_Snippets_Data/Classic WebData XmlTextWriter.WriteStartElement Example/CPP/source.cpp#1)]\n [!code-csharp[Classic WebData XmlTextWriter.WriteStartElement Example#1](~/samples/snippets/csharp/VS_Snippets_Data/Classic WebData XmlTextWriter.WriteStartElement Example/CS/source.cs#1)]\n [!code-vb[Classic WebData XmlTextWriter.WriteStartElement Example#1](~/samples/snippets/visualbasic/VS_Snippets_Data/Classic WebData XmlTextWriter.WriteStartElement Example/VB/source.vb#1)]"
@@ -1489,10 +1465,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml
   summary: Closes any open elements or attributes and puts the writer back in the Start state.
-  remarks: >-
-    > [!NOTE]
-
-    >  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlWriter> instances by using the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method and the <xref:System.Xml.XmlWriterSettings> class to take advantage of new functionality.
+  remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlWriter> instances by using the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method and the <xref:System.Xml.XmlWriterSettings> class to take advantage of new functionality."
   example:
   - "The following example writes an XML file representing a book.  \n  \n [!code-cpp[Classic WebData XmlTextWriter.WriteStartDocument Example#1](~/samples/snippets/cpp/VS_Snippets_Data/Classic WebData XmlTextWriter.WriteStartDocument Example/CPP/source.cpp#1)]\n [!code-csharp[Classic WebData XmlTextWriter.WriteStartDocument Example#1](~/samples/snippets/csharp/VS_Snippets_Data/Classic WebData XmlTextWriter.WriteStartDocument Example/CS/source.cs#1)]\n [!code-vb[Classic WebData XmlTextWriter.WriteStartDocument Example#1](~/samples/snippets/visualbasic/VS_Snippets_Data/Classic WebData XmlTextWriter.WriteStartDocument Example/VB/source.vb#1)]"
   syntax:
@@ -1607,10 +1580,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml
   summary: Writes out an entity reference as `&name;`.
-  remarks: >-
-    > [!NOTE]
-
-    >  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlWriter> instances by using the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method and the <xref:System.Xml.XmlWriterSettings> class to take advantage of new functionality.
+  remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlWriter> instances by using the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method and the <xref:System.Xml.XmlWriterSettings> class to take advantage of new functionality."
   example:
   - "The following example writes an XML file representing a book.  \n  \n [!code-cpp[Classic WebData XmlTextWriter.WriteStartDocument Example#1](~/samples/snippets/cpp/VS_Snippets_Data/Classic WebData XmlTextWriter.WriteStartDocument Example/CPP/source.cpp#1)]\n [!code-csharp[Classic WebData XmlTextWriter.WriteStartDocument Example#1](~/samples/snippets/csharp/VS_Snippets_Data/Classic WebData XmlTextWriter.WriteStartDocument Example/CS/source.cs#1)]\n [!code-vb[Classic WebData XmlTextWriter.WriteStartDocument Example#1](~/samples/snippets/visualbasic/VS_Snippets_Data/Classic WebData XmlTextWriter.WriteStartDocument Example/VB/source.vb#1)]"
   syntax:
@@ -1727,7 +1697,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml
-  summary: Writes out the specified name, ensuring it is a valid name according to the W3C XML 1.0 recommendation (http://www.w3.org/TR/1998/REC-xml-19980210#NT-Name).
+  summary: 'Writes out the specified name, ensuring it is a valid name according to the W3C XML 1.0 recommendation (http://www.w3.org/TR/1998/REC-xml-19980210#NT-Name).'
   remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlWriter> instances by using the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method and the <xref:System.Xml.XmlWriterSettings> class to take advantage of new functionality.  \n  \n If <xref:System.Xml.XmlTextWriter.Namespaces%2A> is set to `true`, `WriteName` also checks that the name is also valid according to the W3C Namespaces in XML recommendation."
   syntax:
     content: public override void WriteName (string name);
@@ -1787,11 +1757,8 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml
-  summary: Writes out the specified name, ensuring it is a valid `NmToken` according to the W3C XML 1.0 recommendation (http://www.w3.org/TR/1998/REC-xml-19980210#NT-Name).
-  remarks: >-
-    > [!NOTE]
-
-    >  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlWriter> instances by using the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method and the <xref:System.Xml.XmlWriterSettings> class to take advantage of new functionality.
+  summary: 'Writes out the specified name, ensuring it is a valid `NmToken` according to the W3C XML 1.0 recommendation (http://www.w3.org/TR/1998/REC-xml-19980210#NT-Name).'
+  remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlWriter> instances by using the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method and the <xref:System.Xml.XmlWriterSettings> class to take advantage of new functionality."
   syntax:
     content: public override void WriteNmToken (string name);
     parameters:
@@ -2242,7 +2209,7 @@ items:
     parameters:
     - id: standalone
       type: System.Boolean
-      description: If `true`, it writes "standalone=yes"; if `false`, it writes "standalone=no".
+      description: 'If `true`, it writes "standalone=yes"; if `false`, it writes "standalone=no".'
   overload: System.Xml.XmlTextWriter.WriteStartDocument*
   exceptions:
   - type: System.InvalidOperationException
@@ -2364,10 +2331,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml
   summary: Gets the state of the writer.
-  remarks: >-
-    > [!NOTE]
-
-    >  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlWriter> instances by using the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method and the <xref:System.Xml.XmlWriterSettings> class to take advantage of new functionality.
+  remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlWriter> instances by using the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method and the <xref:System.Xml.XmlWriterSettings> class to take advantage of new functionality."
   syntax:
     content: public override System.Xml.WriteState WriteState { get; }
     return:
@@ -2609,13 +2573,13 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml
-  summary: Gets the current `xml:lang` scope.
+  summary: 'Gets the current `xml:lang` scope.'
   remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlWriter> instances by using the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method and the <xref:System.Xml.XmlWriterSettings> class to take advantage of new functionality.  \n  \n This property allows one component to find out what state another component has left the writer in. For example, perhaps one component wants to tell another which language help text to generate. The language information is communicated by writing an `xml:lang` attribute."
   syntax:
     content: public override string XmlLang { get; }
     return:
       type: System.String
-      description: The current `xml:lang` or `null` if there is no `xml:lang` in the current scope.
+      description: 'The current `xml:lang` or `null` if there is no `xml:lang` in the current scope.'
   overload: System.Xml.XmlTextWriter.XmlLang*
   exceptions: []
   version:
@@ -2665,7 +2629,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml
-  summary: Gets an <xref href="System.Xml.XmlSpace"></xref> representing the current `xml:space` scope.
+  summary: 'Gets an <xref href="System.Xml.XmlSpace"></xref> representing the current `xml:space` scope.'
   remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0, we recommend that you create <xref:System.Xml.XmlWriter> instances by using the <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName> method and the <xref:System.Xml.XmlWriterSettings> class to take advantage of new functionality.  \n  \n This property allows one component to find out in what state another component has left the writer."
   example:
   - "The following example uses the `WriteWhitespace` method to control how the file is formatted.  \n  \n [!code-cpp[Classic WebData XmlTextWriter.XmlSpace Example#1](~/samples/snippets/cpp/VS_Snippets_Data/Classic WebData XmlTextWriter.XmlSpace Example/CPP/source.cpp#1)]\n [!code-csharp[Classic WebData XmlTextWriter.XmlSpace Example#1](~/samples/snippets/csharp/VS_Snippets_Data/Classic WebData XmlTextWriter.XmlSpace Example/CS/source.cs#1)]\n [!code-vb[Classic WebData XmlTextWriter.XmlSpace Example#1](~/samples/snippets/visualbasic/VS_Snippets_Data/Classic WebData XmlTextWriter.XmlSpace Example/VB/source.vb#1)]"
@@ -2673,7 +2637,7 @@ items:
     content: public override System.Xml.XmlSpace XmlSpace { get; }
     return:
       type: System.Xml.XmlSpace
-      description: "An `XmlSpace` representing the current `xml:space` scope.  \n  \n <table><thead><tr><th> Value  \n  \n </th><th> Meaning  \n  \n </th></tr></thead><tbody><tr><td> None  \n  \n </td><td> This is the default if no `xml:space` scope exists.  \n  \n </td></tr><tr><td> Default  \n  \n </td><td> The current scope is `xml:space`=\"default\".  \n  \n </td></tr><tr><td> Preserve  \n  \n </td><td> The current scope is `xml:space`=\"preserve\".  \n  \n </td></tr></tbody></table>"
+      description: "An `XmlSpace` representing the current `xml:space` scope.  \n  \n <table><thead><tr><th> Value\n </th><th> Meaning\n </th></tr></thead><tbody><tr><td> None\n </td><td> This is the default if no `xml:space` scope exists.  \n  \n </td></tr><tr><td> Default\n </td><td> The current scope is `xml:space`=\"default\".  \n  \n </td></tr><tr><td> Preserve\n </td><td> The current scope is `xml:space`=\"preserve\".  \n  \n </td></tr></tbody></table>"
   overload: System.Xml.XmlTextWriter.XmlSpace*
   exceptions: []
   version:

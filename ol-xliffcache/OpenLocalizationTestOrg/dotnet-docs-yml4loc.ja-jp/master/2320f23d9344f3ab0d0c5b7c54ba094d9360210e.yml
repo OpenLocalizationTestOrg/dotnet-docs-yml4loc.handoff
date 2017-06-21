@@ -28,7 +28,7 @@ items:
   assemblies:
   - System.Data
   namespace: System.Xml
-  summary: Allows structured data to be stored, retrieved, and manipulated through a relational <xref href="System.Data.DataSet"></xref>.
+  summary: 'Allows structured data to be stored, retrieved, and manipulated through a relational <xref href="System.Data.DataSet"></xref>.'
   remarks: "This class extends <xref:System.Xml.XmlDocument>. It enables you to load either relational data or XML data and manipulate that data using the World Wide Web Consortium (W3C) Document Object Model (DOM). The DOM presents data as a hierarchy of node objects. Because `XmlDataDocument` implements the <xref:System.Xml.XPath.IXPathNavigable> interface, it can also be used as the source document for the <xref:System.Xml.Xsl.XslTransform> class.  \n  \n `XmlDataDocument` has a close affiliation with the `DataSet` class, which provides a relational view of the loaded XML data. Any changes made to the `XmlDataDocument` are reflected in the `DataSet` and vice versa.  \n  \n To load a `DataSet` with XML data, use <xref:System.Data.DataSet.ReadXmlSchema%2A> to build a relational mapping. The XML data can then be loaded using <xref:System.Xml.XmlDataDocument.Load%2A> or <xref:System.Xml.XmlDocument.LoadXml%2A>.  \n  \n To load relational data, specify the `DataSet` containing the relational data as the parameter in the <xref:System.Xml.XmlDataDocument.%23ctor%2A> constructor."
   syntax:
     content: >-
@@ -192,7 +192,7 @@ items:
   - System.Data
   namespace: System.Xml
   summary: Initializes a new instance of the <xref href="System.Xml.XmlDataDocument"></xref> class.
-  remarks: An empty <xref:System.Data.DataSet> is created and associated with the `XmlDataDocument`.
+  remarks: 'An empty <xref:System.Data.DataSet> is created and associated with the `XmlDataDocument`.'
   syntax:
     content: public XmlDataDocument ();
     parameters: []
@@ -240,7 +240,7 @@ items:
   - System.Data
   namespace: System.Xml
   summary: Initializes a new instance of the <xref href="System.Xml.XmlDataDocument"></xref> class with the specified <xref href="System.Data.DataSet"></xref>.
-  remarks: The `XmlDataDocument` is synchronized with the specified `DataSet`. Any data in the `DataSet` is immediately available through the `XmlDataDocument`. Any changes in the `DataSet` are propagated in the `XmlDataDocument`. Any changes made in the `XmlDataDocument`, provided they match the `DataSet` schema, are propagated in the `DataSet`.
+  remarks: 'The `XmlDataDocument` is synchronized with the specified `DataSet`. Any data in the `DataSet` is immediately available through the `XmlDataDocument`. Any changes in the `DataSet` are propagated in the `XmlDataDocument`. Any changes made in the `XmlDataDocument`, provided they match the `DataSet` schema, are propagated in the `DataSet`.'
   example:
   - "The following example loads a customer table into an `XmlDataDocument`.  \n  \n The example uses the SQL Server 2000 Northwind database.  \n  \n [!code-cpp[Classic WebData XmlDataDocument.XmlDataDocument1 Example#1](~/samples/snippets/cpp/VS_Snippets_Data/Classic WebData XmlDataDocument.XmlDataDocument1 Example/CPP/source.cpp#1)]\n [!code-csharp[Classic WebData XmlDataDocument.XmlDataDocument1 Example#1](~/samples/snippets/csharp/VS_Snippets_Data/Classic WebData XmlDataDocument.XmlDataDocument1 Example/CS/source.cs#1)]\n [!code-vb[Classic WebData XmlDataDocument.XmlDataDocument1 Example#1](~/samples/snippets/visualbasic/VS_Snippets_Data/Classic WebData XmlDataDocument.XmlDataDocument1 Example/VB/source.vb#1)]"
   syntax:
@@ -348,20 +348,20 @@ items:
   assemblies:
   - System.Data
   namespace: System.Xml
-  summary: Creates an element with the specified <xref href="System.Xml.XmlNode.Prefix"></xref>, <xref href="System.Xml.XmlDocument.LocalName"></xref> , and <xref href="System.Xml.XmlNode.NamespaceURI"></xref>.
+  summary: 'Creates an element with the specified <xref href="System.Xml.XmlNode.Prefix"></xref>, <xref href="System.Xml.XmlDocument.LocalName"></xref> , and <xref href="System.Xml.XmlNode.NamespaceURI"></xref>.'
   remarks: "`Note to Inheritors` If you overload this function, it cannot be used for extensibility. Instead, you can return an element created by the base class, in this case, `XmlDataDocument`. See the following example.  \n  \n```  \nclass MyXmlDataDocument : XmlDataDocument {  \n public override XmlElement CreateElement(string prefix, string localName, string nsURI) {  \n   //Ensure we are returning the base class implementation of element.  \n   XmlElement e = base.CreateElement(prefix, localName, nsURI);  \n   //Add additional code here.  \n   return e;    //Return the element created by XmlDataDocument.  \n }      \n}  \n```"
   syntax:
     content: public override System.Xml.XmlElement CreateElement (string prefix, string localName, string namespaceURI);
     parameters:
     - id: prefix
       type: System.String
-      description: The prefix of the new element. If String.Empty or `null`, there is no prefix.
+      description: 'The prefix of the new element. If String.Empty or `null`, there is no prefix.'
     - id: localName
       type: System.String
       description: The local name of the new element.
     - id: namespaceURI
       type: System.String
-      description: The namespace Uniform Resource Identifier (URI) of the new element. If String.Empty or `null`, there is no namespaceURI.
+      description: 'The namespace Uniform Resource Identifier (URI) of the new element. If String.Empty or `null`, there is no namespaceURI.'
     return:
       type: System.Xml.XmlElement
       description: A new <xref href="System.Xml.XmlElement"></xref>.
@@ -409,7 +409,7 @@ items:
   - System.Data
   namespace: System.Xml
   summary: Creates an <xref href="System.Xml.XmlEntityReference"></xref> with the specified name.
-  remarks: <xref:System.Xml.XmlEntityReference> nodes cannot be created for <xref:System.Xml.XmlDataDocument> objects. Calling this method throws an exception.
+  remarks: '<xref:System.Xml.XmlEntityReference> nodes cannot be created for <xref:System.Xml.XmlDataDocument> objects. Calling this method throws an exception.'
   syntax:
     content: public override System.Xml.XmlEntityReference CreateEntityReference (string name);
     parameters:
@@ -466,7 +466,7 @@ items:
   - System.Data
   namespace: System.Xml
   summary: Creates a new <xref href="System.Xml.XPath.XPathNavigator"></xref> object for navigating this document. The `XPathNavigator` is positioned on the node specified in the <code>node</code> parameter.
-  remarks: The `XPathNavigator` provides read-only, random access to data. Because it is optimized for XSLT transformations, it provides performance benefits when used as an input mechanism to the <xref:System.Xml.Xsl.XslTransform.Transform%2A> method.
+  remarks: 'The `XPathNavigator` provides read-only, random access to data. Because it is optimized for XSLT transformations, it provides performance benefits when used as an input mechanism to the <xref:System.Xml.Xsl.XslTransform.Transform%2A> method.'
   example:
   - To see an XSLT transformation using `XmlDataDocument` and an `XPathNavigator`, see the <xref:System.Xml.Xsl.XslTransform.Transform%2A?displayProperty=fullName> method.
   syntax:
@@ -522,7 +522,7 @@ items:
   - System.Data
   namespace: System.Xml
   summary: Gets a <xref href="System.Data.DataSet"></xref> that provides a relational representation of the data in the `XmlDataDocument`.
-  remarks: The `DataSet` enables you to access the data in the `XmlDataDocument` using a relational model. This means that you can handle the data as tables and views, rows and columns, relations, and so on. Changes made in the `DataSet` are immediately visible in the `XmlDataDocument`.
+  remarks: 'The `DataSet` enables you to access the data in the `XmlDataDocument` using a relational model. This means that you can handle the data as tables and views, rows and columns, relations, and so on. Changes made in the `DataSet` are immediately visible in the `XmlDataDocument`.'
   example:
   - "The following example modifies the price of a book using the `DataSet` methods.  \n  \n [!code-cpp[Classic WebData XmlDataDocument.DataSet Example#1](~/samples/snippets/cpp/VS_Snippets_Data/Classic WebData XmlDataDocument.DataSet Example/CPP/source.cpp#1)]\n [!code-csharp[Classic WebData XmlDataDocument.DataSet Example#1](~/samples/snippets/csharp/VS_Snippets_Data/Classic WebData XmlDataDocument.DataSet Example/CS/source.cs#1)]\n [!code-vb[Classic WebData XmlDataDocument.DataSet Example#1](~/samples/snippets/visualbasic/VS_Snippets_Data/Classic WebData XmlDataDocument.DataSet Example/VB/source.vb#1)]  \n  \n The example uses the following two files as input.  \n  \n `2books.xml`  \n  \n [!code-xml[Classic WebData XmlDataDocument.DataSet Example#2](~/samples/snippets/xml/VS_Snippets_Data/Classic WebData XmlDataDocument.DataSet Example/XML/source.xml#2)]  \n  \n `store.xsd`  \n  \n [!code-xml[Classic WebData XmlDataDocument.DataSet Example#3](~/samples/snippets/xml/VS_Snippets_Data/Classic WebData XmlDataDocument.DataSet Example/XML/source.xml#3)]"
   syntax:
@@ -574,7 +574,7 @@ items:
   - System.Data
   namespace: System.Xml
   summary: Gets the <xref href="System.Xml.XmlElement"></xref> with the specified ID. This method is not supported by the <xref href="System.Xml.XmlDataDocument"></xref> class. Calling this method throws an exception.
-  remarks: This method is not supported by the <xref:System.Xml.XmlDataDocument> class.
+  remarks: 'This method is not supported by the <xref:System.Xml.XmlDataDocument> class.'
   syntax:
     content: public override System.Xml.XmlElement GetElementById (string elemId);
     parameters:
@@ -687,10 +687,7 @@ items:
   - System.Data
   namespace: System.Xml
   summary: Returns an <xref href="System.Xml.XmlNodeList"></xref> containing a list of all descendant elements that match the specified <xref href="System.Xml.XmlDocument.Name"></xref>.
-  remarks: >-
-    > [!NOTE]
-
-    >  It is recommended that you use the <xref:System.Xml.XmlNode.SelectNodes%2A?displayProperty=fullName> or <xref:System.Xml.XmlNode.SelectSingleNode%2A?displayProperty=fullName> method instead of the <xref:System.Xml.XmlDataDocument.GetElementsByTagName%2A> method.
+  remarks: "> [!NOTE]\n>  It is recommended that you use the <xref:System.Xml.XmlNode.SelectNodes%2A?displayProperty=fullName> or <xref:System.Xml.XmlNode.SelectSingleNode%2A?displayProperty=fullName> method instead of the <xref:System.Xml.XmlDataDocument.GetElementsByTagName%2A> method."
   syntax:
     content: public override System.Xml.XmlNodeList GetElementsByTagName (string name);
     parameters:
@@ -966,7 +963,7 @@ items:
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: The XML being loaded contains entity references, and the reader cannot resolve entities.
+    description: 'The XML being loaded contains entity references, and the reader cannot resolve entities.'
   version:
   - netframework-4.5.1
   - netframework-4.5.2

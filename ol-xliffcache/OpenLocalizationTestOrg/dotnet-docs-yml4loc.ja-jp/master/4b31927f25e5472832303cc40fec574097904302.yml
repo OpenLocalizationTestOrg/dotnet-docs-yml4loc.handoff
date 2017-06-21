@@ -391,7 +391,7 @@ items:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
   summary: Gets the default values that are mapped for the table.
-  remarks: By default, Dynamic Data provides Boolean, foreign-key, and enumeration filter templates.
+  remarks: 'By default, Dynamic Data provides Boolean, foreign-key, and enumeration filter templates.'
   syntax:
     content: public string DefaultValue { get; }
     return:
@@ -560,7 +560,7 @@ items:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
   summary: Gets the transformed <xref href="System.Linq.IQueryable"></xref> object from the source <xref href="System.Linq.IQueryable"></xref> object.
-  remarks: You must implement this method if you derive a control from <xref:System.Web.DynamicData.QueryableFilterUserControl>.
+  remarks: 'You must implement this method if you derive a control from <xref:System.Web.DynamicData.QueryableFilterUserControl>.'
   example:
   - "This method is implemented to transform the source <xref:System.Linq.IQueryable> object into the target <xref:System.Linq.IQueryable> object. Examples of <xref:System.Linq.IQueryable> expressions that you might want to implement include order by, range, or search.  \n  \n The following example shows how to implement the <xref:System.Web.DynamicData.QueryableFilterUserControl.GetQueryable%2A> method for a Boolean filter that is derived from <xref:System.Web.DynamicData.QueryableFilterUserControl>.  \n  \n```csharp  \npublic override IQueryable GetQueryable(IQueryable source) {  \n    if (String.IsNullOrEmpty(DropDownList1.SelectedValue)) {  \n        return source;  \n    }  \n  \n    bool value = Convert.ToBoolean(DropDownList1.SelectedValue);  \n  \n    ParameterExpression parameterExpression =   \n        Expression.Parameter(source.ElementType, \"item\");  \n    Expression body = BuildQueryBody(  \n        parameterExpression, value);  \n  \n    LambdaExpression lambda = Expression.Lambda(body,   \n        parameterExpression);  \n    MethodCallExpression whereCall = Expression.Call(  \n        typeof(Queryable),   \n        \"Where\",   \n        new Type[] { source.ElementType },   \n        source.Expression, Expression.Quote(lambda));  \n    return source.Provider.CreateQuery(whereCall);  \n}  \n```  \n  \n```vb  \nPublic Overloads Overrides Function GetQueryable(ByVal source As IQueryable) As IQueryable   \n    If [String].IsNullOrEmpty(DropDownList1.SelectedValue) Then   \n        Return source   \n    End If   \n  \n    Dim value As Boolean = Convert.ToBoolean(DropDownList1.SelectedValue)   \n  \n    Dim parameterExpression As ParameterExpression = Expression.Parameter(source.ElementType, \"item\")   \n    Dim body As Expression = BuildQueryBody(parameterExpression, value)   \n  \n    Dim lambda As LambdaExpression = Expression.Lambda(body, parameterExpression)   \n    Dim whereCall As MethodCallExpression = Expression.[Call](GetType(Queryable), \"Where\", _  \n         New Type() {source.ElementType}, source.Expression, Expression.Quote(lambda))   \n    Return source.Provider.CreateQuery(whereCall)   \nEnd Function  \n```"
   syntax:
@@ -650,7 +650,7 @@ items:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
   summary: Populates a list control with all the foreign-key elements or Boolean elements in the table.
-  remarks: Foreign-key columns are populated with elements from the foreign-key table. Boolean columns are populated with "All", "True", and "False".
+  remarks: 'Foreign-key columns are populated with elements from the foreign-key table. Boolean columns are populated with "All", "True", and "False".'
   syntax:
     content: public void PopulateListControl (System.Web.UI.WebControls.ListControl listControl);
     parameters:

@@ -45,7 +45,7 @@ items:
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
   summary: Provides base functionality for the common language runtime serialization formatters.
-  remarks: <xref:System.Runtime.Serialization.Formatter> is the `abstract` base class for all runtime serialization formatters, and provides some helper methods for implementing the <xref:System.Runtime.Serialization.IFormatter> interface. The <xref:System.Runtime.Serialization.Formatter> also manages queuing objects for serialization and generating IDs on a per-object basis.
+  remarks: '<xref:System.Runtime.Serialization.Formatter> is the `abstract` base class for all runtime serialization formatters, and provides some helper methods for implementing the <xref:System.Runtime.Serialization.IFormatter> interface. The <xref:System.Runtime.Serialization.Formatter> also manages queuing objects for serialization and generating IDs on a per-object basis.'
   syntax:
     content: >-
       [System.CLSCompliant(false)]
@@ -114,7 +114,7 @@ items:
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
   summary: Initializes a new instance of the <xref href="System.Runtime.Serialization.Formatter"></xref> class.
-  remarks: Creates a <xref:System.Collections.Queue> for objects to serialize and a <xref:System.Runtime.Serialization.ObjectIDGenerator> to generate IDs for them.
+  remarks: 'Creates a <xref:System.Collections.Queue> for objects to serialize and a <xref:System.Runtime.Serialization.ObjectIDGenerator> to generate IDs for them.'
   syntax:
     content: protected Formatter ();
     parameters: []
@@ -165,8 +165,8 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
-  summary: When overridden in a derived class, gets or sets the <xref href="System.Runtime.Serialization.SerializationBinder"></xref> used with the current formatter.
-  remarks: The <xref:System.Runtime.Serialization.SerializationBinder> performs lookups for types from the type names passed during deserialization. If no <xref:System.Runtime.Serialization.SerializationBinder> is set, a default is used.
+  summary: 'When overridden in a derived class, gets or sets the <xref href="System.Runtime.Serialization.SerializationBinder"></xref> used with the current formatter.'
+  remarks: 'The <xref:System.Runtime.Serialization.SerializationBinder> performs lookups for types from the type names passed during deserialization. If no <xref:System.Runtime.Serialization.SerializationBinder> is set, a default is used.'
   syntax:
     content: public abstract System.Runtime.Serialization.SerializationBinder Binder { get; set; }
     return:
@@ -219,8 +219,8 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
-  summary: When overridden in a derived class, gets or sets the <xref href="System.Runtime.Serialization.StreamingContext"></xref> used for the current serialization.
-  remarks: The <xref:System.Runtime.Serialization.StreamingContext> is an indication of either the source of the bits being deserialized or the destination of the bits being serialized. It has no impact on default serialization, but is passed as an argument to <xref:System.Runtime.Serialization.ISerializable> and <xref:System.Runtime.Serialization.ISerializationSurrogate>.
+  summary: 'When overridden in a derived class, gets or sets the <xref href="System.Runtime.Serialization.StreamingContext"></xref> used for the current serialization.'
+  remarks: 'The <xref:System.Runtime.Serialization.StreamingContext> is an indication of either the source of the bits being deserialized or the destination of the bits being serialized. It has no impact on default serialization, but is passed as an argument to <xref:System.Runtime.Serialization.ISerializable> and <xref:System.Runtime.Serialization.ISerializationSurrogate>.'
   syntax:
     content: public abstract System.Runtime.Serialization.StreamingContext Context { get; set; }
     return:
@@ -273,7 +273,7 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
-  summary: When overridden in a derived class, deserializes the stream attached to the formatter when it was created, creating a graph of objects identical to the graph originally serialized into that stream.
+  summary: 'When overridden in a derived class, deserializes the stream attached to the formatter when it was created, creating a graph of objects identical to the graph originally serialized into that stream.'
   syntax:
     content: public abstract object Deserialize (System.IO.Stream serializationStream);
     parameters:
@@ -330,8 +330,8 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
-  summary: Returns the next object to serialize, from the formatter's internal work queue.
-  remarks: Objects are returned in a first in first out order based on how they were passed to <xref:System.Runtime.Serialization.Formatter.Schedule%2A>. The ID of the object is put into the `objID` parameter and the object is returned from the function.
+  summary: 'Returns the next object to serialize, from the formatter''s internal work queue.'
+  remarks: 'Objects are returned in a first in first out order based on how they were passed to <xref:System.Runtime.Serialization.Formatter.Schedule%2A>. The ID of the object is put into the `objID` parameter and the object is returned from the function.'
   syntax:
     content: protected virtual object GetNext (out long objID);
     parameters:
@@ -392,7 +392,7 @@ items:
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
   summary: Contains the <xref href="System.Runtime.Serialization.ObjectIDGenerator"></xref> used with the current formatter.
-  remarks: The <xref:System.Runtime.Serialization.ObjectIDGenerator> maintains a list of the objects that have been identified and the IDs that they were given.
+  remarks: 'The <xref:System.Runtime.Serialization.ObjectIDGenerator> maintains a list of the objects that have been identified and the IDs that they were given.'
   syntax:
     content: protected System.Runtime.Serialization.ObjectIDGenerator m_idGenerator;
     return:
@@ -445,7 +445,7 @@ items:
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
   summary: Contains a <xref href="System.Collections.Queue"></xref> of the objects left to serialize.
-  remarks: Objects scheduled for serialization with the <xref:System.Runtime.Serialization.Formatter.Schedule%2A> method are pushed on the queue.
+  remarks: 'Objects scheduled for serialization with the <xref:System.Runtime.Serialization.Formatter.Schedule%2A> method are pushed on the queue.'
   syntax:
     content: protected System.Collections.Queue m_objectQueue;
     return:
@@ -498,7 +498,7 @@ items:
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
   summary: Schedules an object for later serialization.
-  remarks: <xref:System.Runtime.Serialization.Formatter.Schedule%2A> obtains an ID for the object and puts it on the queue for later serialization if this is a new object ID. The schedule is a work queue of objects to serialize, and is held inside the formatter. If the object is already on the work queue, it will not be added a second time, but an exception will not be thrown either.
+  remarks: '<xref:System.Runtime.Serialization.Formatter.Schedule%2A> obtains an ID for the object and puts it on the queue for later serialization if this is a new object ID. The schedule is a work queue of objects to serialize, and is held inside the formatter. If the object is already on the work queue, it will not be added a second time, but an exception will not be thrown either.'
   syntax:
     content: protected virtual long Schedule (object obj);
     parameters:
@@ -555,7 +555,7 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
-  summary: When overridden in a derived class, serializes the graph of objects with the specified root to the stream already attached to the formatter.
+  summary: 'When overridden in a derived class, serializes the graph of objects with the specified root to the stream already attached to the formatter.'
   syntax:
     content: public abstract void Serialize (System.IO.Stream serializationStream, object graph);
     parameters:
@@ -612,7 +612,7 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
-  summary: When overridden in a derived class, gets or sets the <xref href="System.Runtime.Serialization.ISurrogateSelector"></xref> used with the current formatter.
+  summary: 'When overridden in a derived class, gets or sets the <xref href="System.Runtime.Serialization.ISurrogateSelector"></xref> used with the current formatter.'
   remarks: "Use the <xref:System.Runtime.Serialization.SurrogateSelector> to look up implementations of <xref:System.Runtime.Serialization.ISerializationSurrogate> that control the serialization of a particular type.  \n  \n If an object type has a matching surrogate, then serialization and deserialization are handed off to the surrogate even if the type implements the <xref:System.Runtime.Serialization.ISerializable> interface."
   syntax:
     content: public abstract System.Runtime.Serialization.ISurrogateSelector SurrogateSelector { get; set; }
@@ -666,7 +666,7 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
-  summary: When overridden in a derived class, writes an array to the stream already attached to the formatter.
+  summary: 'When overridden in a derived class, writes an array to the stream already attached to the formatter.'
   syntax:
     content: protected abstract void WriteArray (object obj, string name, Type memberType);
     parameters:
@@ -726,7 +726,7 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
-  summary: When overridden in a derived class, writes a Boolean value to the stream already attached to the formatter.
+  summary: 'When overridden in a derived class, writes a Boolean value to the stream already attached to the formatter.'
   syntax:
     content: protected abstract void WriteBoolean (bool val, string name);
     parameters:
@@ -783,7 +783,7 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
-  summary: When overridden in a derived class, writes an 8-bit unsigned integer to the stream already attached to the formatter.
+  summary: 'When overridden in a derived class, writes an 8-bit unsigned integer to the stream already attached to the formatter.'
   syntax:
     content: protected abstract void WriteByte (byte val, string name);
     parameters:
@@ -840,7 +840,7 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
-  summary: When overridden in a derived class, writes a Unicode character to the stream already attached to the formatter.
+  summary: 'When overridden in a derived class, writes a Unicode character to the stream already attached to the formatter.'
   syntax:
     content: protected abstract void WriteChar (char val, string name);
     parameters:
@@ -897,7 +897,7 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
-  summary: When overridden in a derived class, writes a <xref href="System.DateTime"></xref> value to the stream already attached to the formatter.
+  summary: 'When overridden in a derived class, writes a <xref href="System.DateTime"></xref> value to the stream already attached to the formatter.'
   syntax:
     content: protected abstract void WriteDateTime (DateTime val, string name);
     parameters:
@@ -954,7 +954,7 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
-  summary: When overridden in a derived class, writes a <xref href="System.Decimal"></xref> value to the stream already attached to the formatter.
+  summary: 'When overridden in a derived class, writes a <xref href="System.Decimal"></xref> value to the stream already attached to the formatter.'
   syntax:
     content: protected abstract void WriteDecimal (decimal val, string name);
     parameters:
@@ -1011,7 +1011,7 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
-  summary: When overridden in a derived class, writes a double-precision floating-point number to the stream already attached to the formatter.
+  summary: 'When overridden in a derived class, writes a double-precision floating-point number to the stream already attached to the formatter.'
   syntax:
     content: protected abstract void WriteDouble (double val, string name);
     parameters:
@@ -1068,7 +1068,7 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
-  summary: When overridden in a derived class, writes a 16-bit signed integer to the stream already attached to the formatter.
+  summary: 'When overridden in a derived class, writes a 16-bit signed integer to the stream already attached to the formatter.'
   syntax:
     content: protected abstract void WriteInt16 (short val, string name);
     parameters:
@@ -1125,7 +1125,7 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
-  summary: When overridden in a derived class, writes a 32-bit signed integer to the stream.
+  summary: 'When overridden in a derived class, writes a 32-bit signed integer to the stream.'
   syntax:
     content: protected abstract void WriteInt32 (int val, string name);
     parameters:
@@ -1182,7 +1182,7 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
-  summary: When overridden in a derived class, writes a 64-bit signed integer to the stream.
+  summary: 'When overridden in a derived class, writes a 64-bit signed integer to the stream.'
   syntax:
     content: protected abstract void WriteInt64 (long val, string name);
     parameters:
@@ -1239,8 +1239,8 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
-  summary: Inspects the type of data received, and calls the appropriate `Write` method to perform the write to the stream already attached to the formatter.
-  remarks: To use this method properly, all the `Write` methods (<xref:System.Runtime.Serialization.Formatter.WriteArray%2A> method, <xref:System.Runtime.Serialization.Formatter.WriteBoolean%2A> method, <xref:System.Runtime.Serialization.Formatter.WriteByte%2A> method, and so on) should have the appropriate functionality.
+  summary: 'Inspects the type of data received, and calls the appropriate `Write` method to perform the write to the stream already attached to the formatter.'
+  remarks: 'To use this method properly, all the `Write` methods (<xref:System.Runtime.Serialization.Formatter.WriteArray%2A> method, <xref:System.Runtime.Serialization.Formatter.WriteBoolean%2A> method, <xref:System.Runtime.Serialization.Formatter.WriteByte%2A> method, and so on) should have the appropriate functionality.'
   syntax:
     content: protected virtual void WriteMember (string memberName, object data);
     parameters:
@@ -1297,7 +1297,7 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
-  summary: When overridden in a derived class, writes an object reference to the stream already attached to the formatter.
+  summary: 'When overridden in a derived class, writes an object reference to the stream already attached to the formatter.'
   remarks: Schedules the object with the graph walker to handle the work.
   syntax:
     content: protected abstract void WriteObjectRef (object obj, string name, Type memberType);
@@ -1358,7 +1358,7 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
-  summary: When overridden in a derived class, writes an 8-bit signed integer to the stream already attached to the formatter.
+  summary: 'When overridden in a derived class, writes an 8-bit signed integer to the stream already attached to the formatter.'
   syntax:
     content: >-
       [System.CLSCompliant(false)]
@@ -1420,7 +1420,7 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
-  summary: When overridden in a derived class, writes a single-precision floating-point number to the stream already attached to the formatter.
+  summary: 'When overridden in a derived class, writes a single-precision floating-point number to the stream already attached to the formatter.'
   syntax:
     content: protected abstract void WriteSingle (float val, string name);
     parameters:
@@ -1477,7 +1477,7 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
-  summary: When overridden in a derived class, writes a <xref href="System.TimeSpan"></xref> value to the stream already attached to the formatter.
+  summary: 'When overridden in a derived class, writes a <xref href="System.TimeSpan"></xref> value to the stream already attached to the formatter.'
   syntax:
     content: protected abstract void WriteTimeSpan (TimeSpan val, string name);
     parameters:
@@ -1534,7 +1534,7 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
-  summary: When overridden in a derived class, writes a 16-bit unsigned integer to the stream already attached to the formatter.
+  summary: 'When overridden in a derived class, writes a 16-bit unsigned integer to the stream already attached to the formatter.'
   syntax:
     content: >-
       [System.CLSCompliant(false)]
@@ -1596,7 +1596,7 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
-  summary: When overridden in a derived class, writes a 32-bit unsigned integer to the stream already attached to the formatter.
+  summary: 'When overridden in a derived class, writes a 32-bit unsigned integer to the stream already attached to the formatter.'
   syntax:
     content: >-
       [System.CLSCompliant(false)]
@@ -1658,7 +1658,7 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
-  summary: When overridden in a derived class, writes a 64-bit unsigned integer to the stream already attached to the formatter.
+  summary: 'When overridden in a derived class, writes a 64-bit unsigned integer to the stream already attached to the formatter.'
   syntax:
     content: >-
       [System.CLSCompliant(false)]
@@ -1720,7 +1720,7 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
-  summary: When overridden in a derived class, writes a value of the given type to the stream already attached to the formatter.
+  summary: 'When overridden in a derived class, writes a value of the given type to the stream already attached to the formatter.'
   syntax:
     content: protected abstract void WriteValueType (object obj, string name, Type memberType);
     parameters:

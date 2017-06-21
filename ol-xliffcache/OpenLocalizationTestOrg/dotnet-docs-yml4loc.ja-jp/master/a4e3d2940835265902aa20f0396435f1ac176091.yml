@@ -26,8 +26,8 @@ items:
   assemblies:
   - System.Runtime.Serialization.Formatters.Soap
   namespace: System.Runtime.Serialization.Formatters.Soap
-  summary: Serializes and deserializes an object, or an entire graph of connected objects, in SOAP format.
-  remarks: "> [!NOTE]\n>  Beginning with the .NET Framework 2.0, this class is obsolete. Use <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter> instead.  \n  \n The <xref:System.Runtime.Serialization.Formatters.Soap.SoapFormatter> and <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter> classes implement the <xref:System.Runtime.Remoting.Messaging.IRemotingFormatter> interface to support remote procedure calls (RPCs), and the <xref:System.Runtime.Serialization.IFormatter> interface (inherited by the <xref:System.Runtime.Remoting.Messaging.IRemotingFormatter>) to support serialization of a graph of objects. The <xref:System.Runtime.Serialization.Formatters.Soap.SoapFormatter> class also supports RPCs with <xref:System.Runtime.Serialization.Formatters.ISoapMessage> objects, without using the <xref:System.Runtime.Remoting.Messaging.IRemotingFormatter> functionality.  \n  \n During RPCs, the <xref:System.Runtime.Remoting.Messaging.IRemotingFormatter> interface allows the specification of two separate object graphs: the graph of objects to serialize, and an additional graph that contains an array of header objects that convey information about the remote function call (for example, transaction ID or a method signature). For proper serialization, the root object of the first graph must be an object that implements either the <xref:System.Runtime.Remoting.Messaging.IMethodCallMessage> interface or the <xref:System.Runtime.Remoting.Messaging.IMethodReturnMessage> interface.  \n  \n During deserialization of an RPC, a <xref:System.Runtime.Remoting.Messaging.HeaderHandler> delegate is specified to the <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize%2A> method of the formatter. The remoting infrastructure uses the <xref:System.Runtime.Remoting.Messaging.HeaderHandler> delegate to produce an object that supports the <xref:System.Runtime.Serialization.ISerializable> interface. This object contains the information stored in the headers, and becomes the root of the graph returned by the deserializer.  \n  \n The <xref:System.Runtime.Serialization.Formatters.Soap.SoapFormatter> can also handle RPCs that are produced with objects that implement the <xref:System.Runtime.Serialization.Formatters.ISoapMessage> interface. To create an RPC without using the <xref:System.Runtime.Remoting.Messaging.IRemotingFormatter> functionality, place an object that supports the <xref:System.Runtime.Serialization.Formatters.ISoapMessage> interface at the root of a graph being serialized. To deserialize an RPC created in this manner the <xref:System.Runtime.Serialization.Formatters.Soap.SoapFormatter.TopObject%2A> property must be set to another object that supports the <xref:System.Runtime.Serialization.Formatters.ISoapMessage> interface, and contains the relevant remote call information.  \n  \n## TimeSpan Serialization  \n TimeSpan objects are serialized according to the ISO 8601: 1998 section 5.5.3.2.1 \"Alternative\" standard.  \n  \n## Version Information  \n The <xref:System.Runtime.Serialization.Formatters.Soap.SoapFormatter> does not support serialization compatibility between versions of the .NET Framework. Serialization between versions 1.1 and 2.0 types in the Framework often fails. The following actions can be taken to remedy this issue:  \n  \n-   Convert to use the <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter>, which provides compatibility between 1.1 and 2.0.  \n  \n-   Convert existing persisted data to the new format.  \n  \n-   Convert all producers and consumers of serialized data to version 2.0.  \n  \n-   Avoid using types that changed from 1.1 to 2.0."
+  summary: 'Serializes and deserializes an object, or an entire graph of connected objects, in SOAP format.'
+  remarks: "> [!NOTE]\n>  Beginning with the .NET Framework 2.0, this class is obsolete. Use <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter> instead.  \n  \n The <xref:System.Runtime.Serialization.Formatters.Soap.SoapFormatter> and <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter> classes implement the <xref:System.Runtime.Remoting.Messaging.IRemotingFormatter> interface to support remote procedure calls (RPCs), and the <xref:System.Runtime.Serialization.IFormatter> interface (inherited by the <xref:System.Runtime.Remoting.Messaging.IRemotingFormatter>) to support serialization of a graph of objects. The <xref:System.Runtime.Serialization.Formatters.Soap.SoapFormatter> class also supports RPCs with <xref:System.Runtime.Serialization.Formatters.ISoapMessage> objects, without using the <xref:System.Runtime.Remoting.Messaging.IRemotingFormatter> functionality.  \n  \n During RPCs, the <xref:System.Runtime.Remoting.Messaging.IRemotingFormatter> interface allows the specification of two separate object graphs: the graph of objects to serialize, and an additional graph that contains an array of header objects that convey information about the remote function call (for example, transaction ID or a method signature). For proper serialization, the root object of the first graph must be an object that implements either the <xref:System.Runtime.Remoting.Messaging.IMethodCallMessage> interface or the <xref:System.Runtime.Remoting.Messaging.IMethodReturnMessage> interface.  \n  \n During deserialization of an RPC, a <xref:System.Runtime.Remoting.Messaging.HeaderHandler> delegate is specified to the <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize%2A> method of the formatter. The remoting infrastructure uses the <xref:System.Runtime.Remoting.Messaging.HeaderHandler> delegate to produce an object that supports the <xref:System.Runtime.Serialization.ISerializable> interface. This object contains the information stored in the headers, and becomes the root of the graph returned by the deserializer.  \n  \n The <xref:System.Runtime.Serialization.Formatters.Soap.SoapFormatter> can also handle RPCs that are produced with objects that implement the <xref:System.Runtime.Serialization.Formatters.ISoapMessage> interface. To create an RPC without using the <xref:System.Runtime.Remoting.Messaging.IRemotingFormatter> functionality, place an object that supports the <xref:System.Runtime.Serialization.Formatters.ISoapMessage> interface at the root of a graph being serialized. To deserialize an RPC created in this manner the <xref:System.Runtime.Serialization.Formatters.Soap.SoapFormatter.TopObject%2A> property must be set to another object that supports the <xref:System.Runtime.Serialization.Formatters.ISoapMessage> interface, and contains the relevant remote call information.  \n  \n## <a name=\"timespan-serialization\"></a>TimeSpan Serialization  \n TimeSpan objects are serialized according to the ISO 8601: 1998 section 5.5.3.2.1 \"Alternative\" standard.  \n  \n## <a name=\"version-information\"></a>Version Information  \n The <xref:System.Runtime.Serialization.Formatters.Soap.SoapFormatter> does not support serialization compatibility between versions of the .NET Framework. Serialization between versions 1.1 and 2.0 types in the Framework often fails. The following actions can be taken to remedy this issue:  \n  \n-   Convert to use the <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter>, which provides compatibility between 1.1 and 2.0.  \n  \n-   Convert existing persisted data to the new format.  \n  \n-   Convert all producers and consumers of serialized data to version 2.0.  \n  \n-   Avoid using types that changed from 1.1 to 2.0."
   example:
   - >-
     [!code-cpp[SoapFormatter Example#1](~/samples/snippets/cpp/VS_Snippets_Remoting/SoapFormatter Example/CPP/soapformatter.cpp#1)]
@@ -141,7 +141,7 @@ items:
       description: The <xref href="System.Runtime.Serialization.ISurrogateSelector"></xref> to use with the new instance of <xref href="System.Runtime.Serialization.Formatters.Soap.SoapFormatter"></xref>. Can be `null`.
     - id: context
       type: System.Runtime.Serialization.StreamingContext
-      description: The <xref href="System.Runtime.Serialization.StreamingContext"></xref> that holds the source and destination of the serialization. If the <code>context</code> parameter is `null`, then the <xref href="System.Runtime.Serialization.Formatters.Soap.SoapFormatter.Context"></xref> defaults to <xref href="System.Runtime.Serialization.StreamingContextStates.CrossMachine"></xref>.
+      description: 'The <xref href="System.Runtime.Serialization.StreamingContext"></xref> that holds the source and destination of the serialization. If the <code>context</code> parameter is `null`, then the <xref href="System.Runtime.Serialization.Formatters.Soap.SoapFormatter.Context"></xref> defaults to <xref href="System.Runtime.Serialization.StreamingContextStates.CrossMachine"></xref>.'
   overload: System.Runtime.Serialization.Formatters.Soap.SoapFormatter.#ctor*
   exceptions: []
   version:
@@ -269,7 +269,7 @@ items:
   - System.Runtime.Serialization.Formatters.Soap
   namespace: System.Runtime.Serialization.Formatters.Soap
   summary: Gets or sets the <xref href="System.Runtime.Serialization.StreamingContext"></xref> used with this <xref href="System.Runtime.Serialization.Formatters.Soap.SoapFormatter"></xref>.
-  remarks: The <xref:System.Runtime.Serialization.StreamingContext> provides an enumeration that describes the source and the destination for a given serialized stream, as well as a way for serialization to retain that context and an additional caller-defined context.
+  remarks: 'The <xref:System.Runtime.Serialization.StreamingContext> provides an enumeration that describes the source and the destination for a given serialized stream, as well as a way for serialization to retain that context and an additional caller-defined context.'
   syntax:
     content: public System.Runtime.Serialization.StreamingContext Context { get; set; }
     return:
@@ -371,7 +371,7 @@ items:
   - System.Runtime.Serialization.Formatters.Soap
   namespace: System.Runtime.Serialization.Formatters.Soap
   summary: Deserializes the stream into an object graph with any headers in that stream being handled by the given <xref href="System.Runtime.Remoting.Messaging.HeaderHandler"></xref>.
-  remarks: "Headers are used only for specific remoting applications. The <xref:System.Runtime.Remoting.Messaging.HeaderHandler> parameter is one of two ways to return headers from a stream in SOAP Remote Procedure Call (RPC) format. The other way is to use the <xref:System.Runtime.Serialization.Formatters.Soap.SoapFormatter.TopObject%2A> property.  \n  \n For successful deserialization, the current position in the stream must be at the beginning of the object graph.  \n  \n## TimeSpan Serialization  \n TimeSpan objects are serialized according to the ISO 8601: 1998 section 5.5.3.2.1 \"Alternative\" standard.  \n  \n> [!IMPORTANT]\n>  Calling this method with untrusted data is a security risk. Call this method only with trusted data. For more information, see [Untrusted Data Security Risks](http://go.microsoft.com/fwlink/?LinkId=330378)."
+  remarks: "Headers are used only for specific remoting applications. The <xref:System.Runtime.Remoting.Messaging.HeaderHandler> parameter is one of two ways to return headers from a stream in SOAP Remote Procedure Call (RPC) format. The other way is to use the <xref:System.Runtime.Serialization.Formatters.Soap.SoapFormatter.TopObject%2A> property.  \n  \n For successful deserialization, the current position in the stream must be at the beginning of the object graph.  \n  \n## <a name=\"timespan-serialization\"></a>TimeSpan Serialization  \n TimeSpan objects are serialized according to the ISO 8601: 1998 section 5.5.3.2.1 \"Alternative\" standard.  \n  \n> [!IMPORTANT]\n>  Calling this method with untrusted data is a security risk. Call this method only with trusted data. For more information, see [Untrusted Data Security Risks](http://go.microsoft.com/fwlink/?LinkId=330378)."
   syntax:
     content: public object Deserialize (System.IO.Stream serializationStream, System.Runtime.Remoting.Messaging.HeaderHandler handler);
     parameters:
@@ -391,7 +391,7 @@ items:
     description: <code>serializationStream</code> is `null`.
   - type: System.Runtime.Serialization.SerializationException
     commentId: T:System.Runtime.Serialization.SerializationException
-    description: <code>serializationStream</code> supports seeking, and its length is 0.
+    description: '<code>serializationStream</code> supports seeking, and its length is 0.'
   version:
   - netframework-4.5.1
   - netframework-4.5.2
@@ -429,7 +429,7 @@ items:
   - System.Runtime.Serialization.Formatters.Soap
   namespace: System.Runtime.Serialization.Formatters.Soap
   summary: Gets or sets the <xref href="System.Runtime.Serialization.Formatters.TypeFilterLevel"></xref> of automatic deserialization for .NET Framework remoting.
-  remarks: Supported values are <xref:System.Runtime.Serialization.Formatters.TypeFilterLevel.Low> and <xref:System.Runtime.Serialization.Formatters.TypeFilterLevel.Full> (the default). For details about deserialization levels, see [Automatic Deserialization in .NET Remoting](http://msdn.microsoft.com/en-us/313a0e88-5b2b-4a17-8391-0ddf9f7a787b).
+  remarks: 'Supported values are <xref:System.Runtime.Serialization.Formatters.TypeFilterLevel.Low> and <xref:System.Runtime.Serialization.Formatters.TypeFilterLevel.Full> (the default). For details about deserialization levels, see [Automatic Deserialization in .NET Remoting](http://msdn.microsoft.com/en-us/313a0e88-5b2b-4a17-8391-0ddf9f7a787b).'
   syntax:
     content: public System.Runtime.Serialization.Formatters.TypeFilterLevel FilterLevel { get; set; }
     return:
@@ -488,7 +488,7 @@ items:
       description: The stream onto which the formatter puts the data to serialize.
     - id: graph
       type: System.Object
-      description: The object, or root of the object graph, to serialize. All child objects of this root object are automatically serialized.
+      description: 'The object, or root of the object graph, to serialize. All child objects of this root object are automatically serialized.'
   overload: System.Runtime.Serialization.Formatters.Soap.SoapFormatter.Serialize*
   exceptions:
   - type: System.ArgumentNullException
@@ -586,7 +586,7 @@ items:
   - System.Runtime.Serialization.Formatters.Soap
   namespace: System.Runtime.Serialization.Formatters.Soap
   summary: Gets or sets the <xref href="System.Runtime.Serialization.SurrogateSelector"></xref> that controls type substitution during serialization and deserialization.
-  remarks: Used by <xref:System.Runtime.Remoting> to generate <xref:System.Runtime.Remoting.ObjRef> instances for <xref:System.MarshalByRefObject> objects.
+  remarks: 'Used by <xref:System.Runtime.Remoting> to generate <xref:System.Runtime.Remoting.ObjRef> instances for <xref:System.MarshalByRefObject> objects.'
   syntax:
     content: public System.Runtime.Serialization.ISurrogateSelector SurrogateSelector { get; set; }
     return:
@@ -631,7 +631,7 @@ items:
   - System.Runtime.Serialization.Formatters.Soap
   namespace: System.Runtime.Serialization.Formatters.Soap
   summary: Gets or sets the <xref href="System.Runtime.Serialization.Formatters.ISoapMessage"></xref> into which the SOAP top object is deserialized.
-  remarks: This property is used for SOAP remote procedure call (RPC) format and specifies that the SOAP top record is a method called remotely, not a common language runtime object type.
+  remarks: 'This property is used for SOAP remote procedure call (RPC) format and specifies that the SOAP top record is a method called remotely, not a common language runtime object type.'
   syntax:
     content: public System.Runtime.Serialization.Formatters.ISoapMessage TopObject { get; set; }
     return:

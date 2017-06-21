@@ -38,7 +38,7 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: Implements the <code>GenerateApplicationManifest</code> task. Use the <code>GenerateApplicationManifest</code> element in the project file to create and execute this task. For usage and parameter information, see [GenerateApplicationManifest Task](http://msdn.microsoft.com/library/a494102b-0cb2-4755-8e2a-d2c0f39fac1d).
+  summary: 'Implements the <code>GenerateApplicationManifest</code> task. Use the <code>GenerateApplicationManifest</code> element in the project file to create and execute this task. For usage and parameter information, see [GenerateApplicationManifest Task](http://msdn.microsoft.com/library/a494102b-0cb2-4755-8e2a-d2c0f39fac1d).'
   remarks: "`EntryPoint` is an optional <xref:Microsoft.Build.Framework.ITaskItem>`[]` parameter that indicates the entry point for the generated manifest assembly. For a [!INCLUDE[ndptecclick](~/includes/ndptecclick-md.md)] deployment manifest, this input specifies the [!INCLUDE[ndptecclick](~/includes/ndptecclick-md.md)] application manifest.  \n  \n In [!INCLUDE[vsprvslong](~/includes/vsprvslong-md.md)], the [GenerateApplicationManifest Task](http://msdn.microsoft.com/library/a494102b-0cb2-4755-8e2a-d2c0f39fac1d) requires an `EntryPoint` when an application manifest is generated. (Assembly or native manifests do not require an `EntryPoint`.) This requirement is enforced by the build error \"MSB3185: EntryPoint not specified for manifest.\"  \n  \n In [!INCLUDE[vs_orcas_long](~/includes/vs-orcas-long-md.md)], [!INCLUDE[vstecmsbuild](~/includes/vstecmsbuild-md.md)] does not issue this error when the `EntryPoint` task parameter is not specified. Instead, the \\<customHostSpecified> tag is inserted as a child of the \\<entryPoint> tag, for example, as follows.  \n  \n```  \n<entryPoint xmlns=\"urn:schemas-   \n  microsoft-com:asm.v2\">  \n    <co.v1:customHostSpecified />  \n</entryPoint>  \n```  \n  \n You can add DLL dependencies to the application manifest by using the following steps:  \n  \n1.  Resolve the references in the assembly by using a call to <xref:Microsoft.Build.Tasks.ResolveAssemblyReference>.  \n  \n2.  Pass the output of the previous task and the assembly itself to <xref:Microsoft.Build.Tasks.ResolveManifestFiles>.  \n  \n3.  Pass the dependencies by using the `Dependencies` parameter to <xref:Microsoft.Build.Tasks.GenerateApplicationManifest>."
   syntax:
     content: 'public sealed class GenerateApplicationManifest : Microsoft.Build.Tasks.GenerateManifestBase'
@@ -154,7 +154,7 @@ items:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
   summary: Gets or sets the minimum version of the Common Language Runtime (CLR) required by the application.
-  remarks: By default, the value is the CLR version in use by the build system. If the task is generating a native manifest, this property is ignored.
+  remarks: 'By default, the value is the CLR version in use by the build system. If the task is generating a native manifest, this property is ignored.'
   syntax:
     content: public string ClrVersion { get; set; }
     return:
@@ -196,7 +196,7 @@ items:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
   summary: Gets or sets the task item that contains the application configuration file.
-  remarks: If the task is generating a native manifest, this property is ignored.
+  remarks: 'If the task is generating a native manifest, this property is ignored.'
   syntax:
     content: public Microsoft.Build.Framework.ITaskItem ConfigFile { get; set; }
     return:
@@ -321,7 +321,7 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: Gets or sets a list of one or more file type that are associated with the ClickOnce deployment manifest. File associations only valid only when [!INCLUDE[dnprdnshort](~/includes/dnprdnshort-md.md)] 3.5 or later is targeted.
+  summary: 'Gets or sets a list of one or more file type that are associated with the ClickOnce deployment manifest. File associations only valid only when [!INCLUDE[dnprdnshort](~/includes/dnprdnshort-md.md)] 3.5 or later is targeted.'
   remarks: "File types can be custom. The following is an example of a [\\<fileAssociation> Element (ClickOnce Application)](http://msdn.microsoft.com/library/8f951b4f-54f9-412e-a9e5-af4e379fcf08):  \n  \n```  \n<FileAssociation Include=\".nyt\">  \n    <ProgId>NewYorkTimes.Document</ProgId>  \n    <DefaultIcon>nyt.ico</DefaultIcon>  \n    <Description>New York Times Reader document</Description>  \n</FileAssociation>  \n```"
   syntax:
     content: public Microsoft.Build.Framework.ITaskItem[] FileAssociations { get; set; }
@@ -448,7 +448,7 @@ items:
     content: public bool HostInBrowser { get; set; }
     return:
       type: System.Boolean
-      description: A Boolean value that indicates whether the application being deployed will be hosted in a browser (`true`), or not (`false`). `true` only applies to WPF Web Browser Applications.
+      description: 'A Boolean value that indicates whether the application being deployed will be hosted in a browser (`true`), or not (`false`). `true` only applies to WPF Web Browser Applications.'
   overload: Microsoft.Build.Tasks.GenerateApplicationManifest.HostInBrowser*
   exceptions: []
   version:
@@ -485,7 +485,7 @@ items:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
   summary: Gets or sets the application's icon file.
-  remarks: The application icon is expressed in the generated application manifest and is used on the **Start** menu and in the **Uninstall or change a program** dialog box. If this input is not specified, a default icon is used. If the task is generating a native manifest, this property is ignored.
+  remarks: 'The application icon is expressed in the generated application manifest and is used on the **Start** menu and in the **Uninstall or change a program** dialog box. If this input is not specified, a default icon is used. If the task is generating a native manifest, this property is ignored.'
   syntax:
     content: public Microsoft.Build.Framework.ITaskItem IconFile { get; set; }
     return:
@@ -735,7 +735,7 @@ items:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
   summary: Specifies the <code>ProductName</code> property in the project file.
-  remarks: This property corresponds to the `ProductName` property in the project file. The default value is `null`. If `ProductName` is null and <xref:Microsoft.Build.Tasks.GenerateApplicationManifest.UseApplicationTrust%2A> is `true`, the RegisteredOrganization value in the registry is written to the application manifest. If RegisteredOrganization is also null, the assembly name is used.
+  remarks: 'This property corresponds to the `ProductName` property in the project file. The default value is `null`. If `ProductName` is null and <xref:Microsoft.Build.Tasks.GenerateApplicationManifest.UseApplicationTrust%2A> is `true`, the RegisteredOrganization value in the registry is written to the application manifest. If RegisteredOrganization is also null, the assembly name is used.'
   syntax:
     content: public string Product { get; set; }
     return:
@@ -777,7 +777,7 @@ items:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
   summary: Specifies the <code>PublisherName</code> property in the project file.
-  remarks: This property corresponds to the `PublisherName` property in the project file. The default value is `null`. If `PublisherName` is null and <xref:Microsoft.Build.Tasks.GenerateApplicationManifest.UseApplicationTrust%2A> is `true`, the assembly name is written to the application manifest.
+  remarks: 'This property corresponds to the `PublisherName` property in the project file. The default value is `null`. If `PublisherName` is null and <xref:Microsoft.Build.Tasks.GenerateApplicationManifest.UseApplicationTrust%2A> is `true`, the assembly name is written to the application manifest.'
   syntax:
     content: public string Publisher { get; set; }
     return:
@@ -901,7 +901,7 @@ items:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
   summary: Specifies the <code>SupportUrl</code> property in the project file.
-  remarks: This property corresponds to the `SupportUrl` property in the project file. The default value is **null**. If `SupportUrl` is null and <xref:Microsoft.Build.Tasks.GenerateApplicationManifest.UseApplicationTrust%2A> is `true`, an empty string is written to the application manifest.
+  remarks: 'This property corresponds to the `SupportUrl` property in the project file. The default value is **null**. If `SupportUrl` is null and <xref:Microsoft.Build.Tasks.GenerateApplicationManifest.UseApplicationTrust%2A> is `true`, an empty string is written to the application manifest.'
   syntax:
     content: public string SupportUrl { get; set; }
     return:
@@ -983,12 +983,12 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: Gets or sets the name of the [!INCLUDE[dnprdnshort](~/includes/dnprdnshort-md.md)] subset to target.
+  summary: 'Gets or sets the name of the [!INCLUDE[dnprdnshort](~/includes/dnprdnshort-md.md)] subset to target.'
   syntax:
     content: public string TargetFrameworkSubset { get; set; }
     return:
       type: System.String
-      description: The name of the [!INCLUDE[dnprdnshort](~/includes/dnprdnshort-md.md)] subset.
+      description: 'The name of the [!INCLUDE[dnprdnshort](~/includes/dnprdnshort-md.md)] subset.'
   overload: Microsoft.Build.Tasks.GenerateApplicationManifest.TargetFrameworkSubset*
   exceptions: []
   version:
@@ -1025,7 +1025,7 @@ items:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
   summary: Gets or sets an XML document that specifies the application security.
-  remarks: The root element in the XML document must be a trustInfo node in the asm.v2 namespace. If the task is generating a native manifest, this property is ignored.
+  remarks: 'The root element in the XML document must be a trustInfo node in the asm.v2 namespace. If the task is generating a native manifest, this property is ignored.'
   syntax:
     content: public Microsoft.Build.Framework.ITaskItem TrustInfoFile { get; set; }
     return:
@@ -1066,13 +1066,13 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: Specifies whether the <xref href="Microsoft.Build.Tasks.GenerateApplicationManifest.Product"></xref>, <xref href="Microsoft.Build.Tasks.GenerateApplicationManifest.Publisher"></xref>, and <xref href="Microsoft.Build.Tasks.GenerateApplicationManifest.SupportUrl"></xref> properties are written to the application manifest.
+  summary: 'Specifies whether the <xref href="Microsoft.Build.Tasks.GenerateApplicationManifest.Product"></xref>, <xref href="Microsoft.Build.Tasks.GenerateApplicationManifest.Publisher"></xref>, and <xref href="Microsoft.Build.Tasks.GenerateApplicationManifest.SupportUrl"></xref> properties are written to the application manifest.'
   remarks: "The <xref:Microsoft.Build.Tasks.GenerateApplicationManifest.Product%2A>, <xref:Microsoft.Build.Tasks.GenerateApplicationManifest.Publisher%2A>, and <xref:Microsoft.Build.Tasks.GenerateApplicationManifest.SupportUrl%2A> properties default to `null`. These properties are only used if <xref:Microsoft.Build.Tasks.GenerateApplicationManifest.UseApplicationTrust%2A> is `true`; if so, the values of these properties are written to the corresponding tags in the application manifest.  \n  \n If <xref:Microsoft.Build.Tasks.GenerateApplicationManifest.UseApplicationTrust%2A> is `false` (the default value), these properties are ignored."
   syntax:
     content: public bool UseApplicationTrust { get; set; }
     return:
       type: System.Boolean
-      description: A Boolean value that indicates whether the <xref href="Microsoft.Build.Tasks.GenerateApplicationManifest.Product"></xref>, <xref href="Microsoft.Build.Tasks.GenerateApplicationManifest.Publisher"></xref>, and <xref href="Microsoft.Build.Tasks.GenerateApplicationManifest.SupportUrl"></xref> properties are written to the application manifest (`true`). If the value is `false`, these properties are ignored.
+      description: 'A Boolean value that indicates whether the <xref href="Microsoft.Build.Tasks.GenerateApplicationManifest.Product"></xref>, <xref href="Microsoft.Build.Tasks.GenerateApplicationManifest.Publisher"></xref>, and <xref href="Microsoft.Build.Tasks.GenerateApplicationManifest.SupportUrl"></xref> properties are written to the application manifest (`true`). If the value is `false`, these properties are ignored.'
   overload: Microsoft.Build.Tasks.GenerateApplicationManifest.UseApplicationTrust*
   exceptions: []
   version:

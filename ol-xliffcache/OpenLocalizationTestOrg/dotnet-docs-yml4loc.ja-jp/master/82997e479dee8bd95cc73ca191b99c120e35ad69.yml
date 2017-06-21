@@ -203,7 +203,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media.Imaging
   summary: Initializes a new instance of the <xref href="System.Windows.Media.Imaging.WriteableBitmap"></xref> class with the specified parameters.
-  remarks: The preferred values for `pixelFormat` are <xref:System.Windows.Media.PixelFormats.Bgr32%2A> and <xref:System.Windows.Media.PixelFormats.Pbgra32%2A>. These formats are natively supported and do not require a format conversion. Other `pixelFormat` values require a format conversion for each frame update, which reduces performance.
+  remarks: 'The preferred values for `pixelFormat` are <xref:System.Windows.Media.PixelFormats.Bgr32%2A> and <xref:System.Windows.Media.PixelFormats.Pbgra32%2A>. These formats are natively supported and do not require a format conversion. Other `pixelFormat` values require a format conversion for each frame update, which reduces performance.'
   syntax:
     content: >-
       [System.Security.SecurityCritical]
@@ -218,10 +218,10 @@ items:
       description: The desired height of the bitmap.
     - id: dpiX
       type: System.Double
-      description: The horizontal [!INCLUDE[TLA#tla_dpi](~/includes/tlasharptla-dpi-md.md)] of the bitmap.
+      description: 'The horizontal [!INCLUDE[TLA#tla_dpi](~/includes/tlasharptla-dpi-md.md)] of the bitmap.'
     - id: dpiY
       type: System.Double
-      description: The vertical [!INCLUDE[TLA#tla_dpi](~/includes/tlasharptla-dpi-md.md)] of the bitmap.
+      description: 'The vertical [!INCLUDE[TLA#tla_dpi](~/includes/tlasharptla-dpi-md.md)] of the bitmap.'
     - id: pixelFormat
       type: System.Windows.Media.PixelFormat
       description: The <xref href="System.Windows.Media.PixelFormat"></xref> of the bitmap.
@@ -326,7 +326,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media.Imaging
   summary: Gets a pointer to the back buffer.
-  remarks: "The back buffer contains the bitmap contents in the pixel format requested by the user.  \n  \n Update the back buffer only between calls to the <xref:System.Windows.Media.Imaging.WriteableBitmap.Lock%2A> and <xref:System.Windows.Media.Imaging.WriteableBitmap.Unlock%2A> methods. If you do not follow the Lock/Unlock workflow described in the <xref:System.Windows.Media.Imaging.WriteableBitmap> class remarks, undefined behaviors, such as tearing, can occur.  \n  \n The address of the back buffer does not change.  \n  \n## Thread Safety  \n You can pass the <xref:System.Windows.Media.Imaging.WriteableBitmap.BackBuffer%2A> pointer to external components and other threads for processing, but if you do, you must provide you own thread coordination. In particular, you must ensure that the UI thread specifies changed areas by calling the <xref:System.Windows.Media.Imaging.WriteableBitmap.AddDirtyRect%2A> method, and that the UI thread unlocks the buffer by calling the <xref:System.Windows.Media.Imaging.WriteableBitmap.Unlock%2A> method."
+  remarks: "The back buffer contains the bitmap contents in the pixel format requested by the user.  \n  \n Update the back buffer only between calls to the <xref:System.Windows.Media.Imaging.WriteableBitmap.Lock%2A> and <xref:System.Windows.Media.Imaging.WriteableBitmap.Unlock%2A> methods. If you do not follow the Lock/Unlock workflow described in the <xref:System.Windows.Media.Imaging.WriteableBitmap> class remarks, undefined behaviors, such as tearing, can occur.  \n  \n The address of the back buffer does not change.  \n  \n## <a name=\"thread-safety\"></a>Thread Safety  \n You can pass the <xref:System.Windows.Media.Imaging.WriteableBitmap.BackBuffer%2A> pointer to external components and other threads for processing, but if you do, you must provide you own thread coordination. In particular, you must ensure that the UI thread specifies changed areas by calling the <xref:System.Windows.Media.Imaging.WriteableBitmap.AddDirtyRect%2A> method, and that the UI thread unlocks the buffer by calling the <xref:System.Windows.Media.Imaging.WriteableBitmap.Unlock%2A> method."
   syntax:
     content: >-
       [get: System.Security.SecurityCritical]
@@ -420,7 +420,7 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Imaging
-  summary: Creates a modifiable clone of this <xref href="System.Windows.Media.Imaging.WriteableBitmap"></xref>, making deep copies of this object's values. When copying dependency properties, this method copies resource references and data bindings (but they might no longer resolve) but not animations or their current values.
+  summary: 'Creates a modifiable clone of this <xref href="System.Windows.Media.Imaging.WriteableBitmap"></xref>, making deep copies of this object''s values. When copying dependency properties, this method copies resource references and data bindings (but they might no longer resolve) but not animations or their current values.'
   remarks: "This method is used to produce modifiable copies of frozen <xref:System.Windows.Freezable> objects (or any <xref:System.Windows.Freezable> object). For convenience, this method shadows the inherited version with a strongly typed implementation.  \n  \n For more information, see <xref:System.Windows.Freezable.Clone%2A?displayProperty=fullName>."
   syntax:
     content: public System.Windows.Media.Imaging.WriteableBitmap Clone ();
@@ -511,7 +511,7 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Imaging
-  summary: Creates a modifiable clone of this <xref href="System.Windows.Media.Animation.ByteAnimationUsingKeyFrames"></xref> object, making deep copies of this object's current values. Resource references, data bindings, and animations are not copied, but their current values are.
+  summary: 'Creates a modifiable clone of this <xref href="System.Windows.Media.Animation.ByteAnimationUsingKeyFrames"></xref> object, making deep copies of this object''s current values. Resource references, data bindings, and animations are not copied, but their current values are.'
   remarks: "This method is used to produce modifiable copies of frozen <xref:System.Windows.Freezable> objects (or any <xref:System.Windows.Freezable> object). For convenience, this method shadows the inherited version with a strongly typed implementation.  \n  \n For more information, see <xref:System.Windows.Freezable.CloneCurrentValue%2A?displayProperty=fullName>."
   syntax:
     content: public System.Windows.Media.Imaging.WriteableBitmap CloneCurrentValue ();
@@ -825,8 +825,8 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Imaging
-  summary: Attempts to lock the bitmap, waiting for no longer than the specified length of time.
-  remarks: When a lock is acquired, the behavior of the <xref:System.Windows.Media.Imaging.WriteableBitmap.TryLock%2A> method is the same as the <xref:System.Windows.Media.Imaging.WriteableBitmap.Lock%2A> method.
+  summary: 'Attempts to lock the bitmap, waiting for no longer than the specified length of time.'
+  remarks: 'When a lock is acquired, the behavior of the <xref:System.Windows.Media.Imaging.WriteableBitmap.TryLock%2A> method is the same as the <xref:System.Windows.Media.Imaging.WriteableBitmap.Lock%2A> method.'
   syntax:
     content: >-
       [System.Security.SecurityCritical]
@@ -882,7 +882,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media.Imaging
   summary: Releases the back buffer to make it available for display.
-  remarks: The <xref:System.Windows.Media.Imaging.WriteableBitmap.Unlock%2A> method decrements the lock count. When the lock count reaches 0, a render pass is requested if the <xref:System.Windows.Media.Imaging.WriteableBitmap.AddDirtyRect%2A> method has been called.
+  remarks: 'The <xref:System.Windows.Media.Imaging.WriteableBitmap.Unlock%2A> method decrements the lock count. When the lock count reaches 0, a render pass is requested if the <xref:System.Windows.Media.Imaging.WriteableBitmap.AddDirtyRect%2A> method has been called.'
   example:
   - "The following code example shows how to release the back buffer by using the <xref:System.Windows.Media.Imaging.WriteableBitmap.Unlock%2A> method.  \n  \n [!code-csharp[WriteableBitmap2#2](~/samples/snippets/csharp/VS_Snippets_Wpf/WriteableBitmap2/CS/Program.cs#2)]"
   syntax:
@@ -959,13 +959,13 @@ items:
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "One or more of the following conditions is true.  \n  \n <code>sourceRect</code> falls outside the bounds of the <xref href=\"System.Windows.Media.Imaging.WriteableBitmap\"></xref>.  \n  \n <code>stride</code> < 1  \n  \n <code>offset</code> < 0"
+    description: "One or more of the following conditions is true.  \n  \n <code>sourceRect</code> falls outside the bounds of the <xref href=\"System.Windows.Media.Imaging.WriteableBitmap\"></xref>.  \n  \n <code>stride</code> < 1  <code>offset</code> < 0"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>pixels</code> is `null`.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>pixels</code> has a rank other than 1 or 2, or its length is less than or equal to 0.
+    description: '<code>pixels</code> has a rank other than 1 or 2, or its length is less than or equal to 0.'
   attributes:
   - type: System.Security.SecurityCriticalAttribute
   version:
@@ -1027,7 +1027,7 @@ items:
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "One or more of the following conditions is true.  \n  \n <code>sourceRect</code> falls outside the bounds of the <xref href=\"System.Windows.Media.Imaging.WriteableBitmap\"></xref>.  \n  \n <code>bufferSize</code> < 1  \n  \n <code>stride</code> < 1"
+    description: "One or more of the following conditions is true.  \n  \n <code>sourceRect</code> falls outside the bounds of the <xref href=\"System.Windows.Media.Imaging.WriteableBitmap\"></xref>.  \n  \n <code>bufferSize</code> < 1  <code>stride</code> < 1"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>buffer</code> is `null`.
@@ -1084,7 +1084,7 @@ items:
       description: The input buffer used to update the bitmap.
     - id: sourceBufferStride
       type: System.Int32
-      description: The stride of the input buffer, in bytes.
+      description: 'The stride of the input buffer, in bytes.'
     - id: destinationX
       type: System.Int32
       description: The destination x-coordinate of the left-most pixel in the back buffer.
@@ -1101,7 +1101,7 @@ items:
     description: <code>sourceBuffer</code> is `null`.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>sourceBuffer</code> has a rank other than 1 or 2, or its length is less than or equal to 0.
+    description: '<code>sourceBuffer</code> has a rank other than 1 or 2, or its length is less than or equal to 0.'
   attributes:
   - type: System.Security.SecurityCriticalAttribute
   version:
@@ -1157,7 +1157,7 @@ items:
       description: The size of the input buffer.
     - id: sourceBufferStride
       type: System.Int32
-      description: The stride of the input buffer, in bytes.
+      description: 'The stride of the input buffer, in bytes.'
     - id: destinationX
       type: System.Int32
       description: The destination x-coordinate of the left-most pixel in the back buffer.
@@ -1168,7 +1168,7 @@ items:
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "One or more of the following conditions is true.  \n  \n <code>sourceRect</code> falls outside the bounds of the <xref href=\"System.Windows.Media.Imaging.WriteableBitmap\"></xref>.  \n  \n <code>destinationX</code> or <code>destinationY</code> is outside the bounds of the <xref href=\"System.Windows.Media.Imaging.WriteableBitmap\"></xref>.  \n  \n <code>sourceBufferSize</code> < 1  \n  \n <code>sourceBufferStride</code> < 1"
+    description: "One or more of the following conditions is true.  \n  \n <code>sourceRect</code> falls outside the bounds of the <xref href=\"System.Windows.Media.Imaging.WriteableBitmap\"></xref>.  \n  \n <code>destinationX</code> or <code>destinationY</code> is outside the bounds of the <xref href=\"System.Windows.Media.Imaging.WriteableBitmap\"></xref>.  \n  \n <code>sourceBufferSize</code> < 1  <code>sourceBufferStride</code> < 1"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>sourceBuffer</code> is `null`.

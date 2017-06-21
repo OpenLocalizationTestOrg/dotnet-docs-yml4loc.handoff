@@ -494,7 +494,7 @@ items:
   - System.Runtime
   namespace: System.Reflection
   summary: Gets the base type for the current type.
-  remarks: The base type is the type from which this type directly inherits. Since the <xref:System.Object> class type is the ultimate base class of all the other types, it is the only type that does not have a base type. In this case, `null` is returned as the base type of the `Object` type.
+  remarks: 'The base type is the type from which this type directly inherits. Since the <xref:System.Object> class type is the ultimate base class of all the other types, it is the only type that does not have a base type. In this case, `null` is returned as the base type of the `Object` type.'
   syntax:
     content: public override Type BaseType { get; }
     return:
@@ -606,7 +606,7 @@ items:
   - System.Runtime
   namespace: System.Reflection
   summary: Gets the attributes assigned to the `TypeDelegator`.
-  remarks: This method can be used to determine if the `TypeDelegator` is abstract, public, and so on.
+  remarks: 'This method can be used to determine if the `TypeDelegator` is abstract, public, and so on.'
   syntax:
     content: protected override System.Reflection.TypeAttributes GetAttributeFlagsImpl ();
     parameters: []
@@ -663,7 +663,7 @@ items:
   - System.Runtime
   namespace: System.Reflection
   summary: Gets the constructor that implemented the `TypeDelegator`.
-  remarks: The `callConvention` parameter indicates the calling convention for the entry point. If no calling convention is specified, a default <xref:System.Reflection.CallingConventions> value of `Standard` is used.
+  remarks: 'The `callConvention` parameter indicates the calling convention for the entry point. If no calling convention is specified, a default <xref:System.Reflection.CallingConventions> value of `Standard` is used.'
   syntax:
     content: protected override System.Reflection.ConstructorInfo GetConstructorImpl (System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Reflection.CallingConventions callConvention, Type[] types, System.Reflection.ParameterModifier[] modifiers);
     parameters:
@@ -672,19 +672,19 @@ items:
       description: A bitmask that affects the way in which the search is conducted. The value is a combination of zero or more bit flags from <xref href="System.Reflection.BindingFlags"></xref>.
     - id: binder
       type: System.Reflection.Binder
-      description: An object that enables the binding, coercion of argument types, invocation of members, and retrieval of `MemberInfo` objects using reflection. If <code>binder</code> is `null`, the default binder is used.
+      description: 'An object that enables the binding, coercion of argument types, invocation of members, and retrieval of `MemberInfo` objects using reflection. If <code>binder</code> is `null`, the default binder is used.'
     - id: callConvention
       type: System.Reflection.CallingConventions
       description: The calling conventions.
     - id: types
       type: System.Type[]
-      description: An array of type `Type` containing a list of the parameter number, order, and types. Types cannot be `null`; use an appropriate `GetMethod` method or an empty array to search for a method without parameters.
+      description: 'An array of type `Type` containing a list of the parameter number, order, and types. Types cannot be `null`; use an appropriate `GetMethod` method or an empty array to search for a method without parameters.'
     - id: modifiers
       type: System.Reflection.ParameterModifier[]
-      description: An array of type `ParameterModifier` having the same length as the <code>types</code> array, whose elements represent the attributes associated with the parameters of the method to get.
+      description: 'An array of type `ParameterModifier` having the same length as the <code>types</code> array, whose elements represent the attributes associated with the parameters of the method to get.'
     return:
       type: System.Reflection.ConstructorInfo
-      description: A `ConstructorInfo` object for the method that matches the specified criteria, or `null` if a match cannot be found.
+      description: 'A `ConstructorInfo` object for the method that matches the specified criteria, or `null` if a match cannot be found.'
   overload: System.Reflection.TypeDelegator.GetConstructorImpl*
   exceptions: []
   version:
@@ -735,7 +735,7 @@ items:
   - System.Runtime
   namespace: System.Reflection
   summary: Returns an array of <xref href="System.Reflection.ConstructorInfo"></xref> objects representing constructors defined for the type wrapped by the current <xref href="System.Reflection.TypeDelegator"></xref>.
-  remarks: Class initializers are available only through `GetMember`, `GetMembers`, `FindMembers`, and `GetConstructors`.
+  remarks: 'Class initializers are available only through `GetMember`, `GetMembers`, `FindMembers`, and `GetConstructors`.'
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -747,7 +747,7 @@ items:
       description: A bitmask that affects the way in which the search is conducted. The value is a combination of zero or more bit flags from <xref href="System.Reflection.BindingFlags"></xref>.
     return:
       type: System.Reflection.ConstructorInfo[]
-      description: An array of type `ConstructorInfo` containing the specified constructors defined for this class. If no constructors are defined, an empty array is returned. Depending on the value of a specified parameter, only public constructors or both public and non-public constructors will be returned.
+      description: 'An array of type `ConstructorInfo` containing the specified constructors defined for this class. If no constructors are defined, an empty array is returned. Depending on the value of a specified parameter, only public constructors or both public and non-public constructors will be returned.'
   overload: System.Reflection.TypeDelegator.GetConstructors*
   exceptions: []
   attributes:
@@ -799,7 +799,7 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Reflection
-  summary: Returns all the custom attributes defined for this type, specifying whether to search the type's inheritance chain.
+  summary: 'Returns all the custom attributes defined for this type, specifying whether to search the type''s inheritance chain.'
   syntax:
     content: public override object[] GetCustomAttributes (bool inherit);
     parameters:
@@ -873,7 +873,7 @@ items:
       description: Specifies whether to search this type's inheritance chain to find the attributes.
     return:
       type: System.Object[]
-      description: An array of objects containing the custom attributes defined in this type that match the <code>attributeType</code> parameter, specifying whether to search the type's inheritance chain, or `null` if no custom attributes are defined on this type.
+      description: 'An array of objects containing the custom attributes defined in this type that match the <code>attributeType</code> parameter, specifying whether to search the type''s inheritance chain, or `null` if no custom attributes are defined on this type.'
   overload: System.Reflection.TypeDelegator.GetCustomAttributes*
   exceptions:
   - type: System.ArgumentException
@@ -929,13 +929,13 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Reflection
-  summary: Returns the <xref href="System.Type"></xref> of the object encompassed or referred to by the current array, pointer or ByRef.
+  summary: 'Returns the <xref href="System.Type"></xref> of the object encompassed or referred to by the current array, pointer or ByRef.'
   syntax:
     content: public override Type GetElementType ();
     parameters: []
     return:
       type: System.Type
-      description: The <xref href="System.Type"></xref> of the object encompassed or referred to by the current array, pointer or `ByRef`, or `null` if the current <xref href="System.Type"></xref> is not an array, a pointer or a `ByRef`.
+      description: 'The <xref href="System.Type"></xref> of the object encompassed or referred to by the current array, pointer or `ByRef`, or `null` if the current <xref href="System.Type"></xref> is not an array, a pointer or a `ByRef`.'
   overload: System.Reflection.TypeDelegator.GetElementType*
   exceptions: []
   version:
@@ -986,7 +986,7 @@ items:
   - System.Runtime
   namespace: System.Reflection
   summary: Returns the specified event.
-  remarks: If `bindingAttr` is <xref:System.Reflection.BindingFlags>.`IgnoreCase`, the case of the `name` parameter is ignored.
+  remarks: 'If `bindingAttr` is <xref:System.Reflection.BindingFlags>.`IgnoreCase`, the case of the `name` parameter is ignored.'
   syntax:
     content: public override System.Reflection.EventInfo GetEvent (string name, System.Reflection.BindingFlags bindingAttr);
     parameters:
@@ -1057,7 +1057,7 @@ items:
     parameters: []
     return:
       type: System.Reflection.EventInfo[]
-      description: Returns an array of type `EventInfo` containing all the events declared or inherited by the current type. If there are no events, an empty array is returned.
+      description: 'Returns an array of type `EventInfo` containing all the events declared or inherited by the current type. If there are no events, an empty array is returned.'
   overload: System.Reflection.TypeDelegator.GetEvents*
   exceptions: []
   version:
@@ -1116,7 +1116,7 @@ items:
       description: A bitmask that affects the way in which the search is conducted. The value is a combination of zero or more bit flags from <xref href="System.Reflection.BindingFlags"></xref>.
     return:
       type: System.Reflection.EventInfo[]
-      description: An array of type `EventInfo` containing the events specified in <code>bindingAttr</code>. If there are no events, an empty array is returned.
+      description: 'An array of type `EventInfo` containing the events specified in <code>bindingAttr</code>. If there are no events, an empty array is returned.'
   overload: System.Reflection.TypeDelegator.GetEvents*
   exceptions: []
   version:
@@ -1167,7 +1167,7 @@ items:
   - System.Runtime
   namespace: System.Reflection
   summary: Returns a <xref href="System.Reflection.FieldInfo"></xref> object representing the field with the specified name.
-  remarks: Use a `bindingAttr` of <xref:System.Reflection.BindingFlags>.NonPublic to return all public and nonpublic fields. Use `BindingFlags.IgnoreCase` to ignore the case of the fields, as the search is case-sensitive by default.
+  remarks: 'Use a `bindingAttr` of <xref:System.Reflection.BindingFlags>.NonPublic to return all public and nonpublic fields. Use `BindingFlags.IgnoreCase` to ignore the case of the fields, as the search is case-sensitive by default.'
   syntax:
     content: public override System.Reflection.FieldInfo GetField (string name, System.Reflection.BindingFlags bindingAttr);
     parameters:
@@ -1304,7 +1304,7 @@ items:
       description: '`true` if the case is to be ignored; otherwise, `false`.'
     return:
       type: System.Type
-      description: A `Type` object representing the interface implemented (directly or indirectly) by the current class with the fully qualified name matching the specified name. If no interface that matches name is found, null is returned.
+      description: 'A `Type` object representing the interface implemented (directly or indirectly) by the current class with the fully qualified name matching the specified name. If no interface that matches name is found, null is returned.'
   overload: System.Reflection.TypeDelegator.GetInterface*
   exceptions:
   - type: System.ArgumentNullException
@@ -1428,7 +1428,7 @@ items:
     parameters: []
     return:
       type: System.Type[]
-      description: An array of type `Type` containing all the interfaces implemented on the current class and its base classes. If none are defined, an empty array is returned.
+      description: 'An array of type `Type` containing all the interfaces implemented on the current class and its base classes. If none are defined, an empty array is returned.'
   overload: System.Reflection.TypeDelegator.GetInterfaces*
   exceptions: []
   version:
@@ -1478,8 +1478,8 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Reflection
-  summary: Returns members (properties, methods, constructors, fields, events, and nested types) specified by the given <code>name</code>, <code>type</code>, and <code>bindingAttr</code>.
-  remarks: If `bindingAttr` is <xref:System.Reflection.BindingFlags>.NonPublic, all the members will be considered. If there are no matches, an empty array is returned.
+  summary: 'Returns members (properties, methods, constructors, fields, events, and nested types) specified by the given <code>name</code>, <code>type</code>, and <code>bindingAttr</code>.'
+  remarks: 'If `bindingAttr` is <xref:System.Reflection.BindingFlags>.NonPublic, all the members will be considered. If there are no matches, an empty array is returned.'
   syntax:
     content: public override System.Reflection.MemberInfo[] GetMember (string name, System.Reflection.MemberTypes type, System.Reflection.BindingFlags bindingAttr);
     parameters:
@@ -1548,7 +1548,7 @@ items:
   - System.Runtime
   namespace: System.Reflection
   summary: Returns members specified by <code>bindingAttr</code>.
-  remarks: If `bindingAttr` is <xref:System.Reflection.BindingFlags>.NonPublic, all the members will be considered. If there are no matches, an empty array is returned.
+  remarks: 'If `bindingAttr` is <xref:System.Reflection.BindingFlags>.NonPublic, all the members will be considered. If there are no matches, an empty array is returned.'
   syntax:
     content: public override System.Reflection.MemberInfo[] GetMembers (System.Reflection.BindingFlags bindingAttr);
     parameters:
@@ -1607,8 +1607,8 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Reflection
-  summary: Searches for the specified method whose parameters match the specified argument types and modifiers, using the specified binding constraints and the specified calling convention.
-  remarks: The `callConvention` parameter indicates the calling convention for the entry point. If no <xref:System.Reflection.CallingConventions> is specified, a default `CallingConventions` value of `Standard` is used.
+  summary: 'Searches for the specified method whose parameters match the specified argument types and modifiers, using the specified binding constraints and the specified calling convention.'
+  remarks: 'The `callConvention` parameter indicates the calling convention for the entry point. If no <xref:System.Reflection.CallingConventions> is specified, a default `CallingConventions` value of `Standard` is used.'
   syntax:
     content: protected override System.Reflection.MethodInfo GetMethodImpl (string name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Reflection.CallingConventions callConvention, Type[] types, System.Reflection.ParameterModifier[] modifiers);
     parameters:
@@ -1620,19 +1620,19 @@ items:
       description: A bitmask that affects the way in which the search is conducted. The value is a combination of zero or more bit flags from <xref href="System.Reflection.BindingFlags"></xref>.
     - id: binder
       type: System.Reflection.Binder
-      description: An object that enables the binding, coercion of argument types, invocation of members, and retrieval of `MemberInfo` objects using reflection. If <code>binder</code> is `null`, the default binder is used.
+      description: 'An object that enables the binding, coercion of argument types, invocation of members, and retrieval of `MemberInfo` objects using reflection. If <code>binder</code> is `null`, the default binder is used.'
     - id: callConvention
       type: System.Reflection.CallingConventions
       description: The calling conventions.
     - id: types
       type: System.Type[]
-      description: An array of type `Type` containing a list of the parameter number, order, and types. Types cannot be `null`; use an appropriate `GetMethod` method or an empty array to search for a method without parameters.
+      description: 'An array of type `Type` containing a list of the parameter number, order, and types. Types cannot be `null`; use an appropriate `GetMethod` method or an empty array to search for a method without parameters.'
     - id: modifiers
       type: System.Reflection.ParameterModifier[]
-      description: An array of type `ParameterModifier` having the same length as the <code>types</code> array, whose elements represent the attributes associated with the parameters of the method to get.
+      description: 'An array of type `ParameterModifier` having the same length as the <code>types</code> array, whose elements represent the attributes associated with the parameters of the method to get.'
     return:
       type: System.Reflection.MethodInfo
-      description: A `MethodInfoInfo` object for the implementation method that matches the specified criteria, or `null` if a match cannot be found.
+      description: 'A `MethodInfoInfo` object for the implementation method that matches the specified criteria, or `null` if a match cannot be found.'
   overload: System.Reflection.TypeDelegator.GetMethodImpl*
   exceptions: []
   version:
@@ -1924,7 +1924,7 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Reflection
-  summary: When overridden in a derived class, searches for the specified property whose parameters match the specified argument types and modifiers, using the specified binding constraints.
+  summary: 'When overridden in a derived class, searches for the specified property whose parameters match the specified argument types and modifiers, using the specified binding constraints.'
   syntax:
     content: protected override System.Reflection.PropertyInfo GetPropertyImpl (string name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, Type returnType, Type[] types, System.Reflection.ParameterModifier[] modifiers);
     parameters:
@@ -1936,19 +1936,19 @@ items:
       description: A bitmask that affects the way in which the search is conducted. The value is a combination of zero or more bit flags from <xref href="System.Reflection.BindingFlags"></xref>.
     - id: binder
       type: System.Reflection.Binder
-      description: An object that enables the binding, coercion of argument types, invocation of members, and retrieval of `MemberInfo` objects via reflection. If <code>binder</code> is `null`, the default binder is used. See <xref href="System.Reflection.Binder"></xref>.
+      description: 'An object that enables the binding, coercion of argument types, invocation of members, and retrieval of `MemberInfo` objects via reflection. If <code>binder</code> is `null`, the default binder is used. See <xref href="System.Reflection.Binder"></xref>.'
     - id: returnType
       type: System.Type
       description: The return type of the property.
     - id: types
       type: System.Type[]
-      description: A list of parameter types. The list represents the number, order, and types of the parameters. Types cannot be null; use an appropriate `GetMethod` method or an empty array to search for a method without parameters.
+      description: 'A list of parameter types. The list represents the number, order, and types of the parameters. Types cannot be null; use an appropriate `GetMethod` method or an empty array to search for a method without parameters.'
     - id: modifiers
       type: System.Reflection.ParameterModifier[]
       description: An array of the same length as types with elements that represent the attributes associated with the parameters of the method to get.
     return:
       type: System.Reflection.PropertyInfo
-      description: A <xref href="System.Reflection.PropertyInfo"></xref> object for the property that matches the specified criteria, or null if a match cannot be found.
+      description: 'A <xref href="System.Reflection.PropertyInfo"></xref> object for the property that matches the specified criteria, or null if a match cannot be found.'
   overload: System.Reflection.TypeDelegator.GetPropertyImpl*
   exceptions: []
   version:
@@ -2054,7 +2054,7 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Reflection
-  summary: Gets a value indicating whether the current <xref href="System.Type"></xref> encompasses or refers to another type; that is, whether the current <xref href="System.Type"></xref> is an array, a pointer or a ByRef.
+  summary: 'Gets a value indicating whether the current <xref href="System.Type"></xref> encompasses or refers to another type; that is, whether the current <xref href="System.Type"></xref> is an array, a pointer or a ByRef.'
   syntax:
     content: protected override bool HasElementTypeImpl ();
     parameters: []
@@ -2110,35 +2110,35 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Reflection
-  summary: Invokes the specified member. The method that is to be invoked must be accessible and provide the most specific match with the specified argument list, under the constraints of the specified binder and invocation attributes.
+  summary: 'Invokes the specified member. The method that is to be invoked must be accessible and provide the most specific match with the specified argument list, under the constraints of the specified binder and invocation attributes.'
   remarks: "A method will be invoked if both the following conditions are true:  \n  \n-   The number of parameters in the method declaration equals the number of arguments in the specified argument list (unless default arguments are defined on the member).  \n  \n-   The type of each arguments can be converted by the binder to the type of the parameter.  \n  \n The binder will find all the matching methods. These methods are found based upon the type of binding requested (`BindingFlags.MethodInvoke`, `BindingFlags.GetProperties`, and so on). The set of methods is filtered by the name, number of arguments, and a set of search modifiers defined in the binder.  \n  \n After the method is selected, it will be invoked. Accessibility is checked at that point. The search may control which set of methods are searched based upon the accessibility attribute associated with the method. The <xref:System.Reflection.Binder.BindToMethod%2A?displayProperty=fullName> method is responsible for selecting the method to be invoked. The default binder selects the most specific match.  \n  \n> [!NOTE]\n>  Access restrictions are ignored for fully trusted code. That is, private constructors, methods, fields, and properties can be accessed and invoked using reflection whenever the code is fully trusted.  \n  \n Currently, `InvokeMember` performs the Microsoft .NET Framework reflection semantics for every type of object.  \n  \n If the member specified by name is an array and the `BindingFlags.GetField` flag is set on `invokeAttr`, the `args` array specifies the elements whose values are to be returned. For example, the following call through `Type` object `t` returns the value of the first element of the string array MyArray, which is a member of the calling object:  \n  \n `String ret = (String) t.InvokeMember (\"MyArray\", BindingFlags.GetField, null, this, new Variant[]{0});`  \n  \n You can use `InvokeMember` to set one or more elements of a member array. All elements are set to the same value. The `args` array must be formatted as follows:  \n  \n```  \n{index1,  \n    index2,, value}  \n```  \n  \n For example, to set the first member of MyArray from the previous example, the syntax is as follows:  \n  \n```  \nt.InvokeMember (\"MyArray\", BindingFlags.SetField, null, this, new  \n    Variant[]{0,\"Updated\"});  \n```"
   syntax:
     content: public override object InvokeMember (string name, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, object target, object[] args, System.Reflection.ParameterModifier[] modifiers, System.Globalization.CultureInfo culture, string[] namedParameters);
     parameters:
     - id: name
       type: System.String
-      description: The name of the member to invoke. This may be a constructor, method, property, or field. If an empty string ("") is passed, the default member is invoked.
+      description: 'The name of the member to invoke. This may be a constructor, method, property, or field. If an empty string ("") is passed, the default member is invoked.'
     - id: invokeAttr
       type: System.Reflection.BindingFlags
       description: 'The invocation attribute. This must be one of the following <xref href="System.Reflection.BindingFlags"></xref> : `InvokeMethod`, `CreateInstance`, `Static`, `GetField`, `SetField`, `GetProperty`, or `SetProperty`. A suitable invocation attribute must be specified. If a static member is to be invoked, the `Static` flag must be set.'
     - id: binder
       type: System.Reflection.Binder
-      description: An object that enables the binding, coercion of argument types, invocation of members, and retrieval of `MemberInfo` objects via reflection. If <code>binder</code> is `null`, the default binder is used. See <xref href="System.Reflection.Binder"></xref>.
+      description: 'An object that enables the binding, coercion of argument types, invocation of members, and retrieval of `MemberInfo` objects via reflection. If <code>binder</code> is `null`, the default binder is used. See <xref href="System.Reflection.Binder"></xref>.'
     - id: target
       type: System.Object
       description: The object on which to invoke the specified member.
     - id: args
       type: System.Object[]
-      description: An array of type `Object` that contains the number, order, and type of the parameters of the member to be invoked. If <code>args</code> contains an uninitialized `Object`, it is treated as empty, which, with the default binder, can be widened to 0, 0.0 or a string.
+      description: 'An array of type `Object` that contains the number, order, and type of the parameters of the member to be invoked. If <code>args</code> contains an uninitialized `Object`, it is treated as empty, which, with the default binder, can be widened to 0, 0.0 or a string.'
     - id: modifiers
       type: System.Reflection.ParameterModifier[]
-      description: An array of type `ParameterModifer` that is the same length as <code>args</code>, with elements that represent the attributes associated with the arguments of the member to be invoked. A parameter has attributes associated with it in the member's signature. For ByRef, use `ParameterModifer.ByRef`, and for none, use `ParameterModifer.None`. The default binder does exact matching on these. Attributes such as `In` and `InOut` are not used in binding, and can be viewed using `ParameterInfo`.
+      description: 'An array of type `ParameterModifer` that is the same length as <code>args</code>, with elements that represent the attributes associated with the arguments of the member to be invoked. A parameter has attributes associated with it in the member''s signature. For ByRef, use `ParameterModifer.ByRef`, and for none, use `ParameterModifer.None`. The default binder does exact matching on these. Attributes such as `In` and `InOut` are not used in binding, and can be viewed using `ParameterInfo`.'
     - id: culture
       type: System.Globalization.CultureInfo
-      description: An instance of `CultureInfo` used to govern the coercion of types. This is necessary, for example, to convert a string that represents 1000 to a `Double` value, since 1000 is represented differently by different cultures. If <code>culture</code> is `null`, the `CultureInfo` for the current thread's `CultureInfo` is used.
+      description: 'An instance of `CultureInfo` used to govern the coercion of types. This is necessary, for example, to convert a string that represents 1000 to a `Double` value, since 1000 is represented differently by different cultures. If <code>culture</code> is `null`, the `CultureInfo` for the current thread''s `CultureInfo` is used.'
     - id: namedParameters
       type: System.String[]
-      description: An array of type `String` containing parameter names that match up, starting at element zero, with the <code>args</code> array. There must be no holes in the array. If <code>args</code>. `Length` is greater than <code>namedParameters</code>. `Length`, the remaining parameters are filled in order.
+      description: 'An array of type `String` containing parameter names that match up, starting at element zero, with the <code>args</code> array. There must be no holes in the array. If <code>args</code>. `Length` is greater than <code>namedParameters</code>. `Length`, the remaining parameters are filled in order.'
     return:
       type: System.Object
       description: An `Object` representing the return value of the invoked member.
@@ -2703,7 +2703,7 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Reflection
-  summary: Returns a value that indicates whether the type is a value type; that is, not a class or an interface.
+  summary: 'Returns a value that indicates whether the type is a value type; that is, not a class or an interface.'
   syntax:
     content: protected override bool IsValueTypeImpl ();
     parameters: []
@@ -2785,12 +2785,12 @@ items:
   - System.Runtime
   namespace: System.Reflection
   summary: Gets a value that identifies this entity in metadata.
-  remarks: The tokens obtained using this property can be passed to the unmanaged reflection API. For more information, see [Unmanaged Reflection API](http://msdn.microsoft.com/en-us/0c5bb9de-0cf6-438d-ba47-134e6c775fb8).
+  remarks: 'The tokens obtained using this property can be passed to the unmanaged reflection API. For more information, see [Unmanaged Reflection API](http://msdn.microsoft.com/en-us/0c5bb9de-0cf6-438d-ba47-134e6c775fb8).'
   syntax:
     content: public override int MetadataToken { get; }
     return:
       type: System.Int32
-      description: A value which, in combination with the module, uniquely identifies this entity in metadata.
+      description: 'A value which, in combination with the module, uniquely identifies this entity in metadata.'
   overload: System.Reflection.TypeDelegator.MetadataToken*
   exceptions: []
   version:
@@ -2896,8 +2896,8 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Reflection
-  summary: Gets the name of the implemented type, with the path removed.
-  remarks: A string containing the name of the current `TypeDelegator`. Only the simple name, not the fully qualified name, is returned. To get the name and the path, use <xref:System.Reflection.TypeDelegator.FullName%2A>.
+  summary: 'Gets the name of the implemented type, with the path removed.'
+  remarks: 'A string containing the name of the current `TypeDelegator`. Only the simple name, not the fully qualified name, is returned. To get the name and the path, use <xref:System.Reflection.TypeDelegator.FullName%2A>.'
   syntax:
     content: public override string Name { get; }
     return:
@@ -2953,7 +2953,7 @@ items:
   - System.Runtime
   namespace: System.Reflection
   summary: Gets the namespace of the implemented type.
-  remarks: This property gets a string containing the namespace of the current `TypeDelegator`. For example, if the `TypeDelegator` is <xref:System.Reflection.TypeFilter>, the returned namespace is <xref:System.Reflection>.
+  remarks: 'This property gets a string containing the namespace of the current `TypeDelegator`. For example, if the `TypeDelegator` is <xref:System.Reflection.TypeFilter>, the returned namespace is <xref:System.Reflection>.'
   syntax:
     content: public override string Namespace { get; }
     return:

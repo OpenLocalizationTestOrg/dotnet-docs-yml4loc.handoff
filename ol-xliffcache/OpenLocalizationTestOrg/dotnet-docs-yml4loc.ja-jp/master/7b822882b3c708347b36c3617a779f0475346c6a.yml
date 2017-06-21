@@ -46,8 +46,8 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
-  summary: Provides paging functionality for data-bound controls that implement the <xref href="System.Web.UI.WebControls.IPageableItemContainer"></xref> interface, such as the <xref href="System.Web.UI.WebControls.ListView"></xref> control.
-  remarks: "In this topic:  \n  \n-   [Introduction](#introduction)  \n  \n-   [Pager Fields](#pager_fields)  \n  \n-   [Page Properties](#page_properties)  \n  \n-   [Accessibility](#Accessibility)  \n  \n-   [Declarative Syntax](#DeclarativeSyntax)  \n  \n<a name=\"introduction\"></a>   \n## Introduction  \n The <xref:System.Web.UI.WebControls.DataPager> class is used to page data and to display navigation controls for data-bound controls that implement the <xref:System.Web.UI.WebControls.IPageableItemContainer> interface. (An example of a control that implements the interface is the <xref:System.Web.UI.WebControls.ListView> control.)  \n  \n You can associate the <xref:System.Web.UI.WebControls.DataPager> control with the data-bound control by using the <xref:System.Web.UI.WebControls.DataPager.PagedControlID%2A> property. Alternatively, you can put the <xref:System.Web.UI.WebControls.DataPager> control inside the data-bound control hierarchy. For example, in the <xref:System.Web.UI.WebControls.ListView> control, you can put the <xref:System.Web.UI.WebControls.DataPager> control inside the <xref:System.Web.UI.WebControls.ListView.LayoutTemplate%2A?displayProperty=fullName> template.  \n  \n You can customize the number of items that are displayed for each page of data by changing the <xref:System.Web.UI.WebControls.DataPager.PageSize%2A> property. You can also change the way a page is submitted to the server by setting the <xref:System.Web.UI.WebControls.DataPager.QueryStringField%2A> property.  \n  \n<a name=\"pager_fields\"></a>   \n## Pager Fields  \n In order for the <xref:System.Web.UI.WebControls.DataPager> control to display navigation controls, you must add pager fields to the control. The pager fields derive from the <xref:System.Web.UI.WebControls.DataPagerField> class. The following table lists the pager field types that you can use.  \n  \n|Pager field type|Description|  \n|----------------------|-----------------|  \n|<xref:System.Web.UI.WebControls.NextPreviousPagerField>|Enables users to navigate through pages one page at a time, or to jump to the first or last page.|  \n|<xref:System.Web.UI.WebControls.NumericPagerField>|Enables users to select a page by page number.|  \n|<xref:System.Web.UI.WebControls.TemplatePagerField>|Enables you to create a custom paging UI.|  \n  \n To declaratively add pager fields to the <xref:System.Web.UI.WebControls.DataPager> control, add a `Fields` element to the <xref:System.Web.UI.WebControls.DataPager> control. You can then add the pager fields to the `Fields` element. The pager fields are added to the <xref:System.Web.UI.WebControls.DataPager.Fields%2A> collection in the order that they appear in the `Fields` element. The <xref:System.Web.UI.WebControls.DataPager.Fields%2A> collection enables you to programmatically manage the pager fields in the <xref:System.Web.UI.WebControls.DataPager> control.  \n  \n<a name=\"page_properties\"></a>   \n## Page Properties  \n The following table lists read-only properties of the <xref:System.Web.UI.WebControls.DataPager> control that specify characteristics of the page of data. These properties are usually used for binding expressions in the <xref:System.Web.UI.WebControls.TemplatePagerField> object.  \n  \n|Property|Description|  \n|--------------|-----------------|  \n|<xref:System.Web.UI.WebControls.DataPager.MaximumRows%2A>|The maximum number of records that are displayed for each page of data.|  \n|<xref:System.Web.UI.WebControls.DataPager.StartRowIndex%2A>|The index of the first record that is displayed on a page of data.|  \n|<xref:System.Web.UI.WebControls.DataPager.TotalRowCount%2A>|The total number of records that are available in the underlying data source.|  \n  \n<a name=\"Accessibility\"></a>   \n## Accessibility  \n The default markup that is rendered default for this control might not comply with accessibility standards, such as the Web Content Accessibility Guidelines 1.0 (WCAG) priority 1 guidelines. For details about accessibility support for this control, see [ASP.NET Controls and Accessibility](http://msdn.microsoft.com/library/847a37e3-ce20-41da-b0d3-7dfb0fdae9a0).  \n  \n<a name=\"DeclarativeSyntax\"></a>   \n## Declarative Syntax  \n  \n```  \n<asp:DataPager  \n    EnableTheming=\"True|False\"  \n    EnableViewState=\"True|False\"  \n    ID=\"string\"  \n    OnDataBinding=\"DataBinding event handler\"  \n    OnDisposed=\"Disposed event handler\"  \n    OnInit=\"Init event handler\"  \n    OnLoad=\"Load event handler\"  \n    OnPreRender=\"PreRender event handler\"  \n    OnUnload=\"Unload event handler\"  \n    PagedControlID=\"string\"  \n    PageSize=\"integer\"  \n    runat=\"server\"  \n    SkinID=\"string\"  \n    Visible=\"True|False\"  \n>  \n        <Fields>  \n            <asp:NextPreviousPagerField  \n                ButtonCssClass=\"string\"  \n                ButtonType=\"Button|Image|Link\"  \n                FirstPageImageUrl=\"string\"  \n                FirstPageText=\"string\"  \n                LastPageImageUrl=\"string\"  \n                LastPageText=\"string\"  \n                NextPageImageUrl=\"string\"  \n                NextPageText=\"string\"  \n                PreviousPageImageUrl=\"string\"  \n                PreviousPageText=\"string\"  \n                RenderDisabledButtonsAsLabels=\"True|False\"  \n                RenderNonBreakingSpacesBetweenControls=\"True|False\"  \n                ShowFirstPageButton=\"True|False\"  \n                ShowLastPageButton=\"True|False\"  \n                ShowNextPageButton=\"True|False\"  \n                ShowPreviousPageButton=\"True|False\"  \n                Visible=\"True|False\"  \n            />  \n            <asp:NumericPagerField  \n                ButtonCount=\"integer\"  \n                ButtonType=\"Button|Image|Link\"  \n                CurrentPageLabelCssClass=\"string\"  \n                NextPageImageUrl=\"string\"  \n                NextPageText=\"string\"  \n                NextPreviousButtonCssClass=\"string\"  \n                NumericButtonCssClass=\"string\"                 PreviousPageImageUrl=\"string\"  \n                PreviousPageText=\"string\"  \n                RenderNonBreakingSpacesBetweenControls=\"True|False\"  \n                Visible=\"True|False\"  \n            />  \n            <asp:TemplatePagerField  \n                OnPagerCommand=\"PagerCommand event handler\"  \n                Visible=\"True|False\"  \n            />  \n        </Fields>  \n</asp:DataPager>  \n```"
+  summary: 'Provides paging functionality for data-bound controls that implement the <xref href="System.Web.UI.WebControls.IPageableItemContainer"></xref> interface, such as the <xref href="System.Web.UI.WebControls.ListView"></xref> control.'
+  remarks: "In this topic:  \n  \n-   [Introduction](#introduction)  \n  \n-   [Pager Fields](#pager_fields)  \n  \n-   [Page Properties](#page_properties)  \n  \n-   [Accessibility](#Accessibility)  \n  \n-   [Declarative Syntax](#DeclarativeSyntax)  \n  \n<a name=\"introduction\"></a>   \n## <a name=\"introduction\"></a>Introduction  \n The <xref:System.Web.UI.WebControls.DataPager> class is used to page data and to display navigation controls for data-bound controls that implement the <xref:System.Web.UI.WebControls.IPageableItemContainer> interface. (An example of a control that implements the interface is the <xref:System.Web.UI.WebControls.ListView> control.)  \n  \n You can associate the <xref:System.Web.UI.WebControls.DataPager> control with the data-bound control by using the <xref:System.Web.UI.WebControls.DataPager.PagedControlID%2A> property. Alternatively, you can put the <xref:System.Web.UI.WebControls.DataPager> control inside the data-bound control hierarchy. For example, in the <xref:System.Web.UI.WebControls.ListView> control, you can put the <xref:System.Web.UI.WebControls.DataPager> control inside the <xref:System.Web.UI.WebControls.ListView.LayoutTemplate%2A?displayProperty=fullName> template.  \n  \n You can customize the number of items that are displayed for each page of data by changing the <xref:System.Web.UI.WebControls.DataPager.PageSize%2A> property. You can also change the way a page is submitted to the server by setting the <xref:System.Web.UI.WebControls.DataPager.QueryStringField%2A> property.  \n  \n<a name=\"pager_fields\"></a>   \n## <a name=\"pager-fields\"></a>Pager Fields  \n In order for the <xref:System.Web.UI.WebControls.DataPager> control to display navigation controls, you must add pager fields to the control. The pager fields derive from the <xref:System.Web.UI.WebControls.DataPagerField> class. The following table lists the pager field types that you can use.  \n  \n|Pager field type|Description|  \n|----------------------|-----------------|  \n|<xref:System.Web.UI.WebControls.NextPreviousPagerField>|Enables users to navigate through pages one page at a time, or to jump to the first or last page.|  \n|<xref:System.Web.UI.WebControls.NumericPagerField>|Enables users to select a page by page number.|  \n|<xref:System.Web.UI.WebControls.TemplatePagerField>|Enables you to create a custom paging UI.|  \n  \n To declaratively add pager fields to the <xref:System.Web.UI.WebControls.DataPager> control, add a `Fields` element to the <xref:System.Web.UI.WebControls.DataPager> control. You can then add the pager fields to the `Fields` element. The pager fields are added to the <xref:System.Web.UI.WebControls.DataPager.Fields%2A> collection in the order that they appear in the `Fields` element. The <xref:System.Web.UI.WebControls.DataPager.Fields%2A> collection enables you to programmatically manage the pager fields in the <xref:System.Web.UI.WebControls.DataPager> control.  \n  \n<a name=\"page_properties\"></a>   \n## <a name=\"page-properties\"></a>Page Properties  \n The following table lists read-only properties of the <xref:System.Web.UI.WebControls.DataPager> control that specify characteristics of the page of data. These properties are usually used for binding expressions in the <xref:System.Web.UI.WebControls.TemplatePagerField> object.  \n  \n|Property|Description|  \n|--------------|-----------------|  \n|<xref:System.Web.UI.WebControls.DataPager.MaximumRows%2A>|The maximum number of records that are displayed for each page of data.|  \n|<xref:System.Web.UI.WebControls.DataPager.StartRowIndex%2A>|The index of the first record that is displayed on a page of data.|  \n|<xref:System.Web.UI.WebControls.DataPager.TotalRowCount%2A>|The total number of records that are available in the underlying data source.|  \n  \n<a name=\"Accessibility\"></a>   \n## <a name=\"accessibility\"></a>Accessibility  \n The default markup that is rendered default for this control might not comply with accessibility standards, such as the Web Content Accessibility Guidelines 1.0 (WCAG) priority 1 guidelines. For details about accessibility support for this control, see [ASP.NET Controls and Accessibility](http://msdn.microsoft.com/library/847a37e3-ce20-41da-b0d3-7dfb0fdae9a0).  \n  \n<a name=\"DeclarativeSyntax\"></a>   \n## <a name=\"declarative-syntax\"></a>Declarative Syntax  \n  \n```  \n<asp:DataPager  \n    EnableTheming=\"True|False\"  \n    EnableViewState=\"True|False\"  \n    ID=\"string\"  \n    OnDataBinding=\"DataBinding event handler\"  \n    OnDisposed=\"Disposed event handler\"  \n    OnInit=\"Init event handler\"  \n    OnLoad=\"Load event handler\"  \n    OnPreRender=\"PreRender event handler\"  \n    OnUnload=\"Unload event handler\"  \n    PagedControlID=\"string\"  \n    PageSize=\"integer\"  \n    runat=\"server\"  \n    SkinID=\"string\"  \n    Visible=\"True|False\"  \n>  \n        <Fields>  \n            <asp:NextPreviousPagerField  \n                ButtonCssClass=\"string\"  \n                ButtonType=\"Button|Image|Link\"  \n                FirstPageImageUrl=\"string\"  \n                FirstPageText=\"string\"  \n                LastPageImageUrl=\"string\"  \n                LastPageText=\"string\"  \n                NextPageImageUrl=\"string\"  \n                NextPageText=\"string\"  \n                PreviousPageImageUrl=\"string\"  \n                PreviousPageText=\"string\"  \n                RenderDisabledButtonsAsLabels=\"True|False\"  \n                RenderNonBreakingSpacesBetweenControls=\"True|False\"  \n                ShowFirstPageButton=\"True|False\"  \n                ShowLastPageButton=\"True|False\"  \n                ShowNextPageButton=\"True|False\"  \n                ShowPreviousPageButton=\"True|False\"  \n                Visible=\"True|False\"  \n            />  \n            <asp:NumericPagerField  \n                ButtonCount=\"integer\"  \n                ButtonType=\"Button|Image|Link\"  \n                CurrentPageLabelCssClass=\"string\"  \n                NextPageImageUrl=\"string\"  \n                NextPageText=\"string\"  \n                NextPreviousButtonCssClass=\"string\"  \n                NumericButtonCssClass=\"string\"                 PreviousPageImageUrl=\"string\"  \n                PreviousPageText=\"string\"  \n                RenderNonBreakingSpacesBetweenControls=\"True|False\"  \n                Visible=\"True|False\"  \n            />  \n            <asp:TemplatePagerField  \n                OnPagerCommand=\"PagerCommand event handler\"  \n                Visible=\"True|False\"  \n            />  \n        </Fields>  \n</asp:DataPager>  \n```"
   example:
   - "The following example shows how to add paging functionality to a <xref:System.Web.UI.WebControls.ListView> control. This example contains two <xref:System.Web.UI.WebControls.DataPager> controls that are used to page through data of the same <xref:System.Web.UI.WebControls.ListView> control.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.UI.WebControls.DataPager#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.WebControls.DataPager/CS/DataPagerCS.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.UI.WebControls.DataPager#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.WebControls.DataPager/VB/DataPagerVB.aspx#1)]  -->"
   syntax:
@@ -221,7 +221,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Initializes a new instance of the <xref href="System.Web.UI.WebControls.DataPager"></xref> class.
-  remarks: To dynamically add a <xref:System.Web.UI.WebControls.DataPager> control to a page, create a new <xref:System.Web.UI.WebControls.DataPager> object. Set its properties, and then add it to the <xref:System.Web.UI.Control.Controls%2A> collection of a container control, such as a <xref:System.Web.UI.WebControls.PlaceHolder> control.
+  remarks: 'To dynamically add a <xref:System.Web.UI.WebControls.DataPager> control to a page, create a new <xref:System.Web.UI.WebControls.DataPager> object. Set its properties, and then add it to the <xref:System.Web.UI.Control.Controls%2A> collection of a container control, such as a <xref:System.Web.UI.WebControls.PlaceHolder> control.'
   example:
   - "The following example shows how to use the constructor to dynamically add a <xref:System.Web.UI.WebControls.DataPager> control to a page.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.UI.WebControls.DataPager.Ctor#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.WebControls.DataPager.Ctor/CS/DataPagerCtorCS.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.UI.WebControls.DataPager.Ctor#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.WebControls.DataPager.Ctor/VB/DataPagerCtorVB.aspx#1)]  -->"
   syntax:
@@ -264,7 +264,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Adds HTML attributes and styles to be rendered in the browser to the specified <xref href="System.Web.UI.HtmlTextWriter"></xref> object.
-  remarks: The <xref:System.Web.UI.WebControls.DataPager.AddAttributesToRender%2A> method is primarily used by control developers to insert additional attributes and styles in the <xref:System.Web.UI.HtmlTextWriter> output stream for a <xref:System.Web.UI.WebControls.DataPager> control.
+  remarks: 'The <xref:System.Web.UI.WebControls.DataPager.AddAttributesToRender%2A> method is primarily used by control developers to insert additional attributes and styles in the <xref:System.Web.UI.HtmlTextWriter> output stream for a <xref:System.Web.UI.WebControls.DataPager> control.'
   syntax:
     content: protected virtual void AddAttributesToRender (System.Web.UI.HtmlTextWriter writer);
     parameters:
@@ -308,7 +308,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Gets a collection of custom attribute name/value pairs for the <xref href="System.Web.UI.WebControls.DataPager"></xref> control.
-  remarks: Use the <xref:System.Web.UI.WebControls.DataPager.Attributes%2A> collection to manage the attribute name/value pairs that are declared in the opening tag of the <xref:System.Web.UI.WebControls.DataPager> control, but that are not directly supported by the class. You can programmatically add or remove attributes to the collection.
+  remarks: 'Use the <xref:System.Web.UI.WebControls.DataPager.Attributes%2A> collection to manage the attribute name/value pairs that are declared in the opening tag of the <xref:System.Web.UI.WebControls.DataPager> control, but that are not directly supported by the class. You can programmatically add or remove attributes to the collection.'
   syntax:
     content: >-
       [System.ComponentModel.Browsable(false)]
@@ -403,7 +403,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Gets a <xref href="System.Web.UI.ControlCollection"></xref> object that represents the child controls for the <xref href="System.Web.UI.WebControls.DataPager"></xref> control in the UI hierarchy.
-  remarks: You can add controls to the collection, remove controls from the collection, or iterate through the server controls in the collection.
+  remarks: 'You can add controls to the collection, remove controls from the collection, or iterate through the server controls in the collection.'
   syntax:
     content: public override System.Web.UI.ControlCollection Controls { get; }
     return:
@@ -487,7 +487,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Binds the <xref href="System.Web.UI.WebControls.DataPager"></xref> control and all its child controls to a data source.
-  remarks: This implementation of the <xref:System.Web.UI.WebControls.DataPager.DataBind> method overrides the base class implementation. The overridden method verifies that all child controls have been created before binding them to a data source.
+  remarks: 'This implementation of the <xref:System.Web.UI.WebControls.DataPager.DataBind> method overrides the base class implementation. The overridden method verifies that all child controls have been created before binding them to a data source.'
   syntax:
     content: public override void DataBind ();
     parameters: []
@@ -624,8 +624,8 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
-  summary: Loads the state information for the properties in the <xref href="System.Web.UI.WebControls.DataPager"></xref> control that must be persisted between postbacks, even when the <xref href="System.Web.UI.Control.EnableViewState"></xref> property is set to `false`.
-  remarks: This method is primarily used by control developers to extend the <xref:System.Web.UI.WebControls.DataPager> control.
+  summary: 'Loads the state information for the properties in the <xref href="System.Web.UI.WebControls.DataPager"></xref> control that must be persisted between postbacks, even when the <xref href="System.Web.UI.Control.EnableViewState"></xref> property is set to `false`.'
+  remarks: 'This method is primarily used by control developers to extend the <xref:System.Web.UI.WebControls.DataPager> control.'
   syntax:
     content: protected override void LoadControlState (object savedState);
     parameters:
@@ -672,7 +672,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Restores view-state information for the <xref href="System.Web.UI.WebControls.DataPager"></xref> control that was saved by the <xref href="System.Web.UI.WebControls.DataPager.SaveViewState"></xref> method during a previous page request.
-  remarks: This method is primarily used by the [!INCLUDE[dnprdnshort](~/includes/dnprdnshort-md.md)] infrastructure and is not intended to be used directly from your code. However, control developers can override this method to specify how a custom server control restores its view state. For more information, see [ASP.NET State Management Overview](http://msdn.microsoft.com/library/0218d965-5d30-445b-b6a6-8870e70e63ce).
+  remarks: 'This method is primarily used by the [!INCLUDE[dnprdnshort](~/includes/dnprdnshort-md.md)] infrastructure and is not intended to be used directly from your code. However, control developers can override this method to specify how a custom server control restores its view state. For more information, see [ASP.NET State Management Overview](http://msdn.microsoft.com/library/0218d965-5d30-445b-b6a6-8870e70e63ce).'
   syntax:
     content: protected override void LoadViewState (object savedState);
     parameters:
@@ -716,7 +716,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Gets the maximum number of records that are displayed for each page of data.
-  remarks: Use the <xref:System.Web.UI.WebControls.DataPager.MaximumRows%2A> property to retrieve the size of a page of data. The <xref:System.Web.UI.WebControls.DataPager.MaximumRows%2A> property contains the same value as the <xref:System.Web.UI.WebControls.DataPager.PageSize%2A>property. You can change the value of this property by setting the <xref:System.Web.UI.WebControls.DataPager.PageSize%2A> property.
+  remarks: 'Use the <xref:System.Web.UI.WebControls.DataPager.MaximumRows%2A> property to retrieve the size of a page of data. The <xref:System.Web.UI.WebControls.DataPager.MaximumRows%2A> property contains the same value as the <xref:System.Web.UI.WebControls.DataPager.PageSize%2A>property. You can change the value of this property by setting the <xref:System.Web.UI.WebControls.DataPager.PageSize%2A> property.'
   syntax:
     content: >-
       [System.ComponentModel.Browsable(false)]
@@ -904,7 +904,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Handles the <xref href="System.Web.UI.WebControls.IPageableItemContainer.TotalRowCountAvailable"></xref> event.
-  remarks: The <xref:System.Web.UI.WebControls.ListView> control raises the <xref:System.Web.UI.WebControls.IPageableItemContainer.TotalRowCountAvailable?displayProperty=fullName> event when the total number of records in its underlying data source is available. The <xref:System.Web.UI.WebControls.DataPager.OnTotalRowCountAvailable%2A> method is a handler for this event and is responsible for updating the page-related properties and recreating the pager field objects.
+  remarks: 'The <xref:System.Web.UI.WebControls.ListView> control raises the <xref:System.Web.UI.WebControls.IPageableItemContainer.TotalRowCountAvailable?displayProperty=fullName> event when the total number of records in its underlying data source is available. The <xref:System.Web.UI.WebControls.DataPager.OnTotalRowCountAvailable%2A> method is a handler for this event and is responsible for updating the page-related properties and recreating the pager field objects.'
   syntax:
     content: protected virtual void OnTotalRowCountAvailable (object sender, System.Web.UI.WebControls.PageEventArgs e);
     parameters:
@@ -963,7 +963,7 @@ items:
       public virtual string PagedControlID { get; set; }
     return:
       type: System.String
-      description: The <xref href="System.Web.UI.Control.ID"></xref> of the control that contains the data that will be paged by the <xref href="System.Web.UI.WebControls.DataPager"></xref> control. The default is an empty string, which indicates that this property is not set.
+      description: 'The <xref href="System.Web.UI.Control.ID"></xref> of the control that contains the data that will be paged by the <xref href="System.Web.UI.WebControls.DataPager"></xref> control. The default is an empty string, which indicates that this property is not set.'
   overload: System.Web.UI.WebControls.DataPager.PagedControlID*
   exceptions: []
   attributes:
@@ -1067,7 +1067,7 @@ items:
       public string QueryStringField { get; set; }
     return:
       type: System.String
-      description: The name of the query string field. The default is an empty string, which indicates that the <xref href="System.Web.UI.WebControls.DataPager"></xref> control will use a HTTP POST command to navigate through the pages.
+      description: 'The name of the query string field. The default is an empty string, which indicates that the <xref href="System.Web.UI.WebControls.DataPager"></xref> control will use a HTTP POST command to navigate through the pages.'
   overload: System.Web.UI.WebControls.DataPager.QueryStringField*
   exceptions: []
   attributes:
@@ -1147,7 +1147,7 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
-  summary: Sends the <xref href="System.Web.UI.WebControls.DataPager"></xref> control content to the specified <xref href="System.Web.UI.HtmlTextWriter"></xref> object, which writes the content to be rendered to the browser.
+  summary: 'Sends the <xref href="System.Web.UI.WebControls.DataPager"></xref> control content to the specified <xref href="System.Web.UI.HtmlTextWriter"></xref> object, which writes the content to be rendered to the browser.'
   remarks: "The <xref:System.Web.UI.WebControls.DataPager.Render%2A> method writes the content of the <xref:System.Web.UI.WebControls.DataPager> control and its child controls to the browser by using the specified <xref:System.Web.UI.HtmlTextWriter> object.  \n  \n> [!NOTE]\n>  This method is primarily used by control developers to extend the <xref:System.Web.UI.WebControls.DataPager> control."
   syntax:
     content: protected override void Render (System.Web.UI.HtmlTextWriter writer);
@@ -1192,7 +1192,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Renders the HTML opening tag of the <xref href="System.Web.UI.WebControls.DataPager"></xref> control to the specified writer.
-  remarks: This method is primarily used by control developers to extend the <xref:System.Web.UI.WebControls.DataPager> control.
+  remarks: 'This method is primarily used by control developers to extend the <xref:System.Web.UI.WebControls.DataPager> control.'
   syntax:
     content: public virtual void RenderBeginTag (System.Web.UI.HtmlTextWriter writer);
     parameters:
@@ -1279,14 +1279,14 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
-  summary: Saves the state of the properties in the <xref href="System.Web.UI.WebControls.DataPager"></xref> control that must be persisted between postbacks, even when the <xref href="System.Web.UI.Control.EnableViewState"></xref> property is set to `false`.
-  remarks: This method is primarily used by control developers to extend the <xref:System.Web.UI.WebControls.DataPager> control.
+  summary: 'Saves the state of the properties in the <xref href="System.Web.UI.WebControls.DataPager"></xref> control that must be persisted between postbacks, even when the <xref href="System.Web.UI.Control.EnableViewState"></xref> property is set to `false`.'
+  remarks: 'This method is primarily used by control developers to extend the <xref:System.Web.UI.WebControls.DataPager> control.'
   syntax:
     content: protected override object SaveControlState ();
     parameters: []
     return:
       type: System.Object
-      description: Returns the current view state of the <xref href="System.Web.UI.WebControls.DataPager"></xref> control. If there is no view state associated with the control, this method returns `null`.
+      description: 'Returns the current view state of the <xref href="System.Web.UI.WebControls.DataPager"></xref> control. If there is no view state associated with the control, this method returns `null`.'
   overload: System.Web.UI.WebControls.DataPager.SaveControlState*
   exceptions: []
   version:
@@ -1330,7 +1330,7 @@ items:
     parameters: []
     return:
       type: System.Object
-      description: Returns the <xref href="System.Web.UI.WebControls.DataPager"></xref> control's current view state. If there is no view state associated with the control, this method returns `null`.
+      description: 'Returns the <xref href="System.Web.UI.WebControls.DataPager"></xref> control''s current view state. If there is no view state associated with the control, this method returns `null`.'
   overload: System.Web.UI.WebControls.DataPager.SaveViewState*
   exceptions: []
   version:
@@ -1368,7 +1368,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Sets the page-related properties in the <xref href="System.Web.UI.WebControls.DataPager"></xref> control.
-  remarks: The <xref:System.Web.UI.WebControls.DataPager.SetPageProperties%2A> method sets new values for the <xref:System.Web.UI.WebControls.DataPager.StartRowIndex%2A> and <xref:System.Web.UI.WebControls.DataPager.MaximumRows%2A> properties. It also invokes the <xref:System.Web.UI.WebControls.IPageableItemContainer.SetPageProperties%2A?displayProperty=fullName> method to update the page-related properties in the associated data-bound control.
+  remarks: 'The <xref:System.Web.UI.WebControls.DataPager.SetPageProperties%2A> method sets new values for the <xref:System.Web.UI.WebControls.DataPager.StartRowIndex%2A> and <xref:System.Web.UI.WebControls.DataPager.MaximumRows%2A> properties. It also invokes the <xref:System.Web.UI.WebControls.IPageableItemContainer.SetPageProperties%2A?displayProperty=fullName> method to update the page-related properties in the associated data-bound control.'
   syntax:
     content: public virtual void SetPageProperties (int startRowIndex, int maximumRows, bool databind);
     parameters:
@@ -1563,7 +1563,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Tracks view-state changes to the <xref href="System.Web.UI.WebControls.DataPager"></xref> control so that they can be stored in the control's <xref href="System.Web.UI.StateBag"></xref> object. This object can be accessed through the <xref href="System.Web.UI.Control.ViewState"></xref> property.
-  remarks: The <xref:System.Web.UI.WebControls.DataPager.TrackViewState%2A> method is called automatically at the end of the <xref:System.Web.UI.Control.Init> event in the <xref:System.Web.UI.WebControls.DataPager> control's life cycle. This method alerts ASP.NET to monitor changes to the <xref:System.Web.UI.WebControls.DataPager> server control's view state.
+  remarks: 'The <xref:System.Web.UI.WebControls.DataPager.TrackViewState%2A> method is called automatically at the end of the <xref:System.Web.UI.Control.Init> event in the <xref:System.Web.UI.WebControls.DataPager> control''s life cycle. This method alerts ASP.NET to monitor changes to the <xref:System.Web.UI.WebControls.DataPager> server control''s view state.'
   syntax:
     content: protected override void TrackViewState ();
     parameters: []
@@ -1605,7 +1605,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Retrieves the attribute value with the specified name from the <xref href="System.Web.UI.WebControls.DataPager"></xref> control.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.DataPager> instance is cast to an <xref:System.Web.UI.IAttributeAccessor> interface.
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.DataPager> instance is cast to an <xref:System.Web.UI.IAttributeAccessor> interface.'
   syntax:
     content: string IAttributeAccessor.GetAttribute (string name);
     parameters:
@@ -1653,7 +1653,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Sets an attribute of the <xref href="System.Web.UI.WebControls.DataPager"></xref> control with the specified name and value.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.DataPager> instance is cast to an <xref:System.Web.UI.IAttributeAccessor> interface.
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.DataPager> instance is cast to an <xref:System.Web.UI.IAttributeAccessor> interface.'
   syntax:
     content: void IAttributeAccessor.SetAttribute (string name, string value);
     parameters:

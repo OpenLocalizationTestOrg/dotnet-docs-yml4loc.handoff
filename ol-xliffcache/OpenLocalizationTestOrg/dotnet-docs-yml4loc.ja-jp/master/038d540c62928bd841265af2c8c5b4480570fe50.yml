@@ -17,7 +17,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Diagnostics.Tracing
-  summary: Provides the event data for creating fast <xref href="System.Diagnostics.Tracing.EventSource.WriteEvent*"></xref> overloads by using the <xref href="System.Diagnostics.Tracing.EventSource.WriteEventCore(System.Int32,System.Int32,System.Diagnostics.Tracing.EventSource.EventData*)"></xref> method.
+  summary: 'Provides the event data for creating fast <xref href="System.Diagnostics.Tracing.EventSource.WriteEvent*"></xref> overloads by using the <xref href="System.Diagnostics.Tracing.EventSource.WriteEventCore(System.Int32,System.Int32,System.Diagnostics.Tracing.EventSource.EventData*)"></xref> method.'
   remarks: "The following example shows how to use the <xref:System.Diagnostics.Tracing.EventSource.EventData> structure.  \n  \n```  \n  \n[NonEvent]  \npublic unsafe void WriteEvent(int eventId, int arg1, int arg2, int arg3, int arg4) {  \n    EventData* dataDesc = stackalloc EventProvider.EventData[4];  \n  \n    dataDesc[0].DataPointer = (IntPtr)(&arg1);  \n    dataDesc[0].Size = 4;  \n    dataDesc[1].DataPointer = (IntPtr)(&arg2);  \n    dataDesc[1].Size = 4;  \n    dataDesc[2].DataPointer = (IntPtr)(&arg3);  \n    dataDesc[2].Size = 4;  \n    dataDesc[3].DataPointer = (IntPtr)(&arg4);  \n    dataDesc[3].Size = 4;  \n  \n    WriteEventCore(eventId, 4, (IntPtr)dataDesc);  \n}  \n  \n```"
   syntax:
     content: protected struct EventSource.EventData

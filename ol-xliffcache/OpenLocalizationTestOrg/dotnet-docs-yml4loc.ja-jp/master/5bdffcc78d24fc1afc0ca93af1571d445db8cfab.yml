@@ -88,7 +88,7 @@ items:
   assemblies:
   - ReachFramework
   namespace: System.Printing
-  summary: Initializes a new instance of the <xref href="System.Printing.PrintCapabilities"></xref> class by using an XML stream (that contains a PrintCapabilities document) that specifies printer capabilities and complies with the XML [Print Schema](http://go.microsoft.com/fwlink/?LinkId=186397).
+  summary: 'Initializes a new instance of the <xref href="System.Printing.PrintCapabilities"></xref> class by using an XML stream (that contains a PrintCapabilities document) that specifies printer capabilities and complies with the XML [Print Schema](http://go.microsoft.com/fwlink/?LinkId=186397).'
   remarks: "The entire PrintCapabilities document is stored in a non-public field in the object, including the XML elements within it that express less common features that are not represented by any of the public properties of the <xref:System.Printing.PrintCapabilities> class. In fact, if the driver that produced the PrintCapabilities document is using a private extension of the [Print Schema](http://go.microsoft.com/fwlink/?LinkId=186397), that privately defined markup is also stored as part of the non-public PrintCapabilities document.  \n  \n The private parts of the document, if any, are not validated by the constructor, but all **Print Schema**-defined parts are validated, including the parts that are not represented by any of the public properties of the <xref:System.Printing.PrintCapabilities> class. Accordingly, the <xref:System.FormatException> could be thrown even if all of the XML markup that corresponds to the public properties is valid."
   syntax:
     content: public PrintCapabilities (System.IO.Stream xmlStream);
@@ -318,7 +318,7 @@ items:
   - ReachFramework
   namespace: System.Printing
   summary: Gets a value indicating the maximum number of copies that the device can print in a single print job.
-  remarks: This property corresponds to the [Print Schema](http://go.microsoft.com/fwlink/?LinkId=186397)'s `JobCopiesAllDocuments` keyword, not the `DocumentCopiesAllPages` keyword, or the `PageCopies` keyword. If the printer can print unlimited copies, the property value is 9999.
+  remarks: 'This property corresponds to the [Print Schema](http://go.microsoft.com/fwlink/?LinkId=186397)''s `JobCopiesAllDocuments` keyword, not the `DocumentCopiesAllPages` keyword, or the `PageCopies` keyword. If the printer can print unlimited copies, the property value is 9999.'
   syntax:
     content: public Nullable<int> MaxCopyCount { get; }
     return:
@@ -361,13 +361,13 @@ items:
   assemblies:
   - ReachFramework
   namespace: System.Printing
-  summary: Gets a value indicating the height of the imageable area on a page, where height means the vertical dimension relative to the page's orientation.
+  summary: 'Gets a value indicating the height of the imageable area on a page, where height means the vertical dimension relative to the page''s orientation.'
   remarks: "Most printers must leave an unprinted area along the edges of a page to prevent toner from getting on the parts of the printer that move the sheets.  \n  \n This property corresponds to the **ImageableSizeHeight** property of the [Print Schema](http://go.microsoft.com/fwlink/?LinkId=186397)'s `PageImageableSize` keyword."
   syntax:
     content: public Nullable<double> OrientedPageMediaHeight { get; }
     return:
       type: System.Nullable{System.Double}
-      description: A nullable <xref href="System.Double"></xref> value indicating the height, in pixels, which are 1/96 inch increments, of the area on a page that the printer is capable of printing.
+      description: 'A nullable <xref href="System.Double"></xref> value indicating the height, in pixels, which are 1/96 inch increments, of the area on a page that the printer is capable of printing.'
   overload: System.Printing.PrintCapabilities.OrientedPageMediaHeight*
   exceptions: []
   version:
@@ -405,13 +405,13 @@ items:
   assemblies:
   - ReachFramework
   namespace: System.Printing
-  summary: Gets a value indicating the width of the imageable area on a page, where width means the horizontal dimension relative to the page's orientation.
+  summary: 'Gets a value indicating the width of the imageable area on a page, where width means the horizontal dimension relative to the page''s orientation.'
   remarks: "Most printers must leave an unprinted area along the edges of a page to prevent toner from getting on the parts of the printer that move the sheets.  \n  \n This property corresponds to the `ImageableSizeWidth` property of the [Print Schema](http://go.microsoft.com/fwlink/?LinkId=186397)'s `PageImageableSize` keyword."
   syntax:
     content: public Nullable<double> OrientedPageMediaWidth { get; }
     return:
       type: System.Nullable{System.Double}
-      description: A nullable <xref href="System.Double"></xref> value indicating the width, in pixels, which are 1/96 inch increments, of the area on a page that the printer is capable of printing.
+      description: 'A nullable <xref href="System.Double"></xref> value indicating the width, in pixels, which are 1/96 inch increments, of the area on a page that the printer is capable of printing.'
   overload: System.Printing.PrintCapabilities.OrientedPageMediaWidth*
   exceptions: []
   version:
@@ -582,12 +582,12 @@ items:
   - ReachFramework
   namespace: System.Printing
   summary: Gets an object that represents the area of a page that the printer can use.
-  remarks: Most laser and inkjet printers must allow an unprinted margin around the edges of a page to prevent toner from getting on the parts of the printer that move the sheets. Many photographic printers, however, can use the entire page to print an image.
+  remarks: 'Most laser and inkjet printers must allow an unprinted margin around the edges of a page to prevent toner from getting on the parts of the printer that move the sheets. Many photographic printers, however, can use the entire page to print an image.'
   syntax:
     content: public System.Printing.PageImageableArea PageImageableArea { get; }
     return:
       type: System.Printing.PageImageableArea
-      description: A <xref href="System.Printing.PageImageableArea"></xref> object that specifies the distance, in pixels (units of 1/96 inch), of the upper-left corner of the imageable area. The vertical distance is measured from the top edge of the paper and the horizontal distance is measured from the left edge. The return value also specifies the width and height of the imageable area. If the printer driver does not report an imageable area, then this property is null.
+      description: 'A <xref href="System.Printing.PageImageableArea"></xref> object that specifies the distance, in pixels (units of 1/96 inch), of the upper-left corner of the imageable area. The vertical distance is measured from the top edge of the paper and the horizontal distance is measured from the left edge. The return value also specifies the width and height of the imageable area. If the printer driver does not report an imageable area, then this property is null.'
   overload: System.Printing.PrintCapabilities.PageImageableArea*
   exceptions: []
   version:
@@ -677,7 +677,7 @@ items:
     content: public System.Collections.ObjectModel.ReadOnlyCollection<System.Printing.PageMediaType> PageMediaTypeCapability { get; }
     return:
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.Printing.PageMediaType}
-      description: A <xref href="System.Collections.ObjectModel.ReadOnlyCollection`1"></xref> of <xref href="System.Printing.PageMediaType"></xref> values specifying the print media, such as card stock, label, plain, or photographic.
+      description: 'A <xref href="System.Collections.ObjectModel.ReadOnlyCollection`1"></xref> of <xref href="System.Printing.PageMediaType"></xref> values specifying the print media, such as card stock, label, plain, or photographic.'
   overload: System.Printing.PrintCapabilities.PageMediaTypeCapability*
   exceptions: []
   version:
@@ -715,7 +715,7 @@ items:
   assemblies:
   - ReachFramework
   namespace: System.Printing
-  summary: Gets a collection of values that indicate whether a printer is capable of printing multiple-page documents from front-to-back, back-to-front, or both ways.
+  summary: 'Gets a collection of values that indicate whether a printer is capable of printing multiple-page documents from front-to-back, back-to-front, or both ways.'
   remarks: "If the printer does not support page order selection, the collection is empty.  \n  \n This property corresponds to the [Print Schema](http://go.microsoft.com/fwlink/?LinkId=186397)'s `JobPageOrder` keyword."
   syntax:
     content: public System.Collections.ObjectModel.ReadOnlyCollection<System.Printing.PageOrder> PageOrderCapability { get; }
@@ -810,7 +810,7 @@ items:
     content: public System.Collections.ObjectModel.ReadOnlyCollection<System.Printing.PageResolution> PageResolutionCapability { get; }
     return:
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.Printing.PageResolution}
-      description: A <xref href="System.Collections.ObjectModel.ReadOnlyCollection`1"></xref> of <xref href="System.Printing.PageResolution"></xref> objects. Each value represents a page resolution as a qualitative value, a dots-per-inch value, or both.
+      description: 'A <xref href="System.Collections.ObjectModel.ReadOnlyCollection`1"></xref> of <xref href="System.Printing.PageResolution"></xref> objects. Each value represents a page resolution as a qualitative value, a dots-per-inch value, or both.'
   overload: System.Printing.PrintCapabilities.PageResolutionCapability*
   exceptions: []
   version:
@@ -892,7 +892,7 @@ items:
   assemblies:
   - ReachFramework
   namespace: System.Printing
-  summary: Gets a collection of integers, each identifying the number of pages that a user can choose to print on a single side of a sheet of paper.
+  summary: 'Gets a collection of integers, each identifying the number of pages that a user can choose to print on a single side of a sheet of paper.'
   remarks: "Most printers support only a limited number of specific options, such as 1, 2, 4, 6, 9, and 16 pages per side.  \n  \n If the printer does not support multiple pages per sheet, the collection is empty.  \n  \n This property corresponds to the `PagesPerSheet ScoredProperty` of the [Print Schema](http://go.microsoft.com/fwlink/?LinkId=186397)'s `JobNUpAllDocumentsContiguously` keyword, not the `DocumentNUp` keyword."
   syntax:
     content: public System.Collections.ObjectModel.ReadOnlyCollection<int> PagesPerSheetCapability { get; }

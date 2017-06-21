@@ -99,7 +99,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Defines the methods, properties, and events that are common to all application objects in an ASP.NET application. This class is the base class for applications that are defined by the user in the Global.asax file.
+  summary: 'Defines the methods, properties, and events that are common to all application objects in an ASP.NET application. This class is the base class for applications that are defined by the user in the Global.asax file.'
   remarks: "Instances of the <xref:System.Web.HttpApplication> class are created in the ASP.NET infrastructure, not by the user directly. One instance of the <xref:System.Web.HttpApplication> class is used to process many requests in its lifetime. However, it can process only one request at a time. Thus, member variables can be used to store per-request data.  \n  \n An application raises events that can be handled by custom modules that implement the <xref:System.Web.IHttpModule> interface or by event handler code that is defined in the Global.asax file. Custom modules that implement the <xref:System.Web.IHttpModule> interface can be put in the App_Code folder or in a DLL in the Bin folder.  \n  \n <xref:System.Web.HttpApplication> is introduced in the .NET Framework version 3.5.  For more information, see [Versions and Dependencies](~/docs/framework/migration-guide/versions-and-dependencies.md).  \n  \n> [!NOTE]\n>  When running IIS 7.0 in Integrated mode, custom modules in the App_Code folder or Bin folder apply to all requests in the request pipeline. Event handler code in the Global.asax file only applies to requests that are mapped to an ASP.NET handler.  \n  \n The application events are raised in the following order:  \n  \n1.  <xref:System.Web.HttpApplication.BeginRequest>  \n  \n2.  <xref:System.Web.HttpApplication.AuthenticateRequest>  \n  \n3.  <xref:System.Web.HttpApplication.PostAuthenticateRequest>  \n  \n4.  <xref:System.Web.HttpApplication.AuthorizeRequest>  \n  \n5.  <xref:System.Web.HttpApplication.PostAuthorizeRequest>  \n  \n6.  <xref:System.Web.HttpApplication.ResolveRequestCache>  \n  \n7.  <xref:System.Web.HttpApplication.PostResolveRequestCache>  \n  \n     After the <xref:System.Web.HttpApplication.PostResolveRequestCache> event and before the <xref:System.Web.HttpApplication.PostMapRequestHandler> event, an event handler (which is a page that corresponds to the request URL) is created. When a server is running IIS 7.0 in Integrated mode and at least the .NET Framework version 3.0, the <xref:System.Web.HttpApplication.MapRequestHandler> event is raised. When a server is running IIS 7.0 in Classic mode or an earlier version of IIS, this event cannot be handled.  \n  \n8.  <xref:System.Web.HttpApplication.PostMapRequestHandler>  \n  \n9. <xref:System.Web.HttpApplication.AcquireRequestState>  \n  \n10. <xref:System.Web.HttpApplication.PostAcquireRequestState>  \n  \n11. <xref:System.Web.HttpApplication.PreRequestHandlerExecute>  \n  \n     The event handler is executed.  \n  \n12. <xref:System.Web.HttpApplication.PostRequestHandlerExecute>  \n  \n13. <xref:System.Web.HttpApplication.ReleaseRequestState>  \n  \n14. <xref:System.Web.HttpApplication.PostReleaseRequestState>  \n  \n     After the <xref:System.Web.HttpApplication.PostReleaseRequestState> event is raised, any existing response filters will filter the output.  \n  \n15. <xref:System.Web.HttpApplication.UpdateRequestCache>  \n  \n16. <xref:System.Web.HttpApplication.PostUpdateRequestCache>  \n  \n17. <xref:System.Web.HttpApplication.LogRequest>.  \n  \n     This event is supported in IIS 7.0 Integrated mode and at least the .NET Framework 3.0  \n  \n18. <xref:System.Web.HttpApplication.PostLogRequest>  \n  \n     This event is supported IIS 7.0 Integrated mode and at least the .NET Framework 3.0  \n  \n19. <xref:System.Web.HttpApplication.EndRequest>"
   example:
   - "The following two examples demonstrate how to use the <xref:System.Web.HttpApplication> class and its events. The first example demonstrates how to create a custom HTTP module and connect an event to it. The second example demonstrates how to modify the Web.config file.  \n  \n The following example demonstrates how to create a custom HTTP module and connect the <xref:System.Web.HttpApplication.AcquireRequestState> event to the HTTP module. HTTP modules intercept each request to Web application resources, thereby allowing you to filter client requests. Any HTTP module that subscribes to an <xref:System.Web.HttpApplication> event must implement the <xref:System.Web.IHttpModule> interface.  \n  \n [!code-csharp[System.Web.HttpApplication1#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.HttpApplication1/cs/source.cs#1)]\n [!code-vb[System.Web.HttpApplication1#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.HttpApplication1/vb/source.vb#1)]  \n  \n Before an event in a custom HTTP module can occur, you must modify the configuration settings in the Web.config file to notify ASP.NET about the HTTP module. The following example shows the appropriate configuration setting in the `httpModules` section of the Web.config file. The following setting applies to IIS 7.0 Classic mode and to earlier versions of IIS.  \n  \n```csharp  \n<configuration>  \n  <system.web>  \n    <httpModules>  \n      <add type=\"Samples.AspNet.CS.CustomHTTPModule\"  \n        name=\"CustomHttpModule\" />  \n      </httpModules>  \n  </system.web>  \n</configuration>  \n```  \n  \n```vb  \n<configuration>  \n  <system.web>  \n    <httpModules>  \n      <add type=\"Samples.AspNet.VB.CustomHTTPModule\"  \n        name=\"CustomHttpModule\" />  \n      </httpModules>  \n  </system.web>  \n</configuration>  \n```  \n  \n The following setting applies to IIS 7.0 Integrated mode.  \n  \n```csharp  \n<configuration>  \n  <system.webServer>  \n    <modules>  \n      <add type=\"Samples.AspNet.CS.CustomHTTPModule\"  \n        name=\"CustomHttpModule\" />  \n      </modules>  \n  </system.webServer>  \n</configuration>  \n```  \n  \n```vb  \n<configuration>  \n  <system.webServer>  \n    <modules>  \n      <add type=\"Samples.AspNet.VB.CustomHTTPModule\"  \n        name=\"CustomHttpModule\" />  \n      <modules>  \n  </system.webServer>  \n</configuration>  \n```"
@@ -194,7 +194,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Occurs when ASP.NET acquires the current state (for example, session state) that is associated with the current request.
+  summary: 'Occurs when ASP.NET acquires the current state (for example, session state) that is associated with the current request.'
   remarks: "The <xref:System.Web.HttpApplication.AcquireRequestState> event is raised after the event handler has been created.  \n  \n For more information about how to handle events, see [NIB: Consuming Events](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67)."
   example:
   - For an example of handling the <xref:System.Web.HttpApplication.AcquireRequestState> event, see the <xref:System.Web.HttpApplication> overview topic.
@@ -714,7 +714,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Adds the specified <xref href="System.Web.HttpApplication.LogRequest"></xref> event to the collection of asynchronous <xref href="System.Web.HttpApplication.LogRequest"></xref> event handlers for the current request.
-  remarks: <xref:System.Web.HttpApplication.AddOnLogRequestAsync%2A> is introduced in the .NET Framework version 3.5.  For more information, see [Versions and Dependencies](~/docs/framework/migration-guide/versions-and-dependencies.md).
+  remarks: '<xref:System.Web.HttpApplication.AddOnLogRequestAsync%2A> is introduced in the .NET Framework version 3.5.  For more information, see [Versions and Dependencies](~/docs/framework/migration-guide/versions-and-dependencies.md).'
   syntax:
     content: public void AddOnLogRequestAsync (System.Web.BeginEventHandler bh, System.Web.EndEventHandler eh);
     parameters:
@@ -810,7 +810,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Adds the specified <xref href="System.Web.HttpApplication.MapRequestHandler"></xref> event to the collection of asynchronous <xref href="System.Web.HttpApplication.MapRequestHandler"></xref> event handlers for the current request.
-  remarks: <xref:System.Web.HttpApplication.AddOnMapRequestHandlerAsync%2A> is introduced in the .NET Framework version 3.5.  For more information, see [Versions and Dependencies](~/docs/framework/migration-guide/versions-and-dependencies.md).
+  remarks: '<xref:System.Web.HttpApplication.AddOnMapRequestHandlerAsync%2A> is introduced in the .NET Framework version 3.5.  For more information, see [Versions and Dependencies](~/docs/framework/migration-guide/versions-and-dependencies.md).'
   syntax:
     content: public void AddOnMapRequestHandlerAsync (System.Web.BeginEventHandler bh, System.Web.EndEventHandler eh);
     parameters:
@@ -1191,7 +1191,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Adds the specified <xref href="System.Web.HttpApplication.PostLogRequest"></xref> event to the collection of asynchronous <xref href="System.Web.HttpApplication.PostLogRequest"></xref> event handlers for the current request.
-  remarks: <xref:System.Web.HttpApplication.AddOnPostLogRequestAsync%2A> is introduced in the .NET Framework version 3.5.  For more information, see [Versions and Dependencies](~/docs/framework/migration-guide/versions-and-dependencies.md).
+  remarks: '<xref:System.Web.HttpApplication.AddOnPostLogRequestAsync%2A> is introduced in the .NET Framework version 3.5.  For more information, see [Versions and Dependencies](~/docs/framework/migration-guide/versions-and-dependencies.md).'
   syntax:
     content: public void AddOnPostLogRequestAsync (System.Web.BeginEventHandler bh, System.Web.EndEventHandler eh);
     parameters:
@@ -2676,7 +2676,7 @@ items:
       description: The custom string that specifies which cached response is used to respond to the current request.
     return:
       type: System.String
-      description: If the value of the <code>custom</code> parameter is `"browser"`, the browser's <xref href="System.Web.Configuration.HttpCapabilitiesBase.Type"></xref>; otherwise, `null`.
+      description: 'If the value of the <code>custom</code> parameter is `"browser"`, the browser''s <xref href="System.Web.Configuration.HttpCapabilitiesBase.Type"></xref>; otherwise, `null`.'
   overload: System.Web.HttpApplication.GetVaryByCustomString*
   exceptions: []
   version:
@@ -2714,7 +2714,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Executes custom initialization code after all event handler modules have been added.
-  remarks: In a derived class, you can override the <xref:System.Web.HttpApplication.Init%2A> method to add custom one-time initialization code.
+  remarks: 'In a derived class, you can override the <xref:System.Web.HttpApplication.Init%2A> method to add custom one-time initialization code.'
   syntax:
     content: public virtual void Init ();
     parameters: []
@@ -2887,7 +2887,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Occurs when the request state (for example, session state) that is associated with the current request has been obtained.
+  summary: 'Occurs when the request state (for example, session state) that is associated with the current request has been obtained.'
   remarks: "The <xref:System.Web.HttpApplication.PostAcquireRequestState> event is raised after the <xref:System.Web.HttpApplication.AcquireRequestState> event has occurred. Functionality that subscribes to the <xref:System.Web.HttpApplication.AcquireRequestState> event can access any data that is processed by the <xref:System.Web.HttpApplication.PostAcquireRequestState>.  \n  \n For more information about how to handle events, see [NIB: Consuming Events](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67)."
   syntax:
     content: public event EventHandler PostAcquireRequestState;
@@ -3139,7 +3139,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Occurs when the ASP.NET event handler (for example, a page or an XML Web service) finishes execution.
+  summary: 'Occurs when the ASP.NET event handler (for example, a page or an XML Web service) finishes execution.'
   remarks: 'For more information about how to handle events, see [NIB: Consuming Events](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67).'
   syntax:
     content: public event EventHandler PostRequestHandlerExecute;
@@ -3265,7 +3265,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Occurs just before ASP.NET starts executing an event handler (for example, a page or an XML Web service).
+  summary: 'Occurs just before ASP.NET starts executing an event handler (for example, a page or an XML Web service).'
   remarks: 'For more information about how to handle events, see [NIB: Consuming Events](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67).'
   syntax:
     content: public event EventHandler PreRequestHandlerExecute;
@@ -3527,7 +3527,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Occurs when the managed objects that are associated with the request have been released.
-  remarks: The <xref:System.Web.HttpApplication.RequestCompleted> event is called after all managed modules and handlers in the ASP.NET pipeline have been called. It enables modules to clean up resources after all managed modules and handlers have executed. Use this event if you require a specific time to explicitly dispose of managed resources that you created during a request.
+  remarks: 'The <xref:System.Web.HttpApplication.RequestCompleted> event is called after all managed modules and handlers in the ASP.NET pipeline have been called. It enables modules to clean up resources after all managed modules and handlers have executed. Use this event if you require a specific time to explicitly dispose of managed resources that you created during a request.'
   syntax:
     content: public event EventHandler RequestCompleted;
     return:
@@ -3568,7 +3568,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Occurs when ASP.NET finishes an authorization event to let the caching modules serve requests from the cache, bypassing execution of the event handler (for example, a page or an XML Web service).
+  summary: 'Occurs when ASP.NET finishes an authorization event to let the caching modules serve requests from the cache, bypassing execution of the event handler (for example, a page or an XML Web service).'
   remarks: 'For more information about how to handle events, see [NIB: Consuming Events](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67).'
   syntax:
     content: public event EventHandler ResolveRequestCache;
@@ -3906,7 +3906,7 @@ items:
       description: An <xref href="System.Web.HttpContext"></xref> that provides references to intrinsic server objects that are used to service HTTP requests.
     - id: cb
       type: System.AsyncCallback
-      description: The <xref href="System.AsyncCallback"></xref> to call when the asynchronous method call is complete. If the <code>cb</code> parameter is `null`, the delegate is not called.
+      description: 'The <xref href="System.AsyncCallback"></xref> to call when the asynchronous method call is complete. If the <code>cb</code> parameter is `null`, the delegate is not called.'
     - id: extraData
       type: System.Object
       description: Any extra data that is required to process the request.
@@ -3951,7 +3951,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Provides an asynchronous process `End` method when the process finishes.
-  remarks: You can use the <xref:System.Web.HttpApplication.System%23Web%23IHttpAsyncHandler%23EndProcessRequest%2A> method to raise any exceptions that are caught during the asynchronous process.
+  remarks: 'You can use the <xref:System.Web.HttpApplication.System%23Web%23IHttpAsyncHandler%23EndProcessRequest%2A> method to raise any exceptions that are caught during the asynchronous process.'
   syntax:
     content: void IHttpAsyncHandler.EndProcessRequest (IAsyncResult result);
     parameters:
@@ -3996,7 +3996,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets a `Boolean` value indicating whether another request can use the <xref href="System.Web.IHttpHandler"></xref> object.
-  remarks: To explicitly set the `IsReusable` property to `true` or `false`, provide code that overrides the `IsReusable` property accessor.
+  remarks: 'To explicitly set the `IsReusable` property to `true` or `false`, provide code that overrides the `IsReusable` property accessor.'
   syntax:
     content: bool System.Web.IHttpHandler.IsReusable { get; }
     return:
@@ -4040,7 +4040,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Enables processing of HTTP Web requests by a custom HTTP handler that implements the <xref href="System.Web.IHttpHandler"></xref> interface.
-  remarks: Classes that inherit the <xref:System.Web.IHttpModule> and <xref:System.Web.IHttpHandler> interfaces are provided as a reference to an <xref:System.Web.HttpContext> object for the current HTTP request. The object provides access to the intrinsic `Request`, `Response`, and `Server` objects for the request.
+  remarks: 'Classes that inherit the <xref:System.Web.IHttpModule> and <xref:System.Web.IHttpHandler> interfaces are provided as a reference to an <xref:System.Web.HttpContext> object for the current HTTP request. The object provides access to the intrinsic `Request`, `Response`, and `Server` objects for the request.'
   syntax:
     content: void IHttpHandler.ProcessRequest (System.Web.HttpContext context);
     parameters:

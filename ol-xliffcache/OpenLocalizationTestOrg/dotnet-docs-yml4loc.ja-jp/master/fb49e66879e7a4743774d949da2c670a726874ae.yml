@@ -353,7 +353,7 @@ items:
     parameters:
     - id: size
       type: System.Int64
-      description: The size of the requested reservation, in bytes.
+      description: 'The size of the requested reservation, in bytes.'
   overload: System.IO.Log.ReservationCollection.Add*
   exceptions:
   - type: System.ArgumentOutOfRangeException
@@ -527,7 +527,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: Copies the entire collection to a one-dimensional array, starting at the specified index of the target array. This method cannot be inherited.
+  summary: 'Copies the entire collection to a one-dimensional array, starting at the specified index of the target array. This method cannot be inherited.'
   syntax:
     content: public void CopyTo (long[] array, int arrayIndex);
     parameters:
@@ -544,7 +544,7 @@ items:
     description: <code>array</code> or <code>arrayIndex</code> is `null`.
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: <code>arrayIndex</code> is less than zero, or greater than or equal to the length of <code>array</code>.
+    description: '<code>arrayIndex</code> is less than zero, or greater than or equal to the length of <code>array</code>.'
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
     description: "There is not enough space in the specified array to copy the data.  \n  \n -or-  \n  \n <code>array</code> is not a single dimensional array, which is the only type supported for the requested action."
@@ -676,7 +676,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, releases a reservation of the specified size.
+  summary: 'When overridden in a derived class, releases a reservation of the specified size.'
   syntax:
     content: protected abstract void FreeReservation (long size);
     parameters:
@@ -720,8 +720,8 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, gets the best matching reservation for a given size.
-  remarks: This method is typically called when appending a record from reserved space to a record sequence. When it returns, a reservation of the returned size has been removed from the collection. If, for some reason, the reserved space is not actually accessed, the <xref:System.IO.Log.ReservationCollection.ReservationMade%2A> method should be called to ensure that the <xref:System.IO.Log.ReservationCollection> accurately represents the amount of reserved space in the record sequence.
+  summary: 'When overridden in a derived class, gets the best matching reservation for a given size.'
+  remarks: 'This method is typically called when appending a record from reserved space to a record sequence. When it returns, a reservation of the returned size has been removed from the collection. If, for some reason, the reserved space is not actually accessed, the <xref:System.IO.Log.ReservationCollection.ReservationMade%2A> method should be called to ensure that the <xref:System.IO.Log.ReservationCollection> accurately represents the amount of reserved space in the record sequence.'
   syntax:
     content: protected long GetBestMatchingReservation (long size);
     parameters:
@@ -730,7 +730,7 @@ items:
       description: The size of the reservation that must be fit.
     return:
       type: System.Int64
-      description: A reservation from the collection that is greater than or equal to the specified size, or -1 if no such reservation exists.
+      description: 'A reservation from the collection that is greater than or equal to the specified size, or -1 if no such reservation exists.'
   overload: System.IO.Log.ReservationCollection.GetBestMatchingReservation*
   exceptions: []
   version:
@@ -825,7 +825,7 @@ items:
   - System.IO.Log
   namespace: System.IO.Log
   summary: Gets a value that indicates whether the collection is read-only.
-  remarks: A <xref:System.IO.Log.ReservationCollection> is never read-only.
+  remarks: 'A <xref:System.IO.Log.ReservationCollection> is never read-only.'
   syntax:
     content: public bool IsReadOnly { get; }
     return:
@@ -868,7 +868,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, allocates a reservation of the specified size.
+  summary: 'When overridden in a derived class, allocates a reservation of the specified size.'
   syntax:
     content: protected abstract void MakeReservation (long size);
     parameters:
@@ -912,7 +912,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: Releases a reservation of the specified size, if one has been made. This method cannot be inherited.
+  summary: 'Releases a reservation of the specified size, if one has been made. This method cannot be inherited.'
   remarks: ''
   example:
   - "The following example shows how to manually make a reservation. Notice that this task can only be performed when using the CLFS-based <xref:System.IO.Log.LogRecordSequence> class.  \n  \n```  \nReservationCollection reservations = recordSequence.CreateReservationCollection();  \nreservations.Add(lengthOfUndoRecord);  \ntry  \n{  \n   recordSequence.Append(recordData, userSqn, previousSqn, RecordAppendOptions.None);  \n}  \ncatch (Exception)  \n{  \n   reservations.Remove(lengthOfUndoRecord);  \n   throw;  \n}  \n  \nrecordSequence.Append(undoRecordData, userSqn, previousSqn, RecordAppendOptions.ForceFlush, reservations);  \n```"
@@ -980,8 +980,8 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, indicates that a reservation has been released.
-  remarks: When you inherit from <xref:System.IO.Log.ReservationCollection>, you must call this method when a reservation is released for a reason other than removing it from the collection.
+  summary: 'When overridden in a derived class, indicates that a reservation has been released.'
+  remarks: 'When you inherit from <xref:System.IO.Log.ReservationCollection>, you must call this method when a reservation is released for a reason other than removing it from the collection.'
   syntax:
     content: protected void ReservationFreed (long size);
     parameters:
@@ -1025,8 +1025,8 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, indicates that a reservation has been made.
-  remarks: When you inherit from <xref:System.IO.Log.ReservationCollection>, you must call this method when a reservation is made outside of a call to <xref:System.IO.Log.ReservationCollection.Add%2A>.
+  summary: 'When overridden in a derived class, indicates that a reservation has been made.'
+  remarks: 'When you inherit from <xref:System.IO.Log.ReservationCollection>, you must call this method when a reservation is made outside of a call to <xref:System.IO.Log.ReservationCollection.Add%2A>.'
   syntax:
     content: protected void ReservationMade (long size);
     parameters:

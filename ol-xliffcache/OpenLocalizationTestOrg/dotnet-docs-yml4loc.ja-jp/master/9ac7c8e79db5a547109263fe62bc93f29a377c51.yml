@@ -23,7 +23,7 @@ items:
   - PresentationCore
   namespace: System.Windows
   summary: Contains state information and event data associated with a routed event.
-  remarks: Different <xref:System.Windows.RoutedEventArgs> can be used with a single <xref:System.Windows.RoutedEventArgs.RoutedEvent%2A>. This class is responsible for packaging the event data for a <xref:System.Windows.RoutedEventArgs.RoutedEvent%2A>, providing extra event state information, and is used by the event system for invoking the handler associated with the routed event.
+  remarks: 'Different <xref:System.Windows.RoutedEventArgs> can be used with a single <xref:System.Windows.RoutedEventArgs.RoutedEvent%2A>. This class is responsible for packaging the event data for a <xref:System.Windows.RoutedEventArgs.RoutedEvent%2A>, providing extra event state information, and is used by the event system for invoking the handler associated with the routed event.'
   syntax:
     content: 'public class RoutedEventArgs : EventArgs'
   inheritance:
@@ -154,7 +154,7 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: Initializes a new instance of the <xref href="System.Windows.RoutedEventArgs"></xref> class, using the supplied routed event identifier.
+  summary: 'Initializes a new instance of the <xref href="System.Windows.RoutedEventArgs"></xref> class, using the supplied routed event identifier.'
   remarks: "When using this overloaded constructor, unspecified properties of the new <xref:System.Windows.RoutedEventArgs> instance assume the following default values:  \n  \n-   <xref:System.Windows.RoutedEventArgs.Handled%2A> defaults to `false`  \n  \n-   <xref:System.Windows.RoutedEventArgs.Source%2A> defaults to `null`.  \n  \n-   <xref:System.Windows.RoutedEventArgs.OriginalSource%2A> defaults to `null`.  \n  \n Null values for <xref:System.Windows.RoutedEventArgs.Source%2A> and <xref:System.Windows.RoutedEventArgs.OriginalSource%2A> only mean that this <xref:System.Windows.RoutedEventArgs> makes no attempt to specify the source. When this instance is used in a call to <xref:System.Windows.UIElement.RaiseEvent%2A>, the  <xref:System.Windows.RoutedEventArgs.Source%2A> and <xref:System.Windows.RoutedEventArgs.OriginalSource%2A> values are populated based on the element that raised the event and are passed on to listeners through the routing."
   example:
   - "The following example constructs a new <xref:System.Windows.RoutedEventArgs> for use in a call to <xref:System.Windows.UIElement.RaiseEvent%2A>.  \n  \n [!code-csharp[RoutedEventCustom#RaiseEvent](~/samples/snippets/csharp/VS_Snippets_Wpf/RoutedEventCustom/CSharp/SDKSampleLibrary/class1.cs#raiseevent)]\n [!code-vb[RoutedEventCustom#RaiseEvent](~/samples/snippets/visualbasic/VS_Snippets_Wpf/RoutedEventCustom/VB/SDKSampleLibrary/Class1.vb#raiseevent)]"
@@ -201,7 +201,7 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: Initializes a new instance of the <xref href="System.Windows.RoutedEventArgs"></xref> class, using the supplied routed event identifier, and providing the opportunity to declare a different source for the event.
+  summary: 'Initializes a new instance of the <xref href="System.Windows.RoutedEventArgs"></xref> class, using the supplied routed event identifier, and providing the opportunity to declare a different source for the event.'
   remarks: "When using this overloaded constructor, unspecified properties of the new <xref:System.Windows.RoutedEventArgs> instance assume the following default values:  \n  \n-   <xref:System.Windows.RoutedEventArgs.Handled%2A> defaults to `false`  \n  \n-   <xref:System.Windows.RoutedEventArgs.OriginalSource%2A> defaults to `null`.  \n  \n Null values for <xref:System.Windows.RoutedEventArgs.OriginalSource%2A> are populated based on the element that raised the event and passed on through the routing, but will read `null` prior to invocation.  \n  \n Use this signature when passing <xref:System.Windows.RoutedEventArgs> to virtuals such as <xref:System.Windows.Controls.Primitives.TextBoxBase.OnSelectionChanged%2A>, where the arguments are used to call <xref:System.Windows.UIElement.RaiseEvent%2A> internally."
   syntax:
     content: public RoutedEventArgs (System.Windows.RoutedEvent routedEvent, object source);
@@ -302,8 +302,8 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: When overridden in a derived class, provides a way to invoke event handlers in a type-specific way, which can increase efficiency over the base implementation.
-  remarks: The base implementation incorporates reflection to determine the right handler for any case where the handler is not literally <xref:System.Windows.RoutedEventHandler>, and this reflection step does have some performance consequences. Invocations can be made more efficient by not relying on reflection. This is the scenario that motivates this method being available for any routed event arguments class that choose to override it. Implementations should not call the base for this method, because your implementation should already be responsible for invoking the type safe handlers.
+  summary: 'When overridden in a derived class, provides a way to invoke event handlers in a type-specific way, which can increase efficiency over the base implementation.'
+  remarks: 'The base implementation incorporates reflection to determine the right handler for any case where the handler is not literally <xref:System.Windows.RoutedEventHandler>, and this reflection step does have some performance consequences. Invocations can be made more efficient by not relying on reflection. This is the scenario that motivates this method being available for any routed event arguments class that choose to override it. Implementations should not call the base for this method, because your implementation should already be responsible for invoking the type safe handlers.'
   example:
   - "The following is pseudocode that illustrates a basic pattern that can be used for implementation. Here, `MyRoutedEventHandler` is a subclass of <xref:System.Windows.RoutedEventHandler>.  \n  \n [!code-csharp[CorePseudocode#RoutedEventArgs](~/samples/snippets/csharp/VS_Snippets_Wpf/CorePseudocode/CSharp/corepseudocode.cs#routedeventargs)]\n [!code-vb[CorePseudocode#RoutedEventArgs](~/samples/snippets/visualbasic/VS_Snippets_Wpf/CorePseudocode/visualbasic/corepseudocode.vb#routedeventargs)]"
   syntax:
@@ -352,7 +352,7 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: When overridden in a derived class, provides a notification callback entry point whenever the value of the <xref href="System.Windows.RoutedEventArgs.Source"></xref> property of an instance changes.
+  summary: 'When overridden in a derived class, provides a notification callback entry point whenever the value of the <xref href="System.Windows.RoutedEventArgs.Source"></xref> property of an instance changes.'
   syntax:
     content: protected virtual void OnSetSource (object source);
     parameters:
@@ -396,13 +396,13 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: Gets the original reporting source as determined by pure hit testing, before any possible <xref href="System.Windows.RoutedEventArgs.Source"></xref> adjustment by a parent class.
+  summary: 'Gets the original reporting source as determined by pure hit testing, before any possible <xref href="System.Windows.RoutedEventArgs.Source"></xref> adjustment by a parent class.'
   remarks: "This property acquires its value once, before the class event handlers or any instance handlers are invoked, and is never adjusted past this point. The original source information is read-only to class handlers or class implementations, just as it is reported in the event data.  \n  \n Common cases where the source may be adjusted include content elements inside a content model for a control (the contents of a list item, for instance, will report the list item element as the <xref:System.Windows.RoutedEventArgs.Source%2A> and the actual element within the list item will be the <xref:System.Windows.RoutedEventArgs.OriginalSource%2A>.  \n  \n Source adjustment by various elements and content models varies from class to class. Each class that adjusts event sources attempts to anticipate which source is the most useful to report for most input scenarios and the scenarios for which the class is intended, and then sets that source as the <xref:System.Windows.RoutedEventArgs.Source%2A>. If this source is not the one that has relevance to your handling of the event, try checking <xref:System.Windows.RoutedEventArgs.OriginalSource%2A> instead to see if it reports a different source that is more suitable. For more details on input events, see [Input Overview](~/docs/framework/wpf/advanced/input-overview.md)."
   syntax:
     content: public object OriginalSource { get; }
     return:
       type: System.Object
-      description: The original reporting source, before any possible <xref href="System.Windows.RoutedEventArgs.Source"></xref> adjustment made by class handling, which may have been done to flatten composited element trees.
+      description: 'The original reporting source, before any possible <xref href="System.Windows.RoutedEventArgs.Source"></xref> adjustment made by class handling, which may have been done to flatten composited element trees.'
   overload: System.Windows.RoutedEventArgs.OriginalSource*
   exceptions: []
   version:

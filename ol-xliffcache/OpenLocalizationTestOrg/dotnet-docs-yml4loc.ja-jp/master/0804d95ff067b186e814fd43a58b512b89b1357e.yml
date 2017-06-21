@@ -25,7 +25,7 @@ items:
   - System.Data
   - netstandard
   namespace: System.Data
-  summary: Represents an open connection to a data source, and is implemented by .NET Framework data providers that access relational databases.
+  summary: 'Represents an open connection to a data source, and is implemented by .NET Framework data providers that access relational databases.'
   remarks: "The <xref:System.Data.IDbConnection> interface enables an inheriting class to implement a Connection class, which represents a unique session with a data source (for example, a network connection to a server). For more information about Connection classes, see [Connecting to a Data Source](~/docs/framework/data/adonet/connecting-to-a-data-source.md).  \n  \n An application does not create an instance of the <xref:System.Data.IDbConnection> interface directly, but creates an instance of a class that inherits <xref:System.Data.IDbConnection>.  \n  \n Classes that inherit <xref:System.Data.IDbConnection> must implement all inherited members, and typically define additional members to add provider-specific functionality. For example, the <xref:System.Data.IDbConnection> interface defines the <xref:System.Data.IDbConnection.ConnectionTimeout%2A> property. In turn, the <xref:System.Data.SqlClient.SqlConnection> class inherits this property, and also defines the <xref:System.Data.SqlClient.SqlConnection.PacketSize%2A> property."
   example:
   - "The following example creates instances of the derived classes, <xref:System.Data.SqlClient.SqlCommand> and <xref:System.Data.SqlClient.SqlConnection>. The <xref:System.Data.SqlClient.SqlConnection> is opened and set as the <xref:System.Data.SqlClient.SqlCommand.Connection%2A> for the <xref:System.Data.SqlClient.SqlCommand>. The example then calls <xref:System.Data.SqlClient.SqlCommand.ExecuteNonQuery%2A>, and closes the connection. To accomplish this, the <xref:System.Data.SqlClient.SqlCommand.ExecuteNonQuery%2A> is passed a connection string and a query string that is a Transact-SQL INSERT statement.  \n  \n [!code-csharp[Classic WebData SqlConnection Example#1](~/samples/snippets/csharp/VS_Snippets_ADO.NET/Classic WebData SqlConnection Example/CS/source.cs#1)]\n [!code-vb[Classic WebData SqlConnection Example#1](~/samples/snippets/visualbasic/VS_Snippets_ADO.NET/Classic WebData SqlConnection Example/VB/source.vb#1)]"
@@ -87,7 +87,7 @@ items:
   - netstandard
   namespace: System.Data
   summary: Begins a database transaction.
-  remarks: Once the transaction has completed, you must explicitly commit or roll back the transaction by using the <xref:System.Data.IDbTransaction.Commit%2A> or <xref:System.Data.IDbTransaction.Rollback%2A> methods.
+  remarks: 'Once the transaction has completed, you must explicitly commit or roll back the transaction by using the <xref:System.Data.IDbTransaction.Commit%2A> or <xref:System.Data.IDbTransaction.Rollback%2A> methods.'
   syntax:
     content: public System.Data.IDbTransaction BeginTransaction ();
     parameters: []
@@ -148,7 +148,7 @@ items:
   - netstandard
   namespace: System.Data
   summary: Begins a database transaction with the specified <xref href="System.Data.IsolationLevel"></xref> value.
-  remarks: Once the transaction has completed, you must explicitly commit or roll back the transaction using the <xref:System.Data.IDbTransaction.Commit%2A> or <xref:System.Data.IDbTransaction.Rollback%2A> methods.
+  remarks: 'Once the transaction has completed, you must explicitly commit or roll back the transaction using the <xref:System.Data.IDbTransaction.Commit%2A> or <xref:System.Data.IDbTransaction.Rollback%2A> methods.'
   syntax:
     content: public System.Data.IDbTransaction BeginTransaction (System.Data.IsolationLevel il);
     parameters:
@@ -392,7 +392,7 @@ items:
   - netstandard
   namespace: System.Data
   summary: Gets the time to wait while trying to establish a connection before terminating the attempt and generating an error.
-  remarks: A value of 0 indicates no limit to the wait time, rather than no wait time, and should be avoided in a <xref:System.Data.IDbConnection.ConnectionString%2A> because it would cause the connection attempt to wait indefinitely.
+  remarks: 'A value of 0 indicates no limit to the wait time, rather than no wait time, and should be avoided in a <xref:System.Data.IDbConnection.ConnectionString%2A> because it would cause the connection attempt to wait indefinitely.'
   syntax:
     content: public int ConnectionTimeout { get; }
     return:
@@ -512,7 +512,7 @@ items:
   - netstandard
   namespace: System.Data
   summary: Gets the name of the current database or the database to be used after a connection is opened.
-  remarks: The `Database` property can be dynamically updated by using the <xref:System.Data.IDbConnection.ChangeDatabase%2A> method or by passing an SQL statement using one of the Execute methods. (Initially the database is set by means of the connection string.) If you change the current database using an SQL statement or the `ChangeDatabase` method, an informational message is sent and then the property is updated.
+  remarks: 'The `Database` property can be dynamically updated by using the <xref:System.Data.IDbConnection.ChangeDatabase%2A> method or by passing an SQL statement using one of the Execute methods. (Initially the database is set by means of the connection string.) If you change the current database using an SQL statement or the `ChangeDatabase` method, an informational message is sent and then the property is updated.'
   syntax:
     content: public string Database { get; }
     return:

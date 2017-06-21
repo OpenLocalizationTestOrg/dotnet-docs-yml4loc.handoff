@@ -182,7 +182,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Specifies whether to automatically close a session when a service closes a duplex session.
-  remarks: By default, when a service closes a duplex session and the callback has finished processing any remaining messages, the callback closes the session. Setting <xref:System.ServiceModel.CallbackBehaviorAttribute.AutomaticSessionShutdown%2A> to `false` prevents the client from automatically closing the session.
+  remarks: 'By default, when a service closes a duplex session and the callback has finished processing any remaining messages, the callback closes the session. Setting <xref:System.ServiceModel.CallbackBehaviorAttribute.AutomaticSessionShutdown%2A> to `false` prevents the client from automatically closing the session.'
   syntax:
     content: public bool AutomaticSessionShutdown { get; set; }
     return:
@@ -231,7 +231,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: Gets or sets whether a service supports one thread, multiple threads, or reentrant calls.
+  summary: 'Gets or sets whether a service supports one thread, multiple threads, or reentrant calls.'
   remarks: "This property indicates whether an instance of a callback object supports one thread or multiple threads that execute concurrently, and if single-threaded, whether reentrancy is supported.  \n  \n Setting <xref:System.ServiceModel.ConcurrencyMode> to <xref:System.ServiceModel.ConcurrencyMode.Single> instructs the system to restrict instances of the service to one thread of execution at a time, which frees you from dealing with threading issues. This is the default value. A value of <xref:System.ServiceModel.ConcurrencyMode.Multiple> means that service objects can be executed by multiple threads at any one time. In this case, you must ensure thread safety and state consistency.  \n  \n <xref:System.ServiceModel.ConcurrencyMode.Reentrant> also restricts access to a single thread at a time. However, it enables calls out from an executing service method to return and reenter the executing service. A reentrant call can execute on a different managed thread, but in this case the original thread is blocked for the duration of the reentrant call.  \n  \n Generally, if a message arrives for an instance that violates its concurrency mode, the message waits until the instance is available, or until it times out.  \n  \n In addition, if the <xref:System.ServiceModel.ConcurrencyMode> is set to <xref:System.ServiceModel.ConcurrencyMode.Single> and a reentrant call is blocked while waiting for the instance to be freed, the system detects the deadlock and throws an exception.  \n  \n [!INCLUDE[crabout](~/includes/crabout-md.md)] concurrency, see <xref:System.ServiceModel.ServiceBehaviorAttribute.ConcurrencyMode%2A?displayProperty=fullName> and [Sessions, Instancing, and Concurrency](~/docs/framework/wcf/feature-details/sessions-instancing-and-concurrency.md)."
   syntax:
     content: public System.ServiceModel.ConcurrencyMode ConcurrencyMode { get; set; }
@@ -387,7 +387,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Gets or sets the maximum number of items allowed in a serialized object.
-  remarks: Use the <xref:System.ServiceModel.ServiceBehaviorAttribute.MaxItemsInObjectGraph%2A> property set a limit on the number of items in an object graph that are serialized. You can also use the [\&lt;dataContractSerializer\&gt;](~/docs/framework/configure-apps/file-schema/wcf/datacontractserializer.md) element to set this value in a client application configuration file.
+  remarks: 'Use the <xref:System.ServiceModel.ServiceBehaviorAttribute.MaxItemsInObjectGraph%2A> property set a limit on the number of items in an object graph that are serialized. You can also use the [\&lt;dataContractSerializer\&gt;](~/docs/framework/configure-apps/file-schema/wcf/datacontractserializer.md) element to set this value in a client application configuration file.'
   syntax:
     content: public int MaxItemsInObjectGraph { get; set; }
     return:
@@ -437,7 +437,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Specifies the transaction isolation level.
-  remarks: The isolation level in which your transaction runs determines how data is treated when changes are made in other transactions and how long your transaction must hold locks to protect against these changes. For example, the default value, <xref:System.Transactions.IsolationLevel.Unspecified>, specifies that no updating or inserting can occur until the transaction is complete.
+  remarks: 'The isolation level in which your transaction runs determines how data is treated when changes are made in other transactions and how long your transaction must hold locks to protect against these changes. For example, the default value, <xref:System.Transactions.IsolationLevel.Unspecified>, specifies that no updating or inserting can occur until the transaction is complete.'
   syntax:
     content: public System.Transactions.IsolationLevel TransactionIsolationLevel { get; set; }
     return:
@@ -586,7 +586,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Gets or sets a value that specifies whether the system or the application enforces SOAP `MustUnderstand` header processing.
-  remarks: Use the <xref:System.ServiceModel.CallbackBehaviorAttribute.ValidateMustUnderstand%2A> property to turn off the enforced validation of arriving message headers. In normal execution, message headers are compared against the <xref:System.ServiceModel.Channels.MessageHeaders.UnderstoodHeaders%2A> property to confirm that arriving headers are explicitly handled by the callback object runtime. Set this to `false` to disable this checking. When set to `false`, the application must check for headers marked with MustUnderstand="true" and return a fault if one or more of them were not understood. This is useful when the callback is supposed to accept any incoming SOAP messages (for example, when using typed or untyped messages) and perform custom header processing.
+  remarks: 'Use the <xref:System.ServiceModel.CallbackBehaviorAttribute.ValidateMustUnderstand%2A> property to turn off the enforced validation of arriving message headers. In normal execution, message headers are compared against the <xref:System.ServiceModel.Channels.MessageHeaders.UnderstoodHeaders%2A> property to confirm that arriving headers are explicitly handled by the callback object runtime. Set this to `false` to disable this checking. When set to `false`, the application must check for headers marked with MustUnderstand="true" and return a fault if one or more of them were not understood. This is useful when the callback is supposed to accept any incoming SOAP messages (for example, when using typed or untyped messages) and perform custom header processing.'
   example:
   - "The following code example shows a <xref:System.ServiceModel.CallbackBehaviorAttribute> on a callback object that uses the <xref:System.Threading.SynchronizationContext> object to determine which thread to marshal to, the <xref:System.ServiceModel.CallbackBehaviorAttribute.ValidateMustUnderstand%2A> property to enforce message validation, and the <xref:System.ServiceModel.CallbackBehaviorAttribute.IncludeExceptionDetailInFaults%2A> property to return exceptions as <xref:System.ServiceModel.FaultException> objects to the service for debugging purposes.  \n  \n [!code-csharp[CallbackBehaviorAttribute#3](~/samples/snippets/csharp/VS_Snippets_CFX/callbackbehaviorattribute/cs/client.cs#3)]\n [!code-vb[CallbackBehaviorAttribute#3](~/samples/snippets/visualbasic/VS_Snippets_CFX/callbackbehaviorattribute/vb/client.vb#3)]"
   syntax:
@@ -746,7 +746,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: Implementation of the <xref href="System.ServiceModel.Description.IEndpointBehavior.ApplyDispatchBehavior(System.ServiceModel.Description.ServiceEndpoint,System.ServiceModel.Dispatcher.EndpointDispatcher)"></xref> method. This implementation has no effect.
+  summary: 'Implementation of the <xref href="System.ServiceModel.Description.IEndpointBehavior.ApplyDispatchBehavior(System.ServiceModel.Description.ServiceEndpoint,System.ServiceModel.Dispatcher.EndpointDispatcher)"></xref> method. This implementation has no effect.'
   syntax:
     content: void IEndpointBehavior.ApplyDispatchBehavior (System.ServiceModel.Description.ServiceEndpoint serviceEndpoint, System.ServiceModel.Dispatcher.EndpointDispatcher dispatcher);
     parameters:

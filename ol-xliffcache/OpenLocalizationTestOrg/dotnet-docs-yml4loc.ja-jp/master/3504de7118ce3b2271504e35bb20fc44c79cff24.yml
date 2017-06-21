@@ -24,7 +24,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media.Animation
   summary: Interactively controls a <xref href="System.Windows.Media.Animation.Clock"></xref>.
-  remarks: Use a <xref:System.Windows.Media.Animation.ClockController> to interactively begin, pause, resume, seek, skip, stop, and remove a <xref:System.Windows.Media.Animation.Clock>. You can only interactively control root-level clocks.
+  remarks: 'Use a <xref:System.Windows.Media.Animation.ClockController> to interactively begin, pause, resume, seek, skip, stop, and remove a <xref:System.Windows.Media.Animation.Clock>. You can only interactively control root-level clocks.'
   syntax:
     content: 'public sealed class ClockController : System.Windows.Threading.DispatcherObject'
   inheritance:
@@ -204,7 +204,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media.Animation
   summary: Removes the <xref href="System.Windows.Media.Animation.Clock"></xref> associated with this <xref href="System.Windows.Media.Animation.ClockController"></xref> from the properties it animates. The clock and its child clocks will no longer affect these properties.
-  remarks: This method triggers the <xref:System.Windows.Media.Animation.Clock.RemoveRequested> event.
+  remarks: 'This method triggers the <xref:System.Windows.Media.Animation.Clock.RemoveRequested> event.'
   example:
   - "The following example shows how to remove and otherwise interactively control a clock.  \n  \n [!code-csharp[ClockController_procedural_snip#ClockControllerSeekExample](~/samples/snippets/csharp/VS_Snippets_Wpf/ClockController_procedural_snip/CSharp/SeekAlignedToLastTickExample.cs#clockcontrollerseekexample)]\n [!code-vb[ClockController_procedural_snip#ClockControllerSeekExample](~/samples/snippets/visualbasic/VS_Snippets_Wpf/ClockController_procedural_snip/visualbasic/seekalignedtolasttickexample.vb#clockcontrollerseekexample)]"
   syntax:
@@ -289,7 +289,7 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: Seeks the target <xref href="System.Windows.Media.Animation.ClockController.Clock"></xref> by the specified amount when the next tick occurs. If the target clock is stopped, seeking makes it active again.
+  summary: 'Seeks the target <xref href="System.Windows.Media.Animation.ClockController.Clock"></xref> by the specified amount when the next tick occurs. If the target clock is stopped, seeking makes it active again.'
   remarks: "Seek operations do not take the <xref:System.Windows.Media.Animation.Timeline.SpeedRatio%2A> or <xref:System.Windows.Media.Animation.ParallelTimeline.SlipBehavior%2A> settings of this clock's timeline into account: the clock is treated as though its timeline has a <xref:System.Windows.Media.Animation.Timeline.SpeedRatio%2A> of 1 and no <xref:System.Windows.Media.Animation.ParallelTimeline.SlipBehavior%2A>.  \n  \n This method changes the clock's <xref:System.Windows.Media.Animation.Clock.CurrentState%2A> to <xref:System.Windows.Media.Animation.ClockState.Active>. This method has no effect on the timing tree until the next time a tick is processed. As a side-effect, the appropriate events also will not be raised until then.  \n  \n Seeking a storyboard triggers the <xref:System.Windows.Media.Animation.Clock.CurrentGlobalSpeedInvalidated> and <xref:System.Windows.Media.Animation.Clock.CurrentStateInvalidated> events.  \n  \n If the target clock has children, their current time is updated accordingly."
   example:
   - "The following example shows how to seek using a <xref:System.Windows.Media.Animation.ClockController>.  \n  \n [!code-csharp[ClockController_procedural_snip#ClockControllerSeekExample](~/samples/snippets/csharp/VS_Snippets_Wpf/ClockController_procedural_snip/CSharp/SeekAlignedToLastTickExample.cs#clockcontrollerseekexample)]\n [!code-vb[ClockController_procedural_snip#ClockControllerSeekExample](~/samples/snippets/visualbasic/VS_Snippets_Wpf/ClockController_procedural_snip/visualbasic/seekalignedtolasttickexample.vb#clockcontrollerseekexample)]"
@@ -298,7 +298,7 @@ items:
     parameters:
     - id: offset
       type: System.TimeSpan
-      description: The seek offset, measured in the target clock's time. This offset is relative to the clock's <xref href="System.Windows.Media.Animation.TimeSeekOrigin.BeginTime"></xref> or <xref href="System.Windows.Media.Animation.TimeSeekOrigin.Duration"></xref>, depending on the value of <code>origin</code>.
+      description: 'The seek offset, measured in the target clock''s time. This offset is relative to the clock''s <xref href="System.Windows.Media.Animation.TimeSeekOrigin.BeginTime"></xref> or <xref href="System.Windows.Media.Animation.TimeSeekOrigin.Duration"></xref>, depending on the value of <code>origin</code>.'
     - id: origin
       type: System.Windows.Media.Animation.TimeSeekOrigin
       description: A value that indicates whether the specified offset is relative to the target clock's <xref href="System.Windows.Media.Animation.TimeSeekOrigin.BeginTime"></xref> or <xref href="System.Windows.Media.Animation.TimeSeekOrigin.Duration"></xref>.
@@ -339,7 +339,7 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: Seeks the target <xref href="System.Windows.Media.Animation.Clock"></xref> by the specified amount immediately. If the target clock is stopped, seeking makes it active again.
+  summary: 'Seeks the target <xref href="System.Windows.Media.Animation.Clock"></xref> by the specified amount immediately. If the target clock is stopped, seeking makes it active again.'
   remarks: "Seek operations do not take the <xref:System.Windows.Media.Animation.Timeline.SpeedRatio%2A> or <xref:System.Windows.Media.Animation.ParallelTimeline.SlipBehavior%2A> settings of this clock's timeline into account: the clock is treated as though its timeline has a <xref:System.Windows.Media.Animation.Timeline.SpeedRatio%2A> of 1 and no <xref:System.Windows.Media.Animation.ParallelTimeline.SlipBehavior%2A>.  \n  \n <xref:System.Windows.Media.Animation.ClockController.SeekAlignedToLastTick%2A> aligns the seeked time of the clock with the last clock tick. Values are immediately updated to reflect the changes due to <xref:System.Windows.Media.Animation.ClockController.SeekAlignedToLastTick%2A>, even though the screen will not reflect these changes until the screen updates.  \n  \n If the target clock has children, their current time is updated accordingly.  \n  \n This method changes the clock's <xref:System.Windows.Media.Animation.Clock.CurrentState%2A> to <xref:System.Windows.Media.Animation.ClockState.Active>.  \n  \n Seeking a storyboard triggers the <xref:System.Windows.Media.Animation.Clock.CurrentGlobalSpeedInvalidated> and <xref:System.Windows.Media.Animation.Clock.CurrentStateInvalidated> events."
   example:
   - "The following example demonstrates both the <xref:System.Windows.Media.Animation.ClockController.Seek%2A> and <xref:System.Windows.Media.Animation.ClockController.SeekAlignedToLastTick%2A> methods of a <xref:System.Windows.Media.Animation.ClockController>.  \n  \n [!code-csharp[ClockController_procedural_snip#ClockControllerSeekExample](~/samples/snippets/csharp/VS_Snippets_Wpf/ClockController_procedural_snip/CSharp/SeekAlignedToLastTickExample.cs#clockcontrollerseekexample)]\n [!code-vb[ClockController_procedural_snip#ClockControllerSeekExample](~/samples/snippets/visualbasic/VS_Snippets_Wpf/ClockController_procedural_snip/visualbasic/seekalignedtolasttickexample.vb#clockcontrollerseekexample)]"
@@ -348,7 +348,7 @@ items:
     parameters:
     - id: offset
       type: System.TimeSpan
-      description: The seek offset, measured in the target clock's time. This offset is relative to the clock's <xref href="System.Windows.Media.Animation.TimeSeekOrigin.BeginTime"></xref> or <xref href="System.Windows.Media.Animation.TimeSeekOrigin.Duration"></xref>, depending on the value of <code>origin</code>.
+      description: 'The seek offset, measured in the target clock''s time. This offset is relative to the clock''s <xref href="System.Windows.Media.Animation.TimeSeekOrigin.BeginTime"></xref> or <xref href="System.Windows.Media.Animation.TimeSeekOrigin.Duration"></xref>, depending on the value of <code>origin</code>.'
     - id: origin
       type: System.Windows.Media.Animation.TimeSeekOrigin
       description: A value that indicates whether the specified offset is relative to the target clock's <xref href="System.Windows.Media.Animation.TimeSeekOrigin.BeginTime"></xref> or <xref href="System.Windows.Media.Animation.TimeSeekOrigin.Duration"></xref>.
@@ -436,7 +436,7 @@ items:
     content: public double SpeedRatio { get; set; }
     return:
       type: System.Double
-      description: A finite value greater than zero that describes the interactive speed of the target clock. This value is multiplied against the value of the <xref href="System.Windows.Media.Animation.Timeline.SpeedRatio"></xref> of the clock's <xref href="System.Windows.Media.Animation.Timeline"></xref>. For example, if the timeline's <xref href="System.Windows.Media.Animation.Timeline.SpeedRatio"></xref> is 0.5 and the <xref href="System.Windows.Media.Animation.ClockController"></xref> object's <xref href="System.Windows.Media.Animation.ClockController.SpeedRatio"></xref> is 3.0, the timeline moves at 1.5 times normal speed (0.5 * 3.0). The default value is 1.0.
+      description: 'A finite value greater than zero that describes the interactive speed of the target clock. This value is multiplied against the value of the <xref href="System.Windows.Media.Animation.Timeline.SpeedRatio"></xref> of the clock''s <xref href="System.Windows.Media.Animation.Timeline"></xref>. For example, if the timeline''s <xref href="System.Windows.Media.Animation.Timeline.SpeedRatio"></xref> is 0.5 and the <xref href="System.Windows.Media.Animation.ClockController"></xref> object''s <xref href="System.Windows.Media.Animation.ClockController.SpeedRatio"></xref> is 3.0, the timeline moves at 1.5 times normal speed (0.5 * 3.0). The default value is 1.0.'
   overload: System.Windows.Media.Animation.ClockController.SpeedRatio*
   exceptions: []
   version:

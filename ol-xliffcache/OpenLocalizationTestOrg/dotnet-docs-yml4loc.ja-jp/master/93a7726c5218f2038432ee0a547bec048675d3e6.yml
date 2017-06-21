@@ -177,7 +177,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Displays ADO.NET data in a scrollable grid. The <xref href="System.Windows.Forms.DataGridView"></xref> control replaces and adds functionality to the <xref href="System.Windows.Forms.DataGrid"></xref> control; however, the <xref href="System.Windows.Forms.DataGrid"></xref> control is retained for both backward compatibility and future use, if you choose.
+  summary: 'Displays ADO.NET data in a scrollable grid. The <xref href="System.Windows.Forms.DataGridView"></xref> control replaces and adds functionality to the <xref href="System.Windows.Forms.DataGrid"></xref> control; however, the <xref href="System.Windows.Forms.DataGrid"></xref> control is retained for both backward compatibility and future use, if you choose.'
   remarks: "The <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> displays Web-like links to child tables. You can click on a link to navigate to the child table. When a child table is displayed, a back button appears in the caption that can be clicked to navigate back to the parent table. The data from the parent rows is displayed below the caption and above the column headers. You can hide the parent row information by clicking the button to the right of the back button.  \n  \n To display a table in the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> at run time, use the <xref:System.Windows.Forms.DataGrid.SetDataBinding%2A> method to set the <xref:System.Windows.Forms.DataGrid.DataSource%2A> and <xref:System.Windows.Forms.DataGrid.DataMember%2A> properties to a valid data source. The following data sources are valid:  \n  \n-   A <xref:System.Data.DataTable>  \n  \n-   A <xref:System.Data.DataView>  \n  \n-   A <xref:System.Data.DataSet>  \n  \n-   A <xref:System.Data.DataViewManager>  \n  \n-   A single dimension array  \n  \n-   Any component that implements the <xref:System.ComponentModel.IListSource> interface  \n  \n-   Any component that implements the <xref:System.Collections.IList> interface  \n  \n For more information about the <xref:System.Data.DataSet> class, see [DataSets, DataTables, and DataViews](~/docs/framework/data/adonet/dataset-datatable-dataview/index.md).  \n  \n You can create a grid that enables users to edit data but prevents them from adding new rows by using a <xref:System.Data.DataView> as the data source and setting the <xref:System.Data.DataView.AllowNew%2A> property to `false`.  \n  \n Data sources are further managed by <xref:System.Windows.Forms.BindingManagerBase> objects. For each table in a data source, a <xref:System.Windows.Forms.BindingManagerBase> can be returned from the form's <xref:System.Windows.Forms.BindingContext>. For example, you can determine the number of rows contained by a data source by returning the associated <xref:System.Windows.Forms.BindingManagerBase> object's <xref:System.Windows.Forms.BindingManagerBase.Count%2A> property.  \n  \n To validate data, use the underlying objects that represent data and their events. For example, if the data comes from a <xref:System.Data.DataTable> in a <xref:System.Data.DataSet>, use the <xref:System.Data.DataTable.ColumnChanging> and <xref:System.Data.DataTable.RowChanging> events.  \n  \n> [!NOTE]\n>  Because the number of columns can be customized (by adding or deleting members of the <xref:System.Windows.Forms.GridColumnStylesCollection>) and the rows can be sorted by column, the <xref:System.Windows.Forms.DataGridCell.RowNumber%2A> and <xref:System.Windows.Forms.DataGridCell.ColumnNumber%2A> property values cannot be guaranteed to correspond to <xref:System.Data.DataRow> and <xref:System.Data.DataColumn> indexes in a <xref:System.Data.DataTable>. Therefore you should avoid using those properties in the <xref:System.Windows.Forms.Control.Validating> event to validate data.  \n  \n To determine which cell is selected, use the <xref:System.Windows.Forms.DataGrid.CurrentCell%2A> property. Change the value of any cell by using the <xref:System.Windows.Forms.DataGrid.Item%2A> property, which can take either the row and column indexes of the cell, or a single <xref:System.Windows.Forms.DataGridCell>. Monitor the <xref:System.Windows.Forms.DataGrid.CurrentCellChanged> event to detect when the user selects another cell.  \n  \n To determine which part of the control the user clicked, use the <xref:System.Windows.Forms.DataGrid.HitTest%2A> method in the <xref:System.Windows.Forms.Control.MouseDown> event. The <xref:System.Windows.Forms.DataGrid.HitTest%2A> method returns a <xref:System.Windows.Forms.DataGrid.HitTestInfo> object, which contains the row and column of a clicked area.  \n  \n To manage the appearance of the control at run time, several properties for setting the color and caption attributes are available, including the <xref:System.Windows.Forms.DataGrid.CaptionForeColor%2A>, <xref:System.Windows.Forms.DataGrid.CaptionBackColor%2A>, <xref:System.Windows.Forms.DataGrid.CaptionFont%2A>, and so on.  \n  \n The appearance of the displayed grid (or grids) can be further modified by creating <xref:System.Windows.Forms.DataGridTableStyle> objects and adding them to the <xref:System.Windows.Forms.GridTableStylesCollection>, which is accessed through the <xref:System.Windows.Forms.DataGrid.TableStyles%2A> property. For example, if the <xref:System.Windows.Forms.DataGrid.DataSource%2A> is set to a <xref:System.Data.DataSet> containing three <xref:System.Data.DataTable> objects, you can add three <xref:System.Windows.Forms.DataGridTableStyle> objects to the collection, one for each table. To synchronize each <xref:System.Windows.Forms.DataGridTableStyle> object with a <xref:System.Data.DataTable>, set the <xref:System.Windows.Forms.DataGridTableStyle.MappingName%2A> of the <xref:System.Windows.Forms.DataGridTableStyle> to the <xref:System.Data.DataTable.TableName%2A> of the <xref:System.Data.DataTable>. For more information about binding to an array of objects, see the <xref:System.Windows.Forms.DataGridTableStyle.MappingName%2A?displayProperty=fullName> property.  \n  \n To create a customized view of a table, create an instance of a <xref:System.Windows.Forms.DataGridTextBoxColumn> or <xref:System.Windows.Forms.DataGridBoolColumn> class and add the object to the <xref:System.Windows.Forms.GridTableStylesCollection> accessed through the <xref:System.Windows.Forms.DataGrid.TableStyles%2A> property. Both classes inherit from <xref:System.Windows.Forms.DataGridColumnStyle>. For each column style, set the <xref:System.Windows.Forms.DataGridColumnStyle.MappingName%2A> to the <xref:System.Data.DataColumn.ColumnName%2A> of a column that you want to show in the grid. To hide a column, set its <xref:System.Windows.Forms.DataGridColumnStyle.MappingName%2A> to something other than a valid <xref:System.Data.DataColumn.ColumnName%2A>.  \n  \n To format the text of a column, set the <xref:System.Windows.Forms.DataGridTextBoxColumn.Format%2A> property of the <xref:System.Windows.Forms.DataGridTextBoxColumn> to one of the values found in [Formatting Types](~/docs/standard/base-types/formatting-types.md) and [Custom Date and Time Format Strings](~/docs/standard/base-types/custom-date-and-time-format-strings.md).  \n  \n To bind the <xref:System.Windows.Forms.DataGrid> to a strongly typed array of objects, the object type must contain public properties. To create a <xref:System.Windows.Forms.DataGridTableStyle> that displays the array, set the <xref:System.Windows.Forms.DataGridTableStyle.MappingName%2A?displayProperty=fullName> property to `typename[]` where `typename` is replaced by the name of the object type. Also note that the <xref:System.Windows.Forms.DataGridTableStyle.MappingName%2A> property is case-sensitive; the type name must be matched exactly. See the <xref:System.Windows.Forms.DataGridTableStyle.MappingName%2A> property for an example.  \n  \n You can also bind the <xref:System.Windows.Forms.DataGrid> to an <xref:System.Collections.ArrayList>. A feature of the <xref:System.Collections.ArrayList> is that it can contain objects of multiple types, but the <xref:System.Windows.Forms.DataGrid> can only bind to such a list when all items in the list are of the same type as the first item. This means that all objects must either be of the same type, or they must inherit from the same class as the first item in the list. For example, if the first item in a list is a <xref:System.Windows.Forms.Control>, the second item could be a <xref:System.Windows.Forms.TextBox> (which inherits from <xref:System.Windows.Forms.Control>). If, on the other hand, the first item is a <xref:System.Windows.Forms.TextBox>, the second object cannot be a <xref:System.Windows.Forms.Control>. Further, the <xref:System.Collections.ArrayList> must have items in it when it is bound. An empty <xref:System.Collections.ArrayList> will result in an empty grid. In addition, the objects in the <xref:System.Collections.ArrayList> must contain public properties. When binding to an <xref:System.Collections.ArrayList>, set the <xref:System.Windows.Forms.DataGridTableStyle.MappingName%2A> of the <xref:System.Windows.Forms.DataGridTableStyle> to \"ArrayList\" (the type name).  \n  \n For each <xref:System.Windows.Forms.DataGridTableStyle>, you can set color and caption attributes that override the settings for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> control. However, if those properties are not set, the settings for the control are used by default. The following properties can be overridden by <xref:System.Windows.Forms.DataGridTableStyle> properties:  \n  \n-   <xref:System.Windows.Forms.DataGridTableStyle.AllowSorting%2A>  \n  \n-   <xref:System.Windows.Forms.DataGridTableStyle.AlternatingBackColor%2A>  \n  \n-   <xref:System.Windows.Forms.DataGridTableStyle.BackColor%2A>  \n  \n-   <xref:System.Windows.Forms.DataGridTableStyle.ColumnHeadersVisible%2A>  \n  \n-   <xref:System.Windows.Forms.DataGridTableStyle.ForeColor%2A>  \n  \n-   <xref:System.Windows.Forms.DataGridTableStyle.GridLineColor%2A>  \n  \n-   <xref:System.Windows.Forms.DataGridTableStyle.GridLineStyle%2A>  \n  \n-   <xref:System.Windows.Forms.DataGridTableStyle.HeaderBackColor%2A>  \n  \n-   <xref:System.Windows.Forms.DataGridTableStyle.HeaderFont%2A>  \n  \n-   <xref:System.Windows.Forms.DataGridTableStyle.HeaderForeColor%2A>  \n  \n-   <xref:System.Windows.Forms.DataGridTableStyle.LinkColor%2A>  \n  \n-   <xref:System.Windows.Forms.DataGridTableStyle.PreferredColumnWidth%2A>  \n  \n-   <xref:System.Windows.Forms.DataGridTableStyle.PreferredRowHeight%2A>  \n  \n-   <xref:System.Windows.Forms.DataGridTableStyle.ReadOnly%2A>  \n  \n-   <xref:System.Windows.Forms.DataGridTableStyle.RowHeadersVisible%2A>  \n  \n-   <xref:System.Windows.Forms.DataGridTableStyle.RowHeaderWidth%2A>  \n  \n-   <xref:System.Windows.Forms.DataGridTableStyle.SelectionBackColor%2A>  \n  \n-   <xref:System.Windows.Forms.DataGridTableStyle.SelectionForeColor%2A>  \n  \n To customize the appearance of individual columns, add <xref:System.Windows.Forms.DataGridColumnStyle> objects to the <xref:System.Windows.Forms.GridColumnStylesCollection>, which is accessed through the <xref:System.Windows.Forms.DataGridTableStyle.GridColumnStyles%2A> property of each <xref:System.Windows.Forms.DataGridTableStyle>. To synchronize each <xref:System.Windows.Forms.DataGridColumnStyle> with a <xref:System.Data.DataColumn> in the <xref:System.Data.DataTable>, set the <xref:System.Windows.Forms.DataGridColumnStyle.MappingName%2A> to the <xref:System.Data.DataColumn.ColumnName%2A> of a <xref:System.Data.DataColumn>. When constructing a <xref:System.Windows.Forms.DataGridColumnStyle>, you can also set a formatting string that specifies how the column displays data. For example, you can specify that the column use a short-date format to display dates contained in the table.  \n  \n> [!CAUTION]\n>  Always create <xref:System.Windows.Forms.DataGridColumnStyle> objects and add them to the <xref:System.Windows.Forms.GridColumnStylesCollection> before adding <xref:System.Windows.Forms.DataGridTableStyle> objects to the <xref:System.Windows.Forms.GridTableStylesCollection>. When you add an empty <xref:System.Windows.Forms.DataGridTableStyle> with a valid <xref:System.Windows.Forms.DataGridTableStyle.MappingName%2A> value to the collection, <xref:System.Windows.Forms.DataGridColumnStyle> objects are automatically generated for you. Consequently, an exception will be thrown if you try to add new <xref:System.Windows.Forms.DataGridColumnStyle> objects with duplicate <xref:System.Windows.Forms.DataGridTableStyle.MappingName%2A> values to the <xref:System.Windows.Forms.GridColumnStylesCollection>.  \n  \n> [!NOTE]\n>  The <xref:System.Windows.Forms.DataGridView> control replaces and adds functionality to the <xref:System.Windows.Forms.DataGrid> control; however, the <xref:System.Windows.Forms.DataGrid> control is retained for both backward compatibility and future use, if you choose. For more information, see [Differences Between the Windows Forms DataGridView and DataGrid Controls](~/docs/framework/winforms/controls/differences-between-the-windows-forms-datagridview-and-datagrid-controls.md)."
   example:
   - "The following code example creates a Windows form, a <xref:System.Data.DataSet> containing two <xref:System.Data.DataTable> objects, and a <xref:System.Data.DataRelation> that relates the two tables. To display the data, a <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> control is then bound to the <xref:System.Data.DataSet> through the <xref:System.Windows.Forms.DataGrid.SetDataBinding%2A> method. A button on the form changes the appearance of the grid by creating two <xref:System.Windows.Forms.DataGridTableStyle> objects and setting the <xref:System.Windows.Forms.DataGridTableStyle.MappingName%2A> of each object to a <xref:System.Data.DataTable.TableName%2A> of one of the <xref:System.Data.DataTable> objects. The example also contains code in the <xref:System.Windows.Forms.Control.MouseUp> event that uses the <xref:System.Windows.Forms.DataGrid.HitTest%2A> method to print the column, row, and part of the grid that has been clicked.  \n  \n [!code-cpp[Classic DataGrid Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic DataGrid Example/CPP/source.cpp#1)]\n [!code-csharp[Classic DataGrid Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic DataGrid Example/CS/source.cs#1)]\n [!code-vb[Classic DataGrid Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic DataGrid Example/VB/source.vb#1)]"
@@ -594,7 +594,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Initializes a new instance of the <xref href="System.Windows.Forms.DataGrid"></xref> class.
-  remarks: To populate a newly created <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> control, set the <xref:System.Windows.Forms.DataGrid.DataSource%2A> property to a valid source, such as a <xref:System.Data.DataView>, <xref:System.Data.DataSet>, or <xref:System.Data.DataViewManager>.
+  remarks: 'To populate a newly created <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> control, set the <xref:System.Windows.Forms.DataGrid.DataSource%2A> property to a valid source, such as a <xref:System.Data.DataView>, <xref:System.Data.DataSet>, or <xref:System.Data.DataViewManager>.'
   example:
   - "The following code example creates a new <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> and uses the <xref:System.Windows.Forms.DataGrid.SetDataBinding%2A> method to set the <xref:System.Windows.Forms.DataGrid.DataSource%2A> and <xref:System.Windows.Forms.DataGrid.DataMember%2A> properties.  \n  \n [!code-vb[Classic DataGrid.DataGrid Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic DataGrid.DataGrid Example/VB/source.vb#1)]"
   syntax:
@@ -638,7 +638,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets a value indicating whether navigation is allowed.
-  remarks: If this property is set to `false`, links to child tables are not shown.
+  remarks: 'If this property is set to `false`, links to child tables are not shown.'
   example:
   - "The following code example toggles the <xref:System.Windows.Forms.DataGrid.AllowNavigation%2A> property between the `true` and `false`.  \n  \n [!code-cpp[DataGrid_AllowNavigationChanged#1](~/samples/snippets/cpp/VS_Snippets_Winforms/DataGrid_AllowNavigationChanged/CPP/mydatagrid_allownavigationchanged.cpp#1)]\n [!code-csharp[DataGrid_AllowNavigationChanged#1](~/samples/snippets/csharp/VS_Snippets_Winforms/DataGrid_AllowNavigationChanged/CS/mydatagrid_allownavigationchanged.cs#1)]\n [!code-vb[DataGrid_AllowNavigationChanged#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/DataGrid_AllowNavigationChanged/VB/mydatagrid_allownavigationchanged.vb#1)]"
   syntax:
@@ -685,7 +685,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Occurs when the <xref href="System.Windows.Forms.DataGrid.AllowNavigation"></xref> property has changed.
-  remarks: If the <xref:System.Windows.Forms.DataGrid.AllowNavigation%2A> property is set to `false`, then no links to child tables are shown.
+  remarks: 'If the <xref:System.Windows.Forms.DataGrid.AllowNavigation%2A> property is set to `false`, then no links to child tables are shown.'
   example:
   - "The following code example resets the <xref:System.Windows.Forms.DataGrid.AllowNavigation%2A> property and raises the <xref:System.Windows.Forms.DataGrid.AllowNavigationChanged> event.  \n  \n [!code-cpp[DataGrid_AllowNavigationChanged#1](~/samples/snippets/cpp/VS_Snippets_Winforms/DataGrid_AllowNavigationChanged/CPP/mydatagrid_allownavigationchanged.cpp#1)]\n [!code-csharp[DataGrid_AllowNavigationChanged#1](~/samples/snippets/csharp/VS_Snippets_Winforms/DataGrid_AllowNavigationChanged/CS/mydatagrid_allownavigationchanged.cs#1)]\n [!code-vb[DataGrid_AllowNavigationChanged#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/DataGrid_AllowNavigationChanged/VB/mydatagrid_allownavigationchanged.vb#1)]"
   syntax:
@@ -777,7 +777,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets the background color of odd-numbered rows of the grid.
-  remarks: By default, both the <xref:System.Windows.Forms.DataGrid.BackColor%2A> and the <xref:System.Windows.Forms.DataGrid.AlternatingBackColor%2A> properties are set to the same color. Setting the <xref:System.Windows.Forms.DataGrid.BackColor%2A> property affects only even-numbered rows, while setting the <xref:System.Windows.Forms.DataGrid.AlternatingBackColor%2A> affects only odd-numbered rows.
+  remarks: 'By default, both the <xref:System.Windows.Forms.DataGrid.BackColor%2A> and the <xref:System.Windows.Forms.DataGrid.AlternatingBackColor%2A> properties are set to the same color. Setting the <xref:System.Windows.Forms.DataGrid.BackColor%2A> property affects only even-numbered rows, while setting the <xref:System.Windows.Forms.DataGrid.AlternatingBackColor%2A> affects only odd-numbered rows.'
   example:
   - "The following code example sets the <xref:System.Windows.Forms.DataGrid.AlternatingBackColor%2A> to a <xref:System.Drawing.Color> value.  \n  \n [!code-vb[Classic DataGrid.AlternatingBackColor Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic DataGrid.AlternatingBackColor Example/VB/source.vb#1)]"
   syntax:
@@ -914,7 +914,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets the color of the non-row area of the grid.
-  remarks: The <xref:System.Windows.Forms.DataGrid.BackgroundColor%2A> determines the color of the nonrow area of the grid, which is only visible when no table is displayed by the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>, or if the grid is scrolled to the bottom, or if only a few rows are contained in the grid.
+  remarks: 'The <xref:System.Windows.Forms.DataGrid.BackgroundColor%2A> determines the color of the nonrow area of the grid, which is only visible when no table is displayed by the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>, or if the grid is scrolled to the bottom, or if only a few rows are contained in the grid.'
   example:
   - "The following code example sets the <xref:System.Windows.Forms.DataGrid.BackColor%2A>, and <xref:System.Windows.Forms.DataGrid.BackgroundColor%2A> properties.  \n  \n [!code-cpp[Classic DataGrid.BackgroundColor Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic DataGrid.BackgroundColor Example/CPP/source.cpp#1)]\n [!code-csharp[Classic DataGrid.BackgroundColor Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic DataGrid.BackgroundColor Example/CS/source.cs#1)]\n [!code-vb[Classic DataGrid.BackgroundColor Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic DataGrid.BackgroundColor Example/VB/source.vb#1)]"
   syntax:
@@ -1052,7 +1052,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Occurs when the value of the <xref href="System.Windows.Forms.DataGrid.BackgroundImage"></xref> property changes.
-  remarks: The <xref:System.Windows.Forms.DataGrid.BackgroundImage%2A> property is not meaningful for this control, although you can change its value and handle the <xref:System.Windows.Forms.DataGrid.BackgroundImageChanged> event to detect the change.
+  remarks: 'The <xref:System.Windows.Forms.DataGrid.BackgroundImage%2A> property is not meaningful for this control, although you can change its value and handle the <xref:System.Windows.Forms.DataGrid.BackgroundImageChanged> event to detect the change.'
   syntax:
     content: >-
       [System.ComponentModel.Browsable(false)]
@@ -1147,7 +1147,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Occurs when the value of the <xref href="System.Windows.Forms.DataGrid.BackgroundImageLayout"></xref> property changes.
-  remarks: The <xref:System.Windows.Forms.DataGrid.BackgroundImageLayout%2A> property is not meaningful for this control, although you can change its value and handle the <xref:System.Windows.Forms.DataGrid.BackgroundImageLayoutChanged> event to detect the change.
+  remarks: 'The <xref:System.Windows.Forms.DataGrid.BackgroundImageLayout%2A> property is not meaningful for this control, although you can change its value and handle the <xref:System.Windows.Forms.DataGrid.BackgroundImageLayoutChanged> event to detect the change.'
   syntax:
     content: >-
       [System.ComponentModel.Browsable(false)]
@@ -1195,7 +1195,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Attempts to put the grid into a state where editing is allowed.
-  remarks: The grid will deny edit requests if the user already started typing into a cell. In that case, the <xref:System.Windows.Forms.DataGrid.BeginEdit%2A> method will return `false`.
+  remarks: 'The grid will deny edit requests if the user already started typing into a cell. In that case, the <xref:System.Windows.Forms.DataGrid.BeginEdit%2A> method will return `false`.'
   example:
   - "The following code example uses the <xref:System.Windows.Forms.DataGrid.BeginEdit%2A> method to test if editing is possible before changing a specified column and row.  \n  \n [!code-cpp[Classic DataGrid.BeginEdit Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic DataGrid.BeginEdit Example/CPP/source.cpp#1)]\n [!code-csharp[Classic DataGrid.BeginEdit Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic DataGrid.BeginEdit Example/CS/source.cs#1)]\n [!code-vb[Classic DataGrid.BeginEdit Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic DataGrid.BeginEdit Example/VB/source.vb#1)]"
   syntax:
@@ -1248,7 +1248,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Begins the initialization of a <xref href="System.Windows.Forms.DataGrid"></xref> that is used on a form or used by another component. The initialization occurs at run time.
-  remarks: The Visual Studio design environment uses this method to start the initialization of a component that is used on a form or used by another component. The <xref:System.Windows.Forms.DataGrid.EndInit%2A> method ends the initialization. Using the <xref:System.Windows.Forms.DataGrid.BeginInit%2A> and <xref:System.Windows.Forms.DataGrid.EndInit%2A> methods prevents the control from being used before it is fully initialized.
+  remarks: 'The Visual Studio design environment uses this method to start the initialization of a component that is used on a form or used by another component. The <xref:System.Windows.Forms.DataGrid.EndInit%2A> method ends the initialization. Using the <xref:System.Windows.Forms.DataGrid.BeginInit%2A> and <xref:System.Windows.Forms.DataGrid.EndInit%2A> methods prevents the control from being used before it is fully initialized.'
   syntax:
     content: public void BeginInit ();
     parameters: []
@@ -1336,7 +1336,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Occurs when the <xref href="System.Windows.Forms.DataGrid.BorderStyle"></xref> has changed.
-  remarks: Possible values include `None`, `FixedSingle`, and `Fixed3D`.
+  remarks: 'Possible values include `None`, `FixedSingle`, and `Fixed3D`.'
   example:
   - "The following code example demonstrates the use of this member. In the example, an event handler reports on the occurrence of the <xref:System.Windows.Forms.DataGrid.BorderStyleChanged> event. This report helps you to learn when the event occurs and can assist you in debugging. To report on multiple events or on events that occur frequently, consider replacing <xref:System.Windows.Forms.MessageBox.Show%2A?displayProperty=fullName> with <xref:System.Console.WriteLine%2A?displayProperty=fullName> or appending the message to a multiline <xref:System.Windows.Forms.TextBox>.  \n  \n To run the example code, paste it into a project that contains an instance of type <xref:System.Windows.Forms.DataGrid> named `DataGrid1`. Then ensure that the event handler is associated with the <xref:System.Windows.Forms.DataGrid.BorderStyleChanged> event.  \n  \n [!code-csharp[System.Windows.Forms.EventExamples#194](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.EventExamples/CS/EventExamples.cs#194)]\n [!code-vb[System.Windows.Forms.EventExamples#194](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.EventExamples/VB/EventExamples.vb#194)]"
   syntax:
@@ -1468,7 +1468,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets the font of the grid's caption.
-  remarks: A <xref:System.Drawing.Font> encapsulates a Windows font and provides the methods for manipulating that font.
+  remarks: 'A <xref:System.Drawing.Font> encapsulates a Windows font and provides the methods for manipulating that font.'
   example:
   - "The following code example sets the caption's font using a <xref:System.Drawing.Font> object.  \n  \n [!code-vb[Classic DataGrid.CaptionFont Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic DataGrid.CaptionFont Example/VB/source.vb#1)]"
   syntax:
@@ -1608,7 +1608,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets a value that indicates whether the grid's caption is visible.
-  remarks: If <xref:System.Windows.Forms.DataGrid.CaptionVisible%2A> is `false`, the **Back** button, **ParentRow** button, and caption will not be seen. Because navigation is limited, links to child tables will also not be visible and <xref:System.Windows.Forms.DataGrid.AllowNavigation%2A> will be set to `None`.
+  remarks: 'If <xref:System.Windows.Forms.DataGrid.CaptionVisible%2A> is `false`, the **Back** button, **ParentRow** button, and caption will not be seen. Because navigation is limited, links to child tables will also not be visible and <xref:System.Windows.Forms.DataGrid.AllowNavigation%2A> will be set to `None`.'
   example:
   - "The following code example toggles the <xref:System.Windows.Forms.DataGrid.CaptionVisible%2A> property.  \n  \n [!code-vb[Classic DataGrid.CaptionVisible Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic DataGrid.CaptionVisible Example/VB/source.vb#1)]"
   syntax:
@@ -1699,8 +1699,8 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Collapses child relations, if any exist for all rows, or for a specified row.
-  remarks: Use the <xref:System.Windows.Forms.DataGrid.IsExpanded%2A> method to determine if a row is expanded.
+  summary: 'Collapses child relations, if any exist for all rows, or for a specified row.'
+  remarks: 'Use the <xref:System.Windows.Forms.DataGrid.IsExpanded%2A> method to determine if a row is expanded.'
   example:
   - "The following code example collapses all rows in the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> control.  \n  \n [!code-vb[Classic DataGrid.Collapse Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic DataGrid.Collapse Example/VB/source.vb#1)]"
   syntax:
@@ -1708,7 +1708,7 @@ items:
     parameters:
     - id: row
       type: System.Int32
-      description: The number of the row to collapse. If set to -1, all rows are collapsed.
+      description: 'The number of the row to collapse. If set to -1, all rows are collapsed.'
   overload: System.Windows.Forms.DataGrid.Collapse*
   exceptions: []
   version:
@@ -1794,7 +1794,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Informs the <xref href="System.Windows.Forms.DataGrid"></xref> control when the user begins to edit the column at the specified location.
-  remarks: When called, the <xref:System.Windows.Forms.IDataGridColumnStyleEditingNotificationService.ColumnStartedEditing%2A> method enables the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> control to show a pencil in the row header.
+  remarks: 'When called, the <xref:System.Windows.Forms.IDataGridColumnStyleEditingNotificationService.ColumnStartedEditing%2A> method enables the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> control to show a pencil in the row header.'
   syntax:
     content: protected virtual void ColumnStartedEditing (System.Drawing.Rectangle bounds);
     parameters:
@@ -1839,7 +1839,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Informs the <xref href="System.Windows.Forms.DataGrid"></xref> control when the user begins to edit a column using the specified control.
-  remarks: When called, the <xref:System.Windows.Forms.IDataGridColumnStyleEditingNotificationService.ColumnStartedEditing%2A> method enables the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> control to show a pencil in the row header.
+  remarks: 'When called, the <xref:System.Windows.Forms.IDataGridColumnStyleEditingNotificationService.ColumnStartedEditing%2A> method enables the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> control to show a pencil in the row header.'
   syntax:
     content: protected virtual void ColumnStartedEditing (System.Windows.Forms.Control editingControl);
     parameters:
@@ -2024,7 +2024,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets which cell has the focus. Not available at design time.
-  remarks: Setting the <xref:System.Windows.Forms.DataGrid.CurrentCell%2A> property will cause the grid to scroll and show the cell if it is not already visible.
+  remarks: 'Setting the <xref:System.Windows.Forms.DataGrid.CurrentCell%2A> property will cause the grid to scroll and show the cell if it is not already visible.'
   example:
   - "The following code example shows how to set and get the current cell.  \n  \n [!code-cpp[Classic DataGrid.CurrentCell Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic DataGrid.CurrentCell Example/CPP/source.cpp#1)]\n [!code-csharp[Classic DataGrid.CurrentCell Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic DataGrid.CurrentCell Example/CS/source.cs#1)]\n [!code-vb[Classic DataGrid.CurrentCell Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic DataGrid.CurrentCell Example/VB/source.vb#1)]"
   syntax:
@@ -2075,7 +2075,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Occurs when the <xref href="System.Windows.Forms.DataGrid.CurrentCell"></xref> property has changed.
-  remarks: To determine the current cell, use the <xref:System.Windows.Forms.DataGrid.CurrentCell%2A> property.
+  remarks: 'To determine the current cell, use the <xref:System.Windows.Forms.DataGrid.CurrentCell%2A> property.'
   example:
   - "The following code example demonstrates the use of this member.  \n  \n [!code-cpp[DataGrid_CaptionVisibleChanged#2](~/samples/snippets/cpp/VS_Snippets_Winforms/DataGrid_CaptionVisibleChanged/CPP/mydatagrid_captionvisiblechanged.cpp#2)]\n [!code-csharp[DataGrid_CaptionVisibleChanged#2](~/samples/snippets/csharp/VS_Snippets_Winforms/DataGrid_CaptionVisibleChanged/CS/mydatagrid_captionvisiblechanged.cs#2)]\n [!code-vb[DataGrid_CaptionVisibleChanged#2](~/samples/snippets/visualbasic/VS_Snippets_Winforms/DataGrid_CaptionVisibleChanged/VB/mydatagrid_captionvisiblechanged.vb#2)]"
   syntax:
@@ -2222,7 +2222,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Occurs when the value of the <xref href="System.Windows.Forms.DataGrid.Cursor"></xref> property changes.
-  remarks: The <xref:System.Windows.Forms.DataGrid.Cursor%2A> property is not meaningful for this control, although you can change its value and handle the <xref:System.Windows.Forms.DataGrid.CursorChanged> event to detect the change.
+  remarks: 'The <xref:System.Windows.Forms.DataGrid.Cursor%2A> property is not meaningful for this control, although you can change its value and handle the <xref:System.Windows.Forms.DataGrid.CursorChanged> event to detect the change.'
   syntax:
     content: >-
       [System.ComponentModel.Browsable(false)]
@@ -2364,7 +2364,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Occurs when the <xref href="System.Windows.Forms.DataGrid.DataSource"></xref> property value has changed.
-  remarks: The <xref:System.Windows.Forms.DataGrid.DataSourceChanged> event occurs when the <xref:System.Windows.Forms.DataGrid.DataMember%2A> value changes, or when the <xref:System.Windows.Forms.BindingContext> of the <xref:System.Windows.Forms.DataGrid> changes.
+  remarks: 'The <xref:System.Windows.Forms.DataGrid.DataSourceChanged> event occurs when the <xref:System.Windows.Forms.DataGrid.DataMember%2A> value changes, or when the <xref:System.Windows.Forms.BindingContext> of the <xref:System.Windows.Forms.DataGrid> changes.'
   example:
   - "The following code example demonstrates the use of this member.  \n  \n [!code-cpp[Classic DataGrid.DataSourceChanged Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic DataGrid.DataSourceChanged Example/CPP/source.cpp#1)]\n [!code-csharp[Classic DataGrid.DataSourceChanged Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic DataGrid.DataSourceChanged Example/CS/source.cs#1)]\n [!code-vb[Classic DataGrid.DataSourceChanged Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic DataGrid.DataSourceChanged Example/VB/source.vb#1)]"
   syntax:
@@ -2452,7 +2452,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Disposes of the resources (other than memory) used by the <xref href="System.Windows.Forms.DataGrid"></xref>.
-  remarks: Call <xref:System.Windows.Forms.DataGrid.Dispose%2A> when you are finished using the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>. The <xref:System.Windows.Forms.DataGrid.Dispose%2A> method leaves the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> in an unusable state. After calling <xref:System.Windows.Forms.DataGrid.Dispose%2A>, you must release all references to the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> so the memory it was occupying can be reclaimed by garbage collection.
+  remarks: 'Call <xref:System.Windows.Forms.DataGrid.Dispose%2A> when you are finished using the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>. The <xref:System.Windows.Forms.DataGrid.Dispose%2A> method leaves the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> in an unusable state. After calling <xref:System.Windows.Forms.DataGrid.Dispose%2A>, you must release all references to the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> so the memory it was occupying can be reclaimed by garbage collection.'
   example:
   - "The following code example uses the <xref:System.Windows.Forms.DataGrid.Dispose%2A> method to free resources.  \n  \n [!code-vb[Classic DataGrid.Dispose Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic DataGrid.Dispose Example/VB/source.vb#1)]"
   syntax:
@@ -2499,7 +2499,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Requests an end to an edit operation taking place on the <xref href="System.Windows.Forms.DataGrid"></xref> control.
-  remarks: The <xref:System.Windows.Forms.DataGrid.EndEdit%2A> method returns `false` if the user is not editing (typing into) a cell.
+  remarks: 'The <xref:System.Windows.Forms.DataGrid.EndEdit%2A> method returns `false` if the user is not editing (typing into) a cell.'
   example:
   - "The following code example uses the <xref:System.Windows.Forms.DataGrid.BeginEdit%2A> and <xref:System.Windows.Forms.DataGrid.EndEdit%2A> methods to edit a value in a grid displayed by the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> control.  \n  \n [!code-cpp[Classic DataGrid.EndEdit Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic DataGrid.EndEdit Example/CPP/source.cpp#1)]\n [!code-csharp[Classic DataGrid.EndEdit Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic DataGrid.EndEdit Example/CS/source.cs#1)]\n [!code-vb[Classic DataGrid.EndEdit Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic DataGrid.EndEdit Example/VB/source.vb#1)]"
   syntax:
@@ -2555,7 +2555,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Ends the initialization of a <xref href="System.Windows.Forms.DataGrid"></xref> that is used on a form or used by another component. The initialization occurs at run time.
-  remarks: The Visual Studio design environment uses this method to end the initialization of a component that is used on a form or used by another component. The <xref:System.Windows.Forms.DataGrid.BeginInit%2A> method starts the initialization. Using the <xref:System.Windows.Forms.DataGrid.BeginInit%2A> and <xref:System.Windows.Forms.DataGrid.EndInit%2A> methods prevents the control from being used before it is fully initialized.
+  remarks: 'The Visual Studio design environment uses this method to end the initialization of a component that is used on a form or used by another component. The <xref:System.Windows.Forms.DataGrid.BeginInit%2A> method starts the initialization. Using the <xref:System.Windows.Forms.DataGrid.BeginInit%2A> and <xref:System.Windows.Forms.DataGrid.EndInit%2A> methods prevents the control from being used before it is fully initialized.'
   syntax:
     content: public void EndInit ();
     parameters: []
@@ -2596,7 +2596,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Displays child relations, if any exist, for all rows or a specific row.
+  summary: 'Displays child relations, if any exist, for all rows or a specific row.'
   remarks: ''
   example:
   - "The following code example demonstrates the use of this member.  \n  \n [!code-vb[Classic DataGrid.Expand Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic DataGrid.Expand Example/VB/source.vb#1)]"
@@ -2605,7 +2605,7 @@ items:
     parameters:
     - id: row
       type: System.Int32
-      description: The number of the row to expand. If set to -1, all rows are expanded.
+      description: 'The number of the row to expand. If set to -1, all rows are expanded.'
   overload: System.Windows.Forms.DataGrid.Expand*
   exceptions: []
   version:
@@ -2833,7 +2833,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets the <xref href="System.Drawing.Rectangle"></xref> of the cell specified by row and column number.
-  remarks: To retrieve the cell bounds for the currently selected cell, use <xref:System.Windows.Forms.DataGrid.GetCurrentCellBounds%2A>.
+  remarks: 'To retrieve the cell bounds for the currently selected cell, use <xref:System.Windows.Forms.DataGrid.GetCurrentCellBounds%2A>.'
   example:
   - "The following code example uses the <xref:System.Windows.Forms.DataGrid.GetCellBounds%2A> method to return a <xref:System.Drawing.Rectangle> of a specified cell.  \n  \n [!code-cpp[Classic DataGrid.GetCellBounds Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic DataGrid.GetCellBounds Example/CPP/source.cpp#1)]\n [!code-csharp[Classic DataGrid.GetCellBounds Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic DataGrid.GetCellBounds Example/CS/source.cs#1)]\n [!code-vb[Classic DataGrid.GetCellBounds Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic DataGrid.GetCellBounds Example/VB/source.vb#1)]"
   syntax:
@@ -2936,7 +2936,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets a <xref href="System.Drawing.Rectangle"></xref> that specifies the four corners of the selected cell.
-  remarks: To retrieve the cell bounds for a cell other than the current cell, use <xref:System.Windows.Forms.DataGrid.GetCellBounds%2A>.
+  remarks: 'To retrieve the cell bounds for a cell other than the current cell, use <xref:System.Windows.Forms.DataGrid.GetCellBounds%2A>.'
   example:
   - "The following code example gets the <xref:System.Drawing.Rectangle> of the selected cell.  \n  \n [!code-cpp[Classic DataGrid.GetCurrentCellBounds Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic DataGrid.GetCurrentCellBounds Example/CPP/source.cpp#1)]\n [!code-csharp[Classic DataGrid.GetCurrentCellBounds Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic DataGrid.GetCurrentCellBounds Example/CS/source.cs#1)]\n [!code-vb[Classic DataGrid.GetCurrentCellBounds Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic DataGrid.GetCurrentCellBounds Example/VB/source.vb#1)]"
   syntax:
@@ -2988,7 +2988,7 @@ items:
     parameters: []
     return:
       type: System.String
-      description: The string value "\t", which represents a tab used to separate columns in a row.
+      description: 'The string value "\t", which represents a tab used to separate columns in a row.'
   overload: System.Windows.Forms.DataGrid.GetOutputTextDelimiter*
   exceptions: []
   version:
@@ -3074,7 +3074,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets the color of the grid lines.
-  remarks: No grid line is displayed if the <xref:System.Windows.Forms.DataGrid.GridLineStyle%2A> property is set to `DataGridLineStyle.None`.
+  remarks: 'No grid line is displayed if the <xref:System.Windows.Forms.DataGrid.GridLineStyle%2A> property is set to `DataGridLineStyle.None`.'
   example:
   - "The following code example sets the color of the grid's lines using a value passed to the method.  \n  \n [!code-cpp[Classic DataGrid.GridLineColor Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic DataGrid.GridLineColor Example/CPP/source.cpp#1)]\n [!code-csharp[Classic DataGrid.GridLineColor Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic DataGrid.GridLineColor Example/CS/source.cs#1)]\n [!code-vb[Classic DataGrid.GridLineColor Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic DataGrid.GridLineColor Example/VB/source.vb#1)]"
   syntax:
@@ -3223,12 +3223,12 @@ items:
     content: public System.Drawing.Color HeaderBackColor { get; set; }
     return:
       type: System.Drawing.Color
-      description: A <xref href="System.Drawing.Color"></xref> that represents the background color of row and column headers. The default is the system color for controls, <xref href="System.Drawing.SystemColors.Control"></xref>.
+      description: 'A <xref href="System.Drawing.Color"></xref> that represents the background color of row and column headers. The default is the system color for controls, <xref href="System.Drawing.SystemColors.Control"></xref>.'
   overload: System.Windows.Forms.DataGrid.HeaderBackColor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: While trying to set the property, a `Color.Empty` was passed.
+    description: 'While trying to set the property, a `Color.Empty` was passed.'
   version:
   - netframework-4.5.1
   - netframework-4.5.2
@@ -3265,7 +3265,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets the font used for column headers.
-  remarks: You typically use this method only if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>, or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.
+  remarks: 'You typically use this method only if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>, or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.'
   syntax:
     content: public System.Drawing.Font HeaderFont { get; set; }
     return:
@@ -3316,7 +3316,7 @@ items:
     content: public System.Drawing.Color HeaderForeColor { get; set; }
     return:
       type: System.Drawing.Color
-      description: A <xref href="System.Drawing.Color"></xref> that represents the foreground color of the grid's column headers, including the column header text and the plus/minus glyphs. The default is <xref href="System.Drawing.SystemColors.ControlText"></xref> color.
+      description: 'A <xref href="System.Drawing.Color"></xref> that represents the foreground color of the grid''s column headers, including the column header text and the plus/minus glyphs. The default is <xref href="System.Drawing.SystemColors.ControlText"></xref> color.'
   overload: System.Windows.Forms.DataGrid.HeaderForeColor*
   exceptions: []
   version:
@@ -3353,7 +3353,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Gets information, such as row and column number of a clicked point on the grid, using the x and y coordinate passed to the method.
+  summary: 'Gets information, such as row and column number of a clicked point on the grid, using the x and y coordinate passed to the method.'
   remarks: "The <xref:System.Windows.Forms.DataGrid.HitTestInfo>, in conjunction with the <xref:System.Windows.Forms.DataGrid.HitTest%2A> method of the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> control, is used to determine which part of a <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> control the user has clicked. The <xref:System.Windows.Forms.DataGrid.HitTestInfo> contains the row, column, and part of the grid that was clicked. Additionally, the <xref:System.Windows.Forms.DataGrid.HitTestInfo.Type%2A> property returns a <xref:System.Windows.Forms.DataGrid.HitTestType> enumeration.  \n  \n The <xref:System.Windows.Forms.DataGrid.HitTest%2A> method takes an x and y argument supplied by the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> control's <xref:System.Windows.Forms.Control.DragDrop>, <xref:System.Windows.Forms.Control.DragEnter>, <xref:System.Windows.Forms.Control.DragOver>, <xref:System.Windows.Forms.Control.MouseDown>, <xref:System.Windows.Forms.Control.MouseMove>, <xref:System.Windows.Forms.Control.MouseUp> and <xref:System.Windows.Forms.Control.MouseWheel> events."
   example:
   - "The following code example uses the <xref:System.Windows.Forms.DataGrid.HitTest%2A> method in an event that occurs when the user clicks in the grid.  \n  \n [!code-vb[Classic DataGrid.HitTest Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic DataGrid.HitTest Example/VB/source.vb#1)]"
@@ -3406,7 +3406,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Gets information, such as row and column number of a clicked point on the grid, about the grid using a specific <xref href="System.Drawing.Point"></xref>.
+  summary: 'Gets information, such as row and column number of a clicked point on the grid, about the grid using a specific <xref href="System.Drawing.Point"></xref>.'
   remarks: "The <xref:System.Windows.Forms.DataGrid.HitTestInfo>, in conjunction with the <xref:System.Windows.Forms.DataGrid.HitTest%2A> method of the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> control, is used to determine which part of a <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> control the user has clicked. The <xref:System.Windows.Forms.DataGrid.HitTestInfo> contains the row, column, and part of the grid that was clicked. Additionally, the <xref:System.Windows.Forms.DataGrid.HitTestInfo.Type%2A> property returns a <xref:System.Windows.Forms.DataGrid.HitTestType> enumeration.  \n  \n The <xref:System.Windows.Forms.DataGrid.HitTest%2A> method takes an x and y argument supplied by the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> control's <xref:System.Windows.Forms.Control.DragDrop>, <xref:System.Windows.Forms.Control.DragEnter>, <xref:System.Windows.Forms.Control.DragOver>, <xref:System.Windows.Forms.Control.MouseDown>, <xref:System.Windows.Forms.Control.MouseMove>, <xref:System.Windows.Forms.Control.MouseUp> and <xref:System.Windows.Forms.Control.MouseWheel> events."
   example:
   - "The following code example uses the <xref:System.Windows.Forms.DataGrid.HitTest%2A> method in occurs when a user clicks on a grid.  \n  \n [!code-vb[Classic DataGrid.HitTest1 Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic DataGrid.HitTest1 Example/VB/source.vb#1)]"
@@ -3415,7 +3415,7 @@ items:
     parameters:
     - id: position
       type: System.Drawing.Point
-      description: A <xref href="System.Drawing.Point"></xref> that represents single x,y coordinate.
+      description: 'A <xref href="System.Drawing.Point"></xref> that represents single x,y coordinate.'
     return:
       type: System.Windows.Forms.DataGrid+HitTestInfo
       description: A <xref href="System.Windows.Forms.DataGrid.HitTestInfo"></xref> that contains specific information about the grid.
@@ -3549,7 +3549,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets a value indicating whether a specified row is selected.
-  remarks: Use this method with the <xref:System.Windows.Forms.DataGrid.Select%2A>, <xref:System.Windows.Forms.DataGrid.UnSelect%2A>, and <xref:System.Windows.Forms.DataGrid.ResetSelection%2A> methods to manipulate the selection state of a particular row.
+  remarks: 'Use this method with the <xref:System.Windows.Forms.DataGrid.Select%2A>, <xref:System.Windows.Forms.DataGrid.UnSelect%2A>, and <xref:System.Windows.Forms.DataGrid.ResetSelection%2A> methods to manipulate the selection state of a particular row.'
   example:
   - "The following code example demonstrates the use of this member.  \n  \n [!code-cpp[MyDataGridClass_ResetHeaderBackColor#5](~/samples/snippets/cpp/VS_Snippets_Winforms/MyDataGridClass_ResetHeaderBackColor/CPP/mydatagridclass_resetheaderbackcolor.cpp#5)]\n [!code-csharp[MyDataGridClass_ResetHeaderBackColor#5](~/samples/snippets/csharp/VS_Snippets_Winforms/MyDataGridClass_ResetHeaderBackColor/CS/mydatagridclass_resetheaderbackcolor.cs#5)]\n [!code-vb[MyDataGridClass_ResetHeaderBackColor#5](~/samples/snippets/visualbasic/VS_Snippets_Winforms/MyDataGridClass_ResetHeaderBackColor/VB/mydatagridclass_resetheaderbackcolor.vb#5)]"
   syntax:
@@ -3599,7 +3599,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets the value of a specified <xref href="System.Windows.Forms.DataGridCell"></xref>.
-  remarks: Setting this property changes the position of the <xref:System.Data.DataView> to the specified row.
+  remarks: 'Setting this property changes the position of the <xref:System.Data.DataView> to the specified row.'
   example:
   - "The following code example sets and gets the value of a cell by declaring a <xref:System.Windows.Forms.DataGridCell> variable, setting its <xref:System.Windows.Forms.DataGridCell.RowNumber%2A> and <xref:System.Windows.Forms.DataGridCell.ColumnNumber%2A> values, then first changing, then returning, the value of the given cell.  \n  \n [!code-cpp[Classic DataGrid.this1 Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic DataGrid.this1 Example/CPP/source.cpp#1)]\n [!code-csharp[Classic DataGrid.this1 Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic DataGrid.this1 Example/CS/source.cs#1)]\n [!code-vb[Classic DataGrid.this1 Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic DataGrid.this1 Example/VB/source.vb#1)]"
   syntax:
@@ -3610,7 +3610,7 @@ items:
       description: A <xref href="System.Windows.Forms.DataGridCell"></xref> that represents a cell in the grid.
     return:
       type: System.Object
-      description: The value, typed as <xref href="System.Object"></xref>, of the cell.
+      description: 'The value, typed as <xref href="System.Object"></xref>, of the cell.'
   overload: System.Windows.Forms.DataGrid.Item*
   exceptions: []
   version:
@@ -3649,7 +3649,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets the value of the cell at the specified the row and column.
-  remarks: Setting this property changes the position of the <xref:System.Data.DataView> to the specified row.
+  remarks: 'Setting this property changes the position of the <xref:System.Data.DataView> to the specified row.'
   example:
   - "The following code example prints the value contained by the cell at the specified row and index.  \n  \n [!code-cpp[Classic DataGrid.this Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic DataGrid.this Example/CPP/source.cpp#1)]\n [!code-csharp[Classic DataGrid.this Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic DataGrid.this Example/CS/source.cs#1)]\n [!code-vb[Classic DataGrid.this Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic DataGrid.this Example/VB/source.vb#1)]"
   syntax:
@@ -3663,7 +3663,7 @@ items:
       description: The zero-based index of the column containing the value.
     return:
       type: System.Object
-      description: The value, typed as <xref href="System.Object"></xref>, of the cell.
+      description: 'The value, typed as <xref href="System.Object"></xref>, of the cell.'
   overload: System.Windows.Forms.DataGrid.Item*
   exceptions:
   - type: System.ArgumentOutOfRangeException
@@ -3705,7 +3705,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets the color of the text that you can click to navigate to a child table.
-  remarks: You typically use this method only if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>, or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.
+  remarks: 'You typically use this method only if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>, or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.'
   syntax:
     content: public System.Drawing.Color LinkColor { get; set; }
     return:
@@ -3844,7 +3844,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Occurs when the user navigates to a new table.
-  remarks: Use the <xref:System.Windows.Forms.DataGrid.Navigate> event to reset individual column properties, such as width, as appropriate to the table.
+  remarks: 'Use the <xref:System.Windows.Forms.DataGrid.Navigate> event to reset individual column properties, such as width, as appropriate to the table.'
   example:
   - "The following code example demonstrates the use of this member.  \n  \n [!code-cpp[DataGrid_AllowNavigationChanged#2](~/samples/snippets/cpp/VS_Snippets_Winforms/DataGrid_AllowNavigationChanged/CPP/mydatagrid_allownavigationchanged.cpp#2)]\n [!code-csharp[DataGrid_AllowNavigationChanged#2](~/samples/snippets/csharp/VS_Snippets_Winforms/DataGrid_AllowNavigationChanged/CS/mydatagrid_allownavigationchanged.cs#2)]\n [!code-vb[DataGrid_AllowNavigationChanged#2](~/samples/snippets/visualbasic/VS_Snippets_Winforms/DataGrid_AllowNavigationChanged/VB/mydatagrid_allownavigationchanged.vb#2)]"
   syntax:
@@ -3889,7 +3889,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Navigates back to the table previously displayed in the grid.
-  remarks: If the grid has no parent rows, no change occurs.
+  remarks: 'If the grid has no parent rows, no change occurs.'
   example:
   - "The following code example demonstrates the use of this member.  \n  \n [!code-vb[Classic DataGrid.NavigateBack Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic DataGrid.NavigateBack Example/VB/source.vb#1)]"
   syntax:
@@ -4738,7 +4738,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Raises the <xref href="System.Windows.Forms.Control.Layout"></xref> event, which repositions controls and updates scroll bars.
+  summary: 'Raises the <xref href="System.Windows.Forms.Control.Layout"></xref> event, which repositions controls and updates scroll bars.'
   remarks: "Raising an event invokes the event handler through a delegate. For more information, see [NIB: Raising an Event](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2).  \n  \n The <xref:System.Windows.Forms.DataGrid.OnLayout%2A> method also enables derived classes to handle the event without attaching a delegate. This is the preferred technique for handling the event in a derived class."
   syntax:
     content: protected override void OnLayout (System.Windows.Forms.LayoutEventArgs levent);
@@ -5144,7 +5144,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Overrides <xref href="System.Windows.Forms.Control.OnPaintBackground(System.Windows.Forms.PaintEventArgs)"></xref> to prevent painting the background of the <xref href="System.Windows.Forms.DataGrid"></xref> control.
-  remarks: Because the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> is a complex control, this override is implemented to have no action. Therefore, calling this method will have no effect.
+  remarks: 'Because the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> is a complex control, this override is implemented to have no action. Therefore, calling this method will have no effect.'
   syntax:
     content: protected override void OnPaintBackground (System.Windows.Forms.PaintEventArgs ebe);
     parameters:
@@ -5833,7 +5833,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets the preferred row height for the <xref href="System.Windows.Forms.DataGrid"></xref> control.
-  remarks: Set this property before resetting the <xref:System.Windows.Forms.DataGrid.DataSource%2A> and <xref:System.Windows.Forms.DataGrid.DataMember%2A> properties (either separately, or through the <xref:System.Windows.Forms.DataGrid.SetDataBinding%2A> method), or the property will have no effect.
+  remarks: 'Set this property before resetting the <xref:System.Windows.Forms.DataGrid.DataSource%2A> and <xref:System.Windows.Forms.DataGrid.DataMember%2A> properties (either separately, or through the <xref:System.Windows.Forms.DataGrid.SetDataBinding%2A> method), or the property will have no effect.'
   example:
   - "The following code example first sets a new font, and sets the <xref:System.Windows.Forms.DataGrid.PreferredRowHeight%2A> to the same height as the new font.  \n  \n [!code-cpp[Classic DataGrid.PreferredRowHeight Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic DataGrid.PreferredRowHeight Example/CPP/source.cpp#1)]\n [!code-csharp[Classic DataGrid.PreferredRowHeight Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic DataGrid.PreferredRowHeight Example/CS/source.cs#1)]\n [!code-vb[Classic DataGrid.PreferredRowHeight Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic DataGrid.PreferredRowHeight Example/VB/source.vb#1)]"
   syntax:
@@ -5879,7 +5879,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets a value that indicates whether a key should be processed further.
-  remarks: The method overrides the <xref:System.Windows.Forms.Control.ProcessDialogKey%2A> method to implement keyboard navigation of the grid.
+  remarks: 'The method overrides the <xref:System.Windows.Forms.Control.ProcessDialogKey%2A> method to implement keyboard navigation of the grid.'
   syntax:
     content: protected override bool ProcessDialogKey (System.Windows.Forms.Keys keyData);
     parameters:
@@ -5974,7 +5974,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Previews a keyboard message and returns a value indicating if the key was consumed.
-  remarks: This method is called by a child control when the child control receives a keyboard message. The child control calls this method before generating any keyboard events for the message. If this method returns `true`, the child control considers the message consumed and does not generate any keyboard events.
+  remarks: 'This method is called by a child control when the child control receives a keyboard message. The child control calls this method before generating any keyboard events for the message. If this method returns `true`, the child control considers the message consumed and does not generate any keyboard events.'
   syntax:
     content: protected override bool ProcessKeyPreview (ref System.Windows.Forms.Message m);
     parameters:
@@ -6161,7 +6161,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Resets the <xref href="System.Windows.Forms.DataGrid.AlternatingBackColor"></xref> property to its default color.
-  remarks: You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>. You can use the <xref:System.Windows.Forms.DataGrid.ShouldSerializeAlternatingBackColor%2A> method to determine whether the property value has changed from its default.
+  remarks: 'You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>. You can use the <xref:System.Windows.Forms.DataGrid.ShouldSerializeAlternatingBackColor%2A> method to determine whether the property value has changed from its default.'
   example:
   - "The following code example demonstrates the use of this member.  \n  \n [!code-cpp[DataGrid_ColorMembers#2](~/samples/snippets/cpp/VS_Snippets_Winforms/DataGrid_ColorMembers/CPP/datagrid_10.cpp#2)]\n [!code-csharp[DataGrid_ColorMembers#2](~/samples/snippets/csharp/VS_Snippets_Winforms/DataGrid_ColorMembers/CS/datagrid_10.cs#2)]\n [!code-vb[DataGrid_ColorMembers#2](~/samples/snippets/visualbasic/VS_Snippets_Winforms/DataGrid_ColorMembers/VB/datagrid_10.vb#2)]"
   syntax:
@@ -6205,7 +6205,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Resets the <xref href="System.Windows.Forms.DataGrid.BackColor"></xref> property to its default value.
-  remarks: You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.
+  remarks: 'You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.'
   example:
   - "The following code example demonstrates the use of this member.  \n  \n [!code-cpp[DataGrid_ColorMembers#2](~/samples/snippets/cpp/VS_Snippets_Winforms/DataGrid_ColorMembers/CPP/datagrid_10.cpp#2)]\n [!code-csharp[DataGrid_ColorMembers#2](~/samples/snippets/csharp/VS_Snippets_Winforms/DataGrid_ColorMembers/CS/datagrid_10.cs#2)]\n [!code-vb[DataGrid_ColorMembers#2](~/samples/snippets/visualbasic/VS_Snippets_Winforms/DataGrid_ColorMembers/VB/datagrid_10.vb#2)]"
   syntax:
@@ -6248,7 +6248,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Resets the <xref href="System.Windows.Forms.DataGrid.ForeColor"></xref> property to its default value.
-  remarks: You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.
+  remarks: 'You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.'
   example:
   - "The following code example demonstrates the use of this member.  \n  \n [!code-cpp[DataGrid_ColorMembers#2](~/samples/snippets/cpp/VS_Snippets_Winforms/DataGrid_ColorMembers/CPP/datagrid_10.cpp#2)]\n [!code-csharp[DataGrid_ColorMembers#2](~/samples/snippets/csharp/VS_Snippets_Winforms/DataGrid_ColorMembers/CS/datagrid_10.cs#2)]\n [!code-vb[DataGrid_ColorMembers#2](~/samples/snippets/visualbasic/VS_Snippets_Winforms/DataGrid_ColorMembers/VB/datagrid_10.vb#2)]"
   syntax:
@@ -6292,7 +6292,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Resets the <xref href="System.Windows.Forms.DataGrid.GridLineColor"></xref> property to its default value.
-  remarks: You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>. You can use the <xref:System.Windows.Forms.DataGrid.ShouldSerializeGridLineColor%2A> method to determine whether the property value has changed from its default.
+  remarks: 'You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>. You can use the <xref:System.Windows.Forms.DataGrid.ShouldSerializeGridLineColor%2A> method to determine whether the property value has changed from its default.'
   example:
   - "The following code example demonstrates the use of this member.  \n  \n [!code-cpp[DataGrid_ColorMembers#2](~/samples/snippets/cpp/VS_Snippets_Winforms/DataGrid_ColorMembers/CPP/datagrid_10.cpp#2)]\n [!code-csharp[DataGrid_ColorMembers#2](~/samples/snippets/csharp/VS_Snippets_Winforms/DataGrid_ColorMembers/CS/datagrid_10.cs#2)]\n [!code-vb[DataGrid_ColorMembers#2](~/samples/snippets/visualbasic/VS_Snippets_Winforms/DataGrid_ColorMembers/VB/datagrid_10.vb#2)]"
   syntax:
@@ -6336,7 +6336,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Resets the <xref href="System.Windows.Forms.DataGrid.HeaderBackColor"></xref> property to its default value.
-  remarks: You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>. You can use the <xref:System.Windows.Forms.DataGrid.ShouldSerializeHeaderBackColor%2A> method to determine whether the property value has changed from its default.
+  remarks: 'You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>. You can use the <xref:System.Windows.Forms.DataGrid.ShouldSerializeHeaderBackColor%2A> method to determine whether the property value has changed from its default.'
   example:
   - "The following code example demonstrates the use of this member.  \n  \n [!code-cpp[MyDataGridClass_ResetHeaderBackColor#1](~/samples/snippets/cpp/VS_Snippets_Winforms/MyDataGridClass_ResetHeaderBackColor/CPP/mydatagridclass_resetheaderbackcolor.cpp#1)]\n [!code-csharp[MyDataGridClass_ResetHeaderBackColor#1](~/samples/snippets/csharp/VS_Snippets_Winforms/MyDataGridClass_ResetHeaderBackColor/CS/mydatagridclass_resetheaderbackcolor.cs#1)]\n [!code-vb[MyDataGridClass_ResetHeaderBackColor#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/MyDataGridClass_ResetHeaderBackColor/VB/mydatagridclass_resetheaderbackcolor.vb#1)]"
   syntax:
@@ -6379,7 +6379,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Resets the <xref href="System.Windows.Forms.DataGrid.HeaderFont"></xref> property to its default value.
-  remarks: You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>. You can use the <xref:System.Windows.Forms.DataGrid.ShouldSerializeHeaderFont%2A> method to determine whether the property value has changed from its default.
+  remarks: 'You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>. You can use the <xref:System.Windows.Forms.DataGrid.ShouldSerializeHeaderFont%2A> method to determine whether the property value has changed from its default.'
   example:
   - "The following code example demonstrates the use of this member.  \n  \n [!code-cpp[MyDataGridClass_ResetHeaderBackColor#3](~/samples/snippets/cpp/VS_Snippets_Winforms/MyDataGridClass_ResetHeaderBackColor/CPP/mydatagridclass_resetheaderbackcolor.cpp#3)]\n [!code-csharp[MyDataGridClass_ResetHeaderBackColor#3](~/samples/snippets/csharp/VS_Snippets_Winforms/MyDataGridClass_ResetHeaderBackColor/CS/mydatagridclass_resetheaderbackcolor.cs#3)]\n [!code-vb[MyDataGridClass_ResetHeaderBackColor#3](~/samples/snippets/visualbasic/VS_Snippets_Winforms/MyDataGridClass_ResetHeaderBackColor/VB/mydatagridclass_resetheaderbackcolor.vb#3)]"
   syntax:
@@ -6422,7 +6422,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Resets the <xref href="System.Windows.Forms.DataGrid.HeaderForeColor"></xref> property to its default value.
-  remarks: You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>. You can use the <xref:System.Windows.Forms.DataGrid.ShouldSerializeHeaderForeColor%2A> method to determine whether the property value has changed from its default.
+  remarks: 'You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>. You can use the <xref:System.Windows.Forms.DataGrid.ShouldSerializeHeaderForeColor%2A> method to determine whether the property value has changed from its default.'
   example:
   - "The following code example demonstrates the use of this member.  \n  \n [!code-cpp[MyDataGridClass_ResetHeaderBackColor#2](~/samples/snippets/cpp/VS_Snippets_Winforms/MyDataGridClass_ResetHeaderBackColor/CPP/mydatagridclass_resetheaderbackcolor.cpp#2)]\n [!code-csharp[MyDataGridClass_ResetHeaderBackColor#2](~/samples/snippets/csharp/VS_Snippets_Winforms/MyDataGridClass_ResetHeaderBackColor/CS/mydatagridclass_resetheaderbackcolor.cs#2)]\n [!code-vb[MyDataGridClass_ResetHeaderBackColor#2](~/samples/snippets/visualbasic/VS_Snippets_Winforms/MyDataGridClass_ResetHeaderBackColor/VB/mydatagridclass_resetheaderbackcolor.vb#2)]"
   syntax:
@@ -6466,7 +6466,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Resets the <xref href="System.Windows.Forms.DataGrid.LinkColor"></xref> property to its default value.
-  remarks: You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.
+  remarks: 'You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.'
   example:
   - "The following code example demonstrates the use of this member.  \n  \n [!code-cpp[DataGrid_ColorMembers#2](~/samples/snippets/cpp/VS_Snippets_Winforms/DataGrid_ColorMembers/CPP/datagrid_10.cpp#2)]\n [!code-csharp[DataGrid_ColorMembers#2](~/samples/snippets/csharp/VS_Snippets_Winforms/DataGrid_ColorMembers/CS/datagrid_10.cs#2)]\n [!code-vb[DataGrid_ColorMembers#2](~/samples/snippets/visualbasic/VS_Snippets_Winforms/DataGrid_ColorMembers/VB/datagrid_10.vb#2)]"
   syntax:
@@ -6509,7 +6509,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Resets the <xref href="System.Windows.Forms.DataGrid.LinkHoverColor"></xref> property to its default value.
-  remarks: You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>. You can use the <xref:System.Windows.Forms.DataGrid.ShouldSerializeLinkHoverColor%2A> method to determine whether the property value has changed from its default.
+  remarks: 'You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>. You can use the <xref:System.Windows.Forms.DataGrid.ShouldSerializeLinkHoverColor%2A> method to determine whether the property value has changed from its default.'
   syntax:
     content: public void ResetLinkHoverColor ();
     parameters: []
@@ -6550,7 +6550,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Turns off selection for all rows that are selected.
-  remarks: Use this method with the <xref:System.Windows.Forms.DataGrid.IsSelected%2A>, <xref:System.Windows.Forms.DataGrid.Select%2A>, and <xref:System.Windows.Forms.DataGrid.UnSelect%2A> methods to manipulate the selection state of a particular row.
+  remarks: 'Use this method with the <xref:System.Windows.Forms.DataGrid.IsSelected%2A>, <xref:System.Windows.Forms.DataGrid.Select%2A>, and <xref:System.Windows.Forms.DataGrid.UnSelect%2A> methods to manipulate the selection state of a particular row.'
   syntax:
     content: protected void ResetSelection ();
     parameters: []
@@ -6592,7 +6592,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Resets the <xref href="System.Windows.Forms.DataGrid.SelectionBackColor"></xref> property to its default value.
-  remarks: You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>. You can use the <xref:System.Windows.Forms.DataGrid.ShouldSerializeSelectionBackColor%2A> method to determine whether the property value has changed from its default.
+  remarks: 'You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>. You can use the <xref:System.Windows.Forms.DataGrid.ShouldSerializeSelectionBackColor%2A> method to determine whether the property value has changed from its default.'
   example:
   - "The following code example demonstrates the use of this member.  \n  \n [!code-cpp[DataGrid_ColorMembers#2](~/samples/snippets/cpp/VS_Snippets_Winforms/DataGrid_ColorMembers/CPP/datagrid_10.cpp#2)]\n [!code-csharp[DataGrid_ColorMembers#2](~/samples/snippets/csharp/VS_Snippets_Winforms/DataGrid_ColorMembers/CS/datagrid_10.cs#2)]\n [!code-vb[DataGrid_ColorMembers#2](~/samples/snippets/visualbasic/VS_Snippets_Winforms/DataGrid_ColorMembers/VB/datagrid_10.vb#2)]"
   syntax:
@@ -6635,7 +6635,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Resets the <xref href="System.Windows.Forms.DataGrid.SelectionForeColor"></xref> property to its default value.
-  remarks: You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>. You can use the <xref:System.Windows.Forms.DataGrid.ShouldSerializeSelectionForeColor%2A> method to determine whether the property value has changed from its default.
+  remarks: 'You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>. You can use the <xref:System.Windows.Forms.DataGrid.ShouldSerializeSelectionForeColor%2A> method to determine whether the property value has changed from its default.'
   example:
   - "The following code example demonstrates the use of this member.  \n  \n [!code-cpp[DataGrid_ColorMembers#2](~/samples/snippets/cpp/VS_Snippets_Winforms/DataGrid_ColorMembers/CPP/datagrid_10.cpp#2)]\n [!code-csharp[DataGrid_ColorMembers#2](~/samples/snippets/csharp/VS_Snippets_Winforms/DataGrid_ColorMembers/CS/datagrid_10.cs#2)]\n [!code-vb[DataGrid_ColorMembers#2](~/samples/snippets/visualbasic/VS_Snippets_Winforms/DataGrid_ColorMembers/VB/datagrid_10.vb#2)]"
   syntax:
@@ -6855,7 +6855,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Selects a specified row.
-  remarks: Use this method with the <xref:System.Windows.Forms.DataGrid.IsSelected%2A>, <xref:System.Windows.Forms.DataGrid.UnSelect%2A>, and <xref:System.Windows.Forms.DataGrid.ResetSelection%2A> methods to manipulate the selection state of a particular row.
+  remarks: 'Use this method with the <xref:System.Windows.Forms.DataGrid.IsSelected%2A>, <xref:System.Windows.Forms.DataGrid.UnSelect%2A>, and <xref:System.Windows.Forms.DataGrid.ResetSelection%2A> methods to manipulate the selection state of a particular row.'
   example:
   - "The following code example demonstrates the use of this member.  \n  \n [!code-cpp[MyDataGridClass_ResetHeaderBackColor#4](~/samples/snippets/cpp/VS_Snippets_Winforms/MyDataGridClass_ResetHeaderBackColor/CPP/mydatagridclass_resetheaderbackcolor.cpp#4)]\n [!code-csharp[MyDataGridClass_ResetHeaderBackColor#4](~/samples/snippets/csharp/VS_Snippets_Winforms/MyDataGridClass_ResetHeaderBackColor/CS/mydatagridclass_resetheaderbackcolor.cs#4)]\n [!code-vb[MyDataGridClass_ResetHeaderBackColor#4](~/samples/snippets/visualbasic/VS_Snippets_Winforms/MyDataGridClass_ResetHeaderBackColor/VB/mydatagridclass_resetheaderbackcolor.vb#4)]"
   syntax:
@@ -6902,7 +6902,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets the background color of selected rows.
-  remarks: You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.
+  remarks: 'You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.'
   example:
   - "The following code example demonstrates the use of this member.  \n  \n [!code-cpp[DataGrid_ColorMembers#2](~/samples/snippets/cpp/VS_Snippets_Winforms/DataGrid_ColorMembers/CPP/datagrid_10.cpp#2)]\n [!code-csharp[DataGrid_ColorMembers#2](~/samples/snippets/csharp/VS_Snippets_Winforms/DataGrid_ColorMembers/CS/datagrid_10.cs#2)]\n [!code-vb[DataGrid_ColorMembers#2](~/samples/snippets/visualbasic/VS_Snippets_Winforms/DataGrid_ColorMembers/VB/datagrid_10.vb#2)]"
   syntax:
@@ -7050,7 +7050,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Indicates whether the <xref href="System.Windows.Forms.DataGrid.AlternatingBackColor"></xref> property should be persisted.
-  remarks: You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.
+  remarks: 'You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.'
   syntax:
     content: protected virtual bool ShouldSerializeAlternatingBackColor ();
     parameters: []
@@ -7095,7 +7095,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Indicates whether the <xref href="System.Windows.Forms.DataGrid.BackgroundColor"></xref> property should be persisted.
-  remarks: You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.
+  remarks: 'You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.'
   syntax:
     content: protected virtual bool ShouldSerializeBackgroundColor ();
     parameters: []
@@ -7140,7 +7140,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets a value indicating whether the <xref href="System.Windows.Forms.DataGrid.CaptionBackColor"></xref> property should be persisted.
-  remarks: You typically use this method only if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>, or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.
+  remarks: 'You typically use this method only if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>, or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.'
   syntax:
     content: protected virtual bool ShouldSerializeCaptionBackColor ();
     parameters: []
@@ -7185,7 +7185,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets a value indicating whether the <xref href="System.Windows.Forms.DataGrid.CaptionForeColor"></xref> property should be persisted.
-  remarks: You typically use this method only if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>, or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.
+  remarks: 'You typically use this method only if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>, or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.'
   syntax:
     content: protected virtual bool ShouldSerializeCaptionForeColor ();
     parameters: []
@@ -7230,7 +7230,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Indicates whether the <xref href="System.Windows.Forms.DataGrid.GridLineColor"></xref> property should be persisted.
-  remarks: You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.
+  remarks: 'You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.'
   syntax:
     content: protected virtual bool ShouldSerializeGridLineColor ();
     parameters: []
@@ -7274,7 +7274,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Indicates whether the <xref href="System.Windows.Forms.DataGrid.HeaderBackColor"></xref> property should be persisted.
-  remarks: You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.
+  remarks: 'You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.'
   syntax:
     content: protected virtual bool ShouldSerializeHeaderBackColor ();
     parameters: []
@@ -7319,7 +7319,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Indicates whether the <xref href="System.Windows.Forms.DataGrid.HeaderFont"></xref> property should be persisted.
-  remarks: You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.
+  remarks: 'You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.'
   syntax:
     content: protected bool ShouldSerializeHeaderFont ();
     parameters: []
@@ -7363,7 +7363,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Indicates whether the <xref href="System.Windows.Forms.DataGrid.HeaderForeColor"></xref> property should be persisted.
-  remarks: You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.
+  remarks: 'You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.'
   syntax:
     content: protected virtual bool ShouldSerializeHeaderForeColor ();
     parameters: []
@@ -7408,7 +7408,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Indicates whether the <xref href="System.Windows.Forms.DataGrid.LinkHoverColor"></xref> property should be persisted.
-  remarks: You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.
+  remarks: 'You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.'
   syntax:
     content: protected virtual bool ShouldSerializeLinkHoverColor ();
     parameters: []
@@ -7453,7 +7453,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Indicates whether the <xref href="System.Windows.Forms.DataGrid.ParentRowsBackColor"></xref> property should be persisted.
-  remarks: You typically use this method only if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>, or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.
+  remarks: 'You typically use this method only if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>, or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.'
   syntax:
     content: protected virtual bool ShouldSerializeParentRowsBackColor ();
     parameters: []
@@ -7498,7 +7498,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Indicates whether the <xref href="System.Windows.Forms.DataGrid.ParentRowsForeColor"></xref> property should be persisted.
-  remarks: You typically use this method only if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>, or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.
+  remarks: 'You typically use this method only if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>, or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.'
   syntax:
     content: protected virtual bool ShouldSerializeParentRowsForeColor ();
     parameters: []
@@ -7543,7 +7543,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Indicates whether the <xref href="System.Windows.Forms.DataGrid.PreferredRowHeight"></xref> property should be persisted.
-  remarks: You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.
+  remarks: 'You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.'
   syntax:
     content: protected bool ShouldSerializePreferredRowHeight ();
     parameters: []
@@ -7588,7 +7588,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Indicates whether the <xref href="System.Windows.Forms.DataGrid.SelectionBackColor"></xref> property should be persisted.
-  remarks: You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.
+  remarks: 'You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.'
   syntax:
     content: protected bool ShouldSerializeSelectionBackColor ();
     parameters: []
@@ -7633,7 +7633,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Indicates whether the <xref href="System.Windows.Forms.DataGrid.SelectionForeColor"></xref> property should be persisted.
-  remarks: You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.
+  remarks: 'You typically use this method if you are either creating a designer for the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> or creating your own control incorporating the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName>.'
   syntax:
     content: protected virtual bool ShouldSerializeSelectionForeColor ();
     parameters: []
@@ -7727,7 +7727,7 @@ items:
     content: public override System.ComponentModel.ISite Site { get; set; }
     return:
       type: System.ComponentModel.ISite
-      description: The <xref href="System.ComponentModel.ISite"></xref> associated with the Control, if any.
+      description: 'The <xref href="System.ComponentModel.ISite"></xref> associated with the Control, if any.'
   overload: System.Windows.Forms.DataGrid.Site*
   exceptions: []
   version:
@@ -7908,7 +7908,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Occurs when the value of the <xref href="System.Windows.Forms.DataGrid.Text"></xref> property changes.
-  remarks: The <xref:System.Windows.Forms.DataGrid.Text%2A> property is not meaningful for this control, although you can change its value and handle the <xref:System.Windows.Forms.DataGrid.TextChanged> event to detect the change.
+  remarks: 'The <xref:System.Windows.Forms.DataGrid.Text%2A> property is not meaningful for this control, although you can change its value and handle the <xref:System.Windows.Forms.DataGrid.TextChanged> event to detect the change.'
   syntax:
     content: >-
       [System.ComponentModel.Browsable(false)]
@@ -7956,7 +7956,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Unselects a specified row.
-  remarks: Use this method with the <xref:System.Windows.Forms.DataGrid.IsSelected%2A>, <xref:System.Windows.Forms.DataGrid.Select%2A>, and <xref:System.Windows.Forms.DataGrid.ResetSelection%2A> methods to manipulate the selection state of a particular row.
+  remarks: 'Use this method with the <xref:System.Windows.Forms.DataGrid.IsSelected%2A>, <xref:System.Windows.Forms.DataGrid.Select%2A>, and <xref:System.Windows.Forms.DataGrid.ResetSelection%2A> methods to manipulate the selection state of a particular row.'
   example:
   - "The following code example demonstrates the use of this member.  \n  \n [!code-cpp[DataGrid_UnSelect#1](~/samples/snippets/cpp/VS_Snippets_Winforms/DataGrid_UnSelect/CPP/datagrid_unselect.cpp#1)]\n [!code-csharp[DataGrid_UnSelect#1](~/samples/snippets/csharp/VS_Snippets_Winforms/DataGrid_UnSelect/CS/datagrid_unselect.cs#1)]\n [!code-vb[DataGrid_UnSelect#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/DataGrid_UnSelect/VB/datagrid_unselect.vb#1)]"
   syntax:
@@ -8051,7 +8051,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets the number of visible columns.
-  remarks: The number of visible columns can change depending on their width. For example, if a default width for all columns is set, but the width of a new column is set twice as large, the number of visible columns can be reduced by at least one.
+  remarks: 'The number of visible columns can change depending on their width. For example, if a default width for all columns is set, but the width of a new column is set twice as large, the number of visible columns can be reduced by at least one.'
   example:
   - "The following code example returns the number of visible columns.  \n  \n [!code-vb[Classic DataGrid.VisibleColumnCount Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic DataGrid.VisibleColumnCount Example/VB/source.vb#1)]"
   syntax:
@@ -8061,7 +8061,7 @@ items:
       public int VisibleColumnCount { get; }
     return:
       type: System.Int32
-      description: The number of columns visible in the viewport. The viewport is the rectangular area through which the grid is visible. The size of the viewport depends on the size of the <xref href="System.Windows.Forms.DataGrid"></xref> control; if you allow users to resize the control, the viewport will also be affected.
+      description: 'The number of columns visible in the viewport. The viewport is the rectangular area through which the grid is visible. The size of the viewport depends on the size of the <xref href="System.Windows.Forms.DataGrid"></xref> control; if you allow users to resize the control, the viewport will also be affected.'
   overload: System.Windows.Forms.DataGrid.VisibleColumnCount*
   exceptions: []
   attributes:
@@ -8102,7 +8102,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets the number of rows visible.
-  remarks: The number of visible rows can be changed at run time if the user is allowed to resize the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> control.
+  remarks: 'The number of visible rows can be changed at run time if the user is allowed to resize the <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> control.'
   example:
   - "The following code example returns the number of rows visible in a <xref:System.Windows.Forms.DataGrid?displayProperty=fullName> control.  \n  \n [!code-vb[Classic DataGrid.VisibleRowCount Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic DataGrid.VisibleRowCount Example/VB/source.vb#1)]"
   syntax:
@@ -8112,7 +8112,7 @@ items:
       public int VisibleRowCount { get; }
     return:
       type: System.Int32
-      description: The number of rows visible in the viewport. The viewport is the rectangular area through which the grid is visible. The size of the viewport depends on the size of the <xref href="System.Windows.Forms.DataGrid"></xref> control; if you allow users to resize the control, the viewport will also be affected.
+      description: 'The number of rows visible in the viewport. The viewport is the rectangular area through which the grid is visible. The size of the viewport depends on the size of the <xref href="System.Windows.Forms.DataGrid"></xref> control; if you allow users to resize the control, the viewport will also be affected.'
   overload: System.Windows.Forms.DataGrid.VisibleRowCount*
   exceptions: []
   attributes:

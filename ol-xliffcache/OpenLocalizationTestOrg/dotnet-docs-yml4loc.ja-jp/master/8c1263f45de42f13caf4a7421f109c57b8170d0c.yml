@@ -158,8 +158,8 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
-  summary: Displays the values of a data source by using user-defined templates. The <xref href="System.Web.UI.WebControls.ListView"></xref> control enables users to select, sort, delete, edit, and insert records.
-  remarks: "In this topic:  \n  \n-   [Introduction](#introduction)  \n  \n-   [Templates](#templates)  \n  \n-   [Binding to a Data Source](#binding_to_a_data_source)  \n  \n-   [Data Operations](#data_operations)  \n  \n-   [Events](#Events)  \n  \n-   [Declarative Syntax](#declarative_syntax)  \n  \n<a name=\"introduction\"></a>   \n## Introduction  \n The <xref:System.Web.UI.WebControls.ListView> control is used to display the values from a data source. It resembles the <xref:System.Web.UI.WebControls.GridView> control, except that it displays data by using user-defined templates instead of row fields. Creating your own templates gives you more flexibility in controlling how the data is displayed.  \n  \n A Visual Studio project with source code is available to accompany this topic: [Download](http://go.microsoft.com/fwlink/?LinkId=199759).  \n  \n The <xref:System.Web.UI.WebControls.ListView> control supports the following features:  \n  \n-   Support for binding to data source controls such as <xref:System.Web.UI.WebControls.SqlDataSource>, <xref:System.Web.UI.WebControls.LinqDataSource>, and <xref:System.Web.UI.WebControls.ObjectDataSource>.  \n  \n-   Customizable appearance through user-defined templates and styles.  \n  \n-   Built-in sorting capabilities.  \n  \n-   Built-in update and delete capabilities.  \n  \n-   Built-in insert capabilities.  \n  \n-   Support for paging capabilities by using a <xref:System.Web.UI.WebControls.DataPager> control.  \n  \n-   Built-in item selection capabilities.  \n  \n-   Programmatic access to the <xref:System.Web.UI.WebControls.ListView> object model to dynamically set properties, handle events, and so on.  \n  \n-   Multiple key fields.  \n  \n To learn about other data-bound controls that are available in ASP.NET, see [Data-Bound Web Server Controls](http://msdn.microsoft.com/library/f9cf026e-d8b8-49f8-a3c4-64de2edbbb96).  \n  \n<a name=\"templates\"></a>   \n## Templates  \n In order for the <xref:System.Web.UI.WebControls.ListView> control to display content, you must create templates for different parts of the control. The <xref:System.Web.UI.WebControls.ListView.ItemTemplate%2A> is required. All other templates are optional. The <xref:System.Web.UI.WebControls.ListView.LayoutTemplate%2A> property is not required.  \n  \n However, you must create a template for the mode in which the control is configured. For example, a <xref:System.Web.UI.WebControls.ListView> control that supports inserting records must have an <xref:System.Web.UI.WebControls.ListView.InsertItemTemplate%2A> template defined. The following table lists the templates that you can create for the <xref:System.Web.UI.WebControls.ListView> control.  \n  \n|Template type|Description|  \n|-------------------|-----------------|  \n|<xref:System.Web.UI.WebControls.ListView.LayoutTemplate%2A>|The root template that defines a container object, such as a `table`, `div`, or `span` element, that will contain the content defined in the <xref:System.Web.UI.WebControls.ListView.ItemTemplate%2A> or <xref:System.Web.UI.WebControls.ListView.GroupTemplate%2A> template. It might also contain a <xref:System.Web.UI.WebControls.DataPager> object.|  \n|<xref:System.Web.UI.WebControls.ListView.ItemTemplate%2A>|Defines the data-bound content to display for individual items.|  \n|<xref:System.Web.UI.WebControls.ListView.ItemSeparatorTemplate%2A>|Defines the content to render between individual items.|  \n|<xref:System.Web.UI.WebControls.ListView.GroupTemplate%2A>|Defines a container object, such as a table row (`tr`), `div`, or `span` element, that will contain the content defined in the <xref:System.Web.UI.WebControls.ListView.ItemTemplate%2A> and <xref:System.Web.UI.WebControls.ListView.EmptyItemTemplate%2A> templates. The number of items that are displayed in a group is specified by the <xref:System.Web.UI.WebControls.ListView.GroupItemCount%2A> property.|  \n|<xref:System.Web.UI.WebControls.ListView.GroupSeparatorTemplate%2A>|Defines the content to render between groups of items.|  \n|<xref:System.Web.UI.WebControls.ListView.EmptyItemTemplate%2A>|Defines the content to render for an empty item when a <xref:System.Web.UI.WebControls.ListView.GroupTemplate%2A> template is used. For example, if the <xref:System.Web.UI.WebControls.ListView.GroupItemCount%2A> property is set to 5, and the total number of items returned from the data source is 8, the last group of data displayed by the <xref:System.Web.UI.WebControls.ListView> control will contain three items as specified by the <xref:System.Web.UI.WebControls.ListView.ItemTemplate%2A> template, and two items as specified by the <xref:System.Web.UI.WebControls.ListView.EmptyItemTemplate%2A> template.|  \n|<xref:System.Web.UI.WebControls.ListView.EmptyDataTemplate%2A>|Defines the content to render if the data source returns no data.|  \n|<xref:System.Web.UI.WebControls.ListView.SelectedItemTemplate%2A>|Defines the content to render for the selected data item to differentiate the selected item from other items.|  \n|<xref:System.Web.UI.WebControls.ListView.AlternatingItemTemplate%2A>|Defines the content to render for alternating items to make it easier to distinguish between consecutive items.|  \n|<xref:System.Web.UI.WebControls.ListView.EditItemTemplate%2A>|Defines the content to render when an item is being edited. The <xref:System.Web.UI.WebControls.ListView.EditItemTemplate%2A> template is rendered in place of the <xref:System.Web.UI.WebControls.ListView.ItemTemplate%2A> template for the data item that is being edited.|  \n|<xref:System.Web.UI.WebControls.ListView.InsertItemTemplate%2A>|Defines the content to render to insert an item. The <xref:System.Web.UI.WebControls.ListView.InsertItemTemplate%2A> template is rendered in place of an <xref:System.Web.UI.WebControls.ListView.ItemTemplate%2A> template at either the start or at the end of the items that are displayed by the <xref:System.Web.UI.WebControls.ListView> control. You can specify where the <xref:System.Web.UI.WebControls.ListView.InsertItemTemplate%2A> template is rendered by using the <xref:System.Web.UI.WebControls.ListView.InsertItemPosition%2A> property of the <xref:System.Web.UI.WebControls.ListView> control.|  \n  \n To display the value of a field in a template such as <xref:System.Web.UI.WebControls.ListView.ItemTemplate%2A>, you use a data-binding expression. For more information about data-binding expressions, see [Data-Binding Expressions Overview](http://msdn.microsoft.com/library/14cdd57d-0f82-4667-b503-73e1a96f136a).  \n  \n To bind input controls in the <xref:System.Web.UI.WebControls.ListView.EditItemTemplate%2A> and <xref:System.Web.UI.WebControls.ListView.InsertItemTemplate%2A> templates to fields of a data source, you can use two-way binding expressions. This enables the <xref:System.Web.UI.WebControls.ListView> control to automatically extract the values of the input control for an update or insert operation. Two-way binding expressions also enable input controls in an <xref:System.Web.UI.WebControls.ListView.EditItemTemplate%2A> to automatically display the original field values. For more information about two-way binding expressions, see [Binding to Databases](http://msdn.microsoft.com/en-us/ab7b2846-975b-4057-a948-45527497c742).  \n  \n<a name=\"binding_to_a_data_source\"></a>   \n## Binding to a Data Source  \n You can bind the <xref:System.Web.UI.WebControls.ListView> control to a data source control (such as the <xref:System.Web.UI.WebControls.SqlDataSource> control or <xref:System.Web.UI.WebControls.ObjectDataSource> control) or to any data source collection that implements the <xref:System.Collections.IEnumerable?displayProperty=fullName> interface, such as <xref:System.Data.DataView?displayProperty=fullName>, <xref:System.Collections.ArrayList?displayProperty=fullName>, <xref:System.Collections.Generic.List%601?displayProperty=fullName>, or other collection types. Use one of the following methods to bind the <xref:System.Web.UI.WebControls.ListView> control to the appropriate data source type:  \n  \n-   To bind to a data source control, set the <xref:System.Web.UI.WebControls.DataBoundControl.DataSourceID%2A> property of the <xref:System.Web.UI.WebControls.ListView> control to the <xref:System.Web.UI.Control.ID%2A> value of the data source control. The <xref:System.Web.UI.WebControls.ListView> control automatically binds to the specified data source control and can take advantage of the data source control's capabilities to perform sorting, inserting, updating, deleting, and paging functionality. This is the preferred method to bind to data.  \n  \n-   To bind to a data source that implements the <xref:System.Collections.IEnumerable?displayProperty=fullName> interface, programmatically set the <xref:System.Web.UI.WebControls.BaseDataBoundControl.DataSource%2A> property of the <xref:System.Web.UI.WebControls.ListView> control to the data source, and then call the <xref:System.Web.UI.WebControls.BaseDataBoundControl.DataBind%2A> method. When you use this technique, the <xref:System.Web.UI.WebControls.ListView> control does not provide built-in sorting, updating, deleting, and paging functionality. You must provide this functionality by using the appropriate event.  \n  \n For more information about data binding, see [ASP.NET Data Access Content Map](http://msdn.microsoft.com/en-us/f9219396-a0fa-481f-894d-e3d9c67d64f2).  \n  \n> [!NOTE]\n>  The <xref:System.Web.UI.WebControls.ListView> control can be used to display user input, which might include malicious client script. Check any information that is sent from a client for executable script, SQL statements, or other code before you display it in the application. We strongly recommend that values be HTML-encoded whenever possible before they are displayed in this control. ASP.NET provides an input request validation feature to help block script and HTML in user input. You can also use validation server controls to check user input. For more information, see [Introduction to the Validation Controls](http://msdn.microsoft.com/en-us/3c0e7514-cff2-4bed-936d-ee3f7b740190).  \n  \n<a name=\"data_operations\"></a>   \n## Data Operations  \n When the <xref:System.Web.UI.WebControls.ListView> control is bound to a data source control, the <xref:System.Web.UI.WebControls.ListView> control can take advantage of the data source control's capabilities and provide automatic sort, insert, update, and delete functionality.  \n  \n> [!NOTE]\n>  The <xref:System.Web.UI.WebControls.ListView> control can provide support for sorting, inserting, updating, and deleting with other types of data sources. However, in order to implement these operations, you must create code in an appropriate event handler.  \n  \n Because the <xref:System.Web.UI.WebControls.ListView> control uses templates, it does not provide a way to automatically generate buttons to perform update, delete, insert, sort, or select operations. You must manually include these buttons in the appropriate template. The <xref:System.Web.UI.WebControls.ListView> control recognizes certain buttons whose <xref:System.Web.UI.WebControls.Button.CommandName%2A> property is set to a specific value. The following table lists the buttons that the <xref:System.Web.UI.WebControls.ListView> control recognizes and their functions.  \n  \n|Button|CommandName value|Description|  \n|------------|-----------------------|-----------------|  \n|Cancel|\"Cancel\"|Cancels an edit or insert operation. Raises the <xref:System.Web.UI.WebControls.ListView.ItemCanceling> event.|  \n|Delete|\"Delete\"|Deletes the current record from the data source. Raises the <xref:System.Web.UI.WebControls.ListView.ItemDeleted> and <xref:System.Web.UI.WebControls.ListView.ItemDeleting> events.|  \n|Select|\"Select\"|Sets the <xref:System.Web.UI.WebControls.ListView.SelectedIndex%2A> property to the <xref:System.Web.UI.WebControls.ListViewDataItem.DisplayIndex%2A> property value for the item. Renders the <xref:System.Web.UI.WebControls.ListView.SelectedItemTemplate%2A> template for the item. Raises the <xref:System.Web.UI.WebControls.ListView.SelectedIndexChanging> and <xref:System.Web.UI.WebControls.ListView.SelectedIndexChanged> events.|  \n|Edit|\"Edit\"|Puts the item in edit mode. Renders the <xref:System.Web.UI.WebControls.ListView.EditItemTemplate%2A> template for the item. Raises the <xref:System.Web.UI.WebControls.ListView.ItemEditing> event.|  \n|Insert|\"Insert\"|Inserts the bound values from the <xref:System.Web.UI.WebControls.ListView.InsertItemTemplate%2A> template into the data source. Raises the <xref:System.Web.UI.WebControls.ListView.ItemInserting> and <xref:System.Web.UI.WebControls.ListView.ItemInserted> events.|  \n|Update|\"Update\"|Updates the current record in the data source with the bound values from the <xref:System.Web.UI.WebControls.ListView.EditItemTemplate%2A> template. Raises the <xref:System.Web.UI.WebControls.ListView.ItemUpdating> and <xref:System.Web.UI.WebControls.ListView.ItemUpdated> events.|  \n|Sort|\"Sort\"|Sorts the columns listed in the `CommandArgument` property of the button. Raises the <xref:System.Web.UI.WebControls.ListView.Sorting> and <xref:System.Web.UI.WebControls.ListView.Sorted> events.|  \n  \n Unlike the Delete button (which deletes the current data item immediately), when the Edit button is clicked, the <xref:System.Web.UI.WebControls.ListView> control displays the current item in edit mode. In edit mode, the content that is contained in the <xref:System.Web.UI.WebControls.ListView.EditItemTemplate%2A> property is displayed for the current data item. Typically, in the edit item template, the Edit button is replaced with an Update and a Cancel button. Input controls that are appropriate for the field's data type (such as a <xref:System.Web.UI.WebControls.TextBox> or <xref:System.Web.UI.WebControls.CheckBox> control) also usually display a field's value for a user to modify. Clicking the Update button updates the record in the data source, and clicking the Cancel button cancels the edit operation.  \n  \n The insert functionality is enabled when the <xref:System.Web.UI.WebControls.ListView.InsertItemPosition%2A> property is set to <xref:System.Web.UI.WebControls.InsertItemPosition.FirstItem> or <xref:System.Web.UI.WebControls.InsertItemPosition.LastItem>. This property defines where the <xref:System.Web.UI.WebControls.ListView.InsertItemTemplate%2A> template is rendered for the insert item. The insert item template typically includes an Insert and a Cancel button, and empty input controls are displayed for users to enter the values for the new record. Clicking the Insert button inserts the record in the data source, and clicking the Cancel button clears all the fields.  \n  \n### Sorting  \n The <xref:System.Web.UI.WebControls.ListView> control enables users to sort the items by clicking the Sort button. Sort functionality is defined in the `CommandArgument` property of the button that contains the columns to be sorted.  \n  \n### Paging  \n Instead of displaying all the records from the data source at the same time, the <xref:System.Web.UI.WebControls.ListView> control can break the records into pages. To enable paging, associate a <xref:System.Web.UI.WebControls.DataPager> control with the <xref:System.Web.UI.WebControls.ListView> control. Then insert a <xref:System.Web.UI.WebControls.DataPager> control inside the <xref:System.Web.UI.WebControls.ListView.LayoutTemplate%2A> template. Alternatively, if the <xref:System.Web.UI.WebControls.DataPager> control is outside the <xref:System.Web.UI.WebControls.ListView> control, set the <xref:System.Web.UI.WebControls.DataPager.PagedControlID%2A> property to the <xref:System.Web.UI.Control.ID%2A> of the <xref:System.Web.UI.WebControls.ListView> control.  \n  \n<a name=\"Events\"></a>   \n## Events  \n The following table lists the events that are supported by the <xref:System.Web.UI.WebControls.ListView> control.  \n  \n|Event|Description|  \n|-----------|-----------------|  \n|<xref:System.Web.UI.WebControls.ListView.ItemCanceling>|Occurs when the Cancel button (a button with its `CommandName` property set to \"Cancel\") is clicked, but before the <xref:System.Web.UI.WebControls.ListView> control cancels the insert or edit operation. This event is often used to stop the cancel operation.|  \n|<xref:System.Web.UI.WebControls.ListView.ItemCommand>|Occurs when a button is clicked in the <xref:System.Web.UI.WebControls.ListView> control. This event is often used to perform a custom task when a button is clicked in the control.|  \n|<xref:System.Web.UI.WebControls.ListView.ItemCreated>|Occurs when a new item is created in the <xref:System.Web.UI.WebControls.ListView> control. This event is often used to modify the content of an item when the item is created.|  \n|<xref:System.Web.UI.WebControls.ListView.ItemDataBound>|Occurs when a data item is bound to data in the <xref:System.Web.UI.WebControls.ListView> control. This event is often used to modify the content of an item when the item is bound to data.|  \n|<xref:System.Web.UI.WebControls.ListView.ItemDeleted>|Occurs when a Delete button (a button with its `CommandName` property set to \"Delete\") is clicked or the <xref:System.Web.UI.WebControls.ListView.DeleteItem%2A> method is called, after the <xref:System.Web.UI.WebControls.ListView> control deletes the record from the data source. This event is often used to check the results of the delete operation.|  \n|<xref:System.Web.UI.WebControls.ListView.ItemDeleting>|Occurs when a Delete button (a button with its `CommandName` property set to \"Delete\") is clicked or the <xref:System.Web.UI.WebControls.ListView.DeleteItem%2A> method is called, but before the <xref:System.Web.UI.WebControls.ListView> control deletes the record from the data source. This event is often used to confirm or cancel the delete operation.|  \n|<xref:System.Web.UI.WebControls.ListView.ItemEditing>|Occurs when an Edit button (a button with its `CommandName` property set to \"Edit\") is clicked, but before the <xref:System.Web.UI.WebControls.ListView> control enters edit mode. This event is often used to cancel the editing operation.|  \n|<xref:System.Web.UI.WebControls.ListView.ItemInserted>|Occurs when an Insert button (a button with its `CommandName` property set to \"Insert\") is clicked or the <xref:System.Web.UI.WebControls.ListView.InsertNewItem%2A> method is called, after the <xref:System.Web.UI.WebControls.ListView> control inserts the new record from the data source. This event is often used to check the results of the insert operation.|  \n|<xref:System.Web.UI.WebControls.ListView.ItemInserting>|Occurs when an Insert button (a button with its `CommandName` property set to \"Insert\") is clicked or the <xref:System.Web.UI.WebControls.ListView.InsertNewItem%2A> method is called, but before the <xref:System.Web.UI.WebControls.ListView> control inserts the record. This event is often used to cancel the insert operation or change or validate the values of the new item.|  \n|<xref:System.Web.UI.WebControls.ListView.ItemUpdated>|Occurs when an Update button (a button with its `CommandName` property set to \"Update\") is clicked or the <xref:System.Web.UI.WebControls.ListView.UpdateItem%2A> method is called, after the <xref:System.Web.UI.WebControls.ListView> control updates the record. This event is often used to check the results of the update operation.|  \n|<xref:System.Web.UI.WebControls.ListView.ItemUpdating>|Occurs when an Update button (a button with its `CommandName` property set to \"Update\") is clicked or the <xref:System.Web.UI.WebControls.ListView.UpdateItem%2A> method is called, but before the <xref:System.Web.UI.WebControls.ListView> control updates the record. This event is often used to cancel the updating operation or change or validate the values of the edited item.|  \n|<xref:System.Web.UI.WebControls.ListView.LayoutCreated>|Occurs when the <xref:System.Web.UI.WebControls.ListView.LayoutTemplate%2A> template is created in a <xref:System.Web.UI.WebControls.ListView> control. This event is often used to perform a task after the template is created.|  \n|<xref:System.Web.UI.WebControls.ListView.PagePropertiesChanged>|Occurs when the page properties change, after the <xref:System.Web.UI.WebControls.ListView> control sets the new values.|  \n|<xref:System.Web.UI.WebControls.ListView.PagePropertiesChanging>|Occurs when the data-page properties change, but before the <xref:System.Web.UI.WebControls.ListView> control sets the new values.|  \n|<xref:System.Web.UI.WebControls.ListView.SelectedIndexChanged>|Occurs when a Select button (a button with its `CommandName` property set to \"Select\") is clicked, after the <xref:System.Web.UI.WebControls.ListView> control handles the select operation. This event is often used to perform a custom task after an item is selected in the control.|  \n|<xref:System.Web.UI.WebControls.ListView.SelectedIndexChanging>|Occurs when a Select button (a button with its `CommandName` property set to \"Select\") is clicked, but before the <xref:System.Web.UI.WebControls.ListView> control handles the select operation. This event is often used to cancel the select operation.|  \n|<xref:System.Web.UI.WebControls.ListView.Sorted>|Occurs when a Sort button (a button with its `CommandName` property set to \"Sort\") is clicked or the <xref:System.Web.UI.WebControls.ListView.Sort%2A> method is called, after the <xref:System.Web.UI.WebControls.ListView> control handles the sort operation. This event is typically used to perform a custom task after a user clicks a Sort button and the data has been sorted.|  \n|<xref:System.Web.UI.WebControls.ListView.Sorting>|Occurs when a Sort button (a button with its `CommandName` property set to \"Sort\") is clicked or the <xref:System.Web.UI.WebControls.ListView.Sort%2A> method is called, but before the <xref:System.Web.UI.WebControls.ListView> control handles the sort operation. This event is often used to cancel the sorting operation or to perform a custom sorting routine.|  \n  \n<a name=\"declarative_syntax\"></a>   \n## Declarative Syntax  \n  \n```  \n<asp:ListView  \n    ConvertEmptyStringToNull=\"True|False\"  \n    DataKeyNames=\"string\"  \n    DataMember=\"string\"  \n    DataSource=\"string\"  \n    DataSourceID=\"string\"  \n    EditIndex=\"integer\"  \n    Enabled=\"True|False\"  \n    EnableTheming=\"True|False\"  \n    EnableViewState=\"True|False\"  \n    GroupPlaceholderID=\"string\"  \n    GroupItemCount=\"integer\"  \n    ID=\"string\"  \n    InsertItemPosition=\"None|FirstItem|LastItem\"  \n    ItemPlaceholderID=\"string\"  \n    OnDataBinding=\"DataBinding event handler\"  \n    OnDataBound=\"DataBound event handler\"  \n    OnDisposed=\"Disposed event handler\"  \n    OnInit=\"Init event handler\"  \n    OnItemCanceling=\"ItemCanceling event handler\"  \n    OnItemCommand=\"ItemCommand event handler\"  \n    OnItemCreated=\"ItemCreated event handler\"  \n    OnItemDataBound=\"ItemDataBound event handler\"  \n    OnItemDeleted=\"ItemDeleted event handler\"  \n    OnItemDeleting=\"ItemDeleting event handler\"  \n    OnItemEditing=\"ItemEditing event handler\"  \n    OnItemInserted=\"ItemInserted event handler\"  \n    OnItemInserting=\"ItemInserting event handler\"  \n    OnItemUpdated=\"ItemUpdated event handler\"  \n    OnItemUpdating=\"ItemUpdating event handler\"  \n    OnLayoutCreated=\"LayoutCreated event handler\"  \n    OnLoad=\"Load event handler\"  \n    OnPagePropertiesChanged=\"PagePropertiesChanged event handler\"  \n    OnPagePropertiesChanging=\"PagePropertiesChanging event handler\"  \n    OnPreRender=\"PreRender event handler\"  \n    OnSelectedIndexChanged=\"SelectedIndexChanged event handler\"  \n    OnSelectedIndexChanging=\"SelectedIndexChanging event handler\"  \n    OnSorted=\"Sorted event handler\"  \n    OnSorting=\"Sorting event handler\"  \n    OnUnload=\"Unload event handler\"  \n    runat=\"server\"  \n    SelectedIndex=\"integer\"  \n    SkinID=\"string\"  \n    Style=\"string\"  \n    Visible=\"True|False\"  \n>  \n        <AlternatingItemTemplate>  \n            <!-- child controls -->  \n        </AlternatingItemTemplate>  \n        <EditItemTemplate>  \n            <!-- child controls -->  \n        </EditItemTemplate>  \n        <EmptyDataTemplate>  \n            <!-- child controls -->  \n        </EmptyDataTemplate>  \n        <EmptyItemTemplate>  \n            <!-- child controls -->  \n        </EmptyItemTemplate>  \n        <GroupSeparatorTemplate>  \n            <!-- child controls -->  \n        </GroupSeparatorTemplate>  \n        <GroupTemplate>  \n            <!-- child controls -->  \n        </GroupTemplate>  \n        <InsertItemTemplate>  \n            <!-- child controls -->  \n        </InsertItemTemplate>  \n        <ItemSeparatorTemplate>  \n            <!-- child controls -->  \n        </ItemSeparatorTemplate>  \n        <ItemTemplate>  \n            <!-- child controls -->  \n        </ItemTemplate>  \n        <LayoutTemplate>  \n                <!-- child controls -->  \n        </LayoutTemplate>  \n        <SelectedItemTemplate>  \n            <!-- child controls -->  \n        </SelectedItemTemplate>  \n</asp:ListView>  \n```"
+  summary: 'Displays the values of a data source by using user-defined templates. The <xref href="System.Web.UI.WebControls.ListView"></xref> control enables users to select, sort, delete, edit, and insert records.'
+  remarks: "In this topic:  \n  \n-   [Introduction](#introduction)  \n  \n-   [Templates](#templates)  \n  \n-   [Binding to a Data Source](#binding_to_a_data_source)  \n  \n-   [Data Operations](#data_operations)  \n  \n-   [Events](#Events)  \n  \n-   [Declarative Syntax](#declarative_syntax)  \n  \n<a name=\"introduction\"></a>   \n## <a name=\"introduction\"></a>Introduction  \n The <xref:System.Web.UI.WebControls.ListView> control is used to display the values from a data source. It resembles the <xref:System.Web.UI.WebControls.GridView> control, except that it displays data by using user-defined templates instead of row fields. Creating your own templates gives you more flexibility in controlling how the data is displayed.  \n  \n A Visual Studio project with source code is available to accompany this topic: [Download](http://go.microsoft.com/fwlink/?LinkId=199759).  \n  \n The <xref:System.Web.UI.WebControls.ListView> control supports the following features:  \n  \n-   Support for binding to data source controls such as <xref:System.Web.UI.WebControls.SqlDataSource>, <xref:System.Web.UI.WebControls.LinqDataSource>, and <xref:System.Web.UI.WebControls.ObjectDataSource>.  \n  \n-   Customizable appearance through user-defined templates and styles.  \n  \n-   Built-in sorting capabilities.  \n  \n-   Built-in update and delete capabilities.  \n  \n-   Built-in insert capabilities.  \n  \n-   Support for paging capabilities by using a <xref:System.Web.UI.WebControls.DataPager> control.  \n  \n-   Built-in item selection capabilities.  \n  \n-   Programmatic access to the <xref:System.Web.UI.WebControls.ListView> object model to dynamically set properties, handle events, and so on.  \n  \n-   Multiple key fields.  \n  \n To learn about other data-bound controls that are available in ASP.NET, see [Data-Bound Web Server Controls](http://msdn.microsoft.com/library/f9cf026e-d8b8-49f8-a3c4-64de2edbbb96).  \n  \n<a name=\"templates\"></a>   \n## <a name=\"templates\"></a>Templates  \n In order for the <xref:System.Web.UI.WebControls.ListView> control to display content, you must create templates for different parts of the control. The <xref:System.Web.UI.WebControls.ListView.ItemTemplate%2A> is required. All other templates are optional. The <xref:System.Web.UI.WebControls.ListView.LayoutTemplate%2A> property is not required.  \n  \n However, you must create a template for the mode in which the control is configured. For example, a <xref:System.Web.UI.WebControls.ListView> control that supports inserting records must have an <xref:System.Web.UI.WebControls.ListView.InsertItemTemplate%2A> template defined. The following table lists the templates that you can create for the <xref:System.Web.UI.WebControls.ListView> control.  \n  \n|Template type|Description|  \n|-------------------|-----------------|  \n|<xref:System.Web.UI.WebControls.ListView.LayoutTemplate%2A>|The root template that defines a container object, such as a `table`, `div`, or `span` element, that will contain the content defined in the <xref:System.Web.UI.WebControls.ListView.ItemTemplate%2A> or <xref:System.Web.UI.WebControls.ListView.GroupTemplate%2A> template. It might also contain a <xref:System.Web.UI.WebControls.DataPager> object.|  \n|<xref:System.Web.UI.WebControls.ListView.ItemTemplate%2A>|Defines the data-bound content to display for individual items.|  \n|<xref:System.Web.UI.WebControls.ListView.ItemSeparatorTemplate%2A>|Defines the content to render between individual items.|  \n|<xref:System.Web.UI.WebControls.ListView.GroupTemplate%2A>|Defines a container object, such as a table row (`tr`), `div`, or `span` element, that will contain the content defined in the <xref:System.Web.UI.WebControls.ListView.ItemTemplate%2A> and <xref:System.Web.UI.WebControls.ListView.EmptyItemTemplate%2A> templates. The number of items that are displayed in a group is specified by the <xref:System.Web.UI.WebControls.ListView.GroupItemCount%2A> property.|  \n|<xref:System.Web.UI.WebControls.ListView.GroupSeparatorTemplate%2A>|Defines the content to render between groups of items.|  \n|<xref:System.Web.UI.WebControls.ListView.EmptyItemTemplate%2A>|Defines the content to render for an empty item when a <xref:System.Web.UI.WebControls.ListView.GroupTemplate%2A> template is used. For example, if the <xref:System.Web.UI.WebControls.ListView.GroupItemCount%2A> property is set to 5, and the total number of items returned from the data source is 8, the last group of data displayed by the <xref:System.Web.UI.WebControls.ListView> control will contain three items as specified by the <xref:System.Web.UI.WebControls.ListView.ItemTemplate%2A> template, and two items as specified by the <xref:System.Web.UI.WebControls.ListView.EmptyItemTemplate%2A> template.|  \n|<xref:System.Web.UI.WebControls.ListView.EmptyDataTemplate%2A>|Defines the content to render if the data source returns no data.|  \n|<xref:System.Web.UI.WebControls.ListView.SelectedItemTemplate%2A>|Defines the content to render for the selected data item to differentiate the selected item from other items.|  \n|<xref:System.Web.UI.WebControls.ListView.AlternatingItemTemplate%2A>|Defines the content to render for alternating items to make it easier to distinguish between consecutive items.|  \n|<xref:System.Web.UI.WebControls.ListView.EditItemTemplate%2A>|Defines the content to render when an item is being edited. The <xref:System.Web.UI.WebControls.ListView.EditItemTemplate%2A> template is rendered in place of the <xref:System.Web.UI.WebControls.ListView.ItemTemplate%2A> template for the data item that is being edited.|  \n|<xref:System.Web.UI.WebControls.ListView.InsertItemTemplate%2A>|Defines the content to render to insert an item. The <xref:System.Web.UI.WebControls.ListView.InsertItemTemplate%2A> template is rendered in place of an <xref:System.Web.UI.WebControls.ListView.ItemTemplate%2A> template at either the start or at the end of the items that are displayed by the <xref:System.Web.UI.WebControls.ListView> control. You can specify where the <xref:System.Web.UI.WebControls.ListView.InsertItemTemplate%2A> template is rendered by using the <xref:System.Web.UI.WebControls.ListView.InsertItemPosition%2A> property of the <xref:System.Web.UI.WebControls.ListView> control.|  \n  \n To display the value of a field in a template such as <xref:System.Web.UI.WebControls.ListView.ItemTemplate%2A>, you use a data-binding expression. For more information about data-binding expressions, see [Data-Binding Expressions Overview](http://msdn.microsoft.com/library/14cdd57d-0f82-4667-b503-73e1a96f136a).  \n  \n To bind input controls in the <xref:System.Web.UI.WebControls.ListView.EditItemTemplate%2A> and <xref:System.Web.UI.WebControls.ListView.InsertItemTemplate%2A> templates to fields of a data source, you can use two-way binding expressions. This enables the <xref:System.Web.UI.WebControls.ListView> control to automatically extract the values of the input control for an update or insert operation. Two-way binding expressions also enable input controls in an <xref:System.Web.UI.WebControls.ListView.EditItemTemplate%2A> to automatically display the original field values. For more information about two-way binding expressions, see [Binding to Databases](http://msdn.microsoft.com/en-us/ab7b2846-975b-4057-a948-45527497c742).  \n  \n<a name=\"binding_to_a_data_source\"></a>   \n## <a name=\"binding-to-a-data-source\"></a>Binding to a Data Source  \n You can bind the <xref:System.Web.UI.WebControls.ListView> control to a data source control (such as the <xref:System.Web.UI.WebControls.SqlDataSource> control or <xref:System.Web.UI.WebControls.ObjectDataSource> control) or to any data source collection that implements the <xref:System.Collections.IEnumerable?displayProperty=fullName> interface, such as <xref:System.Data.DataView?displayProperty=fullName>, <xref:System.Collections.ArrayList?displayProperty=fullName>, <xref:System.Collections.Generic.List%601?displayProperty=fullName>, or other collection types. Use one of the following methods to bind the <xref:System.Web.UI.WebControls.ListView> control to the appropriate data source type:  \n  \n-   To bind to a data source control, set the <xref:System.Web.UI.WebControls.DataBoundControl.DataSourceID%2A> property of the <xref:System.Web.UI.WebControls.ListView> control to the <xref:System.Web.UI.Control.ID%2A> value of the data source control. The <xref:System.Web.UI.WebControls.ListView> control automatically binds to the specified data source control and can take advantage of the data source control's capabilities to perform sorting, inserting, updating, deleting, and paging functionality. This is the preferred method to bind to data.  \n  \n-   To bind to a data source that implements the <xref:System.Collections.IEnumerable?displayProperty=fullName> interface, programmatically set the <xref:System.Web.UI.WebControls.BaseDataBoundControl.DataSource%2A> property of the <xref:System.Web.UI.WebControls.ListView> control to the data source, and then call the <xref:System.Web.UI.WebControls.BaseDataBoundControl.DataBind%2A> method. When you use this technique, the <xref:System.Web.UI.WebControls.ListView> control does not provide built-in sorting, updating, deleting, and paging functionality. You must provide this functionality by using the appropriate event.  \n  \n For more information about data binding, see [ASP.NET Data Access Content Map](http://msdn.microsoft.com/en-us/f9219396-a0fa-481f-894d-e3d9c67d64f2).  \n  \n> [!NOTE]\n>  The <xref:System.Web.UI.WebControls.ListView> control can be used to display user input, which might include malicious client script. Check any information that is sent from a client for executable script, SQL statements, or other code before you display it in the application. We strongly recommend that values be HTML-encoded whenever possible before they are displayed in this control. ASP.NET provides an input request validation feature to help block script and HTML in user input. You can also use validation server controls to check user input. For more information, see [Introduction to the Validation Controls](http://msdn.microsoft.com/en-us/3c0e7514-cff2-4bed-936d-ee3f7b740190).  \n  \n<a name=\"data_operations\"></a>   \n## <a name=\"data-operations\"></a>Data Operations  \n When the <xref:System.Web.UI.WebControls.ListView> control is bound to a data source control, the <xref:System.Web.UI.WebControls.ListView> control can take advantage of the data source control's capabilities and provide automatic sort, insert, update, and delete functionality.  \n  \n> [!NOTE]\n>  The <xref:System.Web.UI.WebControls.ListView> control can provide support for sorting, inserting, updating, and deleting with other types of data sources. However, in order to implement these operations, you must create code in an appropriate event handler.  \n  \n Because the <xref:System.Web.UI.WebControls.ListView> control uses templates, it does not provide a way to automatically generate buttons to perform update, delete, insert, sort, or select operations. You must manually include these buttons in the appropriate template. The <xref:System.Web.UI.WebControls.ListView> control recognizes certain buttons whose <xref:System.Web.UI.WebControls.Button.CommandName%2A> property is set to a specific value. The following table lists the buttons that the <xref:System.Web.UI.WebControls.ListView> control recognizes and their functions.  \n  \n|Button|CommandName value|Description|  \n|------------|-----------------------|-----------------|  \n|Cancel|\"Cancel\"|Cancels an edit or insert operation. Raises the <xref:System.Web.UI.WebControls.ListView.ItemCanceling> event.|  \n|Delete|\"Delete\"|Deletes the current record from the data source. Raises the <xref:System.Web.UI.WebControls.ListView.ItemDeleted> and <xref:System.Web.UI.WebControls.ListView.ItemDeleting> events.|  \n|Select|\"Select\"|Sets the <xref:System.Web.UI.WebControls.ListView.SelectedIndex%2A> property to the <xref:System.Web.UI.WebControls.ListViewDataItem.DisplayIndex%2A> property value for the item. Renders the <xref:System.Web.UI.WebControls.ListView.SelectedItemTemplate%2A> template for the item. Raises the <xref:System.Web.UI.WebControls.ListView.SelectedIndexChanging> and <xref:System.Web.UI.WebControls.ListView.SelectedIndexChanged> events.|  \n|Edit|\"Edit\"|Puts the item in edit mode. Renders the <xref:System.Web.UI.WebControls.ListView.EditItemTemplate%2A> template for the item. Raises the <xref:System.Web.UI.WebControls.ListView.ItemEditing> event.|  \n|Insert|\"Insert\"|Inserts the bound values from the <xref:System.Web.UI.WebControls.ListView.InsertItemTemplate%2A> template into the data source. Raises the <xref:System.Web.UI.WebControls.ListView.ItemInserting> and <xref:System.Web.UI.WebControls.ListView.ItemInserted> events.|  \n|Update|\"Update\"|Updates the current record in the data source with the bound values from the <xref:System.Web.UI.WebControls.ListView.EditItemTemplate%2A> template. Raises the <xref:System.Web.UI.WebControls.ListView.ItemUpdating> and <xref:System.Web.UI.WebControls.ListView.ItemUpdated> events.|  \n|Sort|\"Sort\"|Sorts the columns listed in the `CommandArgument` property of the button. Raises the <xref:System.Web.UI.WebControls.ListView.Sorting> and <xref:System.Web.UI.WebControls.ListView.Sorted> events.|  \n  \n Unlike the Delete button (which deletes the current data item immediately), when the Edit button is clicked, the <xref:System.Web.UI.WebControls.ListView> control displays the current item in edit mode. In edit mode, the content that is contained in the <xref:System.Web.UI.WebControls.ListView.EditItemTemplate%2A> property is displayed for the current data item. Typically, in the edit item template, the Edit button is replaced with an Update and a Cancel button. Input controls that are appropriate for the field's data type (such as a <xref:System.Web.UI.WebControls.TextBox> or <xref:System.Web.UI.WebControls.CheckBox> control) also usually display a field's value for a user to modify. Clicking the Update button updates the record in the data source, and clicking the Cancel button cancels the edit operation.  \n  \n The insert functionality is enabled when the <xref:System.Web.UI.WebControls.ListView.InsertItemPosition%2A> property is set to <xref:System.Web.UI.WebControls.InsertItemPosition.FirstItem> or <xref:System.Web.UI.WebControls.InsertItemPosition.LastItem>. This property defines where the <xref:System.Web.UI.WebControls.ListView.InsertItemTemplate%2A> template is rendered for the insert item. The insert item template typically includes an Insert and a Cancel button, and empty input controls are displayed for users to enter the values for the new record. Clicking the Insert button inserts the record in the data source, and clicking the Cancel button clears all the fields.  \n  \n### <a name=\"sorting\"></a>Sorting  \n The <xref:System.Web.UI.WebControls.ListView> control enables users to sort the items by clicking the Sort button. Sort functionality is defined in the `CommandArgument` property of the button that contains the columns to be sorted.  \n  \n### <a name=\"paging\"></a>Paging  \n Instead of displaying all the records from the data source at the same time, the <xref:System.Web.UI.WebControls.ListView> control can break the records into pages. To enable paging, associate a <xref:System.Web.UI.WebControls.DataPager> control with the <xref:System.Web.UI.WebControls.ListView> control. Then insert a <xref:System.Web.UI.WebControls.DataPager> control inside the <xref:System.Web.UI.WebControls.ListView.LayoutTemplate%2A> template. Alternatively, if the <xref:System.Web.UI.WebControls.DataPager> control is outside the <xref:System.Web.UI.WebControls.ListView> control, set the <xref:System.Web.UI.WebControls.DataPager.PagedControlID%2A> property to the <xref:System.Web.UI.Control.ID%2A> of the <xref:System.Web.UI.WebControls.ListView> control.  \n  \n<a name=\"Events\"></a>   \n## <a name=\"events\"></a>Events  \n The following table lists the events that are supported by the <xref:System.Web.UI.WebControls.ListView> control.  \n  \n|Event|Description|  \n|-----------|-----------------|  \n|<xref:System.Web.UI.WebControls.ListView.ItemCanceling>|Occurs when the Cancel button (a button with its `CommandName` property set to \"Cancel\") is clicked, but before the <xref:System.Web.UI.WebControls.ListView> control cancels the insert or edit operation. This event is often used to stop the cancel operation.|  \n|<xref:System.Web.UI.WebControls.ListView.ItemCommand>|Occurs when a button is clicked in the <xref:System.Web.UI.WebControls.ListView> control. This event is often used to perform a custom task when a button is clicked in the control.|  \n|<xref:System.Web.UI.WebControls.ListView.ItemCreated>|Occurs when a new item is created in the <xref:System.Web.UI.WebControls.ListView> control. This event is often used to modify the content of an item when the item is created.|  \n|<xref:System.Web.UI.WebControls.ListView.ItemDataBound>|Occurs when a data item is bound to data in the <xref:System.Web.UI.WebControls.ListView> control. This event is often used to modify the content of an item when the item is bound to data.|  \n|<xref:System.Web.UI.WebControls.ListView.ItemDeleted>|Occurs when a Delete button (a button with its `CommandName` property set to \"Delete\") is clicked or the <xref:System.Web.UI.WebControls.ListView.DeleteItem%2A> method is called, after the <xref:System.Web.UI.WebControls.ListView> control deletes the record from the data source. This event is often used to check the results of the delete operation.|  \n|<xref:System.Web.UI.WebControls.ListView.ItemDeleting>|Occurs when a Delete button (a button with its `CommandName` property set to \"Delete\") is clicked or the <xref:System.Web.UI.WebControls.ListView.DeleteItem%2A> method is called, but before the <xref:System.Web.UI.WebControls.ListView> control deletes the record from the data source. This event is often used to confirm or cancel the delete operation.|  \n|<xref:System.Web.UI.WebControls.ListView.ItemEditing>|Occurs when an Edit button (a button with its `CommandName` property set to \"Edit\") is clicked, but before the <xref:System.Web.UI.WebControls.ListView> control enters edit mode. This event is often used to cancel the editing operation.|  \n|<xref:System.Web.UI.WebControls.ListView.ItemInserted>|Occurs when an Insert button (a button with its `CommandName` property set to \"Insert\") is clicked or the <xref:System.Web.UI.WebControls.ListView.InsertNewItem%2A> method is called, after the <xref:System.Web.UI.WebControls.ListView> control inserts the new record from the data source. This event is often used to check the results of the insert operation.|  \n|<xref:System.Web.UI.WebControls.ListView.ItemInserting>|Occurs when an Insert button (a button with its `CommandName` property set to \"Insert\") is clicked or the <xref:System.Web.UI.WebControls.ListView.InsertNewItem%2A> method is called, but before the <xref:System.Web.UI.WebControls.ListView> control inserts the record. This event is often used to cancel the insert operation or change or validate the values of the new item.|  \n|<xref:System.Web.UI.WebControls.ListView.ItemUpdated>|Occurs when an Update button (a button with its `CommandName` property set to \"Update\") is clicked or the <xref:System.Web.UI.WebControls.ListView.UpdateItem%2A> method is called, after the <xref:System.Web.UI.WebControls.ListView> control updates the record. This event is often used to check the results of the update operation.|  \n|<xref:System.Web.UI.WebControls.ListView.ItemUpdating>|Occurs when an Update button (a button with its `CommandName` property set to \"Update\") is clicked or the <xref:System.Web.UI.WebControls.ListView.UpdateItem%2A> method is called, but before the <xref:System.Web.UI.WebControls.ListView> control updates the record. This event is often used to cancel the updating operation or change or validate the values of the edited item.|  \n|<xref:System.Web.UI.WebControls.ListView.LayoutCreated>|Occurs when the <xref:System.Web.UI.WebControls.ListView.LayoutTemplate%2A> template is created in a <xref:System.Web.UI.WebControls.ListView> control. This event is often used to perform a task after the template is created.|  \n|<xref:System.Web.UI.WebControls.ListView.PagePropertiesChanged>|Occurs when the page properties change, after the <xref:System.Web.UI.WebControls.ListView> control sets the new values.|  \n|<xref:System.Web.UI.WebControls.ListView.PagePropertiesChanging>|Occurs when the data-page properties change, but before the <xref:System.Web.UI.WebControls.ListView> control sets the new values.|  \n|<xref:System.Web.UI.WebControls.ListView.SelectedIndexChanged>|Occurs when a Select button (a button with its `CommandName` property set to \"Select\") is clicked, after the <xref:System.Web.UI.WebControls.ListView> control handles the select operation. This event is often used to perform a custom task after an item is selected in the control.|  \n|<xref:System.Web.UI.WebControls.ListView.SelectedIndexChanging>|Occurs when a Select button (a button with its `CommandName` property set to \"Select\") is clicked, but before the <xref:System.Web.UI.WebControls.ListView> control handles the select operation. This event is often used to cancel the select operation.|  \n|<xref:System.Web.UI.WebControls.ListView.Sorted>|Occurs when a Sort button (a button with its `CommandName` property set to \"Sort\") is clicked or the <xref:System.Web.UI.WebControls.ListView.Sort%2A> method is called, after the <xref:System.Web.UI.WebControls.ListView> control handles the sort operation. This event is typically used to perform a custom task after a user clicks a Sort button and the data has been sorted.|  \n|<xref:System.Web.UI.WebControls.ListView.Sorting>|Occurs when a Sort button (a button with its `CommandName` property set to \"Sort\") is clicked or the <xref:System.Web.UI.WebControls.ListView.Sort%2A> method is called, but before the <xref:System.Web.UI.WebControls.ListView> control handles the sort operation. This event is often used to cancel the sorting operation or to perform a custom sorting routine.|  \n  \n<a name=\"declarative_syntax\"></a>   \n## <a name=\"declarative-syntax\"></a>Declarative Syntax  \n  \n```  \n<asp:ListView  \n    ConvertEmptyStringToNull=\"True|False\"  \n    DataKeyNames=\"string\"  \n    DataMember=\"string\"  \n    DataSource=\"string\"  \n    DataSourceID=\"string\"  \n    EditIndex=\"integer\"  \n    Enabled=\"True|False\"  \n    EnableTheming=\"True|False\"  \n    EnableViewState=\"True|False\"  \n    GroupPlaceholderID=\"string\"  \n    GroupItemCount=\"integer\"  \n    ID=\"string\"  \n    InsertItemPosition=\"None|FirstItem|LastItem\"  \n    ItemPlaceholderID=\"string\"  \n    OnDataBinding=\"DataBinding event handler\"  \n    OnDataBound=\"DataBound event handler\"  \n    OnDisposed=\"Disposed event handler\"  \n    OnInit=\"Init event handler\"  \n    OnItemCanceling=\"ItemCanceling event handler\"  \n    OnItemCommand=\"ItemCommand event handler\"  \n    OnItemCreated=\"ItemCreated event handler\"  \n    OnItemDataBound=\"ItemDataBound event handler\"  \n    OnItemDeleted=\"ItemDeleted event handler\"  \n    OnItemDeleting=\"ItemDeleting event handler\"  \n    OnItemEditing=\"ItemEditing event handler\"  \n    OnItemInserted=\"ItemInserted event handler\"  \n    OnItemInserting=\"ItemInserting event handler\"  \n    OnItemUpdated=\"ItemUpdated event handler\"  \n    OnItemUpdating=\"ItemUpdating event handler\"  \n    OnLayoutCreated=\"LayoutCreated event handler\"  \n    OnLoad=\"Load event handler\"  \n    OnPagePropertiesChanged=\"PagePropertiesChanged event handler\"  \n    OnPagePropertiesChanging=\"PagePropertiesChanging event handler\"  \n    OnPreRender=\"PreRender event handler\"  \n    OnSelectedIndexChanged=\"SelectedIndexChanged event handler\"  \n    OnSelectedIndexChanging=\"SelectedIndexChanging event handler\"  \n    OnSorted=\"Sorted event handler\"  \n    OnSorting=\"Sorting event handler\"  \n    OnUnload=\"Unload event handler\"  \n    runat=\"server\"  \n    SelectedIndex=\"integer\"  \n    SkinID=\"string\"  \n    Style=\"string\"  \n    Visible=\"True|False\"  \n>  \n        <AlternatingItemTemplate>  \n            <!-- child controls -->  \n        </AlternatingItemTemplate>  \n        <EditItemTemplate>  \n            <!-- child controls -->  \n        </EditItemTemplate>  \n        <EmptyDataTemplate>  \n            <!-- child controls -->  \n        </EmptyDataTemplate>  \n        <EmptyItemTemplate>  \n            <!-- child controls -->  \n        </EmptyItemTemplate>  \n        <GroupSeparatorTemplate>  \n            <!-- child controls -->  \n        </GroupSeparatorTemplate>  \n        <GroupTemplate>  \n            <!-- child controls -->  \n        </GroupTemplate>  \n        <InsertItemTemplate>  \n            <!-- child controls -->  \n        </InsertItemTemplate>  \n        <ItemSeparatorTemplate>  \n            <!-- child controls -->  \n        </ItemSeparatorTemplate>  \n        <ItemTemplate>  \n            <!-- child controls -->  \n        </ItemTemplate>  \n        <LayoutTemplate>  \n                <!-- child controls -->  \n        </LayoutTemplate>  \n        <SelectedItemTemplate>  \n            <!-- child controls -->  \n        </SelectedItemTemplate>  \n</asp:ListView>  \n```"
   example:
   - "The following example shows how to use the <xref:System.Web.UI.WebControls.ListView> control to display records from a database by using an HTML table. The values are retrieved by using a <xref:System.Web.UI.WebControls.LinqDataSource> control.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.UI.WebControls.ListView_Simple#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView_Simple/CS/ListViewSimpleCS.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.UI.WebControls.ListView_Simple#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView_Simple/VB/ListViewSimpleVB.aspx#1)]  -->  \n  \n The following example shows how to use the <xref:System.Web.UI.WebControls.ListView> control to display values in a flow layout by using the `div` element. The values are retrieved by using a <xref:System.Web.UI.WebControls.SqlDataSource> control.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.UI.WebControls.ListView_FlowLayout#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView_FlowLayout/CS/ListViewFlowLayoutCS.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.UI.WebControls.ListView_FlowLayout#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView_FlowLayout/VB/ListViewFlowLayoutVB.aspx#1)]  -->  \n  \n The following example shows how to use the <xref:System.Web.UI.WebControls.ListView> control to insert, delete, and update records.  \n  \n> [!IMPORTANT]\n>  This example has a text box that accepts user input, which is a potential security threat. By default, ASP.NET Web pages validate that user input does not include script or HTML elements. For more information, see [Script Exploits Overview](http://msdn.microsoft.com/library/772c7312-211a-4eb3-8d6e-eec0aa1dcc07).  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.UI.WebControls.ListView_Edit#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView_Edit/CS/ListViewEditCS.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.UI.WebControls.ListView_Edit#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView_Edit/VB/ListViewEditVB.aspx#1)]  -->"
   syntax:
@@ -387,7 +387,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Initializes a new instance of the <xref href="System.Web.UI.WebControls.ListView"></xref> class.
-  remarks: Use this constructor to initialize a new instance of the <xref:System.Web.UI.WebControls.ListView> class. To dynamically add a <xref:System.Web.UI.WebControls.ListView> control to a page, create a new <xref:System.Web.UI.WebControls.ListView> object. Set its properties, and then add it to the <xref:System.Web.UI.Control.Controls%2A?displayProperty=fullName> collection of a container control, such as a <xref:System.Web.UI.WebControls.PlaceHolder> control.
+  remarks: 'Use this constructor to initialize a new instance of the <xref:System.Web.UI.WebControls.ListView> class. To dynamically add a <xref:System.Web.UI.WebControls.ListView> control to a page, create a new <xref:System.Web.UI.WebControls.ListView> object. Set its properties, and then add it to the <xref:System.Web.UI.Control.Controls%2A?displayProperty=fullName> collection of a container control, such as a <xref:System.Web.UI.WebControls.PlaceHolder> control.'
   syntax:
     content: public ListView ();
     parameters: []
@@ -437,7 +437,7 @@ items:
       public override string AccessKey { get; set; }
     return:
       type: System.String
-      description: <xref href="System.String.Empty"></xref>, which indicates that the property is not set.
+      description: '<xref href="System.String.Empty"></xref>, which indicates that the property is not set.'
   overload: System.Web.UI.WebControls.ListView.AccessKey*
   exceptions:
   - type: System.NotSupportedException
@@ -546,7 +546,7 @@ items:
       public virtual System.Web.UI.ITemplate AlternatingItemTemplate { get; set; }
     return:
       type: System.Web.UI.ITemplate
-      description: An object that contains the custom content for the alternating data item in a <xref href="System.Web.UI.WebControls.ListView"></xref> control. The default is `null`, which indicates that this property is not set.
+      description: 'An object that contains the custom content for the alternating data item in a <xref href="System.Web.UI.WebControls.ListView"></xref> control. The default is `null`, which indicates that this property is not set.'
   overload: System.Web.UI.WebControls.ListView.AlternatingItemTemplate*
   exceptions: []
   attributes:
@@ -597,7 +597,7 @@ items:
       public override System.Drawing.Color BackColor { get; set; }
     return:
       type: System.Drawing.Color
-      description: <xref href="System.Drawing.Color.Empty"></xref>, which indicates that the property is not set.
+      description: '<xref href="System.Drawing.Color.Empty"></xref>, which indicates that the property is not set.'
   overload: System.Web.UI.WebControls.ListView.BackColor*
   exceptions:
   - type: System.NotSupportedException
@@ -649,7 +649,7 @@ items:
       public override System.Drawing.Color BorderColor { get; set; }
     return:
       type: System.Drawing.Color
-      description: <xref href="System.Drawing.Color.Empty"></xref>, which indicates that the property is not set.
+      description: '<xref href="System.Drawing.Color.Empty"></xref>, which indicates that the property is not set.'
   overload: System.Web.UI.WebControls.ListView.BorderColor*
   exceptions:
   - type: System.NotSupportedException
@@ -701,7 +701,7 @@ items:
       public override System.Web.UI.WebControls.BorderStyle BorderStyle { get; set; }
     return:
       type: System.Web.UI.WebControls.BorderStyle
-      description: <xref href="System.Web.UI.WebControls.BorderStyle.NotSet"></xref>, which indicates that the property is not set.
+      description: '<xref href="System.Web.UI.WebControls.BorderStyle.NotSet"></xref>, which indicates that the property is not set.'
   overload: System.Web.UI.WebControls.ListView.BorderStyle*
   exceptions:
   - type: System.NotSupportedException
@@ -753,7 +753,7 @@ items:
       public override System.Web.UI.WebControls.Unit BorderWidth { get; set; }
     return:
       type: System.Web.UI.WebControls.Unit
-      description: <xref href="System.Web.UI.WebControls.Unit.Empty"></xref>, which indicates that this property is not set.
+      description: '<xref href="System.Web.UI.WebControls.Unit.Empty"></xref>, which indicates that this property is not set.'
   overload: System.Web.UI.WebControls.ListView.BorderWidth*
   exceptions:
   - type: System.NotSupportedException
@@ -797,7 +797,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Gets or sets the name of the data field whose value is used to uniquely identify each data row of a <xref href="System.Web.UI.WebControls.ListView"></xref> control when the <xref href="System.Web.UI.Control.ClientIDMode"></xref> property is set to <xref href="System.Web.UI.ClientIDMode.Predictable"></xref>.
-  remarks: To prevent naming conflicts when multiple instances of a control are rendered in multiple rows of a <xref:System.Web.UI.WebControls.ListView> control, ASP.NET generates a unique <xref:System.Web.UI.Control.ClientID%2A> value for each instance of the control. You specify how the <xref:System.Web.UI.Control.ClientID%2A> value is generated by setting the <xref:System.Web.UI.Control.ClientIDMode%2A> property. If you set the <xref:System.Web.UI.Control.ClientIDMode%2A> property to <xref:System.Web.UI.ClientIDMode.Predictable>, ASP.NET generates the <xref:System.Web.UI.Control.ClientID%2A> by appending a suffix that is derived from the data field specified in <xref:System.Web.UI.WebControls.GridView.ClientIDRowSuffix%2A>. If <xref:System.Web.UI.WebControls.GridView.ClientIDRowSuffix%2A> is not set, the suffix is a sequential number.
+  remarks: 'To prevent naming conflicts when multiple instances of a control are rendered in multiple rows of a <xref:System.Web.UI.WebControls.ListView> control, ASP.NET generates a unique <xref:System.Web.UI.Control.ClientID%2A> value for each instance of the control. You specify how the <xref:System.Web.UI.Control.ClientID%2A> value is generated by setting the <xref:System.Web.UI.Control.ClientIDMode%2A> property. If you set the <xref:System.Web.UI.Control.ClientIDMode%2A> property to <xref:System.Web.UI.ClientIDMode.Predictable>, ASP.NET generates the <xref:System.Web.UI.Control.ClientID%2A> by appending a suffix that is derived from the data field specified in <xref:System.Web.UI.WebControls.GridView.ClientIDRowSuffix%2A>. If <xref:System.Web.UI.WebControls.GridView.ClientIDRowSuffix%2A> is not set, the suffix is a sequential number.'
   syntax:
     content: >-
       [System.ComponentModel.TypeConverter(typeof(System.Web.UI.WebControls.StringArrayConverter))]
@@ -941,7 +941,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Gets or sets a value that indicates whether empty string values ("") are automatically converted to null values when the data field is updated in the data source.
-  remarks: The <xref:System.Web.UI.WebControls.Parameter> object of the data source control that the <xref:System.Web.UI.WebControls.ListView> control is bound to also has a property named <xref:System.Web.UI.WebControls.Parameter.ConvertEmptyStringToNull%2A?displayProperty=fullName>. This property performs the same function. Make sure that both properties are set appropriately.
+  remarks: 'The <xref:System.Web.UI.WebControls.Parameter> object of the data source control that the <xref:System.Web.UI.WebControls.ListView> control is bound to also has a property named <xref:System.Web.UI.WebControls.Parameter.ConvertEmptyStringToNull%2A?displayProperty=fullName>. This property performs the same function. Make sure that both properties are set appropriately.'
   syntax:
     content: public virtual bool ConvertEmptyStringToNull { get; set; }
     return:
@@ -985,8 +985,8 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
-  summary: Creates the control hierarchy that is used to render the <xref href="System.Web.UI.WebControls.ListView"></xref> control, based on the values that are stored in view state.
-  remarks: The <xref:System.Web.UI.WebControls.ListView.CreateChildControls> method is a helper method that is used by the <xref:System.Web.UI.WebControls.ListView> class to create the control hierarchy. This overload of the method creates the control hierarchy based on values from view state, instead of directly from the data source.
+  summary: 'Creates the control hierarchy that is used to render the <xref href="System.Web.UI.WebControls.ListView"></xref> control, based on the values that are stored in view state.'
+  remarks: 'The <xref:System.Web.UI.WebControls.ListView.CreateChildControls> method is a helper method that is used by the <xref:System.Web.UI.WebControls.ListView> class to create the control hierarchy. This overload of the method creates the control hierarchy based on values from view state, instead of directly from the data source.'
   syntax:
     content: protected override void CreateChildControls ();
     parameters: []
@@ -1082,7 +1082,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Creates the default style for the control.
-  remarks: Style properties are not supported by the <xref:System.Web.UI.WebControls.ListView> control. If you try to call the <xref:System.Web.UI.WebControls.ListView.CreateControlStyle%2A> method, a <xref:System.NotSupportedException> exception is thrown.
+  remarks: 'Style properties are not supported by the <xref:System.Web.UI.WebControls.ListView> control. If you try to call the <xref:System.Web.UI.WebControls.ListView.CreateControlStyle%2A> method, a <xref:System.NotSupportedException> exception is thrown.'
   syntax:
     content: protected override System.Web.UI.WebControls.Style CreateControlStyle ();
     parameters: []
@@ -1130,7 +1130,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Creates a data item in the <xref href="System.Web.UI.WebControls.ListView"></xref> control.
-  remarks: This method is primarily used by control developers to extend the <xref:System.Web.UI.WebControls.ListView> control.
+  remarks: 'This method is primarily used by control developers to extend the <xref:System.Web.UI.WebControls.ListView> control.'
   syntax:
     content: protected virtual System.Web.UI.WebControls.ListViewDataItem CreateDataItem (int dataItemIndex, int displayIndex);
     parameters:
@@ -1181,7 +1181,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Creates the <xref href="System.Web.UI.DataSourceSelectArguments"></xref> object that contains the arguments that are passed to the data source.
-  remarks: The <xref:System.Web.UI.WebControls.ListView.CreateDataSourceSelectArguments%2A> method is a helper method that is called by the <xref:System.Web.UI.WebControls.ListView> control. In this implementation, the <xref:System.Web.UI.DataSourceSelectArguments> object contains the arguments for paging operations.
+  remarks: 'The <xref:System.Web.UI.WebControls.ListView.CreateDataSourceSelectArguments%2A> method is a helper method that is called by the <xref:System.Web.UI.WebControls.ListView> control. In this implementation, the <xref:System.Web.UI.DataSourceSelectArguments> object contains the arguments for paging operations.'
   syntax:
     content: protected override System.Web.UI.DataSourceSelectArguments CreateDataSourceSelectArguments ();
     parameters: []
@@ -1623,7 +1623,7 @@ items:
       public override string CssClass { get; set; }
     return:
       type: System.String
-      description: <xref href="System.String.Empty"></xref>, which indicates that this property is not set.
+      description: '<xref href="System.String.Empty"></xref>, which indicates that this property is not set.'
   overload: System.Web.UI.WebControls.ListView.CssClass*
   exceptions:
   - type: System.NotSupportedException
@@ -1769,7 +1769,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Deletes the record at the specified index from the data source.
-  remarks: Use the <xref:System.Web.UI.WebControls.ListView.DeleteItem%2A> method to programmatically delete the record at the specified index from the data source. This method is typically used to delete a record from outside the <xref:System.Web.UI.WebControls.ListView> control, such as from a different control on the page. This method raises the <xref:System.Web.UI.WebControls.ListView.ItemDeleted> and <xref:System.Web.UI.WebControls.ListView.ItemDeleting> events.
+  remarks: 'Use the <xref:System.Web.UI.WebControls.ListView.DeleteItem%2A> method to programmatically delete the record at the specified index from the data source. This method is typically used to delete a record from outside the <xref:System.Web.UI.WebControls.ListView> control, such as from a different control on the page. This method raises the <xref:System.Web.UI.WebControls.ListView.ItemDeleted> and <xref:System.Web.UI.WebControls.ListView.ItemDeleting> events.'
   example:
   - "The following example shows how to use the <xref:System.Web.UI.WebControls.ListView.DeleteItem%2A> method to programmatically delete the selected item in a <xref:System.Web.UI.WebControls.ListView> control from the data source.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.UI.WebControls.ListView.DeleteItem#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.DeleteItem/CS/ListViewDeleteItemCS.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.UI.WebControls.ListView.DeleteItem#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.DeleteItem/VB/ListViewDeleteItemVB.aspx#1)]  -->"
   syntax:
@@ -1881,7 +1881,7 @@ items:
     content: public virtual int EditIndex { get; set; }
     return:
       type: System.Int32
-      description: The zero-based index of the item being edited. The default is -1, which indicates that no item is being edited.
+      description: 'The zero-based index of the item being edited. The default is -1, which indicates that no item is being edited.'
   overload: System.Web.UI.WebControls.ListView.EditIndex*
   exceptions:
   - type: System.ArgumentOutOfRangeException
@@ -1924,7 +1924,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Gets the item that is in edit mode in a <xref href="System.Web.UI.WebControls.ListView"></xref> control.
-  remarks: Use the <xref:System.Web.UI.WebControls.ListView.EditItem%2A> property to access the item that is in edit mode in a <xref:System.Web.UI.WebControls.ListView> control. The content of an edit item is defined by the <xref:System.Web.UI.WebControls.ListView.EditItemTemplate%2A> property.
+  remarks: 'Use the <xref:System.Web.UI.WebControls.ListView.EditItem%2A> property to access the item that is in edit mode in a <xref:System.Web.UI.WebControls.ListView> control. The content of an edit item is defined by the <xref:System.Web.UI.WebControls.ListView.EditItemTemplate%2A> property.'
   example:
   - "The following example shows how to retrieve the item that is in edit mode by using the <xref:System.Web.UI.WebControls.ListView.EditItem%2A> property to access controls that are contained in the <xref:System.Web.UI.WebControls.ListView.EditItemTemplate%2A> template.  \n  \n> [!IMPORTANT]\n>  This example has a text box that accepts user input, which is a potential security threat. By default, ASP.NET Web pages validate that user input does not include script or HTML elements. For more information, see [Script Exploits Overview](http://msdn.microsoft.com/library/772c7312-211a-4eb3-8d6e-eec0aa1dcc07).  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.UI.WebControls.ListView.ItemEditing#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.ItemEditing/CS/ListViewItemEditingCS.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.UI.WebControls.ListView.ItemEditing#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.ItemEditing/VB/ListViewItemEditingVB.aspx#1)]  -->"
   syntax:
@@ -1934,7 +1934,7 @@ items:
       public virtual System.Web.UI.WebControls.ListViewItem EditItem { get; }
     return:
       type: System.Web.UI.WebControls.ListViewItem
-      description: The item that is in edit mode in a <xref href="System.Web.UI.WebControls.ListView"></xref> control, or `null` if no item is in edit mode.
+      description: 'The item that is in edit mode in a <xref href="System.Web.UI.WebControls.ListView"></xref> control, or `null` if no item is in edit mode.'
   overload: System.Web.UI.WebControls.ListView.EditItem*
   exceptions: []
   attributes:
@@ -1989,7 +1989,7 @@ items:
       public virtual System.Web.UI.ITemplate EditItemTemplate { get; set; }
     return:
       type: System.Web.UI.ITemplate
-      description: An object that contains the custom content for the item in edit mode. The default is `null`, which indicates that this property is not set.
+      description: 'An object that contains the custom content for the item in edit mode. The default is `null`, which indicates that this property is not set.'
   overload: System.Web.UI.WebControls.ListView.EditItemTemplate*
   exceptions: []
   attributes:
@@ -2046,7 +2046,7 @@ items:
       public virtual System.Web.UI.ITemplate EmptyDataTemplate { get; set; }
     return:
       type: System.Web.UI.ITemplate
-      description: An object that contains the custom content for the empty template. The default is `null`, which indicates that this property is not set.
+      description: 'An object that contains the custom content for the empty template. The default is `null`, which indicates that this property is not set.'
   overload: System.Web.UI.WebControls.ListView.EmptyDataTemplate*
   exceptions: []
   attributes:
@@ -2103,7 +2103,7 @@ items:
       public virtual System.Web.UI.ITemplate EmptyItemTemplate { get; set; }
     return:
       type: System.Web.UI.ITemplate
-      description: An object that contains the custom content for the empty item. The default is `null`, which indicates that this property is not set.
+      description: 'An object that contains the custom content for the empty item. The default is `null`, which indicates that this property is not set.'
   overload: System.Web.UI.WebControls.ListView.EmptyItemTemplate*
   exceptions: []
   attributes:
@@ -2243,7 +2243,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Ensures that the <xref href="System.Web.UI.WebControls.ListView.LayoutTemplate"></xref> content is correctly created in the <xref href="System.Web.UI.WebControls.ListView"></xref> control.
-  remarks: The <xref:System.Web.UI.WebControls.ListView.EnsureLayoutTemplate%2A> method is a helper method that is called by the <xref:System.Web.UI.WebControls.ListView> control to make sure that the <xref:System.Web.UI.WebControls.ListView.LayoutTemplate%2A> content is added to the control only one time.
+  remarks: 'The <xref:System.Web.UI.WebControls.ListView.EnsureLayoutTemplate%2A> method is a helper method that is called by the <xref:System.Web.UI.WebControls.ListView> control to make sure that the <xref:System.Web.UI.WebControls.ListView.LayoutTemplate%2A> content is added to the control only one time.'
   syntax:
     content: protected virtual void EnsureLayoutTemplate ();
     parameters: []
@@ -2284,8 +2284,8 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
-  summary: Retrieves the values of each field that is declared in the specified item, and stores them in the specified <xref href="System.Collections.Specialized.IOrderedDictionary"></xref> object.
-  remarks: The <xref:System.Web.UI.WebControls.ListView.ExtractItemValues%2A> method is a helper method that is called by the <xref:System.Web.UI.WebControls.ListView> control to retrieve the values of each field that is declared in `item`. You can specify whether the extracted values include key fields by using the `includePrimaryKey` parameter.
+  summary: 'Retrieves the values of each field that is declared in the specified item, and stores them in the specified <xref href="System.Collections.Specialized.IOrderedDictionary"></xref> object.'
+  remarks: 'The <xref:System.Web.UI.WebControls.ListView.ExtractItemValues%2A> method is a helper method that is called by the <xref:System.Web.UI.WebControls.ListView> control to retrieve the values of each field that is declared in `item`. You can specify whether the extracted values include key fields by using the `includePrimaryKey` parameter.'
   syntax:
     content: public virtual void ExtractItemValues (System.Collections.Specialized.IOrderedDictionary itemValues, System.Web.UI.WebControls.ListViewItem item, bool includePrimaryKey);
     parameters:
@@ -2342,7 +2342,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Searches the specified container for a control that has the specified identifier.
-  remarks: This method is primarily used by control developers to extend the <xref:System.Web.UI.WebControls.ListView> control.
+  remarks: 'This method is primarily used by control developers to extend the <xref:System.Web.UI.WebControls.ListView> control.'
   syntax:
     content: protected virtual System.Web.UI.Control FindPlaceholder (string containerID, System.Web.UI.Control container);
     parameters:
@@ -2354,7 +2354,7 @@ items:
       description: The container to be searched.
     return:
       type: System.Web.UI.Control
-      description: The specified control, or `null` if the specified control cannot be found.
+      description: 'The specified control, or `null` if the specified control cannot be found.'
   overload: System.Web.UI.WebControls.ListView.FindPlaceholder*
   exceptions: []
   version:
@@ -2401,7 +2401,7 @@ items:
       public override System.Web.UI.WebControls.FontInfo Font { get; }
     return:
       type: System.Web.UI.WebControls.FontInfo
-      description: This property is not supported, and throws a <xref href="System.NotSupportedException"></xref> error.
+      description: 'This property is not supported, and throws a <xref href="System.NotSupportedException"></xref> error.'
   overload: System.Web.UI.WebControls.ListView.Font*
   exceptions:
   - type: System.NotSupportedException
@@ -2453,7 +2453,7 @@ items:
       public override System.Drawing.Color ForeColor { get; set; }
     return:
       type: System.Drawing.Color
-      description: <xref href="System.Drawing.Color.Empty"></xref>, which indicates that the property is not set.
+      description: '<xref href="System.Drawing.Color.Empty"></xref>, which indicates that the property is not set.'
   overload: System.Web.UI.WebControls.ListView.ForeColor*
   exceptions:
   - type: System.NotSupportedException
@@ -2504,7 +2504,7 @@ items:
     content: public virtual int GroupItemCount { get; set; }
     return:
       type: System.Int32
-      description: The number of items to display per group in a <xref href="System.Web.UI.WebControls.ListView"></xref> control. The default is 1, which indicates that the <xref href="System.Web.UI.WebControls.ListView"></xref> control will display one item per group.
+      description: 'The number of items to display per group in a <xref href="System.Web.UI.WebControls.ListView"></xref> control. The default is 1, which indicates that the <xref href="System.Web.UI.WebControls.ListView"></xref> control will display one item per group.'
   overload: System.Web.UI.WebControls.ListView.GroupItemCount*
   exceptions:
   - type: System.ArgumentOutOfRangeException
@@ -2547,7 +2547,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Gets or sets the ID for the group placeholder in a <xref href="System.Web.UI.WebControls.ListView"></xref> control.
-  remarks: Use the <xref:System.Web.UI.WebControls.ListView.GroupPlaceholderID%2A> property to specify an ID for the group placeholder. The group placeholder is the control that you add to the <xref:System.Web.UI.WebControls.ListView.LayoutTemplate%2A> template when you are using groups to represent where the group will be rendered.
+  remarks: 'Use the <xref:System.Web.UI.WebControls.ListView.GroupPlaceholderID%2A> property to specify an ID for the group placeholder. The group placeholder is the control that you add to the <xref:System.Web.UI.WebControls.ListView.LayoutTemplate%2A> template when you are using groups to represent where the group will be rendered.'
   example:
   - "The following example shows how to use the <xref:System.Web.UI.WebControls.ListView.GroupPlaceholderID%2A> property to specify a different ID for the group placeholder of the <xref:System.Web.UI.WebControls.ListView> control.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.UI.WebControls.ListView.ItemContainerID#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.ItemContainerID/CS/ListViewItemContainerIDCS.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.UI.WebControls.ListView.ItemContainerID#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.ItemContainerID/VB/ListViewItemContainerIDVB.aspx#1)]  -->"
   syntax:
@@ -2611,7 +2611,7 @@ items:
       public virtual System.Web.UI.ITemplate GroupSeparatorTemplate { get; set; }
     return:
       type: System.Web.UI.ITemplate
-      description: An object that contains the custom content for the group separator. The default is `null`, which indicates that this property is not set.
+      description: 'An object that contains the custom content for the group separator. The default is `null`, which indicates that this property is not set.'
   overload: System.Web.UI.WebControls.ListView.GroupSeparatorTemplate*
   exceptions: []
   attributes:
@@ -2668,7 +2668,7 @@ items:
       public virtual System.Web.UI.ITemplate GroupTemplate { get; set; }
     return:
       type: System.Web.UI.ITemplate
-      description: An object that contains the custom content for the group container in a <xref href="System.Web.UI.WebControls.ListView"></xref> control. The default is `null`, which indicates that this property is not set.
+      description: 'An object that contains the custom content for the group container in a <xref href="System.Web.UI.WebControls.ListView"></xref> control. The default is `null`, which indicates that this property is not set.'
   overload: System.Web.UI.WebControls.ListView.GroupTemplate*
   exceptions: []
   attributes:
@@ -2719,7 +2719,7 @@ items:
       public override System.Web.UI.WebControls.Unit Height { get; set; }
     return:
       type: System.Web.UI.WebControls.Unit
-      description: <xref href="System.Web.UI.WebControls.Unit.Empty"></xref>, which indicates that the property is not set.
+      description: '<xref href="System.Web.UI.WebControls.Unit.Empty"></xref>, which indicates that the property is not set.'
   overload: System.Web.UI.WebControls.ListView.Height*
   exceptions:
   - type: System.NotSupportedException
@@ -2763,7 +2763,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Gets the insert item of a <xref href="System.Web.UI.WebControls.ListView"></xref> control.
-  remarks: Use the <xref:System.Web.UI.WebControls.ListView.InsertItem%2A> property to access the insert item of a <xref:System.Web.UI.WebControls.ListView> control. An insert item is a <xref:System.Web.UI.WebControls.ListViewItem> object whose <xref:System.Web.UI.WebControls.ListViewItem.ItemType%2A> is equal to <xref:System.Web.UI.WebControls.ListViewItemType?displayProperty=fullName>. The content of an insert item is defined by the <xref:System.Web.UI.WebControls.ListView.InsertItemTemplate%2A> property.
+  remarks: 'Use the <xref:System.Web.UI.WebControls.ListView.InsertItem%2A> property to access the insert item of a <xref:System.Web.UI.WebControls.ListView> control. An insert item is a <xref:System.Web.UI.WebControls.ListViewItem> object whose <xref:System.Web.UI.WebControls.ListViewItem.ItemType%2A> is equal to <xref:System.Web.UI.WebControls.ListViewItemType?displayProperty=fullName>. The content of an insert item is defined by the <xref:System.Web.UI.WebControls.ListView.InsertItemTemplate%2A> property.'
   example:
   - "The following example shows how to get the insert item by using the <xref:System.Web.UI.WebControls.ListView.InsertItem%2A> property to access controls that are contained in the <xref:System.Web.UI.WebControls.ListView.InsertItemTemplate%2A> template.  \n  \n> [!IMPORTANT]\n>  This example contains text boxes that accept user input, which is a potential security threat. By default, ASP.NET Web pages validate that user input does not include script or HTML elements. For more information, see [Script Exploits Overview](http://msdn.microsoft.com/library/772c7312-211a-4eb3-8d6e-eec0aa1dcc07).  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.UI.WebControls.ListView.InsertItem#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.InsertItem/CS/ListViewInsertItemCS.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.UI.WebControls.ListView.InsertItem#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.InsertItem/VB/ListViewInsertItemVB.aspx#1)]  -->"
   syntax:
@@ -2821,7 +2821,7 @@ items:
     content: public virtual System.Web.UI.WebControls.InsertItemPosition InsertItemPosition { get; set; }
     return:
       type: System.Web.UI.WebControls.InsertItemPosition
-      description: One of the <xref href="System.Web.UI.WebControls.InsertItemPosition"></xref> values. The default is <xref href="System.Web.UI.WebControls.InsertItemPosition.None"></xref>, which indicates that the <xref href="System.Web.UI.WebControls.ListView.InsertItemTemplate"></xref> content will not be rendered by the <xref href="System.Web.UI.WebControls.ListView"></xref> control.
+      description: 'One of the <xref href="System.Web.UI.WebControls.InsertItemPosition"></xref> values. The default is <xref href="System.Web.UI.WebControls.InsertItemPosition.None"></xref>, which indicates that the <xref href="System.Web.UI.WebControls.ListView.InsertItemTemplate"></xref> content will not be rendered by the <xref href="System.Web.UI.WebControls.ListView"></xref> control.'
   overload: System.Web.UI.WebControls.ListView.InsertItemPosition*
   exceptions: []
   attributes: []
@@ -2875,7 +2875,7 @@ items:
       public virtual System.Web.UI.ITemplate InsertItemTemplate { get; set; }
     return:
       type: System.Web.UI.ITemplate
-      description: An object  that contains the custom content for the insert item in the <xref href="System.Web.UI.WebControls.ListView"></xref> control. The default is `null`, which indicates that this property is not set.
+      description: 'An object  that contains the custom content for the insert item in the <xref href="System.Web.UI.WebControls.ListView"></xref> control. The default is `null`, which indicates that this property is not set.'
   overload: System.Web.UI.WebControls.ListView.InsertItemTemplate*
   exceptions: []
   attributes:
@@ -3113,7 +3113,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Populates the specified <xref href="System.Web.UI.Control"></xref> object by using the child controls that are contained in the <xref href="System.Web.UI.WebControls.ListView.GroupSeparatorTemplate"></xref> template.
-  remarks: This method is primarily used by control developers to extend the <xref:System.Web.UI.WebControls.ListView> control.
+  remarks: 'This method is primarily used by control developers to extend the <xref:System.Web.UI.WebControls.ListView> control.'
   syntax:
     content: protected virtual void InstantiateGroupSeparatorTemplate (System.Web.UI.Control container);
     parameters:
@@ -3158,7 +3158,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Populates the specified <xref href="System.Web.UI.Control"></xref> object by using the child controls that are contained in the <xref href="System.Web.UI.WebControls.ListView.GroupTemplate"></xref> template.
-  remarks: This method is primarily used by control developers to extend the <xref:System.Web.UI.WebControls.ListView> control.
+  remarks: 'This method is primarily used by control developers to extend the <xref:System.Web.UI.WebControls.ListView> control.'
   syntax:
     content: protected virtual void InstantiateGroupTemplate (System.Web.UI.Control container);
     parameters:
@@ -3203,7 +3203,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Populates the specified <xref href="System.Web.UI.Control"></xref> object by using the child controls that are contained in the <xref href="System.Web.UI.WebControls.ListView.InsertItemTemplate"></xref> template.
-  remarks: This method is primarily used by control developers to extend the <xref:System.Web.UI.WebControls.ListView> control.
+  remarks: 'This method is primarily used by control developers to extend the <xref:System.Web.UI.WebControls.ListView> control.'
   syntax:
     content: protected virtual void InstantiateInsertItemTemplate (System.Web.UI.Control container);
     parameters:
@@ -3248,7 +3248,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Populates the specified <xref href="System.Web.UI.Control"></xref> object by using the child controls that are contained in the <xref href="System.Web.UI.WebControls.ListView.ItemSeparatorTemplate"></xref> template.
-  remarks: This method is primarily used by control developers to extend the <xref:System.Web.UI.WebControls.ListView> control.
+  remarks: 'This method is primarily used by control developers to extend the <xref:System.Web.UI.WebControls.ListView> control.'
   syntax:
     content: protected virtual void InstantiateItemSeparatorTemplate (System.Web.UI.Control container);
     parameters:
@@ -3386,7 +3386,7 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
-  summary: Occurs when a cancel operation is requested, but before the <xref href="System.Web.UI.WebControls.ListView"></xref> control cancels the insert or edit operation.
+  summary: 'Occurs when a cancel operation is requested, but before the <xref href="System.Web.UI.WebControls.ListView"></xref> control cancels the insert or edit operation.'
   remarks: "The <xref:System.Web.UI.WebControls.ListView> control raises the <xref:System.Web.UI.WebControls.ListView.ItemCanceling> event when a Cancel button in the <xref:System.Web.UI.WebControls.ListView.InsertItemTemplate%2A> or <xref:System.Web.UI.WebControls.ListView.EditItemTemplate%2A> template is clicked, but before the <xref:System.Web.UI.WebControls.ListView> control cancels the insert or edit operation. (A Cancel button is a button control whose <xref:System.Web.UI.WebControls.Button.CommandName%2A> property is set to \"Cancel\".) This enables you to perform a custom routine whenever this event occurs, such as stopping the cancel operation if it would put the item in an unwanted state.  \n  \n A <xref:System.Web.UI.WebControls.ListViewCancelEventArgs> object is passed to the event handler, which enables you to determine the index of the item. It also lets you indicate that the cancel operation should be stopped. To stop the operation, set the <xref:System.ComponentModel.CancelEventArgs.Cancel%2A> property of the <xref:System.Web.UI.WebControls.ListViewCancelEventArgs> object to `true`.  \n  \n For more information about how to handle events, see [NIB: Consuming Events](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67)."
   example:
   - "The following example shows how to create an <xref:System.Web.UI.WebControls.ListView.ItemCanceling> event handler.  \n  \n> [!IMPORTANT]\n>  This example contains text boxes that accept user input, which is a potential security threat. By default, ASP.NET Web pages validate that user input does not include script or HTML elements. For more information, see [Script Exploits Overview](http://msdn.microsoft.com/library/772c7312-211a-4eb3-8d6e-eec0aa1dcc07).  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.UI.WebControls.ListView.ItemCanceling#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.ItemCanceling/CS/ListViewItemCancelingCS.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.UI.WebControls.ListView.ItemCanceling#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.ItemCanceling/VB/ListViewItemCancelingVB.aspx#1)]  -->"
@@ -3568,7 +3568,7 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
-  summary: Occurs when a delete operation is requested, after the <xref href="System.Web.UI.WebControls.ListView"></xref> control deletes the item.
+  summary: 'Occurs when a delete operation is requested, after the <xref href="System.Web.UI.WebControls.ListView"></xref> control deletes the item.'
   remarks: "The <xref:System.Web.UI.WebControls.ListView.ItemDeleted> event is raised when an item's Delete button is clicked or the <xref:System.Web.UI.WebControls.ListView.DeleteItem%2A> method is called, after the <xref:System.Web.UI.WebControls.ListView> control deletes the item. (A Delete button is a button control whose <xref:System.Web.UI.WebControls.Button.CommandName%2A> property is set to \"Delete\".) This enables you to perform a custom routine whenever this event occurs, such as checking the results of the delete operation.  \n  \n A <xref:System.Web.UI.WebControls.ListViewDeletedEventArgs> object is passed to the event handler, which enables you to determine the number of rows that were affected in the data source. It also lets you determine what exceptions might have occurred. You can indicate whether the exception was handled in the event handler by setting the <xref:System.Web.UI.WebControls.ListViewDeletedEventArgs.ExceptionHandled%2A> property of the <xref:System.Web.UI.WebControls.ListViewDeletedEventArgs> object to `true`.  \n  \n For more information about how to handle events, see [NIB: Consuming Events](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67)."
   example:
   - "The following example shows how to add an event handler for the <xref:System.Web.UI.WebControls.ListView.ItemDeleted> event.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.UI.WebControls.ListViewDeletedEventArgs#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.WebControls.ListViewDeletedEventArgs/CS/ListViewDeletedEventArgsCS.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.UI.WebControls.ListViewDeletedEventArgs#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.WebControls.ListViewDeletedEventArgs/VB/ListViewDeletedEventArgsVB.aspx#1)]  -->"
@@ -3614,7 +3614,7 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
-  summary: Occurs when a delete operation is requested, but before the <xref href="System.Web.UI.WebControls.ListView"></xref> control deletes the item.
+  summary: 'Occurs when a delete operation is requested, but before the <xref href="System.Web.UI.WebControls.ListView"></xref> control deletes the item.'
   remarks: "The <xref:System.Web.UI.WebControls.ListView.ItemDeleting> event is raised when an item's Delete button is clicked or the <xref:System.Web.UI.WebControls.ListView.DeleteItem%2A> method is called, but before the <xref:System.Web.UI.WebControls.ListView> control deletes the item. (A Delete button is a button control whose <xref:System.Web.UI.WebControls.Button.CommandName%2A> property is set to \"Delete\".) This enables you to perform a custom routine whenever this event occurs, such as canceling the delete operation.  \n  \n A <xref:System.Web.UI.WebControls.ListViewDeleteEventArgs> object is passed to the event handler, which enables you to determine the index of the current item. It also lets you indicate that the delete operation should be canceled. To cancel the delete operation, set the <xref:System.ComponentModel.CancelEventArgs.Cancel%2A> property of the <xref:System.Web.UI.WebControls.ListViewDeleteEventArgs> object to `true`. You can also work with the <xref:System.Web.UI.WebControls.ListViewDeleteEventArgs.Keys%2A> and <xref:System.Web.UI.WebControls.ListViewDeleteEventArgs.Values%2A> collections before the values are passed to the data source.  \n  \n For more information about how to handle events, see [NIB: Consuming Events](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67)."
   example:
   - "The following example shows how to declaratively add an event handler for the <xref:System.Web.UI.WebControls.ListView.ItemDeleting> event.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.UI.WebControls.ListViewItemDeleting#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.WebControls.ListViewItemDeleting/CS/ListViewItemItemDeletingCS.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.UI.WebControls.ListViewItemDeleting#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.WebControls.ListViewItemDeleting/VB/ListViewItemItemDeletingVB.aspx#1)]  -->"
@@ -3660,7 +3660,7 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
-  summary: Occurs when an edit operation is requested, but before the <xref href="System.Web.UI.WebControls.ListView"></xref> item is put in edit mode.
+  summary: 'Occurs when an edit operation is requested, but before the <xref href="System.Web.UI.WebControls.ListView"></xref> item is put in edit mode.'
   remarks: "The <xref:System.Web.UI.WebControls.ListView.ItemEditing> event is raised when an item's Edit button is clicked, but before the <xref:System.Web.UI.WebControls.ListView> item is put in edit mode. (An Edit button is a button control whose <xref:System.Web.UI.WebControls.Button.CommandName%2A> property is set to \"Edit\".) This enables you to perform a custom routine whenever this event occurs, such as canceling the edit operation.  \n  \n A <xref:System.Web.UI.WebControls.ListViewEditEventArgs> object is passed to the event handler, which enables you to determine the index of the current item. It also lets you indicate that the edit operation should be canceled. To cancel the edit operation, set the <xref:System.ComponentModel.CancelEventArgs.Cancel%2A> property of the <xref:System.Web.UI.WebControls.ListViewEditEventArgs> object to `true`.  \n  \n For more information about how to handle events, see [NIB: Consuming Events](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67)."
   example:
   - "The following example shows how to add an event handler for the <xref:System.Web.UI.WebControls.ListView.ItemEditing> event.  \n  \n> [!IMPORTANT]\n>  This example has a text box that accepts user input, which is a potential security threat. By default, ASP.NET Web pages validate that user input does not include script or HTML elements. For more information, see [Script Exploits Overview](http://msdn.microsoft.com/library/772c7312-211a-4eb3-8d6e-eec0aa1dcc07).  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.UI.WebControls.ListView.ItemEditing#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.ItemEditing/CS/ListViewItemEditingCS.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.UI.WebControls.ListView.ItemEditing#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.ItemEditing/VB/ListViewItemEditingVB.aspx#1)]  -->"
@@ -3706,7 +3706,7 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
-  summary: Occurs when an insert operation is requested, after the <xref href="System.Web.UI.WebControls.ListView"></xref> control has inserted the item in the data source.
+  summary: 'Occurs when an insert operation is requested, after the <xref href="System.Web.UI.WebControls.ListView"></xref> control has inserted the item in the data source.'
   remarks: "The <xref:System.Web.UI.WebControls.ListView> control raises the <xref:System.Web.UI.WebControls.ListView.ItemInserted> event when an Insert button in the <xref:System.Web.UI.WebControls.ListView.InsertItemTemplate%2A> template is clicked or the <xref:System.Web.UI.WebControls.ListView.InsertNewItem%2A> method is called, after the <xref:System.Web.UI.WebControls.ListView> control inserts the item in the data source. (An Insert button is a button control whose <xref:System.Web.UI.WebControls.Button.CommandName%2A> property is set to \"Insert\".) This enables you to perform a custom routine whenever this event occurs, such as checking the results of an insert operation.  \n  \n A <xref:System.Web.UI.WebControls.ListViewInsertedEventArgs> object is passed to the event handler, which enables you to determine the number of records affected. It also lets you determine what exceptions might have occurred. To determine the number of records that were affected by the insert operation, use the <xref:System.Web.UI.WebControls.ListViewInsertedEventArgs.AffectedRows%2A> property. To determine whether any exceptions occurred, use the <xref:System.Web.UI.WebControls.ListViewInsertedEventArgs.Exception%2A> property. You can also indicate whether the exception was handled in the event handler by setting the <xref:System.Web.UI.WebControls.ListViewInsertedEventArgs.ExceptionHandled%2A> property. If you want to access the values of the inserted record, use the <xref:System.Web.UI.WebControls.ListViewInsertedEventArgs.Values%2A> property.  \n  \n If the <xref:System.Web.UI.WebControls.ListViewInsertedEventArgs.AffectedRows%2A> property reports that no items were inserted, you can rebind the insert values to the <xref:System.Web.UI.WebControls.ListView.InsertItemTemplate%2A> template by setting the <xref:System.Web.UI.WebControls.ListViewInsertedEventArgs.KeepInInsertMode%2A> property to `true`.  \n  \n For more information about how to handle events, see [NIB: Consuming Events](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67)."
   example:
   - "The following example shows how to add an event handler for the <xref:System.Web.UI.WebControls.ListView.ItemInserted> event.  \n  \n> [!IMPORTANT]\n>  This example has a text box that accepts user input, which is a potential security threat. By default, ASP.NET Web pages validate that user input does not include script or HTML elements. For more information, see [Script Exploits Overview](http://msdn.microsoft.com/library/772c7312-211a-4eb3-8d6e-eec0aa1dcc07).  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.UI.WebControls.ListView.ItemInserted#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.ItemInserted/CS/ListViewItemInsertedCS.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.UI.WebControls.ListView.ItemInserted#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.ItemInserted/VB/ListViewItemInsertedVB.aspx#1)]  -->"
@@ -3752,7 +3752,7 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
-  summary: Occurs when an insert operation is requested, but before the <xref href="System.Web.UI.WebControls.ListView"></xref> control performs the insert.
+  summary: 'Occurs when an insert operation is requested, but before the <xref href="System.Web.UI.WebControls.ListView"></xref> control performs the insert.'
   remarks: "The <xref:System.Web.UI.WebControls.ListView> control raises the <xref:System.Web.UI.WebControls.ListView.ItemInserting> event when an Insert button in the <xref:System.Web.UI.WebControls.ListView.InsertItemTemplate%2A> template is clicked or the <xref:System.Web.UI.WebControls.ListView.InsertNewItem%2A> method is called, but before the <xref:System.Web.UI.WebControls.ListView> control inserts the record. (An Insert button is a button control whose <xref:System.Web.UI.WebControls.Button.CommandName%2A> property is set to \"Insert\".) This enables you to perform a custom routine whenever this event occurs, such as HTML-encoding the values of a record before it is inserted in the data source.  \n  \n A <xref:System.Web.UI.WebControls.ListViewInsertEventArgs> object is passed to the event handler, which enables you to determine the value of an optional command argument sent to the <xref:System.Web.UI.WebControls.ListView> control. It also lets you indicate that the insert operation should be canceled. To cancel the insert operation, set the <xref:System.ComponentModel.CancelEventArgs.Cancel%2A> property to `true`. You can read or modify the field values for the new record by using the <xref:System.Web.UI.WebControls.ListViewInsertEventArgs.Values%2A> property.  \n  \n For more information about how to handle events, see [NIB: Consuming Events](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67)."
   example:
   - "The following example shows how to add an event handler for the <xref:System.Web.UI.WebControls.ListView.ItemInserting> event.  \n  \n> [!IMPORTANT]\n>  This example contains controls that accept user input, which is a potential security threat. By default, ASP.NET Web pages validate that user input does not include script or HTML elements. For more information, see [Script Exploits Overview](http://msdn.microsoft.com/library/772c7312-211a-4eb3-8d6e-eec0aa1dcc07).  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.UI.WebControls.ListView.ItemInserting#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.ItemInserting/CS/ListViewItemInsertingCS.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.UI.WebControls.ListView.ItemInserting#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.ItemInserting/VB/ListViewItemInsertingVB.aspx#1)]  -->"
@@ -3799,7 +3799,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Gets or sets the ID for the item placeholder in a <xref href="System.Web.UI.WebControls.ListView"></xref> control.
-  remarks: Use the <xref:System.Web.UI.WebControls.ListView.ItemPlaceholderID%2A> property to specify an ID for the item placeholder. The item placeholder is the control that you add to the <xref:System.Web.UI.WebControls.ListView.LayoutTemplate%2A> template (if you are not using groups) or to the <xref:System.Web.UI.WebControls.ListView.GroupTemplate%2A> template (if you are using groups) to represent where the item will be rendered.
+  remarks: 'Use the <xref:System.Web.UI.WebControls.ListView.ItemPlaceholderID%2A> property to specify an ID for the item placeholder. The item placeholder is the control that you add to the <xref:System.Web.UI.WebControls.ListView.LayoutTemplate%2A> template (if you are not using groups) or to the <xref:System.Web.UI.WebControls.ListView.GroupTemplate%2A> template (if you are using groups) to represent where the item will be rendered.'
   example:
   - "The following example shows how to use the <xref:System.Web.UI.WebControls.ListView.ItemPlaceholderID%2A> property to specify an ID for the item placeholder of the <xref:System.Web.UI.WebControls.ListView> control.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.UI.WebControls.ListView.ItemContainerID#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.ItemContainerID/CS/ListViewItemContainerIDCS.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.UI.WebControls.ListView.ItemContainerID#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.ItemContainerID/VB/ListViewItemContainerIDVB.aspx#1)]  -->"
   syntax:
@@ -3849,7 +3849,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Gets a collection of <xref href="System.Web.UI.WebControls.ListViewDataItem"></xref> objects that represent the data items of the current page of data in a <xref href="System.Web.UI.WebControls.ListView"></xref> control.
-  remarks: The <xref:System.Web.UI.WebControls.ListView.Items%2A> property is used to store the data items in a <xref:System.Web.UI.WebControls.ListView> control. The <xref:System.Web.UI.WebControls.ListView> control automatically populates the <xref:System.Web.UI.WebControls.ListView.Items%2A> collection by creating one <xref:System.Web.UI.WebControls.ListViewDataItem> object for each record in the current page of data in the data source. It then adds each object to the collection. This property is usually used to access a specific item in the control or to iterate though the complete collection of items.
+  remarks: 'The <xref:System.Web.UI.WebControls.ListView.Items%2A> property is used to store the data items in a <xref:System.Web.UI.WebControls.ListView> control. The <xref:System.Web.UI.WebControls.ListView> control automatically populates the <xref:System.Web.UI.WebControls.ListView.Items%2A> collection by creating one <xref:System.Web.UI.WebControls.ListViewDataItem> object for each record in the current page of data in the data source. It then adds each object to the collection. This property is usually used to access a specific item in the control or to iterate though the complete collection of items.'
   example:
   - "The following example shows how to use the <xref:System.Web.UI.WebControls.ListView.Items%2A> collection to access the item that is being edited in a <xref:System.Web.UI.WebControls.ListView> control. This code example is part of a larger example provided for the <xref:System.Web.UI.WebControls.ListView.ItemEditing> event.  \n  \n [!code-csharp[System.Web.UI.WebControls.ListView.ItemEditing#2](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.ItemEditing/CS/ListViewItemEditingCS.aspx#2)]\n [!code-vb[System.Web.UI.WebControls.ListView.ItemEditing#2](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.ItemEditing/VB/ListViewItemEditingVB.aspx#2)]"
   syntax:
@@ -3914,7 +3914,7 @@ items:
       public virtual System.Web.UI.ITemplate ItemSeparatorTemplate { get; set; }
     return:
       type: System.Web.UI.ITemplate
-      description: An object that contains the custom content for the separator between the items of the <xref href="System.Web.UI.WebControls.ListView"></xref> control. The default is `null`, which indicates that this property is not set.
+      description: 'An object that contains the custom content for the separator between the items of the <xref href="System.Web.UI.WebControls.ListView"></xref> control. The default is `null`, which indicates that this property is not set.'
   overload: System.Web.UI.WebControls.ListView.ItemSeparatorTemplate*
   exceptions: []
   attributes:
@@ -3971,7 +3971,7 @@ items:
       public virtual System.Web.UI.ITemplate ItemTemplate { get; set; }
     return:
       type: System.Web.UI.ITemplate
-      description: An object that contains the custom content for the data item in a <xref href="System.Web.UI.WebControls.ListView"></xref> control. The default is `null`, which indicates that this property is not set.
+      description: 'An object that contains the custom content for the data item in a <xref href="System.Web.UI.WebControls.ListView"></xref> control. The default is `null`, which indicates that this property is not set.'
   overload: System.Web.UI.WebControls.ListView.ItemTemplate*
   exceptions: []
   attributes:
@@ -4013,7 +4013,7 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
-  summary: Occurs when an update operation is requested, after the <xref href="System.Web.UI.WebControls.ListView"></xref> control updates the item.
+  summary: 'Occurs when an update operation is requested, after the <xref href="System.Web.UI.WebControls.ListView"></xref> control updates the item.'
   remarks: "The <xref:System.Web.UI.WebControls.ListView.ItemUpdated> event is raised when an item's Update button is clicked or the <xref:System.Web.UI.WebControls.ListView.UpdateItem%2A> method is called, after the <xref:System.Web.UI.WebControls.ListView> control updates the item. (An Update button is a button control whose <xref:System.Web.UI.WebControls.Button.CommandName%2A> property is set to \"Update\".) This enables you to perform a custom routine whenever this event occurs, such as checking the results of the update operation.  \n  \n A <xref:System.Web.UI.WebControls.ListViewUpdatedEventArgs> object is passed to the event handler, which enables you to determine the number of rows affected. It also lets you determine what exceptions might have occurred. You can indicate whether the exception was handled in the event handler by setting the <xref:System.Web.UI.WebControls.ListViewUpdatedEventArgs.ExceptionHandled%2A> property of the <xref:System.Web.UI.WebControls.ListViewUpdatedEventArgs> object.  \n  \n For more information about how to handle events, see [NIB: Consuming Events](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67)."
   example:
   - "The following example shows how to add an event handler for the <xref:System.Web.UI.WebControls.ListView.ItemUpdated> event.  \n  \n> [!IMPORTANT]\n>  This example has a text box that accepts user input, which is a potential security threat. By default, ASP.NET Web pages validate that user input does not include script or HTML elements. For more information, see [Script Exploits Overview](http://msdn.microsoft.com/library/772c7312-211a-4eb3-8d6e-eec0aa1dcc07).  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.UI.WebControls.ListView.ItemUpdated#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.ItemUpdated/CS/ListViewItemUpdatedCS.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.UI.WebControls.ListView.ItemUpdated#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.ItemUpdated/VB/ListViewItemUpdatedVB.aspx#1)]  -->"
@@ -4059,7 +4059,7 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
-  summary: Occurs when an update operation is requested, but before the <xref href="System.Web.UI.WebControls.ListView"></xref> control updates the item.
+  summary: 'Occurs when an update operation is requested, but before the <xref href="System.Web.UI.WebControls.ListView"></xref> control updates the item.'
   remarks: "The <xref:System.Web.UI.WebControls.ListView.ItemUpdating> event is raised when an item's Update button is clicked or the <xref:System.Web.UI.WebControls.ListView.UpdateItem%2A> method is called, but before the <xref:System.Web.UI.WebControls.ListView> control updates the item. (An Update button is a button control whose <xref:System.Web.UI.WebControls.Button.CommandName%2A> property is set to \"Update\".) This enables you to perform a custom routine whenever this event occurs, such as canceling the update operation.  \n  \n A <xref:System.Web.UI.WebControls.ListViewUpdateEventArgs> object is passed to the event handler, which enables you to determine the index of the current item. It also lets you indicate that the update operation should be canceled. To cancel the update operation, set the <xref:System.ComponentModel.CancelEventArgs.Cancel%2A> property of the <xref:System.Web.UI.WebControls.ListViewUpdateEventArgs> object to `true`.  \n  \n You can work with the <xref:System.Web.UI.WebControls.ListViewDeleteEventArgs.Keys%2A>, <xref:System.Web.UI.WebControls.ListViewUpdateEventArgs.OldValues%2A>, and <xref:System.Web.UI.WebControls.ListViewUpdateEventArgs.NewValues%2A> collections before the values are passed to the data source. A typical way to use these collections is to HTML-encode the values supplied by the user before they are stored in the data source. This helps prevent script injection attacks.  \n  \n For more information about how to handle events, see [NIB: Consuming Events](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67)."
   example:
   - "The following example shows how to add an event handler for the <xref:System.Web.UI.WebControls.ListView.ItemUpdating> event.  \n  \n> [!IMPORTANT]\n>  This example has a text box that accepts user input, which is a potential security threat. By default, ASP.NET Web pages validate that user input does not include script or HTML elements. For more information, see [Script Exploits Overview](http://msdn.microsoft.com/library/772c7312-211a-4eb3-8d6e-eec0aa1dcc07).  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.UI.WebControls.ListView.ItemUpdating#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.ItemUpdating/CS/ListViewItemUpdatingCS.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.UI.WebControls.ListView.ItemUpdating#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.ItemUpdating/VB/ListViewItemUpdatingVB.aspx#1)]  -->"
@@ -4164,7 +4164,7 @@ items:
       public virtual System.Web.UI.ITemplate LayoutTemplate { get; set; }
     return:
       type: System.Web.UI.ITemplate
-      description: An object that contains the custom content for the root container in a <xref href="System.Web.UI.WebControls.ListView"></xref> control. The default is `null`, which indicates that this property is not set.
+      description: 'An object that contains the custom content for the root container in a <xref href="System.Web.UI.WebControls.ListView"></xref> control. The default is `null`, which indicates that this property is not set.'
   overload: System.Web.UI.WebControls.ListView.LayoutTemplate*
   exceptions: []
   attributes:
@@ -4206,8 +4206,8 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
-  summary: Loads the state of the properties in the <xref href="System.Web.UI.WebControls.ListView"></xref> control that must be persisted, even when the <xref href="System.Web.UI.Control.EnableViewState"></xref> property is set to `false`.
-  remarks: This method is primarily used by control developers to extend the <xref:System.Web.UI.WebControls.ListView> control.
+  summary: 'Loads the state of the properties in the <xref href="System.Web.UI.WebControls.ListView"></xref> control that must be persisted, even when the <xref href="System.Web.UI.Control.EnableViewState"></xref> property is set to `false`.'
+  remarks: 'This method is primarily used by control developers to extend the <xref:System.Web.UI.WebControls.ListView> control.'
   syntax:
     content: protected override void LoadControlState (object savedState);
     parameters:
@@ -4252,7 +4252,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Loads the previously saved view state of the <xref href="System.Web.UI.WebControls.ListView"></xref> control.
-  remarks: This method is primarily used by the [!INCLUDE[dnprdnshort](~/includes/dnprdnshort-md.md)] infrastructure and is not intended to be used directly from your code. However, control developers can override this method to specify how a custom server control restores its view state. For more information, see [ASP.NET State Management Overview](http://msdn.microsoft.com/library/0218d965-5d30-445b-b6a6-8870e70e63ce).
+  remarks: 'This method is primarily used by the [!INCLUDE[dnprdnshort](~/includes/dnprdnshort-md.md)] infrastructure and is not intended to be used directly from your code. However, control developers can override this method to specify how a custom server control restores its view state. For more information, see [ASP.NET State Management Overview](http://msdn.microsoft.com/library/0218d965-5d30-445b-b6a6-8870e70e63ce).'
   syntax:
     content: protected override void LoadViewState (object savedState);
     parameters:
@@ -4297,7 +4297,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Gets the maximum number of items to display on a single page of the <xref href="System.Web.UI.WebControls.ListView"></xref> control.
-  remarks: If a <xref:System.Web.UI.WebControls.DataPager> object is associated with the <xref:System.Web.UI.WebControls.ListView> control, the <xref:System.Web.UI.WebControls.ListView.MaximumRows%2A> property value is controlled by the <xref:System.Web.UI.WebControls.DataPager> object, and it is same as the <xref:System.Web.UI.WebControls.DataPager.PageSize%2A> property value. Otherwise, the value is -1.
+  remarks: 'If a <xref:System.Web.UI.WebControls.DataPager> object is associated with the <xref:System.Web.UI.WebControls.ListView> control, the <xref:System.Web.UI.WebControls.ListView.MaximumRows%2A> property value is controlled by the <xref:System.Web.UI.WebControls.DataPager> object, and it is same as the <xref:System.Web.UI.WebControls.DataPager.PageSize%2A> property value. Otherwise, the value is -1.'
   syntax:
     content: protected virtual int MaximumRows { get; }
     return:
@@ -5267,7 +5267,7 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
-  summary: Raises the <xref href="System.Web.UI.WebControls.ListView.System#Web#UI#WebControls#IPageableItemContainer#TotalRowCountAvailable"></xref> event.
+  summary: 'Raises the <xref href="System.Web.UI.WebControls.ListView.System#Web#UI#WebControls#IPageableItemContainer#TotalRowCountAvailable"></xref> event.'
   remarks: "The <xref:System.Web.UI.WebControls.ListView.System%23Web%23UI%23WebControls%23IPageableItemContainer%23TotalRowCountAvailable> event is raised when data is available for the <xref:System.Web.UI.WebControls.DataPager> control.  \n  \n Raising an event invokes the event handler through a delegate. For more information, see [NIB: Raising an Event](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2).  \n  \n The <xref:System.Web.UI.WebControls.ListView.OnTotalRowCountAvailable%2A> method also enables derived classes to handle the event without attaching a delegate. This is the preferred technique for handling the event in a derived class."
   syntax:
     content: protected virtual void OnTotalRowCountAvailable (System.Web.UI.WebControls.PageEventArgs e);
@@ -5312,7 +5312,7 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
-  summary: Occurs when the page properties change, after the <xref href="System.Web.UI.WebControls.ListView"></xref> control sets the new values.
+  summary: 'Occurs when the page properties change, after the <xref href="System.Web.UI.WebControls.ListView"></xref> control sets the new values.'
   remarks: "The <xref:System.Web.UI.WebControls.ListView.PagePropertiesChanged> event is raised when the page properties change, after the <xref:System.Web.UI.WebControls.ListView> control sets the new values by using the <xref:System.Web.UI.WebControls.ListView.SetPageProperties%2A> method. This enables you to perform a custom routine whenever this event occurs, such as clearing the selected item or performing a custom paging operation.  \n  \n For more information about how to handle events, see [NIB: Consuming Events](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67)."
   syntax:
     content: public event EventHandler PagePropertiesChanged;
@@ -5356,7 +5356,7 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
-  summary: Occurs when the page properties change, but before the <xref href="System.Web.UI.WebControls.ListView"></xref> control sets the new values.
+  summary: 'Occurs when the page properties change, but before the <xref href="System.Web.UI.WebControls.ListView"></xref> control sets the new values.'
   remarks: "The <xref:System.Web.UI.WebControls.ListView.PagePropertiesChanging> event is raised when the page properties change, but before the <xref:System.Web.UI.WebControls.ListView> control sets the new values by using the <xref:System.Web.UI.WebControls.ListView.SetPageProperties%2A> method. This enables you to perform a custom routine whenever this event occurs, such as clearing the <xref:System.Web.UI.WebControls.ListView.SelectedIndex%2A> or <xref:System.Web.UI.WebControls.ListView.EditIndex%2A> properties.  \n  \n A <xref:System.Web.UI.WebControls.PagePropertiesChangingEventArgs> object is passed to the event handler, which enables you to determine the index of the first record displayed on the page. It also lets you determine the maximum number of items to display on a single page.  \n  \n For more information about how to handle events, see [NIB: Consuming Events](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67)."
   example:
   - "The following example shows how create an event handler for the <xref:System.Web.UI.WebControls.ListView.PagePropertiesChanging> event.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.UI.WebControls.ListView.DeleteItem#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.DeleteItem/CS/ListViewDeleteItemCS.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.UI.WebControls.ListView.DeleteItem#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.DeleteItem/VB/ListViewDeleteItemVB.aspx#1)]  -->"
@@ -5403,7 +5403,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Binds the <xref href="System.Web.UI.WebControls.ListView"></xref> control to the specified data source.
-  remarks: The <xref:System.Web.UI.WebControls.ListView.PerformDataBinding%2A> method is a helper method that is called by the <xref:System.Web.UI.WebControls.ListView> control to bind the control to the specified data source.
+  remarks: 'The <xref:System.Web.UI.WebControls.ListView.PerformDataBinding%2A> method is a helper method that is called by the <xref:System.Web.UI.WebControls.ListView> control to bind the control to the specified data source.'
   syntax:
     content: protected override void PerformDataBinding (System.Collections.IEnumerable data);
     parameters:
@@ -5448,7 +5448,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Retrieves data from the associated data source.
-  remarks: The <xref:System.Web.UI.WebControls.ListView.PerformDataBinding%2A> method is called after data is retrieved in order to bind the data-bound control to data. For more information, see <xref:System.Web.UI.WebControls.DataBoundControl.PerformSelect%2A?displayProperty=fullName>.
+  remarks: 'The <xref:System.Web.UI.WebControls.ListView.PerformDataBinding%2A> method is called after data is retrieved in order to bind the data-bound control to data. For more information, see <xref:System.Web.UI.WebControls.DataBoundControl.PerformSelect%2A?displayProperty=fullName>.'
   syntax:
     content: protected override void PerformSelect ();
     parameters: []
@@ -5576,14 +5576,14 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
-  summary: Saves the state of the properties in the <xref href="System.Web.UI.WebControls.ListView"></xref> control that must be persisted, even when the <xref href="System.Web.UI.Control.EnableViewState"></xref> property is set to `false`.
+  summary: 'Saves the state of the properties in the <xref href="System.Web.UI.WebControls.ListView"></xref> control that must be persisted, even when the <xref href="System.Web.UI.Control.EnableViewState"></xref> property is set to `false`.'
   remarks: "This method is used to save the state of the properties in the <xref:System.Web.UI.WebControls.ListView> control that must be persisted, even when the <xref:System.Web.UI.Control.EnableViewState%2A> property is set to `false`.  \n  \n> [!NOTE]\n>  This method is primarily used by control developers to extend the <xref:System.Web.UI.WebControls.ListView> control."
   syntax:
     content: protected override object SaveControlState ();
     parameters: []
     return:
       type: System.Object
-      description: Returns the server control's current view state. If there is no view state associated with the control, this method returns `null`.
+      description: 'Returns the server control''s current view state. If there is no view state associated with the control, this method returns `null`.'
   overload: System.Web.UI.WebControls.ListView.SaveControlState*
   exceptions: []
   version:
@@ -5622,7 +5622,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Saves the current view state of the <xref href="System.Web.UI.WebControls.ListView"></xref> control.
-  remarks: The <xref:System.Web.UI.WebControls.ListView.SaveViewState%2A> method is a helper method that is called by the <xref:System.Web.UI.WebControls.ListView> control to save the state of the control. For more information, see <xref:System.Web.UI.WebControls.WebControl.SaveViewState%2A?displayProperty=fullName>.
+  remarks: 'The <xref:System.Web.UI.WebControls.ListView.SaveViewState%2A> method is a helper method that is called by the <xref:System.Web.UI.WebControls.ListView> control to save the state of the control. For more information, see <xref:System.Web.UI.WebControls.WebControl.SaveViewState%2A?displayProperty=fullName>.'
   syntax:
     content: protected override object SaveViewState ();
     parameters: []
@@ -5677,7 +5677,7 @@ items:
       public virtual System.Web.UI.WebControls.DataKey SelectedDataKey { get; }
     return:
       type: System.Web.UI.WebControls.DataKey
-      description: The data key for the selected item in a <xref href="System.Web.UI.WebControls.ListView"></xref> control. The default is `null`, which indicates that no item is currently selected.
+      description: 'The data key for the selected item in a <xref href="System.Web.UI.WebControls.ListView"></xref> control. The default is `null`, which indicates that no item is currently selected.'
   overload: System.Web.UI.WebControls.ListView.SelectedDataKey*
   exceptions:
   - type: System.InvalidOperationException
@@ -5721,14 +5721,14 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Gets or sets the index of the selected item in a <xref href="System.Web.UI.WebControls.ListView"></xref> control.
-  remarks: Use the <xref:System.Web.UI.WebControls.ListView.SelectedIndex%2A> property to determine the index of the currently selected item in a <xref:System.Web.UI.WebControls.ListView> control. You can also use this property to programmatically select an item in the control. (However, if you manually data-bind the <xref:System.Web.UI.WebControls.ListView> control, you might have to handle reading or setting this property manually as well.)
+  remarks: 'Use the <xref:System.Web.UI.WebControls.ListView.SelectedIndex%2A> property to determine the index of the currently selected item in a <xref:System.Web.UI.WebControls.ListView> control. You can also use this property to programmatically select an item in the control. (However, if you manually data-bind the <xref:System.Web.UI.WebControls.ListView> control, you might have to handle reading or setting this property manually as well.)'
   example:
   - "The following example shows how to use the <xref:System.Web.UI.WebControls.ListView.SelectedIndex%2A> property to determine whether an item is selected in a <xref:System.Web.UI.WebControls.ListView> control. This code example is part of a larger example provided for the <xref:System.Web.UI.WebControls.ListView.DeleteItem%2A> method.  \n  \n [!code-csharp[System.Web.UI.WebControls.ListView.DeleteItem#2](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.DeleteItem/CS/ListViewDeleteItemCS.aspx#2)]\n [!code-vb[System.Web.UI.WebControls.ListView.DeleteItem#2](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.DeleteItem/VB/ListViewDeleteItemVB.aspx#2)]"
   syntax:
     content: public virtual int SelectedIndex { get; set; }
     return:
       type: System.Int32
-      description: The zero-based index of the selected item in a <xref href="System.Web.UI.WebControls.ListView"></xref> control. The default is -1, which indicates that no item is currently selected.
+      description: 'The zero-based index of the selected item in a <xref href="System.Web.UI.WebControls.ListView"></xref> control. The default is -1, which indicates that no item is currently selected.'
   overload: System.Web.UI.WebControls.ListView.SelectedIndex*
   exceptions:
   - type: System.ArgumentOutOfRangeException
@@ -5770,7 +5770,7 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
-  summary: Occurs when an item's Select button is clicked, after the <xref href="System.Web.UI.WebControls.ListView"></xref> control handles the select operation.
+  summary: 'Occurs when an item''s Select button is clicked, after the <xref href="System.Web.UI.WebControls.ListView"></xref> control handles the select operation.'
   remarks: "The <xref:System.Web.UI.WebControls.ListView.SelectedIndexChanged> event is raised when an item's Select button is clicked, after the <xref:System.Web.UI.WebControls.ListView> control handles the select operation. (A Select button is a button control whose <xref:System.Web.UI.WebControls.Button.CommandName%2A> property is set to \"Select\".) This enables you to perform a custom routine whenever this event occurs, such as updating a status label with information about the currently selected item.  \n  \n For more information about how to handle events, see [NIB: Consuming Events](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67)."
   example:
   - "The following example shows how create an event handler for the <xref:System.Web.UI.WebControls.ListView.SelectedIndexChanged> event.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.UI.WebControls.ListView.SelectedIndexChanged#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.SelectedIndexChanged/CS/ListViewItemSelectedIndexChanged2CS.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.UI.WebControls.ListView.SelectedIndexChanged#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.SelectedIndexChanged/VB/ListViewItemSelectedIndexChanged2VB.aspx#1)]  -->"
@@ -5816,7 +5816,7 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
-  summary: Occurs when an item's Select button is clicked, but before the <xref href="System.Web.UI.WebControls.ListView"></xref> control handles the select operation.
+  summary: 'Occurs when an item''s Select button is clicked, but before the <xref href="System.Web.UI.WebControls.ListView"></xref> control handles the select operation.'
   remarks: "The <xref:System.Web.UI.WebControls.ListView.SelectedIndexChanging> event is raised when an item's Select button is clicked, but before the <xref:System.Web.UI.WebControls.ListView> control handles the select operation. (A Select button is a button control whose <xref:System.Web.UI.WebControls.Button.CommandName%2A> property is set to \"Select\".) This enables you to perform a custom routine whenever this event occurs, such as canceling the select operation.  \n  \n> [!NOTE]\n>  This event is not raised when you programmatically set the <xref:System.Web.UI.WebControls.ListView.SelectedIndex%2A> property.  \n  \n A <xref:System.Web.UI.WebControls.ListViewSelectEventArgs> object is passed to the event handler, which enables you to determine the index of the item that was selected by the user. It also lets you indicate that the selection operation should be canceled. To cancel the selection operation, set the <xref:System.ComponentModel.CancelEventArgs.Cancel%2A> property of the <xref:System.Web.UI.WebControls.ListViewSelectEventArgs> object to `true`.  \n  \n For more information about how to handle events, see [NIB: Consuming Events](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67)."
   example:
   - "The following example shows how create an event handler for the <xref:System.Web.UI.WebControls.ListView.SelectedIndexChanging> event.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.UI.WebControls.ListView.SelectedIndexChanging#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.SelectedIndexChanging/CS/ListViewItemSelectedIndexChangingCS.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.UI.WebControls.ListView.SelectedIndexChanging#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.SelectedIndexChanging/VB/ListViewItemSelectedIndexChangingVB.aspx#1)]  -->"
@@ -5877,7 +5877,7 @@ items:
       public virtual System.Web.UI.ITemplate SelectedItemTemplate { get; set; }
     return:
       type: System.Web.UI.ITemplate
-      description: An object that contains the custom content for the selected item in a <xref href="System.Web.UI.WebControls.ListView"></xref> control. The default is `null`, which indicates that this property is not set.
+      description: 'An object that contains the custom content for the selected item in a <xref href="System.Web.UI.WebControls.ListView"></xref> control. The default is `null`, which indicates that this property is not set.'
   overload: System.Web.UI.WebControls.ListView.SelectedItemTemplate*
   exceptions: []
   attributes:
@@ -5927,7 +5927,7 @@ items:
       public virtual System.Web.UI.WebControls.DataKey SelectedPersistedDataKey { get; set; }
     return:
       type: System.Web.UI.WebControls.DataKey
-      description: The data key for the persisted selected item in a data-bound control. The default is `null`, which indicates that no item is currently selected.
+      description: 'The data key for the persisted selected item in a data-bound control. The default is `null`, which indicates that no item is currently selected.'
   overload: System.Web.UI.WebControls.ListView.SelectedPersistedDataKey*
   exceptions: []
   attributes:
@@ -6019,7 +6019,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Selects the item that is in edit mode in a <xref href="System.Web.UI.WebControls.ListView"></xref> control.
-  remarks: This method raises the <xref:System.Web.UI.WebControls.ListView.SelectedIndexChanged> event.
+  remarks: 'This method raises the <xref:System.Web.UI.WebControls.ListView.SelectedIndexChanged> event.'
   syntax:
     content: public void SelectItem (int rowIndex);
     parameters:
@@ -6164,7 +6164,7 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
-  summary: Sorts the <xref href="System.Web.UI.WebControls.ListView"></xref> control, depending on the specified sort expression and direction.
+  summary: 'Sorts the <xref href="System.Web.UI.WebControls.ListView"></xref> control, depending on the specified sort expression and direction.'
   remarks: "Use the <xref:System.Web.UI.WebControls.ListView.Sort%2A> method to programmatically sort the data that is displayed in the <xref:System.Web.UI.WebControls.ListView> control by using the specified sort expression and direction. The sort expression specifies the column or columns to sort with. To sort multiple columns, create a sort expression that contains a comma-separated list of field names. The sort direction indicates whether sorting is performed in ascending or descending order.  \n  \n You typically use this method when you want to sort the contents of the <xref:System.Web.UI.WebControls.ListView> control from outside the control, such as from a different control on the page. This method is also used to programmatically set a default sort order for the <xref:System.Web.UI.WebControls.ListView> control when it is first rendered.  \n  \n This method raises the <xref:System.Web.UI.WebControls.ListView.Sorted> and <xref:System.Web.UI.WebControls.ListView.Sorting> events."
   example:
   - "The following example shows how to use the <xref:System.Web.UI.WebControls.ListView.Sort%2A> method to programmatically sort the <xref:System.Web.UI.WebControls.ListView> control by multiple data fields.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.UI.WebControls.ListView.Sort#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.Sort/CS/ListViewSortCS.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.UI.WebControls.ListView.Sort#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.Sort/VB/ListViewSortVB.aspx#1)]  -->"
@@ -6181,7 +6181,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The <xref href="System.Web.UI.WebControls.ListView"></xref> control is bound to a data source control, but the <xref href="System.Web.UI.DataSourceView"></xref> object that is associated with the data source is `null`.
+    description: 'The <xref href="System.Web.UI.WebControls.ListView"></xref> control is bound to a data source control, but the <xref href="System.Web.UI.DataSourceView"></xref> object that is associated with the data source is `null`.'
   version:
   - netframework-4.5.1
   - netframework-4.5.2
@@ -6218,7 +6218,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Gets the sort direction of the field or fields that are being sorted.
-  remarks: Use the <xref:System.Web.UI.WebControls.ListView.SortDirection%2A> property to determine whether the field or fields being sorted are sorted in ascending or descending order.
+  remarks: 'Use the <xref:System.Web.UI.WebControls.ListView.SortDirection%2A> property to determine whether the field or fields being sorted are sorted in ascending or descending order.'
   example:
   - "The following example shows how to use the <xref:System.Web.UI.WebControls.ListView.SortDirection%2A> property to programmatically determine the sort direction of a <xref:System.Web.UI.WebControls.ListView> control.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.UI.WebControls.ListView.SortDirection#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.SortDirection/CS/ListViewSortCS.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.UI.WebControls.ListView.SortDirection#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.SortDirection/VB/ListViewSortVB.aspx#1)]  -->"
   syntax:
@@ -6271,7 +6271,7 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
-  summary: Occurs when a sort operation is requested, after the <xref href="System.Web.UI.WebControls.ListView"></xref> control handles the sort operation.
+  summary: 'Occurs when a sort operation is requested, after the <xref href="System.Web.UI.WebControls.ListView"></xref> control handles the sort operation.'
   remarks: "The <xref:System.Web.UI.WebControls.ListView.Sorted> event is raised when a Sort button is clicked or the <xref:System.Web.UI.WebControls.ListView.Sort%2A> method is called, after the <xref:System.Web.UI.WebControls.ListView> control handles the sort operation. (A Sort button is a button control whose <xref:System.Web.UI.WebControls.Button.CommandName%2A> property is set to \"Sort\".) This enables you to perform a custom routine whenever this event occurs.  \n  \n For more information about how to handle events, see [NIB: Consuming Events](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67)."
   syntax:
     content: public event EventHandler Sorted;
@@ -6316,7 +6316,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Gets the sort expression that is associated with the field or fields that are being sorted.
-  remarks: When multiple columns are sorted, this property contains a comma-separated list of the fields to sort by.
+  remarks: 'When multiple columns are sorted, this property contains a comma-separated list of the fields to sort by.'
   example:
   - "The following example shows how to use the <xref:System.Web.UI.WebControls.ListView.SortExpression%2A> property to programmatically determine the column that is being sorted in a <xref:System.Web.UI.WebControls.ListView> control.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.UI.WebControls.ListView.SortDirection#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.SortDirection/CS/ListViewSortCS.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.UI.WebControls.ListView.SortDirection#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.SortDirection/VB/ListViewSortVB.aspx#1)]  -->"
   syntax:
@@ -6366,7 +6366,7 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
-  summary: Occurs when a sort operation is requested, but before the <xref href="System.Web.UI.WebControls.ListView"></xref> control handles the sort operation.
+  summary: 'Occurs when a sort operation is requested, but before the <xref href="System.Web.UI.WebControls.ListView"></xref> control handles the sort operation.'
   remarks: "The <xref:System.Web.UI.WebControls.ListView.Sorting> event is raised when a Sort button is clicked or the <xref:System.Web.UI.WebControls.ListView.Sort%2A> method is called, but before the <xref:System.Web.UI.WebControls.ListView> control handles the sort operation. (A Sort button is a button control whose <xref:System.Web.UI.WebControls.Button.CommandName%2A> property is set to \"Sort\".) This enables you to perform a custom routine whenever this event occurs, such as customizing the sort expression.  \n  \n A <xref:System.Web.UI.WebControls.ListViewSortEventArgs> object is passed to the event handler, which enables you to determine the sort expression for the column. It also lets you indicate that the sort operation should be canceled. To cancel the sort operation, set the <xref:System.ComponentModel.CancelEventArgs.Cancel%2A> property of the <xref:System.Web.UI.WebControls.ListViewSortEventArgs> object to `true`.  \n  \n For more information about how to handle events, see [NIB: Consuming Events](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67)."
   example:
   - "The following example shows how create an event handler for the <xref:System.Web.UI.WebControls.ListView.Sorting> event.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.UI.WebControls.ListView.Sorting#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.Sorting/CS/ListViewSortingCS.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.UI.WebControls.ListView.Sorting#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.UI.WebControls.ListView.Sorting/VB/ListViewSortingVB.aspx#1)]  -->"
@@ -6516,7 +6516,7 @@ items:
       public override string ToolTip { get; set; }
     return:
       type: System.String
-      description: <xref href="System.String.Empty"></xref>, which indicates that the property is not set.
+      description: '<xref href="System.String.Empty"></xref>, which indicates that the property is not set.'
   overload: System.Web.UI.WebControls.ListView.ToolTip*
   exceptions:
   - type: System.NotSupportedException
@@ -6676,7 +6676,7 @@ items:
       public override System.Web.UI.WebControls.Unit Width { get; set; }
     return:
       type: System.Web.UI.WebControls.Unit
-      description: <xref href="System.Web.UI.WebControls.Unit.Empty"></xref>, which indicates that the property is not set.
+      description: '<xref href="System.Web.UI.WebControls.Unit.Empty"></xref>, which indicates that the property is not set.'
   overload: System.Web.UI.WebControls.ListView.Width*
   exceptions:
   - type: System.NotSupportedException
@@ -6721,7 +6721,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Gets a collection of the data values that are used to uniquely identify each instance of a data-bound control when ASP.NET generates the <xref href="System.Web.UI.Control.ClientID"></xref> value.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.ListView> instance is cast to an <xref:System.Web.UI.IDataKeysControl> interface.
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.ListView> instance is cast to an <xref:System.Web.UI.IDataKeysControl> interface.'
   syntax:
     content: System.Web.UI.WebControls.DataKeyArray System.Web.UI.IDataKeysControl.ClientIDRowSuffixDataKeys { get; }
     return:
@@ -6766,7 +6766,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Gets or sets an array that contains the names of the primary-key fields of the items that are displayed in a data-bound control.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.ListView> instance is cast to an <xref:System.Web.UI.WebControls.IDataBoundControl> interface.
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.ListView> instance is cast to an <xref:System.Web.UI.WebControls.IDataBoundControl> interface.'
   syntax:
     content: string[] System.Web.UI.WebControls.IDataBoundControl.DataKeyNames { get; set; }
     return:
@@ -6811,7 +6811,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Gets or sets the name of the list of data that the data-bound control binds to when the data source contains more than one distinct list of data items.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.ListView> instance is cast to an <xref:System.Web.UI.WebControls.IDataBoundControl> interface.
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.ListView> instance is cast to an <xref:System.Web.UI.WebControls.IDataBoundControl> interface.'
   syntax:
     content: string System.Web.UI.WebControls.IDataBoundControl.DataMember { get; set; }
     return:
@@ -6856,7 +6856,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Gets or sets the object from which a data-bound control retrieves its list of data items.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.ListView> instance is cast to an <xref:System.Web.UI.WebControls.IDataBoundControl> interface.
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.ListView> instance is cast to an <xref:System.Web.UI.WebControls.IDataBoundControl> interface.'
   syntax:
     content: object System.Web.UI.WebControls.IDataBoundControl.DataSource { get; set; }
     return:
@@ -6901,7 +6901,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Gets or sets the ID of the data source control from which a data-bound control retrieves its list of data items.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.ListView> instance is cast to an <xref:System.Web.UI.WebControls.IDataBoundControl> interface.
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.ListView> instance is cast to an <xref:System.Web.UI.WebControls.IDataBoundControl> interface.'
   syntax:
     content: string System.Web.UI.WebControls.IDataBoundControl.DataSourceID { get; set; }
     return:
@@ -6945,8 +6945,8 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
-  summary: Gets an object that implements the <xref href="System.Web.UI.IDataSource"></xref> interface, which provides access to the object's data content.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.ListView> instance is cast to an <xref:System.Web.UI.WebControls.IDataBoundControl> interface.
+  summary: 'Gets an object that implements the <xref href="System.Web.UI.IDataSource"></xref> interface, which provides access to the object''s data content.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.ListView> instance is cast to an <xref:System.Web.UI.WebControls.IDataBoundControl> interface.'
   syntax:
     content: System.Web.UI.IDataSource System.Web.UI.WebControls.IDataBoundControl.DataSourceObject { get; }
     return:
@@ -6991,7 +6991,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Gets the name of the data field whose value is used to uniquely identify each data row of a <xref href="System.Web.UI.WebControls.ListView"></xref> control when the <xref href="System.Web.UI.Control.ClientIDMode"></xref> property is set to <xref href="System.Web.UI.ClientIDMode.Predictable"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.ListView> instance is cast to an <xref:System.Web.UI.IDataKeysControl> interface.
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.ListView> instance is cast to an <xref:System.Web.UI.IDataKeysControl> interface.'
   syntax:
     content: string[] System.Web.UI.WebControls.IDataBoundListControl.ClientIDRowSuffix { get; set; }
     return:
@@ -7036,7 +7036,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Gets a collection of data-key values that represent each row in a data-bound control.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.ListView> instance is cast to an <xref:System.Web.UI.WebControls.IDataBoundListControl> interface.
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.ListView> instance is cast to an <xref:System.Web.UI.WebControls.IDataBoundListControl> interface.'
   syntax:
     content: System.Web.UI.WebControls.DataKeyArray System.Web.UI.WebControls.IDataBoundListControl.DataKeys { get; }
     return:
@@ -7081,7 +7081,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Gets or sets the value that specifies whether a selected row persists when a user pages through data in a data-bound control.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.ListView> instance is cast to an <xref:System.Web.UI.WebControls.IDataBoundListControl> interface.
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.ListView> instance is cast to an <xref:System.Web.UI.WebControls.IDataBoundListControl> interface.'
   syntax:
     content: bool System.Web.UI.WebControls.IDataBoundListControl.EnablePersistedSelection { get; set; }
     return:
@@ -7126,7 +7126,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Gets the data-key object that contains the data-key value for the selected row in a data-bound control.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.ListView> instance is cast to an <xref:System.Web.UI.WebControls.IDataBoundListControl> interface.
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.ListView> instance is cast to an <xref:System.Web.UI.WebControls.IDataBoundListControl> interface.'
   syntax:
     content: System.Web.UI.WebControls.DataKey System.Web.UI.WebControls.IDataBoundListControl.SelectedDataKey { get; }
     return:
@@ -7171,7 +7171,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Gets or sets the index of the selected row in a data-bound control.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.ListView> instance is cast to an <xref:System.Web.UI.WebControls.IDataBoundListControl> interface.
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.ListView> instance is cast to an <xref:System.Web.UI.WebControls.IDataBoundListControl> interface.'
   syntax:
     content: int System.Web.UI.WebControls.IDataBoundListControl.SelectedIndex { get; set; }
     return:
@@ -7215,8 +7215,8 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
-  summary: For a description of this member, see <xref href="System.Web.UI.WebControls.IPageableItemContainer.MaximumRows"></xref>.
-  remarks: The <xref:System.Web.UI.WebControls.ListView.System%23Web%23UI%23WebControls%23IPageableItemContainer%23MaximumRows%2A> property uses the value of the <xref:System.Web.UI.WebControls.ListView.MaximumRows%2A> property to get the maximum number of items to display on a single page.
+  summary: 'For a description of this member, see <xref href="System.Web.UI.WebControls.IPageableItemContainer.MaximumRows"></xref>.'
+  remarks: 'The <xref:System.Web.UI.WebControls.ListView.System%23Web%23UI%23WebControls%23IPageableItemContainer%23MaximumRows%2A> property uses the value of the <xref:System.Web.UI.WebControls.ListView.MaximumRows%2A> property to get the maximum number of items to display on a single page.'
   syntax:
     content: int System.Web.UI.WebControls.IPageableItemContainer.MaximumRows { get; }
     return:
@@ -7260,8 +7260,8 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
-  summary: For a description of this member, see <xref href="System.Web.UI.WebControls.IPageableItemContainer.SetPageProperties(System.Int32,System.Int32,System.Boolean)"></xref>.
-  remarks: The <xref:System.Web.UI.WebControls.ListView.System%23Web%23UI%23WebControls%23IPageableItemContainer%23SetPageProperties%2A> method invokes the <xref:System.Web.UI.WebControls.ListView.SetPageProperties%2A> method of the <xref:System.Web.UI.WebControls.ListView> control to set the page properties.
+  summary: 'For a description of this member, see <xref href="System.Web.UI.WebControls.IPageableItemContainer.SetPageProperties(System.Int32,System.Int32,System.Boolean)"></xref>.'
+  remarks: 'The <xref:System.Web.UI.WebControls.ListView.System%23Web%23UI%23WebControls%23IPageableItemContainer%23SetPageProperties%2A> method invokes the <xref:System.Web.UI.WebControls.ListView.SetPageProperties%2A> method of the <xref:System.Web.UI.WebControls.ListView> control to set the page properties.'
   syntax:
     content: void IPageableItemContainer.SetPageProperties (int startRowIndex, int maximumRows, bool databind);
     parameters:
@@ -7312,8 +7312,8 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
-  summary: For a description of this member, see <xref href="System.Web.UI.WebControls.IPageableItemContainer.StartRowIndex"></xref>.
-  remarks: The <xref:System.Web.UI.WebControls.ListView.System%23Web%23UI%23WebControls%23IPageableItemContainer%23StartRowIndex%2A> property uses the value of the <xref:System.Web.UI.WebControls.ListView.StartRowIndex%2A> property to get the index of the first record that is displayed on the page.
+  summary: 'For a description of this member, see <xref href="System.Web.UI.WebControls.IPageableItemContainer.StartRowIndex"></xref>.'
+  remarks: 'The <xref:System.Web.UI.WebControls.ListView.System%23Web%23UI%23WebControls%23IPageableItemContainer%23StartRowIndex%2A> property uses the value of the <xref:System.Web.UI.WebControls.ListView.StartRowIndex%2A> property to get the index of the first record that is displayed on the page.'
   syntax:
     content: int System.Web.UI.WebControls.IPageableItemContainer.StartRowIndex { get; }
     return:
@@ -7358,7 +7358,7 @@ items:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls
   summary: Gets or sets the data-key value for the selected record in a data-bound control.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.ListView> instance is cast to an <xref:System.Web.UI.WebControls.IPersistedSelector> interface.
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.ListView> instance is cast to an <xref:System.Web.UI.WebControls.IPersistedSelector> interface.'
   syntax:
     content: System.Web.UI.WebControls.DataKey System.Web.UI.WebControls.IPersistedSelector.DataKey { get; set; }
     return:

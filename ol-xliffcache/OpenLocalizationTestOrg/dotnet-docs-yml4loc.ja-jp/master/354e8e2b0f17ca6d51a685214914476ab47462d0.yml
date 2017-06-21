@@ -25,7 +25,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Specifies the contextual information about an application thread.
-  remarks: You can use the <xref:System.Windows.Forms.ApplicationContext> class to redefine the circumstances that cause a message loop to exit. By default, the <xref:System.Windows.Forms.ApplicationContext> listens to the <xref:System.Windows.Forms.Form.Closed> event on the application's main <xref:System.Windows.Forms.Form>, then exits the thread's message loop.
+  remarks: 'You can use the <xref:System.Windows.Forms.ApplicationContext> class to redefine the circumstances that cause a message loop to exit. By default, the <xref:System.Windows.Forms.ApplicationContext> listens to the <xref:System.Windows.Forms.Form.Closed> event on the application''s main <xref:System.Windows.Forms.Form>, then exits the thread''s message loop.'
   example:
   - "The following code example displays two forms and exits the application when both forms are closed. When the application starts and exits, the position of each form is remembered. This example demonstrates how to use an <xref:System.Windows.Forms.ApplicationContext>, along with the `Application.Run(context)` method, to display multiple forms when the application starts.  \n  \n The class `MyApplicationContext` inherits from <xref:System.Windows.Forms.ApplicationContext> and keeps track when each form is closed, and exits the current thread when they both are. The class stores the positions of each form for the user. The form position data is stored in a file titled `Appdata.txt` that is created in the location determined by <xref:System.Windows.Forms.Application.UserAppDataPath%2A>.  \n  \n The `Main` method calls `Application.Run(context)` to start the application, given the <xref:System.Windows.Forms.ApplicationContext>.  \n  \n [!code-cpp[Application#1](~/samples/snippets/cpp/VS_Snippets_Winforms/Application/CPP/source.cpp#1)]\n [!code-csharp[Application#1](~/samples/snippets/csharp/VS_Snippets_Winforms/Application/CS/source.cs#1)]\n [!code-vb[Application#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Application/VB/source.vb#1)]"
   syntax:
@@ -119,7 +119,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Initializes a new instance of the <xref href="System.Windows.Forms.ApplicationContext"></xref> class with the specified <xref href="System.Windows.Forms.Form"></xref>.
-  remarks: If <xref:System.Windows.Forms.ApplicationContext.OnMainFormClosed%2A> is not overridden, the message loop of the thread terminates when <xref:System.Windows.Forms.ApplicationContext.MainForm%2A> is closed.
+  remarks: 'If <xref:System.Windows.Forms.ApplicationContext.OnMainFormClosed%2A> is not overridden, the message loop of the thread terminates when <xref:System.Windows.Forms.ApplicationContext.MainForm%2A> is closed.'
   syntax:
     content: public ApplicationContext (System.Windows.Forms.Form mainForm);
     parameters:
@@ -378,7 +378,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Gets or sets the <xref href="System.Windows.Forms.Form"></xref> to use as context.
-  remarks: This property determines the main <xref:System.Windows.Forms.Form> for this context. This property can change at any time. If <xref:System.Windows.Forms.ApplicationContext.OnMainFormClosed%2A> is not overridden, the message loop of the thread terminates when the `mainForm` parameter closes.
+  remarks: 'This property determines the main <xref:System.Windows.Forms.Form> for this context. This property can change at any time. If <xref:System.Windows.Forms.ApplicationContext.OnMainFormClosed%2A> is not overridden, the message loop of the thread terminates when the `mainForm` parameter closes.'
   syntax:
     content: public System.Windows.Forms.Form MainForm { get; set; }
     return:
@@ -421,8 +421,8 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Calls <xref href="System.Windows.Forms.ApplicationContext.ExitThreadCore"></xref>, which raises the <xref href="System.Windows.Forms.ApplicationContext.ThreadExit"></xref> event.
-  remarks: The default implementation of this method calls <xref:System.Windows.Forms.ApplicationContext.ExitThreadCore%2A>.
+  summary: 'Calls <xref href="System.Windows.Forms.ApplicationContext.ExitThreadCore"></xref>, which raises the <xref href="System.Windows.Forms.ApplicationContext.ThreadExit"></xref> event.'
+  remarks: 'The default implementation of this method calls <xref:System.Windows.Forms.ApplicationContext.ExitThreadCore%2A>.'
   syntax:
     content: protected virtual void OnMainFormClosed (object sender, EventArgs e);
     parameters:
@@ -520,7 +520,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Occurs when the message loop of the thread should be terminated, by calling <xref href="System.Windows.Forms.ApplicationContext.ExitThread"></xref>.
+  summary: 'Occurs when the message loop of the thread should be terminated, by calling <xref href="System.Windows.Forms.ApplicationContext.ExitThread"></xref>.'
   remarks: ''
   example:
   - "The following code example demonstrates the use of this member. In the example, an event handler reports on the occurrence of the <xref:System.Windows.Forms.ApplicationContext.ThreadExit> event. This report helps you to learn when the event occurs and can assist you in debugging. To report on multiple events or on events that occur frequently, consider replacing <xref:System.Windows.Forms.MessageBox.Show%2A?displayProperty=fullName> with <xref:System.Console.WriteLine%2A?displayProperty=fullName> or appending the message to a multiline <xref:System.Windows.Forms.TextBox>.  \n  \n To run the example code, paste it into a project that contains an instance of type <xref:System.Windows.Forms.ApplicationContext> named `ApplicationContext1`. Then ensure that the event handler is associated with the <xref:System.Windows.Forms.ApplicationContext.ThreadExit> event.  \n  \n [!code-csharp[System.Windows.Forms.EventExamples#75](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.EventExamples/CS/EventExamples.cs#75)]\n [!code-vb[System.Windows.Forms.EventExamples#75](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.EventExamples/VB/EventExamples.vb#75)]"

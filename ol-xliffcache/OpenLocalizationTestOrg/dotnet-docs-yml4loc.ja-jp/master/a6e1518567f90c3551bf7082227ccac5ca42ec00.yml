@@ -208,7 +208,7 @@ items:
   - System.Core
   - netstandard
   namespace: System.Linq
-  summary: Applies an accumulator function over a sequence. The specified seed value is used as the initial accumulator value, and the specified function is used to select the result value.
+  summary: 'Applies an accumulator function over a sequence. The specified seed value is used as the initial accumulator value, and the specified function is used to select the result value.'
   remarks: "This method has at least one parameter of type <xref:System.Linq.Expressions.Expression%601> whose type argument is one of the <xref:System.Func%602> types. For these parameters, you can pass in a lambda expression and it will be compiled to an <xref:System.Linq.Expressions.Expression%601>.  \n  \n The <xref:System.Linq.Queryable.Aggregate%60%603%28System.Linq.IQueryable%7B%60%600%7D%2C%60%601%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%601%2C%60%600%2C%60%601%7D%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%601%2C%60%602%7D%7D%29> method generates a <xref:System.Linq.Expressions.MethodCallExpression> that represents calling <xref:System.Linq.Queryable.Aggregate%60%603%28System.Linq.IQueryable%7B%60%600%7D%2C%60%601%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%601%2C%60%600%2C%60%601%7D%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%601%2C%60%602%7D%7D%29> itself as a constructed generic method. It then passes the <xref:System.Linq.Expressions.MethodCallExpression> to the <xref:System.Linq.IQueryProvider.Execute%60%601%28System.Linq.Expressions.Expression%29> method of the <xref:System.Linq.IQueryProvider> represented by the <xref:System.Linq.IQueryable.Provider%2A> property of the `source` parameter.  \n  \n The query behavior that occurs as a result of executing an expression tree that represents calling <xref:System.Linq.Queryable.Aggregate%60%603%28System.Linq.IQueryable%7B%60%600%7D%2C%60%601%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%601%2C%60%600%2C%60%601%7D%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%601%2C%60%602%7D%7D%29> depends on the implementation of the type of the `source` parameter. The expected behavior is that the specified function, `func`, is applied to each value in the source sequence and the accumulated value is returned. The `seed` parameter is used as the seed value for the accumulated value, which corresponds to the first parameter in `func`. The final accumulated value is passed to `selector` to obtain the result value.  \n  \n To simplify common aggregation operations, the set of standard query operators also includes two counting methods, <xref:System.Linq.Queryable.Count%2A> and <xref:System.Linq.Queryable.LongCount%2A>, and four numeric aggregation methods, namely <xref:System.Linq.Queryable.Max%2A>, <xref:System.Linq.Queryable.Min%2A>, <xref:System.Linq.Queryable.Sum%2A>, and <xref:System.Linq.Queryable.Average%2A>."
   example:
   - "The following code example demonstrates how to use <xref:System.Linq.Queryable.Aggregate%60%603%28System.Linq.IQueryable%7B%60%600%7D%2C%60%601%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%601%2C%60%600%2C%60%601%7D%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%601%2C%60%602%7D%7D%29> to apply an accumulator function and a result selector.  \n  \n [!code-csharp[System.Linq.Queryable#3](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Linq.Queryable/CS/queryable.cs#3)]\n [!code-vb[System.Linq.Queryable#3](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Linq.Queryable/VB/queryable.vb#3)]"
@@ -778,7 +778,7 @@ items:
   - netstandard
   namespace: System.Linq
   summary: Converts a generic <xref href="System.Collections.Generic.IEnumerable`1"></xref> to a generic <xref href="System.Linq.IQueryable`1"></xref>.
-  remarks: If the type of `source` implements <xref:System.Linq.IQueryable%601>, <xref:System.Linq.Queryable.AsQueryable%60%601%28System.Collections.Generic.IEnumerable%7B%60%600%7D%29> returns it directly. Otherwise, it returns an <xref:System.Linq.IQueryable%601> that executes queries by calling the equivalent query operator methods in <xref:System.Linq.Enumerable> instead of those in <xref:System.Linq.Queryable>.
+  remarks: 'If the type of `source` implements <xref:System.Linq.IQueryable%601>, <xref:System.Linq.Queryable.AsQueryable%60%601%28System.Collections.Generic.IEnumerable%7B%60%600%7D%29> returns it directly. Otherwise, it returns an <xref:System.Linq.IQueryable%601> that executes queries by calling the equivalent query operator methods in <xref:System.Linq.Enumerable> instead of those in <xref:System.Linq.Queryable>.'
   example:
   - "The following code example demonstrates how to use <xref:System.Linq.Queryable.AsQueryable%60%601%28System.Collections.Generic.IEnumerable%7B%60%600%7D%29> to convert an <xref:System.Collections.Generic.IEnumerable%601> to an <xref:System.Linq.IQueryable%601>.  \n  \n [!code-csharp[System.Linq.Queryable#125](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Linq.Queryable/CS/queryable.cs#125)]\n [!code-vb[System.Linq.Queryable#125](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Linq.Queryable/VB/queryable.vb#125)]"
   syntax:
@@ -933,7 +933,7 @@ items:
       description: A sequence of nullable <xref href="System.Single"></xref> values to calculate the average of.
     return:
       type: System.Nullable{System.Single}
-      description: The average of the sequence of values, or `null` if the source sequence is empty or contains only `null` values.
+      description: 'The average of the sequence of values, or `null` if the source sequence is empty or contains only `null` values.'
   overload: System.Linq.Queryable.Average*
   exceptions:
   - type: System.ArgumentNullException
@@ -1002,7 +1002,7 @@ items:
       description: A sequence of nullable <xref href="System.Int64"></xref> values to calculate the average of.
     return:
       type: System.Nullable{System.Double}
-      description: The average of the sequence of values, or `null` if the source sequence is empty or contains only `null` values.
+      description: 'The average of the sequence of values, or `null` if the source sequence is empty or contains only `null` values.'
   overload: System.Linq.Queryable.Average*
   exceptions:
   - type: System.ArgumentNullException
@@ -1071,7 +1071,7 @@ items:
       description: A sequence of nullable <xref href="System.Double"></xref> values to calculate the average of.
     return:
       type: System.Nullable{System.Double}
-      description: The average of the sequence of values, or `null` if the source sequence is empty or contains only `null` values.
+      description: 'The average of the sequence of values, or `null` if the source sequence is empty or contains only `null` values.'
   overload: System.Linq.Queryable.Average*
   exceptions:
   - type: System.ArgumentNullException
@@ -1140,7 +1140,7 @@ items:
       description: A sequence of nullable <xref href="System.Int32"></xref> values to calculate the average of.
     return:
       type: System.Nullable{System.Double}
-      description: The average of the sequence of values, or `null` if the source sequence is empty or contains only `null` values.
+      description: 'The average of the sequence of values, or `null` if the source sequence is empty or contains only `null` values.'
   overload: System.Linq.Queryable.Average*
   exceptions:
   - type: System.ArgumentNullException
@@ -1497,7 +1497,7 @@ items:
       description: A sequence of nullable <xref href="System.Decimal"></xref> values to calculate the average of.
     return:
       type: System.Nullable{System.Decimal}
-      description: The average of the sequence of values, or `null` if the source sequence is empty or contains only `null` values.
+      description: 'The average of the sequence of values, or `null` if the source sequence is empty or contains only `null` values.'
   overload: System.Linq.Queryable.Average*
   exceptions:
   - type: System.ArgumentNullException
@@ -1649,7 +1649,7 @@ items:
       description: The type of the elements of <code>source</code>.
     return:
       type: System.Nullable{System.Single}
-      description: The average of the sequence of values, or `null` if the <code>source</code> sequence is empty or contains only `null` values.
+      description: 'The average of the sequence of values, or `null` if the <code>source</code> sequence is empty or contains only `null` values.'
   overload: System.Linq.Queryable.Average``1*
   exceptions:
   - type: System.ArgumentNullException
@@ -1723,7 +1723,7 @@ items:
       description: The type of the elements of <code>source</code>.
     return:
       type: System.Nullable{System.Double}
-      description: The average of the sequence of values, or `null` if the <code>source</code> sequence is empty or contains only `null` values.
+      description: 'The average of the sequence of values, or `null` if the <code>source</code> sequence is empty or contains only `null` values.'
   overload: System.Linq.Queryable.Average``1*
   exceptions:
   - type: System.ArgumentNullException
@@ -1798,7 +1798,7 @@ items:
       description: The type of the elements of <code>source</code>.
     return:
       type: System.Nullable{System.Double}
-      description: The average of the sequence of values, or `null` if the <code>source</code> sequence is empty or contains only `null` values.
+      description: 'The average of the sequence of values, or `null` if the <code>source</code> sequence is empty or contains only `null` values.'
   overload: System.Linq.Queryable.Average``1*
   exceptions:
   - type: System.ArgumentNullException
@@ -1872,7 +1872,7 @@ items:
       description: The type of the elements of <code>source</code>.
     return:
       type: System.Nullable{System.Double}
-      description: The average of the sequence of values, or `null` if the <code>source</code> sequence is empty or contains only `null` values.
+      description: 'The average of the sequence of values, or `null` if the <code>source</code> sequence is empty or contains only `null` values.'
   overload: System.Linq.Queryable.Average``1*
   exceptions:
   - type: System.ArgumentNullException
@@ -2258,7 +2258,7 @@ items:
       description: The type of the elements of <code>source</code>.
     return:
       type: System.Nullable{System.Decimal}
-      description: The average of the sequence of values, or `null` if the <code>source</code> sequence is empty or contains only `null` values.
+      description: 'The average of the sequence of values, or `null` if the <code>source</code> sequence is empty or contains only `null` values.'
   overload: System.Linq.Queryable.Average``1*
   exceptions:
   - type: System.ArgumentNullException
@@ -2782,7 +2782,7 @@ items:
       description: The type of the elements of <code>source</code>.
     return:
       type: System.Linq.IQueryable{TSource}
-      description: An <xref href="System.Linq.IQueryable`1"></xref> that contains `default`(<code>TSource</code>) if <code>source</code> is empty; otherwise, <code>source</code>.
+      description: 'An <xref href="System.Linq.IQueryable`1"></xref> that contains `default`(<code>TSource</code>) if <code>source</code> is empty; otherwise, <code>source</code>.'
   overload: System.Linq.Queryable.DefaultIfEmpty``1*
   exceptions:
   - type: System.ArgumentNullException
@@ -2857,7 +2857,7 @@ items:
       description: The type of the elements of <code>source</code>.
     return:
       type: System.Linq.IQueryable{TSource}
-      description: An <xref href="System.Linq.IQueryable`1"></xref> that contains <code>defaultValue</code> if <code>source</code> is empty; otherwise, <code>source</code>.
+      description: 'An <xref href="System.Linq.IQueryable`1"></xref> that contains <code>defaultValue</code> if <code>source</code> is empty; otherwise, <code>source</code>.'
   overload: System.Linq.Queryable.DefaultIfEmpty``1*
   exceptions:
   - type: System.ArgumentNullException
@@ -3153,7 +3153,7 @@ items:
       description: The type of the elements of <code>source</code>.
     return:
       type: TSource
-      description: <code>default</code>(<code>TSource</code>) if <code>index</code> is outside the bounds of <code>source</code>; otherwise, the element at the specified position in <code>source</code>.
+      description: '<code>default</code>(<code>TSource</code>) if <code>index</code> is outside the bounds of <code>source</code>; otherwise, the element at the specified position in <code>source</code>.'
   overload: System.Linq.Queryable.ElementAtOrDefault``1*
   exceptions:
   - type: System.ArgumentNullException
@@ -3512,7 +3512,7 @@ items:
   - System.Core
   - netstandard
   namespace: System.Linq
-  summary: Returns the first element of a sequence, or a default value if the sequence contains no elements.
+  summary: 'Returns the first element of a sequence, or a default value if the sequence contains no elements.'
   remarks: "The <xref:System.Linq.Queryable.FirstOrDefault%60%601%28System.Linq.IQueryable%7B%60%600%7D%29> method generates a <xref:System.Linq.Expressions.MethodCallExpression> that represents calling <xref:System.Linq.Queryable.FirstOrDefault%60%601%28System.Linq.IQueryable%7B%60%600%7D%29> itself as a constructed generic method. It then passes the <xref:System.Linq.Expressions.MethodCallExpression> to the <xref:System.Linq.IQueryProvider.Execute%60%601%28System.Linq.Expressions.Expression%29> method of the <xref:System.Linq.IQueryProvider> represented by the <xref:System.Linq.IQueryable.Provider%2A> property of the `source` parameter.  \n  \n The query behavior that occurs as a result of executing an expression tree that represents calling <xref:System.Linq.Queryable.FirstOrDefault%60%601%28System.Linq.IQueryable%7B%60%600%7D%29> depends on the implementation of the type of the `source` parameter. The expected behavior is that it returns the first element in `source`, or a default value if `source` is empty.  \n  \n The <xref:System.Linq.Queryable.FirstOrDefault%2A> method does not provide a way to specify the default value to return if `source` is empty. If you want to specify a default value other than `default(TSource)`, use the <xref:System.Linq.Queryable.DefaultIfEmpty%60%601%28System.Linq.IQueryable%7B%60%600%7D%2C%60%600%29> method as described in the Example section."
   example:
   - "The following code example demonstrates how to use <xref:System.Linq.Queryable.FirstOrDefault%60%601%28System.Linq.IQueryable%7B%60%600%7D%29> on an empty sequence.  \n  \n [!code-csharp[System.Linq.Queryable#37](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Linq.Queryable/CS/queryable.cs#37)]\n [!code-vb[System.Linq.Queryable#37](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Linq.Queryable/VB/queryable.vb#37)]  \n  \n Sometimes the value of `default(TSource)` is not the default value that you want to use if the collection contains no elements. Instead of checking the result for the unwanted default value and then changing it if necessary, you can use the <xref:System.Linq.Queryable.DefaultIfEmpty%60%601%28System.Linq.IQueryable%7B%60%600%7D%2C%60%600%29> method to specify the default value that you want to use if the collection is empty. Then, call <xref:System.Linq.Queryable.First%60%601%28System.Linq.IQueryable%7B%60%600%7D%29> to obtain the first element. The following code example uses both techniques to obtain a default value of 1 if a collection of numeric months is empty. Because the default value for an integer is 0, which does not correspond to any month, the default value must be specified as 1 instead. The first result variable is checked for the unwanted default value after the query is completed. The second result variable is obtained by calling <xref:System.Linq.Queryable.DefaultIfEmpty%60%601%28System.Linq.IQueryable%7B%60%600%7D%2C%60%600%29> to specify a default value of 1.  \n  \n [!code-csharp[System.Linq.Queryable#131](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Linq.Queryable/CS/queryable.cs#131)]\n [!code-vb[System.Linq.Queryable#131](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Linq.Queryable/VB/queryable.vb#131)]"
@@ -3527,7 +3527,7 @@ items:
       description: The type of the elements of <code>source</code>.
     return:
       type: TSource
-      description: <code>default</code>(<code>TSource</code>) if <code>source</code> is empty; otherwise, the first element in <code>source</code>.
+      description: '<code>default</code>(<code>TSource</code>) if <code>source</code> is empty; otherwise, the first element in <code>source</code>.'
   overload: System.Linq.Queryable.FirstOrDefault``1*
   exceptions:
   - type: System.ArgumentNullException
@@ -3602,7 +3602,7 @@ items:
       description: The type of the elements of <code>source</code>.
     return:
       type: TSource
-      description: <code>default</code>(<code>TSource</code>) if <code>source</code> is empty or if no element passes the test specified by <code>predicate</code>; otherwise, the first element in <code>source</code> that passes the test specified by <code>predicate</code>.
+      description: '<code>default</code>(<code>TSource</code>) if <code>source</code> is empty or if no element passes the test specified by <code>predicate</code>; otherwise, the first element in <code>source</code> that passes the test specified by <code>predicate</code>.'
   overload: System.Linq.Queryable.FirstOrDefault``1*
   exceptions:
   - type: System.ArgumentNullException
@@ -3689,7 +3689,7 @@ items:
       description: The type of the result value returned by <code>resultSelector</code>.
     return:
       type: System.Linq.IQueryable{TResult}
-      description: An <code>T:System.Linq.IQueryable`1</code> that has a type argument of <code>TResult</code> and where each element represents a projection over a group and its key.
+      description: 'An <code>T:System.Linq.IQueryable`1</code> that has a type argument of <code>TResult</code> and where each element represents a projection over a group and its key.'
   overload: System.Linq.Queryable.GroupBy``4*
   exceptions:
   - type: System.ArgumentNullException
@@ -3776,7 +3776,7 @@ items:
       description: The type of the result value returned by <code>resultSelector</code>.
     return:
       type: System.Linq.IQueryable{TResult}
-      description: An <code>T:System.Linq.IQueryable`1</code> that has a type argument of <code>TResult</code> and where each element represents a projection over a group and its key.
+      description: 'An <code>T:System.Linq.IQueryable`1</code> that has a type argument of <code>TResult</code> and where each element represents a projection over a group and its key.'
   overload: System.Linq.Queryable.GroupBy``4*
   exceptions:
   - type: System.ArgumentNullException
@@ -3858,7 +3858,7 @@ items:
       description: The type of the elements in each <xref href="System.Linq.IGrouping`2"></xref>.
     return:
       type: System.Linq.IQueryable{System.Linq.IGrouping{TKey,TElement}}
-      description: An <code>IQueryable<IGrouping<TKey, TElement>></code> in C# or <code>IQueryable(Of IGrouping(Of TKey, TElement))</code> in [!INCLUDE[vbprvb](~/includes/vbprvb-md.md)] where each <xref href="System.Linq.IGrouping`2"></xref> contains a sequence of objects of type <code>TElement</code> and a key.
+      description: 'An <code>IQueryable<IGrouping<TKey, TElement>></code> in C# or <code>IQueryable(Of IGrouping(Of TKey, TElement))</code> in [!INCLUDE[vbprvb](~/includes/vbprvb-md.md)] where each <xref href="System.Linq.IGrouping`2"></xref> contains a sequence of objects of type <code>TElement</code> and a key.'
   overload: System.Linq.Queryable.GroupBy``3*
   exceptions:
   - type: System.ArgumentNullException
@@ -3941,7 +3941,7 @@ items:
       description: The type of the elements in each <xref href="System.Linq.IGrouping`2"></xref>.
     return:
       type: System.Linq.IQueryable{System.Linq.IGrouping{TKey,TElement}}
-      description: An <code>IQueryable<IGrouping<TKey, TElement>></code> in C# or <code>IQueryable(Of IGrouping(Of TKey, TElement))</code> in [!INCLUDE[vbprvb](~/includes/vbprvb-md.md)] where each <xref href="System.Linq.IGrouping`2"></xref> contains a sequence of objects of type <code>TElement</code> and a key.
+      description: 'An <code>IQueryable<IGrouping<TKey, TElement>></code> in C# or <code>IQueryable(Of IGrouping(Of TKey, TElement))</code> in [!INCLUDE[vbprvb](~/includes/vbprvb-md.md)] where each <xref href="System.Linq.IGrouping`2"></xref> contains a sequence of objects of type <code>TElement</code> and a key.'
   overload: System.Linq.Queryable.GroupBy``3*
   exceptions:
   - type: System.ArgumentNullException
@@ -4023,7 +4023,7 @@ items:
       description: The type of the result value returned by <code>resultSelector</code>.
     return:
       type: System.Linq.IQueryable{TResult}
-      description: An <code>T:System.Linq.IQueryable`1</code> that has a type argument of <code>TResult</code> and where each element represents a projection over a group and its key.
+      description: 'An <code>T:System.Linq.IQueryable`1</code> that has a type argument of <code>TResult</code> and where each element represents a projection over a group and its key.'
   overload: System.Linq.Queryable.GroupBy``3*
   exceptions:
   - type: System.ArgumentNullException
@@ -4106,7 +4106,7 @@ items:
       description: The type of the result value returned by <code>resultSelector</code>.
     return:
       type: System.Linq.IQueryable{TResult}
-      description: An <code>T:System.Linq.IQueryable`1</code> that has a type argument of <code>TResult</code> and where each element represents a projection over a group and its key.
+      description: 'An <code>T:System.Linq.IQueryable`1</code> that has a type argument of <code>TResult</code> and where each element represents a projection over a group and its key.'
   overload: System.Linq.Queryable.GroupBy``3*
   exceptions:
   - type: System.ArgumentNullException
@@ -4184,7 +4184,7 @@ items:
       description: The type of the key returned by the function represented in <code>keySelector</code>.
     return:
       type: System.Linq.IQueryable{System.Linq.IGrouping{TKey,TSource}}
-      description: An <code>IQueryable<IGrouping<TKey, TSource>></code> in C# or <code>IQueryable(Of IGrouping(Of TKey, TSource))</code> in [!INCLUDE[vbprvb](~/includes/vbprvb-md.md)] where each <xref href="System.Linq.IGrouping`2"></xref> contains a sequence of objects and a key.
+      description: 'An <code>IQueryable<IGrouping<TKey, TSource>></code> in C# or <code>IQueryable(Of IGrouping(Of TKey, TSource))</code> in [!INCLUDE[vbprvb](~/includes/vbprvb-md.md)] where each <xref href="System.Linq.IGrouping`2"></xref> contains a sequence of objects and a key.'
   overload: System.Linq.Queryable.GroupBy``2*
   exceptions:
   - type: System.ArgumentNullException
@@ -4261,7 +4261,7 @@ items:
       description: The type of the key returned by the function represented in <code>keySelector</code>.
     return:
       type: System.Linq.IQueryable{System.Linq.IGrouping{TKey,TSource}}
-      description: An <code>IQueryable<IGrouping<TKey, TSource>></code> in C# or <code>IQueryable(Of IGrouping(Of TKey, TSource))</code> in [!INCLUDE[vbprvb](~/includes/vbprvb-md.md)] where each <xref href="System.Linq.IGrouping`2"></xref> object contains a sequence of objects and a key.
+      description: 'An <code>IQueryable<IGrouping<TKey, TSource>></code> in C# or <code>IQueryable(Of IGrouping(Of TKey, TSource))</code> in [!INCLUDE[vbprvb](~/includes/vbprvb-md.md)] where each <xref href="System.Linq.IGrouping`2"></xref> object contains a sequence of objects and a key.'
   overload: System.Linq.Queryable.GroupBy``2*
   exceptions:
   - type: System.ArgumentNullException
@@ -5000,7 +5000,7 @@ items:
       description: The type of the elements of <code>source</code>.
     return:
       type: TSource
-      description: <code>default</code>(<code>TSource</code>) if <code>source</code> is empty or if no elements pass the test in the predicate function; otherwise, the last element of <code>source</code> that passes the test in the predicate function.
+      description: '<code>default</code>(<code>TSource</code>) if <code>source</code> is empty or if no elements pass the test in the predicate function; otherwise, the last element of <code>source</code> that passes the test in the predicate function.'
   overload: System.Linq.Queryable.LastOrDefault``1*
   exceptions:
   - type: System.ArgumentNullException
@@ -5057,7 +5057,7 @@ items:
   - System.Core
   - netstandard
   namespace: System.Linq
-  summary: Returns the last element in a sequence, or a default value if the sequence contains no elements.
+  summary: 'Returns the last element in a sequence, or a default value if the sequence contains no elements.'
   remarks: "The <xref:System.Linq.Queryable.LastOrDefault%60%601%28System.Linq.IQueryable%7B%60%600%7D%29> method generates a <xref:System.Linq.Expressions.MethodCallExpression> that represents calling <xref:System.Linq.Queryable.LastOrDefault%60%601%28System.Linq.IQueryable%7B%60%600%7D%29> itself as a constructed generic method. It then passes the <xref:System.Linq.Expressions.MethodCallExpression> to the <xref:System.Linq.IQueryProvider.Execute%60%601%28System.Linq.Expressions.Expression%29> method of the <xref:System.Linq.IQueryProvider> represented by the <xref:System.Linq.IQueryable.Provider%2A> property of the `source` parameter.  \n  \n The query behavior that occurs as a result of executing an expression tree that represents calling <xref:System.Linq.Queryable.LastOrDefault%60%601%28System.Linq.IQueryable%7B%60%600%7D%29> depends on the implementation of the type of the `source` parameter. The expected behavior is that it returns the last element in `source`, or a default value if `source` is empty.  \n  \n The <xref:System.Linq.Queryable.LastOrDefault%2A> method does not provide a way to specify a default value. If you want to specify a default value other than `default(TSource)`, use the <xref:System.Linq.Queryable.DefaultIfEmpty%60%601%28System.Linq.IQueryable%7B%60%600%7D%2C%60%600%29> method as described in the Example section."
   example:
   - "The following code example demonstrates how to use <xref:System.Linq.Queryable.LastOrDefault%60%601%28System.Linq.IQueryable%7B%60%600%7D%29> on an empty array.  \n  \n [!code-csharp[System.Linq.Queryable#45](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Linq.Queryable/CS/queryable.cs#45)]\n [!code-vb[System.Linq.Queryable#45](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Linq.Queryable/VB/queryable.vb#45)]  \n  \n Sometimes the value of `default(TSource)` is not the default value that you want to use if the collection contains no elements. Instead of checking the result for the unwanted default value and then changing it if necessary, you can use the <xref:System.Linq.Queryable.DefaultIfEmpty%60%601%28System.Linq.IQueryable%7B%60%600%7D%2C%60%600%29> method to specify the default value that you want to use if the collection is empty. Then, call <xref:System.Linq.Queryable.Last%60%601%28System.Linq.IQueryable%7B%60%600%7D%29> to obtain the last element. The following code example uses both techniques to obtain a default value of 1 if a collection of numeric days of the month is empty. Because the default value for an integer is 0, which does not correspond to any day of the month, the default value must be specified as 1 instead. The first result variable is checked for the unwanted default value after the query is completed. The second result variable is obtained by calling <xref:System.Linq.Queryable.DefaultIfEmpty%60%601%28System.Linq.IQueryable%7B%60%600%7D%2C%60%600%29> to specify a default value of 1.  \n  \n [!code-csharp[System.Linq.Queryable#132](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Linq.Queryable/CS/queryable.cs#132)]\n [!code-vb[System.Linq.Queryable#132](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Linq.Queryable/VB/queryable.vb#132)]"
@@ -5072,7 +5072,7 @@ items:
       description: The type of the elements of <code>source</code>.
     return:
       type: TSource
-      description: <code>default</code>(<code>TSource</code>) if <code>source</code> is empty; otherwise, the last element in <code>source</code>.
+      description: '<code>default</code>(<code>TSource</code>) if <code>source</code> is empty; otherwise, the last element in <code>source</code>.'
   overload: System.Linq.Queryable.LastOrDefault``1*
   exceptions:
   - type: System.ArgumentNullException
@@ -6219,7 +6219,7 @@ items:
   - System.Core
   - netstandard
   namespace: System.Linq
-  summary: Projects each element of a sequence to an <xref href="System.Collections.Generic.IEnumerable`1"></xref> that incorporates the index of the source element that produced it. A result selector function is invoked on each element of each intermediate sequence, and the resulting values are combined into a single, one-dimensional sequence and returned.
+  summary: 'Projects each element of a sequence to an <xref href="System.Collections.Generic.IEnumerable`1"></xref> that incorporates the index of the source element that produced it. A result selector function is invoked on each element of each intermediate sequence, and the resulting values are combined into a single, one-dimensional sequence and returned.'
   remarks: "This method has at least one parameter of type <xref:System.Linq.Expressions.Expression%601> whose type argument is one of the <xref:System.Func%602> types. For these parameters, you can pass in a lambda expression and it will be compiled to an <xref:System.Linq.Expressions.Expression%601>.  \n  \n The <xref:System.Linq.Queryable.SelectMany%60%603%28System.Linq.IQueryable%7B%60%600%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2CSystem.Int32%2CSystem.Collections.Generic.IEnumerable%7B%60%601%7D%7D%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2C%60%601%2C%60%602%7D%7D%29> method generates a <xref:System.Linq.Expressions.MethodCallExpression> that represents calling <xref:System.Linq.Queryable.SelectMany%60%603%28System.Linq.IQueryable%7B%60%600%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2CSystem.Int32%2CSystem.Collections.Generic.IEnumerable%7B%60%601%7D%7D%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2C%60%601%2C%60%602%7D%7D%29> itself as a constructed generic method. It then passes the <xref:System.Linq.Expressions.MethodCallExpression> to the <xref:System.Linq.IQueryProvider.CreateQuery%28System.Linq.Expressions.Expression%29> method of the <xref:System.Linq.IQueryProvider> represented by the <xref:System.Linq.IQueryable.Provider%2A> property of the `source` parameter.  \n  \n The query behavior that occurs as a result of executing an expression tree that represents calling <xref:System.Linq.Queryable.SelectMany%60%603%28System.Linq.IQueryable%7B%60%600%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2CSystem.Int32%2CSystem.Collections.Generic.IEnumerable%7B%60%601%7D%7D%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2C%60%601%2C%60%602%7D%7D%29> depends on the implementation of the type of the `source` parameter. The expected behavior is that it invokes `collectionSelector` on each element of `source` to project it into an enumerable form. Each enumerable result incorporates the source element's index. Then the function represented by `resultSelector` is invoked on each element in each intermediate sequence. The resulting values are concatenated into a single, one-dimensional sequence."
   syntax:
     content: public static System.Linq.IQueryable<TResult> SelectMany<TSource,TCollection,TResult> (this System.Linq.IQueryable<TSource> source, System.Linq.Expressions.Expression<Func<TSource,int,System.Collections.Generic.IEnumerable<TCollection>>> collectionSelector, System.Linq.Expressions.Expression<Func<TSource,TCollection,TResult>> resultSelector);
@@ -6299,7 +6299,7 @@ items:
   - System.Core
   - netstandard
   namespace: System.Linq
-  summary: Projects each element of a sequence to an <xref href="System.Collections.Generic.IEnumerable`1"></xref> and invokes a result selector function on each element therein. The resulting values from each intermediate sequence are combined into a single, one-dimensional sequence and returned.
+  summary: 'Projects each element of a sequence to an <xref href="System.Collections.Generic.IEnumerable`1"></xref> and invokes a result selector function on each element therein. The resulting values from each intermediate sequence are combined into a single, one-dimensional sequence and returned.'
   remarks: "This method has at least one parameter of type <xref:System.Linq.Expressions.Expression%601> whose type argument is one of the <xref:System.Func%602> types. For these parameters, you can pass in a lambda expression and it will be compiled to an <xref:System.Linq.Expressions.Expression%601>.  \n  \n The <xref:System.Linq.Queryable.SelectMany%60%603%28System.Linq.IQueryable%7B%60%600%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2CSystem.Collections.Generic.IEnumerable%7B%60%601%7D%7D%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2C%60%601%2C%60%602%7D%7D%29> method generates a <xref:System.Linq.Expressions.MethodCallExpression> that represents calling <xref:System.Linq.Queryable.SelectMany%60%603%28System.Linq.IQueryable%7B%60%600%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2CSystem.Collections.Generic.IEnumerable%7B%60%601%7D%7D%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2C%60%601%2C%60%602%7D%7D%29> itself as a constructed generic method. It then passes the <xref:System.Linq.Expressions.MethodCallExpression> to the <xref:System.Linq.IQueryProvider.CreateQuery%28System.Linq.Expressions.Expression%29> method of the <xref:System.Linq.IQueryProvider> represented by the <xref:System.Linq.IQueryable.Provider%2A> property of the `source` parameter.  \n  \n The query behavior that occurs as a result of executing an expression tree that represents calling <xref:System.Linq.Queryable.SelectMany%60%603%28System.Linq.IQueryable%7B%60%600%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2CSystem.Collections.Generic.IEnumerable%7B%60%601%7D%7D%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2C%60%601%2C%60%602%7D%7D%29> depends on the implementation of the type of the `source` parameter. The expected behavior is that it invokes `collectionSelector` on each element of `source` to project it into an enumerable form. Then the function represented by `resultSelector` is invoked on each element in each intermediate sequence. The resulting values are concatenated into a single, one-dimensional sequence."
   example:
   - "The following code example demonstrates how to use <xref:System.Linq.Queryable.SelectMany%60%603%28System.Linq.IQueryable%7B%60%600%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2CSystem.Collections.Generic.IEnumerable%7B%60%601%7D%7D%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2C%60%601%2C%60%602%7D%7D%29> to perform a one-to-many projection over an array. This example uses a result selector function to keep the source element that corresponds to each intermediate sequence in scope for the final call to `Select`.  \n  \n [!code-csharp[System.Linq.Queryable#124](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Linq.Queryable/CS/queryable.cs#124)]\n [!code-vb[System.Linq.Queryable#124](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Linq.Queryable/VB/queryable.vb#124)]"
@@ -6685,7 +6685,7 @@ items:
   - System.Core
   - netstandard
   namespace: System.Linq
-  summary: Returns the only element of a sequence, and throws an exception if there is not exactly one element in the sequence.
+  summary: 'Returns the only element of a sequence, and throws an exception if there is not exactly one element in the sequence.'
   remarks: "The <xref:System.Linq.Queryable.Single%60%601%28System.Linq.IQueryable%7B%60%600%7D%29> method generates a <xref:System.Linq.Expressions.MethodCallExpression> that represents calling <xref:System.Linq.Queryable.Single%60%601%28System.Linq.IQueryable%7B%60%600%7D%29> itself as a constructed generic method. It then passes the <xref:System.Linq.Expressions.MethodCallExpression> to the <xref:System.Linq.IQueryProvider.Execute%60%601%28System.Linq.Expressions.Expression%29> method of the <xref:System.Linq.IQueryProvider> represented by the <xref:System.Linq.IQueryable.Provider%2A> property of the `source` parameter.  \n  \n The query behavior that occurs as a result of executing an expression tree that represents calling <xref:System.Linq.Queryable.Single%60%601%28System.Linq.IQueryable%7B%60%600%7D%29> depends on the implementation of the type of the `source` parameter. The expected behavior is that it returns the only element in `source`."
   example:
   - "The following code example demonstrates how to use <xref:System.Linq.Queryable.Single%60%601%28System.Linq.IQueryable%7B%60%600%7D%29> to select the only element of an array.  \n  \n [!code-csharp[System.Linq.Queryable#79](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Linq.Queryable/CS/queryable.cs#79)]\n [!code-vb[System.Linq.Queryable#79](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Linq.Queryable/VB/queryable.vb#79)]"
@@ -6760,7 +6760,7 @@ items:
   - System.Core
   - netstandard
   namespace: System.Linq
-  summary: Returns the only element of a sequence that satisfies a specified condition, and throws an exception if more than one such element exists.
+  summary: 'Returns the only element of a sequence that satisfies a specified condition, and throws an exception if more than one such element exists.'
   remarks: "This method has at least one parameter of type <xref:System.Linq.Expressions.Expression%601> whose type argument is one of the <xref:System.Func%602> types. For these parameters, you can pass in a lambda expression and it will be compiled to an <xref:System.Linq.Expressions.Expression%601>.  \n  \n The <xref:System.Linq.Queryable.Single%60%601%28System.Linq.IQueryable%7B%60%600%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2CSystem.Boolean%7D%7D%29> method generates a <xref:System.Linq.Expressions.MethodCallExpression> that represents calling <xref:System.Linq.Queryable.Single%60%601%28System.Linq.IQueryable%7B%60%600%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2CSystem.Boolean%7D%7D%29> itself as a constructed generic method. It then passes the <xref:System.Linq.Expressions.MethodCallExpression> to the <xref:System.Linq.IQueryProvider.Execute%60%601%28System.Linq.Expressions.Expression%29> method of the <xref:System.Linq.IQueryProvider> represented by the <xref:System.Linq.IQueryable.Provider%2A> property of the `source` parameter.  \n  \n The query behavior that occurs as a result of executing an expression tree that represents calling <xref:System.Linq.Queryable.Single%60%601%28System.Linq.IQueryable%7B%60%600%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2CSystem.Boolean%7D%7D%29> depends on the implementation of the type of the `source` parameter. The expected behavior is that it returns the only element in `source` that satisfies the condition specified by `predicate`."
   example:
   - "The following code example demonstrates how to use <xref:System.Linq.Queryable.Single%60%601%28System.Linq.IQueryable%7B%60%600%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2CSystem.Boolean%7D%7D%29> to select the only element of an array that satisfies a condition.  \n  \n [!code-csharp[System.Linq.Queryable#81](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Linq.Queryable/CS/queryable.cs#81)]\n [!code-vb[System.Linq.Queryable#81](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Linq.Queryable/VB/queryable.vb#81)]"
@@ -6838,7 +6838,7 @@ items:
   - System.Core
   - netstandard
   namespace: System.Linq
-  summary: Returns the only element of a sequence, or a default value if the sequence is empty; this method throws an exception if there is more than one element in the sequence.
+  summary: 'Returns the only element of a sequence, or a default value if the sequence is empty; this method throws an exception if there is more than one element in the sequence.'
   remarks: "The <xref:System.Linq.Queryable.SingleOrDefault%60%601%28System.Linq.IQueryable%7B%60%600%7D%29> method generates a <xref:System.Linq.Expressions.MethodCallExpression> that represents calling <xref:System.Linq.Queryable.SingleOrDefault%60%601%28System.Linq.IQueryable%7B%60%600%7D%29> itself as a constructed generic method. It then passes the <xref:System.Linq.Expressions.MethodCallExpression> to the <xref:System.Linq.IQueryProvider.Execute%60%601%28System.Linq.Expressions.Expression%29> method of the <xref:System.Linq.IQueryProvider> represented by the <xref:System.Linq.IQueryable.Provider%2A> property of the `source` parameter.  \n  \n The query behavior that occurs as a result of executing an expression tree that represents calling <xref:System.Linq.Queryable.SingleOrDefault%60%601%28System.Linq.IQueryable%7B%60%600%7D%29> depends on the implementation of the type of the `source` parameter. The expected behavior is that it returns the only element in `source`, or a default value if `source` is empty.  \n  \n The <xref:System.Linq.Queryable.SingleOrDefault%2A> method does not provide a way to specify a default value. If you want to specify a default value other than `default(TSource)`, use the <xref:System.Linq.Queryable.DefaultIfEmpty%60%601%28System.Linq.IQueryable%7B%60%600%7D%2C%60%600%29> method as described in the Example section."
   example:
   - "The following code example demonstrates how to use <xref:System.Linq.Queryable.SingleOrDefault%60%601%28System.Linq.IQueryable%7B%60%600%7D%29> to select the only element of an array. The second query demonstrates that <xref:System.Linq.Queryable.SingleOrDefault%60%601%28System.Linq.IQueryable%7B%60%600%7D%29> returns a default value when the sequence does not contain exactly one element.  \n  \n [!code-csharp[System.Linq.Queryable#83](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Linq.Queryable/CS/queryable.cs#83)]\n [!code-vb[System.Linq.Queryable#83](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Linq.Queryable/VB/queryable.vb#83)]  \n  \n Sometimes the value of `default(TSource)` is not the default value that you want to use if the collection contains no elements. Instead of checking the result for the unwanted default value and then changing it if necessary, you can use the <xref:System.Linq.Queryable.DefaultIfEmpty%60%601%28System.Linq.IQueryable%7B%60%600%7D%2C%60%600%29> method to specify the default value that you want to use if the collection is empty. Then, call <xref:System.Linq.Queryable.Single%60%601%28System.Linq.IQueryable%7B%60%600%7D%29> to obtain the element. The following code example uses both techniques to obtain a default value of 1 if a collection of page numbers is empty. Because the default value for an integer is 0, which is not usually a valid page number, the default value must be specified as 1 instead. The first result variable is checked for the unwanted default value after the query is completed. The second result variable is obtained by calling <xref:System.Linq.Queryable.DefaultIfEmpty%60%601%28System.Linq.IQueryable%7B%60%600%7D%2C%60%600%29> to specify a default value of 1.  \n  \n [!code-csharp[System.Linq.Queryable#133](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Linq.Queryable/CS/queryable.cs#133)]\n [!code-vb[System.Linq.Queryable#133](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Linq.Queryable/VB/queryable.vb#133)]"
@@ -6853,7 +6853,7 @@ items:
       description: The type of the elements of <code>source</code>.
     return:
       type: TSource
-      description: The single element of the input sequence, or <code>default</code>(<code>TSource</code>) if the sequence contains no elements.
+      description: 'The single element of the input sequence, or <code>default</code>(<code>TSource</code>) if the sequence contains no elements.'
   overload: System.Linq.Queryable.SingleOrDefault``1*
   exceptions:
   - type: System.ArgumentNullException
@@ -6931,7 +6931,7 @@ items:
       description: The type of the elements of <code>source</code>.
     return:
       type: TSource
-      description: The single element of the input sequence that satisfies the condition in <code>predicate</code>, or <code>default</code>(<code>TSource</code>) if no such element is found.
+      description: 'The single element of the input sequence that satisfies the condition in <code>predicate</code>, or <code>default</code>(<code>TSource</code>) if no such element is found.'
   overload: System.Linq.Queryable.SingleOrDefault``1*
   exceptions:
   - type: System.ArgumentNullException
@@ -9136,7 +9136,7 @@ items:
   - System.Core
   - netstandard
   namespace: System.Linq
-  summary: Performs a subsequent ordering of the elements in a sequence in descending order, according to a key.
+  summary: 'Performs a subsequent ordering of the elements in a sequence in descending order, according to a key.'
   remarks: "This method has at least one parameter of type <xref:System.Linq.Expressions.Expression%601> whose type argument is one of the <xref:System.Func%602> types. For these parameters, you can pass in a lambda expression and it will be compiled to an <xref:System.Linq.Expressions.Expression%601>.  \n  \n The <xref:System.Linq.Queryable.ThenByDescending%60%602%28System.Linq.IOrderedQueryable%7B%60%600%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2C%60%601%7D%7D%29> method generates a <xref:System.Linq.Expressions.MethodCallExpression> that represents calling <xref:System.Linq.Queryable.ThenByDescending%60%602%28System.Linq.IOrderedQueryable%7B%60%600%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2C%60%601%7D%7D%29> itself as a constructed generic method. It then passes the <xref:System.Linq.Expressions.MethodCallExpression> to the <xref:System.Linq.IQueryProvider.CreateQuery%60%601%28System.Linq.Expressions.Expression%29> method of the <xref:System.Linq.IQueryProvider> represented by the <xref:System.Linq.IQueryable.Provider%2A> property of the `source` parameter. The result of calling <xref:System.Linq.IQueryProvider.CreateQuery%60%601%28System.Linq.Expressions.Expression%29> is cast to type <xref:System.Linq.IOrderedQueryable%601> and returned.  \n  \n The query behavior that occurs as a result of executing an expression tree that represents calling <xref:System.Linq.Queryable.ThenByDescending%60%602%28System.Linq.IOrderedQueryable%7B%60%600%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2C%60%601%7D%7D%29> depends on the implementation of the type of the `source` parameter. The expected behavior is that it performs a secondary sort of the elements of `source` in descending order, based on the key obtained by invoking `keySelector` on each element of `source`. All previously established sort orders are preserved."
   syntax:
     content: public static System.Linq.IOrderedQueryable<TSource> ThenByDescending<TSource,TKey> (this System.Linq.IOrderedQueryable<TSource> source, System.Linq.Expressions.Expression<Func<TSource,TKey>> keySelector);
@@ -9309,7 +9309,7 @@ items:
       description: The type of the elements of the input sequences.
     return:
       type: System.Linq.IQueryable{TSource}
-      description: An <xref href="System.Linq.IQueryable`1"></xref> that contains the elements from both input sequences, excluding duplicates.
+      description: 'An <xref href="System.Linq.IQueryable`1"></xref> that contains the elements from both input sequences, excluding duplicates.'
   overload: System.Linq.Queryable.Union``1*
   exceptions:
   - type: System.ArgumentNullException
@@ -9385,7 +9385,7 @@ items:
       description: The type of the elements of the input sequences.
     return:
       type: System.Linq.IQueryable{TSource}
-      description: An <xref href="System.Linq.IQueryable`1"></xref> that contains the elements from both input sequences, excluding duplicates.
+      description: 'An <xref href="System.Linq.IQueryable`1"></xref> that contains the elements from both input sequences, excluding duplicates.'
   overload: System.Linq.Queryable.Union``1*
   exceptions:
   - type: System.ArgumentNullException

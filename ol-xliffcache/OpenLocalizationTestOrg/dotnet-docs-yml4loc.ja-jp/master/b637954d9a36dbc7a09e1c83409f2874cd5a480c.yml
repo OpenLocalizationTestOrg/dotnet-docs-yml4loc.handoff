@@ -23,7 +23,7 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Reflection
-  summary: Selects a member from a list of candidates, and performs type conversion from actual argument type to formal argument type.
+  summary: 'Selects a member from a list of candidates, and performs type conversion from actual argument type to formal argument type.'
   remarks: "Implementations of the <xref:System.Reflection.Binder> class are used by methods such as <xref:System.Type.InvokeMember%2A?displayProperty=fullName>, which selects from a set of possible members to execute, based on a set of parameter types and argument values; <xref:System.Type.GetMethod%2A?displayProperty=fullName>, which selects a method based on parameter types; and so on.  \n  \n A default implementation of the <xref:System.Reflection.Binder> class is provided by the <xref:System.Type.DefaultBinder%2A?displayProperty=fullName> property."
   example:
   - "The following example implements and demonstrates all members of the `Binder` class. The private method `CanConvertFrom` finds compatible types for a given type.  \n  \n [!code-cpp[Binder_1#1](~/samples/snippets/cpp/VS_Snippets_CLR/Binder_1/CPP/binder.cpp#1)]\n [!code-csharp[Binder_1#1](~/samples/snippets/csharp/VS_Snippets_CLR/Binder_1/CS/binder.cs#1)]\n [!code-vb[Binder_1#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/Binder_1/VB/binder.vb#1)]"
@@ -96,7 +96,7 @@ items:
   - System.Runtime
   namespace: System.Reflection
   summary: Initializes a new instance of the <xref href="System.Reflection.Binder"></xref> class.
-  remarks: This constructor is called by the constructors of derived classes, to initialize state in this type.
+  remarks: 'This constructor is called by the constructors of derived classes, to initialize state in this type.'
   syntax:
     content: protected Binder ();
     parameters: []
@@ -149,7 +149,7 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Reflection
-  summary: Selects a field from the given set of fields, based on the specified criteria.
+  summary: 'Selects a field from the given set of fields, based on the specified criteria.'
   remarks: "If `bindingAttr` does not include <xref:System.Reflection.BindingFlags?displayProperty=fullName>, the default binder implementation provided by <xref:System.Type.DefaultBinder%2A?displayProperty=fullName> simply returns the first element of `match`. No selection is done.  \n  \n This method controls the binding provided by <xref:System.Type.InvokeMember%2A?displayProperty=fullName>."
   syntax:
     content: public abstract System.Reflection.FieldInfo BindToField (System.Reflection.BindingFlags bindingAttr, System.Reflection.FieldInfo[] match, object value, System.Globalization.CultureInfo culture);
@@ -159,7 +159,7 @@ items:
       description: A bitwise combination of <xref href="System.Reflection.BindingFlags"></xref> values.
     - id: match
       type: System.Reflection.FieldInfo[]
-      description: The set of fields that are candidates for matching. For example, when a <xref href="System.Reflection.Binder"></xref> object is used by <xref href="System.Type.InvokeMember*"></xref>, this parameter specifies the set of fields that reflection has determined to be possible matches, typically because they have the correct member name. The default implementation provided by <xref href="System.Type.DefaultBinder"></xref> changes the order of this array.
+      description: 'The set of fields that are candidates for matching. For example, when a <xref href="System.Reflection.Binder"></xref> object is used by <xref href="System.Type.InvokeMember*"></xref>, this parameter specifies the set of fields that reflection has determined to be possible matches, typically because they have the correct member name. The default implementation provided by <xref href="System.Type.DefaultBinder"></xref> changes the order of this array.'
     - id: value
       type: System.Object
       description: The field value used to locate a matching field.
@@ -173,10 +173,10 @@ items:
   exceptions:
   - type: System.Reflection.AmbiguousMatchException
     commentId: T:System.Reflection.AmbiguousMatchException
-    description: For the default binder, <code>bindingAttr</code> includes <xref href="System.Reflection.BindingFlags.SetField"></xref>, and <code>match</code> contains multiple fields that are equally good matches for <code>value</code>. For example, <code>value</code> contains a <code>MyClass</code> object that implements the <code>IMyClass</code> interface, and <code>match</code> contains a field of type <code>MyClass</code> and a field of type <code>IMyClass</code>.
+    description: 'For the default binder, <code>bindingAttr</code> includes <xref href="System.Reflection.BindingFlags.SetField"></xref>, and <code>match</code> contains multiple fields that are equally good matches for <code>value</code>. For example, <code>value</code> contains a <code>MyClass</code> object that implements the <code>IMyClass</code> interface, and <code>match</code> contains a field of type <code>MyClass</code> and a field of type <code>IMyClass</code>.'
   - type: System.MissingFieldException
     commentId: T:System.MissingFieldException
-    description: For the default binder, <code>bindingAttr</code> includes <xref href="System.Reflection.BindingFlags.SetField"></xref>, and <code>match</code> contains no fields that can accept <code>value</code>.
+    description: 'For the default binder, <code>bindingAttr</code> includes <xref href="System.Reflection.BindingFlags.SetField"></xref>, and <code>match</code> contains no fields that can accept <code>value</code>.'
   - type: System.NullReferenceException
     commentId: T:System.NullReferenceException
     description: "For the default binder, <code>bindingAttr</code> includes <xref href=\"System.Reflection.BindingFlags.SetField\"></xref>, and <code>match</code> is `null` or an empty array.  \n  \n -or-  \n  \n <code>bindingAttr</code> includes <xref href=\"System.Reflection.BindingFlags.SetField\"></xref>, and <code>value</code> is `null`."
@@ -227,7 +227,7 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Reflection
-  summary: Selects a method to invoke from the given set of methods, based on the supplied arguments.
+  summary: 'Selects a method to invoke from the given set of methods, based on the supplied arguments.'
   remarks: "The default binder takes into account both parameters that have values and `params` arrays (`ParamArray` arrays in Visual Basic). Thus, it is possible to find a match in cases where `args` and `match` do not contain the same number of elements.  \n  \n The binder enables a client to map the array of arguments back to its original form if the argument array has been manipulated by <xref:System.Reflection.Binder.BindToMethod%2A>. Use this remap capability to get back by-reference arguments when such arguments are present. When you pass arguments by name, the binder reorders the argument array. The `state` parameter keeps track of argument reordering, thus enabling the binder's <xref:System.Reflection.Binder.ReorderArgumentArray%2A> method to reorder the argument array to its original form.  \n  \n The <xref:System.Reflection.Binder.BindToMethod%2A> method is used by the <xref:System.Type.InvokeMember%2A?displayProperty=fullName> method."
   syntax:
     content: public abstract System.Reflection.MethodBase BindToMethod (System.Reflection.BindingFlags bindingAttr, System.Reflection.MethodBase[] match, ref object[] args, System.Reflection.ParameterModifier[] modifiers, System.Globalization.CultureInfo culture, string[] names, out object state);
@@ -237,10 +237,10 @@ items:
       description: A bitwise combination of <xref href="System.Reflection.BindingFlags"></xref> values.
     - id: match
       type: System.Reflection.MethodBase[]
-      description: The set of methods that are candidates for matching. For example, when a <xref href="System.Reflection.Binder"></xref> object is used by <xref href="System.Type.InvokeMember*"></xref>, this parameter specifies the set of methods that reflection has determined to be possible matches, typically because they have the correct member name. The default implementation provided by <xref href="System.Type.DefaultBinder"></xref> changes the order of this array.
+      description: 'The set of methods that are candidates for matching. For example, when a <xref href="System.Reflection.Binder"></xref> object is used by <xref href="System.Type.InvokeMember*"></xref>, this parameter specifies the set of methods that reflection has determined to be possible matches, typically because they have the correct member name. The default implementation provided by <xref href="System.Type.DefaultBinder"></xref> changes the order of this array.'
     - id: args
       type: System.Object[]
-      description: The arguments that are passed in. The binder can change the order of the arguments in this array; for example, the default binder changes the order of arguments if the <code>names</code> parameter is used to specify an order other than positional order. If a binder implementation coerces argument types, the types and values of the arguments can be changed as well.
+      description: 'The arguments that are passed in. The binder can change the order of the arguments in this array; for example, the default binder changes the order of arguments if the <code>names</code> parameter is used to specify an order other than positional order. If a binder implementation coerces argument types, the types and values of the arguments can be changed as well.'
     - id: modifiers
       type: System.Reflection.ParameterModifier[]
       description: An array of parameter modifiers that enable binding to work with parameter signatures in which the types have been modified. The default binder implementation does not use this parameter.
@@ -249,10 +249,10 @@ items:
       description: "An instance of <xref href=\"System.Globalization.CultureInfo\"></xref> that is used to control the coercion of data types, in binder implementations that coerce types. If <code>culture</code> is `null`, the <xref href=\"System.Globalization.CultureInfo\"></xref> for the current thread is used.  \n  \n Note   For example, if a binder implementation allows coercion of string values to numeric types, this parameter is necessary to convert a `String` that represents 1000 to a `Double` value, because 1000 is represented differently by different cultures. The default binder does not do such string coercions."
     - id: names
       type: System.String[]
-      description: The parameter names, if parameter names are to be considered when matching, or `null` if arguments are to be treated as purely positional. For example, parameter names must be used if arguments are not supplied in positional order.
+      description: 'The parameter names, if parameter names are to be considered when matching, or `null` if arguments are to be treated as purely positional. For example, parameter names must be used if arguments are not supplied in positional order.'
     - id: state
       type: System.Object
-      description: After the method returns, <code>state</code> contains a binder-provided object that keeps track of argument reordering. The binder creates this object, and the binder is the sole consumer of this object. If <code>state</code> is not `null` when `BindToMethod` returns, you must pass <code>state</code> to the <xref href="System.Reflection.Binder.ReorderArgumentArray(System.Object[]@,System.Object)"></xref> method if you want to restore <code>args</code> to its original order, for example, so that you can retrieve the values of `ref` parameters (`ByRef` parameters in Visual Basic).
+      description: 'After the method returns, <code>state</code> contains a binder-provided object that keeps track of argument reordering. The binder creates this object, and the binder is the sole consumer of this object. If <code>state</code> is not `null` when `BindToMethod` returns, you must pass <code>state</code> to the <xref href="System.Reflection.Binder.ReorderArgumentArray(System.Object[]@,System.Object)"></xref> method if you want to restore <code>args</code> to its original order, for example, so that you can retrieve the values of `ref` parameters (`ByRef` parameters in Visual Basic).'
     return:
       type: System.Reflection.MethodBase
       description: The matching method.
@@ -260,13 +260,13 @@ items:
   exceptions:
   - type: System.Reflection.AmbiguousMatchException
     commentId: T:System.Reflection.AmbiguousMatchException
-    description: For the default binder, <code>match</code> contains multiple methods that are equally good matches for <code>args</code>. For example, <code>args</code> contains a <code>MyClass</code> object that implements the <code>IMyClass</code> interface, and <code>match</code> contains a method that takes <code>MyClass</code> and a method that takes <code>IMyClass</code>.
+    description: 'For the default binder, <code>match</code> contains multiple methods that are equally good matches for <code>args</code>. For example, <code>args</code> contains a <code>MyClass</code> object that implements the <code>IMyClass</code> interface, and <code>match</code> contains a method that takes <code>MyClass</code> and a method that takes <code>IMyClass</code>.'
   - type: System.MissingMethodException
     commentId: T:System.MissingMethodException
-    description: For the default binder, <code>match</code> contains no methods that can accept the arguments supplied in <code>args</code>.
+    description: 'For the default binder, <code>match</code> contains no methods that can accept the arguments supplied in <code>args</code>.'
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: For the default binder, <code>match</code> is `null` or an empty array.
+    description: 'For the default binder, <code>match</code> is `null` or an empty array.'
   version:
   - netcore-2.0
   - netframework-4.5.1
@@ -415,7 +415,7 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Reflection
-  summary: Upon returning from <xref href="System.Reflection.Binder.BindToMethod(System.Reflection.BindingFlags,System.Reflection.MethodBase[],System.Object[]@,System.Reflection.ParameterModifier[],System.Globalization.CultureInfo,System.String[],System.Object@)"></xref>, restores the <code>args</code> argument to what it was when it came from `BindToMethod`.
+  summary: 'Upon returning from <xref href="System.Reflection.Binder.BindToMethod(System.Reflection.BindingFlags,System.Reflection.MethodBase[],System.Object[]@,System.Reflection.ParameterModifier[],System.Globalization.CultureInfo,System.String[],System.Object@)"></xref>, restores the <code>args</code> argument to what it was when it came from `BindToMethod`.'
   remarks: The common language runtime calls this method if `state` is not `null` after a return from `BindToMethod`.
   syntax:
     content: public abstract void ReorderArgumentArray (ref object[] args, object state);
@@ -475,7 +475,7 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Reflection
-  summary: Selects a method from the given set of methods, based on the argument type.
+  summary: 'Selects a method from the given set of methods, based on the argument type.'
   remarks: This method should return `null` if no method matches the criteria. This method controls the selection provided by the `GetConstructor` and `GetMethod` methods on `Type`.
   syntax:
     content: public abstract System.Reflection.MethodBase SelectMethod (System.Reflection.BindingFlags bindingAttr, System.Reflection.MethodBase[] match, Type[] types, System.Reflection.ParameterModifier[] modifiers);
@@ -485,7 +485,7 @@ items:
       description: A bitwise combination of <xref href="System.Reflection.BindingFlags"></xref> values.
     - id: match
       type: System.Reflection.MethodBase[]
-      description: The set of methods that are candidates for matching. For example, when a <xref href="System.Reflection.Binder"></xref> object is used by <xref href="System.Type.InvokeMember*"></xref>, this parameter specifies the set of methods that reflection has determined to be possible matches, typically because they have the correct member name. The default implementation provided by <xref href="System.Type.DefaultBinder"></xref> changes the order of this array.
+      description: 'The set of methods that are candidates for matching. For example, when a <xref href="System.Reflection.Binder"></xref> object is used by <xref href="System.Type.InvokeMember*"></xref>, this parameter specifies the set of methods that reflection has determined to be possible matches, typically because they have the correct member name. The default implementation provided by <xref href="System.Type.DefaultBinder"></xref> changes the order of this array.'
     - id: types
       type: System.Type[]
       description: The parameter types used to locate a matching method.
@@ -494,12 +494,12 @@ items:
       description: An array of parameter modifiers that enable binding to work with parameter signatures in which the types have been modified.
     return:
       type: System.Reflection.MethodBase
-      description: The matching method, if found; otherwise, `null`.
+      description: 'The matching method, if found; otherwise, `null`.'
   overload: System.Reflection.Binder.SelectMethod*
   exceptions:
   - type: System.Reflection.AmbiguousMatchException
     commentId: T:System.Reflection.AmbiguousMatchException
-    description: For the default binder, <code>match</code> contains multiple methods that are equally good matches for the parameter types described by <code>types</code>. For example, the array in <code>types</code> contains a <xref href="System.Type"></xref> object for <code>MyClass</code> and the array in <code>match</code> contains a method that takes a base class of <code>MyClass</code> and a method that takes an interface that <code>MyClass</code> implements.
+    description: 'For the default binder, <code>match</code> contains multiple methods that are equally good matches for the parameter types described by <code>types</code>. For example, the array in <code>types</code> contains a <xref href="System.Type"></xref> object for <code>MyClass</code> and the array in <code>match</code> contains a method that takes a base class of <code>MyClass</code> and a method that takes an interface that <code>MyClass</code> implements.'
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
     description: "For the default binder, <code>match</code> is `null` or an empty array.  \n  \n -or-  \n  \n An element of <code>types</code> derives from <xref href=\"System.Type\"></xref>, but is not of type `RuntimeType`."
@@ -550,7 +550,7 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Reflection
-  summary: Selects a property from the given set of properties, based on the specified criteria.
+  summary: 'Selects a property from the given set of properties, based on the specified criteria.'
   remarks: This method controls the selection provided by the `GetProperty` method on `Type`.
   syntax:
     content: public abstract System.Reflection.PropertyInfo SelectProperty (System.Reflection.BindingFlags bindingAttr, System.Reflection.PropertyInfo[] match, Type returnType, Type[] indexes, System.Reflection.ParameterModifier[] modifiers);
@@ -560,7 +560,7 @@ items:
       description: A bitwise combination of <xref href="System.Reflection.BindingFlags"></xref> values.
     - id: match
       type: System.Reflection.PropertyInfo[]
-      description: The set of properties that are candidates for matching. For example, when a <xref href="System.Reflection.Binder"></xref> object is used by <xref href="System.Type.InvokeMember*"></xref>, this parameter specifies the set of properties that reflection has determined to be possible matches, typically because they have the correct member name. The default implementation provided by <xref href="System.Type.DefaultBinder"></xref> changes the order of this array.
+      description: 'The set of properties that are candidates for matching. For example, when a <xref href="System.Reflection.Binder"></xref> object is used by <xref href="System.Type.InvokeMember*"></xref>, this parameter specifies the set of properties that reflection has determined to be possible matches, typically because they have the correct member name. The default implementation provided by <xref href="System.Type.DefaultBinder"></xref> changes the order of this array.'
     - id: returnType
       type: System.Type
       description: The return value the matching property must have.
@@ -577,10 +577,10 @@ items:
   exceptions:
   - type: System.Reflection.AmbiguousMatchException
     commentId: T:System.Reflection.AmbiguousMatchException
-    description: For the default binder, <code>match</code> contains multiple properties that are equally good matches for <code>returnType</code> and <code>indexes</code>.
+    description: 'For the default binder, <code>match</code> contains multiple properties that are equally good matches for <code>returnType</code> and <code>indexes</code>.'
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: For the default binder, <code>match</code> is `null` or an empty array.
+    description: 'For the default binder, <code>match</code> is `null` or an empty array.'
   version:
   - netcore-2.0
   - netframework-4.5.1

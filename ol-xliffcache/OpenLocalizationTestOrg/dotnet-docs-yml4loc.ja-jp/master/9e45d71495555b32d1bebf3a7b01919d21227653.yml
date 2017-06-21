@@ -821,7 +821,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls
-  summary: Gets the Document object that represents the hosted [!INCLUDE[TLA2#tla_html](~/includes/tla2sharptla-html-md.md)] page.
+  summary: 'Gets the Document object that represents the hosted [!INCLUDE[TLA2#tla_html](~/includes/tla2sharptla-html-md.md)] page.'
   remarks: The Document object needs to be cast to the COM interface you are expecting.
   syntax:
     content: >-
@@ -876,8 +876,8 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls
-  summary: Navigate back to the previous document, if there is one.
-  remarks: If you call <xref:System.Windows.Controls.WebBrowser.GoBack%2A> and there are not any documents to navigate back to, <xref:System.Windows.Controls.WebBrowser> does not perform a navigation and an exception is thrown. If you need to, you can inspect the value of the <xref:System.Windows.Controls.WebBrowser.CanGoBack%2A> property to determine whether there are documents to navigate back to.
+  summary: 'Navigate back to the previous document, if there is one.'
+  remarks: 'If you call <xref:System.Windows.Controls.WebBrowser.GoBack%2A> and there are not any documents to navigate back to, <xref:System.Windows.Controls.WebBrowser> does not perform a navigation and an exception is thrown. If you need to, you can inspect the value of the <xref:System.Windows.Controls.WebBrowser.CanGoBack%2A> property to determine whether there are documents to navigate back to.'
   example:
   - "The following example shows how to navigate back to the previous [!INCLUDE[TLA2#tla_html](~/includes/tla2sharptla-html-md.md)] document by calling <xref:System.Windows.Controls.WebBrowser.GoBack%2A>. The example first checks that there are [!INCLUDE[TLA2#tla_html](~/includes/tla2sharptla-html-md.md)] documents to navigate back to by checking <xref:System.Windows.Controls.WebBrowser.CanGoBack%2A>.  \n  \n```csharp  \nprivate void backButton_Click(object sender, RoutedEventArgs e)  \n{  \n  // Navigate to the previous HTML document, if there is one  \n  if (this.webBrowser.CanGoBack)  \n  {  \n    this.webBrowser.GoBack();  \n  }  \n}  \n```"
   syntax:
@@ -934,8 +934,8 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls
-  summary: Navigate forward to the next [!INCLUDE[TLA2#tla_html](~/includes/tla2sharptla-html-md.md)] document, if there is one.
-  remarks: If you call <xref:System.Windows.Controls.WebBrowser.GoForward%2A> and there are not any documents to navigate forward to, <xref:System.Windows.Controls.WebBrowser> does not perform a navigation and an exception is thrown. If you need to, you can inspect the value of the <xref:System.Windows.Controls.WebBrowser.CanGoForward%2A> property to determine whether there are documents to navigate forward to.
+  summary: 'Navigate forward to the next [!INCLUDE[TLA2#tla_html](~/includes/tla2sharptla-html-md.md)] document, if there is one.'
+  remarks: 'If you call <xref:System.Windows.Controls.WebBrowser.GoForward%2A> and there are not any documents to navigate forward to, <xref:System.Windows.Controls.WebBrowser> does not perform a navigation and an exception is thrown. If you need to, you can inspect the value of the <xref:System.Windows.Controls.WebBrowser.CanGoForward%2A> property to determine whether there are documents to navigate forward to.'
   example:
   - "The following example shows how to navigate forward to the next document by calling <xref:System.Windows.Controls.WebBrowser.GoForward%2A>. The example first checks that there are documents to navigate forward to by checking <xref:System.Windows.Controls.WebBrowser.CanGoForward%2A>.  \n  \n```csharp  \nprivate void forwardButton_Click(object sender, RoutedEventArgs e)  \n{  \n  // Navigate to the next HTML document, if there is one  \n  if (this.webBrowser.CanGoForward)  \n  {  \n    this.webBrowser.GoForward();  \n  }  \n}  \n```"
   syntax:
@@ -993,7 +993,7 @@ items:
   - PresentationFramework
   namespace: System.Windows.Controls
   summary: Executes a script function that is implemented by the currently loaded document.
-  remarks: <xref:System.Windows.Controls.WebBrowser.InvokeScript%28System.String%29> should not be called before the document that implements it has finished loading. You can detect when a document has finished loading by handling the <xref:System.Windows.Controls.WebBrowser.LoadCompleted> event.
+  remarks: '<xref:System.Windows.Controls.WebBrowser.InvokeScript%28System.String%29> should not be called before the document that implements it has finished loading. You can detect when a document has finished loading by handling the <xref:System.Windows.Controls.WebBrowser.LoadCompleted> event.'
   example:
   - "The following example shows how to call a script function in a document from a [!INCLUDE[TLA2#tla_wpf](~/includes/tla2sharptla-wpf-md.md)] application by using <xref:System.Windows.Controls.WebBrowser.InvokeScript%28System.String%29>. In this example, the script function has no parameters.  \n  \n The following is the [!INCLUDE[TLA2#tla_html](~/includes/tla2sharptla-html-md.md)] document that implements the script function that will be called from [!INCLUDE[TLA2#tla_wpf](~/includes/tla2sharptla-wpf-md.md)].  \n  \n```html  \n<html>  \n    <head>  \n        <script type=\"text/javascript\">  \n            // Function Without Parameters  \n            function JavaScriptFunctionWithoutParameters()    \n            {  \n              outputID.innerHTML = \"JavaScript function called!\";  \n            }  \n        </script>  \n    </head>  \n    <body>  \n    <div id=\"outputID\" style=\"color:Red; font-size:16\">  \n        Hello from HTML document with script!  \n    </div>  \n    </body>  \n</html>  \n```  \n  \n The following shows the [!INCLUDE[TLA2#tla_wpf](~/includes/tla2sharptla-wpf-md.md)] implementation to call the script function in the [!INCLUDE[TLA2#tla_html](~/includes/tla2sharptla-html-md.md)] document.  \n  \n```csharp  \nprivate void callScriptFunctionNoParamButton_Click(object sender, RoutedEventArgs e)  \n{  \n  // Make sure the HTML document has loaded before attempting to  \n  // invoke script of the document page. You could set loadCompleted  \n  // to true when the LoadCompleted event on the WebBrowser fires.  \n  if (this.loadCompleted)  \n  {  \n    try  \n    {  \n      this.webBrowser.InvokeScript(\"JavaScriptFunctionWithoutParameters\");  \n    }  \n    catch (Exception ex)  \n    {  \n      string msg = \"Could not call script: \" +  \n                   ex.Message +  \n                  \"\\n\\nPlease click the 'Load HTML Document with Script' button to load.\";  \n      MessageBox.Show(msg);  \n    }  \n  }  \n}  \n```"
   syntax:
@@ -1162,7 +1162,7 @@ items:
   - PresentationFramework
   namespace: System.Windows.Controls
   summary: Navigate asynchronously to the document at the specified <xref href="System.Uri"></xref> and specify the target frame to load the document's content into. Additional HTTP POST data and HTTP headers can be sent to the server as part of the navigation request.
-  remarks: Use the <xref:System.Windows.Controls.WebBrowser.Navigate%28System.String%2CSystem.String%2CSystem.Byte%5B%5D%2CSystem.String%29> method to navigate to a URL that may include escape characters. Use the <xref:System.Windows.Controls.WebBrowser.Navigate%28System.Uri%2CSystem.String%2CSystem.Byte%5B%5D%2CSystem.String%29> method to navigate to a <xref:System.Uri> that does not include escape characters.
+  remarks: 'Use the <xref:System.Windows.Controls.WebBrowser.Navigate%28System.String%2CSystem.String%2CSystem.Byte%5B%5D%2CSystem.String%29> method to navigate to a URL that may include escape characters. Use the <xref:System.Windows.Controls.WebBrowser.Navigate%28System.Uri%2CSystem.String%2CSystem.Byte%5B%5D%2CSystem.String%29> method to navigate to a <xref:System.Uri> that does not include escape characters.'
   example:
   - "The following example shows how to navigate to a document and open it in a new browser window by specifying the \"about:blank\" target.  \n  \n```xaml  \n<StackPanel>  \n    <StackPanel Orientation=\"Horizontal\">  \n        <TextBox x:Name=\"addressTextBox\" Width=\"200\" />  \n        <Button Click=\"goNavigateButton_Click\">Go</Button>  \n    </StackPanel>  \n    <WebBrowser x:Name=\"myWebBrowser\" />  \n</StackPanel>  \n```  \n  \n```csharp  \nprivate void goNavigateButton_Click(object sender, RoutedEventArgs e)  \n{  \n    // Get URI to navigate to  \n    Uri uri = new Uri(this.addressTextBox.Text, UriKind.RelativeOrAbsolute);  \n  \n    // Only absolute URIs can be navigated to  \n    if (!uri.IsAbsoluteUri)  \n    {  \n        MessageBox.Show(\"The Address URI must be absolute eg 'http://www.microsoft.com'\");  \n        return;  \n    }  \n  \n    // Navigate to the desired URL by calling the .Navigate method  \n    this.myWebBrowser.Navigate(uri, \"_blank\", null, null);  \n}  \n```"
   syntax:
@@ -1226,7 +1226,7 @@ items:
   - PresentationFramework
   namespace: System.Windows.Controls
   summary: Navigates asynchronously to the document at the specified URL and specify the target frame to load the document's content into. Additional HTTP POST data and HTTP headers can be sent to the server as part of the navigation request.
-  remarks: Use the <xref:System.Windows.Controls.WebBrowser.Navigate%28System.String%2CSystem.String%2CSystem.Byte%5B%5D%2CSystem.String%29> method to navigate to a URL that may include escape characters. Use the <xref:System.Windows.Controls.WebBrowser.Navigate%28System.Uri%2CSystem.String%2CSystem.Byte%5B%5D%2CSystem.String%29> method to navigate to a <xref:System.Uri> that does not include escape characters.
+  remarks: 'Use the <xref:System.Windows.Controls.WebBrowser.Navigate%28System.String%2CSystem.String%2CSystem.Byte%5B%5D%2CSystem.String%29> method to navigate to a URL that may include escape characters. Use the <xref:System.Windows.Controls.WebBrowser.Navigate%28System.Uri%2CSystem.String%2CSystem.Byte%5B%5D%2CSystem.String%29> method to navigate to a <xref:System.Uri> that does not include escape characters.'
   syntax:
     content: public void Navigate (string source, string targetFrameName, byte[] postData, string additionalHeaders);
     parameters:
@@ -1280,7 +1280,7 @@ items:
   - PresentationFramework
   namespace: System.Windows.Controls
   summary: Navigates asynchronously to the document at the specified URL.
-  remarks: Use the <xref:System.Windows.Controls.WebBrowser.Navigate%28System.String%29> method to navigate to a URL that may include escape characters. Use the <xref:System.Windows.Controls.WebBrowser.Navigate%28System.Uri%29> method to navigate to a <xref:System.Uri> that does not include escape characters.
+  remarks: 'Use the <xref:System.Windows.Controls.WebBrowser.Navigate%28System.String%29> method to navigate to a URL that may include escape characters. Use the <xref:System.Windows.Controls.WebBrowser.Navigate%28System.Uri%29> method to navigate to a <xref:System.Uri> that does not include escape characters.'
   syntax:
     content: public void Navigate (string source);
     parameters:
@@ -1571,7 +1571,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls
-  summary: Gets or sets an instance of a public class, implemented by the host application, that can be accessed by script from a hosted document.
+  summary: 'Gets or sets an instance of a public class, implemented by the host application, that can be accessed by script from a hosted document.'
   remarks: "This property can be set to any COM-visible object for which you want its public properties and methods available to scripting code. You can make a class COM-visible by marking it with the <xref:System.Runtime.InteropServices.ComVisibleAttribute>.  \n  \n The object that is set for scripting is exposed to the current document by the [!INCLUDE[TLA2#tla_html](~/includes/tla2sharptla-html-md.md)] DOM using the `window.external` property."
   syntax:
     content: >-
@@ -1580,7 +1580,7 @@ items:
       public object ObjectForScripting { get; set; }
     return:
       type: System.Object
-      description: The <xref href="System.Object"></xref> that is an instance of a `public` class, implemented by the host application, that can be accessed by script from a hosted document.
+      description: 'The <xref href="System.Object"></xref> that is an instance of a `public` class, implemented by the host application, that can be accessed by script from a hosted document.'
   overload: System.Windows.Controls.WebBrowser.ObjectForScripting*
   exceptions:
   - type: System.ArgumentException
@@ -1676,7 +1676,7 @@ items:
   - PresentationFramework
   namespace: System.Windows.Controls
   summary: Reloads the current page with optional cache validation.
-  remarks: If `noCache` is `true`, the <xref:System.Windows.Controls.WebBrowser> control refreshes without cache validation by sending a "Pragma:no-cache" header to the server.
+  remarks: 'If `noCache` is `true`, the <xref:System.Windows.Controls.WebBrowser> control refreshes without cache validation by sending a "Pragma:no-cache" header to the server.'
   syntax:
     content: >-
       [System.Security.SecurityCritical]
@@ -1732,7 +1732,7 @@ items:
   - PresentationFramework
   namespace: System.Windows.Controls
   summary: Gets or sets the <xref href="System.Uri"></xref> of the current document hosted in the <xref href="System.Windows.Controls.WebBrowser"></xref>.
-  remarks: Setting the source property causes <xref:System.Windows.Controls.WebBrowser> to navigate to the document specified by the <xref:System.Uri>. If the <xref:System.Uri> is `null`, a blank document is displayed ("about:blank").
+  remarks: 'Setting the source property causes <xref:System.Windows.Controls.WebBrowser> to navigate to the document specified by the <xref:System.Uri>. If the <xref:System.Uri> is `null`, a blank document is displayed ("about:blank").'
   example:
   - "The following example shows how to configure <xref:System.Windows.Controls.WebBrowser> to navigate to an [!INCLUDE[TLA2#tla_html](~/includes/tla2sharptla-html-md.md)] document by using markup only.  \n  \n```xaml  \n<!-- Web Browser Control that hosts a web page. -->  \n<WebBrowser x:Name=\"webBrowser\" Source=\"http://msdn.com\"   \n  Width=\"600\" Height=\"600\"  />  \n```"
   syntax:
@@ -1742,7 +1742,7 @@ items:
       public Uri Source { get; set; }
     return:
       type: System.Uri
-      description: The <xref href="System.Uri"></xref> for the current [!INCLUDE[TLA2#tla_html](~/includes/tla2sharptla-html-md.md)] document.
+      description: 'The <xref href="System.Uri"></xref> for the current [!INCLUDE[TLA2#tla_html](~/includes/tla2sharptla-html-md.md)] document.'
   overload: System.Windows.Controls.WebBrowser.Source*
   exceptions:
   - type: System.ObjectDisposedException

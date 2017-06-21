@@ -25,7 +25,7 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Reflection
-  summary: Represents an argument of a custom attribute in the reflection-only context, or an element of an array argument.
+  summary: 'Represents an argument of a custom attribute in the reflection-only context, or an element of an array argument.'
   remarks: "Code that is being examined in the reflection-only context cannot be executed, so it is not always possible to examine custom attributes by creating instances of them and then examining their properties, using methods like <xref:System.Attribute.GetCustomAttributes%2A?displayProperty=fullName>, <xref:System.Reflection.MemberInfo.GetCustomAttributes%2A?displayProperty=fullName>, and so on. If the code for the attribute type itself is loaded into the reflection-only context, it cannot be executed.  \n  \n The <xref:System.Reflection.CustomAttributeNamedArgument> structure is used by the <xref:System.Reflection.CustomAttributeData> class to provide access to the type and value of a positional argument specified for a custom attribute instance, without executing the attribute constructor. It also provides access to the type and value of a named argument without executing the code of the corresponding property of the custom attribute type.  \n  \n The types and values of all the positional and named arguments of an attribute instance are provided by <xref:System.Reflection.CustomAttributeTypedArgument> structures. The positional attributes returned by the <xref:System.Reflection.CustomAttributeData.ConstructorArguments%2A?displayProperty=fullName> property are directly represented by <xref:System.Reflection.CustomAttributeTypedArgument> structures, but the named arguments returned by the <xref:System.Reflection.CustomAttributeData.NamedArguments%2A?displayProperty=fullName> property are represented by <xref:System.Reflection.CustomAttributeNamedArgument> structures; to get the <xref:System.Reflection.CustomAttributeTypedArgument> structure for a named argument, use the <xref:System.Reflection.CustomAttributeNamedArgument.TypedValue%2A?displayProperty=fullName> property.  \n  \n If an argument is an array of values, the <xref:System.Reflection.CustomAttributeTypedArgument.Value%2A> property of the <xref:System.Reflection.CustomAttributeTypedArgument> that represents the argument returns a generic <xref:System.Collections.ObjectModel.ReadOnlyCollection%601> of <xref:System.Reflection.CustomAttributeTypedArgument> objects. Each <xref:System.Reflection.CustomAttributeTypedArgument> object in the collection represents the corresponding element of the array.  \n  \n To create instances of the <xref:System.Reflection.CustomAttributeData> class, use the `static`<xref:System.Reflection.CustomAttributeData.GetCustomAttributes%2A> factory method."
   example:
   - "The following example defines a custom attribute with four constructors and four properties. Two of the properties are read-only, and are set by using the positional parameters of the constructors. The other two properties are read/write, and can be set only by using named arguments. One positional property is an array of strings, and one named property is an array of integers.  \n  \n The attribute is applied to the assembly, to a type declared in the assembly, to a method of the type, and to a parameter of the method. Different constructors are used for these cases. When executed, the assembly loads itself into the reflection-only context and displays the custom attributes.  \n  \n The attribute that is applied to the type demonstrates array properties, with both positional and named arguments.  \n  \n [!code-cpp[CustomAttributeData#1](~/samples/snippets/cpp/VS_Snippets_CLR/CustomAttributeData/CPP/source.cpp#1)]\n [!code-csharp[CustomAttributeData#1](~/samples/snippets/csharp/VS_Snippets_CLR/CustomAttributeData/CS/source.cs#1)]\n [!code-vb[CustomAttributeData#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/CustomAttributeData/VB/source.vb#1)]"
@@ -166,7 +166,7 @@ items:
   - System.Runtime
   namespace: System.Reflection
   summary: Initializes a new instance of the <xref href="System.Reflection.CustomAttributeTypedArgument"></xref> class with the specified type and value.
-  remarks: This constructor is for use by inheritors of the <xref:System.Reflection.CustomAttributeTypedArgument> class. It is not intended for use in application code.
+  remarks: 'This constructor is for use by inheritors of the <xref:System.Reflection.CustomAttributeTypedArgument> class. It is not intended for use in application code.'
   syntax:
     content: public CustomAttributeTypedArgument (Type argumentType, object value);
     parameters:
@@ -230,7 +230,7 @@ items:
   - System.Runtime
   namespace: System.Reflection
   summary: Gets the type of the argument or of the array argument element.
-  remarks: For simple arguments or for elements of array arguments, this property identifies the actual type of the value returned by the <xref:System.Reflection.CustomAttributeTypedArgument.Value%2A> property. For array arguments, this property returns the array type, but the <xref:System.Reflection.CustomAttributeTypedArgument.Value%2A> property returns a `ReadOnlyCollection<CustomAttributeTypedArgument>` (`ReadOnlyCollection(Of CustomAttributeTypedArgument)` in Visual Basic) in which each element of the collection represents the corresponding element of the array argument.
+  remarks: 'For simple arguments or for elements of array arguments, this property identifies the actual type of the value returned by the <xref:System.Reflection.CustomAttributeTypedArgument.Value%2A> property. For array arguments, this property returns the array type, but the <xref:System.Reflection.CustomAttributeTypedArgument.Value%2A> property returns a `ReadOnlyCollection<CustomAttributeTypedArgument>` (`ReadOnlyCollection(Of CustomAttributeTypedArgument)` in Visual Basic) in which each element of the collection represents the corresponding element of the array argument.'
   example:
   - "The following example defines a custom attribute with four constructors and four properties. Two of the properties are read-only, and are set by using the positional parameters of the constructors. The other two properties are read/write, and can be set only by using named arguments. One positional property is an array of strings, and one named property is an array of integers.  \n  \n The attribute is applied to the assembly, to a type declared in the assembly, to a method of the type, and to a parameter of the method. Different constructors are used for these cases. When executed, the assembly loads itself into the reflection-only context and displays the custom attributes.  \n  \n The attribute that is applied to the type demonstrates array properties, with both positional and named arguments.  \n  \n The <xref:System.Reflection.CustomAttributeTypedArgument.ArgumentType%2A> property is used in the `ShowValueOrArray` method that displays custom attribute data, to display the types of attributes.  \n  \n [!code-cpp[CustomAttributeData#1](~/samples/snippets/cpp/VS_Snippets_CLR/CustomAttributeData/CPP/source.cpp#1)]\n [!code-csharp[CustomAttributeData#1](~/samples/snippets/csharp/VS_Snippets_CLR/CustomAttributeData/CS/source.cs#1)]\n [!code-vb[CustomAttributeData#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/CustomAttributeData/VB/source.vb#1)]"
   syntax:
@@ -440,7 +440,7 @@ items:
   - System.Runtime
   namespace: System.Reflection
   summary: Tests whether two <xref href="System.Reflection.CustomAttributeTypedArgument"></xref> structures are equivalent.
-  remarks: The equivalent method for this operator is <xref:System.Reflection.CustomAttributeTypedArgument.Equals%28System.Reflection.CustomAttributeTypedArgument%2CSystem.Reflection.CustomAttributeTypedArgument%29?displayProperty=fullName>
+  remarks: 'The equivalent method for this operator is <xref:System.Reflection.CustomAttributeTypedArgument.Equals%28System.Reflection.CustomAttributeTypedArgument%2CSystem.Reflection.CustomAttributeTypedArgument%29?displayProperty=fullName>'
   syntax:
     content: public static bool op_Equality (System.Reflection.CustomAttributeTypedArgument left, System.Reflection.CustomAttributeTypedArgument right);
     parameters:
@@ -512,7 +512,7 @@ items:
   - System.Runtime
   namespace: System.Reflection
   summary: Tests whether two <xref href="System.Reflection.CustomAttributeTypedArgument"></xref> structures are different.
-  remarks: The equivalent method for this operator is <xref:System.Reflection.CustomAttributeTypedArgument.Compare%28System.Reflection.CustomAttributeTypedArgument%2CSystem.Reflection.CustomAttributeTypedArgument%29?displayProperty=fullName>
+  remarks: 'The equivalent method for this operator is <xref:System.Reflection.CustomAttributeTypedArgument.Compare%28System.Reflection.CustomAttributeTypedArgument%2CSystem.Reflection.CustomAttributeTypedArgument%29?displayProperty=fullName>'
   syntax:
     content: public static bool op_Inequality (System.Reflection.CustomAttributeTypedArgument left, System.Reflection.CustomAttributeTypedArgument right);
     parameters:
@@ -583,13 +583,13 @@ items:
   - netstandard
   - System.Runtime
   namespace: System.Reflection
-  summary: Returns a string consisting of the argument name, the equal sign, and a string representation of the argument value.
+  summary: 'Returns a string consisting of the argument name, the equal sign, and a string representation of the argument value.'
   syntax:
     content: public override string ToString ();
     parameters: []
     return:
       type: System.String
-      description: A string consisting of the argument name, the equal sign, and a string representation of the argument value.
+      description: 'A string consisting of the argument name, the equal sign, and a string representation of the argument value.'
   overload: System.Reflection.CustomAttributeTypedArgument.ToString*
   exceptions: []
   version:
@@ -656,7 +656,7 @@ items:
     content: public object Value { get; }
     return:
       type: System.Object
-      description: An object that represents the value of the argument or element, or a generic <xref href="System.Collections.ObjectModel.ReadOnlyCollection`1"></xref> of <xref href="System.Reflection.CustomAttributeTypedArgument"></xref> objects that represent the values of an array-type argument.
+      description: 'An object that represents the value of the argument or element, or a generic <xref href="System.Collections.ObjectModel.ReadOnlyCollection`1"></xref> of <xref href="System.Reflection.CustomAttributeTypedArgument"></xref> objects that represent the values of an array-type argument.'
   overload: System.Reflection.CustomAttributeTypedArgument.Value*
   exceptions: []
   version:

@@ -26,7 +26,7 @@ items:
   - System.Security.Permissions
   namespace: System.Security
   summary: Allows the control and customization of security behavior for application domains.
-  remarks: When you create a new <xref:System.AppDomain>, the common language runtime queries the <xref:System.AppDomainManager> for the presence of a <xref:System.Security.HostSecurityManager>, which participates in making security decisions for the <xref:System.AppDomain>.  Host providers should implement a host security manager that inherits from the <xref:System.Security.HostSecurityManager> class.
+  remarks: 'When you create a new <xref:System.AppDomain>, the common language runtime queries the <xref:System.AppDomainManager> for the presence of a <xref:System.Security.HostSecurityManager>, which participates in making security decisions for the <xref:System.AppDomain>.  Host providers should implement a host security manager that inherits from the <xref:System.Security.HostSecurityManager> class.'
   example:
   - "The following example shows a very simple implementation of a <xref:System.Security.HostSecurityManager>.  \n  \n [!code-csharp[System.Security.HostSecurityManager#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Security.HostSecurityManager/CS/customsecuritymanager.cs#1)]\n [!code-vb[System.Security.HostSecurityManager#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Security.HostSecurityManager/VB/customsecuritymanager.vb#1)]"
   syntax:
@@ -153,7 +153,7 @@ items:
       description: The evidence for the application to be activated.
     - id: activatorEvidence
       type: System.Security.Policy.Evidence
-      description: Optionally, the evidence for the activating application domain.
+      description: 'Optionally, the evidence for the activating application domain.'
     - id: context
       type: System.Security.Policy.TrustManagerContext
       description: The trust context.
@@ -215,7 +215,7 @@ items:
   - mscorlib
   - System.Security.Permissions
   namespace: System.Security
-  summary: When overridden in a derived class, gets the security policy for the current application domain.
+  summary: 'When overridden in a derived class, gets the security policy for the current application domain.'
   remarks: "This property can be overridden in a derived class. The base implementation always returns `null`.  \n  \n This property is called at <xref:System.AppDomain> creation time. It allows a host to supply a policy for the current <xref:System.AppDomain>.  A policy level consists of the following:  \n  \n-   A set of code groups organized into a single rooted tree.  \n  \n-   A set of named permission sets that are referenced by the code groups to specify permissions to be granted to code belonging to the code group.  \n  \n-   A list of fully trusted assemblies.  \n  \n> [!IMPORTANT]\n>  See the Notes to Inheritors for the <xref:System.Security.HostSecurityManager> class for critical implementation information."
   syntax:
     content: public virtual System.Security.Policy.PolicyLevel DomainPolicy { get; }
@@ -226,7 +226,7 @@ items:
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: This method uses code access security (CAS) policy, which is obsolete in the [!INCLUDE[net_v40_long](~/includes/net-v40-long-md.md)]. To enable CAS policy for compatibility with earlier versions of the .NET Framework, use the [<legacyCasPolicy> element](~/docs/framework/configure-apps/file-schema/runtime/netfx40-legacysecuritypolicy-element.md).
+    description: 'This method uses code access security (CAS) policy, which is obsolete in the [!INCLUDE[net_v40_long](~/includes/net-v40-long-md.md)]. To enable CAS policy for compatibility with earlier versions of the .NET Framework, use the [<legacyCasPolicy> element](~/docs/framework/configure-apps/file-schema/runtime/netfx40-legacysecuritypolicy-element.md).'
   version:
   - netcore-2.0
   - netframework-4.5.1
@@ -433,7 +433,7 @@ items:
   - mscorlib
   - System.Security.Permissions
   namespace: System.Security
-  summary: Determines which evidence types the host can supply for the application domain, if requested.
+  summary: 'Determines which evidence types the host can supply for the application domain, if requested.'
   remarks: "This method can be overridden by a derived class. The base implementation returns `null`.  \n  \n The types returned by this method determine whether the <xref:System.Security.HostSecurityManager.GenerateAppDomainEvidence%2A> method is called back into. The presence of a type in this list does not mean that the host must be able to generate this evidence type, but that it may be able to. For that reason, it is best to over-specify rather than under-specify the types in this list."
   syntax:
     content: public virtual Type[] GetHostSuppliedAppDomainEvidenceTypes ();
@@ -481,7 +481,7 @@ items:
   - mscorlib
   - System.Security.Permissions
   namespace: System.Security
-  summary: Determines which evidence types the host can supply for the assembly, if requested.
+  summary: 'Determines which evidence types the host can supply for the assembly, if requested.'
   remarks: "This method can be overridden by a derived class. The base implementation returns `null`.  \n  \n The types returned by this method determine whether the <xref:System.Security.HostSecurityManager.GenerateAssemblyEvidence%2A> method is called back into. The presence of a type in this list does not mean that the host must be able to generate this evidence type, but that it may be able to. For that reason, it is best to over-specify rather than under-specify the types in this list."
   syntax:
     content: public virtual Type[] GetHostSuppliedAssemblyEvidenceTypes (System.Reflection.Assembly assembly);
@@ -652,7 +652,7 @@ items:
   - System.Security.Permissions
   namespace: System.Security
   summary: Determines what permissions to grant to code based on the specified evidence.
-  remarks: This method invokes the security policy engine, providing it with the specified evidence. The result is determined by the security policy.
+  remarks: 'This method invokes the security policy engine, providing it with the specified evidence. The result is determined by the security policy.'
   syntax:
     content: public virtual System.Security.PermissionSet ResolvePolicy (System.Security.Policy.Evidence evidence);
     parameters:

@@ -310,7 +310,7 @@ items:
   - netstandard
   namespace: System.Xml.Linq
   summary: Gets an empty collection of attributes.
-  remarks: This property is typically used by class implementers when writing a method that returns a collection of attributes. If the method needs to return an empty collection of attributes, it could use this property to get an empty collection of <xref:System.Xml.Linq.XAttribute> objects.
+  remarks: 'This property is typically used by class implementers when writing a method that returns a collection of attributes. If the method needs to return an empty collection of attributes, it could use this property to get an empty collection of <xref:System.Xml.Linq.XAttribute> objects.'
   syntax:
     content: public static System.Collections.Generic.IEnumerable<System.Xml.Linq.XAttribute> EmptySequence { get; }
     return:
@@ -382,7 +382,7 @@ items:
   - netstandard
   namespace: System.Xml.Linq
   summary: Determines if this attribute is a namespace declaration.
-  remarks: Technically, in XML, namespace declarations are not attributes proper. However, this distinction is not normally made by most XML programmers. Instead, because namespace declarations have exactly the same syntax as attributes, most XML programmers think of namespaces as attributes. To simplify the [!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] programming interface, namespaces are represented in the XML tree as attributes. You can use this property to determine if a particular [!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] attribute is really a namespace declaration.
+  remarks: 'Technically, in XML, namespace declarations are not attributes proper. However, this distinction is not normally made by most XML programmers. Instead, because namespace declarations have exactly the same syntax as attributes, most XML programmers think of namespaces as attributes. To simplify the [!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] programming interface, namespaces are represented in the XML tree as attributes. You can use this property to determine if a particular [!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] attribute is really a namespace declaration.'
   example:
   - "The following example creates an attribute that is a namespace declaration and an attribute that is not. It then uses this property to display whether each attribute is a namespace declaration or not.  \n  \n```csharp  \n  \n                XNamespace aw = \"http://www.adventure-works.com\";  \nXElement root = new XElement(aw + \"Root\",  \n    new XAttribute(XNamespace.Xmlns + \"aw\", \"http://www.adventure-works.com\"),  \n    new XAttribute(aw + \"Att\", \"content\")  \n);  \n  \nforeach (XAttribute att in root.Attributes()) {  \n    if (att.IsNamespaceDeclaration)  \n        Console.WriteLine(\"{0} is a namespace declaration\", att.Name);  \n    else  \n        Console.WriteLine(\"{0} is not a namespace declaration\", att.Name);  \n}  \n```  \n  \n```vb  \n  \n                Dim root As XElement = <aw:Root xmlns:aw='http://www.adventure-works.com'  \n                           aw:Att='content'/>  \n  \nFor Each att As XAttribute In root.Attributes()  \n    If (att.IsNamespaceDeclaration) Then  \n        Console.WriteLine(\"{0} is a namespace declaration\", att.Name)  \n    Else  \n        Console.WriteLine(\"{0} is not a namespace declaration\", att.Name)  \n    End If  \nNext  \n```  \n  \n This example produces the following output:  \n  \n```  \n  \n                {http://www.w3.org/2000/xmlns/}aw is a namespace declaration  \n{http://www.adventure-works.com}Att is not a namespace declaration  \n```"
   syntax:
@@ -456,7 +456,7 @@ items:
   - netstandard
   namespace: System.Xml.Linq
   summary: Gets the expanded name of this attribute.
-  remarks: The expanded name returned by this property is in the form of `{namespace}localname`.
+  remarks: 'The expanded name returned by this property is in the form of `{namespace}localname`.'
   example:
   - "The following example creates an element with three attributes. It then uses this property to print out the name of each attribute. The example also shows creation of a new attribute using the name of an existing attribute.  \n  \n```csharp  \n  \n                XNamespace aw = \"http://www.adventure-works.com\";  \nXElement root = new XElement(aw + \"Root\",  \n    new XAttribute(XNamespace.Xmlns + \"aw\", \"http://www.adventure-works.com\"),  \n    new XAttribute(aw + \"Att\", \"content\"),  \n    new XAttribute(\"Att2\", \"different content\")  \n);  \n  \nforeach (XAttribute att in root.Attributes())  \n    Console.WriteLine(\"{0}={1}\", att.Name, att.Value);  \nConsole.WriteLine(\"\");  \n  \nXElement newRoot = new XElement(aw + \"Root\",  \n    from att in root.Attributes(\"Att2\")  \n    select new XAttribute(att.Name, \"new content\"));  \n  \nforeach (XAttribute att in newRoot.Attributes())  \n    Console.WriteLine(\"{0}={1}\", att.Name, att.Value);  \n```  \n  \n```vb  \n  \n                Dim root As XElement = _   \n    <aw:Root xmlns:aw='http://www.adventure-works.com'  \n        aw:Att='content'  \n        Att2='different content'/>  \n  \nFor Each att As XAttribute In root.Attributes()  \n    Console.WriteLine(\"{0}={1}\", att.Name, att.Value)  \nNext  \nConsole.WriteLine(\"\")  \n  \nDim NewRoot As XElement = _  \n<Root  \n    <%= _  \n        From att In root.Attributes(\"Att2\") _  \n        Select New XAttribute(att.Name, \"new content\") _  \n    %>>_  \n</Root>  \n  \nFor Each att As XAttribute In NewRoot.Attributes()  \n    Console.WriteLine(\"{0}={1}\", att.Name, att.Value)  \nNext  \n  \n```  \n  \n This example produces the following output:  \n  \n```  \n  \n                {http://www.w3.org/2000/xmlns/}aw=http://www.adventure-works.com  \n{http://www.adventure-works.com}Att=content  \nAtt2=different content  \n  \nAtt2=new content  \n```"
   syntax:
@@ -604,14 +604,14 @@ items:
   - netstandard
   namespace: System.Xml.Linq
   summary: Gets the node type for this node.
-  remarks: Because all classes that derive from <xref:System.Xml.Linq.XObject> contain a <xref:System.Xml.Linq.XObject.NodeType%2A> property, you can write code that operates on collections of concrete subclass of <xref:System.Xml.Linq.XObject>. Your code can then test for the node type of each node in the collection.
+  remarks: 'Because all classes that derive from <xref:System.Xml.Linq.XObject> contain a <xref:System.Xml.Linq.XObject.NodeType%2A> property, you can write code that operates on collections of concrete subclass of <xref:System.Xml.Linq.XObject>. Your code can then test for the node type of each node in the collection.'
   example:
   - "The following example creates an attribute, and then displays the node type using this property.  \n  \n```csharp  \n  \n                XElement root = new XElement(\"Root\",  \n    new XAttribute(\"Att\", \"content\")  \n);  \n  \nXAttribute att = root.FirstAttribute;  \nConsole.WriteLine(att.NodeType);  \n```  \n  \n```vb  \n  \n                Dim root As XElement = <Root Att=\"content\"/>  \nDim att As XAttribute = root.FirstAttribute  \nConsole.WriteLine(att.NodeType.ToString)  \n```  \n  \n This example produces the following output:  \n  \n```  \n  \nAttribute  \n```"
   syntax:
     content: public override System.Xml.XmlNodeType NodeType { get; }
     return:
       type: System.Xml.XmlNodeType
-      description: The node type. For <xref href="System.Xml.Linq.XAttribute"></xref> objects, this value is <xref href="System.Xml.XmlNodeType.Attribute"></xref>.
+      description: 'The node type. For <xref href="System.Xml.Linq.XAttribute"></xref> objects, this value is <xref href="System.Xml.XmlNodeType.Attribute"></xref>.'
   overload: System.Xml.Linq.XAttribute.NodeType*
   exceptions: []
   version:
@@ -2845,7 +2845,7 @@ items:
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: When setting, the <code>value</code> is `null`.
+    description: 'When setting, the <code>value</code> is `null`.'
   version:
   - netcore-1.0
   - netcore-1.1

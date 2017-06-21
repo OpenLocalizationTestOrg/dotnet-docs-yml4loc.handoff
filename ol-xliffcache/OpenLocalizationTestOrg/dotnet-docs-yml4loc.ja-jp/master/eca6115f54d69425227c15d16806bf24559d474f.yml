@@ -128,7 +128,7 @@ items:
   - System
   - netstandard
   namespace: System.Diagnostics
-  summary: Checks for a condition; if the condition is `false`, displays a message box that shows the call stack.
+  summary: 'Checks for a condition; if the condition is `false`, displays a message box that shows the call stack.'
   remarks: "By default, the <xref:System.Diagnostics.Debug.Assert%2A?displayProperty=fullName> method works only in debug builds. Use the <xref:System.Diagnostics.Trace.Assert%2A?displayProperty=fullName> method if you want to do assertions in release builds. For more information, see [Assertions in Managed Code](http://msdn.microsoft.com/library/70ab2522-6486-4076-a1a9-e0f11cd0f3a1).  \n  \n> [!IMPORTANT]\n>  The `Assert` methods are not available for [!INCLUDE[win8_appstore_long](~/includes/win8-appstore-long-md.md)] apps.  \n  \n Typically, the <xref:System.Diagnostics.Debug.Assert%28System.Boolean%29> method is used to identify logic errors during program development. <xref:System.Diagnostics.Debug.Assert%2A> evaluates the condition. If the result is `false`, it sends a failure message to the <xref:System.Diagnostics.Debug.Listeners%2A> collection. You can customize this behavior by adding a <xref:System.Diagnostics.TraceListener> to, or removing one from, the <xref:System.Diagnostics.Debug.Listeners%2A> collection.  \n  \n When the application runs in user interface mode, it displays a message box that shows the call stack with file and line numbers. The message box contains three buttons: **Abort**, **Retry**, and **Ignore**. Clicking the **Abort** button terminates the application. Clicking **Retry** sends you to the code in the debugger if your application is running in a debugger, or offers to open a debugger if it is not. Clicking **Ignore** continues with the next instruction in the code.  \n  \n> [!NOTE]\n>  [!INCLUDE[win8_appname_long](~/includes/win8-appname-long-md.md)] apps do not support modal dialog boxes, so they behave the same in user interface mode and non-user interface mode. The message is written to the active trace listeners in debugging mode, or no message is written in release mode.  \n  \n> [!NOTE]\n>  The display of the message box depends on the presence of the <xref:System.Diagnostics.DefaultTraceListener>. If the <xref:System.Diagnostics.DefaultTraceListener> is not in the <xref:System.Diagnostics.Trace.Listeners%2A> collection, the message box is not displayed. The <xref:System.Diagnostics.DefaultTraceListener> can be removed by the [\\&lt;clear\\&gt;](~/docs/framework/configure-apps/file-schema/trace-debug/clear-element-for-listeners-for-trace.md), the [\\&lt;remove\\&gt;](~/docs/framework/configure-apps/file-schema/trace-debug/remove-element-for-listeners-for-trace.md), or by calling the <xref:System.Diagnostics.TraceListenerCollection.Clear%2A> method on the <xref:System.Diagnostics.Trace.Listeners%2A> property (`System.Diagnostics.Trace.Listeners.Clear()`).  \n  \n You can change the behavior of the <xref:System.Diagnostics.DefaultTraceListener> in the configuration file that corresponds to the name of your application. In this file, you can enable and disable the assert message box or set the <xref:System.Diagnostics.DefaultTraceListener.LogFileName%2A?displayProperty=fullName> property. The configuration file should be formatted as follows:  \n  \n```  \n<configuration>  \n  <system.diagnostics>  \n    <assert assertuienabled=\"true\" logfilename=\"c:\\\\myFile.log\" />  \n  </system.diagnostics>  \n</configuration>  \n```"
   example:
   - "The following example creates an index for an array, performs some action to set the value of the index, and then calls <xref:System.Diagnostics.Debug.Assert%2A> to confirm that the index value is valid. If it is not valid, <xref:System.Diagnostics.Debug.Assert%2A> outputs the call stack.  \n  \n [!code-cpp[Classic Debug.Assert Example#1](~/samples/snippets/cpp/VS_Snippets_CLR_Classic/classic Debug.Assert Example/CPP/source.cpp#1)]\n [!code-csharp[Classic Debug.Assert Example#1](~/samples/snippets/csharp/VS_Snippets_CLR_Classic/classic Debug.Assert Example/CS/source.cs#1)]\n [!code-vb[Classic Debug.Assert Example#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_Classic/classic Debug.Assert Example/VB/source.vb#1)]"
@@ -140,7 +140,7 @@ items:
     parameters:
     - id: condition
       type: System.Boolean
-      description: The conditional expression to evaluate. If the condition is `true`, a failure message is not sent and the message box is not displayed.
+      description: 'The conditional expression to evaluate. If the condition is `true`, a failure message is not sent and the message box is not displayed.'
   overload: System.Diagnostics.Debug.Assert*
   exceptions: []
   attributes:
@@ -208,7 +208,7 @@ items:
   - System
   - netstandard
   namespace: System.Diagnostics
-  summary: Checks for a condition; if the condition is `false`, outputs a specified message and displays a message box that shows the call stack.
+  summary: 'Checks for a condition; if the condition is `false`, outputs a specified message and displays a message box that shows the call stack.'
   remarks: "By default, the <xref:System.Diagnostics.Debug.Assert%2A?displayProperty=fullName> method works only in debug builds. Use the <xref:System.Diagnostics.Trace.Assert%2A?displayProperty=fullName> method if you want to do assertions in release builds. For more information, see [Assertions in Managed Code](http://msdn.microsoft.com/library/70ab2522-6486-4076-a1a9-e0f11cd0f3a1).  \n  \n Typically, the <xref:System.Diagnostics.Debug.Assert%2A> method is used to identify logic errors during program development. <xref:System.Diagnostics.Debug.Assert%2A> evaluates the condition. If the result is `false`, it sends the specified diagnostic message to the <xref:System.Diagnostics.Debug.Listeners%2A> collection. You can customize this behavior by adding a <xref:System.Diagnostics.TraceListener> to, or removing one from, the <xref:System.Diagnostics.Debug.Listeners%2A> collection.  \n  \n When the application runs in user interface mode, it displays a message box that shows the call stack with file and line numbers. The message box contains three buttons: **Abort**, **Retry**, and **Ignore**. Clicking the **Abort** button terminates the application. Clicking **Retry** sends you to the code in the debugger if your application is running in a debugger, or offers to open a debugger if it is not. Clicking **Ignore** continues with the next instruction in the code.  \n  \n> [!NOTE]\n>  The display of the message box depends on the presence of the <xref:System.Diagnostics.DefaultTraceListener>. If the <xref:System.Diagnostics.DefaultTraceListener> is not in the <xref:System.Diagnostics.Trace.Listeners%2A> collection, the message box is not displayed. The <xref:System.Diagnostics.DefaultTraceListener> can be removed by the [\\&lt;clear\\&gt;](~/docs/framework/configure-apps/file-schema/trace-debug/clear-element-for-listeners-for-trace.md), the [\\&lt;remove\\&gt;](~/docs/framework/configure-apps/file-schema/trace-debug/remove-element-for-listeners-for-trace.md), or by calling the <xref:System.Diagnostics.TraceListenerCollection.Clear%2A> method on the <xref:System.Diagnostics.Trace.Listeners%2A> property (`System.Diagnostics.Trace.Listeners.Clear()`).  \n  \n You can change the behavior of the <xref:System.Diagnostics.DefaultTraceListener> in the configuration file that corresponds to the name of your application. In this file, you can enable and disable the assert message box or set the <xref:System.Diagnostics.DefaultTraceListener.LogFileName%2A?displayProperty=fullName> property. The configuration file should be formatted as follows:  \n  \n```  \n<configuration>  \n  <system.diagnostics>  \n    <assert assertuienabled=\"true\" logfilename=\"c:\\\\myFile.log\" />  \n  </system.diagnostics>  \n</configuration>  \n```"
   example:
   - "The following example checks whether the `type` parameter is valid. If `type` is `null`, <xref:System.Diagnostics.Trace.Assert%2A> outputs a message.  \n  \n [!code-cpp[Classic Debug.Assert1 Example#1](~/samples/snippets/cpp/VS_Snippets_CLR_Classic/classic Debug.Assert1 Example/CPP/source.cpp#1)]\n [!code-csharp[Classic Debug.Assert1 Example#1](~/samples/snippets/csharp/VS_Snippets_CLR_Classic/classic Debug.Assert1 Example/CS/source.cs#1)]\n [!code-vb[Classic Debug.Assert1 Example#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_Classic/classic Debug.Assert1 Example/VB/source.vb#1)]"
@@ -220,7 +220,7 @@ items:
     parameters:
     - id: condition
       type: System.Boolean
-      description: The conditional expression to evaluate. If the condition is `true`, the specified message is not sent and the message box is not displayed.
+      description: 'The conditional expression to evaluate. If the condition is `true`, the specified message is not sent and the message box is not displayed.'
     - id: message
       type: System.String
       description: The message to send to the <xref href="System.Diagnostics.Trace.Listeners"></xref> collection.
@@ -291,7 +291,7 @@ items:
   - System
   - netstandard
   namespace: System.Diagnostics
-  summary: Checks for a condition; if the condition is `false`, outputs two specified messages and displays a message box that shows the call stack.
+  summary: 'Checks for a condition; if the condition is `false`, outputs two specified messages and displays a message box that shows the call stack.'
   remarks: "By default, the <xref:System.Diagnostics.Debug.Assert%2A?displayProperty=fullName> method works only in debug builds. Use the <xref:System.Diagnostics.Trace.Assert%2A?displayProperty=fullName> method if you want to do assertions in release builds. For more information, see [Assertions in Managed Code](http://msdn.microsoft.com/library/70ab2522-6486-4076-a1a9-e0f11cd0f3a1).  \n  \n Typically, the <xref:System.Diagnostics.Debug.Assert%28System.Boolean%2CSystem.String%2CSystem.String%29> method is used to identify logic errors during program development. <xref:System.Diagnostics.Debug.Assert%2A> evaluates the condition. If the result is `false`, it sends the specified diagnostic message and detailed message to the <xref:System.Diagnostics.Debug.Listeners%2A> collection. You can customize this behavior by adding a <xref:System.Diagnostics.TraceListener> to, or removing one from, the <xref:System.Diagnostics.Debug.Listeners%2A> collection.  \n  \n When the application runs in user interface mode, it displays a message box that shows the call stack with file and line numbers. The message box contains three buttons: **Abort**, **Retry**, and **Ignore**. Clicking the **Abort** button terminates the application. Clicking **Retry** sends you to the code in the debugger if your application is running in a debugger, or offers to open a debugger if it is not. Clicking **Ignore** continues with the next instruction in the code.  \n  \n> [!NOTE]\n>  The display of the message box depends on the presence of the <xref:System.Diagnostics.DefaultTraceListener>. If the <xref:System.Diagnostics.DefaultTraceListener> is not in the <xref:System.Diagnostics.Trace.Listeners%2A> collection, the message box is not displayed. The <xref:System.Diagnostics.DefaultTraceListener> can be removed by the [\\&lt;clear\\&gt;](~/docs/framework/configure-apps/file-schema/trace-debug/clear-element-for-listeners-for-trace.md), the [\\&lt;remove\\&gt;](~/docs/framework/configure-apps/file-schema/trace-debug/remove-element-for-listeners-for-trace.md), or by calling the <xref:System.Diagnostics.TraceListenerCollection.Clear%2A> method on the <xref:System.Diagnostics.Trace.Listeners%2A> property (`System.Diagnostics.Trace.Listeners.Clear()`).  \n  \n You can change the behavior of the <xref:System.Diagnostics.DefaultTraceListener> in the configuration file that corresponds to the name of your application. In this file, you can enable and disable the assert message box or set the <xref:System.Diagnostics.DefaultTraceListener.LogFileName%2A?displayProperty=fullName> property. The configuration file should be formatted as follows:  \n  \n```  \n<configuration>  \n  <system.diagnostics>  \n    <assert assertuienabled=\"true\" logfilename=\"c:\\\\myFile.log\" />  \n  </system.diagnostics>  \n</configuration>  \n```"
   example:
   - "The following example checks whether the `type` parameter is valid. If `type` is `null`, <xref:System.Diagnostics.Trace.Assert%2A> outputs two messages.  \n  \n [!code-cpp[Classic Debug.Assert2 Example#1](~/samples/snippets/cpp/VS_Snippets_CLR_Classic/classic Debug.Assert2 Example/CPP/source.cpp#1)]\n [!code-csharp[Classic Debug.Assert2 Example#1](~/samples/snippets/csharp/VS_Snippets_CLR_Classic/classic Debug.Assert2 Example/CS/source.cs#1)]\n [!code-vb[Classic Debug.Assert2 Example#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_Classic/classic Debug.Assert2 Example/VB/source.vb#1)]"
@@ -303,7 +303,7 @@ items:
     parameters:
     - id: condition
       type: System.Boolean
-      description: The conditional expression to evaluate. If the condition is `true`, the specified messages are not sent and the message box is not displayed.
+      description: 'The conditional expression to evaluate. If the condition is `true`, the specified messages are not sent and the message box is not displayed.'
     - id: message
       type: System.String
       description: The message to send to the <xref href="System.Diagnostics.Trace.Listeners"></xref> collection.
@@ -371,7 +371,7 @@ items:
   - System
   - netstandard
   namespace: System.Diagnostics
-  summary: Checks for a condition; if the condition is `false`, outputs two messages (simple and formatted) and displays a message box that shows the call stack.
+  summary: 'Checks for a condition; if the condition is `false`, outputs two messages (simple and formatted) and displays a message box that shows the call stack.'
   remarks: "This method uses the  of the .NET Framework to convert the value of an object to its text representation and embed that representation in a string. The resulting string is sent to the <xref:System.Diagnostics.Trace.Listeners%2A> collection.  \n  \n By default, the <xref:System.Diagnostics.Debug.Assert%2A?displayProperty=fullName> method works only in debug builds. Use the <xref:System.Diagnostics.Trace.Assert%2A?displayProperty=fullName> method if you want to do assertions in release builds. For more information, see [Assertions in Managed Code](http://msdn.microsoft.com/library/70ab2522-6486-4076-a1a9-e0f11cd0f3a1).  \n  \n Typically, the <xref:System.Diagnostics.Debug.Assert%28System.Boolean%2CSystem.String%2CSystem.String%2CSystem.Object%5B%5D%29> method is used to identify logic errors during program development. <xref:System.Diagnostics.Debug.Assert%2A> evaluates the condition. If the result is `false`, The <xref:System.String.Format%28System.String%2CSystem.Object%5B%5D%29?displayProperty=fullName> method is called and the `detailMessageFormat` string and `args` array are passed in as parameters. <xref:System.Diagnostics.Debug.Assert%28System.Boolean%2CSystem.String%2CSystem.String%2CSystem.Object%5B%5D%29> then sends the specified text message and the formatted text message to the <xref:System.Diagnostics.Debug.Listeners%2A> collection. You can customize this behavior by adding a <xref:System.Diagnostics.TraceListener> to, or removing one from, the <xref:System.Diagnostics.Debug.Listeners%2A> collection.  \n  \n When the application runs in user interface mode, it displays a message box that shows the call stack with file and line numbers. The message box contains three buttons: **Abort**, **Retry**, and **Ignore**. Clicking the **Abort** button terminates the application. Clicking **Retry** sends you to the code in the debugger if your application is running in a debugger, or offers to open a debugger if it is not. Clicking **Ignore** continues with the next instruction in the code.  \n  \n> [!NOTE]\n>  The display of the message box is dependent on the presence of the <xref:System.Diagnostics.DefaultTraceListener>. If the <xref:System.Diagnostics.DefaultTraceListener> is not in the <xref:System.Diagnostics.Trace.Listeners%2A> collection, the message box is not displayed. The <xref:System.Diagnostics.DefaultTraceListener> can be removed by the [\\&lt;clear\\&gt;](~/docs/framework/configure-apps/file-schema/trace-debug/clear-element-for-listeners-for-trace.md), the [\\&lt;remove\\&gt;](~/docs/framework/configure-apps/file-schema/trace-debug/remove-element-for-listeners-for-trace.md), or by calling the <xref:System.Diagnostics.TraceListenerCollection.Clear%2A> method on the <xref:System.Diagnostics.Trace.Listeners%2A> property (`System.Diagnostics.Trace.Listeners.Clear()`).  \n  \n You can change the behavior of the <xref:System.Diagnostics.DefaultTraceListener> in the configuration file that corresponds to the name of your application. In this file, you can enable and disable the assert message box or set the <xref:System.Diagnostics.DefaultTraceListener.LogFileName%2A?displayProperty=fullName> property. The configuration file should be formatted as follows:  \n  \n```  \n<configuration>  \n  <system.diagnostics>  \n    <assert assertuienabled=\"true\" logfilename=\"c:\\\\myFile.log\" />  \n  </system.diagnostics>  \n</configuration>  \n```"
   syntax:
     content: >-
@@ -381,13 +381,13 @@ items:
     parameters:
     - id: condition
       type: System.Boolean
-      description: The conditional expression to evaluate. If the condition is `true`, the specified messages are not sent and the message box is not displayed.
+      description: 'The conditional expression to evaluate. If the condition is `true`, the specified messages are not sent and the message box is not displayed.'
     - id: message
       type: System.String
       description: The message to send to the <xref href="System.Diagnostics.Trace.Listeners"></xref> collection.
     - id: detailMessageFormat
       type: System.String
-      description: The composite format string to send to the <xref href="System.Diagnostics.Trace.Listeners"></xref> collection. This message contains text intermixed with zero or more format items, which correspond to objects in the <code>args</code> array.
+      description: 'The composite format string to send to the <xref href="System.Diagnostics.Trace.Listeners"></xref> collection. This message contains text intermixed with zero or more format items, which correspond to objects in the <code>args</code> array.'
     - id: args
       type: System.Object[]
       description: An object array that contains zero or more objects to format.
@@ -721,7 +721,7 @@ items:
   - System.Diagnostics.Debug
   namespace: System.Diagnostics
   summary: Flushes the output buffer and causes buffered data to write to the <xref href="System.Diagnostics.Debug.Listeners"></xref> collection.
-  remarks: Flushing the stream will not flush its underlying encoder unless you explicitly call <xref:System.Diagnostics.Debug.Flush%2A> or <xref:System.Diagnostics.Debug.Close%2A>. Setting <xref:System.Diagnostics.Debug.AutoFlush%2A> to `true` means that data will be flushed from the buffer to the stream, but the encoder state will not be flushed. This allows the encoder to keep its state (partial characters) so that it can encode the next block of characters correctly. This scenario affects UTF8 and UTF7 where certain characters can only be encoded after the encoder receives the adjacent character or characters.
+  remarks: 'Flushing the stream will not flush its underlying encoder unless you explicitly call <xref:System.Diagnostics.Debug.Flush%2A> or <xref:System.Diagnostics.Debug.Close%2A>. Setting <xref:System.Diagnostics.Debug.AutoFlush%2A> to `true` means that data will be flushed from the buffer to the stream, but the encoder state will not be flushed. This allows the encoder to keep its state (partial characters) so that it can encode the next block of characters correctly. This scenario affects UTF8 and UTF7 where certain characters can only be encoded after the encoder receives the adjacent character or characters.'
   example:
   - "The following example creates a <xref:System.Diagnostics.TextWriterTraceListener> named `myTextListener`. `myTextListener` uses a <xref:System.IO.FileStream> called `myFileStream` to write to a file named `TestFile.txt`. The example creates the stream, opens the file if it exists or creates a new one, writes one line of text to the file, and then flushes and closes the output.  \n  \n [!code-cpp[Classic Debug.Close Example#1](~/samples/snippets/cpp/VS_Snippets_CLR_Classic/classic Debug.Close Example/CPP/source.cpp#1)]\n [!code-csharp[Classic Debug.Close Example#1](~/samples/snippets/csharp/VS_Snippets_CLR_Classic/classic Debug.Close Example/CS/source.cs#1)]\n [!code-vb[Classic Debug.Close Example#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_Classic/classic Debug.Close Example/VB/source.vb#1)]"
   syntax:
@@ -843,7 +843,7 @@ items:
   - System.Diagnostics.Debug
   namespace: System.Diagnostics
   summary: Gets or sets the indent level.
-  remarks: The <xref:System.Diagnostics.Debug.IndentLevel%2A> property represents the number of times the indent of size <xref:System.Diagnostics.Debug.IndentSize%2A> is applied.
+  remarks: 'The <xref:System.Diagnostics.Debug.IndentLevel%2A> property represents the number of times the indent of size <xref:System.Diagnostics.Debug.IndentSize%2A> is applied.'
   example:
   - "The following example sets the indent level and emits debugging messages.  \n  \n [!code-cpp[Classic Debug.IndentLevel Example#1](~/samples/snippets/cpp/VS_Snippets_CLR_Classic/classic Debug.IndentLevel Example/CPP/source.cpp#1)]\n [!code-csharp[Classic Debug.IndentLevel Example#1](~/samples/snippets/csharp/VS_Snippets_CLR_Classic/classic Debug.IndentLevel Example/CS/source.cs#1)]\n [!code-vb[Classic Debug.IndentLevel Example#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_Classic/classic Debug.IndentLevel Example/VB/source.vb#1)]  \n  \n This example produces the following output:  \n  \n```  \n  \nList of errors:  \n     Error 1: File not found  \n     Error 2: Directory not found  \nEnd of list of errors  \n  \n```"
   syntax:
@@ -1009,7 +1009,7 @@ items:
   - System.Diagnostics.Debug
   namespace: System.Diagnostics
   summary: Writes a message followed by a line terminator to the trace listeners in the <xref href="System.Diagnostics.Debug.Listeners"></xref> collection.
-  remarks: The default line terminator is a carriage return followed by a line feed. By default, the output is written to an instance of <xref:System.Diagnostics.DefaultTraceListener>.
+  remarks: 'The default line terminator is a carriage return followed by a line feed. By default, the output is written to an instance of <xref:System.Diagnostics.DefaultTraceListener>.'
   syntax:
     content: >-
       [System.Diagnostics.Conditional("DEBUG")]
@@ -1071,7 +1071,7 @@ items:
   - System.Diagnostics.Debug
   namespace: System.Diagnostics
   summary: Writes a formatted string followed by a line terminator to the trace listeners in the <xref href="System.Diagnostics.Debug.Listeners"></xref> collection.
-  remarks: This method uses the  of the .NET Framework to convert the value of an object to its text representation and embed that representation in a string. By default, the output is written to an instance of <xref:System.Diagnostics.DefaultTraceListener>.
+  remarks: 'This method uses the  of the .NET Framework to convert the value of an object to its text representation and embed that representation in a string. By default, the output is written to an instance of <xref:System.Diagnostics.DefaultTraceListener>.'
   syntax:
     content: >-
       [System.Diagnostics.Conditional("DEBUG")]
@@ -1080,7 +1080,7 @@ items:
     parameters:
     - id: format
       type: System.String
-      description: A composite format string that contains text intermixed with zero or more format items, which correspond to objects in the <code>args</code> array.
+      description: 'A composite format string that contains text intermixed with zero or more format items, which correspond to objects in the <code>args</code> array.'
     - id: args
       type: System.Object[]
       description: An object array containing zero or more objects to format.
@@ -1516,7 +1516,7 @@ items:
     parameters:
     - id: condition
       type: System.Boolean
-      description: The conditional expression to evaluate. If the condition is `true`, the value is written to the trace listeners in the collection.
+      description: 'The conditional expression to evaluate. If the condition is `true`, the value is written to the trace listeners in the collection.'
     - id: value
       type: System.Object
       description: An object whose name is sent to the <xref href="System.Diagnostics.Debug.Listeners"></xref>.
@@ -1593,7 +1593,7 @@ items:
     parameters:
     - id: condition
       type: System.Boolean
-      description: The conditional expression to evaluate. If the condition is `true`, the message is written to the trace listeners in the collection.
+      description: 'The conditional expression to evaluate. If the condition is `true`, the message is written to the trace listeners in the collection.'
     - id: message
       type: System.String
       description: A message to write.
@@ -1670,7 +1670,7 @@ items:
     parameters:
     - id: condition
       type: System.Boolean
-      description: The conditional expression to evaluate. If the condition is `true`, the category name and value are written to the trace listeners in the collection.
+      description: 'The conditional expression to evaluate. If the condition is `true`, the category name and value are written to the trace listeners in the collection.'
     - id: value
       type: System.Object
       description: An object whose name is sent to the <xref href="System.Diagnostics.Debug.Listeners"></xref>.
@@ -1750,7 +1750,7 @@ items:
     parameters:
     - id: condition
       type: System.Boolean
-      description: The conditional expression to evaluate. If the condition is `true`, the category name and message are written to the trace listeners in the collection.
+      description: 'The conditional expression to evaluate. If the condition is `true`, the category name and message are written to the trace listeners in the collection.'
     - id: message
       type: System.String
       description: A message to write.
@@ -2065,7 +2065,7 @@ items:
     parameters:
     - id: format
       type: System.String
-      description: A composite format string that contains text intermixed with zero or more format items, which correspond to objects in the <code>args</code> array.
+      description: 'A composite format string that contains text intermixed with zero or more format items, which correspond to objects in the <code>args</code> array.'
     - id: args
       type: System.Object[]
       description: An object array that contains zero or more objects to format.
@@ -2225,7 +2225,7 @@ items:
     parameters:
     - id: condition
       type: System.Boolean
-      description: The conditional expression to evaluate. If the condition is `true`, the category name and value are written to the trace listeners in the collection.
+      description: 'The conditional expression to evaluate. If the condition is `true`, the category name and value are written to the trace listeners in the collection.'
     - id: value
       type: System.Object
       description: An object whose name is sent to the <xref href="System.Diagnostics.Debug.Listeners"></xref>.
@@ -2305,7 +2305,7 @@ items:
     parameters:
     - id: condition
       type: System.Boolean
-      description: The conditional expression to evaluate. If the condition is `true`, the value is written to the trace listeners in the collection.
+      description: 'The conditional expression to evaluate. If the condition is `true`, the value is written to the trace listeners in the collection.'
     - id: value
       type: System.Object
       description: An object whose name is sent to the <xref href="System.Diagnostics.Debug.Listeners"></xref>.
@@ -2382,7 +2382,7 @@ items:
     parameters:
     - id: condition
       type: System.Boolean
-      description: The conditional expression to evaluate. If the condition is `true`, the message is written to the trace listeners in the collection.
+      description: 'The conditional expression to evaluate. If the condition is `true`, the message is written to the trace listeners in the collection.'
     - id: message
       type: System.String
       description: A message to write.

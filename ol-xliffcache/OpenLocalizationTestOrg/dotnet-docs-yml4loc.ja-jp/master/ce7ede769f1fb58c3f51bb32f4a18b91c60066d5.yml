@@ -85,7 +85,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Provides static methods for the creation, copying, deletion, moving, and opening of a single file, and aids in the creation of <xref href="System.IO.FileStream"></xref> objects.
+  summary: 'Provides static methods for the creation, copying, deletion, moving, and opening of a single file, and aids in the creation of <xref href="System.IO.FileStream"></xref> objects.'
   remarks: "> [!NOTE]\n>  To view the .NET Framework source code for this type, see the [Reference Source](http://referencesource.microsoft.com/#mscorlib/system/io/file.cs#1c7421e464f67b7e). You can browse through the source code online, download the reference for offline viewing, and step through the sources (including patches and updates) during debugging; see [instructions](http://referencesource.microsoft.com/).  \n  \n Use the <xref:System.IO.File> class for typical operations such as copying, moving, renaming, creating, opening, deleting, and appending to a single file at a time. You can also use the <xref:System.IO.File> class to get and set file attributes or <xref:System.DateTime> information related to the creation, access, and writing of a file. If you want to perform operations on multiple files, see <xref:System.IO.Directory.GetFiles%2A?displayProperty=fullName> or <xref:System.IO.DirectoryInfo.GetFiles%2A?displayProperty=fullName>.  \n  \n Many of the <xref:System.IO.File> methods return other I/O types when you create or open files. You can use these other types to further manipulate a file. For more information, see specific <xref:System.IO.File> members such as <xref:System.IO.File.OpenText%2A>, <xref:System.IO.File.CreateText%2A>, or <xref:System.IO.File.Create%2A>.  \n  \n Because all <xref:System.IO.File> methods are static, it might be more efficient to use a <xref:System.IO.File> method rather than a corresponding <xref:System.IO.FileInfo> instance method if you want to perform only one action. All <xref:System.IO.File> methods require the path to the file that you are manipulating.  \n  \n The static methods of the <xref:System.IO.File> class perform security checks on all methods. If you are going to reuse an object several times, consider using the corresponding instance method of <xref:System.IO.FileInfo> instead, because the security check will not always be necessary.  \n  \n By default, full read/write access to new files is granted to all users.  \n  \n The following table describes the enumerations that are used to customize the behavior of various <xref:System.IO.File> methods.  \n  \n|Enumeration|Description|  \n|-----------------|-----------------|  \n|<xref:System.IO.FileAccess>|Specifies read and write access to a file.|  \n|<xref:System.IO.FileShare>|Specifies the level of access permitted for a file that is already in use.|  \n|<xref:System.IO.FileMode>|Specifies whether the contents of an existing file are preserved or overwritten, and whether requests to create an existing file cause an exception.|  \n  \n> [!NOTE]\n>  In members that accept a path as an input string, that path must be well-formed or an exception is raised. For example, if a path is fully qualified but begins with a space, the path is not trimmed in methods of the class. Therefore, the path is malformed and an exception is raised. Similarly, a path or a combination of paths cannot be fully qualified twice. For example, \"c:\\temp c:\\windows\" also raises an exception in most cases. Ensure that your paths are well-formed when using methods that accept a path string.  \n  \n In members that accept a path, the path can refer to a file or just a directory. The specified path can also refer to a relative path or a Universal Naming Convention (UNC) path for a server and share name. For example, all the following are acceptable paths:  \n  \n-   \"c:\\\\\\MyDir\\\\\\MyFile.txt\" in C#, or \"c:\\MyDir\\MyFile.txt\" in Visual Basic.  \n  \n-   \"c:\\\\\\MyDir\" in C#, or \"c:\\MyDir\" in Visual Basic.  \n  \n-   \"MyDir\\\\\\MySubdir\" in C#, or \"MyDir\\MySubDir\" in Visual Basic.  \n  \n-   \"\\\\\\\\\\\\\\MyServer\\\\\\MyShare\" in C#, or \"\\\\\\MyServer\\MyShare\" in Visual Basic.  \n  \n For a list of common I/O tasks, see [Common I/O Tasks](~/docs/standard/io/common-i-o-tasks.md)."
   example:
   - "The following example demonstrates how to use the <xref:System.IO.File> class to check whether a file exists, and depending on the result, either create a new file and write to it, or open the existing file and read from it. Before running the code, create a `c:\\temp` folder.  \n  \n [!code-cpp[File Class Example#1](~/samples/snippets/cpp/VS_Snippets_CLR/File Class Example/CPP/file class example.cpp#1)]\n [!code-csharp[File Class Example#1](~/samples/snippets/csharp/VS_Snippets_CLR/File Class Example/CS/file class example.cs#1)]\n [!code-vb[File Class Example#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/File Class Example/VB/file class example.vb#1)]"
@@ -164,8 +164,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Appends lines to a file, and then closes the file. If the specified file does not exist, this method creates a file, writes the specified lines to the file, and then closes the file.
-  remarks: The method creates the file if it doesn’t exist, but it doesn't create new directories. Therefore, the value of the `path` parameter must contain existing directories.
+  summary: 'Appends lines to a file, and then closes the file. If the specified file does not exist, this method creates a file, writes the specified lines to the file, and then closes the file.'
+  remarks: 'The method creates the file if it doesn’t exist, but it doesn''t create new directories. Therefore, the value of the `path` parameter must contain existing directories.'
   example:
   - "The following example writes selected lines from a sample data file to a file, and then appends more lines. The directory named `temp` on drive C must exist for the example to complete successfully.  \n  \n [!code-csharp[System.IO.File.WriteAllAppendAll#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.io.file.writeallappendall/cs/program.cs#1)]\n [!code-vb[System.IO.File.WriteAllAppendAll#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.io.file.writeallappendall/vb/program.vb#1)]"
   syntax:
@@ -181,13 +181,13 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one more invalid characters defined by the <xref href="System.IO.Path.GetInvalidPathChars"></xref> method.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one more invalid characters defined by the <xref href="System.IO.Path.GetInvalidPathChars"></xref> method.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: Either <code>path</code> or <code>contents</code> is `null`.
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: <code>path</code> is invalid (for example, the directory doesn’t exist or it is on an unmapped drive).
+    description: '<code>path</code> is invalid (for example, the directory doesn’t exist or it is on an unmapped drive).'
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
     description: The file specified by <code>path</code> was not found.
@@ -196,7 +196,7 @@ items:
     description: An I/O error occurred while opening the file.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: <code>path</code> exceeds the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters and file names must be less than 260 characters.
+    description: '<code>path</code> exceeds the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters and file names must be less than 260 characters.'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
     description: <code>path</code> is in an invalid format.
@@ -263,7 +263,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Appends lines to a file by using a specified encoding, and then closes the file. If the specified file does not exist, this method creates a file, writes the specified lines to the file, and then closes the file.
+  summary: 'Appends lines to a file by using a specified encoding, and then closes the file. If the specified file does not exist, this method creates a file, writes the specified lines to the file, and then closes the file.'
   remarks: "The method creates the file if it doesn’t exist, but it doesn't create new directories. Therefore, the value of the `path` parameter must contain existing directories.  \n  \n You can use this method to create a file that contains the following:  \n  \n-   The results of a [LINQ to Objects](http://msdn.microsoft.com/library/73cafe73-37cf-46e7-bfa7-97c7eea7ced9) query on the lines of a file, as obtained by using the <xref:System.IO.File.ReadLines%2A> method.  \n  \n-   The contents of a collection that implements an <xref:System.Collections.Generic.IEnumerable%601> of strings."
   syntax:
     content: public static void AppendAllLines (string path, System.Collections.Generic.IEnumerable<string> contents, System.Text.Encoding encoding);
@@ -281,13 +281,13 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one more invalid characters defined by the <xref href="System.IO.Path.GetInvalidPathChars"></xref> method.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one more invalid characters defined by the <xref href="System.IO.Path.GetInvalidPathChars"></xref> method.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: Either <code>path</code>, <code>contents</code>, or <code>encoding</code> is `null`.
+    description: 'Either <code>path</code>, <code>contents</code>, or <code>encoding</code> is `null`.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: <code>path</code> is invalid (for example, the directory doesn’t exist or it is on an unmapped drive).
+    description: '<code>path</code> is invalid (for example, the directory doesn’t exist or it is on an unmapped drive).'
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
     description: The file specified by <code>path</code> was not found.
@@ -296,7 +296,7 @@ items:
     description: An I/O error occurred while opening the file.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: <code>path</code> exceeds the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters and file names must be less than 260 characters.
+    description: '<code>path</code> exceeds the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters and file names must be less than 260 characters.'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
     description: <code>path</code> is in an invalid format.
@@ -436,7 +436,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Opens a file, appends the specified string to the file, and then closes the file. If the file does not exist, this method creates a file, writes the specified string to the file, then closes the file.
+  summary: 'Opens a file, appends the specified string to the file, and then closes the file. If the file does not exist, this method creates a file, writes the specified string to the file, then closes the file.'
   remarks: "Given a string and a file path, this method opens the specified file, appends the string to the end of the file, and then closes the file. The file handle is guaranteed to be closed by this method, even if exceptions are raised.  \n  \n The method creates the file if it doesn’t exist, but it doesn't create new directories. Therefore, the value of the `path` parameter must contain existing directories."
   example:
   - "The following code example demonstrates the use of the <xref:System.IO.File.AppendAllText%2A> method to add extra text to the end of a file. In this example, a file is created if it doesn't already exist, and text is added to it. However, the directory named `temp` on drive C must exist for the example to complete successfully.  \n  \n [!code-csharp[System.IO.File.AllText#00](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.IO.File.AllText/cs/AllText.cs#00)]\n [!code-vb[System.IO.File.AllText#00](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.IO.File.AllText/vb/AllText.vb#00)]"
@@ -453,16 +453,16 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid (for example, the directory doesn’t exist or it is on an unmapped drive).
+    description: 'The specified path is invalid (for example, the directory doesn’t exist or it is on an unmapped drive).'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: An I/O error occurred while opening the file.
@@ -532,7 +532,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Appends the specified string to the file, creating the file if it does not already exist.
+  summary: 'Appends the specified string to the file, creating the file if it does not already exist.'
   remarks: "Given a string and a file path, this method opens the specified file, appends the string to the end of the file using the specified encoding, and then closes the file. The file handle is guaranteed to be closed by this method, even if exceptions are raised.  \n  \n The method creates the file if it doesn’t exist, but it doesn't create new directories. Therefore, the value of the `path` parameter must contain existing directories."
   example:
   - "The following code example demonstrates the use of the <xref:System.IO.File.AppendAllText%2A> method to add extra text to the end of a file. In this example, a file is created if it doesn't already exist, and text is added to it. However, the directory named `temp` on drive C must exist for the example to complete successfully.  \n  \n [!code-csharp[System.IO.File.AllText_Encoding#00](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.IO.File.AllText_Encoding/cs/AllText.cs#00)]\n [!code-vb[System.IO.File.AllText_Encoding#00](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.IO.File.AllText_Encoding/vb/AllText.vb#00)]"
@@ -552,16 +552,16 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid (for example, the directory doesn’t exist or it is on an unmapped drive).
+    description: 'The specified path is invalid (for example, the directory doesn’t exist or it is on an unmapped drive).'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: An I/O error occurred while opening the file.
@@ -704,7 +704,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Creates a <xref href="System.IO.StreamWriter"></xref> that appends UTF-8 encoded text to an existing file, or to a new file if the specified file does not exist.
+  summary: 'Creates a <xref href="System.IO.StreamWriter"></xref> that appends UTF-8 encoded text to an existing file, or to a new file if the specified file does not exist.'
   remarks: "This method is equivalent to the <xref:System.IO.StreamWriter.%23ctor%28System.String%2CSystem.Boolean%29> constructor overload. If the file specified by `path` does not exist, it is created. If the file does exist, write operations to the <xref:System.IO.StreamWriter> append text to the file. Additional threads are permitted to read the file while it is open.  \n  \n The `path` parameter is permitted to specify relative or absolute path information. Relative path information is interpreted as relative to the current working directory. To obtain the current working directory, see <xref:System.IO.Directory.GetCurrentDirectory%2A>.  \n  \n The `path` parameter is not case-sensitive.  \n  \n For a list of common I/O tasks, see [Common I/O Tasks](~/docs/standard/io/common-i-o-tasks.md)."
   example:
   - "The following example appends text to a file. The method creates a new file if the file doesn’t exist. However, the directory named `temp` on drive C must exist for the example to complete successfully.  \n  \n [!code-cpp[File_AppendText#1](~/samples/snippets/cpp/VS_Snippets_CLR/File_AppendText/CPP/file_appendtext.cpp#1)]\n [!code-csharp[File_AppendText#1](~/samples/snippets/csharp/VS_Snippets_CLR/File_AppendText/CS/file_appendtext.cs#1)]\n [!code-vb[File_AppendText#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/File_AppendText/VB/file_appendtext.vb#1)]"
@@ -724,16 +724,16 @@ items:
     description: The caller does not have the required permission.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid (for example, the directory doesn’t exist or it is on an unmapped drive).
+    description: 'The specified path is invalid (for example, the directory doesn’t exist or it is on an unmapped drive).'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
     description: <code>path</code> is in an invalid format.
@@ -820,10 +820,10 @@ items:
     description: <code>sourceFileName</code> or <code>destFileName</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The path specified in <code>sourceFileName</code> or <code>destFileName</code> is invalid (for example, it is on an unmapped drive).
+    description: 'The path specified in <code>sourceFileName</code> or <code>destFileName</code> is invalid (for example, it is on an unmapped drive).'
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
     description: <code>sourceFileName</code> was not found.
@@ -919,10 +919,10 @@ items:
     description: <code>sourceFileName</code> or <code>destFileName</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The path specified in <code>sourceFileName</code> or <code>destFileName</code> is invalid (for example, it is on an unmapped drive).
+    description: 'The path specified in <code>sourceFileName</code> or <code>destFileName</code> is invalid (for example, it is on an unmapped drive).'
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
     description: <code>sourceFileName</code> was not found.
@@ -1009,16 +1009,16 @@ items:
     description: "The caller does not have the required permission.  \n  \n -or-  \n  \n <code>path</code> specified a file that is read-only."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid (for example, it is on an unmapped drive).
+    description: 'The specified path is invalid (for example, it is on an unmapped drive).'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: An I/O error occurred while creating the file.
@@ -1105,16 +1105,16 @@ items:
     description: "The caller does not have the required permission.  \n  \n -or-  \n  \n <code>path</code> specified a file that is read-only."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid (for example, it is on an unmapped drive).
+    description: 'The specified path is invalid (for example, it is on an unmapped drive).'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: An I/O error occurred while creating the file.
@@ -1178,7 +1178,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Creates or overwrites the specified file, specifying a buffer size and a <xref href="System.IO.FileOptions"></xref> value that describes how to create or overwrite the file.
+  summary: 'Creates or overwrites the specified file, specifying a buffer size and a <xref href="System.IO.FileOptions"></xref> value that describes how to create or overwrite the file.'
   remarks: "The `path` parameter is permitted to specify relative or absolute path information. Relative path information is interpreted as relative to the current working directory. To obtain the current working directory, see <xref:System.IO.Directory.GetCurrentDirectory%2A>.  \n  \n This method is equivalent to the <xref:System.IO.FileStream.%23ctor%28System.String%2CSystem.IO.FileMode%2CSystem.IO.FileAccess%2CSystem.IO.FileShare%2CSystem.Int32%29> constructor overload. If the specified file does not exist, it is created; if it does exist and it is not read-only, the contents are overwritten.  \n  \n By default, full read/write access to new files is granted to all users. The file is opened with read/write access and must be closed before it can be opened by another application.  \n  \n For a list of common I/O tasks, see [Common I/O Tasks](~/docs/standard/io/common-i-o-tasks.md)."
   syntax:
     content: public static System.IO.FileStream Create (string path, int bufferSize, System.IO.FileOptions options);
@@ -1202,16 +1202,16 @@ items:
     description: "The caller does not have the required permission.  \n  \n -or-  \n  \n <code>path</code> specified a file that is read-only."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid (for example, it is on an unmapped drive.
+    description: 'The specified path is invalid (for example, it is on an unmapped drive.'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: An I/O error occurred while creating the file.
@@ -1273,7 +1273,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: Creates or overwrites the specified file with the specified buffer size, file options, and file security.
+  summary: 'Creates or overwrites the specified file with the specified buffer size, file options, and file security.'
   remarks: "The `path` parameter is permitted to specify relative or absolute path information. Relative path information is interpreted as relative to the current working directory. To obtain the current working directory, see <xref:System.IO.Directory.GetCurrentDirectory%2A>.  \n  \n This method is equivalent to the <xref:System.IO.FileStream.%23ctor%28System.String%2CSystem.IO.FileMode%2CSystem.IO.FileAccess%2CSystem.IO.FileShare%2CSystem.Int32%29> constructor overload. If the specified file does not exist, it is created; if it does exist and it is not read-only, the contents are overwritten.  \n  \n By default, full read/write access to new files is granted to all users. The file is opened with read/write access and must be closed before it can be opened by another application.  \n  \n For a list of common I/O tasks, see [Common I/O Tasks](~/docs/standard/io/common-i-o-tasks.md)."
   syntax:
     content: public static System.IO.FileStream Create (string path, int bufferSize, System.IO.FileOptions options, System.Security.AccessControl.FileSecurity fileSecurity);
@@ -1292,7 +1292,7 @@ items:
       description: One of the <xref href="System.Security.AccessControl.FileSecurity"></xref> values that determines the access control and audit security for the file.
     return:
       type: System.IO.FileStream
-      description: A new file with the specified buffer size, file options, and file security.
+      description: 'A new file with the specified buffer size, file options, and file security.'
   overload: System.IO.File.Create*
   exceptions:
   - type: System.UnauthorizedAccessException
@@ -1300,16 +1300,16 @@ items:
     description: "The caller does not have the required permission.  \n  \n -or-  \n  \n <code>path</code> specified a file that is read-only."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid (for example, it is on an unmapped drive).
+    description: 'The specified path is invalid (for example, it is on an unmapped drive).'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: An I/O error occurred while creating the file.
@@ -1359,7 +1359,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Creates or opens a file for writing UTF-8 encoded text. If the file already exists, its contents are overwritten.
+  summary: 'Creates or opens a file for writing UTF-8 encoded text. If the file already exists, its contents are overwritten.'
   remarks: "This method is equivalent to the <xref:System.IO.StreamWriter.%23ctor%28System.String%2CSystem.Boolean%29> constructor overload with the `append` parameter set to `false`. If the file specified by `path` does not exist, it is created. If the file does exist, its contents are overwritten. Additional threads are permitted to read the file while it is open.  \n  \n The `path` parameter is permitted to specify relative or absolute path information. Relative path information is interpreted as relative to the current working directory. To obtain the current working directory, see <xref:System.IO.Directory.GetCurrentDirectory%2A>.  \n  \n For a list of common I/O tasks, see [Common I/O Tasks](~/docs/standard/io/common-i-o-tasks.md)."
   example:
   - "The following example creates a file for text writing and reading.  \n  \n [!code-cpp[File CreateText#1](~/samples/snippets/cpp/VS_Snippets_CLR/File CreateText/CPP/file createtext.cpp#1)]\n [!code-csharp[File CreateText#1](~/samples/snippets/csharp/VS_Snippets_CLR/File CreateText/CS/file createtext.cs#1)]\n [!code-vb[File CreateText#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/File CreateText/VB/file createtext.vb#1)]"
@@ -1379,16 +1379,16 @@ items:
     description: The caller does not have the required permission.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid (for example, it is on an unmapped drive).
+    description: 'The specified path is invalid (for example, it is on an unmapped drive).'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
     description: <code>path</code> is in an invalid format.
@@ -1463,7 +1463,7 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: The <code>path</code> parameter is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: 'The <code>path</code> parameter is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: The <code>path</code> parameter is `null`.
@@ -1478,7 +1478,7 @@ items:
     description: "An I/O error occurred while opening the file. For example, the encrypted file is already open.  \n  \n -or-  \n  \n This operation is not supported on the current platform."
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
     description: The current operating system is not Windows NT or later.
@@ -1549,13 +1549,13 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null`.
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid (for example, it is on an unmapped drive).
+    description: 'The specified path is invalid (for example, it is on an unmapped drive).'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: "The specified file is in use.  \n  \n -or-  \n  \n There is an open handle on the file, and the operating system is Windows XP or earlier. This open handle can result from enumerating directories and files. For more information, see [How to: Enumerate Directories and Files](~/docs/standard/io/how-to-enumerate-directories-and-files.md)."
@@ -1564,7 +1564,7 @@ items:
     description: <code>path</code> is in an invalid format.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
     description: "The caller does not have the required permission.  \n  \n -or-  \n  \n The file is an executable file that is in use.  \n  \n -or-  \n  \n <code>path</code> is a directory.  \n  \n -or-  \n  \n <code>path</code> specified a read-only file."
@@ -1639,7 +1639,7 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: The <code>path</code> parameter is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: 'The <code>path</code> parameter is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: The <code>path</code> parameter is `null`.
@@ -1654,7 +1654,7 @@ items:
     description: "An I/O error occurred while opening the file.  \n  \n -or-  \n  \n This operation is not supported on the current platform."
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
     description: The current operating system is not Windows NT or later.
@@ -1937,19 +1937,19 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is empty, contains only white spaces, or contains invalid characters.
+    description: '<code>path</code> is empty, contains only white spaces, or contains invalid characters.'
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
     description: <code>path</code> is in an invalid format.
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
-    description: <code>path</code> represents a file and is invalid, such as being on an unmapped drive, or the file cannot be found.
+    description: '<code>path</code> represents a file and is invalid, such as being on an unmapped drive, or the file cannot be found.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: <code>path</code> represents a directory and is invalid, such as being on an unmapped drive, or the directory cannot be found.
+    description: '<code>path</code> represents a directory and is invalid, such as being on an unmapped drive, or the directory cannot be found.'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: This file is being used by another process.
@@ -2033,13 +2033,13 @@ items:
     description: The caller does not have the required permission.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
     description: <code>path</code> is in an invalid format.
@@ -2100,7 +2100,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Returns the creation date and time, in coordinated universal time (UTC), of the specified file or directory.
+  summary: 'Returns the creation date and time, in coordinated universal time (UTC), of the specified file or directory.'
   remarks: "> [!NOTE]\n>  This method may return an inaccurate value, because it uses native functions whose values may not be continuously updated by the operating system.  \n  \n If the file described in the `path` parameter does not exist, this method returns 12:00 midnight, January 1, 1601 A.D. (C.E.) Coordinated Universal Time (UTC).  \n  \n NTFS-formatted drives may cache information about a file, such as file creation time, for a short period of time. As a result, it may be necessary to explicitly set the creation time of a file if you are overwriting or replacing an existing file.  \n  \n For a list of common I/O tasks, see [Common I/O Tasks](~/docs/standard/io/common-i-o-tasks.md)."
   example:
   - "The following example demonstrates the <xref:System.IO.File.GetCreationTimeUtc%2A> method.  \n  \n [!code-vb[System.IO.File.GetCreationTime#2](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.io.file.getcreationtime/vb/module2.vb#2)]"
@@ -2120,13 +2120,13 @@ items:
     description: The caller does not have the required permission.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
     description: <code>path</code> is in an invalid format.
@@ -2207,13 +2207,13 @@ items:
     description: The caller does not have the required permission.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
     description: <code>path</code> is in an invalid format.
@@ -2274,7 +2274,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Returns the date and time, in coordinated universal time (UTC), that the specified file or directory was last accessed.
+  summary: 'Returns the date and time, in coordinated universal time (UTC), that the specified file or directory was last accessed.'
   remarks: "> [!NOTE]\n>  This method may return an inaccurate value, because it uses native functions whose values may not be continuously updated by the operating system.  \n  \n If the file described in the `path` parameter does not exist, this method returns 12:00 midnight, January 1, 1601 A.D. (C.E.) Coordinated Universal Time (UTC).  \n  \n The `path` parameter is permitted to specify relative or absolute path information. Relative path information is interpreted as relative to the current working directory. To obtain the current working directory, see <xref:System.IO.Directory.GetCurrentDirectory%2A>.  \n  \n For a list of common I/O tasks, see [Common I/O Tasks](~/docs/standard/io/common-i-o-tasks.md)."
   syntax:
     content: public static DateTime GetLastAccessTimeUtc (string path);
@@ -2292,13 +2292,13 @@ items:
     description: The caller does not have the required permission.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
     description: <code>path</code> is in an invalid format.
@@ -2379,13 +2379,13 @@ items:
     description: The caller does not have the required permission.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
     description: <code>path</code> is in an invalid format.
@@ -2446,7 +2446,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Returns the date and time, in coordinated universal time (UTC), that the specified file or directory was last written to.
+  summary: 'Returns the date and time, in coordinated universal time (UTC), that the specified file or directory was last written to.'
   remarks: "> [!NOTE]\n>  This method may return an inaccurate value, because it uses native functions whose values may not be continuously updated by the operating system. Each operating system manages the last write time according to its own rules. To improve performance, an operating system might not set the last write time value to the exact time of the last write operation, but might set it to a close approximation instead.  \n  \n If the file described in the `path` parameter does not exist, this method returns 12:00 midnight, January 1, 1601 A.D. (C.E.) Coordinated Universal Time (UTC).  \n  \n The `path` parameter is permitted to specify relative or absolute path information. Relative path information is interpreted as relative to the current working directory. To obtain the current working directory, see <xref:System.IO.Directory.GetCurrentDirectory%2A>.  \n  \n For a list of common I/O tasks, see [Common I/O Tasks](~/docs/standard/io/common-i-o-tasks.md)."
   syntax:
     content: public static DateTime GetLastWriteTimeUtc (string path);
@@ -2464,13 +2464,13 @@ items:
     description: The caller does not have the required permission.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
     description: <code>path</code> is in an invalid format.
@@ -2531,7 +2531,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Moves a specified file to a new location, providing the option to specify a new file name.
+  summary: 'Moves a specified file to a new location, providing the option to specify a new file name.'
   remarks: "This method works across disk volumes, and it does not throw an exception if the source and destination are the same. Note that if you attempt to replace a file by moving a file of the same name into that directory, you get an <xref:System.IO.IOException>. You cannot use the Move method to overwrite an existing file.  \n  \n The `sourceFileName` and `destFileName` arguments can include relative or absolute path information. Relative path information is interpreted as relative to the current working directory. To obtain the current working directory, see <xref:System.IO.Directory.GetCurrentDirectory%2A>.  \n  \n If you try to move a file across disk volumes and that file is in use, the file is copied to the destination, but it is not deleted from the source.  \n  \n For a list of common I/O tasks, see [Common I/O Tasks](~/docs/standard/io/common-i-o-tasks.md)."
   example:
   - "The following example moves a file.  \n  \n [!code-cpp[File Move#1](~/samples/snippets/cpp/VS_Snippets_CLR/File Move/CPP/file move.cpp#1)]\n [!code-csharp[File Move#1](~/samples/snippets/csharp/VS_Snippets_CLR/File Move/CS/file move.cs#1)]\n [!code-vb[File Move#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/File Move/VB/file move.vb#1)]"
@@ -2554,16 +2554,16 @@ items:
     description: <code>sourceFileName</code> or <code>destFileName</code> is `null`.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>sourceFileName</code> or <code>destFileName</code> is a zero-length string, contains only white space, or contains invalid characters as defined in <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>sourceFileName</code> or <code>destFileName</code> is a zero-length string, contains only white space, or contains invalid characters as defined in <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
     description: The caller does not have the required permission.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The path specified in <code>sourceFileName</code> or <code>destFileName</code> is invalid, (for example, it is on an unmapped drive).
+    description: 'The path specified in <code>sourceFileName</code> or <code>destFileName</code> is invalid, (for example, it is on an unmapped drive).'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
     description: <code>sourceFileName</code> or <code>destFileName</code> is in an invalid format.
@@ -2636,24 +2636,24 @@ items:
       description: The file to open.
     - id: mode
       type: System.IO.FileMode
-      description: A <xref href="System.IO.FileMode"></xref> value that specifies whether a file is created if one does not exist, and determines whether the contents of existing files are retained or overwritten.
+      description: 'A <xref href="System.IO.FileMode"></xref> value that specifies whether a file is created if one does not exist, and determines whether the contents of existing files are retained or overwritten.'
     return:
       type: System.IO.FileStream
-      description: A <xref href="System.IO.FileStream"></xref> opened in the specified mode and path, with read/write access and not shared.
+      description: 'A <xref href="System.IO.FileStream"></xref> opened in the specified mode and path, with read/write access and not shared.'
   overload: System.IO.File.Open*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid, (for example, it is on an unmapped drive).
+    description: 'The specified path is invalid, (for example, it is on an unmapped drive).'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: An I/O error occurred while opening the file.
@@ -2726,8 +2726,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Opens a <xref href="System.IO.FileStream"></xref> on the specified path, with the specified mode and access.
-  remarks: The `path` parameter is permitted to specify relative or absolute path information. Relative path information is interpreted as relative to the current working directory. To obtain the current working directory, see <xref:System.IO.Directory.GetCurrentDirectory%2A>.
+  summary: 'Opens a <xref href="System.IO.FileStream"></xref> on the specified path, with the specified mode and access.'
+  remarks: 'The `path` parameter is permitted to specify relative or absolute path information. Relative path information is interpreted as relative to the current working directory. To obtain the current working directory, see <xref:System.IO.Directory.GetCurrentDirectory%2A>.'
   example:
   - "The following example opens a file with read-only access.  \n  \n [!code-cpp[file open2#1](~/samples/snippets/cpp/VS_Snippets_CLR/File Open2/CPP/file open2.cpp#1)]\n [!code-csharp[file open2#1](~/samples/snippets/csharp/VS_Snippets_CLR/File Open2/CS/file open2.cs#1)]\n [!code-vb[file open2#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/File Open2/VB/file open2.vb#1)]"
   syntax:
@@ -2738,13 +2738,13 @@ items:
       description: The file to open.
     - id: mode
       type: System.IO.FileMode
-      description: A <xref href="System.IO.FileMode"></xref> value that specifies whether a file is created if one does not exist, and determines whether the contents of existing files are retained or overwritten.
+      description: 'A <xref href="System.IO.FileMode"></xref> value that specifies whether a file is created if one does not exist, and determines whether the contents of existing files are retained or overwritten.'
     - id: access
       type: System.IO.FileAccess
       description: A <xref href="System.IO.FileAccess"></xref> value that specifies the operations that can be performed on the file.
     return:
       type: System.IO.FileStream
-      description: An unshared <xref href="System.IO.FileStream"></xref> that provides access to the specified file, with the specified mode and access.
+      description: 'An unshared <xref href="System.IO.FileStream"></xref> that provides access to the specified file, with the specified mode and access.'
   overload: System.IO.File.Open*
   exceptions:
   - type: System.ArgumentException
@@ -2755,10 +2755,10 @@ items:
     description: <code>path</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid, (for example, it is on an unmapped drive).
+    description: 'The specified path is invalid, (for example, it is on an unmapped drive).'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: An I/O error occurred while opening the file.
@@ -2831,7 +2831,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Opens a <xref href="System.IO.FileStream"></xref> on the specified path, having the specified mode with read, write, or read/write access and the specified sharing option.
+  summary: 'Opens a <xref href="System.IO.FileStream"></xref> on the specified path, having the specified mode with read, write, or read/write access and the specified sharing option.'
   remarks: "The `path` parameter is permitted to specify relative or absolute path information. Relative path information is interpreted as relative to the current working directory. To obtain the current working directory, see <xref:System.IO.Directory.GetCurrentDirectory%2A>.  \n  \n For a list of common I/O tasks, see [Common I/O Tasks](~/docs/standard/io/common-i-o-tasks.md)."
   example:
   - "The following example opens a file with read-only access and with file sharing disallowed.  \n  \n [!code-cpp[file open3#1](~/samples/snippets/cpp/VS_Snippets_CLR/File Open3/CPP/file open3.cpp#1)]\n [!code-csharp[file open3#1](~/samples/snippets/csharp/VS_Snippets_CLR/File Open3/CS/file open3.cs#1)]\n [!code-vb[file open3#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/File Open3/VB/file open3.vb#1)]"
@@ -2843,7 +2843,7 @@ items:
       description: The file to open.
     - id: mode
       type: System.IO.FileMode
-      description: A <xref href="System.IO.FileMode"></xref> value that specifies whether a file is created if one does not exist, and determines whether the contents of existing files are retained or overwritten.
+      description: 'A <xref href="System.IO.FileMode"></xref> value that specifies whether a file is created if one does not exist, and determines whether the contents of existing files are retained or overwritten.'
     - id: access
       type: System.IO.FileAccess
       description: A <xref href="System.IO.FileAccess"></xref> value that specifies the operations that can be performed on the file.
@@ -2852,7 +2852,7 @@ items:
       description: A <xref href="System.IO.FileShare"></xref> value specifying the type of access other threads have to the file.
     return:
       type: System.IO.FileStream
-      description: A <xref href="System.IO.FileStream"></xref> on the specified path, having the specified mode with read, write, or read/write access and the specified sharing option.
+      description: 'A <xref href="System.IO.FileStream"></xref> on the specified path, having the specified mode with read, write, or read/write access and the specified sharing option.'
   overload: System.IO.File.Open*
   exceptions:
   - type: System.ArgumentException
@@ -2863,10 +2863,10 @@ items:
     description: <code>path</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid, (for example, it is on an unmapped drive).
+    description: 'The specified path is invalid, (for example, it is on an unmapped drive).'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: An I/O error occurred while opening the file.
@@ -2875,7 +2875,7 @@ items:
     description: "<code>path</code> specified a file that is read-only and <code>access</code> is not `Read`.  \n  \n -or-  \n  \n <code>path</code> specified a directory.  \n  \n -or-  \n  \n The caller does not have the required permission.  \n  \n -or-  \n  \n <code>mode</code> is <xref href=\"System.IO.FileMode.Create\"></xref> and the specified file is a hidden file."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: <code>mode</code>, <code>access</code>, or <code>share</code> specified an invalid value.
+    description: '<code>mode</code>, <code>access</code>, or <code>share</code> specified an invalid value.'
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
     description: The file specified in <code>path</code> was not found.
@@ -2956,16 +2956,16 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid, (for example, it is on an unmapped drive).
+    description: 'The specified path is invalid, (for example, it is on an unmapped drive).'
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
     description: "<code>path</code> specified a directory.  \n  \n -or-  \n  \n The caller does not have the required permission."
@@ -3055,16 +3055,16 @@ items:
     description: The caller does not have the required permission.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid, (for example, it is on an unmapped drive).
+    description: 'The specified path is invalid, (for example, it is on an unmapped drive).'
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
     description: The file specified in <code>path</code> was not found.
@@ -3148,16 +3148,16 @@ items:
     description: "The caller does not have the required permission.  \n  \n -or-  \n  \n <code>path</code> specified a read-only file or directory."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid, (for example, it is on an unmapped drive).
+    description: 'The specified path is invalid, (for example, it is on an unmapped drive).'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
     description: <code>path</code> is in an invalid format.
@@ -3218,8 +3218,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Opens a binary file, reads the contents of the file into a byte array, and then closes the file.
-  remarks: Given a file path, this method opens the file, reads the contents of the file into a byte array, and then closes the file.
+  summary: 'Opens a binary file, reads the contents of the file into a byte array, and then closes the file.'
+  remarks: 'Given a file path, this method opens the file, reads the contents of the file into a byte array, and then closes the file.'
   syntax:
     content: public static byte[] ReadAllBytes (string path);
     parameters:
@@ -3233,16 +3233,16 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid (for example, it is on an unmapped drive).
+    description: 'The specified path is invalid (for example, it is on an unmapped drive).'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: An I/O error occurred while opening the file.
@@ -3347,7 +3347,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Opens a text file, reads all lines of the file, and then closes the file.
+  summary: 'Opens a text file, reads all lines of the file, and then closes the file.'
   remarks: "This method opens a file, reads each line of the file, then adds each line as an element of a string array. It then closes the file. A line is defined as a sequence of characters followed by a carriage return ('\\r'), a line feed ('\\n'), or a carriage return immediately followed by a line feed. The resulting string does not contain the terminating carriage return and/or line feed.  \n  \n This method attempts to automatically detect the encoding of a file based on the presence of byte order marks. Encoding formats UTF-8 and UTF-32 (both big-endian and little-endian) can be detected."
   example:
   - "The following code example demonstrates the use of the <xref:System.IO.File.ReadAllLines%2A> method to display the contents of a file. In this example a file is created, if it doesn't already exist, and text is added to it.  \n  \n [!code-csharp[System.IO.File.AllLines#00](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.IO.File.AllLines/cs/AllText.cs#00)]\n [!code-vb[System.IO.File.AllLines#00](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.IO.File.AllLines/vb/AllText.vb#00)]"
@@ -3364,16 +3364,16 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid (for example, it is on an unmapped drive).
+    description: 'The specified path is invalid (for example, it is on an unmapped drive).'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: An I/O error occurred while opening the file.
@@ -3446,7 +3446,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Opens a file, reads all lines of the file with the specified encoding, and then closes the file.
+  summary: 'Opens a file, reads all lines of the file with the specified encoding, and then closes the file.'
   remarks: "This method opens a file, reads each line of the file, and then adds each line as an element of a string array. It then closes the file. A line is defined as a sequence of characters followed by a carriage return ('\\r'), a line feed ('\\n'), or a carriage return immediately followed by a line feed. The resulting string does not contain the terminating carriage return and/or line feed.  \n  \n This method attempts to automatically detect the encoding of a file based on the presence of byte order marks. Encoding formats UTF-8 and UTF-32 (both big-endian and little-endian) can be detected."
   example:
   - "The following code example demonstrates the use of the <xref:System.IO.File.ReadAllLines%2A> method to display the contents of a file. In this example a file is created, if it doesn't already exist, and text is added to it.  \n  \n [!code-csharp[System.IO.File.AllLines_Encoding#00](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.IO.File.AllLines_Encoding/cs/AllText_Encoding.cs#00)]\n [!code-vb[System.IO.File.AllLines_Encoding#00](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.IO.File.AllLines_Encoding/vb/AllText_Encoding.vb#00)]"
@@ -3466,16 +3466,16 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid (for example, it is on an unmapped drive).
+    description: 'The specified path is invalid (for example, it is on an unmapped drive).'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: An I/O error occurred while opening the file.
@@ -3615,7 +3615,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Opens a file, reads all lines of the file with the specified encoding, and then closes the file.
+  summary: 'Opens a file, reads all lines of the file with the specified encoding, and then closes the file.'
   remarks: "This method opens a file, reads each line of the file, and then adds each line as an element of a string. It then closes the file. A line is defined as a sequence of characters followed by a carriage return ('\\r'), a line feed ('\\n'), or a carriage return immediately followed by a line feed. The resulting string does not contain the terminating carriage return and/or line feed.  \n  \n This method attempts to automatically detect the encoding of a file based on the presence of byte order marks. Encoding formats UTF-8 and UTF-32 (both big-endian and little-endian) can be detected.  \n  \n The file handle is guaranteed to be closed by this method, even if exceptions are raised.  \n  \n To use the encoding settings as configured for your operating system, specify the <xref:System.Text.Encoding.Default%2A?displayProperty=fullName> property for the `encoding` parameter."
   example:
   - "The following code example demonstrates the use of the <xref:System.IO.File.ReadAllText%2A> method to display the contents of a file. In this example a file is created, if it doesn't already exist, and text is added to it.  \n  \n [!code-csharp[System.IO.File.AllText_Encoding#00](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.IO.File.AllText_Encoding/cs/AllText.cs#00)]\n [!code-vb[System.IO.File.AllText_Encoding#00](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.IO.File.AllText_Encoding/vb/AllText.vb#00)]"
@@ -3635,16 +3635,16 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid (for example, it is on an unmapped drive).
+    description: 'The specified path is invalid (for example, it is on an unmapped drive).'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: An I/O error occurred while opening the file.
@@ -3717,7 +3717,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Opens a text file, reads all lines of the file, and then closes the file.
+  summary: 'Opens a text file, reads all lines of the file, and then closes the file.'
   remarks: "This method opens a file, reads each line of the file, and then adds each line as an element of a string. It then closes the file. A line is defined as a sequence of characters followed by a carriage return ('\\r'), a line feed ('\\n'), or a carriage return immediately followed by a line feed. The resulting string does not contain the terminating carriage return and/or line feed.  \n  \n This method attempts to automatically detect the encoding of a file based on the presence of byte order marks. Encoding formats UTF-8 and UTF-32 (both big-endian and little-endian) can be detected.  \n  \n Use the <xref:System.IO.File.ReadAllText%28System.String%2CSystem.Text.Encoding%29> method overload when reading files that might contain imported text, because unrecognized characters may not be read correctly.  \n  \n The file handle is guaranteed to be closed by this method, even if exceptions are raised."
   example:
   - "The following code example demonstrates the use of the <xref:System.IO.File.ReadAllText%2A> method to display the contents of a file. In this example a file is created, if it doesn't already exist, and text is added to it.  \n  \n [!code-csharp[System.IO.File.AllText#00](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.IO.File.AllText/cs/AllText.cs#00)]\n [!code-vb[System.IO.File.AllText#00](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.IO.File.AllText/vb/AllText.vb#00)]"
@@ -3734,16 +3734,16 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid (for example, it is on an unmapped drive).
+    description: 'The specified path is invalid (for example, it is on an unmapped drive).'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: An I/O error occurred while opening the file.
@@ -3895,18 +3895,18 @@ items:
       description: The file to read.
     return:
       type: System.Collections.Generic.IEnumerable{System.String}
-      description: All the lines of the file, or the lines that are the result of a query.
+      description: 'All the lines of the file, or the lines that are the result of a query.'
   overload: System.IO.File.ReadLines*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters defined by the <xref href="System.IO.Path.GetInvalidPathChars"></xref> method.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters defined by the <xref href="System.IO.Path.GetInvalidPathChars"></xref> method.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null`.
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: <code>path</code> is invalid (for example, it is on an unmapped drive).
+    description: '<code>path</code> is invalid (for example, it is on an unmapped drive).'
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
     description: The file specified by <code>path</code> was not found.
@@ -3915,7 +3915,7 @@ items:
     description: An I/O error occurred while opening the file.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: <code>path</code> exceeds the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters and file names must be less than 260 characters.
+    description: '<code>path</code> exceeds the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters and file names must be less than 260 characters.'
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
     description: The caller does not have the required permission.
@@ -3992,18 +3992,18 @@ items:
       description: The encoding that is applied to the contents of the file.
     return:
       type: System.Collections.Generic.IEnumerable{System.String}
-      description: All the lines of the file, or the lines that are the result of a query.
+      description: 'All the lines of the file, or the lines that are the result of a query.'
   overload: System.IO.File.ReadLines*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by the <xref href="System.IO.Path.GetInvalidPathChars"></xref> method.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by the <xref href="System.IO.Path.GetInvalidPathChars"></xref> method.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null`.
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: <code>path</code> is invalid (for example, it is on an unmapped drive).
+    description: '<code>path</code> is invalid (for example, it is on an unmapped drive).'
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
     description: The file specified by <code>path</code> was not found.
@@ -4012,7 +4012,7 @@ items:
     description: An I/O error occurred while opening the file.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: <code>path</code> exceeds the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters and file names must be less than 260 characters.
+    description: '<code>path</code> exceeds the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters and file names must be less than 260 characters.'
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
     description: The caller does not have the required permission.
@@ -4076,7 +4076,7 @@ items:
   - netstandard
   - System.IO.FileSystem
   namespace: System.IO
-  summary: Replaces the contents of a specified file with the contents of another file, deleting the original file, and creating a backup of the replaced file.
+  summary: 'Replaces the contents of a specified file with the contents of another file, deleting the original file, and creating a backup of the replaced file.'
   remarks: "The <xref:System.IO.File.Replace%2A> method replaces the contents of a specified file with the contents of another file.  It also creates a backup of the file that was replaced.  \n  \n If the `sourceFileName` and `destinationFileName` are on different volumes, this method will raise an exception. If the `destinationBackupFileName` is on a different volume from the source file, the backup file will be deleted.  \n  \n Pass `null` to the `destinationBackupFileName` parameter if you do not want to create a backup of the file being replaced."
   example:
   - "The following code example uses the <xref:System.IO.File.Replace%2A> method to replace a file with another file and create a backup of the replaced file.  \n  \n [!code-cpp[IO.File.Replace#1](~/samples/snippets/cpp/VS_Snippets_CLR/IO.File.Replace/cpp/sample.cpp#1)]\n [!code-csharp[IO.File.Replace#1](~/samples/snippets/csharp/VS_Snippets_CLR/IO.File.Replace/CS/sample.cs#1)]\n [!code-vb[IO.File.Replace#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/IO.File.Replace/VB/sample.vb#1)]"
@@ -4111,7 +4111,7 @@ items:
     description: "An I/O error occurred while opening the file.  \n  \n \\- or -  \n  \n The <code>sourceFileName</code> and <code>destinationFileName</code> parameters specify the same file."
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
     description: The operating system is Windows 98 Second Edition or earlier and the files system is not NTFS.
@@ -4165,7 +4165,7 @@ items:
   - netstandard
   - System.IO.FileSystem
   namespace: System.IO
-  summary: Replaces the contents of a specified file with the contents of another file, deleting the original file, and creating a backup of the replaced file and optionally ignores merge errors.
+  summary: 'Replaces the contents of a specified file with the contents of another file, deleting the original file, and creating a backup of the replaced file and optionally ignores merge errors.'
   remarks: "The <xref:System.IO.File.Replace%2A> method replaces the contents of a specified file with the contents of another file.  It also creates a backup of the file that was replaced.  \n  \n If the `sourceFileName` and `destinationFileName` are on different volumes, this method will raise an exception. If the `destinationBackupFileName` is on a different volume from the source file, the backup file will be deleted.  \n  \n Pass `null` to the `destinationBackupFileName` parameter if you do not want to create a backup of the file being replaced."
   example:
   - "The following code example uses the <xref:System.IO.File.Replace%2A> method to replace a file with another file and create a backup of the replaced file.  \n  \n [!code-cpp[IO.File.Replace#1](~/samples/snippets/cpp/VS_Snippets_CLR/IO.File.Replace/cpp/sample.cpp#1)]\n [!code-csharp[IO.File.Replace#1](~/samples/snippets/csharp/VS_Snippets_CLR/IO.File.Replace/CS/sample.cs#1)]\n [!code-vb[IO.File.Replace#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/IO.File.Replace/VB/sample.vb#1)]"
@@ -4203,7 +4203,7 @@ items:
     description: "An I/O error occurred while opening the file.  \n  \n \\- or -  \n  \n The <code>sourceFileName</code> and <code>destinationFileName</code> parameters specify the same file."
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
     description: The operating system is Windows 98 Second Edition or earlier and the files system is not NTFS.
@@ -4345,16 +4345,16 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is empty, contains only white spaces, contains invalid characters, or the file attribute is invalid.
+    description: '<code>path</code> is empty, contains only white spaces, contains invalid characters, or the file attribute is invalid.'
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
     description: <code>path</code> is in an invalid format.
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid, (for example, it is on an unmapped drive).
+    description: 'The specified path is invalid, (for example, it is on an unmapped drive).'
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
     description: The file cannot be found.
@@ -4436,19 +4436,19 @@ items:
     description: The specified path was not found.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: An I/O error occurred while performing the operation.
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: <code>creationTime</code> specifies a value outside the range of dates, times, or both permitted for this operation.
+    description: '<code>creationTime</code> specifies a value outside the range of dates, times, or both permitted for this operation.'
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
     description: The caller does not have the required permission.
@@ -4512,7 +4512,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Sets the date and time, in coordinated universal time (UTC), that the file was created.
+  summary: 'Sets the date and time, in coordinated universal time (UTC), that the file was created.'
   remarks: "The `path` parameter is permitted to specify relative or absolute path information. Relative path information is interpreted as relative to the current working directory. To obtain the current working directory, see <xref:System.IO.Directory.GetCurrentDirectory%2A>.  \n  \n NTFS-formatted drives may cache file meta-info, such as file creation time, for a short period of time. As a result, it may be necessary to explicitly set the creation time of a file if you are overwriting or replacing an existing file.  \n  \n For a list of common I/O tasks, see [Common I/O Tasks](~/docs/standard/io/common-i-o-tasks.md)."
   syntax:
     content: public static void SetCreationTimeUtc (string path, DateTime creationTimeUtc);
@@ -4530,19 +4530,19 @@ items:
     description: The specified path was not found.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: An I/O error occurred while performing the operation.
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: <code>creationTime</code> specifies a value outside the range of dates, times, or both permitted for this operation.
+    description: '<code>creationTime</code> specifies a value outside the range of dates, times, or both permitted for this operation.'
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
     description: The caller does not have the required permission.
@@ -4623,13 +4623,13 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
     description: The specified path was not found.
@@ -4699,7 +4699,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Sets the date and time, in coordinated universal time (UTC), that the specified file was last accessed.
+  summary: 'Sets the date and time, in coordinated universal time (UTC), that the specified file was last accessed.'
   remarks: "The `path` parameter is permitted to specify relative or absolute path information. Relative path information is interpreted as relative to the current working directory. To obtain the current working directory, see <xref:System.IO.Directory.GetCurrentDirectory%2A>.  \n  \n For a list of common I/O tasks, see [Common I/O Tasks](~/docs/standard/io/common-i-o-tasks.md)."
   syntax:
     content: public static void SetLastAccessTimeUtc (string path, DateTime lastAccessTimeUtc);
@@ -4714,13 +4714,13 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
     description: The specified path was not found.
@@ -4807,13 +4807,13 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
     description: The specified path was not found.
@@ -4883,7 +4883,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Sets the date and time, in coordinated universal time (UTC), that the specified file was last written to.
+  summary: 'Sets the date and time, in coordinated universal time (UTC), that the specified file was last written to.'
   remarks: "The `path` parameter is permitted to specify relative or absolute path information. Relative path information is interpreted as relative to the current working directory. To obtain the current working directory, see <xref:System.IO.Directory.GetCurrentDirectory%2A>.  \n  \n For a list of common I/O tasks, see [Common I/O Tasks](~/docs/standard/io/common-i-o-tasks.md)."
   syntax:
     content: public static void SetLastWriteTimeUtc (string path, DateTime lastWriteTimeUtc);
@@ -4898,13 +4898,13 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
     description: The specified path was not found.
@@ -4974,8 +4974,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Creates a new file, writes the specified byte array to the file, and then closes the file. If the target file already exists, it is overwritten.
-  remarks: Given a byte array and a file path, this method opens the specified file, writes the contents of the byte array to the file, and then closes the file.
+  summary: 'Creates a new file, writes the specified byte array to the file, and then closes the file. If the target file already exists, it is overwritten.'
+  remarks: 'Given a byte array and a file path, this method opens the specified file, writes the contents of the byte array to the file, and then closes the file.'
   syntax:
     content: public static void WriteAllBytes (string path, byte[] bytes);
     parameters:
@@ -4989,16 +4989,16 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null` or the byte array is empty.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid (for example, it is on an unmapped drive).
+    description: 'The specified path is invalid (for example, it is on an unmapped drive).'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: An I/O error occurred while opening the file.
@@ -5103,7 +5103,7 @@ items:
   - netstandard
   - System.IO.FileSystem
   namespace: System.IO
-  summary: Creates a new file, writes the specified string array to the file by using the specified encoding, and then closes the file.
+  summary: 'Creates a new file, writes the specified string array to the file by using the specified encoding, and then closes the file.'
   remarks: "If the target file already exists, it is overwritten.  \n  \n Given a string array and a file path, this method opens the specified file, writes the string array to the file using the specified encoding, and then closes the file."
   example:
   - "The following code example demonstrates the use of the <xref:System.IO.File.WriteAllLines%2A> method to write text to a file. In this example a file is created, if it doesn't already exist, and text is added to it.  \n  \n [!code-csharp[System.IO.File.AllLines_Encoding#00](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.IO.File.AllLines_Encoding/cs/AllText_Encoding.cs#00)]\n [!code-vb[System.IO.File.AllLines_Encoding#00](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.IO.File.AllLines_Encoding/vb/AllText_Encoding.vb#00)]"
@@ -5123,16 +5123,16 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: Either <code>path</code> or <code>contents</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid (for example, it is on an unmapped drive).
+    description: 'The specified path is invalid (for example, it is on an unmapped drive).'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: An I/O error occurred while opening the file.
@@ -5192,7 +5192,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Creates a new file by using the specified encoding, writes a collection of strings to the file, and then closes the file.
+  summary: 'Creates a new file by using the specified encoding, writes a collection of strings to the file, and then closes the file.'
   remarks: "If the target file already exists, it is overwritten.  \n  \n You can use this method to create a file that contains the following:  \n  \n-   The results of a [LINQ to Objects](http://msdn.microsoft.com/library/73cafe73-37cf-46e7-bfa7-97c7eea7ced9) query on the lines of a file, as obtained by using the <xref:System.IO.File.ReadLines%2A> method.  \n  \n-   The contents of a collection that implements an <xref:System.Collections.Generic.IEnumerable%601> of strings."
   syntax:
     content: public static void WriteAllLines (string path, System.Collections.Generic.IEnumerable<string> contents, System.Text.Encoding encoding);
@@ -5210,19 +5210,19 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters defined by the <xref href="System.IO.Path.GetInvalidPathChars"></xref> method.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters defined by the <xref href="System.IO.Path.GetInvalidPathChars"></xref> method.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: Either <code>path</code>, <code>contents</code>, or <code>encoding</code> is `null`.
+    description: 'Either <code>path</code>, <code>contents</code>, or <code>encoding</code> is `null`.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: <code>path</code> is invalid (for example, it is on an unmapped drive).
+    description: '<code>path</code> is invalid (for example, it is on an unmapped drive).'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: An I/O error occurred while opening the file.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: <code>path</code> exceeds the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters and file names must be less than 260 characters.
+    description: '<code>path</code> exceeds the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters and file names must be less than 260 characters.'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
     description: <code>path</code> is in an invalid format.
@@ -5289,7 +5289,7 @@ items:
   - netstandard
   - System.IO.FileSystem
   namespace: System.IO
-  summary: Creates a new file, write the specified string array to the file, and then closes the file.
+  summary: 'Creates a new file, write the specified string array to the file, and then closes the file.'
   remarks: "If the target file already exists, it is overwritten.  \n  \n The default behavior of the <xref:System.IO.File.WriteAllLines%2A> method is to write out data using UTF-8 encoding without a byte order mark (BOM). If it is necessary to include a UTF-8 identifier, such as a byte order mark, at the beginning of a file, use the <xref:System.IO.File.WriteAllLines%28System.String%2CSystem.String%5B%5D%2CSystem.Text.Encoding%29> method overload with <xref:System.Text.Encoding.UTF8%2A> encoding.  \n  \n Given a string array and a file path, this method opens the specified file, writes the string array to the file, and then closes the file."
   example:
   - "The following code example demonstrates the use of the <xref:System.IO.File.WriteAllLines%2A> method to write text to a file. In this example a file is created, if it doesn't already exist, and text is added to it.  \n  \n [!code-csharp[System.IO.File.AllLines#00](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.IO.File.AllLines/cs/AllText.cs#00)]\n [!code-vb[System.IO.File.AllLines#00](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.IO.File.AllLines/vb/AllText.vb#00)]"
@@ -5306,16 +5306,16 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: Either <code>path</code> or <code>contents</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid (for example, it is on an unmapped drive).
+    description: 'The specified path is invalid (for example, it is on an unmapped drive).'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: An I/O error occurred while opening the file.
@@ -5375,7 +5375,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Creates a new file, writes a collection of strings to the file, and then closes the file.
+  summary: 'Creates a new file, writes a collection of strings to the file, and then closes the file.'
   remarks: "The default behavior of the <xref:System.IO.File.WriteAllLines%28System.String%2CSystem.Collections.Generic.IEnumerable%7BSystem.String%7D%29> method is to write out data by using UTF-8 encoding without a byte order mark (BOM). If it is necessary to include a UTF-8 identifier, such as a byte order mark, at the beginning of a file, use the <xref:System.IO.File.WriteAllLines%28System.String%2CSystem.Collections.Generic.IEnumerable%7BSystem.String%7D%2CSystem.Text.Encoding%29> method overload with <xref:System.Text.Encoding.UTF8%2A> encoding.  \n  \n If the target file already exists, it is overwritten.  \n  \n You can use this method to create the contents for a collection class that takes an <xref:System.Collections.Generic.IEnumerable%601> in its constructor, such as a <xref:System.Collections.Generic.List%601.%23ctor%2A>, <xref:System.Collections.Generic.HashSet%601.%23ctor%2A>, or a <xref:System.Collections.Generic.SortedSet%601.%23ctor%2A> class."
   example:
   - "The following example writes selected lines from a sample data file to a file.  \n  \n [!code-csharp[System.IO.File.WriteAllAppendAll#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.io.file.writeallappendall/cs/program.cs#1)]\n [!code-vb[System.IO.File.WriteAllAppendAll#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.io.file.writeallappendall/vb/program.vb#1)]"
@@ -5392,19 +5392,19 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters defined by the <xref href="System.IO.Path.GetInvalidPathChars"></xref> method.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters defined by the <xref href="System.IO.Path.GetInvalidPathChars"></xref> method.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: Either <code>path</code> or <code>contents</code> is `null`.
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: <code>path</code> is invalid (for example, it is on an unmapped drive).
+    description: '<code>path</code> is invalid (for example, it is on an unmapped drive).'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: An I/O error occurred while opening the file.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: <code>path</code> exceeds the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters and file names must be less than 260 characters.
+    description: '<code>path</code> exceeds the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters and file names must be less than 260 characters.'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
     description: <code>path</code> is in an invalid format.
@@ -5544,7 +5544,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Creates a new file, writes the specified string to the file, and then closes the file. If the target file already exists, it is overwritten.
+  summary: 'Creates a new file, writes the specified string to the file, and then closes the file. If the target file already exists, it is overwritten.'
   remarks: "This method uses UTF-8 encoding without a Byte-Order Mark (BOM), so using the <xref:System.Text.Encoding.GetPreamble%2A> method will return an empty byte array. If it is necessary to include a UTF-8 identifier, such as a byte order mark, at the beginning of a file, use the <xref:System.IO.File.WriteAllText%28System.String%2CSystem.String%2CSystem.Text.Encoding%29> method overload with <xref:System.Text.Encoding.UTF8%2A> encoding.  \n  \n Given a string and a file path, this method opens the specified file, writes the string to the file, and then closes the file."
   example:
   - "The following code example demonstrates the use of the <xref:System.IO.File.WriteAllText%2A> method to write text to a file. In this example a file is created, if it doesn't already exist, and text is added to it.  \n  \n [!code-csharp[System.IO.File.AllText#00](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.IO.File.AllText/cs/AllText.cs#00)]\n [!code-vb[System.IO.File.AllText#00](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.IO.File.AllText/vb/AllText.vb#00)]"
@@ -5561,16 +5561,16 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null` or <code>contents</code> is empty.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid (for example, it is on an unmapped drive).
+    description: 'The specified path is invalid (for example, it is on an unmapped drive).'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: An I/O error occurred while opening the file.
@@ -5640,8 +5640,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System.IO
-  summary: Creates a new file, writes the specified string to the file using the specified encoding, and then closes the file. If the target file already exists, it is overwritten.
-  remarks: Given a string and a file path, this method opens the specified file, writes the string to the file using the specified encoding, and then closes the file. The file handle is guaranteed to be closed by this method, even if exceptions are raised.
+  summary: 'Creates a new file, writes the specified string to the file using the specified encoding, and then closes the file. If the target file already exists, it is overwritten.'
+  remarks: 'Given a string and a file path, this method opens the specified file, writes the string to the file using the specified encoding, and then closes the file. The file handle is guaranteed to be closed by this method, even if exceptions are raised.'
   example:
   - "The following code example demonstrates the use of the <xref:System.IO.File.WriteAllText%2A> method to write text to a file. In this example a file is created, if it doesn't already exist, and text is added to it.  \n  \n [!code-csharp[System.IO.File.AllText_Encoding#00](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.IO.File.AllText_Encoding/cs/AllText.cs#00)]\n [!code-vb[System.IO.File.AllText_Encoding#00](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.IO.File.AllText_Encoding/vb/AllText.vb#00)]"
   syntax:
@@ -5660,16 +5660,16 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.
+    description: '<code>path</code> is a zero-length string, contains only white space, or contains one or more invalid characters as defined by <xref href="System.IO.Path.InvalidPathChars"></xref>.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>path</code> is `null` or <code>contents</code> is empty.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.
+    description: 'The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid (for example, it is on an unmapped drive).
+    description: 'The specified path is invalid (for example, it is on an unmapped drive).'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: An I/O error occurred while opening the file.

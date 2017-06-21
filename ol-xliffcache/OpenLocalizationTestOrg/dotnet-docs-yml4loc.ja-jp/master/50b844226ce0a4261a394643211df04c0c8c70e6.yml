@@ -165,7 +165,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media.Animation
   summary: Initializes a new instance of the <xref href="System.Windows.Media.Animation.MatrixAnimationUsingPath"></xref> class.
-  remarks: There is no default <xref:System.Windows.Media.PathGeometry>, so the user must specify one.
+  remarks: 'There is no default <xref:System.Windows.Media.PathGeometry>, so the user must specify one.'
   syntax:
     content: public MatrixAnimationUsingPath ();
     parameters: []
@@ -206,7 +206,7 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: Creates a modifiable clone of this <xref href="System.Windows.Media.Animation.MatrixAnimationUsingPath"></xref>, making deep copies of this object's values. When copying dependency properties, this method copies resource references and data bindings (but they might no longer resolve) but not animations or their current values.
+  summary: 'Creates a modifiable clone of this <xref href="System.Windows.Media.Animation.MatrixAnimationUsingPath"></xref>, making deep copies of this object''s values. When copying dependency properties, this method copies resource references and data bindings (but they might no longer resolve) but not animations or their current values.'
   remarks: "This method is used to produce modifiable copies of frozen <xref:System.Windows.Freezable> objects (or any <xref:System.Windows.Freezable> object). For convenience, this method shadows the inherited version with a strongly typed implementation.  \n  \n For more information, see <xref:System.Windows.Freezable.Clone%2A?displayProperty=fullName>."
   syntax:
     content: public System.Windows.Media.Animation.MatrixAnimationUsingPath Clone ();
@@ -295,7 +295,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media.Animation
   summary: Gets or sets a value indicating whether the object rotates along the tangent of the path.
-  remarks: "Use property when you want the animated object to appear to \"slide\" along the animation path.  \n  \n<a name=\"dependencyPropertyInfo_DoesRotateWithTangent\"></a>   \n## Dependency Property Information  \n  \n|||  \n|-|-|  \n|Identifier field|<xref:System.Windows.Media.Animation.MatrixAnimationUsingPath.DoesRotateWithTangentProperty>|  \n|Metadata properties set to `true`|None|"
+  remarks: "Use property when you want the animated object to appear to \"slide\" along the animation path.  \n  \n<a name=\"dependencyPropertyInfo_DoesRotateWithTangent\"></a>   \n## <a name=\"dependency-property-information\"></a>Dependency Property Information  \n  \n|||  \n|-|-|  \n|Identifier field|<xref:System.Windows.Media.Animation.MatrixAnimationUsingPath.DoesRotateWithTangentProperty>|  \n|Metadata properties set to `true`|None|"
   syntax:
     content: public bool DoesRotateWithTangent { get; set; }
     return:
@@ -380,23 +380,23 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: Calculates a value that represents the current value of the property being animated, as determined by the <xref href="System.Windows.Media.Animation.MatrixAnimationUsingPath"></xref>.
+  summary: 'Calculates a value that represents the current value of the property being animated, as determined by the <xref href="System.Windows.Media.Animation.MatrixAnimationUsingPath"></xref>.'
   remarks: "If the `defaultOriginValue` is the first in the composition chain, this value will be the snapshot value (if one is available) or the base property value; otherwise this value will be the value returned by the previous animation in the chain with an <xref:System.Windows.Media.Animation.AnimationClock> that is not <xref:System.Windows.Media.Animation.Clock.Stopped%2A>.  \n  \n The `defaultDestinationValue` is the base value if the animation is in the first composition layer of animations on a property; otherwise the value is the output value from the previous composition layer of animations for the property."
   syntax:
     content: protected override System.Windows.Media.Matrix GetCurrentValueCore (System.Windows.Media.Matrix defaultOriginValue, System.Windows.Media.Matrix defaultDestinationValue, System.Windows.Media.Animation.AnimationClock animationClock);
     parameters:
     - id: defaultOriginValue
       type: System.Windows.Media.Matrix
-      description: The suggested origin value, used if the animation does not have its own explicitly set start value.
+      description: 'The suggested origin value, used if the animation does not have its own explicitly set start value.'
     - id: defaultDestinationValue
       type: System.Windows.Media.Matrix
-      description: The suggested destination value, used if the animation does not have its own explicitly set end value.
+      description: 'The suggested destination value, used if the animation does not have its own explicitly set end value.'
     - id: animationClock
       type: System.Windows.Media.Animation.AnimationClock
       description: An <xref href="System.Windows.Media.Animation.AnimationClock"></xref> that generates the <xref href="System.Windows.Media.Animation.Clock.CurrentTime"></xref> or <xref href="System.Windows.Media.Animation.Clock.CurrentProgress"></xref> used by the animation.
     return:
       type: System.Windows.Media.Matrix
-      description: The calculated value of the property, as determined by the current animation.
+      description: 'The calculated value of the property, as determined by the current animation.'
   overload: System.Windows.Media.Animation.MatrixAnimationUsingPath.GetCurrentValueCore*
   exceptions: []
   version:
@@ -434,14 +434,14 @@ items:
   - PresentationCore
   namespace: System.Windows.Media.Animation
   summary: Gets or sets a value that indicates whether the target property's current value should be added to this animation's starting value.
-  remarks: "<a name=\"dependencyPropertyInfo_IsAdditive\"></a>   \n## Dependency Property Information  \n  \n|||  \n|-|-|  \n|Identifier field|<xref:System.Windows.Media.Animation.AnimationTimeline.IsAdditiveProperty>|  \n|Metadata properties set to `true`|None|  \n  \n> [!NOTE]\n>  This dependency property is unusual because the identifier field for it comes from <xref:System.Windows.Media.Animation.AnimationTimeline> and is shared by various derived classes."
+  remarks: "<a name=\"dependencyPropertyInfo_IsAdditive\"></a>   \n## <a name=\"dependency-property-information\"></a>Dependency Property Information  \n  \n|||  \n|-|-|  \n|Identifier field|<xref:System.Windows.Media.Animation.AnimationTimeline.IsAdditiveProperty>|  \n|Metadata properties set to `true`|None|  \n  \n> [!NOTE]\n>  This dependency property is unusual because the identifier field for it comes from <xref:System.Windows.Media.Animation.AnimationTimeline> and is shared by various derived classes."
   example:
   - "The following example uses two similar <xref:System.Windows.Media.Animation.MatrixAnimationUsingPath> animations to animate the same rectangle. The first animation's <xref:System.Windows.Media.Animation.MatrixAnimationUsingPath.IsAdditive%2A> property is set to `false`, so it always animates the rectangle from (0,0), the animation's starting value. The second animation has the same target values (their <xref:System.Windows.Media.Animation.MatrixAnimationUsingPath.PathGeometry%2A> settings are identical), but its <xref:System.Windows.Media.Animation.MatrixAnimationUsingPath.IsAdditive%2A> property is set to `true`; as a result, it animates the rectangle from whatever position it is at when the animation is applied.  \n  \n [!code-xml[PathAnimationGallery_snippet#MatrixAnimationUsingPathIsAdditiveExampleWholePage](~/samples/snippets/csharp/VS_Snippets_Wpf/PathAnimationGallery_snippet/CS/matrixanimationusingpathisadditiveexample.xaml#matrixanimationusingpathisadditiveexamplewholepage)]"
   syntax:
     content: public bool IsAdditive { get; set; }
     return:
       type: System.Boolean
-      description: "`true` if the target property's current value should be added to this animation's starting value; otherwise, `false`. The default is `false`."
+      description: '`true` if the target property''s current value should be added to this animation''s starting value; otherwise, `false`. The default is `false`.'
   overload: System.Windows.Media.Animation.MatrixAnimationUsingPath.IsAdditive*
   exceptions: []
   version:
@@ -480,14 +480,14 @@ items:
   - PresentationCore
   namespace: System.Windows.Media.Animation
   summary: Gets or sets a value that specifies whether the rotation angle of the animated matrix should accumulate over repetitions.
-  remarks: "If this property is set to `true`, the rotation angle of the animated matrix will accumulate as the animation repeats.  If your path is a small arc, a cumulative angle will cause your object to continuously rotate with each repeat instead of restarting the rotation.  When combined with an <xref:System.Windows.Media.Animation.MatrixAnimationUsingPath.IsOffsetCumulative%2A> of `true`, your object might appear to tumble while it bounces (depending on the path you specify). For related information, see <xref:System.Windows.Media.Animation.MatrixAnimationUsingPath.IsOffsetCumulative%2A>.  \n  \n Setting this property has no effect if <xref:System.Windows.Media.Animation.MatrixAnimationUsingPath.DoesRotateWithTangent%2A> is `false`.  \n  \n This property determines whether the animation matrix's angle accumulates when the animation repeats because of its <xref:System.Windows.Media.Animation.Timeline.RepeatBehavior%2A> setting; it does not cause the offset to accumulate when the animation is restarted. For information on how to make an animation build off a previous animation's values, see <xref:System.Windows.Media.Animation.MatrixAnimationUsingPath.IsAdditive%2A>.  \n  \n<a name=\"dependencyPropertyInfo_IsAngleCumulative\"></a>   \n## Dependency Property Information  \n  \n|||  \n|-|-|  \n|Identifier field|<xref:System.Windows.Media.Animation.MatrixAnimationUsingPath.IsAngleCumulativeProperty>|  \n|Metadata properties set to `true`|None|"
+  remarks: "If this property is set to `true`, the rotation angle of the animated matrix will accumulate as the animation repeats.  If your path is a small arc, a cumulative angle will cause your object to continuously rotate with each repeat instead of restarting the rotation.  When combined with an <xref:System.Windows.Media.Animation.MatrixAnimationUsingPath.IsOffsetCumulative%2A> of `true`, your object might appear to tumble while it bounces (depending on the path you specify). For related information, see <xref:System.Windows.Media.Animation.MatrixAnimationUsingPath.IsOffsetCumulative%2A>.  \n  \n Setting this property has no effect if <xref:System.Windows.Media.Animation.MatrixAnimationUsingPath.DoesRotateWithTangent%2A> is `false`.  \n  \n This property determines whether the animation matrix's angle accumulates when the animation repeats because of its <xref:System.Windows.Media.Animation.Timeline.RepeatBehavior%2A> setting; it does not cause the offset to accumulate when the animation is restarted. For information on how to make an animation build off a previous animation's values, see <xref:System.Windows.Media.Animation.MatrixAnimationUsingPath.IsAdditive%2A>.  \n  \n<a name=\"dependencyPropertyInfo_IsAngleCumulative\"></a>   \n## <a name=\"dependency-property-information\"></a>Dependency Property Information  \n  \n|||  \n|-|-|  \n|Identifier field|<xref:System.Windows.Media.Animation.MatrixAnimationUsingPath.IsAngleCumulativeProperty>|  \n|Metadata properties set to `true`|None|"
   example:
   - "The following example uses two similar <xref:System.Windows.Media.Animation.MatrixAnimationUsingPath> animations to animate the same rectangle. Both animations have the same <xref:System.Windows.Media.Animation.MatrixAnimationUsingPath.PathGeometry%2A> setting, which causes the rectangle to rotate as it moves along the screen to the right, and both animations are set to repeat four times. The first animation's <xref:System.Windows.Media.Animation.MatrixAnimationUsingPath.IsAngleCumulative%2A> property is set to `false`, so the rectangle jumps back to its original angle when the animation repeats. The second animation's <xref:System.Windows.Media.Animation.MatrixAnimationUsingPath.IsAngleCumulative%2A> property is set to `true`; as a result, the rectangle angle appears to increase when the animation repeats, rather than jumping back to its original value.  \n  \n [!code-xml[PathAnimationGallery_snippet#MatrixAnimationUsingPathIsAngleCumulativeExampleWholePage](~/samples/snippets/csharp/VS_Snippets_Wpf/PathAnimationGallery_snippet/CS/matrixanimationusingpathisanglecumulativeexample.xaml#matrixanimationusingpathisanglecumulativeexamplewholepage)]"
   syntax:
     content: public bool IsAngleCumulative { get; set; }
     return:
       type: System.Boolean
-      description: "`true` if the animation's rotation angle should accumulate over repetitions; otherwise, `false`. The default is `false`."
+      description: '`true` if the animation''s rotation angle should accumulate over repetitions; otherwise, `false`. The default is `false`.'
   overload: System.Windows.Media.Animation.MatrixAnimationUsingPath.IsAngleCumulative*
   exceptions: []
   version:
@@ -568,7 +568,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media.Animation
   summary: Gets or sets a value indicating whether the offset produced by the animated matrix will accumulate over repetitions.
-  remarks: "If this property is set to `true`, the offset of the animated matrix will accumulate as the animation repeats. For example, if the path is a small arc and the animation is set to repeat, a cumulative offset will cause the object to appear to bounce across the screen.  \n  \n This property determines whether the animation matrix's offset accumulates when the animation repeats because of its <xref:System.Windows.Media.Animation.Timeline.RepeatBehavior%2A> setting; it does not cause the offset to accumulate when the animation is restarted. For information on how to make an animation build off a previous animation's values, see <xref:System.Windows.Media.Animation.MatrixAnimationUsingPath.IsAdditive%2A>.  \n  \n<a name=\"dependencyPropertyInfo_IsOffsetCumulative\"></a>   \n## Dependency Property Information  \n  \n|||  \n|-|-|  \n|Identifier field|<xref:System.Windows.Media.Animation.MatrixAnimationUsingPath.IsOffsetCumulativeProperty>|  \n|Metadata properties set to `true`|None|"
+  remarks: "If this property is set to `true`, the offset of the animated matrix will accumulate as the animation repeats. For example, if the path is a small arc and the animation is set to repeat, a cumulative offset will cause the object to appear to bounce across the screen.  \n  \n This property determines whether the animation matrix's offset accumulates when the animation repeats because of its <xref:System.Windows.Media.Animation.Timeline.RepeatBehavior%2A> setting; it does not cause the offset to accumulate when the animation is restarted. For information on how to make an animation build off a previous animation's values, see <xref:System.Windows.Media.Animation.MatrixAnimationUsingPath.IsAdditive%2A>.  \n  \n<a name=\"dependencyPropertyInfo_IsOffsetCumulative\"></a>   \n## <a name=\"dependency-property-information\"></a>Dependency Property Information  \n  \n|||  \n|-|-|  \n|Identifier field|<xref:System.Windows.Media.Animation.MatrixAnimationUsingPath.IsOffsetCumulativeProperty>|  \n|Metadata properties set to `true`|None|"
   syntax:
     content: public bool IsOffsetCumulative { get; set; }
     return:
@@ -694,7 +694,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media.Animation
   summary: Gets or sets the geometry used to generate this animation's output values.
-  remarks: "A <xref:System.Windows.Media.PathGeometry> can describe complex shapes that contain curves and arcs, enabling you specify complex shapes for your animation input. For more information, see [Geometry Overview](~/docs/framework/wpf/graphics-multimedia/geometry-overview.md).  \n  \n<a name=\"dependencyPropertyInfo_PathGeometry\"></a>   \n## Dependency Property Information  \n  \n|||  \n|-|-|  \n|Identifier field|<xref:System.Windows.Media.Animation.MatrixAnimationUsingPath.PathGeometryProperty>|  \n|Metadata properties set to `true`|None|"
+  remarks: "A <xref:System.Windows.Media.PathGeometry> can describe complex shapes that contain curves and arcs, enabling you specify complex shapes for your animation input. For more information, see [Geometry Overview](~/docs/framework/wpf/graphics-multimedia/geometry-overview.md).  \n  \n<a name=\"dependencyPropertyInfo_PathGeometry\"></a>   \n## <a name=\"dependency-property-information\"></a>Dependency Property Information  \n  \n|||  \n|-|-|  \n|Identifier field|<xref:System.Windows.Media.Animation.MatrixAnimationUsingPath.PathGeometryProperty>|  \n|Metadata properties set to `true`|None|"
   syntax:
     content: public System.Windows.Media.PathGeometry PathGeometry { get; set; }
     return:

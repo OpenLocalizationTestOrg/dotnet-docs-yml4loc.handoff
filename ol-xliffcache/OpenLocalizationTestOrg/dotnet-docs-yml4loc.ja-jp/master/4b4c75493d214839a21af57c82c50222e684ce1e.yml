@@ -244,7 +244,7 @@ items:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
   summary: Creates a copy of this <xref href="System.Data.OracleClient.OracleBFile"></xref> object associated with the same physical file as the original.
-  remarks: The properties of the new <xref:System.Data.OracleClient.OracleBFile> object initially have the same values as those of the original object. However, after the <xref:System.Data.OracleClient.OracleBFile.Clone%2A> is complete, each <xref:System.Data.OracleClient.OracleBFile> object is independent from the other. For example, changing the value of the <xref:System.Data.OracleClient.OracleBFile.Position%2A> property on the original <xref:System.Data.OracleClient.OracleBFile> does not change the value of <xref:System.Data.OracleClient.OracleBFile.Position%2A> on the copy.
+  remarks: 'The properties of the new <xref:System.Data.OracleClient.OracleBFile> object initially have the same values as those of the original object. However, after the <xref:System.Data.OracleClient.OracleBFile.Clone%2A> is complete, each <xref:System.Data.OracleClient.OracleBFile> object is independent from the other. For example, changing the value of the <xref:System.Data.OracleClient.OracleBFile.Position%2A> property on the original <xref:System.Data.OracleClient.OracleBFile> does not change the value of <xref:System.Data.OracleClient.OracleBFile.Position%2A> on the copy.'
   syntax:
     content: public object Clone ();
     parameters: []
@@ -448,7 +448,7 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: Copies from this <xref href="System.Data.OracleClient.OracleBFile"></xref> to a destination <xref href="System.Data.OracleClient.OracleLob"></xref> with the specified amount of data, the source offset, and the destination offset.
+  summary: 'Copies from this <xref href="System.Data.OracleClient.OracleBFile"></xref> to a destination <xref href="System.Data.OracleClient.OracleLob"></xref> with the specified amount of data, the source offset, and the destination offset.'
   remarks: "The underlying data types of the source <xref:System.Data.OracleClient.OracleBFile> and the destination <xref:System.Data.OracleClient.OracleLob> must be compatible. For example, you cannot copy binary data to a destination <xref:System.Data.OracleClient.OracleLob> that has a character data type.  \n  \n You must have write access to the destination <xref:System.Data.OracleClient.OracleLob> for the <xref:System.Data.OracleClient.OracleBFile.CopyTo%2A> operation to execute correctly."
   syntax:
     content: public long CopyTo (long sourceOffset, System.Data.OracleClient.OracleLob destination, long destinationOffset, long amount);
@@ -464,7 +464,7 @@ items:
       description: The offset to which to copy.
     - id: amount
       type: System.Int64
-      description: The quantity of data, in bytes, to copy.
+      description: 'The quantity of data, in bytes, to copy.'
     return:
       type: System.Int64
       description: The number of bytes copied.
@@ -517,7 +517,7 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: Gets the name of the DIRECTORY object, with which an <xref href="System.Data.OracleClient.OracleBFile"></xref> object is associated.
+  summary: 'Gets the name of the DIRECTORY object, with which an <xref href="System.Data.OracleClient.OracleBFile"></xref> object is associated.'
   remarks: "Each non-NULL <xref:System.Data.OracleClient.OracleBFile> object is associated with two entities that define the location of underlying physical file:  \n  \n-   An Oracle DIRECTORY object, which is a database alias for a directory in the file system, and  \n  \n-   The file name of the underlying physical file, which is located in the directory associated with the DIRECTORY object.  \n  \n The <xref:System.Data.OracleClient.OracleBFile.DirectoryName%2A> property returns the name of the DIRECTORY object from the Oracle database.  \n  \n For more information about creating and using an Oracle `BFILE`, see the appropriate topic in your Oracle documentation."
   syntax:
     content: public string DirectoryName { get; }
@@ -652,7 +652,7 @@ items:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
   summary: Gets the name of the `BFILE` without the path.
-  remarks: For <xref:System.Data.OracleClient.OracleBFile.Null>, an empty string is returned.
+  remarks: 'For <xref:System.Data.OracleClient.OracleBFile.Null>, an empty string is returned.'
   syntax:
     content: public string FileName { get; }
     return:
@@ -928,7 +928,7 @@ items:
     parameters:
     - id: buffer
       type: System.Byte[]
-      description: An array of bytes. When this method returns, the buffer contains the specified byte array with the values between <code>offset</code> and (<code>offset</code> + <code>count</code>) replaced by the bytes read from the current source.
+      description: 'An array of bytes. When this method returns, the buffer contains the specified byte array with the values between <code>offset</code> and (<code>offset</code> + <code>count</code>) replaced by the bytes read from the current source.'
     - id: offset
       type: System.Int32
       description: The zero-based byte offset in <code>buffer</code> at which to begin storing the data read from the current stream.
@@ -937,7 +937,7 @@ items:
       description: The maximum number of bytes to be read from the current stream.
     return:
       type: System.Int32
-      description: The total number of bytes read into the buffer. This may be less than the number of bytes requested if that many bytes are not currently available, or zero if the end of the file has been reached.
+      description: 'The total number of bytes read into the buffer. This may be less than the number of bytes requested if that many bytes are not currently available, or zero if the end of the file has been reached.'
   overload: System.Data.OracleClient.OracleBFile.Read*
   exceptions:
   - type: System.ArgumentException
@@ -1000,7 +1000,7 @@ items:
     parameters:
     - id: offset
       type: System.Int64
-      description: A byte offset relative to origin. If <code>offset</code> is negative, the new position will precede the position specified by <code>origin</code> by the number of bytes specified by <code>offset</code>. If <code>offset</code> is zero, the new position will be the position specified by <code>origin</code>. If <code>offset</code> is positive, the new position will follow the position specified by <code>origin</code> by the number of bytes specified by <code>offset</code>.
+      description: 'A byte offset relative to origin. If <code>offset</code> is negative, the new position will precede the position specified by <code>origin</code> by the number of bytes specified by <code>offset</code>. If <code>offset</code> is zero, the new position will be the position specified by <code>origin</code>. If <code>offset</code> is positive, the new position will follow the position specified by <code>origin</code> by the number of bytes specified by <code>offset</code>.'
     - id: origin
       type: System.IO.SeekOrigin
       description: A value of type `System.IO.SeekOrigin` indicating the reference point used to obtain the new position.
@@ -1112,7 +1112,7 @@ items:
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: The exception that is thrown when an invoked method is not supported, or when there is an attempt to read, seek, or write to a stream that does not support the invoked functionality.
+    description: 'The exception that is thrown when an invoked method is not supported, or when there is an attempt to read, seek, or write to a stream that does not support the invoked functionality.'
   version:
   - netframework-4.5.1
   - netframework-4.5.2
@@ -1209,7 +1209,7 @@ items:
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: The exception that is thrown when an invoked method is not supported, or when there is an attempt to read, seek, or write to a stream that does not support the invoked functionality.
+    description: 'The exception that is thrown when an invoked method is not supported, or when there is an attempt to read, seek, or write to a stream that does not support the invoked functionality.'
   version:
   - netframework-4.5.1
   - netframework-4.5.2

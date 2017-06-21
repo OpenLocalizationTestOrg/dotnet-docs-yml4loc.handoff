@@ -29,7 +29,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Represents a custom binding element that supports channel security using asymmetric encryption. This binding element signs the message using the sender's authentication token and encrypts the message using the recipient's token.
-  remarks: "A custom binding contains a collection of binding elements arranged in a specific order: the element that represents the top of the binding stack is added first, the next element down in the binding stack, is added second, and so forth.  \n  \n### To add this class to a binding  \n  \n1.  Create a <xref:System.ServiceModel.Channels.BindingElementCollection>.  \n  \n2.  Create custom binding elements that is above this binding element in the binding stack, such as the optional <xref:System.ServiceModel.Channels.TransactionFlowBindingElement> and <xref:System.ServiceModel.Channels.ReliableSessionBindingElement>.  \n  \n3.  Add the created elements in the preceding order to the <xref:System.ServiceModel.Channels.BindingElementCollection> using the <xref:System.ServiceModel.Channels.BindingElementCollection.InsertItem%28System.Int32%2CSystem.ServiceModel.Channels.BindingElement%29> method.  \n  \n4.  Create an instance of <xref:System.ServiceModel.Channels.AsymmetricSecurityBindingElement> and add it to the collection.  \n  \n5.  Add any additional custom binding elements to the collection, such as <xref:System.ServiceModel.Channels.TcpTransportBindingElement>.  \n  \n Before using this class, you should determine if a standard binding meets your security requirements.  \n  \n> [!NOTE]\n>  Once an instance of this object is created, you should treat the properties of its base class <xref:System.ServiceModel.Channels.SecurityBindingElement> as immutable. Calling set on some properties may have unpredictable effects: the binding may behave as if the property retained its old value, with a run-time failure being the only indication of an issue. Two properties known to behave this way are <xref:System.ServiceModel.Security.Tokens.IssuedSecurityTokenParameters.KeyType%2A> and <xref:System.ServiceModel.Channels.SecurityBindingElement.MessageSecurityVersion%2A>. There may be other properties this is true of."
+  remarks: "A custom binding contains a collection of binding elements arranged in a specific order: the element that represents the top of the binding stack is added first, the next element down in the binding stack, is added second, and so forth.  \n  \n### <a name=\"to-add-this-class-to-a-binding\"></a>To add this class to a binding  \n  \n1.  Create a <xref:System.ServiceModel.Channels.BindingElementCollection>.  \n  \n2.  Create custom binding elements that is above this binding element in the binding stack, such as the optional <xref:System.ServiceModel.Channels.TransactionFlowBindingElement> and <xref:System.ServiceModel.Channels.ReliableSessionBindingElement>.  \n  \n3.  Add the created elements in the preceding order to the <xref:System.ServiceModel.Channels.BindingElementCollection> using the <xref:System.ServiceModel.Channels.BindingElementCollection.InsertItem%28System.Int32%2CSystem.ServiceModel.Channels.BindingElement%29> method.  \n  \n4.  Create an instance of <xref:System.ServiceModel.Channels.AsymmetricSecurityBindingElement> and add it to the collection.  \n  \n5.  Add any additional custom binding elements to the collection, such as <xref:System.ServiceModel.Channels.TcpTransportBindingElement>.  \n  \n Before using this class, you should determine if a standard binding meets your security requirements.  \n  \n> [!NOTE]\n>  Once an instance of this object is created, you should treat the properties of its base class <xref:System.ServiceModel.Channels.SecurityBindingElement> as immutable. Calling set on some properties may have unpredictable effects: the binding may behave as if the property retained its old value, with a run-time failure being the only indication of an issue. Two properties known to behave this way are <xref:System.ServiceModel.Security.Tokens.IssuedSecurityTokenParameters.KeyType%2A> and <xref:System.ServiceModel.Channels.SecurityBindingElement.MessageSecurityVersion%2A>. There may be other properties this is true of."
   example:
   - "The following example shows how to use this class to create a custom binding that includes this class as a security binding element. [!INCLUDE[crabout](~/includes/crabout-md.md)] the code in this example, see [How to: Consistently Reference X.509 Certificates](~/docs/framework/wcf/feature-details/how-to-consistently-reference-x-509-certificates.md).  \n  \n [!code-csharp[S_UEAssymetricSecurityBindingElement#1](~/samples/snippets/csharp/VS_Snippets_CFX/s_ueassymetricsecuritybindingelement/cs/source.cs#1)]\n [!code-vb[S_UEAssymetricSecurityBindingElement#1](~/samples/snippets/visualbasic/VS_Snippets_CFX/s_ueassymetricsecuritybindingelement/vb/source.vb#1)]"
   syntax:
@@ -179,7 +179,7 @@ items:
     parameters:
     - id: recipientTokenParameters
       type: System.ServiceModel.Security.Tokens.SecurityTokenParameters
-      description: Defines the token for the recipient (for example, the server's X.509 certificate).
+      description: 'Defines the token for the recipient (for example, the server''s X.509 certificate).'
   overload: System.ServiceModel.Channels.AsymmetricSecurityBindingElement.#ctor*
   exceptions: []
   version:
@@ -229,7 +229,7 @@ items:
       description: Defines the token for the recipient (for example the server's X.509 certificate).
     - id: initiatorTokenParameters
       type: System.ServiceModel.Security.Tokens.SecurityTokenParameters
-      description: Defines the token for the initiator (for example, the client's X.509 certificate).
+      description: 'Defines the token for the initiator (for example, the client''s X.509 certificate).'
   overload: System.ServiceModel.Channels.AsymmetricSecurityBindingElement.#ctor*
   exceptions: []
   version:
@@ -268,7 +268,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Gets or sets a value that indicates whether serializing a signing token on a reply message is allowed.
-  remarks: This flag is intended to enable interoperability with some older implementations of WS-Security (for example, WSE 2.0).
+  remarks: 'This flag is intended to enable interoperability with some older implementations of WS-Security (for example, WSE 2.0).'
   syntax:
     content: public bool AllowSerializedSigningTokenOnReply { get; set; }
     return:
@@ -445,7 +445,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Gets a specified object from the <xref href="System.ServiceModel.Channels.BindingContext"></xref>.
-  remarks: This method gets the specified object from the base class or from one of that class's ancestors. The object that is returned is usually a collection of properties, for example an object that implements <xref:System.ServiceModel.Channels.ISecurityCapabilities>.
+  remarks: 'This method gets the specified object from the base class or from one of that class''s ancestors. The object that is returned is usually a collection of properties, for example an object that implements <xref:System.ServiceModel.Channels.ISecurityCapabilities>.'
   syntax:
     content: 'public override T GetProperty<T> (System.ServiceModel.Channels.BindingContext context) where T : class;'
     parameters:
@@ -635,7 +635,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Gets or sets a value that indicates whether message signatures must be confirmed.
-  remarks: This property specifies whether the request signatures must be confirmed as part of the response. If the value is `true`, then the server includes and signs, in the response, all the signatures included in the request.
+  remarks: 'This property specifies whether the request signatures must be confirmed as part of the response. If the value is `true`, then the server includes and signs, in the response, all the signatures included in the request.'
   syntax:
     content: public bool RequireSignatureConfirmation { get; set; }
     return:
@@ -726,7 +726,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
   summary: Returns a string that represents this <xref href="System.ServiceModel.Channels.AsymmetricSecurityBindingElement"></xref> instance.
-  remarks: Information returned by <xref:System.ServiceModel.Channels.AsymmetricSecurityBindingElement.ToString%2A> includes the <xref:System.ServiceModel.Channels.AsymmetricSecurityBindingElement.MessageProtectionOrder%2A>, <xref:System.ServiceModel.Channels.AsymmetricSecurityBindingElement.RequireSignatureConfirmation%2A>, <xref:System.ServiceModel.Channels.AsymmetricSecurityBindingElement.RecipientTokenParameters%2A>, and <xref:System.ServiceModel.Channels.AsymmetricSecurityBindingElement.InitiatorTokenParameters%2A> values of the current instance.
+  remarks: 'Information returned by <xref:System.ServiceModel.Channels.AsymmetricSecurityBindingElement.ToString%2A> includes the <xref:System.ServiceModel.Channels.AsymmetricSecurityBindingElement.MessageProtectionOrder%2A>, <xref:System.ServiceModel.Channels.AsymmetricSecurityBindingElement.RequireSignatureConfirmation%2A>, <xref:System.ServiceModel.Channels.AsymmetricSecurityBindingElement.RecipientTokenParameters%2A>, and <xref:System.ServiceModel.Channels.AsymmetricSecurityBindingElement.InitiatorTokenParameters%2A> values of the current instance.'
   syntax:
     content: public override string ToString ();
     parameters: []
@@ -771,7 +771,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: Exports a custom policy assertion about bindings, which is added to the Web Services Description Language (WSDL) information.
+  summary: 'Exports a custom policy assertion about bindings, which is added to the Web Services Description Language (WSDL) information.'
   remarks: "This method writes binding-related statements into the WSDL information exposed by a particular contract and is used by [!INCLUDE[indigo1](~/includes/indigo1-md.md)] to communicate to clients the existence of this custom binding element in the binding stack.  \n  \n This method takes two parameters: the <xref:System.ServiceModel.Description.MetadataExporter> and <xref:System.ServiceModel.Description.PolicyConversionContext> objects. Use the <xref:System.ServiceModel.Description.PolicyConversionContext.GetBindingAssertions%2A>, <xref:System.ServiceModel.Description.PolicyConversionContext.GetMessageBindingAssertions%2A>, and <xref:System.ServiceModel.Description.PolicyConversionContext.GetOperationBindingAssertions%2A> methods to obtain collections of policy assertions that have already been exported at various scopes. Then use this method to add your own policy assertions to the appropriate collection.  \n  \n The <xref:System.ServiceModel.Description.PolicyConversionContext.Contract%2A> property exposes the <xref:System.ServiceModel.Description.ContractDescription> for the endpoint that is being exported. This allows this method to correctly scope their exported policy assertions. For example, security attributes in code may add behaviors to the <xref:System.ServiceModel.Description.ContractDescription> that indicate where security policy assertions should be added.  \n  \n Once custom policy assertions are attached to the WSDL information, clients can detect and import the custom binding assertions by implementing an <xref:System.ServiceModel.Description.IPolicyImportExtension> interface."
   syntax:
     content: void IPolicyExportExtension.ExportPolicy (System.ServiceModel.Description.MetadataExporter exporter, System.ServiceModel.Description.PolicyConversionContext context);

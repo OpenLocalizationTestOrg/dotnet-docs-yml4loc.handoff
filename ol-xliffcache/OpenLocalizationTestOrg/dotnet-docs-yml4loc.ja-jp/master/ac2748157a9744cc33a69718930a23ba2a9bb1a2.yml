@@ -77,7 +77,7 @@ items:
   - System.Web
   namespace: System.Web.Security
   summary: Initializes a new instance of the <xref href="System.Web.Security.FormsAuthenticationTicket"></xref> class using a cookie name and expiration information.
-  remarks: The <xref:System.Web.Security.FormsAuthenticationTicket> object created by this constructor will have a <xref:System.Web.Security.FormsAuthenticationTicket.CookiePath%2A> value set to the value of the <xref:System.Web.Security.FormsAuthentication.FormsCookiePath%2A> property, a <xref:System.Web.Security.FormsAuthenticationTicket.Version%2A> value of 2, an <xref:System.Web.Security.FormsAuthenticationTicket.IssueDate%2A> value of the current local date and time, a <xref:System.Web.Security.FormsAuthenticationTicket.UserData%2A> value of an empty string (""), and an <xref:System.Web.Security.FormsAuthenticationTicket.Expiration%2A> value that is set to the current local date and time plus the value of the `timeout` parameter.
+  remarks: 'The <xref:System.Web.Security.FormsAuthenticationTicket> object created by this constructor will have a <xref:System.Web.Security.FormsAuthenticationTicket.CookiePath%2A> value set to the value of the <xref:System.Web.Security.FormsAuthentication.FormsCookiePath%2A> property, a <xref:System.Web.Security.FormsAuthenticationTicket.Version%2A> value of 2, an <xref:System.Web.Security.FormsAuthenticationTicket.IssueDate%2A> value of the current local date and time, a <xref:System.Web.Security.FormsAuthenticationTicket.UserData%2A> value of an empty string (""), and an <xref:System.Web.Security.FormsAuthenticationTicket.Expiration%2A> value that is set to the current local date and time plus the value of the `timeout` parameter.'
   syntax:
     content: public FormsAuthenticationTicket (string name, bool isPersistent, int timeout);
     parameters:
@@ -89,7 +89,7 @@ items:
       description: '`true` if the ticket will be stored in a persistent cookie (saved across browser sessions); otherwise, `false`. If the ticket is stored in the URL, this value is ignored.'
     - id: timeout
       type: System.Int32
-      description: The time, in minutes, for which the authentication ticket is valid.
+      description: 'The time, in minutes, for which the authentication ticket is valid.'
   overload: System.Web.Security.FormsAuthenticationTicket.#ctor*
   exceptions: []
   version:
@@ -127,7 +127,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: Initializes a new instance of the <xref href="System.Web.Security.FormsAuthenticationTicket"></xref> class with cookie name, version, expiration date, issue date, persistence, and user-specific data. The cookie path is set to the default value established in the application's configuration file.
+  summary: 'Initializes a new instance of the <xref href="System.Web.Security.FormsAuthenticationTicket"></xref> class with cookie name, version, expiration date, issue date, persistence, and user-specific data. The cookie path is set to the default value established in the application''s configuration file.'
   remarks: "The <xref:System.Web.Security.FormsAuthenticationTicket> object created by this constructor will have a <xref:System.Web.Security.FormsAuthenticationTicket.CookiePath%2A> value set to the value of the <xref:System.Web.Security.FormsAuthentication.FormsCookiePath%2A>.  \n  \n> [!NOTE]\n>  The `userData` parameter cannot be `null`."
   syntax:
     content: public FormsAuthenticationTicket (int version, string name, DateTime issueDate, DateTime expiration, bool isPersistent, string userData);
@@ -187,11 +187,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: Initializes a new instance of the <xref href="System.Web.Security.FormsAuthenticationTicket"></xref> class with cookie name, version, directory path, issue date, expiration date, persistence, and user-defined data.
-  remarks: >-
-    > [!NOTE]
-
-    >  The `userData` parameter cannot be `null`.
+  summary: 'Initializes a new instance of the <xref href="System.Web.Security.FormsAuthenticationTicket"></xref> class with cookie name, version, directory path, issue date, expiration date, persistence, and user-defined data.'
+  remarks: "> [!NOTE]\n>  The `userData` parameter cannot be `null`."
   example:
   - "The following code example stores the result of the <xref:System.Web.Security.FormsAuthentication.Encrypt%2A> method in a cookie using the <xref:System.Web.Security.FormsAuthentication.FormsCookieName%2A> property and redirects the user to the URL returned from the <xref:System.Web.Security.FormsAuthentication.GetRedirectUrl%2A> method.  \n  \n> [!IMPORTANT]\n>  This example contains a text box that accepts user input, which is a potential security threat. By default, ASP.NET Web pages validate that user input does not include script or HTML elements. For more information, see [Script Exploits Overview](http://msdn.microsoft.com/library/772c7312-211a-4eb3-8d6e-eec0aa1dcc07).  \n  \n <!-- TODO: review snippet reference [!code-csharp[FormsAuthenticationTicketClass#1](~/samples/snippets/csharp/VS_Snippets_WebNet/FormsAuthenticationTicketClass/CS/formsauthenticationticketclasscs.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[FormsAuthenticationTicketClass#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/FormsAuthenticationTicketClass/VB/formsauthenticationticketclassvb.aspx#1)]  -->"
   syntax:
@@ -256,7 +253,7 @@ items:
   - System.Web
   namespace: System.Web.Security
   summary: Gets the cookie path for the forms-authentication ticket.
-  remarks: If the <xref:System.Web.Security.FormsAuthenticationTicket> is created using a constructor that does not supply a `cookiePath` parameter, the <xref:System.Web.Security.FormsAuthenticationTicket.CookiePath%2A> property returns the value of the <xref:System.Web.Security.FormsAuthentication.FormsCookiePath%2A> property; otherwise, the version property returns the value supplied to the <xref:System.Web.Security.FormsAuthenticationTicket> constructor.
+  remarks: 'If the <xref:System.Web.Security.FormsAuthenticationTicket> is created using a constructor that does not supply a `cookiePath` parameter, the <xref:System.Web.Security.FormsAuthenticationTicket.CookiePath%2A> property returns the value of the <xref:System.Web.Security.FormsAuthentication.FormsCookiePath%2A> property; otherwise, the version property returns the value supplied to the <xref:System.Web.Security.FormsAuthenticationTicket> constructor.'
   example:
   - "The following code example displays the property values of the <xref:System.Web.Security.FormsAuthenticationTicket> for the current logged-on user.  \n  \n> [!NOTE]\n>  If there is no logged-on user, the <xref:System.Security.Principal.IPrincipal.Identity%2A> property will be `null` and you will receive a compiler exception when attempting to cast the <xref:System.Security.Principal.IPrincipal.Identity%2A> property as a <xref:System.Web.Security.FormsIdentity> object.  \n  \n <!-- TODO: review snippet reference [!code-csharp[FormsAuthenticationTicketProperties#1](~/samples/snippets/csharp/VS_Snippets_WebNet/FormsAuthenticationTicketProperties/CS/formsauthenticationticketpropertiescs.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[FormsAuthenticationTicketProperties#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/FormsAuthenticationTicketProperties/VB/formsauthenticationticketpropertiesvb.aspx#1)]  -->"
   syntax:
@@ -348,7 +345,7 @@ items:
   - System.Web
   namespace: System.Web.Security
   summary: Gets a value indicating whether the forms-authentication ticket has expired.
-  remarks: The <xref:System.Web.Security.FormsAuthenticationTicket.Expired%2A> property returns `true` if the <xref:System.Web.Security.FormsAuthenticationTicket.Expiration%2A> date and time is less than the current local date and time; otherwise, the <xref:System.Web.Security.FormsAuthenticationTicket.Expired%2A> property returns `false`.
+  remarks: 'The <xref:System.Web.Security.FormsAuthenticationTicket.Expired%2A> property returns `true` if the <xref:System.Web.Security.FormsAuthenticationTicket.Expiration%2A> date and time is less than the current local date and time; otherwise, the <xref:System.Web.Security.FormsAuthenticationTicket.Expired%2A> property returns `false`.'
   example:
   - "The following code example displays the property values of the <xref:System.Web.Security.FormsAuthenticationTicket> for the current logged-on user.  \n  \n> [!NOTE]\n>  If there is no logged-on user, the <xref:System.Security.Principal.IPrincipal.Identity%2A> property will be `null` and you will receive a compiler exception when attempting to cast the <xref:System.Security.Principal.IPrincipal.Identity%2A> property as a <xref:System.Web.Security.FormsIdentity> object.  \n  \n <!-- TODO: review snippet reference [!code-csharp[FormsAuthenticationTicketProperties#1](~/samples/snippets/csharp/VS_Snippets_WebNet/FormsAuthenticationTicketProperties/CS/formsauthenticationticketpropertiescs.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[FormsAuthenticationTicketProperties#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/FormsAuthenticationTicketProperties/VB/formsauthenticationticketpropertiesvb.aspx#1)]  -->"
   syntax:
@@ -440,7 +437,7 @@ items:
   - System.Web
   namespace: System.Web.Security
   summary: Gets the local date and time at which the forms-authentication ticket was originally issued.
-  remarks: The <xref:System.Web.Security.FormsAuthenticationTicket.IssueDate%2A> property represents the local date and time when the forms-authentication ticket was issued. The <xref:System.Web.Security.FormsAuthentication.RenewTicketIfOld%2A> method uses the <xref:System.Web.Security.FormsAuthenticationTicket.IssueDate%2A> property value to determine whether the <xref:System.Web.Security.FormsAuthenticationTicket.Expiration%2A> date and time of a forms-authentication ticket needs to be renewed and also uses the <xref:System.Web.Security.FormsAuthenticationTicket.IssueDate%2A> property value to determine the new <xref:System.Web.Security.FormsAuthenticationTicket.Expiration%2A> date and time. When a ticket is renewed, the <xref:System.Web.Security.FormsAuthenticationTicket.IssueDate%2A> property is updated to the local date and time.
+  remarks: 'The <xref:System.Web.Security.FormsAuthenticationTicket.IssueDate%2A> property represents the local date and time when the forms-authentication ticket was issued. The <xref:System.Web.Security.FormsAuthentication.RenewTicketIfOld%2A> method uses the <xref:System.Web.Security.FormsAuthenticationTicket.IssueDate%2A> property value to determine whether the <xref:System.Web.Security.FormsAuthenticationTicket.Expiration%2A> date and time of a forms-authentication ticket needs to be renewed and also uses the <xref:System.Web.Security.FormsAuthenticationTicket.IssueDate%2A> property value to determine the new <xref:System.Web.Security.FormsAuthenticationTicket.Expiration%2A> date and time. When a ticket is renewed, the <xref:System.Web.Security.FormsAuthenticationTicket.IssueDate%2A> property is updated to the local date and time.'
   example:
   - "The following code example displays the property values of the <xref:System.Web.Security.FormsAuthenticationTicket> for the current logged-on user.  \n  \n> [!NOTE]\n>  If there is no logged-on user, the <xref:System.Security.Principal.IPrincipal.Identity%2A> property will be `null` and you will receive a compiler exception when attempting to cast the <xref:System.Security.Principal.IPrincipal.Identity%2A> property as a <xref:System.Web.Security.FormsIdentity> object.  \n  \n <!-- TODO: review snippet reference [!code-csharp[FormsAuthenticationTicketProperties#1](~/samples/snippets/csharp/VS_Snippets_WebNet/FormsAuthenticationTicketProperties/CS/formsauthenticationticketpropertiescs.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[FormsAuthenticationTicketProperties#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/FormsAuthenticationTicketProperties/VB/formsauthenticationticketpropertiesvb.aspx#1)]  -->"
   syntax:
@@ -578,7 +575,7 @@ items:
   - System.Web
   namespace: System.Web.Security
   summary: Gets the version number of the ticket.
-  remarks: If the <xref:System.Web.Security.FormsAuthenticationTicket> is created using a constructor that does not supply a `version` parameter, the <xref:System.Web.Security.FormsAuthenticationTicket.Version%2A> property returns 2; otherwise, the version property returns the value supplied to the <xref:System.Web.Security.FormsAuthenticationTicket> constructor.
+  remarks: 'If the <xref:System.Web.Security.FormsAuthenticationTicket> is created using a constructor that does not supply a `version` parameter, the <xref:System.Web.Security.FormsAuthenticationTicket.Version%2A> property returns 2; otherwise, the version property returns the value supplied to the <xref:System.Web.Security.FormsAuthenticationTicket> constructor.'
   example:
   - "The following code example displays the property values of the <xref:System.Web.Security.FormsAuthenticationTicket> for the current logged-on user.  \n  \n> [!NOTE]\n>  If there is no logged-on user, the <xref:System.Security.Principal.IPrincipal.Identity%2A> property will be `null` and you will receive a compiler exception when attempting to cast the <xref:System.Security.Principal.IPrincipal.Identity%2A> property as a <xref:System.Web.Security.FormsIdentity> object.  \n  \n <!-- TODO: review snippet reference [!code-csharp[FormsAuthenticationTicketProperties#1](~/samples/snippets/csharp/VS_Snippets_WebNet/FormsAuthenticationTicketProperties/CS/formsauthenticationticketpropertiescs.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[FormsAuthenticationTicketProperties#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/FormsAuthenticationTicketProperties/VB/formsauthenticationticketpropertiesvb.aspx#1)]  -->"
   syntax:

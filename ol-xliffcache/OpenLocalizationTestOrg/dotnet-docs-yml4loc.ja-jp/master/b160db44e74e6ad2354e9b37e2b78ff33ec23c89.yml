@@ -95,10 +95,7 @@ items:
   - mscorlib
   namespace: System.Reflection.Emit
   summary: Describes and represents an enumeration type.
-  remarks: >-
-    > [!NOTE]
-
-    >  In the .NET Framework versions 1.0 and 1.1, it is necessary to define enumerations using <xref:System.Reflection.Emit.TypeBuilder> because <xref:System.Reflection.Emit.EnumBuilder> emits enumerations whose elements are of type <xref:System.Int32> instead of the enumeration type. In the .NET Framework version 2.0, <xref:System.Reflection.Emit.EnumBuilder> emits enumerations whose elements have the correct type.
+  remarks: "> [!NOTE]\n>  In the .NET Framework versions 1.0 and 1.1, it is necessary to define enumerations using <xref:System.Reflection.Emit.TypeBuilder> because <xref:System.Reflection.Emit.EnumBuilder> emits enumerations whose elements are of type <xref:System.Int32> instead of the enumeration type. In the .NET Framework version 2.0, <xref:System.Reflection.Emit.EnumBuilder> emits enumerations whose elements have the correct type."
   example:
   - "The following code example demonstrates the construction of an enumeration within a dynamic assembly, using `EnumBuilder`. The example defines an enumeration named `Elevation`, with an underlying type of <xref:System.Int32>, and creates two elements: `Low`, with a value of 0, and `High`, with a value of 1. After the type has been created, the assembly is saved with the name `TempAssembly.dll`. You can use the [Ildasm.exe (IL Disassembler)](~/docs/framework/tools/ildasm-exe-il-disassembler.md) to examine the contents of this assembly.  \n  \n> [!NOTE]\n>  Prior to the .NET Framework version 2.0, this code example does not produce a correct enumeration.  \n  \n [!code-cpp[ModuleBuilder_DefineEnum#1](~/samples/snippets/cpp/VS_Snippets_CLR/ModuleBuilder_DefineEnum/CPP/modulebuilder_defineenum.cpp#1)]\n [!code-csharp[ModuleBuilder_DefineEnum#1](~/samples/snippets/csharp/VS_Snippets_CLR/ModuleBuilder_DefineEnum/CS/modulebuilder_defineenum.cs#1)]\n [!code-vb[ModuleBuilder_DefineEnum#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/ModuleBuilder_DefineEnum/VB/modulebuilder_defineenum.vb#1)]"
   syntax:
@@ -370,7 +367,7 @@ items:
   - mscorlib
   namespace: System.Reflection.Emit
   summary: Returns the full path of this enum qualified by the display name of the parent assembly.
-  remarks: "The format of the returned string is:  \n  \n \\<FullTypeName>, \\<AssemblyDisplayName>  \n  \n See <xref:System.Reflection.AssemblyName> for a description of the format of the display name of an assembly.  \n  \n## Version Information  \n In the .NET Framework version 1.1 and earlier, the return value of this property did not include the culture or public key."
+  remarks: "The format of the returned string is:  \n  \n \\<FullTypeName>, \\<AssemblyDisplayName>  \n  \n See <xref:System.Reflection.AssemblyName> for a description of the format of the display name of an assembly.  \n  \n## <a name=\"version-information\"></a>Version Information  \n In the .NET Framework version 1.1 and earlier, the return value of this property did not include the culture or public key."
   example:
   - "The following code sample demonstrates the use of the `AssemblyQualifiedName` property to reference the qualified parent assembly name of the current `EnumBuilder`.  \n  \n [!code-cpp[EnumBuilder_Properties_5#2](~/samples/snippets/cpp/VS_Snippets_CLR/EnumBuilder_Properties_5/CPP/enumbuilder_properties_5.cpp#2)]\n [!code-csharp[EnumBuilder_Properties_5#2](~/samples/snippets/csharp/VS_Snippets_CLR/EnumBuilder_Properties_5/CS/enumbuilder_properties_5.cs#2)]\n [!code-vb[EnumBuilder_Properties_5#2](~/samples/snippets/visualbasic/VS_Snippets_CLR/EnumBuilder_Properties_5/VB/enumbuilder_properties_5.vb#2)]"
   syntax:
@@ -1064,8 +1061,8 @@ items:
   - mscorlib
   - System.Reflection.Emit
   namespace: System.Reflection.Emit
-  summary: Returns an array of <xref href="System.Reflection.ConstructorInfo"></xref> objects representing the public and non-public constructors defined for this class, as specified.
-  remarks: As a workaround, to retrieve the constructor of a finished type, you can retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> or <xref:System.Reflection.Assembly.GetType%2A?displayProperty=fullName> and use reflection on the retrieved type.
+  summary: 'Returns an array of <xref href="System.Reflection.ConstructorInfo"></xref> objects representing the public and non-public constructors defined for this class, as specified.'
+  remarks: 'As a workaround, to retrieve the constructor of a finished type, you can retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> or <xref:System.Reflection.Assembly.GetType%2A?displayProperty=fullName> and use reflection on the retrieved type.'
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -1077,7 +1074,7 @@ items:
       description: 'This must be a bit flag from <xref href="System.Reflection.BindingFlags"></xref> : `InvokeMethod`, `NonPublic`, and so on.'
     return:
       type: System.Reflection.ConstructorInfo[]
-      description: Returns an array of <xref href="System.Reflection.ConstructorInfo"></xref> objects representing the specified constructors defined for this class. If no constructors are defined, an empty array is returned.
+      description: 'Returns an array of <xref href="System.Reflection.ConstructorInfo"></xref> objects representing the specified constructors defined for this class. If no constructors are defined, an empty array is returned.'
   overload: System.Reflection.Emit.EnumBuilder.GetConstructors*
   exceptions:
   - type: System.NotSupportedException
@@ -1128,7 +1125,7 @@ items:
   - System.Reflection.Emit
   namespace: System.Reflection.Emit
   summary: Returns the custom attributes identified by the given type.
-  remarks: "As a workaround, to retrieve the custom attributes of a finished type, retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> and call <xref:System.Reflection.MemberInfo.GetCustomAttributes%2A?displayProperty=fullName> on the returned <xref:System.Type>.  \n  \n The following code sample illustrates the use of `GetCustomAttribute` in the context of <xref:System.Reflection.Emit.EnumBuilder>.  \n  \n [!code-cpp[EnumBuilder_SetCustomAttribute1#2](~/samples/snippets/cpp/VS_Snippets_CLR/EnumBuilder_SetCustomAttribute1/CPP/enumbuilder_setcustomattribute1.cpp#2)]\n [!code-csharp[EnumBuilder_SetCustomAttribute1#2](~/samples/snippets/csharp/VS_Snippets_CLR/EnumBuilder_SetCustomAttribute1/CS/enumbuilder_setcustomattribute1.cs#2)]\n [!code-vb[EnumBuilder_SetCustomAttribute1#2](~/samples/snippets/visualbasic/VS_Snippets_CLR/EnumBuilder_SetCustomAttribute1/VB/enumbuilder_setcustomattribute1.vb#2)]"
+  remarks: "As a workaround, to retrieve the custom attributes of a finished type, retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> and call <xref:System.Reflection.MemberInfo.GetCustomAttributes%2A?displayProperty=fullName> on the returned <xref:System.Type>.  \n  \n The following code sample illustrates the use of `GetCustomAttribute` in the context of <xref:System.Reflection.Emit.EnumBuilder>.  \n  \n [!code-cpp[EnumBuilder_SetCustomAttribute1#2](~/samples/snippets/cpp/VS_Snippets_CLR/EnumBuilder_SetCustomAttribute1/CPP/enumbuilder_setcustomattribute1.cpp#2)] [!code-csharp[EnumBuilder_SetCustomAttribute1#2](~/samples/snippets/csharp/VS_Snippets_CLR/EnumBuilder_SetCustomAttribute1/CS/enumbuilder_setcustomattribute1.cs#2)] [!code-vb[EnumBuilder_SetCustomAttribute1#2](~/samples/snippets/visualbasic/VS_Snippets_CLR/EnumBuilder_SetCustomAttribute1/VB/enumbuilder_setcustomattribute1.vb#2)]"
   syntax:
     content: public override object[] GetCustomAttributes (Type attributeType, bool inherit);
     parameters:
@@ -1189,7 +1186,7 @@ items:
   - System.Reflection.Emit
   namespace: System.Reflection.Emit
   summary: Returns all the custom attributes defined for this constructor.
-  remarks: "As a workaround, to retrieve the custom attributes of a finished type, retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> and call <xref:System.Reflection.MemberInfo.GetCustomAttributes%2A> on the returned <xref:System.Type>.  \n  \n The following code sample illustrates the use of `GetCustomAttribute` in the context of <xref:System.Reflection.Emit.EnumBuilder>.  \n  \n [!code-cpp[EnumBuilder_SetCustomAttribute2#1](~/samples/snippets/cpp/VS_Snippets_CLR/EnumBuilder_SetCustomAttribute2/CPP/enumbuilder_setcustomattribute2.cpp#1)]\n [!code-csharp[EnumBuilder_SetCustomAttribute2#1](~/samples/snippets/csharp/VS_Snippets_CLR/EnumBuilder_SetCustomAttribute2/CS/enumbuilder_setcustomattribute2.cs#1)]\n [!code-vb[EnumBuilder_SetCustomAttribute2#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/EnumBuilder_SetCustomAttribute2/VB/enumbuilder_setcustomattribute2.vb#1)]"
+  remarks: "As a workaround, to retrieve the custom attributes of a finished type, retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> and call <xref:System.Reflection.MemberInfo.GetCustomAttributes%2A> on the returned <xref:System.Type>.  \n  \n The following code sample illustrates the use of `GetCustomAttribute` in the context of <xref:System.Reflection.Emit.EnumBuilder>.  \n  \n [!code-cpp[EnumBuilder_SetCustomAttribute2#1](~/samples/snippets/cpp/VS_Snippets_CLR/EnumBuilder_SetCustomAttribute2/CPP/enumbuilder_setcustomattribute2.cpp#1)] [!code-csharp[EnumBuilder_SetCustomAttribute2#1](~/samples/snippets/csharp/VS_Snippets_CLR/EnumBuilder_SetCustomAttribute2/CS/enumbuilder_setcustomattribute2.cs#1)] [!code-vb[EnumBuilder_SetCustomAttribute2#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/EnumBuilder_SetCustomAttribute2/VB/enumbuilder_setcustomattribute2.vb#1)]"
   syntax:
     content: public override object[] GetCustomAttributes (bool inherit);
     parameters:
@@ -1306,7 +1303,7 @@ items:
   - mscorlib
   - System.Reflection.Emit
   namespace: System.Reflection.Emit
-  summary: Returns the underlying integer type of the current enumeration, which is set when the enumeration builder is defined.
+  summary: 'Returns the underlying integer type of the current enumeration, which is set when the enumeration builder is defined.'
   syntax:
     content: public override Type GetEnumUnderlyingType ();
     parameters: []
@@ -1358,7 +1355,7 @@ items:
   - System.Reflection.Emit
   namespace: System.Reflection.Emit
   summary: Returns the event with the specified name.
-  remarks: As a workaround, to retrieve the event of a finished type, retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> or <xref:System.Reflection.Assembly.GetType%2A?displayProperty=fullName> and use reflection on the retrieved type.
+  remarks: 'As a workaround, to retrieve the event of a finished type, retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> or <xref:System.Reflection.Assembly.GetType%2A?displayProperty=fullName> and use reflection on the retrieved type.'
   syntax:
     content: public override System.Reflection.EventInfo GetEvent (string name, System.Reflection.BindingFlags bindingAttr);
     parameters:
@@ -1370,7 +1367,7 @@ items:
       description: 'This invocation attribute. This must be a bit flag from <xref href="System.Reflection.BindingFlags"></xref> : `InvokeMethod`, `NonPublic`, and so on.'
     return:
       type: System.Reflection.EventInfo
-      description: Returns an <xref href="System.Reflection.EventInfo"></xref> object representing the event declared or inherited by this type with the specified name. If there are no matches, `null` is returned.
+      description: 'Returns an <xref href="System.Reflection.EventInfo"></xref> object representing the event declared or inherited by this type with the specified name. If there are no matches, `null` is returned.'
   overload: System.Reflection.Emit.EnumBuilder.GetEvent*
   exceptions:
   - type: System.NotSupportedException
@@ -1419,7 +1416,7 @@ items:
   - System.Reflection.Emit
   namespace: System.Reflection.Emit
   summary: Returns the events for the public events declared or inherited by this type.
-  remarks: As a workaround, to retrieve the events of a finished type, retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> or <xref:System.Reflection.Assembly.GetType%2A?displayProperty=fullName> and use reflection on the retrieved type.
+  remarks: 'As a workaround, to retrieve the events of a finished type, retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> or <xref:System.Reflection.Assembly.GetType%2A?displayProperty=fullName> and use reflection on the retrieved type.'
   syntax:
     content: public override System.Reflection.EventInfo[] GetEvents ();
     parameters: []
@@ -1474,16 +1471,16 @@ items:
   - System.Reflection.Emit
   namespace: System.Reflection.Emit
   summary: Returns the public and non-public events that are declared by this type.
-  remarks: As a workaround, to retrieve the events of a finished type, retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> or <xref:System.Reflection.Assembly.GetType%2A?displayProperty=fullName> and use reflection on the retrieved type to retrieve the events.
+  remarks: 'As a workaround, to retrieve the events of a finished type, retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> or <xref:System.Reflection.Assembly.GetType%2A?displayProperty=fullName> and use reflection on the retrieved type to retrieve the events.'
   syntax:
     content: public override System.Reflection.EventInfo[] GetEvents (System.Reflection.BindingFlags bindingAttr);
     parameters:
     - id: bindingAttr
       type: System.Reflection.BindingFlags
-      description: This must be a bit flag from <xref href="System.Reflection.BindingFlags"></xref>, such as `InvokeMethod`, `NonPublic`, and so on.
+      description: 'This must be a bit flag from <xref href="System.Reflection.BindingFlags"></xref>, such as `InvokeMethod`, `NonPublic`, and so on.'
     return:
       type: System.Reflection.EventInfo[]
-      description: Returns an array of <xref href="System.Reflection.EventInfo"></xref> objects representing the public and non-public events declared or inherited by this type. An empty array is returned if there are no events, as specified.
+      description: 'Returns an array of <xref href="System.Reflection.EventInfo"></xref> objects representing the public and non-public events declared or inherited by this type. An empty array is returned if there are no events, as specified.'
   overload: System.Reflection.Emit.EnumBuilder.GetEvents*
   exceptions:
   - type: System.NotSupportedException
@@ -1532,7 +1529,7 @@ items:
   - System.Reflection.Emit
   namespace: System.Reflection.Emit
   summary: Returns the field specified by the given name.
-  remarks: As a workaround, to retrieve the field of a finished type, retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> or <xref:System.Reflection.Assembly.GetType%2A> and use reflection on the retrieved type.
+  remarks: 'As a workaround, to retrieve the field of a finished type, retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> or <xref:System.Reflection.Assembly.GetType%2A> and use reflection on the retrieved type.'
   syntax:
     content: public override System.Reflection.FieldInfo GetField (string name, System.Reflection.BindingFlags bindingAttr);
     parameters:
@@ -1544,7 +1541,7 @@ items:
       description: 'This must be a bit flag from <xref href="System.Reflection.BindingFlags"></xref> : `InvokeMethod`, `NonPublic`, and so on.'
     return:
       type: System.Reflection.FieldInfo
-      description: Returns the <xref href="System.Reflection.FieldInfo"></xref> object representing the field declared or inherited by this type with the specified name and public or non-public modifier. If there are no matches, then null is returned.
+      description: 'Returns the <xref href="System.Reflection.FieldInfo"></xref> object representing the field declared or inherited by this type with the specified name and public or non-public modifier. If there are no matches, then null is returned.'
   overload: System.Reflection.Emit.EnumBuilder.GetField*
   exceptions:
   - type: System.NotSupportedException
@@ -1599,10 +1596,10 @@ items:
     parameters:
     - id: bindingAttr
       type: System.Reflection.BindingFlags
-      description: This must be a bit flag from <xref href="System.Reflection.BindingFlags"></xref>, such as InvokeMethod, NonPublic, and so on.
+      description: 'This must be a bit flag from <xref href="System.Reflection.BindingFlags"></xref>, such as InvokeMethod, NonPublic, and so on.'
     return:
       type: System.Reflection.FieldInfo[]
-      description: Returns an array of <xref href="System.Reflection.FieldInfo"></xref> objects representing the public and non-public fields declared or inherited by this type. An empty array is returned if there are no fields, as specified.
+      description: 'Returns an array of <xref href="System.Reflection.FieldInfo"></xref> objects representing the public and non-public fields declared or inherited by this type. An empty array is returned if there are no fields, as specified.'
   overload: System.Reflection.Emit.EnumBuilder.GetFields*
   exceptions:
   - type: System.NotSupportedException
@@ -1706,8 +1703,8 @@ items:
   - mscorlib
   - System.Reflection.Emit
   namespace: System.Reflection.Emit
-  summary: Returns the interface implemented (directly or indirectly) by this type, with the specified fully-qualified name.
-  remarks: As a workaround, to retrieve the interface of a finished type, retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> or <xref:System.Reflection.Assembly.GetType%2A?displayProperty=fullName> and use reflection on the retrieved type.
+  summary: 'Returns the interface implemented (directly or indirectly) by this type, with the specified fully-qualified name.'
+  remarks: 'As a workaround, to retrieve the interface of a finished type, retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> or <xref:System.Reflection.Assembly.GetType%2A?displayProperty=fullName> and use reflection on the retrieved type.'
   syntax:
     content: public override Type GetInterface (string name, bool ignoreCase);
     parameters:
@@ -1716,7 +1713,7 @@ items:
       description: The name of the interface.
     - id: ignoreCase
       type: System.Boolean
-      description: If `true`, the search is case-insensitive. If `false`, the search is case-sensitive.
+      description: 'If `true`, the search is case-insensitive. If `false`, the search is case-sensitive.'
     return:
       type: System.Type
       description: Returns a <xref href="System.Type"></xref> object representing the implemented interface. Returns null if no interface matching name is found.
@@ -1768,7 +1765,7 @@ items:
   - System.Reflection.Emit
   namespace: System.Reflection.Emit
   summary: Returns an interface mapping for the interface requested.
-  remarks: As a workaround, to retrieve the interface mapping types of a finished type, retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> or <xref:System.Reflection.Assembly.GetType%2A?displayProperty=fullName> and use reflection on the retrieved type.
+  remarks: 'As a workaround, to retrieve the interface mapping types of a finished type, retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> or <xref:System.Reflection.Assembly.GetType%2A?displayProperty=fullName> and use reflection on the retrieved type.'
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -1831,13 +1828,13 @@ items:
   - System.Reflection.Emit
   namespace: System.Reflection.Emit
   summary: Returns an array of all the interfaces implemented on this a class and its base classes.
-  remarks: As a workaround, to retrieve the interface of a finished type, retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> or <xref:System.Reflection.Assembly.GetType%2A?displayProperty=fullName> and use reflection on the retrieved type.
+  remarks: 'As a workaround, to retrieve the interface of a finished type, retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> or <xref:System.Reflection.Assembly.GetType%2A?displayProperty=fullName> and use reflection on the retrieved type.'
   syntax:
     content: public override Type[] GetInterfaces ();
     parameters: []
     return:
       type: System.Type[]
-      description: Returns an array of <xref href="System.Type"></xref> objects representing the implemented interfaces. If none are defined, an empty array is returned.
+      description: 'Returns an array of <xref href="System.Type"></xref> objects representing the implemented interfaces. If none are defined, an empty array is returned.'
   overload: System.Reflection.Emit.EnumBuilder.GetInterfaces*
   exceptions: []
   version:
@@ -1882,8 +1879,8 @@ items:
   - mscorlib
   - System.Reflection.Emit
   namespace: System.Reflection.Emit
-  summary: Returns all members with the specified name, type, and binding that are declared or inherited by this type.
-  remarks: As a workaround, to retrieve the member of a finished type, retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> or <xref:System.Reflection.Assembly.GetType%2A?displayProperty=fullName> and use reflection on the retrieved type.
+  summary: 'Returns all members with the specified name, type, and binding that are declared or inherited by this type.'
+  remarks: 'As a workaround, to retrieve the member of a finished type, retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> or <xref:System.Reflection.Assembly.GetType%2A?displayProperty=fullName> and use reflection on the retrieved type.'
   syntax:
     content: public override System.Reflection.MemberInfo[] GetMember (string name, System.Reflection.MemberTypes type, System.Reflection.BindingFlags bindingAttr);
     parameters:
@@ -1898,7 +1895,7 @@ items:
       description: 'This must be a bit flag from <xref href="System.Reflection.BindingFlags"></xref> : `InvokeMethod`, `NonPublic`, and so on.'
     return:
       type: System.Reflection.MemberInfo[]
-      description: Returns an array of <xref href="System.Reflection.MemberInfo"></xref> objects representing the public and non-public members defined on this type if <code>nonPublic</code> is used; otherwise, only the public members are returned.
+      description: 'Returns an array of <xref href="System.Reflection.MemberInfo"></xref> objects representing the public and non-public members defined on this type if <code>nonPublic</code> is used; otherwise, only the public members are returned.'
   overload: System.Reflection.Emit.EnumBuilder.GetMember*
   exceptions:
   - type: System.NotSupportedException
@@ -1946,8 +1943,8 @@ items:
   - mscorlib
   - System.Reflection.Emit
   namespace: System.Reflection.Emit
-  summary: Returns the specified members declared or inherited by this type,.
-  remarks: As a workaround, to retrieve the members of a finished type, retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> or <xref:System.Reflection.Assembly.GetType%2A?displayProperty=fullName> and use reflection on the retrieved type.
+  summary: 'Returns the specified members declared or inherited by this type,.'
+  remarks: 'As a workaround, to retrieve the members of a finished type, retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> or <xref:System.Reflection.Assembly.GetType%2A?displayProperty=fullName> and use reflection on the retrieved type.'
   syntax:
     content: public override System.Reflection.MemberInfo[] GetMembers (System.Reflection.BindingFlags bindingAttr);
     parameters:
@@ -2067,17 +2064,17 @@ items:
   - mscorlib
   - System.Reflection.Emit
   namespace: System.Reflection.Emit
-  summary: Returns all the public and non-public methods declared or inherited by this type, as specified.
-  remarks: As a workaround, to retrieve the methods of a finished type, retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> or <xref:System.Reflection.Assembly.GetType%2A?displayProperty=fullName> and use reflection on the retrieved type.
+  summary: 'Returns all the public and non-public methods declared or inherited by this type, as specified.'
+  remarks: 'As a workaround, to retrieve the methods of a finished type, retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> or <xref:System.Reflection.Assembly.GetType%2A?displayProperty=fullName> and use reflection on the retrieved type.'
   syntax:
     content: public override System.Reflection.MethodInfo[] GetMethods (System.Reflection.BindingFlags bindingAttr);
     parameters:
     - id: bindingAttr
       type: System.Reflection.BindingFlags
-      description: This must be a bit flag from <xref href="System.Reflection.BindingFlags"></xref>, such as `InvokeMethod`, `NonPublic`, and so on.
+      description: 'This must be a bit flag from <xref href="System.Reflection.BindingFlags"></xref>, such as `InvokeMethod`, `NonPublic`, and so on.'
     return:
       type: System.Reflection.MethodInfo[]
-      description: Returns an array of <xref href="System.Reflection.MethodInfo"></xref> objects representing the public and non-public methods defined on this type if <code>nonPublic</code> is used; otherwise, only the public methods are returned.
+      description: 'Returns an array of <xref href="System.Reflection.MethodInfo"></xref> objects representing the public and non-public methods defined on this type if <code>nonPublic</code> is used; otherwise, only the public methods are returned.'
   overload: System.Reflection.Emit.EnumBuilder.GetMethods*
   exceptions:
   - type: System.NotSupportedException
@@ -2126,7 +2123,7 @@ items:
   - System.Reflection.Emit
   namespace: System.Reflection.Emit
   summary: Returns the specified nested type that is declared by this type.
-  remarks: As a workaround, to retrieve the nested type of a finished type, retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> or <xref:System.Reflection.Assembly.GetType%2A?displayProperty=fullName> and use reflection on the retrieved type.
+  remarks: 'As a workaround, to retrieve the nested type of a finished type, retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> or <xref:System.Reflection.Assembly.GetType%2A?displayProperty=fullName> and use reflection on the retrieved type.'
   syntax:
     content: public override Type GetNestedType (string name, System.Reflection.BindingFlags bindingAttr);
     parameters:
@@ -2138,7 +2135,7 @@ items:
       description: "A bitmask comprised of one or more <xref href=\"System.Reflection.BindingFlags\"></xref> that specify how the search is conducted.  \n  \n -or-  \n  \n Zero, to conduct a case-sensitive search for public methods."
     return:
       type: System.Type
-      description: A <xref href="System.Type"></xref> object representing the nested type that matches the specified requirements, if found; otherwise, `null`.
+      description: 'A <xref href="System.Type"></xref> object representing the nested type that matches the specified requirements, if found; otherwise, `null`.'
   overload: System.Reflection.Emit.EnumBuilder.GetNestedType*
   exceptions:
   - type: System.NotSupportedException
@@ -2187,13 +2184,13 @@ items:
   - System.Reflection.Emit
   namespace: System.Reflection.Emit
   summary: Returns the public and non-public nested types that are declared or inherited by this type.
-  remarks: As a workaround, to retrieve the nested types of a finished type, retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> or <xref:System.Reflection.Assembly.GetType%2A?displayProperty=fullName> and use reflection on the retrieved type.
+  remarks: 'As a workaround, to retrieve the nested types of a finished type, retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> or <xref:System.Reflection.Assembly.GetType%2A?displayProperty=fullName> and use reflection on the retrieved type.'
   syntax:
     content: public override Type[] GetNestedTypes (System.Reflection.BindingFlags bindingAttr);
     parameters:
     - id: bindingAttr
       type: System.Reflection.BindingFlags
-      description: This must be a bit flag from <xref href="System.Reflection.BindingFlags"></xref>, such as `InvokeMethod`, `NonPublic`, and so on.
+      description: 'This must be a bit flag from <xref href="System.Reflection.BindingFlags"></xref>, such as `InvokeMethod`, `NonPublic`, and so on.'
     return:
       type: System.Type[]
       description: "An array of <xref href=\"System.Type\"></xref> objects representing all the types nested within the current <xref href=\"System.Type\"></xref> that match the specified binding constraints.  \n  \n An empty array of type <xref href=\"System.Type\"></xref>, if no types are nested within the current <xref href=\"System.Type\"></xref>, or if none of the nested types match the binding constraints."
@@ -2244,8 +2241,8 @@ items:
   - mscorlib
   - System.Reflection.Emit
   namespace: System.Reflection.Emit
-  summary: Returns all the public and non-public properties declared or inherited by this type, as specified.
-  remarks: As a workaround, to retrieve the properties of a finished type, retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> or <xref:System.Reflection.Assembly.GetType%2A?displayProperty=fullName> and use reflection on the retrieved type.
+  summary: 'Returns all the public and non-public properties declared or inherited by this type, as specified.'
+  remarks: 'As a workaround, to retrieve the properties of a finished type, retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> or <xref:System.Reflection.Assembly.GetType%2A?displayProperty=fullName> and use reflection on the retrieved type.'
   syntax:
     content: public override System.Reflection.PropertyInfo[] GetProperties (System.Reflection.BindingFlags bindingAttr);
     parameters:
@@ -2254,7 +2251,7 @@ items:
       description: 'This invocation attribute. This must be a bit flag from <xref href="System.Reflection.BindingFlags"></xref> : `InvokeMethod`, `NonPublic`, and so on.'
     return:
       type: System.Reflection.PropertyInfo[]
-      description: Returns an array of <xref href="System.Reflection.PropertyInfo"></xref> objects representing the public and non-public properties defined on this type if <code>nonPublic</code> is used; otherwise, only the public properties are returned.
+      description: 'Returns an array of <xref href="System.Reflection.PropertyInfo"></xref> objects representing the public and non-public properties defined on this type if <code>nonPublic</code> is used; otherwise, only the public properties are returned.'
   overload: System.Reflection.Emit.EnumBuilder.GetProperties*
   exceptions:
   - type: System.NotSupportedException
@@ -2472,35 +2469,35 @@ items:
   - mscorlib
   - System.Reflection.Emit
   namespace: System.Reflection.Emit
-  summary: Invokes the specified member. The method that is to be invoked must be accessible and provide the most specific match with the specified argument list, under the contraints of the specified binder and invocation attributes.
-  remarks: You can retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> or <xref:System.Reflection.Assembly.GetType%2A?displayProperty=fullName> and use reflection on the retrieved type.
+  summary: 'Invokes the specified member. The method that is to be invoked must be accessible and provide the most specific match with the specified argument list, under the contraints of the specified binder and invocation attributes.'
+  remarks: 'You can retrieve the type using <xref:System.Type.GetType%2A?displayProperty=fullName> or <xref:System.Reflection.Assembly.GetType%2A?displayProperty=fullName> and use reflection on the retrieved type.'
   syntax:
     content: public override object InvokeMember (string name, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, object target, object[] args, System.Reflection.ParameterModifier[] modifiers, System.Globalization.CultureInfo culture, string[] namedParameters);
     parameters:
     - id: name
       type: System.String
-      description: The name of the member to invoke. This can be a constructor, method, property, or field. A suitable invocation attribute must be specified. Note that it is possible to invoke the default member of a class by passing an empty string as the name of the member.
+      description: 'The name of the member to invoke. This can be a constructor, method, property, or field. A suitable invocation attribute must be specified. Note that it is possible to invoke the default member of a class by passing an empty string as the name of the member.'
     - id: invokeAttr
       type: System.Reflection.BindingFlags
       description: The invocation attribute. This must be a bit flag from `BindingFlags`.
     - id: binder
       type: System.Reflection.Binder
-      description: An object that enables the binding, coercion of argument types, invocation of members, and retrieval of `MemberInfo` objects using reflection. If binder is `null`, the default binder is used. See <xref href="System.Reflection.Binder"></xref>.
+      description: 'An object that enables the binding, coercion of argument types, invocation of members, and retrieval of `MemberInfo` objects using reflection. If binder is `null`, the default binder is used. See <xref href="System.Reflection.Binder"></xref>.'
     - id: target
       type: System.Object
-      description: The object on which to invoke the specified member. If the member is static, this parameter is ignored.
+      description: 'The object on which to invoke the specified member. If the member is static, this parameter is ignored.'
     - id: args
       type: System.Object[]
-      description: An argument list. This is an array of objects that contains the number, order, and type of the parameters of the member to be invoked. If there are no parameters this should be null.
+      description: 'An argument list. This is an array of objects that contains the number, order, and type of the parameters of the member to be invoked. If there are no parameters this should be null.'
     - id: modifiers
       type: System.Reflection.ParameterModifier[]
       description: An array of the same length as <code>args</code> with elements that represent the attributes associated with the arguments of the member to be invoked. A parameter has attributes associated with it in the metadata. They are used by various interoperability services. See the metadata specs for details such as this.
     - id: culture
       type: System.Globalization.CultureInfo
-      description: An instance of `CultureInfo` used to govern the coercion of types. If this is null, the `CultureInfo` for the current thread is used. (Note that this is necessary to, for example, convert a string that represents 1000 to a double value, since 1000 is represented differently by different cultures.)
+      description: 'An instance of `CultureInfo` used to govern the coercion of types. If this is null, the `CultureInfo` for the current thread is used. (Note that this is necessary to, for example, convert a string that represents 1000 to a double value, since 1000 is represented differently by different cultures.)'
     - id: namedParameters
       type: System.String[]
-      description: Each parameter in the <code>namedParameters</code> array gets the value in the corresponding element in the <code>args</code> array. If the length of <code>args</code> is greater than the length of <code>namedParameters</code>, the remaining argument values are passed in order.
+      description: 'Each parameter in the <code>namedParameters</code> array gets the value in the corresponding element in the <code>args</code> array. If the length of <code>args</code> is greater than the length of <code>namedParameters</code>, the remaining argument values are passed in order.'
     return:
       type: System.Object
       description: Returns the return value of the invoked member.
@@ -2793,7 +2790,7 @@ items:
   - System.Reflection.Emit
   namespace: System.Reflection.Emit
   summary: Checks if the specified custom attribute type is defined.
-  remarks: As a workaround, to check if a custom attribute is defined for a finished type, retrieve the type using <xref:System.Type.GetType%2A> and call <xref:System.Reflection.MemberInfo.GetCustomAttributes%2A> on the returned <xref:System.Type>.
+  remarks: 'As a workaround, to check if a custom attribute is defined for a finished type, retrieve the type using <xref:System.Type.GetType%2A> and call <xref:System.Reflection.MemberInfo.GetCustomAttributes%2A> on the returned <xref:System.Type>.'
   syntax:
     content: public override bool IsDefined (Type attributeType, bool inherit);
     parameters:
@@ -3198,13 +3195,13 @@ items:
   - System.Reflection.Emit
   - mscorlib
   namespace: System.Reflection.Emit
-  summary: Returns a <xref href="System.Type"></xref> object representing a one-dimensional array of the current type, with a lower bound of zero.
+  summary: 'Returns a <xref href="System.Type"></xref> object representing a one-dimensional array of the current type, with a lower bound of zero.'
   syntax:
     content: public override Type MakeArrayType ();
     parameters: []
     return:
       type: System.Type
-      description: A <xref href="System.Type"></xref> object representing a one-dimensional array of the current type, with a lower bound of zero.
+      description: 'A <xref href="System.Type"></xref> object representing a one-dimensional array of the current type, with a lower bound of zero.'
   overload: System.Reflection.Emit.EnumBuilder.MakeArrayType*
   exceptions: []
   version:
@@ -3253,7 +3250,7 @@ items:
   - System.Reflection.Emit
   - mscorlib
   namespace: System.Reflection.Emit
-  summary: Returns a <xref href="System.Type"></xref> object representing an array of the current type, with the specified number of dimensions.
+  summary: 'Returns a <xref href="System.Type"></xref> object representing an array of the current type, with the specified number of dimensions.'
   syntax:
     content: public override Type MakeArrayType (int rank);
     parameters:
@@ -3262,7 +3259,7 @@ items:
       description: The number of dimensions for the array. This number must be less than or equal to 32.
     return:
       type: System.Type
-      description: An object representing an array of the current type, with the specified number of dimensions.
+      description: 'An object representing an array of the current type, with the specified number of dimensions.'
   overload: System.Reflection.Emit.EnumBuilder.MakeArrayType*
   exceptions:
   - type: System.IndexOutOfRangeException
@@ -3746,7 +3743,7 @@ items:
   - mscorlib
   namespace: System.Reflection.Emit
   summary: Sets a custom attribute using a specified custom attribute blob.
-  remarks: See the metadata specification in the ECMA Partition II documentation for details on how to format `binaryAttribute`. The documentation is available online; see [ECMA C# and Common Language Infrastructure Standards](http://go.microsoft.com/fwlink/?LinkID=99212) on MSDN and [Standard ECMA-335 - Common Language Infrastructure (CLI)](http://go.microsoft.com/fwlink/?LinkID=65552) on the Ecma International Web site.
+  remarks: 'See the metadata specification in the ECMA Partition II documentation for details on how to format `binaryAttribute`. The documentation is available online; see [ECMA C# and Common Language Infrastructure Standards](http://go.microsoft.com/fwlink/?LinkID=99212) on MSDN and [Standard ECMA-335 - Common Language Infrastructure (CLI)](http://go.microsoft.com/fwlink/?LinkID=65552) on the Ecma International Web site.'
   example:
   - "The following code sample illustrates the use of `SetCustomAttribute` in the context of <xref:System.Reflection.Emit.EnumBuilder>, passing a byte blob.  \n  \n [!code-cpp[EnumBuilder_SetCustomAttribute2#2](~/samples/snippets/cpp/VS_Snippets_CLR/EnumBuilder_SetCustomAttribute2/CPP/enumbuilder_setcustomattribute2.cpp#2)]\n [!code-csharp[EnumBuilder_SetCustomAttribute2#2](~/samples/snippets/csharp/VS_Snippets_CLR/EnumBuilder_SetCustomAttribute2/CS/enumbuilder_setcustomattribute2.cs#2)]\n [!code-vb[EnumBuilder_SetCustomAttribute2#2](~/samples/snippets/visualbasic/VS_Snippets_CLR/EnumBuilder_SetCustomAttribute2/VB/enumbuilder_setcustomattribute2.vb#2)]"
   syntax:
@@ -4024,7 +4021,7 @@ items:
   - mscorlib
   namespace: System.Reflection.Emit
   summary: Maps a set of names to a corresponding set of dispatch identifiers.
-  remarks: This method is for access to managed classes from unmanaged code, and should not be called from managed code. For more information about `IDispatch::GetIDsOfNames`, see the MSDN Library.
+  remarks: 'This method is for access to managed classes from unmanaged code, and should not be called from managed code. For more information about `IDispatch::GetIDsOfNames`, see the MSDN Library.'
   syntax:
     content: void _EnumBuilder.GetIDsOfNames (ref Guid riid, IntPtr rgszNames, uint cNames, uint lcid, IntPtr rgDispId);
     parameters:
@@ -4088,8 +4085,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Reflection.Emit
-  summary: Retrieves the type information for an object, which can then be used to get the type information for an interface.
-  remarks: This method is for access to managed classes from unmanaged code, and should not be called from managed code. For more information about `IDispatch::GetTypeInfo`, see the MSDN Library.
+  summary: 'Retrieves the type information for an object, which can then be used to get the type information for an interface.'
+  remarks: 'This method is for access to managed classes from unmanaged code, and should not be called from managed code. For more information about `IDispatch::GetTypeInfo`, see the MSDN Library.'
   syntax:
     content: void _EnumBuilder.GetTypeInfo (uint iTInfo, uint lcid, IntPtr ppTInfo);
     parameters:
@@ -4148,7 +4145,7 @@ items:
   - mscorlib
   namespace: System.Reflection.Emit
   summary: Retrieves the number of type information interfaces that an object provides (either 0 or 1).
-  remarks: This method is for access to managed classes from unmanaged code, and should not be called from managed code. For more information about `IDispatch::GetTypeInfoCount`, see the MSDN Library.
+  remarks: 'This method is for access to managed classes from unmanaged code, and should not be called from managed code. For more information about `IDispatch::GetTypeInfoCount`, see the MSDN Library.'
   syntax:
     content: void _EnumBuilder.GetTypeInfoCount (out uint pcTInfo);
     parameters:
@@ -4201,7 +4198,7 @@ items:
   - mscorlib
   namespace: System.Reflection.Emit
   summary: Provides access to properties and methods exposed by an object.
-  remarks: This method is for access to managed classes from unmanaged code, and should not be called from managed code. For more information about `IDispatch::Invoke`, see the MSDN Library.
+  remarks: 'This method is for access to managed classes from unmanaged code, and should not be called from managed code. For more information about `IDispatch::Invoke`, see the MSDN Library.'
   syntax:
     content: void _EnumBuilder.Invoke (uint dispIdMember, ref Guid riid, uint lcid, short wFlags, IntPtr pDispParams, IntPtr pVarResult, IntPtr pExcepInfo, IntPtr puArgErr);
     parameters:
@@ -4219,7 +4216,7 @@ items:
       description: Flags describing the context of the call.
     - id: pDispParams
       type: System.IntPtr
-      description: Pointer to a structure containing an array of arguments, an array of argument DISPIDs for named arguments, and counts for the number of elements in the arrays.
+      description: 'Pointer to a structure containing an array of arguments, an array of argument DISPIDs for named arguments, and counts for the number of elements in the arrays.'
     - id: pVarResult
       type: System.IntPtr
       description: Pointer to the location where the result is to be stored.

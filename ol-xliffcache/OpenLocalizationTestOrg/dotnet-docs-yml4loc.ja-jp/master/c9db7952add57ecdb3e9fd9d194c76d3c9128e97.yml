@@ -175,7 +175,7 @@ items:
   - netstandard
   namespace: System.Data.Common
   summary: Starts a database transaction.
-  remarks: If you are creating your own connection type, override this method to implement the code necessary to begin a transaction.
+  remarks: 'If you are creating your own connection type, override this method to implement the code necessary to begin a transaction.'
   syntax:
     content: protected abstract System.Data.Common.DbTransaction BeginDbTransaction (System.Data.IsolationLevel isolationLevel);
     parameters:
@@ -239,7 +239,7 @@ items:
   - netstandard
   namespace: System.Data.Common
   summary: Starts a database transaction.
-  remarks: If you do not specify an isolation level, the default isolation level for the specific type of connection is used.
+  remarks: 'If you do not specify an isolation level, the default isolation level for the specific type of connection is used.'
   syntax:
     content: public System.Data.Common.DbTransaction BeginTransaction ();
     parameters: []
@@ -485,7 +485,7 @@ items:
   - netstandard
   namespace: System.Data.Common
   summary: Gets or sets the string used to open the connection.
-  remarks: The exact contents of the connection string depend on the specific data source for this connection. To determine which settings are valid, see the documentation for the specific type of connection that you are using.
+  remarks: 'The exact contents of the connection string depend on the specific data source for this connection. To determine which settings are valid, see the documentation for the specific type of connection that you are using.'
   syntax:
     content: >-
       [System.ComponentModel.SettingsBindable(true)]
@@ -669,7 +669,7 @@ items:
   - netstandard
   namespace: System.Data.Common
   summary: Creates and returns a <xref href="System.Data.Common.DbCommand"></xref> object associated with the current connection.
-  remarks: If you are implementing your own connection, override this method to implement the code necessary to create and return a <xref:System.Data.Common.DbCommand> object.
+  remarks: 'If you are implementing your own connection, override this method to implement the code necessary to create and return a <xref:System.Data.Common.DbCommand> object.'
   syntax:
     content: protected abstract System.Data.Common.DbCommand CreateDbCommand ();
     parameters: []
@@ -729,7 +729,7 @@ items:
   - System.Data
   - netstandard
   namespace: System.Data.Common
-  summary: Gets the name of the current database after a connection is opened, or the database name specified in the connection string before the connection is opened.
+  summary: 'Gets the name of the current database after a connection is opened, or the database name specified in the connection string before the connection is opened.'
   remarks: A connection typically updates this property dynamically when the current database changes.
   syntax:
     content: public abstract string Database { get; }
@@ -790,7 +790,7 @@ items:
   - netstandard
   namespace: System.Data.Common
   summary: Gets the name of the database server to which to connect.
-  remarks: If the connection to the database is closed, the <xref:System.Data.Common.DbConnection.DataSource%2A> returns whatever is contained in the <xref:System.Data.Common.DbConnection.ConnectionString%2A> for the `DataSource` keyword. If the connection is open and the <xref:System.Data.Common.DbConnection.ConnectionString%2A> data source keyword's value starts with "&#124;`datadirectory`&#124;", the property returns whatever is contained in the <xref:System.Data.Common.DbConnection.ConnectionString%2A> for the `DataSource` keyword only. If the connection to the database is open, the property returns what the native provider returns for the `DBPROP_INIT_DATASOURCE`, and if that is empty, the native provider's `DBPROP_DATASOURCENAME` is returned.
+  remarks: 'If the connection to the database is closed, the <xref:System.Data.Common.DbConnection.DataSource%2A> returns whatever is contained in the <xref:System.Data.Common.DbConnection.ConnectionString%2A> for the `DataSource` keyword. If the connection is open and the <xref:System.Data.Common.DbConnection.ConnectionString%2A> data source keyword''s value starts with "&#124;`datadirectory`&#124;", the property returns whatever is contained in the <xref:System.Data.Common.DbConnection.ConnectionString%2A> for the `DataSource` keyword only. If the connection to the database is open, the property returns what the native provider returns for the `DBPROP_INIT_DATASOURCE`, and if that is empty, the native provider''s `DBPROP_DATASOURCENAME` is returned.'
   syntax:
     content: public abstract string DataSource { get; }
     return:
@@ -963,7 +963,7 @@ items:
   - System.Data.Common
   namespace: System.Data.Common
   summary: Enlists in the specified transaction.
-  remarks: New in ADO.NET 2.0 is support for using the `EnlistTransaction` method to enlist in a distributed transaction. Because it enlists a connection in a <xref:System.Transactions.Transaction> instance, `EnlistTransaction` takes advantage of functionality available in the <xref:System.Transactions> namespace for managing distributed transactions. Once a connection is explicitly enlisted in a transaction, it cannot be unenlisted or enlisted in another transaction until the first transaction finishes.
+  remarks: 'New in ADO.NET 2.0 is support for using the `EnlistTransaction` method to enlist in a distributed transaction. Because it enlists a connection in a <xref:System.Transactions.Transaction> instance, `EnlistTransaction` takes advantage of functionality available in the <xref:System.Transactions> namespace for managing distributed transactions. Once a connection is explicitly enlisted in a transaction, it cannot be unenlisted or enlisted in another transaction until the first transaction finishes.'
   syntax:
     content: public virtual void EnlistTransaction (System.Transactions.Transaction transaction);
     parameters:
@@ -1020,7 +1020,7 @@ items:
   - System.Data.Common
   namespace: System.Data.Common
   summary: Returns schema information for the data source of this <xref href="System.Data.Common.DbConnection"></xref>.
-  remarks: If the connection is associated with a transaction, executing `GetSchema` calls may cause some providers to throw an exception.
+  remarks: 'If the connection is associated with a transaction, executing `GetSchema` calls may cause some providers to throw an exception.'
   syntax:
     content: public virtual System.Data.DataTable GetSchema ();
     parameters: []
@@ -1077,7 +1077,7 @@ items:
   - System.Data.Common
   namespace: System.Data.Common
   summary: Returns schema information for the data source of this <xref href="System.Data.Common.DbConnection"></xref> using the specified string for the schema name.
-  remarks: If the connection is associated with a transaction, executing `GetSchema` calls may cause some providers to throw an exception.
+  remarks: 'If the connection is associated with a transaction, executing `GetSchema` calls may cause some providers to throw an exception.'
   syntax:
     content: public virtual System.Data.DataTable GetSchema (string collectionName);
     parameters:
@@ -1267,7 +1267,7 @@ items:
   - netstandard
   namespace: System.Data.Common
   summary: Opens a database connection with the settings specified by the <xref href="System.Data.Common.DbConnection.ConnectionString"></xref>.
-  remarks: This method must be overridden with user-defined behavior. <xref:System.Data.SqlClient.SqlConnection.Open%2A?displayProperty=fullName> will throw an exception if called again without first being closed.
+  remarks: 'This method must be overridden with user-defined behavior. <xref:System.Data.SqlClient.SqlConnection.Open%2A?displayProperty=fullName> will throw an exception if called again without first being closed.'
   syntax:
     content: public abstract void Open ();
     parameters: []
@@ -1324,7 +1324,7 @@ items:
   - System.Data
   - netstandard
   namespace: System.Data.Common
-  summary: An asynchronous version of <xref href="System.Data.Common.DbConnection.Open"></xref>, which opens a database connection with the settings specified by the <xref href="System.Data.Common.DbConnection.ConnectionString"></xref>. This method invokes the virtual method <xref href="System.Data.Common.DbConnection.OpenAsync(System.Threading.CancellationToken)"></xref> with CancellationToken.None.
+  summary: 'An asynchronous version of <xref href="System.Data.Common.DbConnection.Open"></xref>, which opens a database connection with the settings specified by the <xref href="System.Data.Common.DbConnection.ConnectionString"></xref>. This method invokes the virtual method <xref href="System.Data.Common.DbConnection.OpenAsync(System.Threading.CancellationToken)"></xref> with CancellationToken.None.'
   remarks: "After calling <xref:System.Data.Common.DbConnection.OpenAsync%2A>, <xref:System.Data.Common.DbConnection.State%2A> must return <xref:System.Data.ConnectionState.Connecting> until the returned <xref:System.Threading.Tasks.Task> is completed. Then, if the connection was successful, <xref:System.Data.Common.DbConnection.State%2A> must return <xref:System.Data.ConnectionState.Open>. If the connection fails, <xref:System.Data.Common.DbConnection.State%2A> must return <xref:System.Data.ConnectionState.Closed>.  \n  \n A call to <xref:System.Data.Common.DbConnection.Close%2A> will attempt to cancel or close the corresponding <xref:System.Data.Common.DbConnection.OpenAsync%2A> call.  \n  \n For more information about asynchronous programming in the [!INCLUDE[dnprdnshort](~/includes/dnprdnshort-md.md)] Data Provider for [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)], see [Asynchronous Programming](~/docs/framework/data/adonet/asynchronous-programming.md)."
   syntax:
     content: public System.Threading.Tasks.Task OpenAsync ();
@@ -1581,7 +1581,7 @@ items:
   - netstandard
   namespace: System.Data.Common
   summary: Occurs when the state of the event changes.
-  remarks: The <xref:System.Data.Common.DbConnection.StateChange> event occurs when the state of the event changes from closed to opened, or opened to closed.
+  remarks: 'The <xref:System.Data.Common.DbConnection.StateChange> event occurs when the state of the event changes from closed to opened, or opened to closed.'
   syntax:
     content: public virtual event System.Data.StateChangeEventHandler StateChange;
     return:
@@ -1641,7 +1641,7 @@ items:
   - netstandard
   namespace: System.Data.Common
   summary: Begins a database transaction with the specified <xref href="System.Data.IsolationLevel"></xref> value.
-  remarks: For more information, see <xref:System.Data.IDbConnection.BeginTransaction%2A>.
+  remarks: 'For more information, see <xref:System.Data.IDbConnection.BeginTransaction%2A>.'
   syntax:
     content: System.Data.IDbTransaction IDbConnection.BeginTransaction (System.Data.IsolationLevel isolationLevel);
     parameters:
@@ -1768,7 +1768,7 @@ items:
   - netstandard
   namespace: System.Data.Common
   summary: Creates and returns a <xref href="System.Data.Common.DbCommand"></xref> object that is associated with the current connection.
-  remarks: For more information, see [Commands and Parameters](~/docs/framework/data/adonet/commands-and-parameters.md) and <xref:System.Data.IDbConnection.CreateCommand%2A>.
+  remarks: 'For more information, see [Commands and Parameters](~/docs/framework/data/adonet/commands-and-parameters.md) and <xref:System.Data.IDbConnection.CreateCommand%2A>.'
   syntax:
     content: System.Data.IDbCommand IDbConnection.CreateCommand ();
     parameters: []

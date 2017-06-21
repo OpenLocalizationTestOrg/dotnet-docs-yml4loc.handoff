@@ -151,7 +151,7 @@ items:
   - WindowsBase
   namespace: System.Windows
   summary: Clears the local value of a property. The property to be cleared is specified by a <xref href="System.Windows.DependencyProperty"></xref> identifier.
-  remarks: Clearing the property value by calling <xref:System.Windows.DependencyObject.ClearValue%2A> does not necessarily give a dependency property the default value that is specified in the dependency property metadata. Clearing the property only specifically clears whatever local value may have been applied. For more information, see [Dependency Property Value Precedence](~/docs/framework/wpf/advanced/dependency-property-value-precedence.md).
+  remarks: 'Clearing the property value by calling <xref:System.Windows.DependencyObject.ClearValue%2A> does not necessarily give a dependency property the default value that is specified in the dependency property metadata. Clearing the property only specifically clears whatever local value may have been applied. For more information, see [Dependency Property Value Precedence](~/docs/framework/wpf/advanced/dependency-property-value-precedence.md).'
   example:
   - "The following example iterates all properties that have local values set on an object, then calls <xref:System.Windows.DependencyObject.ClearValue%2A> to clear the values of each such property.  \n  \n [!code-csharp[DPClearValue#IterateLocalValuesAndClear](~/samples/snippets/csharp/VS_Snippets_Wpf/DPClearValue/CSharp/default.xaml.cs#iteratelocalvaluesandclear)]\n [!code-vb[DPClearValue#IterateLocalValuesAndClear](~/samples/snippets/visualbasic/VS_Snippets_Wpf/DPClearValue/VisualBasic/default.xaml.vb#iteratelocalvaluesandclear)]"
   syntax:
@@ -159,7 +159,7 @@ items:
     parameters:
     - id: dp
       type: System.Windows.DependencyProperty
-      description: The dependency property to be cleared, identified by a <xref href="System.Windows.DependencyProperty"></xref> object reference.
+      description: 'The dependency property to be cleared, identified by a <xref href="System.Windows.DependencyProperty"></xref> object reference.'
   overload: System.Windows.DependencyObject.ClearValue*
   exceptions:
   - type: System.InvalidOperationException
@@ -298,15 +298,15 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows
-  summary: Gets the <xref href="System.Windows.DependencyObjectType"></xref> that wraps the [!INCLUDE[TLA2#tla_clr](~/includes/tla2sharptla-clr-md.md)] type of this instance.
-  remarks: This property is useful if an object that is returned from a method has a return value type of <xref:System.Windows.DependencyObject> and you want to perform property system specific operations on it depending on its type. For example it is more efficient to call <xref:System.Windows.DependencyProperty.GetMetadata%28System.Windows.DependencyObjectType%29> using the <xref:System.Windows.DependencyObjectType> rather than the [!INCLUDE[TLA2#tla_clr](~/includes/tla2sharptla-clr-md.md)] type. <xref:System.Windows.DependencyObjectType> facilitates faster lookup.
+  summary: 'Gets the <xref href="System.Windows.DependencyObjectType"></xref> that wraps the [!INCLUDE[TLA2#tla_clr](~/includes/tla2sharptla-clr-md.md)] type of this instance.'
+  remarks: 'This property is useful if an object that is returned from a method has a return value type of <xref:System.Windows.DependencyObject> and you want to perform property system specific operations on it depending on its type. For example it is more efficient to call <xref:System.Windows.DependencyProperty.GetMetadata%28System.Windows.DependencyObjectType%29> using the <xref:System.Windows.DependencyObjectType> rather than the [!INCLUDE[TLA2#tla_clr](~/includes/tla2sharptla-clr-md.md)] type. <xref:System.Windows.DependencyObjectType> facilitates faster lookup.'
   example:
   - "In the following pseudocode example, `MySubClass` anticipates that additional derived classes might change the default value of the `MyCustom` dependency property. The class implements a default constructor that can determine the actual derived class by taking advantage of polymorphism on the <xref:System.Windows.DependencyObjectType> value whenever that constructor is used as a derived class instantiator.  \n  \n `public DOClass() : base()`  \n  \n `{`  \n  \n `__customPropertyCache = (CustomDP)`  \n  \n `CustomDPProperty.GetMetadata(DependencyObjectType).DefaultValue;`  \n  \n `}`"
   syntax:
     content: public System.Windows.DependencyObjectType DependencyObjectType { get; }
     return:
       type: System.Windows.DependencyObjectType
-      description: A <xref href="System.Windows.DependencyObjectType"></xref> that wraps the [!INCLUDE[TLA2#tla_clr](~/includes/tla2sharptla-clr-md.md)] type of this instance.
+      description: 'A <xref href="System.Windows.DependencyObjectType"></xref> that wraps the [!INCLUDE[TLA2#tla_clr](~/includes/tla2sharptla-clr-md.md)] type of this instance.'
   overload: System.Windows.DependencyObject.DependencyObjectType*
   exceptions: []
   version:
@@ -345,7 +345,7 @@ items:
   - WindowsBase
   namespace: System.Windows
   summary: Determines whether a provided <xref href="System.Windows.DependencyObject"></xref> is equivalent to the current <xref href="System.Windows.DependencyObject"></xref>.
-  remarks: This implementation is reference equality only, and does not attempt to evaluate value equality of the contained properties.
+  remarks: 'This implementation is reference equality only, and does not attempt to evaluate value equality of the contained properties.'
   syntax:
     content: public override sealed bool Equals (object obj);
     parameters:
@@ -498,7 +498,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The specified <code>dp</code> or its value was invalid, or the specified <code>dp</code> does not exist.
+    description: 'The specified <code>dp</code> or its value was invalid, or the specified <code>dp</code> does not exist.'
   version:
   - netframework-4.5.1
   - netframework-4.5.2
@@ -632,7 +632,7 @@ items:
     parameters:
     - id: e
       type: System.Windows.DependencyPropertyChangedEventArgs
-      description: Event data that will contain the dependency property identifier of interest, the property metadata for the type, and old and new values.
+      description: 'Event data that will contain the dependency property identifier of interest, the property metadata for the type, and old and new values.'
   overload: System.Windows.DependencyObject.OnPropertyChanged*
   exceptions: []
   version:
@@ -670,7 +670,7 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows
-  summary: Returns the local value of a dependency property, if it exists.
+  summary: 'Returns the local value of a dependency property, if it exists.'
   remarks: "You should use <xref:System.Windows.DependencyObject.GetValue%2A> for most typical \"get\" operations for a dependency property. <xref:System.Windows.DependencyObject.ReadLocalValue%2A> does not return the effective value for a variety of circumstances where the value was not locally set.  \n  \n Values that are set by styles, themes, templates, the default value from metadata, or property value inheritance are not considered to be local values. However, bindings and other expressions are considered to be local values, after they have been evaluated.  \n  \n When no local value is set, this method returns <xref:System.Windows.DependencyProperty.UnsetValue>.  \n  \n If the returned value is other than <xref:System.Windows.DependencyProperty.UnsetValue>, you can query the metadata of the requested dependency property to determine whether there is a more specific type that the return value can be converted to."
   syntax:
     content: public object ReadLocalValue (System.Windows.DependencyProperty dp);
@@ -680,7 +680,7 @@ items:
       description: The <xref href="System.Windows.DependencyProperty"></xref> identifier of the property to retrieve the value for.
     return:
       type: System.Object
-      description: Returns the local value, or returns the sentinel value <xref href="System.Windows.DependencyProperty.UnsetValue"></xref> if no local value is set.
+      description: 'Returns the local value, or returns the sentinel value <xref href="System.Windows.DependencyProperty.UnsetValue"></xref> if no local value is set.'
   overload: System.Windows.DependencyObject.ReadLocalValue*
   exceptions: []
   version:
@@ -718,7 +718,7 @@ items:
   - WindowsBase
   namespace: System.Windows
   summary: Sets the value of a dependency property without changing its value source.
-  remarks: This method is used by a component that programmatically sets the value of one of its own properties without disabling an application's declared use of the property. The <xref:System.Windows.DependencyObject.SetCurrentValue%2A> method changes the effective value of the property, but existing triggers, data bindings, and styles will continue to work.
+  remarks: 'This method is used by a component that programmatically sets the value of one of its own properties without disabling an application''s declared use of the property. The <xref:System.Windows.DependencyObject.SetCurrentValue%2A> method changes the effective value of the property, but existing triggers, data bindings, and styles will continue to work.'
   syntax:
     content: public void SetCurrentValue (System.Windows.DependencyProperty dp, object value);
     parameters:
@@ -732,7 +732,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: Attempted to modify a read-only dependency property, or a property on a sealed <xref href="System.Windows.DependencyObject"></xref>.
+    description: 'Attempted to modify a read-only dependency property, or a property on a sealed <xref href="System.Windows.DependencyObject"></xref>.'
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
     description: <code>value</code> was not the correct type as registered for the <code>dp</code> property.
@@ -771,7 +771,7 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows
-  summary: Sets the local value of a dependency property, specified by its dependency property identifier.
+  summary: 'Sets the local value of a dependency property, specified by its dependency property identifier.'
   remarks: "If the provided type does not match the type that is declared for the dependency property as it was originally registered, an exception is thrown. The `value` parameter should always be provided as the appropriate type.  \n  \n The exception conditions are potentially influenced by the <xref:System.Windows.DependencyProperty.ValidateValueCallback%2A> callback that exists on the dependency property identifier of the dependency property being set. Otherwise, the value provided might be failing general type-checking conditions (for example, passing a string when the native type is Double)."
   syntax:
     content: public void SetValue (System.Windows.DependencyProperty dp, object value);
@@ -786,7 +786,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: Attempted to modify a read-only dependency property, or a property on a sealed <xref href="System.Windows.DependencyObject"></xref>.
+    description: 'Attempted to modify a read-only dependency property, or a property on a sealed <xref href="System.Windows.DependencyObject"></xref>.'
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
     description: <code>value</code> was not the correct type as registered for the <code>dp</code> property.
@@ -825,7 +825,7 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows
-  summary: Sets the local value of a read-only dependency property, specified by the <xref href="System.Windows.DependencyPropertyKey"></xref> identifier of the dependency property.
+  summary: 'Sets the local value of a read-only dependency property, specified by the <xref href="System.Windows.DependencyPropertyKey"></xref> identifier of the dependency property.'
   remarks: "This signature is generally used when you set values for read-only dependency properties that are defined by your custom classes. Generally, <xref:System.Windows.DependencyObject.SetValue%2A> is called only from the type that registered that dependency property, which implements the internal logic that provides the determined value for the dependency property. For more information, see [Read-Only Dependency Properties](~/docs/framework/wpf/advanced/read-only-dependency-properties.md).  \n  \n If the provided type does not match the type that is declared for the dependency property as it was originally registered, an exception is thrown. The `value` parameter should always be provided as the appropriate type. The exception conditions are potentially influenced by the <xref:System.Windows.DependencyProperty.ValidateValueCallback%2A> callback that exists on the dependency property identifier of the dependency property being set."
   example:
   - "The following example defines a read-only dependency property, along with a `public static readonly` <xref:System.Windows.DependencyProperty> that provides necessary read-only exposure to property consumers, and the get accessor for the [!INCLUDE[TLA2#tla_clr](~/includes/tla2sharptla-clr-md.md)] wrapper.  \n  \n [!code-csharp[WPFAquariumSln#RODP](~/samples/snippets/csharp/VS_Snippets_Wpf/WPFAquariumSln/CSharp/WPFAquariumObjects/Class1.cs#rodp)]\n [!code-vb[WPFAquariumSln#RODP](~/samples/snippets/visualbasic/VS_Snippets_Wpf/WPFAquariumSln/visualbasic/wpfaquariumobjects/class1.vb#rodp)]"
@@ -876,7 +876,7 @@ items:
   - WindowsBase
   namespace: System.Windows
   summary: Returns a value that indicates whether serialization processes should serialize the value for the provided dependency property.
-  remarks: The default implementation returns `true` for all cases in which a dependency property had a local value established on the <xref:System.Windows.DependencyObject>.
+  remarks: 'The default implementation returns `true` for all cases in which a dependency property had a local value established on the <xref:System.Windows.DependencyObject>.'
   syntax:
     content: protected virtual bool ShouldSerializeProperty (System.Windows.DependencyProperty dp);
     parameters:

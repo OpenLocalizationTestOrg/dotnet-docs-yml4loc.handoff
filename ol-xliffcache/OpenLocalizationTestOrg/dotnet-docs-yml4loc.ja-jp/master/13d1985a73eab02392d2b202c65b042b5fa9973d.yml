@@ -299,7 +299,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Configuration
   summary: Gets or sets a <xref href="System.TimeSpan"></xref> that specifies the maximum time difference between the system clocks of the two communicating parties.
-  remarks: When this property is set to the default, the receiver accepts messages with send-time timestamps up to 5 minutes later or earlier than the time the message was received. Messages that do not pass the send-time test are rejected. This setting is used in conjunction with the <xref:System.ServiceModel.Configuration.LocalClientSecuritySettingsElement.ReplayWindow%2A> property.
+  remarks: 'When this property is set to the default, the receiver accepts messages with send-time timestamps up to 5 minutes later or earlier than the time the message was received. Messages that do not pass the send-time test are rejected. This setting is used in conjunction with the <xref:System.ServiceModel.Configuration.LocalClientSecuritySettingsElement.ReplayWindow%2A> property.'
   syntax:
     content: >-
       [System.ComponentModel.TypeConverter(typeof(System.ServiceModel.Configuration.TimeSpanOrInfiniteConverter))]
@@ -309,7 +309,7 @@ items:
       public TimeSpan MaxClockSkew { get; set; }
     return:
       type: System.TimeSpan
-      description: A <xref href="System.TimeSpan"></xref> that specifies the maximum time difference between the system clocks of the two communicating parties. The default value is "00:05:00".
+      description: 'A <xref href="System.TimeSpan"></xref> that specifies the maximum time difference between the system clocks of the two communicating parties. The default value is "00:05:00".'
   overload: System.ServiceModel.Configuration.LocalClientSecuritySettingsElement.MaxClockSkew*
   exceptions: []
   attributes:
@@ -360,7 +360,7 @@ items:
       public TimeSpan MaxCookieCachingTime { get; set; }
     return:
       type: System.TimeSpan
-      description: A <xref href="System.TimeSpan"></xref> that specifies the maximum lifetime of cookies. The default value is "10675199.02:48:05.4775807".
+      description: 'A <xref href="System.TimeSpan"></xref> that specifies the maximum lifetime of cookies. The default value is "10675199.02:48:05.4775807".'
   overload: System.ServiceModel.Configuration.LocalClientSecuritySettingsElement.MaxCookieCachingTime*
   exceptions: []
   attributes:
@@ -439,7 +439,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Configuration
   summary: Gets or sets a boolean value that specifies whether connections using WS-Reliable messaging attempt to reconnect after transport failures.
-  remarks: If this property is `true`, infinite reconnect attempts are attempted. The cycle is only broken by the inactivity time-out, which causes the channel to throw an exception when it cannot be reconnected.
+  remarks: 'If this property is `true`, infinite reconnect attempts are attempted. The cycle is only broken by the inactivity time-out, which causes the channel to throw an exception when it cannot be reconnected.'
   syntax:
     content: >-
       [System.Configuration.ConfigurationProperty("reconnectTransportOnFailure", DefaultValue=Mono.Cecil.CustomAttributeArgument)]
@@ -488,7 +488,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Configuration
   summary: Gets or sets a value that specifies the number of cached nonces used for replay detection.
-  remarks: If this limit is exceeded, the oldest nonce is removed and a new nonce is created for the new message.
+  remarks: 'If this limit is exceeded, the oldest nonce is removed and a new nonce is created for the new message.'
   syntax:
     content: >-
       [System.Configuration.ConfigurationProperty("replayCacheSize", DefaultValue=Mono.Cecil.CustomAttributeArgument)]
@@ -540,7 +540,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel.Configuration
   summary: Gets or sets a <xref href="System.TimeSpan"></xref> that specifies the duration in which individual message nonces are valid.
-  remarks: After the time specified by this property, a message sent with the same nonce as the one sent before is not accepted. This property is used in conjunction with the <xref:System.ServiceModel.Configuration.LocalClientSecuritySettingsElement.MaxClockSkew%2A> property to prevent replay attacks. An attacker can replay a message after its replay window has expired. This message, however, fails the maxClockSkew test that rejects messages with send-time timestamps up to a specified time later or earlier than the time the message was received.
+  remarks: 'After the time specified by this property, a message sent with the same nonce as the one sent before is not accepted. This property is used in conjunction with the <xref:System.ServiceModel.Configuration.LocalClientSecuritySettingsElement.MaxClockSkew%2A> property to prevent replay attacks. An attacker can replay a message after its replay window has expired. This message, however, fails the maxClockSkew test that rejects messages with send-time timestamps up to a specified time later or earlier than the time the message was received.'
   syntax:
     content: >-
       [System.ComponentModel.TypeConverter(typeof(System.ServiceModel.Configuration.TimeSpanOrInfiniteConverter))]
@@ -601,7 +601,7 @@ items:
       public TimeSpan SessionKeyRenewalInterval { get; set; }
     return:
       type: System.TimeSpan
-      description: A <xref href="System.TimeSpan"></xref> that specifies the duration after which the initiator renews the key for the security session. The default is "10:00:00".
+      description: 'A <xref href="System.TimeSpan"></xref> that specifies the duration after which the initiator renews the key for the security session. The default is "10:00:00".'
   overload: System.ServiceModel.Configuration.LocalClientSecuritySettingsElement.SessionKeyRenewalInterval*
   exceptions: []
   attributes:
@@ -642,8 +642,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Configuration
-  summary: Gets or sets a <xref href="System.TimeSpan"></xref> that specifies the time interval a previous session key is valid on incoming messages during a key renewal. The default is "00:05:00".
-  remarks: During key renewal, the client and server must always send messages using the most current available key. Both parties accept incoming messages secured with the previous session key until the rollover time specified by this property expires.
+  summary: 'Gets or sets a <xref href="System.TimeSpan"></xref> that specifies the time interval a previous session key is valid on incoming messages during a key renewal. The default is "00:05:00".'
+  remarks: 'During key renewal, the client and server must always send messages using the most current available key. Both parties accept incoming messages secured with the previous session key until the rollover time specified by this property expires.'
   syntax:
     content: >-
       [System.ComponentModel.TypeConverter(typeof(System.ServiceModel.Configuration.TimeSpanOrInfiniteConverter))]
@@ -653,7 +653,7 @@ items:
       public TimeSpan SessionKeyRolloverInterval { get; set; }
     return:
       type: System.TimeSpan
-      description: A <xref href="System.TimeSpan"></xref> that specifies the duration a previous session key is valid on incoming messages during a key renewal. The default is "00:05:00".
+      description: 'A <xref href="System.TimeSpan"></xref> that specifies the duration a previous session key is valid on incoming messages during a key renewal. The default is "00:05:00".'
   overload: System.ServiceModel.Configuration.LocalClientSecuritySettingsElement.SessionKeyRolloverInterval*
   exceptions: []
   attributes:
@@ -704,7 +704,7 @@ items:
       public TimeSpan TimestampValidityDuration { get; set; }
     return:
       type: System.TimeSpan
-      description: A positive <xref href="System.TimeSpan"></xref> that specifies the duration in which a time stamp is valid. The default is "00:15:00".
+      description: 'A positive <xref href="System.TimeSpan"></xref> that specifies the duration in which a time stamp is valid. The default is "00:15:00".'
   overload: System.ServiceModel.Configuration.LocalClientSecuritySettingsElement.TimestampValidityDuration*
   exceptions: []
   attributes:

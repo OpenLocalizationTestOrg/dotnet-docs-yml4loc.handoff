@@ -19,7 +19,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: Retrieves values, as specified in a declarative expression, from the `<appSettings>` section of the Web.config file.
+  summary: 'Retrieves values, as specified in a declarative expression, from the `<appSettings>` section of the Web.config file.'
   remarks: "The <xref:System.Web.Compilation.AppSettingsExpressionBuilder> class provides access to values in the `<appSettings>` section of the Web.config file. The `<appSettings>` section of the Web.config file contains application-specific values in key/value pairs.  \n  \n An application value is retrieved by assigning an expression of the form  \n  \n `<%$ AppSettings: appSettingsKey %>`  \n  \n to a property in a control declaration. The part of the expression before the colon (:) designates the type of expression to be retrieved, and the part after the colon signifies the key. The preceding expression would retrieve the following value from the Web.config file.  \n  \n `<appSettings>`  \n  \n `<add key=\"appSettingsKey\" value=\"appSettingsValue\"/>`  \n  \n `</appSettings>`  \n  \n When the page parser encounters an expression with the `AppSettings` prefix, it creates an instance of the <xref:System.Web.Compilation.AppSettingsExpressionBuilder> class to handle the expression.  \n  \n If the expression is encountered in a page that will be compiled, the <xref:System.Web.Compilation.AppSettingsExpressionBuilder> object generates code to retrieve the specified value from the Web.config file. This code is executed during the execution of the generated page class. If the expression is encountered in a page that will not be compiled, the <xref:System.Web.Compilation.AppSettingsExpressionBuilder> object returns the value from the Web.config file when the page is parsed and executed."
   example:
   - "The following code example demonstrates how to retrieve an application settings value in a page that is not compiled.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.Compilation.AppSettingsExpressionBuilder#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.Compilation.AppSettingsExpressionBuilder/CS/Default.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.Compilation.AppSettingsExpressionBuilder#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.Compilation.AppSettingsExpressionBuilder/VB/Default.aspx#1)]  -->  \n  \n This code retrieves the following expression from the Web.config file.  \n  \n `<configuration xmlns=\"http://schemas.microsoft.com/.NetConfiguration/v2.0\">`  \n  \n `<appSettings>`  \n  \n `<add key=\"thisSeason\" value=\"Fall\"/>`  \n  \n `</appSettings>`  \n  \n `</configuration>`"
@@ -128,7 +128,7 @@ items:
       description: The property to which the expression is bound..
     - id: parsedData
       type: System.Object
-      description: The object that represents parsed data as returned by <xref href="System.Web.Compilation.ExpressionBuilder.ParseExpression(System.String,System.Type,System.Web.Compilation.ExpressionBuilderContext)"></xref>.
+      description: 'The object that represents parsed data as returned by <xref href="System.Web.Compilation.ExpressionBuilder.ParseExpression(System.String,System.Type,System.Web.Compilation.ExpressionBuilderContext)"></xref>.'
     - id: context
       type: System.Web.Compilation.ExpressionBuilderContext
       description: Properties for the control or page.
@@ -173,7 +173,7 @@ items:
   - System.Web
   namespace: System.Web.Compilation
   summary: Returns a value from the `<appSettings>` section of the Web.config file.
-  remarks: This method retrieves the appropriate value from the key/value pairs in the `<appSettings>` section of the Web.config file. It retrieves the value by getting the <xref:System.Configuration.ConfigurationManager.AppSettings%2A> property with the key as the index. The <xref:System.Object> returned is of the type <xref:System.String>.
+  remarks: 'This method retrieves the appropriate value from the key/value pairs in the `<appSettings>` section of the Web.config file. It retrieves the value by getting the <xref:System.Configuration.ConfigurationManager.AppSettings%2A> property with the key as the index. The <xref:System.Object> returned is of the type <xref:System.String>.'
   syntax:
     content: public static object GetAppSetting (string key);
     parameters:
@@ -224,7 +224,7 @@ items:
   - System.Web
   namespace: System.Web.Compilation
   summary: Returns a value from the `<appSettings>` section of the Web.config file with the value converted to a target type.
-  remarks: This method retrieves the appropriate value from the key/value pairs in the `<appSettings>` section of the Web.config file. The value is retrieved by getting the <xref:System.Configuration.ConfigurationManager.AppSettings%2A> property with the key as the index. The resulting string value is converted to a new type based on the `targetType` and `propertyName` parameters.
+  remarks: 'This method retrieves the appropriate value from the key/value pairs in the `<appSettings>` section of the Web.config file. The value is retrieved by getting the <xref:System.Configuration.ConfigurationManager.AppSettings%2A> property with the key as the index. The resulting string value is converted to a new type based on the `targetType` and `propertyName` parameters.'
   syntax:
     content: public static object GetAppSetting (string key, Type targetType, string propertyName);
     parameters:
@@ -281,7 +281,7 @@ items:
   - System.Web
   namespace: System.Web.Compilation
   summary: Returns a code expression that is used to perform the property assignment in the generated page class.
-  remarks: This method is called during the CodeDOM creation for a page or control. The returned <xref:System.CodeDom.CodeExpression> object represents the code expression to add to the property assignment in the generated page class.
+  remarks: 'This method is called during the CodeDOM creation for a page or control. The returned <xref:System.CodeDom.CodeExpression> object represents the code expression to add to the property assignment in the generated page class.'
   syntax:
     content: public override System.CodeDom.CodeExpression GetCodeExpression (System.Web.UI.BoundPropertyEntry entry, object parsedData, System.Web.Compilation.ExpressionBuilderContext context);
     parameters:
@@ -290,7 +290,7 @@ items:
       description: The property to which the expression is bound.
     - id: parsedData
       type: System.Object
-      description: The object that represents parsed data as returned by <xref href="System.Web.Compilation.ExpressionBuilder.ParseExpression(System.String,System.Type,System.Web.Compilation.ExpressionBuilderContext)"></xref>.
+      description: 'The object that represents parsed data as returned by <xref href="System.Web.Compilation.ExpressionBuilder.ParseExpression(System.String,System.Type,System.Web.Compilation.ExpressionBuilderContext)"></xref>.'
     - id: context
       type: System.Web.Compilation.ExpressionBuilderContext
       description: Properties for the control or page.
@@ -335,7 +335,7 @@ items:
   - System.Web
   namespace: System.Web.Compilation
   summary: Returns a value indicating whether an expression can be evaluated in a page that is not compiled.
-  remarks: The <xref:System.Web.Compilation.AppSettingsExpressionBuilder.SupportsEvaluate%2A> property indicates whether the <xref:System.Web.Compilation.AppSettingsExpressionBuilder.EvaluateExpression%2A> method has been implemented in the class and can return a value for the expression. <xref:System.Web.Compilation.AppSettingsExpressionBuilder.EvaluateExpression%2A> must be implemented within an expression builder for an expression to be evaluated in a page that is not compiled. The <xref:System.Web.Compilation.AppSettingsExpressionBuilder> class supports evaluation of an application setting in a page that is not compiled, so it always returns `true`.
+  remarks: 'The <xref:System.Web.Compilation.AppSettingsExpressionBuilder.SupportsEvaluate%2A> property indicates whether the <xref:System.Web.Compilation.AppSettingsExpressionBuilder.EvaluateExpression%2A> method has been implemented in the class and can return a value for the expression. <xref:System.Web.Compilation.AppSettingsExpressionBuilder.EvaluateExpression%2A> must be implemented within an expression builder for an expression to be evaluated in a page that is not compiled. The <xref:System.Web.Compilation.AppSettingsExpressionBuilder> class supports evaluation of an application setting in a page that is not compiled, so it always returns `true`.'
   syntax:
     content: public override bool SupportsEvaluate { get; }
     return:

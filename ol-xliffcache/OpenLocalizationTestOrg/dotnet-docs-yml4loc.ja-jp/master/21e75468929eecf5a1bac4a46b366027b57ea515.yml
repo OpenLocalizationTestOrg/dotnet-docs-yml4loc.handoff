@@ -304,14 +304,14 @@ items:
   - netstandard
   namespace: System.Xml.Linq
   summary: Gets the node type for this node.
-  remarks: Because all classes that derive from <xref:System.Xml.Linq.XObject> contain a <xref:System.Xml.Linq.XObject.NodeType%2A> property, you can write code that operates on collections of concrete subclass of <xref:System.Xml.Linq.XObject>. Your code can then test for the node type of each node in the collection.
+  remarks: 'Because all classes that derive from <xref:System.Xml.Linq.XObject> contain a <xref:System.Xml.Linq.XObject.NodeType%2A> property, you can write code that operates on collections of concrete subclass of <xref:System.Xml.Linq.XObject>. Your code can then test for the node type of each node in the collection.'
   example:
   - "The following example creates an XML tree that contains various types of nodes. It then iterates through the tree, and prints the node type of each node.  \n  \n```csharp  \n  \n                // Note that XNode uses XmlNodeType, which is in the System.Xml namespace.  \nXDocument xmlTree = new XDocument(  \n    new XComment(\"a comment\"),  \n    new XProcessingInstruction(\"xml-stylesheet\", \"type=\\\"text/xsl\\\" href=\\\"hello.xsl\\\"\"),  \n    new XElement(\"Root\",  \n        new XAttribute(\"Att\", \"attContent\"),  \n        new XElement(\"Child1\",  \n            new XCData(\"CDATA content\")  \n        ),  \n        new XElement(\"Child2\",  \n            new XText(\"Text content\")  \n        )  \n    )  \n);  \n  \nforeach (XNode node in xmlTree.DescendantNodes())  \n{  \n    Console.WriteLine(node.NodeType);  \n    if (node.NodeType == XmlNodeType.Element)  \n    {  \n        foreach (XAttribute att in ((XElement)node).Attributes())  \n            Console.WriteLine(att.NodeType);  \n    }  \n}  \n```  \n  \n```vb  \n  \n                Dim xmlTree As XDocument = _   \n    <?xml version=\"1.0\" encoding=\"utf-8\"?>  \n        <!--a comment-->  \n        <?xml-stylesheet type='text/xsl' href='hello.xsl'?>  \n        <Root Att=\"attContent\">  \n            <Child1><![CDATA[CDATA content]]></Child1>  \n            <Child2>Text content</Child2>  \n        </Root>  \n  \n' Note that XNode uses XmlNodeType, which is in the System.Xml namespace.  \nFor Each node As XNode In xmlTree.DescendantNodes  \n    Console.WriteLine(node.NodeType.ToString())  \n    If node.NodeType = XmlNodeType.Element Then  \n        For Each att In DirectCast(node, XElement).Attributes  \n            Console.WriteLine(att.NodeType.ToString())  \n        Next  \n    End If  \nNext  \n  \n```  \n  \n This example produces the following output:  \n  \n```  \nComment  \nProcessingInstruction  \nElement  \nAttribute  \nElement  \nCDATA  \nElement  \nText  \n```"
   syntax:
     content: public override System.Xml.XmlNodeType NodeType { get; }
     return:
       type: System.Xml.XmlNodeType
-      description: The node type. For <xref href="System.Xml.Linq.XCData"></xref> objects, this value is <xref href="System.Xml.XmlNodeType.CDATA"></xref>.
+      description: 'The node type. For <xref href="System.Xml.Linq.XCData"></xref> objects, this value is <xref href="System.Xml.XmlNodeType.CDATA"></xref>.'
   overload: System.Xml.Linq.XCData.NodeType*
   exceptions: []
   version:
@@ -378,7 +378,7 @@ items:
   - netstandard
   namespace: System.Xml.Linq
   summary: Writes this CDATA object to an <xref href="System.Xml.XmlWriter"></xref>.
-  remarks: This method is primarily used internally by the methods that write an XML tree to an <xref:System.Xml.XmlWriter>.
+  remarks: 'This method is primarily used internally by the methods that write an XML tree to an <xref:System.Xml.XmlWriter>.'
   syntax:
     content: public override void WriteTo (System.Xml.XmlWriter writer);
     parameters:

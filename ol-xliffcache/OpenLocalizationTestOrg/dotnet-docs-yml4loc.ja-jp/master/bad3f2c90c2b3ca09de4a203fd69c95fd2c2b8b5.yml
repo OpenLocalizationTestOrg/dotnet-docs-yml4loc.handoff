@@ -43,8 +43,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: Represents the version number of an assembly, operating system, or the common language runtime. This class cannot be inherited.
-  remarks: "Version numbers consist of two to four components: major, minor, build, and revision. The major and minor components are required; the build and revision components are optional, but the build component is required if the revision component is defined. All defined components must be integers greater than or equal to 0. The format of the version number is as follows (optional components are shown in square brackets ([ and ]):  \n  \n *major*.*minor*[.*build*[.*revision*]]  \n  \n The components are used by convention as follows:  \n  \n-   *Major*: Assemblies with the same name but different major versions are not interchangeable. A higher version number might indicate a major rewrite of a product where backward compatibility cannot be assumed.  \n  \n-   *Minor*: If the name and major version number on two assemblies are the same, but the minor version number is different, this indicates significant enhancement with the intention of backward compatibility. This higher minor version number might indicate a point release of a product or a fully backward-compatible new version of a product.  \n  \n-   *Build*: A difference in build number represents a recompilation of the same source. Different build numbers might be used when the processor, platform, or compiler changes.  \n  \n-   *Revision*: Assemblies with the same name, major, and minor version numbers but different revisions are intended to be fully interchangeable. A higher revision number might be used in a build that fixes a security hole in a previously released assembly.  \n  \n Subsequent versions of an assembly that differ only by build or revision numbers are considered to be Hotfix updates of the prior version.  \n  \n> [!IMPORTANT]\n>  The value of <xref:System.Version> properties that have not been explicitly assigned a value is undefined (-1).  \n  \n Starting with .NET Framework 2.0, the <xref:System.Version.MajorRevision%2A> and <xref:System.Version.MinorRevision%2A> properties enable you to identify a temporary version of your application that, for example, corrects a problem until you can release a permanent solution.  Furthermore, the Windows NT operating system uses the <xref:System.Version.MajorRevision%2A> property to encode the service pack number.  \n  \n## Assigning Version Information to Assemblies  \n Ordinarily, the <xref:System.Version> class is not used to assign a version number to an assembly. Instead, the <xref:System.Reflection.AssemblyVersionAttribute> class is used to define an assembly's version, as illustrated by the example in this topic.  \n  \n## Retrieving Version Information  \n <xref:System.Version> objects are most frequently used to store version information about some system or application component (such as the operating system), the common language runtime, the current application's executable, or a particular assembly. The following examples illustrate some of the most common scenarios:  \n  \n-   Retrieving the operating system version. The following example uses the <xref:System.OperatingSystem.Version%2A?displayProperty=fullName> property to retrieve the version number of the operating system.  \n  \n     [!code-csharp[System.Version.Class#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Version.Class/cs/GettingVersions1.cs#1)]\n     [!code-vb[System.Version.Class#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Version.Class/vb/GettingVersions1.vb#1)]  \n  \n-   Retrieving the version of the common language runtime. The following example uses the <xref:System.Environment.Version%2A?displayProperty=fullName> property to retrieve version information about the common language runtime.  \n  \n     [!code-csharp[System.Version.Class#2](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Version.Class/cs/GettingVersions1.cs#2)]\n     [!code-vb[System.Version.Class#2](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Version.Class/vb/GettingVersions1.vb#2)]  \n  \n-   Retrieving the current application's assembly version. The following example uses the <xref:System.Reflection.Assembly.GetEntryAssembly%2A?displayProperty=fullName> method to obtain a reference to an <xref:System.Reflection.Assembly> object that represents the application executable and then retrieves its assembly version number.  \n  \n     [!code-csharp[System.Version.Class#5](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Version.Class/cs/currentapp.cs#5)]\n     [!code-vb[System.Version.Class#5](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Version.Class/vb/currentapp.vb#5)]  \n  \n-   Retrieving the current assembly's assembly version. The following example uses the <xref:System.Type.Assembly%2A?displayProperty=fullName> property to obtain a reference to an <xref:System.Reflection.Assembly> object that represents the assembly that contains the application entry point, and then retrieves its version information.  \n  \n     [!code-csharp[System.Version.Class#4](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Version.Class/cs/currentassem.cs#4)]\n     [!code-vb[System.Version.Class#4](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Version.Class/vb/currentassem.vb#4)]  \n  \n-   Retrieving the version of a specific assembly. The following example uses the <xref:System.Reflection.Assembly.ReflectionOnlyLoadFrom%2A?displayProperty=fullName> method to obtain a reference to an <xref:System.Reflection.Assembly> object that has a particular file name, and then retrieves its version information. Note that several other methods also exist to instantiate an <xref:System.Reflection.Assembly> object by file name or by strong name.  \n  \n     [!code-csharp[System.Version.Class#3](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Version.Class/cs/specificassem.cs#3)]\n     [!code-vb[System.Version.Class#3](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Version.Class/vb/specificassem.vb#3)]  \n  \n-   Retrieving the Publish Version of a ClickOnce application. The following example uses the <xref:System.Deployment.Application.ApplicationDeployment.CurrentVersion%2A?displayProperty=fullName> property to display an application's Publish Version. Note that its successful execution requires the example's application identity to be set. This is handled automatically by the Visual Studio Publish Wizard.  \n  \n     [!code-csharp[System.Version.Class#7](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Version.Class/cs/clickonce.cs#7)]\n     [!code-vb[System.Version.Class#7](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Version.Class/vb/clickonce.vb#7)]  \n  \n    > [!IMPORTANT]\n    >  The Publish Version of an application for ClickOnce deployment is completely independent of its assembly version.  \n  \n## Comparing Version Objects  \n You can use the <xref:System.Version.CompareTo%2A> method to determine whether one <xref:System.Version> object is earlier than, the same as, or later than a second <xref:System.Version> object. The following example indicates that Version 2.1 is later than Version 2.0.  \n  \n [!code-csharp[System.Version.Class.Comparing#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.version.class.comparing/cs/comparisons1.cs#1)]\n [!code-vb[System.Version.Class.Comparing#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.version.class.comparing/vb/comparisons1.vb#1)]  \n  \n For two versions to be equal, the major, minor, build, and revision numbers of the first <xref:System.Version> object must be identical to those of the second <xref:System.Version> object. If the build or revision number of a <xref:System.Version> object is undefined, that <xref:System.Version> object is considered to be earlier than a <xref:System.Version> object whose build or revision number is equal to zero. The following example illustrates this by comparing three <xref:System.Version> objects that have undefined version components.  \n  \n [!code-csharp[System.Version.Class.Comparing#2](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.version.class.comparing/cs/comparisons2.cs#2)]\n [!code-vb[System.Version.Class.Comparing#2](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.version.class.comparing/vb/comparisons2.vb#2)]"
+  summary: 'Represents the version number of an assembly, operating system, or the common language runtime. This class cannot be inherited.'
+  remarks: "Version numbers consist of two to four components: major, minor, build, and revision. The major and minor components are required; the build and revision components are optional, but the build component is required if the revision component is defined. All defined components must be integers greater than or equal to 0. The format of the version number is as follows (optional components are shown in square brackets ([ and ]):  \n  \n *major*.*minor*[.*build*[.*revision*]]  \n  \n The components are used by convention as follows:  \n  \n-   *Major*: Assemblies with the same name but different major versions are not interchangeable. A higher version number might indicate a major rewrite of a product where backward compatibility cannot be assumed.  \n  \n-   *Minor*: If the name and major version number on two assemblies are the same, but the minor version number is different, this indicates significant enhancement with the intention of backward compatibility. This higher minor version number might indicate a point release of a product or a fully backward-compatible new version of a product.  \n  \n-   *Build*: A difference in build number represents a recompilation of the same source. Different build numbers might be used when the processor, platform, or compiler changes.  \n  \n-   *Revision*: Assemblies with the same name, major, and minor version numbers but different revisions are intended to be fully interchangeable. A higher revision number might be used in a build that fixes a security hole in a previously released assembly.  \n  \n Subsequent versions of an assembly that differ only by build or revision numbers are considered to be Hotfix updates of the prior version.  \n  \n> [!IMPORTANT]\n>  The value of <xref:System.Version> properties that have not been explicitly assigned a value is undefined (-1).  \n  \n Starting with .NET Framework 2.0, the <xref:System.Version.MajorRevision%2A> and <xref:System.Version.MinorRevision%2A> properties enable you to identify a temporary version of your application that, for example, corrects a problem until you can release a permanent solution.  Furthermore, the Windows NT operating system uses the <xref:System.Version.MajorRevision%2A> property to encode the service pack number.  \n  \n## <a name=\"assigning-version-information-to-assemblies\"></a>Assigning Version Information to Assemblies  \n Ordinarily, the <xref:System.Version> class is not used to assign a version number to an assembly. Instead, the <xref:System.Reflection.AssemblyVersionAttribute> class is used to define an assembly's version, as illustrated by the example in this topic.  \n  \n## <a name=\"retrieving-version-information\"></a>Retrieving Version Information  \n <xref:System.Version> objects are most frequently used to store version information about some system or application component (such as the operating system), the common language runtime, the current application's executable, or a particular assembly. The following examples illustrate some of the most common scenarios:  \n  \n-   Retrieving the operating system version. The following example uses the <xref:System.OperatingSystem.Version%2A?displayProperty=fullName> property to retrieve the version number of the operating system.  \n  \n     [!code-csharp[System.Version.Class#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Version.Class/cs/GettingVersions1.cs#1)]  [!code-vb[System.Version.Class#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Version.Class/vb/GettingVersions1.vb#1)]  \n  \n-   Retrieving the version of the common language runtime. The following example uses the <xref:System.Environment.Version%2A?displayProperty=fullName> property to retrieve version information about the common language runtime.  \n  \n     [!code-csharp[System.Version.Class#2](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Version.Class/cs/GettingVersions1.cs#2)]  [!code-vb[System.Version.Class#2](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Version.Class/vb/GettingVersions1.vb#2)]  \n  \n-   Retrieving the current application's assembly version. The following example uses the <xref:System.Reflection.Assembly.GetEntryAssembly%2A?displayProperty=fullName> method to obtain a reference to an <xref:System.Reflection.Assembly> object that represents the application executable and then retrieves its assembly version number.  \n  \n     [!code-csharp[System.Version.Class#5](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Version.Class/cs/currentapp.cs#5)]  [!code-vb[System.Version.Class#5](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Version.Class/vb/currentapp.vb#5)]  \n  \n-   Retrieving the current assembly's assembly version. The following example uses the <xref:System.Type.Assembly%2A?displayProperty=fullName> property to obtain a reference to an <xref:System.Reflection.Assembly> object that represents the assembly that contains the application entry point, and then retrieves its version information.  \n  \n     [!code-csharp[System.Version.Class#4](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Version.Class/cs/currentassem.cs#4)]  [!code-vb[System.Version.Class#4](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Version.Class/vb/currentassem.vb#4)]  \n  \n-   Retrieving the version of a specific assembly. The following example uses the <xref:System.Reflection.Assembly.ReflectionOnlyLoadFrom%2A?displayProperty=fullName> method to obtain a reference to an <xref:System.Reflection.Assembly> object that has a particular file name, and then retrieves its version information. Note that several other methods also exist to instantiate an <xref:System.Reflection.Assembly> object by file name or by strong name.  \n  \n     [!code-csharp[System.Version.Class#3](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Version.Class/cs/specificassem.cs#3)]  [!code-vb[System.Version.Class#3](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Version.Class/vb/specificassem.vb#3)]  \n  \n-   Retrieving the Publish Version of a ClickOnce application. The following example uses the <xref:System.Deployment.Application.ApplicationDeployment.CurrentVersion%2A?displayProperty=fullName> property to display an application's Publish Version. Note that its successful execution requires the example's application identity to be set. This is handled automatically by the Visual Studio Publish Wizard.  \n  \n     [!code-csharp[System.Version.Class#7](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Version.Class/cs/clickonce.cs#7)]  [!code-vb[System.Version.Class#7](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Version.Class/vb/clickonce.vb#7)]  \n  \n    > [!IMPORTANT]\n    >  The Publish Version of an application for ClickOnce deployment is completely independent of its assembly version.  \n  \n## <a name=\"comparing-version-objects\"></a>Comparing Version Objects  \n You can use the <xref:System.Version.CompareTo%2A> method to determine whether one <xref:System.Version> object is earlier than, the same as, or later than a second <xref:System.Version> object. The following example indicates that Version 2.1 is later than Version 2.0.  \n  \n [!code-csharp[System.Version.Class.Comparing#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.version.class.comparing/cs/comparisons1.cs#1)] [!code-vb[System.Version.Class.Comparing#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.version.class.comparing/vb/comparisons1.vb#1)]  \n  \n For two versions to be equal, the major, minor, build, and revision numbers of the first <xref:System.Version> object must be identical to those of the second <xref:System.Version> object. If the build or revision number of a <xref:System.Version> object is undefined, that <xref:System.Version> object is considered to be earlier than a <xref:System.Version> object whose build or revision number is equal to zero. The following example illustrates this by comparing three <xref:System.Version> objects that have undefined version components.  \n  \n [!code-csharp[System.Version.Class.Comparing#2](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.version.class.comparing/cs/comparisons2.cs#2)] [!code-vb[System.Version.Class.Comparing#2](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.version.class.comparing/vb/comparisons2.vb#2)]"
   example:
   - "The following example uses the <xref:System.Reflection.AssemblyVersionAttribute> attribute to assign a version number to an assembly. At compile time, this version information is stored with the assembly's metadata. At run time, the example retrieves the value of the <xref:System.Type.Assembly%2A?displayProperty=fullName> property on a type found in the assembly to get a reference to the executing assembly, and it retrieves the assembly's version information from the <xref:System.Reflection.AssemblyName.Version%2A> property of the <xref:System.Reflection.AssemblyName> object returned by the <xref:System.Reflection.Assembly.GetName%2A?displayProperty=fullName> method.  \n  \n [!code-csharp[System.Version.Class#6](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Version.Class/cs/example1.cs#6)]\n [!code-vb[System.Version.Class#6](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Version.Class/vb/example1.vb#6)]"
   syntax:
@@ -192,7 +192,7 @@ items:
     parameters:
     - id: version
       type: System.String
-      description: A string containing the major, minor, build, and revision numbers, where each number is delimited with a period character ('.').
+      description: 'A string containing the major, minor, build, and revision numbers, where each number is delimited with a period character (''.'').'
   overload: System.Version.#ctor*
   exceptions:
   - type: System.ArgumentException
@@ -203,7 +203,7 @@ items:
     description: <code>version</code> is `null`.
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: A major, minor, build, or revision component is less than zero.
+    description: 'A major, minor, build, or revision component is less than zero.'
   - type: System.FormatException
     commentId: T:System.FormatException
     description: At least one component of <code>version</code> does not parse to an integer.
@@ -356,7 +356,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: Initializes a new instance of the <xref href="System.Version"></xref> class using the specified major, minor, and build values.
+  summary: 'Initializes a new instance of the <xref href="System.Version"></xref> class using the specified major, minor, and build values.'
   remarks: "This constructor creates a <xref:System.Version> object with the following property values.  \n  \n|Property|Value|  \n|--------------|-----------|  \n|<xref:System.Version.Major%2A>|`major`|  \n|<xref:System.Version.Minor%2A>|`minor`|  \n|<xref:System.Version.Build%2A>|`build`|  \n|<xref:System.Version.Revision%2A>|undefined (-1)|"
   syntax:
     content: public Version (int major, int minor, int build);
@@ -374,7 +374,7 @@ items:
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: <code>major</code>, <code>minor</code>, or <code>build</code> is less than zero.
+    description: '<code>major</code>, <code>minor</code>, or <code>build</code> is less than zero.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -440,7 +440,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: Initializes a new instance of the <xref href="System.Version"></xref> class with the specified major, minor, build, and revision numbers.
+  summary: 'Initializes a new instance of the <xref href="System.Version"></xref> class with the specified major, minor, build, and revision numbers.'
   remarks: "This constructor creates a <xref:System.Version> object with the following property values.  \n  \n|Property|Value|  \n|--------------|-----------|  \n|<xref:System.Version.Major%2A>|`major`|  \n|<xref:System.Version.Minor%2A>|`minor`|  \n|<xref:System.Version.Build%2A>|`build`|  \n|<xref:System.Version.Revision%2A>|`revision`|"
   example:
   - "The following code example demonstrates the <xref:System.Version.%23ctor%2A> constructor, and <xref:System.Version.Major%2A>, <xref:System.Version.Minor%2A>, <xref:System.Version.Build%2A>, <xref:System.Version.Revision%2A>, <xref:System.Version.MajorRevision%2A>, and <xref:System.Version.MinorRevision%2A> properties.  \n  \n [!code-cpp[system.version.revision#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.version.revision/cpp/rev.cpp#1)]\n [!code-csharp[system.version.revision#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.version.revision/cs/rev.cs#1)]\n [!code-vb[system.version.revision#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.version.revision/vb/rev.vb#1)]"
@@ -463,7 +463,7 @@ items:
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: <code>major</code>, <code>minor</code>, <code>build</code>, or <code>revision</code> is less than zero.
+    description: '<code>major</code>, <code>minor</code>, <code>build</code>, or <code>revision</code> is less than zero.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -530,14 +530,14 @@ items:
   - netstandard
   namespace: System
   summary: Gets the value of the build component of the version number for the current <xref href="System.Version"></xref> object.
-  remarks: For example, if the version number is 6.2.1.3, the build number is 1. If the version number is 6.2, the build number is undefined.
+  remarks: 'For example, if the version number is 6.2.1.3, the build number is 1. If the version number is 6.2, the build number is undefined.'
   example:
   - "The following code example demonstrates the <xref:System.Version.%23ctor%2A> constructor, and <xref:System.Version.Major%2A>, <xref:System.Version.Minor%2A>, <xref:System.Version.Build%2A>, <xref:System.Version.Revision%2A>, <xref:System.Version.MajorRevision%2A>, and <xref:System.Version.MinorRevision%2A> properties.  \n  \n [!code-cpp[system.version.revision#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.version.revision/cpp/rev.cpp#1)]\n [!code-csharp[system.version.revision#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.version.revision/cs/rev.cs#1)]\n [!code-vb[system.version.revision#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.version.revision/vb/rev.vb#1)]"
   syntax:
     content: public int Build { get; }
     return:
       type: System.Int32
-      description: The build number, or -1 if the build number is undefined.
+      description: 'The build number, or -1 if the build number is undefined.'
   overload: System.Version.Build*
   exceptions: []
   version:
@@ -606,7 +606,7 @@ items:
   - System.Runtime
   namespace: System
   summary: Returns a new <xref href="System.Version"></xref> object whose value is the same as the current <xref href="System.Version"></xref> object.
-  remarks: If the type of the return value is important, cast the <xref:System.Object> instance that is returned by this method to a <xref:System.Version> object.
+  remarks: 'If the type of the return value is important, cast the <xref:System.Object> instance that is returned by this method to a <xref:System.Version> object.'
   syntax:
     content: public object Clone ();
     parameters: []
@@ -669,10 +669,10 @@ items:
     parameters:
     - id: version
       type: System.Object
-      description: An object to compare, or `null`.
+      description: 'An object to compare, or `null`.'
     return:
       type: System.Int32
-      description: "A signed integer that indicates the relative values of the two objects, as shown in the following table.  \n  \n <table><thead><tr><th> Return value  \n  \n </th><th> Meaning  \n  \n </th></tr></thead><tbody><tr><td> Less than zero  \n  \n </td><td> The current <xref href=\"System.Version\"></xref> object is a version before <code>version</code>.  \n  \n </td></tr><tr><td> Zero  \n  \n </td><td> The current <xref href=\"System.Version\"></xref> object is the same version as <code>version</code>.  \n  \n </td></tr><tr><td> Greater than zero  \n  \n </td><td> The current <xref href=\"System.Version\"></xref> object is a version subsequent to <code>version</code>.  \n  \n -or-  \n  \n <code>version</code> is `null`.  \n  \n </td></tr></tbody></table>"
+      description: "A signed integer that indicates the relative values of the two objects, as shown in the following table.  \n  \n <table><thead><tr><th> Return value\n </th><th> Meaning\n </th></tr></thead><tbody><tr><td> Less than zero\n </td><td> The current <xref href=\"System.Version\"></xref> object is a version before <code>version</code>.  \n  \n </td></tr><tr><td> Zero\n </td><td> The current <xref href=\"System.Version\"></xref> object is the same version as <code>version</code>.  \n  \n </td></tr><tr><td> Greater than zero\n </td><td> The current <xref href=\"System.Version\"></xref> object is a version subsequent to <code>version</code>.  \n  \n -or-  \n  \n <code>version</code> is `null`.  \n  \n </td></tr></tbody></table>"
   overload: System.Version.CompareTo*
   exceptions:
   - type: System.ArgumentException
@@ -734,10 +734,10 @@ items:
     parameters:
     - id: value
       type: System.Version
-      description: A <xref href="System.Version"></xref> object to compare to the current <xref href="System.Version"></xref> object, or `null`.
+      description: 'A <xref href="System.Version"></xref> object to compare to the current <xref href="System.Version"></xref> object, or `null`.'
     return:
       type: System.Int32
-      description: "A signed integer that indicates the relative values of the two objects, as shown in the following table.  \n  \n <table><thead><tr><th> Return value  \n  \n </th><th> Meaning  \n  \n </th></tr></thead><tbody><tr><td> Less than zero  \n  \n </td><td> The current <xref href=\"System.Version\"></xref> object is a version before <code>value</code>.  \n  \n </td></tr><tr><td> Zero  \n  \n </td><td> The current <xref href=\"System.Version\"></xref> object is the same version as <code>value</code>.  \n  \n </td></tr><tr><td> Greater than zero  \n  \n </td><td> The current <xref href=\"System.Version\"></xref> object is a version subsequent to <code>value</code>.  \n  \n -or-  \n  \n <code>value</code> is `null`.  \n  \n </td></tr></tbody></table>"
+      description: "A signed integer that indicates the relative values of the two objects, as shown in the following table.  \n  \n <table><thead><tr><th> Return value\n </th><th> Meaning\n </th></tr></thead><tbody><tr><td> Less than zero\n </td><td> The current <xref href=\"System.Version\"></xref> object is a version before <code>value</code>.  \n  \n </td></tr><tr><td> Zero\n </td><td> The current <xref href=\"System.Version\"></xref> object is the same version as <code>value</code>.  \n  \n </td></tr><tr><td> Greater than zero\n </td><td> The current <xref href=\"System.Version\"></xref> object is a version subsequent to <code>value</code>.  \n  \n -or-  \n  \n <code>value</code> is `null`.  \n  \n </td></tr></tbody></table>"
   overload: System.Version.CompareTo*
   exceptions: []
   version:
@@ -811,7 +811,7 @@ items:
     parameters:
     - id: obj
       type: System.Object
-      description: An object to compare with the current <xref href="System.Version"></xref> object, or `null`.
+      description: 'An object to compare with the current <xref href="System.Version"></xref> object, or `null`.'
     return:
       type: System.Boolean
       description: '`true` if the current <xref href="System.Version"></xref> object and <code>obj</code> are both <xref href="System.Version"></xref> objects, and every component of the current <xref href="System.Version"></xref> object matches the corresponding component of <code>obj</code>; otherwise, `false`.'
@@ -883,13 +883,13 @@ items:
   - netstandard
   namespace: System
   summary: Returns a value indicating whether the current <xref href="System.Version"></xref> object and a specified <xref href="System.Version"></xref> object represent the same value.
-  remarks: This method implements the <xref:System.IEquatable%601> interface, and performs slightly better than the <xref:System.Version.Equals%2A> method because it does not have to unbox the `obj` parameter.
+  remarks: 'This method implements the <xref:System.IEquatable%601> interface, and performs slightly better than the <xref:System.Version.Equals%2A> method because it does not have to unbox the `obj` parameter.'
   syntax:
     content: public bool Equals (Version obj);
     parameters:
     - id: obj
       type: System.Version
-      description: A <xref href="System.Version"></xref> object to compare to the current <xref href="System.Version"></xref> object, or `null`.
+      description: 'A <xref href="System.Version"></xref> object to compare to the current <xref href="System.Version"></xref> object, or `null`.'
     return:
       type: System.Boolean
       description: '`true` if every component of the current <xref href="System.Version"></xref> object matches the corresponding component of the <code>obj</code> parameter; otherwise, `false`.'
@@ -1038,7 +1038,7 @@ items:
   - netstandard
   namespace: System
   summary: Gets the value of the major component of the version number for the current <xref href="System.Version"></xref> object.
-  remarks: For example, if the version number is 6.2, the major version is 6.
+  remarks: 'For example, if the version number is 6.2, the major version is 6.'
   syntax:
     content: public int Major { get; }
     return:
@@ -1188,7 +1188,7 @@ items:
   - netstandard
   namespace: System
   summary: Gets the value of the minor component of the version number for the current <xref href="System.Version"></xref> object.
-  remarks: For example, if the version number is 6.2, the minor version is 2.
+  remarks: 'For example, if the version number is 6.2, the minor version is 2.'
   example:
   - "The following code example demonstrates the <xref:System.Version.%23ctor%2A> constructor, and <xref:System.Version.Major%2A>, <xref:System.Version.Minor%2A>, <xref:System.Version.Build%2A>, <xref:System.Version.Revision%2A>, <xref:System.Version.MajorRevision%2A>, and <xref:System.Version.MinorRevision%2A> properties.  \n  \n [!code-cpp[system.version.revision#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.version.revision/cpp/rev.cpp#1)]\n [!code-csharp[system.version.revision#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.version.revision/cs/rev.cs#1)]\n [!code-vb[system.version.revision#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.version.revision/vb/rev.vb#1)]"
   syntax:
@@ -1264,7 +1264,7 @@ items:
   - netstandard
   namespace: System
   summary: Gets the low 16 bits of the revision number.
-  remarks: Suppose you release an interim version of your application to temporarily correct a problem until you can release a permanent solution. The temporary version does not warrant a new revision number, but it does need to be identified as a different version. In this case, encode the identification information in the high and low 16-bit portions of the 32-bit revision number. Use the <xref:System.Version.Revision%2A> property to obtain the entire revision number, use the <xref:System.Version.MajorRevision%2A> property to obtain the high 16 bits, and use the <xref:System.Version.MinorRevision%2A> property to obtain the low 16 bits.
+  remarks: 'Suppose you release an interim version of your application to temporarily correct a problem until you can release a permanent solution. The temporary version does not warrant a new revision number, but it does need to be identified as a different version. In this case, encode the identification information in the high and low 16-bit portions of the 32-bit revision number. Use the <xref:System.Version.Revision%2A> property to obtain the entire revision number, use the <xref:System.Version.MajorRevision%2A> property to obtain the high 16 bits, and use the <xref:System.Version.MinorRevision%2A> property to obtain the low 16 bits.'
   example:
   - "The following code example demonstrates the <xref:System.Version.%23ctor%2A> constructor, and the <xref:System.Version.Major%2A>, <xref:System.Version.Minor%2A>, <xref:System.Version.Build%2A>, <xref:System.Version.Revision%2A>, <xref:System.Version.MajorRevision%2A>, and <xref:System.Version.MinorRevision%2A> properties.  \n  \n [!code-cpp[system.version.revision#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.version.revision/cpp/rev.cpp#1)]\n [!code-csharp[system.version.revision#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.version.revision/cs/rev.cs#1)]\n [!code-vb[system.version.revision#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.version.revision/vb/rev.vb#1)]"
   syntax:
@@ -1340,7 +1340,7 @@ items:
   - netstandard
   namespace: System
   summary: Determines whether two specified <xref href="System.Version"></xref> objects are equal.
-  remarks: The equivalent method for this operator is <xref:System.Version.Equals%28System.Object%29?displayProperty=fullName>
+  remarks: 'The equivalent method for this operator is <xref:System.Version.Equals%28System.Object%29?displayProperty=fullName>'
   syntax:
     content: public static bool op_Equality (Version v1, Version v2);
     parameters:
@@ -1421,7 +1421,7 @@ items:
   - netstandard
   namespace: System
   summary: Determines whether the first specified <xref href="System.Version"></xref> object is greater than the second specified <xref href="System.Version"></xref> object.
-  remarks: The equivalent method for this operator is <xref:System.Version.CompareTo%28System.Object%29?displayProperty=fullName>
+  remarks: 'The equivalent method for this operator is <xref:System.Version.CompareTo%28System.Object%29?displayProperty=fullName>'
   syntax:
     content: public static bool op_GreaterThan (Version v1, Version v2);
     parameters:
@@ -1502,7 +1502,7 @@ items:
   - netstandard
   namespace: System
   summary: Determines whether the first specified <xref href="System.Version"></xref> object is greater than or equal to the second specified <xref href="System.Version"></xref> object.
-  remarks: The equivalent method for this operator is <xref:System.Version.CompareTo%28System.Object%29?displayProperty=fullName>
+  remarks: 'The equivalent method for this operator is <xref:System.Version.CompareTo%28System.Object%29?displayProperty=fullName>'
   syntax:
     content: public static bool op_GreaterThanOrEqual (Version v1, Version v2);
     parameters:
@@ -1583,7 +1583,7 @@ items:
   - netstandard
   namespace: System
   summary: Determines whether two specified <xref href="System.Version"></xref> objects are not equal.
-  remarks: The equivalent method for this operator is <xref:System.Version.Equals%28System.Object%29?displayProperty=fullName>
+  remarks: 'The equivalent method for this operator is <xref:System.Version.Equals%28System.Object%29?displayProperty=fullName>'
   syntax:
     content: public static bool op_Inequality (Version v1, Version v2);
     parameters:
@@ -1664,7 +1664,7 @@ items:
   - netstandard
   namespace: System
   summary: Determines whether the first specified <xref href="System.Version"></xref> object is less than the second specified <xref href="System.Version"></xref> object.
-  remarks: The equivalent method for this operator is <xref:System.Version.CompareTo%28System.Object%29?displayProperty=fullName>
+  remarks: 'The equivalent method for this operator is <xref:System.Version.CompareTo%28System.Object%29?displayProperty=fullName>'
   syntax:
     content: public static bool op_LessThan (Version v1, Version v2);
     parameters:
@@ -1748,7 +1748,7 @@ items:
   - netstandard
   namespace: System
   summary: Determines whether the first specified <xref href="System.Version"></xref> object is less than or equal to the second <xref href="System.Version"></xref> object.
-  remarks: The equivalent method for this operator is <xref:System.Version.CompareTo%28System.Object%29?displayProperty=fullName>
+  remarks: 'The equivalent method for this operator is <xref:System.Version.CompareTo%28System.Object%29?displayProperty=fullName>'
   syntax:
     content: public static bool op_LessThanOrEqual (Version v1, Version v2);
     parameters:
@@ -1927,14 +1927,14 @@ items:
   - netstandard
   namespace: System
   summary: Gets the value of the revision component of the version number for the current <xref href="System.Version"></xref> object.
-  remarks: For example, if the version number is 6.2.1.3, the revision number is 3. If the version number is 6.2, the revision number is undefined.
+  remarks: 'For example, if the version number is 6.2.1.3, the revision number is 3. If the version number is 6.2, the revision number is undefined.'
   example:
   - "The following code example demonstrates the <xref:System.Version.%23ctor%2A> constructor, and <xref:System.Version.Major%2A>, <xref:System.Version.Minor%2A>, <xref:System.Version.Build%2A>, <xref:System.Version.Revision%2A>, <xref:System.Version.MajorRevision%2A>, and <xref:System.Version.MinorRevision%2A> properties.  \n  \n [!code-cpp[system.version.revision#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.version.revision/cpp/rev.cpp#1)]\n [!code-csharp[system.version.revision#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.version.revision/cs/rev.cs#1)]\n [!code-vb[system.version.revision#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.version.revision/vb/rev.vb#1)]"
   syntax:
     content: public int Revision { get; }
     return:
       type: System.Int32
-      description: The revision number, or -1 if the revision number is undefined.
+      description: 'The revision number, or -1 if the revision number is undefined.'
   overload: System.Version.Revision*
   exceptions: []
   version:
@@ -2085,7 +2085,7 @@ items:
       description: The number of components to return. The <code>fieldCount</code> ranges from 0 to 4.
     return:
       type: System.String
-      description: "The <xref href=\"System.String\"></xref> representation of the values of the major, minor, build, and revision components of the current <xref href=\"System.Version\"></xref> object, each separated by a period character ('.'). The <code>fieldCount</code> parameter determines how many components are returned.  \n  \n <table><thead><tr><th> fieldCount  \n  \n </th><th> Return Value  \n  \n </th></tr></thead><tbody><tr><td> 0  \n  \n </td><td> An empty string (\"\").  \n  \n </td></tr><tr><td> 1  \n  \n </td><td> major  \n  \n </td></tr><tr><td> 2  \n  \n </td><td> major.minor  \n  \n </td></tr><tr><td> 3  \n  \n </td><td> major.minor.build  \n  \n </td></tr><tr><td> 4  \n  \n </td><td> major.minor.build.revision  \n  \n </td></tr></tbody></table>  \n  \n For example, if you create <xref href=\"System.Version\"></xref> object using the constructor <code>Version(1,3,5)</code>, <code>ToString(2)</code> returns \"1.3\" and <code>ToString(4)</code> throws an exception."
+      description: "The <xref href=\"System.String\"></xref> representation of the values of the major, minor, build, and revision components of the current <xref href=\"System.Version\"></xref> object, each separated by a period character ('.'). The <code>fieldCount</code> parameter determines how many components are returned.  \n  \n <table><thead><tr><th> fieldCount\n </th><th> Return Value\n </th></tr></thead><tbody><tr><td> 0\n </td><td> An empty string (\"\").  \n  \n </td></tr><tr><td> 1\n </td><td> major\n </td></tr><tr><td> 2\n </td><td> major.minor\n </td></tr><tr><td> 3\n </td><td> major.minor.build\n </td></tr><tr><td> 4\n </td><td> major.minor.build.revision\n </td></tr></tbody></table>  \n  \n For example, if you create <xref href=\"System.Version\"></xref> object using the constructor <code>Version(1,3,5)</code>, <code>ToString(2)</code> returns \"1.3\" and <code>ToString(4)</code> throws an exception."
   overload: System.Version.ToString*
   exceptions:
   - type: System.ArgumentException
@@ -2156,7 +2156,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: Tries to convert the string representation of a version number to an equivalent <xref href="System.Version"></xref> object, and returns a value that indicates whether the conversion succeeded.
+  summary: 'Tries to convert the string representation of a version number to an equivalent <xref href="System.Version"></xref> object, and returns a value that indicates whether the conversion succeeded.'
   remarks: "The <xref:System.Version.TryParse%2A> method is similar to the <xref:System.Version.Parse%2A> method, except that it does not throw an exception if the conversion fails. Instead, it returns `false` if `input` is null, has fewer than two or more than four components, has at least one component that is not an integer, has at least one component that is less than zero, or has at least one component that is greater than <xref:System.Int32.MaxValue?displayProperty=fullName>.  \n  \n For the parse operation to succeed, the `input` parameter must be in the following format:  \n  \n```  \n  \nmajor.minor[.build[.revision]]  \n```  \n  \n where *major*, *minor*, *build*, and *revision* are the string representations of the version number's four components: major version number, minor version number, build number, and revision number. Optional components are shown in square brackets ([ and ]). The components must appear in order, and must be separated by periods."
   example:
   - "The following example uses the <xref:System.Version.TryParse%2A> method to parse a number of strings that contain version information.  \n  \n [!code-csharp[System.Version.TryParse#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.version.tryparse/cs/tryparse1.cs#1)]\n [!code-vb[System.Version.TryParse#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.version.tryparse/vb/tryparse1.vb#1)]"
@@ -2168,7 +2168,7 @@ items:
       description: A string that contains a version number to convert.
     - id: result
       type: System.Version
-      description: When this method returns, contains the <xref href="System.Version"></xref> equivalent of the number that is contained in <code>input</code>, if the conversion succeeded, or a <xref href="System.Version"></xref> object whose major and minor version numbers are 0 if the conversion failed. If <code>input</code> is `null` or <xref href="System.String.Empty"></xref>, <code>result</code> is `null` when the method returns.
+      description: 'When this method returns, contains the <xref href="System.Version"></xref> equivalent of the number that is contained in <code>input</code>, if the conversion succeeded, or a <xref href="System.Version"></xref> object whose major and minor version numbers are 0 if the conversion failed. If <code>input</code> is `null` or <xref href="System.String.Empty"></xref>, <code>result</code> is `null` when the method returns.'
     return:
       type: System.Boolean
       description: '`true` if the <code>input</code> parameter was converted successfully; otherwise, `false`.'

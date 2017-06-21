@@ -27,7 +27,7 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: Resolves, adds, and removes namespaces to a collection and provides scope management for these namespaces.
+  summary: 'Resolves, adds, and removes namespaces to a collection and provides scope management for these namespaces.'
   remarks: "For general information about how namespaces are declared and used in XML documents, see [Managing Namespaces in an XML Document](~/docs/standard/data/xml/managing-namespaces-in-an-xml-document.md).  \n  \n <xref:System.Xml.XmlNamespaceManager> stores prefixes and namespaces as strings. Here's a summary of management and lookup tasks you can perform with this class. For more information and examples, follow the links to the reference page for each method or property.  \n  \n|To|Use|  \n|--------|---------|  \n|Add a namespace|<xref:System.Xml.XmlNamespaceManager.AddNamespace%2A> method|  \n|Remove a namespace|<xref:System.Xml.XmlNamespaceManager.RemoveNamespace%2A> method|  \n|Find the URI for the default namespace|<xref:System.Xml.XmlNamespaceManager.DefaultNamespace%2A> property|  \n|Find the URI for a namespace prefix|<xref:System.Xml.XmlNamespaceManager.LookupNamespace%2A> method|  \n|Find the prefix for a namespace URI|<xref:System.Xml.XmlNamespaceManager.LookupPrefix%2A> method|  \n|Get a list of namespaces in the current node|<xref:System.Xml.XmlNamespaceManager.GetNamespacesInScope%2A> method|  \n|Scope a namespace|<xref:System.Xml.XmlNamespaceManager.PushScope%2A> and <xref:System.Xml.XmlNamespaceManager.PopScope%2A> methods|  \n|Check whether a prefix is defined in the current scope|<xref:System.Xml.XmlNamespaceManager.HasNamespace%2A> method|  \n|Get the name table used to look up prefixes and URIs|<xref:System.Xml.XmlNamespaceManager.NameTable%2A> property|  \n  \n To add namespaces to the namespace manager, you create a <xref:System.Xml.XmlNamespaceManager> object and then use the <xref:System.Xml.XmlNamespaceManager.AddNamespace%2A> method. Default prefix and namespace pairs are automatically added to the namespace manager on creation.  \n  \n When you create the namespace manager, you can specify a name table from the <xref:System.Xml.XmlReader>, <xref:System.Xml.Xsl.XsltContext>, or <xref:System.Xml.XmlDocument> class, and then use the <xref:System.Xml.XmlNamespaceManager.AddNamespace%2A> method to add the namespaces.  \n  \n You can supply the <xref:System.Xml.XmlNamespaceManager> object as a parameter to the <xref:System.Xml.XmlNode.SelectNodes%2A> or <xref:System.Xml.XmlNode.SelectSingleNode%2A> method of the <xref:System.Xml.XmlDocument> class to execute XPath query expressions that reference namespace-qualified element and attribute names.  \n  \n The namespace manager assumes that prefixes and namespaces have already been verified and conform to the [W3C Namespaces](http://www.w3.org/TR/REC-xml-names/) specification. The namespace manager does not perform any validation.  \n  \n The namespace manager atomizes the strings when they are added by using the <xref:System.Xml.XmlNamespaceManager.AddNamespace%2A> method and when a lookup is performed by using the <xref:System.Xml.XmlNamespaceManager.LookupNamespace%2A> or <xref:System.Xml.XmlNamespaceManager.LookupPrefix%2A> method.  \n  \n The namespace manager implements enumeration support in addition to adding and retrieving namespaces. You can loop through the information saved in the namespace manager by using the `foreach` construct. For example, if you create a namespace manager with the name `nsmanager`, you can iterate through the table by using `foreach (String prefix in nsmanager)`.  \n  \n Because the namespace manager provides a string comparison with the prefix and namespaces as objects, there is a performance improvement when using the namespace manager over the direct comparison of a string.  \n  \n The following code example shows how to bind the prefix `xsd` with the namespace URI of `http://www.w3.org/2001/XMLSchema` and add it to the namespace manager:  \n  \n```vb  \nnsmgr.AddNamespace(\"xsd\", \"http://www.w3.org/2001/XMLSchema\")  \n```  \n  \n```csharp  \nnsmgr.AddNamespace(\"xsd\", \"http://www.w3.org/2001/XMLSchema\");  \n```  \n  \n You can then find the namespace by using the <xref:System.Xml.XmlNamespaceManager.LookupNamespace%2A> method:  \n  \n```vb  \nnsmgr.LookupNamespace(\"xsd\")  \n```  \n  \n```csharp  \nnsmgr.LookupNamespace(\"xsd\");  \n```  \n  \n The following example creates an <xref:System.Xml.XmlNamespaceManager> by using the name table from an XML reader:  \n  \n```vb  \nDim reader As New XmlTextReader(\"myfile.xml\")  \nDim nsmanager As New XmlNamespaceManager(reader.NameTable)  \nnsmanager.AddNamespace(\"msbooks\", \"www.microsoft.com/books\")  \nnsmanager.PushScope()  \nnsmanager.AddNamespace(\"msstore\", \"www.microsoft.com/store\")  \nWhile reader.Read()  \n    Console.WriteLine(\"Reader Prefix:{0}\", reader.Prefix)  \n    Console.WriteLine(\"XmlNamespaceManager Prefix:{0}\",  \n     nsmanager.LookupPrefix(nsmanager.NameTable.Get(reader.NamespaceURI)))  \nEnd While  \n```  \n  \n```csharp  \nXmlTextReader reader = new XmlTextReader(\"myfile.xml\");  \nXmlNamespaceManager nsmanager = new XmlNamespaceManager(reader.NameTable);  \nnsmanager.AddNamespace(\"msbooks\", \"www.microsoft.com/books\");  \nnsmanager.PushScope();  \nnsmanager.AddNamespace(\"msstore\", \"www.microsoft.com/store\");  \nwhile (reader.Read())  \n{  \n    Console.WriteLine(\"Reader Prefix:{0}\", reader.Prefix);  \n    Console.WriteLine(\"XmlNamespaceManager Prefix:{0}\",  \n    nsmanager.LookupPrefix(nsmanager.NameTable.Get(reader.NamespaceURI)));  \n}  \n```"
   syntax:
     content: 'public class XmlNamespaceManager : System.Collections.IEnumerable, System.Xml.IXmlNamespaceResolver'
@@ -285,7 +285,7 @@ items:
     content: public virtual string DefaultNamespace { get; }
     return:
       type: System.String
-      description: Returns the namespace URI for the default namespace, or String.Empty if there is no default namespace.
+      description: 'Returns the namespace URI for the default namespace, or String.Empty if there is no default namespace.'
   overload: System.Xml.XmlNamespaceManager.DefaultNamespace*
   exceptions: []
   version:
@@ -587,7 +587,7 @@ items:
     parameters:
     - id: prefix
       type: System.String
-      description: The prefix whose namespace URI you want to resolve. To match the default namespace, pass String.Empty.
+      description: 'The prefix whose namespace URI you want to resolve. To match the default namespace, pass String.Empty.'
     return:
       type: System.String
       description: "Returns the namespace URI for <code>prefix</code> or `null` if there is no mapped namespace. The returned string is atomized.  \n  \n For more information on atomized strings, see the <xref href=\"System.Xml.XmlNameTable\"></xref> class."
@@ -668,7 +668,7 @@ items:
       description: The namespace to resolve for the prefix.
     return:
       type: System.String
-      description: The matching prefix. If there is no mapped prefix, the method returns String.Empty. If a null value is supplied, then `null` is returned.
+      description: 'The matching prefix. If there is no mapped prefix, the method returns String.Empty. If a null value is supplied, then `null` is returned.'
   overload: System.Xml.XmlNamespaceManager.LookupPrefix*
   exceptions: []
   version:
@@ -807,7 +807,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Pops a namespace scope off the stack.
-  remarks: When you call this method, all namespaces which were added to <xref:System.Xml.XmlNamespaceManager> (by calling <xref:System.Xml.XmlNamespaceManager.AddNamespace%2A>) since the last call to <xref:System.Xml.XmlNamespaceManager.PopScope%2A> are removed.
+  remarks: 'When you call this method, all namespaces which were added to <xref:System.Xml.XmlNamespaceManager> (by calling <xref:System.Xml.XmlNamespaceManager.AddNamespace%2A>) since the last call to <xref:System.Xml.XmlNamespaceManager.PopScope%2A> are removed.'
   example:
   - "The following example adds prefix/namespace pairs to the <xref:System.Xml.XmlNamespaceManager> and then displays all the pairs in the collection.  \n  \n [!code-cpp[Classic WebData XmlNamespaceManager.PopScope Example#1](~/samples/snippets/cpp/VS_Snippets_Data/Classic WebData XmlNamespaceManager.PopScope Example/CPP/source.cpp#1)]\n [!code-csharp[Classic WebData XmlNamespaceManager.PopScope Example#1](~/samples/snippets/csharp/VS_Snippets_Data/Classic WebData XmlNamespaceManager.PopScope Example/CS/source.cs#1)]\n [!code-vb[Classic WebData XmlNamespaceManager.PopScope Example#1](~/samples/snippets/visualbasic/VS_Snippets_Data/Classic WebData XmlNamespaceManager.PopScope Example/VB/source.vb#1)]"
   syntax:
@@ -882,7 +882,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Pushes a namespace scope onto the stack.
-  remarks: After a call to this method, all namespaces, which are added to <xref:System.Xml.XmlNamespaceManager> (by calling <xref:System.Xml.XmlNamespaceManager.AddNamespace%2A>), belong to the pushed namespace scope.
+  remarks: 'After a call to this method, all namespaces, which are added to <xref:System.Xml.XmlNamespaceManager> (by calling <xref:System.Xml.XmlNamespaceManager.AddNamespace%2A>), belong to the pushed namespace scope.'
   example:
   - "The following example adds prefix/namespace pairs to the <xref:System.Xml.XmlNamespaceManager> and then displays all the pairs in the collection.  \n  \n [!code-cpp[Classic WebData XmlNamespaceManager.PopScope Example#1](~/samples/snippets/cpp/VS_Snippets_Data/Classic WebData XmlNamespaceManager.PopScope Example/CPP/source.cpp#1)]\n [!code-csharp[Classic WebData XmlNamespaceManager.PopScope Example#1](~/samples/snippets/csharp/VS_Snippets_Data/Classic WebData XmlNamespaceManager.PopScope Example/CS/source.cs#1)]\n [!code-vb[Classic WebData XmlNamespaceManager.PopScope Example#1](~/samples/snippets/visualbasic/VS_Snippets_Data/Classic WebData XmlNamespaceManager.PopScope Example/VB/source.vb#1)]"
   syntax:

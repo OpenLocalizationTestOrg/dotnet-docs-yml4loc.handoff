@@ -99,7 +99,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Initializes a new instance of the <xref href="System.Windows.Forms.BindingManagerBase"></xref> class.
-  remarks: The default constructor sets the <xref:System.Windows.Forms.BindingManagerBase.Bindings%2A> property to `null`.
+  remarks: 'The default constructor sets the <xref:System.Windows.Forms.BindingManagerBase.Bindings%2A> property to `null`.'
   syntax:
     content: public BindingManagerBase ();
     parameters: []
@@ -140,7 +140,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: When overridden in a derived class, adds a new item to the underlying list.
+  summary: 'When overridden in a derived class, adds a new item to the underlying list.'
   remarks: "The <xref:System.Windows.Forms.BindingManagerBase.AddNew%2A> method adds a new item to the underlying list by using the default constructor for that item's type. <xref:System.Windows.Forms.BindingManagerBase.AddNew%2A> is intended primarily to be used by programmers adding complex data-binding support to their custom component.  \n  \n <xref:System.Windows.Forms.BindingManagerBase.AddNew%2A> is commonly implemented using the following pattern that allows application programmers to inject their own code for creating customized items:  \n  \n1.  <xref:System.Windows.Forms.BindingManagerBase.AddNew%2A> raises the <xref:System.Windows.Forms.BindingSource.AddingNew> event.  \n  \n2.  The programmer can supply a custom item by handling the <xref:System.Windows.Forms.BindingSource.AddingNew> event and setting the <xref:System.ComponentModel.AddingNewEventArgs.NewObject%2A> property of the <xref:System.ComponentModel.AddingNewEventArgs> parameter to the new item. Otherwise, the component should create an item using the default constructor.  \n  \n3.  If the data source does not implement the <xref:System.ComponentModel.IEditableObject> interface, the item is immediately added to the data source and underlying list. If this interface is supported, then the addition is transacted by the <xref:System.Windows.Forms.BindingManagerBase.CancelCurrentEdit%2A> and <xref:System.Windows.Forms.BindingManagerBase.EndCurrentEdit%2A> methods."
   syntax:
     content: public abstract void AddNew ();
@@ -273,7 +273,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: When overridden in a derived class, cancels the current edit.
+  summary: 'When overridden in a derived class, cancels the current edit.'
   remarks: "This method is supported only if the data source implements the <xref:System.ComponentModel.IEditableObject> interface. If the object does not implement the <xref:System.ComponentModel.IEditableObject> interface, changes made to the data will not be discarded.  \n  \n Calling the <xref:System.Windows.Forms.BindingManagerBase.CancelCurrentEdit%2A> method causes the <xref:System.Windows.Forms.Binding.Format> event to occur."
   example:
   - "The following code example demonstrates both the <xref:System.Windows.Forms.BindingManagerBase.CancelCurrentEdit%2A> and the <xref:System.Windows.Forms.BindingManagerBase.EndCurrentEdit%2A> methods. When you call the <xref:System.Windows.Forms.BindingManagerBase.CancelCurrentEdit%2A> methods, changes made to the data are discarded. When you call the <xref:System.Windows.Forms.BindingManagerBase.EndCurrentEdit%2A> method, the changes are kept.  \n  \n [!code-cpp[BindingManagerBase.CancelCurrentEdit Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/BindingManagerBase.CancelCurrentEdit Example/CPP/canceledit.cpp#1)]\n [!code-csharp[BindingManagerBase.CancelCurrentEdit Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/BindingManagerBase.CancelCurrentEdit Example/CS/canceledit.cs#1)]\n [!code-vb[BindingManagerBase.CancelCurrentEdit Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/BindingManagerBase.CancelCurrentEdit Example/VB/canceledit.vb#1)]"
@@ -316,8 +316,8 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: When overridden in a derived class, gets the number of rows managed by the <xref href="System.Windows.Forms.BindingManagerBase"></xref>.
-  remarks: Use the <xref:System.Windows.Forms.BindingManagerBase.Count%2A> property to determine the last item in the list of rows maintained by the <xref:System.Windows.Forms.BindingManagerBase>. To go to the last item, set the <xref:System.Windows.Forms.BindingManagerBase.Position%2A> property to the <xref:System.Windows.Forms.BindingManagerBase.Count%2A> property value minus 1.
+  summary: 'When overridden in a derived class, gets the number of rows managed by the <xref href="System.Windows.Forms.BindingManagerBase"></xref>.'
+  remarks: 'Use the <xref:System.Windows.Forms.BindingManagerBase.Count%2A> property to determine the last item in the list of rows maintained by the <xref:System.Windows.Forms.BindingManagerBase>. To go to the last item, set the <xref:System.Windows.Forms.BindingManagerBase.Position%2A> property to the <xref:System.Windows.Forms.BindingManagerBase.Count%2A> property value minus 1.'
   example:
   - "The following code example shows four methods that set the <xref:System.Windows.Forms.BindingManagerBase.Position%2A> property. The `MoveNext` method increments the property by 1. The `MovePrevious` method decrements the property by 1. The `MoveFirst` method sets the property to 0. The `MoveLast` method sets the property to the value of the <xref:System.Windows.Forms.BindingManagerBase.Count%2A> property minus 1.  \n  \n [!code-cpp[Classic BindingManagerBase.Count Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic BindingManagerBase.Count Example/CPP/source.cpp#1)]\n [!code-csharp[Classic BindingManagerBase.Count Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic BindingManagerBase.Count Example/CS/source.cs#1)]\n [!code-vb[Classic BindingManagerBase.Count Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic BindingManagerBase.Count Example/VB/source.vb#1)]"
   syntax:
@@ -362,7 +362,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: When overridden in a derived class, gets the current object.
+  summary: 'When overridden in a derived class, gets the current object.'
   remarks: "The <xref:System.Windows.Forms.BindingManagerBase.Current%2A> object contains the value of the current item in the data source. To use the value of the current item, you must cast the item to the <xref:System.Type> of the object contained by the <xref:System.Windows.Forms.Binding.DataSource%2A>. For example, a <xref:System.Data.DataTable> contains <xref:System.Data.DataRowView> objects. To determine the type of the current object, use the <xref:System.Object.GetType%2A> and <xref:System.Type.ToString%2A> methods.  \n  \n> [!NOTE]\n>  When the <xref:System.Windows.Forms.Binding.DataSource%2A> is a <xref:System.Data.DataSet>, <xref:System.Data.DataViewManager>, or <xref:System.Data.DataTable>, you are actually binding to a <xref:System.Data.DataView>. Consequently, each <xref:System.Windows.Forms.BindingManagerBase.Current%2A> object is a <xref:System.Data.DataRowView> object."
   example:
   - "The following code example prints the value of the <xref:System.Windows.Forms.BindingManagerBase.Current%2A> object in a <xref:System.Windows.Forms.BindingManagerBase> in the <xref:System.Windows.Forms.BindingManagerBase.CurrentChanged> event. The example assumes the data source is a <xref:System.Data.DataTable> containing a <xref:System.Data.DataColumn> named `CustName`.  \n  \n [!code-cpp[Classic BindingManagerBase.Current Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic BindingManagerBase.Current Example/CPP/source.cpp#1)]\n [!code-csharp[Classic BindingManagerBase.Current Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic BindingManagerBase.Current Example/CS/source.cs#1)]\n [!code-vb[Classic BindingManagerBase.Current Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic BindingManagerBase.Current Example/VB/source.vb#1)]"
@@ -454,7 +454,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Occurs when the state of the currently bound item changes.
-  remarks: The <xref:System.Windows.Forms.BindingManagerBase.CurrentItemChanged> event occurs whenever there is a change in the state in the currently bound item. This can occur if one of the properties of this item is changed or if the item itself is replaced or moved.
+  remarks: 'The <xref:System.Windows.Forms.BindingManagerBase.CurrentItemChanged> event occurs whenever there is a change in the state in the currently bound item. This can occur if one of the properties of this item is changed or if the item itself is replaced or moved.'
   example:
   - "The following code example demonstrates the use of this member. In the example, an event handler reports on the occurrence of the <xref:System.Windows.Forms.BindingManagerBase.CurrentItemChanged> event. This report helps you to learn when the event occurs and can assist you in debugging. To report on multiple events or on events that occur frequently, consider replacing <xref:System.Windows.Forms.MessageBox.Show%2A?displayProperty=fullName> with <xref:System.Console.WriteLine%2A?displayProperty=fullName> or appending the message to a multiline <xref:System.Windows.Forms.TextBox>.  \n  \n To run the example code, paste it into a project that contains an instance of a type that inherits from <xref:System.Windows.Forms.BindingManagerBase>, such as a <xref:System.Windows.Forms.PropertyManager> or <xref:System.Windows.Forms.CurrencyManager>. Then name the instance `BindingManagerBase1` and ensure that the event handler is associated with the <xref:System.Windows.Forms.BindingManagerBase.CurrentItemChanged> event.  \n  \n [!code-csharp[System.Windows.Forms.EventExamples#82](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.EventExamples/CS/EventExamples.cs#82)]\n [!code-vb[System.Windows.Forms.EventExamples#82](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.EventExamples/VB/EventExamples.vb#82)]"
   syntax:
@@ -542,8 +542,8 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: When overridden in a derived class, ends the current edit.
-  remarks: This method is supported only if the data source implements the <xref:System.ComponentModel.IEditableObject> interface. In that case, changes will be saved. If the object does not implement the <xref:System.ComponentModel.IEditableObject> interface, changes made to the data will not be saved.
+  summary: 'When overridden in a derived class, ends the current edit.'
+  remarks: 'This method is supported only if the data source implements the <xref:System.ComponentModel.IEditableObject> interface. In that case, changes will be saved. If the object does not implement the <xref:System.ComponentModel.IEditableObject> interface, changes made to the data will not be saved.'
   example:
   - "The following code example demonstrates both the <xref:System.Windows.Forms.BindingManagerBase.CancelCurrentEdit%2A> and the <xref:System.Windows.Forms.BindingManagerBase.EndCurrentEdit%2A> methods. When you call the <xref:System.Windows.Forms.BindingManagerBase.CancelCurrentEdit%2A> methods, changes made to the data are discarded. When you call the <xref:System.Windows.Forms.BindingManagerBase.EndCurrentEdit%2A> method, the changes are kept.  \n  \n [!code-cpp[BindingManagerBase.CancelCurrentEdit Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/BindingManagerBase.CancelCurrentEdit Example/CPP/canceledit.cpp#1)]\n [!code-csharp[BindingManagerBase.CancelCurrentEdit Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/BindingManagerBase.CancelCurrentEdit Example/CS/canceledit.cs#1)]\n [!code-vb[BindingManagerBase.CancelCurrentEdit Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/BindingManagerBase.CancelCurrentEdit Example/VB/canceledit.vb#1)]"
   syntax:
@@ -586,7 +586,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: When overridden in a derived class, gets the collection of property descriptors for the binding.
+  summary: 'When overridden in a derived class, gets the collection of property descriptors for the binding.'
   remarks: ''
   example:
   - "The following code example uses the <xref:System.Windows.Forms.BindingManagerBase.GetItemProperties%2A> method to return a <xref:System.ComponentModel.PropertyDescriptorCollection>. The example prints the <xref:System.ComponentModel.MemberDescriptor.Name%2A> and value of the current <xref:System.Data.DataColumn> using the <xref:System.ComponentModel.PropertyDescriptor.GetValue%2A> method of the <xref:System.ComponentModel.PropertyDescriptor>.  \n  \n [!code-cpp[Classic BindingManagerBase.GetItemProperties Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic BindingManagerBase.GetItemProperties Example/CPP/source.cpp#1)]\n [!code-csharp[Classic BindingManagerBase.GetItemProperties Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic BindingManagerBase.GetItemProperties Example/CS/source.cs#1)]\n [!code-vb[Classic BindingManagerBase.GetItemProperties Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic BindingManagerBase.GetItemProperties Example/VB/source.vb#1)]"
@@ -743,7 +743,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: When overridden in a derived class, gets the name of the list supplying the data for the binding.
+  summary: 'When overridden in a derived class, gets the name of the list supplying the data for the binding.'
   syntax:
     content: protected abstract string GetListName (System.Collections.ArrayList listAccessors);
     parameters:
@@ -1097,7 +1097,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: When overridden in a derived class, gets or sets the position in the underlying list that controls bound to this data source point to.
+  summary: 'When overridden in a derived class, gets or sets the position in the underlying list that controls bound to this data source point to.'
   remarks: "Use the <xref:System.Windows.Forms.BindingManagerBase.Position%2A> property to iterate through the underlying list maintained by the <xref:System.Windows.Forms.BindingManagerBase>. To go to the first item, set the <xref:System.Windows.Forms.BindingManagerBase.Position%2A> to 0. To go to the end of the list, set the <xref:System.Windows.Forms.BindingManagerBase.Position%2A> to the value of the <xref:System.Windows.Forms.BindingManagerBase.Count%2A> property minus 1.  \n  \n The <xref:System.Windows.Forms.BindingManagerBase.PositionChanged> event occurs when the <xref:System.Windows.Forms.BindingManagerBase.Position%2A> property value changes."
   example:
   - "The following code example shows four methods that set the <xref:System.Windows.Forms.BindingManagerBase.Position%2A> property. The `MoveNext` method increments the property by 1. The `MovePrevious` method decrements the property by 1. The `MoveFirst` method sets the property to 0, and the `MoveLast` method sets the property to the value of the <xref:System.Windows.Forms.BindingManagerBase.Count%2A> property minus 1.  \n  \n [!code-cpp[Classic BindingManagerBase.Count Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic BindingManagerBase.Count Example/CPP/source.cpp#1)]\n [!code-csharp[Classic BindingManagerBase.Count Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic BindingManagerBase.Count Example/CS/source.cs#1)]\n [!code-vb[Classic BindingManagerBase.Count Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic BindingManagerBase.Count Example/VB/source.vb#1)]"
@@ -1144,7 +1144,7 @@ items:
   - System.Windows.Forms
   namespace: System.Windows.Forms
   summary: Occurs after the value of the <xref href="System.Windows.Forms.BindingManagerBase.Position"></xref> property has changed.
-  remarks: For more information about handling events, see [Events](http://msdn.microsoft.com/library/b6f65241-e0ad-4590-a99f-200ce741bb1f).
+  remarks: 'For more information about handling events, see [Events](http://msdn.microsoft.com/library/b6f65241-e0ad-4590-a99f-200ce741bb1f).'
   example:
   - "The following code example creates a <xref:System.Windows.Forms.Binding>, and then adds it to a collection of <xref:System.Windows.Forms.Binding> objects for a <xref:System.Windows.Forms.TextBox> control. The example then gets the <xref:System.Windows.Forms.BindingManagerBase> for the data source and adds a delegate to the <xref:System.Windows.Forms.BindingManagerBase.PositionChanged> event.  \n  \n [!code-cpp[Classic BindingManagerBase.PositionChanged Example#1](~/samples/snippets/cpp/VS_Snippets_Winforms/Classic BindingManagerBase.PositionChanged Example/CPP/source.cpp#1)]\n [!code-csharp[Classic BindingManagerBase.PositionChanged Example#1](~/samples/snippets/csharp/VS_Snippets_Winforms/Classic BindingManagerBase.PositionChanged Example/CS/source.cs#1)]\n [!code-vb[Classic BindingManagerBase.PositionChanged Example#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/Classic BindingManagerBase.PositionChanged Example/VB/source.vb#1)]"
   syntax:
@@ -1188,7 +1188,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Pulls data from the data-bound control into the data source, returning no information.
+  summary: 'Pulls data from the data-bound control into the data source, returning no information.'
   remarks: "The <xref:System.Windows.Forms.BindingManagerBase.PullData%2A> method is a programmatic way to pull information from the data-bound control back into the data source. It is not required for standard operation of a control, since normally a control automatically updates its bound data source when focus leaves it.  \n  \n <xref:System.Windows.Forms.BindingManagerBase.PullData%2A> raises the <xref:System.Windows.Forms.BindingManagerBase.BindingComplete> event and change events on the data source as appropriate."
   syntax:
     content: protected void PullData ();
@@ -1230,7 +1230,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: Pushes data from the data source into the data-bound control, returning no information.
+  summary: 'Pushes data from the data source into the data-bound control, returning no information.'
   remarks: "The <xref:System.Windows.Forms.BindingManagerBase.PushData%2A> method is a programmatic way to push information from the data source into the data-bound control. This method is not required if the data source implements the <xref:System.ComponentModel.IBindingList?displayProperty=fullName> interface, because the <xref:System.ComponentModel.IBindingList.ListChanged?displayProperty=fullName> event should automatically cause the control to be updated through its currency manager.  \n  \n If this method is issued when a <xref:System.Windows.Forms.BindingManagerBase.PullData%2A> operation is being performed, the <xref:System.Windows.Forms.BindingManagerBase.PushData%2A> method returns immediately with a value of `true`."
   syntax:
     content: protected void PushData ();
@@ -1272,7 +1272,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: When overridden in a derived class, deletes the row at the specified index from the underlying list.
+  summary: 'When overridden in a derived class, deletes the row at the specified index from the underlying list.'
   remarks: "The <xref:System.Windows.Forms.BindingManagerBase.RemoveAt%2A> method relies on the underlying data source to determine how the method behaves. (See the <xref:System.Windows.Forms.Binding> class for a list of supported data sources.) For classes that implement <xref:System.Collections.IList>, <xref:System.ComponentModel.IBindingList>, or <xref:System.ComponentModel.ITypedList>, as well as strongly typed classes that implement <xref:System.Collections.IList>, the <xref:System.Windows.Forms.BindingManagerBase.RemoveAt%2A> method actually deletes the row in the underlying list instead of removing its contents.  \n  \n If the underlying list implements the <xref:System.ComponentModel.IBindingList> interface, the <xref:System.ComponentModel.IBindingList.AllowRemove%2A> property must return `true`. If the underlying list implements the <xref:System.Collections.IList> interface, the <xref:System.Collections.IList.IsFixedSize%2A> property must return `false`."
   example:
   - >-
@@ -1325,8 +1325,8 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: When overridden in a derived class, resumes data binding.
-  remarks: <xref:System.Windows.Forms.BindingManagerBase.SuspendBinding%2A> and <xref:System.Windows.Forms.BindingManagerBase.ResumeBinding%2A> are two methods that allow the temporary suspension and resumption of data binding. You would typically suspend data binding if the user must be allowed to edit data fields before validation occurs. For example, the user might need to change a field to be in accordance with a second field; otherwise, validating the first field would cause the second field to be in error.
+  summary: 'When overridden in a derived class, resumes data binding.'
+  remarks: '<xref:System.Windows.Forms.BindingManagerBase.SuspendBinding%2A> and <xref:System.Windows.Forms.BindingManagerBase.ResumeBinding%2A> are two methods that allow the temporary suspension and resumption of data binding. You would typically suspend data binding if the user must be allowed to edit data fields before validation occurs. For example, the user might need to change a field to be in accordance with a second field; otherwise, validating the first field would cause the second field to be in error.'
   example:
   - >-
     [!code-cpp[BindingManagerBase_Suspend_Resume_Binding#2](~/samples/snippets/cpp/VS_Snippets_Winforms/BindingManagerBase_Suspend_Resume_Binding/CPP/bindingmanagerbase_suspend_resume_binding.cpp#2)]
@@ -1372,8 +1372,8 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: When overridden in a derived class, suspends data binding.
-  remarks: <xref:System.Windows.Forms.BindingManagerBase.SuspendBinding%2A> and <xref:System.Windows.Forms.BindingManagerBase.ResumeBinding%2A> are two methods that allow the temporary suspension and resumption of data binding. You would typically suspend data binding if the user must be allowed to edit data fields before validation occurs. For example, the user might need to change a field to be in accordance with a second field; otherwise, validating the first field would cause the second field to be in error.
+  summary: 'When overridden in a derived class, suspends data binding.'
+  remarks: '<xref:System.Windows.Forms.BindingManagerBase.SuspendBinding%2A> and <xref:System.Windows.Forms.BindingManagerBase.ResumeBinding%2A> are two methods that allow the temporary suspension and resumption of data binding. You would typically suspend data binding if the user must be allowed to edit data fields before validation occurs. For example, the user might need to change a field to be in accordance with a second field; otherwise, validating the first field would cause the second field to be in error.'
   example:
   - >-
     [!code-cpp[BindingManagerBase_Suspend_Resume_Binding#2](~/samples/snippets/cpp/VS_Snippets_Winforms/BindingManagerBase_Suspend_Resume_Binding/CPP/bindingmanagerbase_suspend_resume_binding.cpp#2)]
@@ -1419,8 +1419,8 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: When overridden in a derived class, updates the binding.
-  remarks: The <xref:System.Windows.Forms.BindingManagerBase.UpdateIsBinding%2A> method updates the data binding between the bound control and its data source. For complex data-binding scenarios, it also resets the current position to the beginning of the underlying list.
+  summary: 'When overridden in a derived class, updates the binding.'
+  remarks: 'The <xref:System.Windows.Forms.BindingManagerBase.UpdateIsBinding%2A> method updates the data binding between the bound control and its data source. For complex data-binding scenarios, it also resets the current position to the beginning of the underlying list.'
   syntax:
     content: protected abstract void UpdateIsBinding ();
     parameters: []

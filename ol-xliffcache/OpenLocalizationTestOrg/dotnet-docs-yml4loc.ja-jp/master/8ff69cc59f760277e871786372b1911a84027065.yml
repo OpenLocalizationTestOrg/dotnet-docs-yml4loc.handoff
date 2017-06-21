@@ -317,7 +317,7 @@ items:
       public string DisplayName { get; set; }
     return:
       type: System.String
-      description: The name associated with the service, used frequently for interactive tools.
+      description: 'The name associated with the service, used frequently for interactive tools.'
   overload: System.ServiceProcess.ServiceInstaller.DisplayName*
   exceptions: []
   attributes:
@@ -357,7 +357,7 @@ items:
   assemblies:
   - System.ServiceProcess
   namespace: System.ServiceProcess
-  summary: Installs the service by writing service application information to the registry. This method is meant to be used by installation tools, which process the appropriate methods automatically.
+  summary: 'Installs the service by writing service application information to the registry. This method is meant to be used by installation tools, which process the appropriate methods automatically.'
   remarks: "Normally, you will not call the methods on <xref:System.ServiceProcess.ServiceInstaller> within your code; they are generally called only by the install utility. The install utility automatically calls the <xref:System.ServiceProcess.ServiceInstaller.Install%2A> method during installation. It backs out failures, if necessary, by calling <xref:System.ServiceProcess.ServiceInstaller.Rollback%2A> on the object that generated the exception.  \n  \n An application's install routine maintains information automatically about the components that were already installed, using the project installer's <xref:System.Configuration.Install.Installer.Context%2A?displayProperty=fullName>. This state information, passed into <xref:System.ServiceProcess.ServiceInstaller.Install%2A> as the `stateSaver` parameter, is continuously updated as the <xref:System.ServiceProcess.ServiceProcessInstaller> instance and each <xref:System.ServiceProcess.ServiceInstaller> instance is installed by the utility. It is usually unnecessary for your code to modify this state information explicitly.  \n  \n The <xref:System.ServiceProcess.ServiceProcessInstaller> associated with your project installation class installs information common to all <xref:System.ServiceProcess.ServiceInstaller> instances in the project. If this service has anything that separates it from the other services in the installation project, that service-specific information is installed by this method.  \n  \n To install a service, create a project installer class that inherits from the <xref:System.Configuration.Install.Installer> class, and set the <xref:System.ComponentModel.RunInstallerAttribute> attribute on the class to `true`. Within your project, create one <xref:System.ServiceProcess.ServiceProcessInstaller> instance per service application, and one <xref:System.ServiceProcess.ServiceInstaller> instance for each service in the application. Within your project installer class constructor, set the installation properties for the service using the <xref:System.ServiceProcess.ServiceProcessInstaller> and <xref:System.ServiceProcess.ServiceInstaller> instances, and add the instances to the <xref:System.Configuration.Install.Installer.Installers%2A> collection.  \n  \n> [!NOTE]\n>  It is recommended that you use the constructor for adding installer instances; however, if you need to add to the <xref:System.Configuration.Install.Installer.Installers%2A> collection in the <xref:System.ServiceProcess.ServiceInstaller.Install%2A> method, be sure to perform the same additions to the collection in the <xref:System.ServiceProcess.ServiceInstaller.Uninstall%2A> method.  \n  \n For all classes deriving from the <xref:System.Configuration.Install.Installer> class, the state of the <xref:System.Configuration.Install.Installer.Installers%2A> collection must be the same in the <xref:System.ServiceProcess.ServiceInstaller.Install%2A> and <xref:System.ServiceProcess.ServiceInstaller.Uninstall%2A> methods. However, you can avoid the maintenance of the collection across the <xref:System.ServiceProcess.ServiceInstaller.Install%2A> and <xref:System.ServiceProcess.ServiceInstaller.Uninstall%2A> methods if you add installer instances to the <xref:System.Configuration.Install.Installer.Installers%2A> collection in your custom installer class constructor."
   syntax:
     content: public override void Install (System.Collections.IDictionary stateSaver);
@@ -412,7 +412,7 @@ items:
   - System.ServiceProcess
   namespace: System.ServiceProcess
   summary: Indicates whether two installers would install the same service.
-  remarks: <xref:System.ServiceProcess.ServiceInstaller.IsEquivalentInstaller%2A> indicates, for example, whether two installers would install the same service under the same user account.
+  remarks: '<xref:System.ServiceProcess.ServiceInstaller.IsEquivalentInstaller%2A> indicates, for example, whether two installers would install the same service under the same user account.'
   syntax:
     content: public override bool IsEquivalentInstaller (System.Configuration.Install.ComponentInstaller otherInstaller);
     parameters:
@@ -459,7 +459,7 @@ items:
   assemblies:
   - System.ServiceProcess
   namespace: System.ServiceProcess
-  summary: Rolls back service application information written to the registry by the installation procedure. This method is meant to be used by installation tools, which process the appropriate methods automatically.
+  summary: 'Rolls back service application information written to the registry by the installation procedure. This method is meant to be used by installation tools, which process the appropriate methods automatically.'
   remarks: "Normally, you will not call the methods on <xref:System.ServiceProcess.ServiceInstaller> within your code; they are generally called only by the install utility. The install utility automatically calls the <xref:System.ServiceProcess.ServiceInstaller.Install%2A> method during the installation process. It backs out failures, if necessary, by calling <xref:System.ServiceProcess.ServiceInstaller.Rollback%2A> on the object that generated the exception.  \n  \n An application's install routine maintains information automatically about the components already installed, using the project installer's <xref:System.Configuration.Install.Installer.Context%2A?displayProperty=fullName>. This state information, passed into <xref:System.ServiceProcess.ServiceInstaller.Rollback%2A> as the `savedState` parameter, is continuously updated as the <xref:System.ServiceProcess.ServiceProcessInstaller> instance and each <xref:System.ServiceProcess.ServiceInstaller> instance is installed by the utility. It is usually unnecessary for your code to modify this state information explicitly."
   syntax:
     content: public override void Rollback (System.Collections.IDictionary savedState);
@@ -617,7 +617,7 @@ items:
       public System.ServiceProcess.ServiceStartMode StartType { get; set; }
     return:
       type: System.ServiceProcess.ServiceStartMode
-      description: A <xref href="System.ServiceProcess.ServiceStartMode"></xref> that represents the way the service is started. The default is `Manual`, which specifies that the service will not automatically start after reboot.
+      description: 'A <xref href="System.ServiceProcess.ServiceStartMode"></xref> that represents the way the service is started. The default is `Manual`, which specifies that the service will not automatically start after reboot.'
   overload: System.ServiceProcess.ServiceInstaller.StartType*
   exceptions:
   - type: System.ComponentModel.InvalidEnumArgumentException

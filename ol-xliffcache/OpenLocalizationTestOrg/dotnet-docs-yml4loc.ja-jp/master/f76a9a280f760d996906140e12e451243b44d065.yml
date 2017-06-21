@@ -25,7 +25,7 @@ items:
   - System.IO.Compression.FileSystem
   - netstandard
   namespace: System.IO.Compression
-  summary: Provides static methods for creating, extracting, and opening zip archives.
+  summary: 'Provides static methods for creating, extracting, and opening zip archives.'
   remarks: "> [!IMPORTANT]\n>  To use the <xref:System.IO.Compression.ZipFile> class, you must add a reference to the `System.IO.Compression.FileSystem` assembly in your project; otherwise, you'll get the following error message when trying to compile : **The name 'ZipFile' does not exist in the current context**. For more information on how to add a reference to your project in Visual Studio, see [How to: Add or Remove References By Using the Reference Manager](http://msdn.microsoft.com/library/1aabb520-99b0-46c6-9368-21b4d84793eb).  \n  \n The methods for manipulating zip archives and their files are spread across three classes: <xref:System.IO.Compression.ZipFile>, <xref:System.IO.Compression.ZipArchive> and <xref:System.IO.Compression.ZipArchiveEntry>.  \n  \n|To…|Use…|  \n|---------|----------|  \n|Create a zip archive from a directory|<xref:System.IO.Compression.ZipFile.CreateFromDirectory%2A?displayProperty=fullName>|  \n|Extract the contents of a zip archive to a directory|<xref:System.IO.Compression.ZipFile.ExtractToDirectory%2A?displayProperty=fullName>|  \n|Add new files to an existing zip archive|<xref:System.IO.Compression.ZipArchive.CreateEntry%2A?displayProperty=fullName>|  \n|Retrieve an file in a zip archive|<xref:System.IO.Compression.ZipArchive.GetEntry%2A?displayProperty=fullName>|  \n|Retrieve all of the files in a zip archive|<xref:System.IO.Compression.ZipArchive.Entries%2A?displayProperty=fullName>|  \n|To open a stream to an individual file contained in a zip archive|<xref:System.IO.Compression.ZipArchiveEntry.Open%2A?displayProperty=fullName>|  \n|Delete a file from a zip archive|<xref:System.IO.Compression.ZipArchiveEntry.Delete%2A?displayProperty=fullName>|  \n  \n You cannot use the <xref:System.IO.Compression.ZipFile> or  <xref:System.IO.Compression.ZipFileExtensions> classes  in [!INCLUDE[win8_appname_long](~/includes/win8-appname-long-md.md)] apps. In [!INCLUDE[win8_appname_long](~/includes/win8-appname-long-md.md)] apps, you should use the following classes to work with compressed files.  \n  \n-   <xref:System.IO.Compression.ZipArchive>  \n  \n-   <xref:System.IO.Compression.ZipArchiveEntry>  \n  \n-   <xref:System.IO.Compression.DeflateStream>  \n  \n-   <xref:System.IO.Compression.GZipStream>"
   example:
   - "This example shows how to create and extract a zip archive by using the <xref:System.IO.Compression.ZipFile> class. It compresses the contents of a folder into a zip archive, and then extracts that content to a new folder.  \n  \n> [!TIP]\n>  To use the <xref:System.IO.Compression.ZipFile> class, you must reference the `System.IO.Compression.FileSystem` assembly in your project.  \n  \n [!code-csharp[System.IO.Compression.ZipFile#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.io.compression.zipfile/cs/program1.cs#1)]\n [!code-vb[System.IO.Compression.ZipFile#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.io.compression.zipfile/vb/program1.vb#1)]"
@@ -108,24 +108,24 @@ items:
     parameters:
     - id: sourceDirectoryName
       type: System.String
-      description: The path to the directory to be archived, specified as a relative or absolute path. A relative path is interpreted as relative to the current working directory.
+      description: 'The path to the directory to be archived, specified as a relative or absolute path. A relative path is interpreted as relative to the current working directory.'
     - id: destinationArchiveFileName
       type: System.String
-      description: The path of the archive to be created, specified as a relative or absolute path. A relative path is interpreted as relative to the current working directory.
+      description: 'The path of the archive to be created, specified as a relative or absolute path. A relative path is interpreted as relative to the current working directory.'
   overload: System.IO.Compression.ZipFile.CreateFromDirectory*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>sourceDirectoryName</code> or <code>destinationArchiveFileName</code> is <xref href="System.String.Empty"></xref>, contains only white space, or contains at least one invalid character.
+    description: '<code>sourceDirectoryName</code> or <code>destinationArchiveFileName</code> is <xref href="System.String.Empty"></xref>, contains only white space, or contains at least one invalid character.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>sourceDirectoryName</code> or <code>destinationArchiveFileName</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: In <code>sourceDirectoryName</code> or <code>destinationArchiveFileName</code>, the specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must not exceed 248 characters, and file names must not exceed 260 characters.
+    description: 'In <code>sourceDirectoryName</code> or <code>destinationArchiveFileName</code>, the specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must not exceed 248 characters, and file names must not exceed 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: <code>sourceDirectoryName</code> is invalid or does not exist (for example, it is on an unmapped drive).
+    description: '<code>sourceDirectoryName</code> is invalid or does not exist (for example, it is on an unmapped drive).'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: "<code>destinationArchiveFileName</code> already exists.  \n  \n -or-  \n  \n A file in the specified directory could not be opened."
@@ -192,7 +192,7 @@ items:
   - System.IO.Compression.FileSystem
   - netstandard
   namespace: System.IO.Compression
-  summary: Creates a zip archive that contains the files and directories from the specified directory, uses the specified compression level, and optionally includes the base directory.
+  summary: 'Creates a zip archive that contains the files and directories from the specified directory, uses the specified compression level, and optionally includes the base directory.'
   remarks: "The directory structure from the file system is preserved in the archive. If the directory is empty, an empty archive is created. Use this method overload to specify the compression level and whether to include the base directory in the archive.  \n  \n If the archive already exists, an <xref:System.IO.IOException> exception is thrown. If an entry with the specified name already exists in the archive, a second entry is created with an identical name.  \n  \n If a file in the directory cannot be added to the archive, the archive is left incomplete and invalid, and the method throws an <xref:System.IO.IOException> exception."
   example:
   - "This example shows how to create and extract a zip archive by using the <xref:System.IO.Compression.ZipFile> class. It compresses the contents of a folder into a zip archive, and then extracts that content to a new folder. When compressing the archive, the base directory is included and the compression level is set to emphasize the speed of the operation over efficiency. To use the <xref:System.IO.Compression.ZipFile> class, you must reference the `System.IO.Compression.FileSystem` assembly in your project.  \n  \n [!code-csharp[System.IO.Compression.ZipFile#2](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.io.compression.zipfile/cs/program2.cs#2)]\n [!code-vb[System.IO.Compression.ZipFile#2](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.io.compression.zipfile/vb/program2.vb#2)]"
@@ -201,10 +201,10 @@ items:
     parameters:
     - id: sourceDirectoryName
       type: System.String
-      description: The path to the directory to be archived, specified as a relative or absolute path. A relative path is interpreted as relative to the current working directory.
+      description: 'The path to the directory to be archived, specified as a relative or absolute path. A relative path is interpreted as relative to the current working directory.'
     - id: destinationArchiveFileName
       type: System.String
-      description: The path of the archive to be created, specified as a relative or absolute path. A relative path is interpreted as relative to the current working directory.
+      description: 'The path of the archive to be created, specified as a relative or absolute path. A relative path is interpreted as relative to the current working directory.'
     - id: compressionLevel
       type: System.IO.Compression.CompressionLevel
       description: One of the enumeration values that indicates whether to emphasize speed or compression effectiveness when creating the entry.
@@ -215,16 +215,16 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>sourceDirectoryName</code> or <code>destinationArchiveFileName</code> is <xref href="System.String.Empty"></xref>, contains only white space, or contains at least one invalid character.
+    description: '<code>sourceDirectoryName</code> or <code>destinationArchiveFileName</code> is <xref href="System.String.Empty"></xref>, contains only white space, or contains at least one invalid character.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>sourceDirectoryName</code> or <code>destinationArchiveFileName</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: In <code>sourceDirectoryName</code> or <code>destinationArchiveFileName</code>, the specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must not exceed 248 characters, and file names must not exceed 260 characters.
+    description: 'In <code>sourceDirectoryName</code> or <code>destinationArchiveFileName</code>, the specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must not exceed 248 characters, and file names must not exceed 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: <code>sourceDirectoryName</code> is invalid or does not exist (for example, it is on an unmapped drive).
+    description: '<code>sourceDirectoryName</code> is invalid or does not exist (for example, it is on an unmapped drive).'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: "<code>destinationArchiveFileName</code> already exists.  \n  \n -or-  \n  \n A file in the specified directory could not be opened."
@@ -291,17 +291,17 @@ items:
   - System.IO.Compression.FileSystem
   - netstandard
   namespace: System.IO.Compression
-  summary: Creates a zip archive that contains the files and directories from the specified directory, uses the specified compression level and character encoding for entry names, and optionally includes the base directory.
+  summary: 'Creates a zip archive that contains the files and directories from the specified directory, uses the specified compression level and character encoding for entry names, and optionally includes the base directory.'
   remarks: "The directory structure from the file system is preserved in the archive. If the directory is empty, an empty archive is created. Use this method overload to specify the compression level and character encoding, and whether to include the base directory in the archive.  \n  \n If the archive already exists, an <xref:System.IO.IOException> exception is thrown. If an entry with the specified name already exists in the archive, a second entry is created with an identical name.  \n  \n If a file in the directory cannot be added to the archive, the archive is left incomplete and invalid, and the method throws an <xref:System.IO.IOException> exception.  \n  \n If `entryNameEncoding` is set to a value other than `null`, the entry names are encoded by using the specified encoding. If the specified encoding is a UTF-8, the language encoding flag (in the general-purpose bit flag of the local file header) is set for each entry,  \n  \n If `entryNameEncoding` is set to `null`, the entry names are encoded according to the following rules:  \n  \n-   For entry names that contain characters outside the ASCII range, the language encoding flag is set, and UTF-8 is used to encode the entry name.  \n  \n-   For entry names that contain only ASCII characters, the language encoding flag is set, and the current system default code page is used to encode the entry names."
   syntax:
     content: public static void CreateFromDirectory (string sourceDirectoryName, string destinationArchiveFileName, System.IO.Compression.CompressionLevel compressionLevel, bool includeBaseDirectory, System.Text.Encoding entryNameEncoding);
     parameters:
     - id: sourceDirectoryName
       type: System.String
-      description: The path to the directory to be archived, specified as a relative or absolute path. A relative path is interpreted as relative to the current working directory.
+      description: 'The path to the directory to be archived, specified as a relative or absolute path. A relative path is interpreted as relative to the current working directory.'
     - id: destinationArchiveFileName
       type: System.String
-      description: The path of the archive to be created, specified as a relative or absolute path. A relative path is interpreted as relative to the current working directory.
+      description: 'The path of the archive to be created, specified as a relative or absolute path. A relative path is interpreted as relative to the current working directory.'
     - id: compressionLevel
       type: System.IO.Compression.CompressionLevel
       description: One of the enumeration values that indicates whether to emphasize speed or compression effectiveness when creating the entry.
@@ -321,10 +321,10 @@ items:
     description: <code>sourceDirectoryName</code> or <code>destinationArchiveFileName</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: In <code>sourceDirectoryName</code> or <code>destinationArchiveFileName</code>, the specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must not exceed 248 characters, and file names must not exceed 260 characters.
+    description: 'In <code>sourceDirectoryName</code> or <code>destinationArchiveFileName</code>, the specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must not exceed 248 characters, and file names must not exceed 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: <code>sourceDirectoryName</code> is invalid or does not exist (for example, it is on an unmapped drive).
+    description: '<code>sourceDirectoryName</code> is invalid or does not exist (for example, it is on an unmapped drive).'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: "<code>destinationArchiveFileName</code> already exists.  \n  \n -or-  \n  \n A file in the specified directory could not be opened."
@@ -392,7 +392,7 @@ items:
   - netstandard
   namespace: System.IO.Compression
   summary: Extracts all the files in the specified zip archive to a directory on the file system.
-  remarks: This method creates the specified directory and all subdirectories. The destination directory cannot already exist. Exceptions related to validating the paths in the `destinationDirectoryName` or `sourceArchiveFileName` parameters are thrown before extraction. Otherwise, if an error occurs during extraction, the archive remains partially extracted. Each extracted file has the same relative path to the directory specified by `destinationDirectoryName` as its source entry has to the root of the archive.
+  remarks: 'This method creates the specified directory and all subdirectories. The destination directory cannot already exist. Exceptions related to validating the paths in the `destinationDirectoryName` or `sourceArchiveFileName` parameters are thrown before extraction. Otherwise, if an error occurs during extraction, the archive remains partially extracted. Each extracted file has the same relative path to the directory specified by `destinationDirectoryName` as its source entry has to the root of the archive.'
   example:
   - "This example shows how to create and extract a zip archive by using the <xref:System.IO.Compression.ZipFile> class. It compresses the contents of a folder into a zip archive and extracts that content to a new folder. To use the <xref:System.IO.Compression.ZipFile> class, you must reference the `System.IO.Compression.FileSystem` assembly in your project.  \n  \n [!code-csharp[System.IO.Compression.ZipFile#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.io.compression.zipfile/cs/program1.cs#1)]\n [!code-vb[System.IO.Compression.ZipFile#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.io.compression.zipfile/vb/program1.vb#1)]"
   syntax:
@@ -403,21 +403,21 @@ items:
       description: The path to the archive that is to be extracted.
     - id: destinationDirectoryName
       type: System.String
-      description: The path to the directory in which to place the extracted files, specified as a relative or absolute path. A relative path is interpreted as relative to the current working directory.
+      description: 'The path to the directory in which to place the extracted files, specified as a relative or absolute path. A relative path is interpreted as relative to the current working directory.'
   overload: System.IO.Compression.ZipFile.ExtractToDirectory*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>destinationDirectoryName</code> or <code>sourceArchiveFileName</code> is <xref href="System.String.Empty"></xref>, contains only white space, or contains at least one invalid character.
+    description: '<code>destinationDirectoryName</code> or <code>sourceArchiveFileName</code> is <xref href="System.String.Empty"></xref>, contains only white space, or contains at least one invalid character.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>destinationDirectoryName</code> or <code>sourceArchiveFileName</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path in <code>destinationDirectoryName</code> or <code>sourceArchiveFileName</code> exceeds the system-defined maximum length. For example, on Windows-based platforms, paths must not exceed 248 characters, and file names must not exceed 260 characters.
+    description: 'The specified path in <code>destinationDirectoryName</code> or <code>sourceArchiveFileName</code> exceeds the system-defined maximum length. For example, on Windows-based platforms, paths must not exceed 248 characters, and file names must not exceed 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid (for example, it is on an unmapped drive).
+    description: 'The specified path is invalid (for example, it is on an unmapped drive).'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: "The directory specified by <code>destinationDirectoryName</code> already exists.  \n  \n -or-  \n  \n The name of an entry in the archive is <xref href=\"System.String.Empty\"></xref>, contains only white space, or contains at least one invalid character.  \n  \n -or-  \n  \n Extracting an archive entry would create a file that is outside the directory specified by <code>destinationDirectoryName</code>. (For example, this might happen if the entry name contains parent directory accessors.)  \n  \n -or-  \n  \n An archive entry to extract has the same name as an entry that has already been extracted from the same archive."
@@ -532,7 +532,7 @@ items:
       description: The path to the archive that is to be extracted.
     - id: destinationDirectoryName
       type: System.String
-      description: The path to the directory in which to place the extracted files, specified as a relative or absolute path. A relative path is interpreted as relative to the current working directory.
+      description: 'The path to the directory in which to place the extracted files, specified as a relative or absolute path. A relative path is interpreted as relative to the current working directory.'
     - id: entryNameEncoding
       type: System.Text.Encoding
       description: The encoding to use when reading or writing entry names in this archive. Specify a value for this parameter only when an encoding is required for interoperability with zip archive tools and libraries that do not support UTF-8 encoding for entry names.
@@ -546,10 +546,10 @@ items:
     description: <code>destinationDirectoryName</code> or <code>sourceArchiveFileName</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: The specified path in <code>destinationDirectoryName</code> or <code>sourceArchiveFileName</code> exceeds the system-defined maximum length. For example, on Windows-based platforms, paths must not exceed 248 characters, and file names must not exceed 260 characters.
+    description: 'The specified path in <code>destinationDirectoryName</code> or <code>sourceArchiveFileName</code> exceeds the system-defined maximum length. For example, on Windows-based platforms, paths must not exceed 248 characters, and file names must not exceed 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: The specified path is invalid (for example, it is on an unmapped drive).
+    description: 'The specified path is invalid (for example, it is on an unmapped drive).'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: "The directory specified by <code>destinationDirectoryName</code> already exists.  \n  \n -or-  \n  \n The name of an entry in the archive is <xref href=\"System.String.Empty\"></xref>, contains only white space, or contains at least one invalid character.  \n  \n -or-  \n  \n Extracting an archive entry would create a file that is outside the directory specified by <code>destinationDirectoryName</code>. (For example, this might happen if the entry name contains parent directory accessors.)  \n  \n -or-  \n  \n An archive entry to extract has the same name as an entry that has already been extracted from the same archive."
@@ -666,7 +666,7 @@ items:
     parameters:
     - id: archiveFileName
       type: System.String
-      description: The path to the archive to open, specified as a relative or absolute path. A relative path is interpreted as relative to the current working directory.
+      description: 'The path to the archive to open, specified as a relative or absolute path. A relative path is interpreted as relative to the current working directory.'
     - id: mode
       type: System.IO.Compression.ZipArchiveMode
       description: One of the enumeration values that specifies the actions which are allowed on the entries in the opened archive.
@@ -677,16 +677,16 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>archiveFileName</code> is <xref href="System.String.Empty"></xref>, contains only white space, or contains at least one invalid character.
+    description: '<code>archiveFileName</code> is <xref href="System.String.Empty"></xref>, contains only white space, or contains at least one invalid character.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>archiveFileName</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: In <code>archiveFileName</code>, the specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must not exceed 248 characters, and file names must not exceed 260 characters.
+    description: 'In <code>archiveFileName</code>, the specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must not exceed 248 characters, and file names must not exceed 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: <code>archiveFileName</code> is invalid or does not exist (for example, it is on an unmapped drive).
+    description: '<code>archiveFileName</code> is invalid or does not exist (for example, it is on an unmapped drive).'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: "<code>archiveFileName</code> could not be opened.  \n  \n -or-  \n  \n <code>mode</code> is set to <xref href=\"System.IO.Compression.ZipArchiveMode.Create\"></xref>, but the file specified in <code>archiveFileName</code> already exists."
@@ -698,7 +698,7 @@ items:
     description: <code>mode</code> specifies an invalid value.
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
-    description: <code>mode</code> is set to <xref href="System.IO.Compression.ZipArchiveMode.Read"></xref>, but the file specified in <code>archiveFileName</code> is not found.
+    description: '<code>mode</code> is set to <xref href="System.IO.Compression.ZipArchiveMode.Read"></xref>, but the file specified in <code>archiveFileName</code> is not found.'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
     description: <code>archiveFileName</code> contains an invalid format.
@@ -762,14 +762,14 @@ items:
   - System.IO.Compression.FileSystem
   - netstandard
   namespace: System.IO.Compression
-  summary: Opens a zip archive at the specified path, in the specified mode, and by using the specified character encoding for entry names.
+  summary: 'Opens a zip archive at the specified path, in the specified mode, and by using the specified character encoding for entry names.'
   remarks: "When you set the `mode` parameter to <xref:System.IO.Compression.ZipArchiveMode.Read>, the archive is opened with <xref:System.IO.FileMode?displayProperty=fullName> as the file mode value. If the archive does not exist, a <xref:System.IO.FileNotFoundException> exception is thrown. Setting the `mode` parameter to <xref:System.IO.Compression.ZipArchiveMode.Read> is equivalent to calling the <xref:System.IO.Compression.ZipFile.OpenRead%2A> method.  \n  \n When you set the `mode` parameter to <xref:System.IO.Compression.ZipArchiveMode.Create>, the archive is opened with <xref:System.IO.FileMode?displayProperty=fullName> as the file mode value. If the archive already exists, an <xref:System.IO.IOException> is thrown.  \n  \n When you set the `mode` parameter to <xref:System.IO.Compression.ZipArchiveMode.Update>,  the archive is opened with <xref:System.IO.FileMode?displayProperty=fullName> as the file mode value. If the archive exists, it is opened. The existing entries can be modified and new entries can be created. If the archive does not exist, a new archive is created; however, creating a zip archive in <xref:System.IO.Compression.ZipArchiveMode.Update> mode is not as efficient as creating it in <xref:System.IO.Compression.ZipArchiveMode.Create> mode.  \n  \n When you open a zip archive file for reading and `entryNameEncoding` is set to `null`, entry names are decoded according to the following rules:  \n  \n-   When the language encoding flag (in the general-purpose bit flag of the local file header) is not set, the current system default code page is used to decode the entry name.  \n  \n-   When the language encoding flag is set, UTF-8 is used to decode the entry name.  \n  \n When you open a zip archive file for reading and `entryNameEncoding` is set to a value other than `null`, entry names are decoded according to the following rules:  \n  \n-   When the language encoding flag is not set, the specified `entryNameEncoding` is used to decode the entry name.  \n  \n-   When the language encoding flag is set, UTF-8 is used to decode the entry name.  \n  \n When you write to archive files and `entryNameEncoding` is set to `null`, entry names are encoded according to the following rules:  \n  \n-   For entry names that contain characters outside the ASCII range, the language encoding flag is set, and entry names are encoded by using UTF-8.  \n  \n-   For entry names that contain only ASCII characters, the language encoding flag is not set, and entry names are encoded by using the current system default code page.  \n  \n When you write to archive files and `entryNameEncoding` is set to a value other than `null`, the specified `entryNameEncoding` is used to encode the entry names into bytes. The language encoding flag (in the general-purpose bit flag of the local file header) is set only when the specified encoding is a UTF-8 encoding."
   syntax:
     content: public static System.IO.Compression.ZipArchive Open (string archiveFileName, System.IO.Compression.ZipArchiveMode mode, System.Text.Encoding entryNameEncoding);
     parameters:
     - id: archiveFileName
       type: System.String
-      description: The path to the archive to open, specified as a relative or absolute path. A relative path is interpreted as relative to the current working directory.
+      description: 'The path to the archive to open, specified as a relative or absolute path. A relative path is interpreted as relative to the current working directory.'
     - id: mode
       type: System.IO.Compression.ZipArchiveMode
       description: One of the enumeration values that specifies the actions that are allowed on the entries in the opened archive.
@@ -789,10 +789,10 @@ items:
     description: <code>archiveFileName</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: In <code>archiveFileName</code>, the specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must not exceed 248 characters, and file names must not exceed 260 characters.
+    description: 'In <code>archiveFileName</code>, the specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must not exceed 248 characters, and file names must not exceed 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: <code>archiveFileName</code> is invalid or does not exist (for example, it is on an unmapped drive).
+    description: '<code>archiveFileName</code> is invalid or does not exist (for example, it is on an unmapped drive).'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: "<code>archiveFileName</code> could not be opened.  \n  \n -or-  \n  \n <code>mode</code> is set to <xref href=\"System.IO.Compression.ZipArchiveMode.Create\"></xref>, but the file specified in <code>archiveFileName</code> already exists."
@@ -804,7 +804,7 @@ items:
     description: <code>mode</code> specifies an invalid value.
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
-    description: <code>mode</code> is set to <xref href="System.IO.Compression.ZipArchiveMode.Read"></xref>, but the file specified in <code>archiveFileName</code> is not found.
+    description: '<code>mode</code> is set to <xref href="System.IO.Compression.ZipArchiveMode.Read"></xref>, but the file specified in <code>archiveFileName</code> is not found.'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
     description: <code>archiveFileName</code> contains an invalid format.
@@ -869,7 +869,7 @@ items:
   - netstandard
   namespace: System.IO.Compression
   summary: Opens a zip archive for reading at the specified path.
-  remarks: This method is equivalent to calling the <xref:System.IO.Compression.ZipFile.Open%2A> method and setting the `mode` parameter to <xref:System.IO.Compression.ZipArchiveMode.Read>. The archive is opened with <xref:System.IO.FileMode?displayProperty=fullName> as the file mode value. If the archive does not exist, a <xref:System.IO.FileNotFoundException> exception is thrown.
+  remarks: 'This method is equivalent to calling the <xref:System.IO.Compression.ZipFile.Open%2A> method and setting the `mode` parameter to <xref:System.IO.Compression.ZipArchiveMode.Read>. The archive is opened with <xref:System.IO.FileMode?displayProperty=fullName> as the file mode value. If the archive does not exist, a <xref:System.IO.FileNotFoundException> exception is thrown.'
   example:
   - "The following example shows how to open a zip archive for reading.  \n  \n [!code-csharp[System.IO.Compression.ZipArchive#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.io.compression.ziparchive/cs/program1.cs#1)]\n [!code-vb[System.IO.Compression.ZipArchive#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.io.compression.ziparchive/vb/program1.vb#1)]"
   syntax:
@@ -877,7 +877,7 @@ items:
     parameters:
     - id: archiveFileName
       type: System.String
-      description: The path to the archive to open, specified as a relative or absolute path. A relative path is interpreted as relative to the current working directory.
+      description: 'The path to the archive to open, specified as a relative or absolute path. A relative path is interpreted as relative to the current working directory.'
     return:
       type: System.IO.Compression.ZipArchive
       description: The opened zip archive.
@@ -885,16 +885,16 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>archiveFileName</code> is <xref href="System.String.Empty"></xref>, contains only white space, or contains at least one invalid character.
+    description: '<code>archiveFileName</code> is <xref href="System.String.Empty"></xref>, contains only white space, or contains at least one invalid character.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>archiveFileName</code> is `null`.
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: In <code>archiveFileName</code>, the specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must not exceed 248 characters, and file names must not exceed 260 characters.
+    description: 'In <code>archiveFileName</code>, the specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must not exceed 248 characters, and file names must not exceed 260 characters.'
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: <code>archiveFileName</code> is invalid or does not exist (for example, it is on an unmapped drive).
+    description: '<code>archiveFileName</code> is invalid or does not exist (for example, it is on an unmapped drive).'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: <code>archiveFileName</code> could not be opened.

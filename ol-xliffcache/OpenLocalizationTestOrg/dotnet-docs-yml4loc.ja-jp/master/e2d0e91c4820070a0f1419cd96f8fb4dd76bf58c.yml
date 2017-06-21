@@ -109,7 +109,7 @@ items:
   - System.Speech
   namespace: System.Speech.Synthesis
   summary: Initializes a new instance of the <xref href="System.Speech.Synthesis.SpeechSynthesizer"></xref> class.
-  remarks: When you initialize a new <xref:System.Speech.Synthesis.SpeechSynthesizer> instance, it uses the default system voice. To configure the <xref:System.Speech.Synthesis.SpeechSynthesizer> to use one of the installed speech synthesis (text-to-speech) voices, use the <xref:System.Speech.Synthesis.SpeechSynthesizer.SelectVoice%2A> or <xref:System.Speech.Synthesis.SpeechSynthesizer.SelectVoiceByHints%2A> method. To get information about which voices are installed, use the <xref:System.Speech.Synthesis.SpeechSynthesizer.GetInstalledVoices%2A> method and the <xref:System.Speech.Synthesis.VoiceInfo> class.
+  remarks: 'When you initialize a new <xref:System.Speech.Synthesis.SpeechSynthesizer> instance, it uses the default system voice. To configure the <xref:System.Speech.Synthesis.SpeechSynthesizer> to use one of the installed speech synthesis (text-to-speech) voices, use the <xref:System.Speech.Synthesis.SpeechSynthesizer.SelectVoice%2A> or <xref:System.Speech.Synthesis.SpeechSynthesizer.SelectVoiceByHints%2A> method. To get information about which voices are installed, use the <xref:System.Speech.Synthesis.SpeechSynthesizer.GetInstalledVoices%2A> method and the <xref:System.Speech.Synthesis.VoiceInfo> class.'
   syntax:
     content: public SpeechSynthesizer ();
     parameters: []
@@ -553,7 +553,7 @@ items:
     content: public int Rate { get; set; }
     return:
       type: System.Int32
-      description: Returns the speaking rate of the <xref href="System.Speech.Synthesis.SpeechSynthesizer"></xref> object, from -10 through 10.
+      description: 'Returns the speaking rate of the <xref href="System.Speech.Synthesis.SpeechSynthesizer"></xref> object, from -10 through 10.'
   overload: System.Speech.Synthesis.SpeechSynthesizer.Rate*
   exceptions: []
   version:
@@ -591,7 +591,7 @@ items:
   - System.Speech
   namespace: System.Speech.Synthesis
   summary: Removes a lexicon from the <xref href="System.Speech.Synthesis.SpeechSynthesizer"></xref> object.
-  remarks: See <xref:System.Speech.Synthesis.SpeechSynthesizer.AddLexicon%2A> for an example.
+  remarks: 'See <xref:System.Speech.Synthesis.SpeechSynthesizer.AddLexicon%2A> for an example.'
   syntax:
     content: public void RemoveLexicon (Uri uri);
     parameters:
@@ -809,7 +809,7 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis
-  summary: Selects a voice with a specific gender and age, based on the position in which the voices are ordered.
+  summary: 'Selects a voice with a specific gender and age, based on the position in which the voices are ordered.'
   remarks: "Use the <xref:System.Speech.Synthesis.SpeechSynthesizer.GetInstalledVoices%2A> method and <xref:System.Speech.Synthesis.VoiceInfo> class to obtain the names of installed text-to-speech (TTS) voices that you can select. The <xref:System.Speech.Synthesis.SpeechSynthesizer> object finds installed voices whose <xref:System.Speech.Synthesis.VoiceInfo.Gender%2A> and <xref:System.Speech.Synthesis.VoiceInfo.Age%2A> properties match the `gender` and `age` parameters. The <xref:System.Speech.Synthesis.SpeechSynthesizer> counts the matches it finds, and returns the voice when the count equals the `voiceAlternate` parameter.  \n  \n When an application calls <xref:System.Speech.Synthesis.SpeechSynthesizer.GetInstalledVoices%2A>, the method verifies that each of the voices it finds in the registry meets certain minimum criteria. For any voice that fails verification, <xref:System.Speech.Synthesis.SpeechSynthesizer.GetInstalledVoices%2A> sets its <xref:System.Speech.Synthesis.InstalledVoice.Enabled%2A> property to `False`. An application cannot select a voice whose <xref:System.Speech.Synthesis.InstalledVoice.Enabled%2A> property is `False`. Typically, applications will not set a voice’s <xref:System.Speech.Synthesis.InstalledVoice.Enabled%2A> property.  \n  \n To select a voice based on other characteristics, see the other <xref:System.Speech.Synthesis.SpeechSynthesizer.SelectVoiceByHints%2A> overloads.  \n  \n To select a voice by name, use the <xref:System.Speech.Synthesis.SpeechSynthesizer.SelectVoice%2A> method."
   syntax:
     content: public void SelectVoiceByHints (System.Speech.Synthesis.VoiceGender gender, System.Speech.Synthesis.VoiceAge age, int voiceAlternate);
@@ -859,7 +859,7 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis
-  summary: Selects a voice with a specific gender, age, and locale, based on the position in which the voices are ordered.
+  summary: 'Selects a voice with a specific gender, age, and locale, based on the position in which the voices are ordered.'
   remarks: "The <xref:System.Speech.Synthesis.SpeechSynthesizer> object finds voices whose <xref:System.Speech.Synthesis.VoiceInfo.Gender%2A>, <xref:System.Speech.Synthesis.VoiceInfo.Age%2A>, and <xref:System.Speech.Synthesis.VoiceInfo.Culture%2A> properties match the `gender`, `age`, and `culture` parameters. The <xref:System.Speech.Synthesis.SpeechSynthesizer> counts the matches it finds, and returns the voice when the count equals the `voiceAlternate` parameter.  \n  \n Microsoft Windows and the System.Speech API accept all valid language-country codes. To perform text-to-speech using the language specified in the `culture` parameter, a speech synthesis engine that supports that language-country code must be installed. The speech synthesis engines that shipped with Microsoft Windows 7 work with the following language-country codes:  \n  \n-   en-US. English (United States)  \n  \n-   zh-CN. Chinese (China)  \n  \n-   zh-TW. Chinese (Taiwan)  \n  \n Two-letter language codes such as \"en\" are also permitted.  \n  \n When an application calls <xref:System.Speech.Synthesis.SpeechSynthesizer.GetInstalledVoices%2A>, the method verifies that each of the voices it finds in the registry meets certain minimum criteria. For any voice that fails verification, <xref:System.Speech.Synthesis.SpeechSynthesizer.GetInstalledVoices%2A> sets its <xref:System.Speech.Synthesis.InstalledVoice.Enabled%2A> property to `False`. An application cannot select a voice whose <xref:System.Speech.Synthesis.InstalledVoice.Enabled%2A> property is `False`. Typically, applications will not set a voice’s <xref:System.Speech.Synthesis.InstalledVoice.Enabled%2A> property.  \n  \n To select a voice based on other characteristics, see the other <xref:System.Speech.Synthesis.SpeechSynthesizer.SelectVoiceByHints%2A> overloads.  \n  \n To select a voice by name, use the <xref:System.Speech.Synthesis.SpeechSynthesizer.SelectVoice%2A> method."
   syntax:
     content: public void SelectVoiceByHints (System.Speech.Synthesis.VoiceGender gender, System.Speech.Synthesis.VoiceAge age, int voiceAlternate, System.Globalization.CultureInfo culture);
@@ -1002,7 +1002,7 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis
-  summary: Configures the <xref href="System.Speech.Synthesis.SpeechSynthesizer"></xref> object to not send output from synthesis operations to a device, file, or stream.
+  summary: 'Configures the <xref href="System.Speech.Synthesis.SpeechSynthesizer"></xref> object to not send output from synthesis operations to a device, file, or stream.'
   remarks: "Use this method to release the <xref:System.Speech.Synthesis.SpeechSynthesizer> ‘s reference to a file or stream. See <xref:System.Speech.Synthesis.SpeechSynthesizer.SetOutputToWaveStream%2A> for an example.  \n  \n For other output configuration options, see the <xref:System.Speech.Synthesis.SpeechSynthesizer.SetOutputToAudioStream%2A>, <xref:System.Speech.Synthesis.SpeechSynthesizer.SetOutputToDefaultAudioDevice%2A>, <xref:System.Speech.Synthesis.SpeechSynthesizer.SetOutputToWaveFile%2A>, and <xref:System.Speech.Synthesis.SpeechSynthesizer.SetOutputToWaveStream%2A> methods."
   syntax:
     content: public void SetOutputToNull ();
@@ -1093,7 +1093,7 @@ items:
   - System.Speech
   namespace: System.Speech.Synthesis
   summary: Configures the <xref href="System.Speech.Synthesis.SpeechSynthesizer"></xref> object to append output to a file that contains Waveform format audio.
-  remarks: To configure the output and specify the audio format, use the <xref:System.Speech.Synthesis.SpeechSynthesizer.SetOutputToWaveFile%2A> method.
+  remarks: 'To configure the output and specify the audio format, use the <xref:System.Speech.Synthesis.SpeechSynthesizer.SetOutputToWaveFile%2A> method.'
   example:
   - "The following example uses an instance of <xref:System.Media.SoundPlayer> to play a prompt that has been output to a .wav file. Because the <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakAsync%2A> call is asynchronous, the <xref:System.Media.SoundPlayer> instance is created (and the <xref:System.Media.SoundPlayer.Play%2A> method invoked) in the handler for the <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakCompleted> event.  \n  \n```csharp  \nusing System;  \nusing System.Speech.Synthesis;  \n  \nnamespace SampleSynthesis  \n{  \n  class Program  \n  {  \n    static void Main(string[] args)  \n    {  \n  \n      // Initialize a new instance of the SpeechSynthesizer.  \n      SpeechSynthesizer synth = new SpeechSynthesizer();  \n  \n      // Configure the audio output.   \n      synth.SetOutputToWaveFile(@\"C:\\Test\\Sample.wav\");  \n  \n      // Register for the SpeakCompleted event.  \n      synth.SpeakCompleted += new EventHandler<SpeakCompletedEventArgs>(synth_SpeakCompleted);  \n  \n      // Build a prompt.  \n      PromptBuilder builder = new PromptBuilder();  \n      builder.AppendText(\"This sample asynchronously speaks a prompt to a WAVE file.\");  \n  \n      // Speak the string asynchronously.  \n      synth.SpeakAsync(builder);  \n  \n      Console.WriteLine();  \n      Console.WriteLine(\"Press any key to exit...\");  \n      Console.ReadKey();  \n    }  \n  \n    // Handle the SpeakCompleted event.  \n    static void synth_SpeakCompleted(object sender, SpeakCompletedEventArgs e)  \n    {  \n  \n      // Create a SoundPlayer instance to play the output audio file.  \n      System.Media.SoundPlayer m_SoundPlayer =  \n        new System.Media.SoundPlayer(@\"C:\\Test\\Sample.wav\");  \n  \n      //  Play the output file.  \n      m_SoundPlayer.Play();  \n    }  \n  }  \n}  \n```"
   syntax:
@@ -1185,7 +1185,7 @@ items:
   - System.Speech
   namespace: System.Speech.Synthesis
   summary: Synchronously speaks the contents of a <xref href="System.Speech.Synthesis.Prompt"></xref> object.
-  remarks: To asynchronously speak the contents of a <xref:System.Speech.Synthesis.Prompt> object, use <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakAsync%2A>.
+  remarks: 'To asynchronously speak the contents of a <xref:System.Speech.Synthesis.Prompt> object, use <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakAsync%2A>.'
   example:
   - "The following example creates a <xref:System.Speech.Synthesis.Prompt> object from a string and passes the object as an argument to the <xref:System.Speech.Synthesis.SpeechSynthesizer.Speak%2A> method.  \n  \n```csharp  \nusing System;  \nusing System.Speech.Synthesis;  \n  \nnamespace SampleSynthesis  \n{  \n  class Program  \n  {  \n    static void Main(string[] args)  \n    {  \n  \n      // Initialize a new instance of the SpeechSynthesizer.  \n      using (SpeechSynthesizer synth = new SpeechSynthesizer())  \n      {  \n  \n        // Configure the audio output.   \n        synth.SetOutputToDefaultAudioDevice();  \n  \n        // Create a prompt from a string.  \n        Prompt color = new Prompt(\"What is your favorite color?\");  \n  \n        // Speak the contents of the prompt synchronously.  \n        synth.Speak(color);  \n      }  \n  \n      Console.WriteLine();  \n      Console.WriteLine(\"Press any key to exit...\");  \n      Console.ReadKey();  \n    }  \n  }  \n}  \n```"
   syntax:
@@ -1231,7 +1231,7 @@ items:
   - System.Speech
   namespace: System.Speech.Synthesis
   summary: Synchronously speaks the contents of a <xref href="System.Speech.Synthesis.PromptBuilder"></xref> object.
-  remarks: To asynchronously speak the contents of a <xref:System.Speech.Synthesis.PromptBuilder> object, use <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakAsync%2A>.
+  remarks: 'To asynchronously speak the contents of a <xref:System.Speech.Synthesis.PromptBuilder> object, use <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakAsync%2A>.'
   example:
   - "The following example creates a <xref:System.Speech.Synthesis.PromptBuilder> object from a string and passes the object as an argument to the <xref:System.Speech.Synthesis.SpeechSynthesizer.Speak%2A> method.  \n  \n```csharp  \nusing System;  \nusing System.Speech.Synthesis;  \n  \nnamespace SampleSynthesis  \n{  \n  class Program  \n  {  \n    static void Main(string[] args)  \n    {  \n  \n      // Initialize a new instance of the SpeechSynthesizer.  \n      using (SpeechSynthesizer synth = new SpeechSynthesizer())  \n      {  \n  \n        // Configure the audio output.   \n        synth.SetOutputToDefaultAudioDevice();  \n  \n        // Create a PromptBuilder object and append a text string.  \n        PromptBuilder song = new PromptBuilder();  \n        song.AppendText(\"Say the name of the song you want to hear\");  \n  \n        // Speak the contents of the prompt synchronously.  \n        synth.Speak(song);  \n      }  \n  \n      Console.WriteLine();  \n      Console.WriteLine(\"Press any key to exit...\");  \n      Console.ReadKey();  \n    }  \n  }  \n}  \n```"
   syntax:
@@ -1277,7 +1277,7 @@ items:
   - System.Speech
   namespace: System.Speech.Synthesis
   summary: Synchronously speaks the contents of a string.
-  remarks: To synchronously speak a string that contains SSML markup, use the <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakSsml%2A> method. To asynchronously speak the contents of a string, use the <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakAsync%2A> method.
+  remarks: 'To synchronously speak a string that contains SSML markup, use the <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakSsml%2A> method. To asynchronously speak the contents of a string, use the <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakAsync%2A> method.'
   example:
   - "As shown in the following example, the <xref:System.Speech.Synthesis.SpeechSynthesizer.Speak%2A> method provides the simplest means to generate speech output synchronously.  \n  \n```csharp  \nusing System;  \nusing System.Speech.Synthesis;  \n  \nnamespace SampleSynthesis  \n{  \n  class Program  \n  {  \n    static void Main(string[] args)  \n    {  \n  \n      // Initialize a new instance of the SpeechSynthesizer.  \n      using (SpeechSynthesizer synth = new SpeechSynthesizer())  \n      {  \n  \n        // Configure the audio output.   \n        synth.SetOutputToDefaultAudioDevice();  \n  \n        // Speak a string synchronously.  \n        synth.Speak(\"What is your favorite color?\");  \n      }  \n  \n      Console.WriteLine();  \n      Console.WriteLine(\"Press any key to exit...\");  \n      Console.ReadKey();  \n    }  \n  }  \n}  \n```"
   syntax:
@@ -1369,7 +1369,7 @@ items:
   - System.Speech
   namespace: System.Speech.Synthesis
   summary: Asynchronously speaks the contents of a <xref href="System.Speech.Synthesis.PromptBuilder"></xref> object.
-  remarks: To synchronously speak the contents of a <xref:System.Speech.Synthesis.PromptBuilder> object, use <xref:System.Speech.Synthesis.SpeechSynthesizer.Speak%2A>.
+  remarks: 'To synchronously speak the contents of a <xref:System.Speech.Synthesis.PromptBuilder> object, use <xref:System.Speech.Synthesis.SpeechSynthesizer.Speak%2A>.'
   example:
   - "The following example creates a <xref:System.Speech.Synthesis.PromptBuilder> object from a string and passes the object as an argument to the <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakAsync%2A> method.  \n  \n```csharp  \nusing System;  \nusing System.Speech.Synthesis;  \n  \nnamespace SampleSynthesis  \n{  \n  class Program  \n  {  \n    static void Main(string[] args)  \n    {  \n  \n      // Initialize a new instance of the SpeechSynthesizer.  \n      SpeechSynthesizer synth = new SpeechSynthesizer();  \n  \n      // Configure the audio output.   \n      synth.SetOutputToDefaultAudioDevice();  \n  \n      // Create a PromptBuilder object and append a text string.  \n      PromptBuilder song = new PromptBuilder();  \n      song.AppendText(\"Say the name of the song you want to hear\");  \n  \n      // Speak the contents of the prompt asynchronously.  \n      synth.SpeakAsync(song);  \n  \n      Console.WriteLine();  \n      Console.WriteLine(\"Press any key to exit...\");  \n      Console.ReadKey();  \n    }  \n  }  \n}  \n  \n```"
   syntax:
@@ -1418,7 +1418,7 @@ items:
   - System.Speech
   namespace: System.Speech.Synthesis
   summary: Asynchronously speaks the contents of a string.
-  remarks: To asynchronously speak a string that contains SSML markup, use the <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakSsmlAsync%2A> method. To synchronously speak the contents of a string, use the <xref:System.Speech.Synthesis.SpeechSynthesizer.Speak%2A> method. You can cancel the asynchronous speaking of a prompt with the <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakAsyncCancel%2A> or the <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakAsyncCancelAll%2A> method.
+  remarks: 'To asynchronously speak a string that contains SSML markup, use the <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakSsmlAsync%2A> method. To synchronously speak the contents of a string, use the <xref:System.Speech.Synthesis.SpeechSynthesizer.Speak%2A> method. You can cancel the asynchronous speaking of a prompt with the <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakAsyncCancel%2A> or the <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakAsyncCancelAll%2A> method.'
   example:
   - "As shown in the following example, the <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakAsync%2A> method provides the simplest means to generate speech output asynchronously.  \n  \n```csharp  \nusing System;  \nusing System.Speech.Synthesis;  \n  \nnamespace SampleSynthesis  \n{  \n  class Program  \n  {  \n    static void Main(string[] args)  \n    {  \n  \n      // Initialize a new instance of the SpeechSynthesizer.  \n      SpeechSynthesizer synth = new SpeechSynthesizer();  \n  \n      // Configure the audio output.   \n      synth.SetOutputToDefaultAudioDevice();  \n  \n      // Speak a string asynchronously.  \n      synth.SpeakAsync(\"What is your favorite color?\");  \n  \n      Console.WriteLine();  \n      Console.WriteLine(\"Press any key to exit...\");  \n      Console.ReadKey();  \n    }  \n  }  \n}  \n  \n```"
   syntax:
@@ -1510,7 +1510,7 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis
-  summary: Cancels all queued, asynchronous, speech synthesis operations.
+  summary: 'Cancels all queued, asynchronous, speech synthesis operations.'
   remarks: ''
   example:
   - "The following example show a use of <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakAsyncCancelAll%2A> to cancel the asynchronous speaking of a prompt, so that a new prompt can be spoken. Note that the <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakCompleted> event fires when a <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakAsync%2A> operation is cancelled.  \n  \n```csharp  \nusing System;  \nusing System.Speech.Synthesis;  \nusing System.Threading;  \n  \nnamespace SampleSynthesis  \n{  \n  class Program  \n  {  \n  \n    static void Main(string[] args)  \n    {  \n  \n      // Initialize a new instance of the SpeechSynthesizer.  \n      SpeechSynthesizer synth = new SpeechSynthesizer();  \n  \n      // Configure the audio output.   \n      synth.SetOutputToDefaultAudioDevice();  \n  \n      // Subscribe to the StateChanged event.  \n      synth.StateChanged += new EventHandler<StateChangedEventArgs>(synth_StateChanged);  \n  \n      // Subscribe to the SpeakProgress event.  \n      synth.SpeakProgress += new EventHandler<SpeakProgressEventArgs>(synth_SpeakProgress);  \n  \n      // Subscribe to the SpeakCompleted event.  \n      synth.SpeakCompleted += new EventHandler<SpeakCompletedEventArgs>(synth_SpeakCompleted);  \n  \n      // Begin speaking a text string asynchronously.  \n      synth.SpeakAsync(\"Speech is an effective and natural way for people to interact with applications, \" +  \n        \"complementing or even replacing the use of mice, keyboards, controllers, and gestures.\");  \n  \n      // Speak for four seconds.  \n      Thread.Sleep(4000);  \n  \n      // Cancel the SpeakAsync operation and wait one second.  \n      synth.SpeakAsyncCancelAll();  \n      Thread.Sleep(1000);  \n  \n      // Speak a new text string.  \n      synth.Speak(\"An urgent email message has arrived. Do you want to hear it?\");  \n  \n      Console.WriteLine();  \n      Console.WriteLine(\"Press any key to exit...\");  \n      Console.ReadKey();  \n    }  \n  \n    // Write to the console when the SpeakAsync operation has been cancelled.  \n    static void synth_SpeakCompleted(object sender, SpeakCompletedEventArgs e)  \n    {  \n      Console.WriteLine(\"\\nThe SpeakAsync operation was cancelled!!\");  \n    }  \n  \n    // When it changes, write the state of the SpeechSynthesizer to the console.  \n    static void synth_StateChanged(object sender, StateChangedEventArgs e)  \n    {  \n      Console.WriteLine(\"\\nSynthesizer State: {0}    Previous State: {1}\\n\", e.State, e.PreviousState);  \n    }  \n  \n    // Write the text being spoken by the SpeechSynthesizer to the console.  \n    static void synth_SpeakProgress(object sender, SpeakProgressEventArgs e)  \n    {  \n      Console.WriteLine(e.Text);  \n    }      \n  }    \n}  \n  \n```"
@@ -1596,7 +1596,7 @@ items:
   - System.Speech
   namespace: System.Speech.Synthesis
   summary: Raised after the <xref href="System.Speech.Synthesis.SpeechSynthesizer"></xref> speaks each individual word of a prompt.
-  remarks: The <xref:System.Speech.Synthesis.SpeechSynthesizer> raises this event for each new word that it speaks in a prompt using any of the <xref:System.Speech.Synthesis.SpeechSynthesizer.Speak%2A>, <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakAsync%2A>, <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakSsml%2A>, or <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakSsmlAsync%2A> methods. For an example and more information about data associated with the event, see <xref:System.Speech.Synthesis.SpeakProgressEventArgs>.
+  remarks: 'The <xref:System.Speech.Synthesis.SpeechSynthesizer> raises this event for each new word that it speaks in a prompt using any of the <xref:System.Speech.Synthesis.SpeechSynthesizer.Speak%2A>, <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakAsync%2A>, <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakSsml%2A>, or <xref:System.Speech.Synthesis.SpeechSynthesizer.SpeakSsmlAsync%2A> methods. For an example and more information about data associated with the event, see <xref:System.Speech.Synthesis.SpeakProgressEventArgs>.'
   syntax:
     content: public event EventHandler<System.Speech.Synthesis.SpeakProgressEventArgs> SpeakProgress;
     return:
@@ -1775,7 +1775,7 @@ items:
   - System.Speech
   namespace: System.Speech.Synthesis
   summary: Gets the current speaking state of the <xref href="System.Speech.Synthesis.SpeechSynthesizer"></xref> object.
-  remarks: To get the new state of the <xref:System.Speech.Synthesis.SpeechSynthesizer> after it changes, use the <xref:System.Speech.Synthesis.StateChangedEventArgs.State%2A> property of the <xref:System.Speech.Synthesis.StateChangedEventArgs> class.
+  remarks: 'To get the new state of the <xref:System.Speech.Synthesis.SpeechSynthesizer> after it changes, use the <xref:System.Speech.Synthesis.StateChangedEventArgs.State%2A> property of the <xref:System.Speech.Synthesis.StateChangedEventArgs> class.'
   example:
   - "The following example illustrates the state of the <xref:System.Speech.Synthesis.SpeechSynthesizer> before, during, and after speaking a prompt.  \n  \n```csharp  \nusing System;  \nusing System.Threading;  \nusing System.Speech.Synthesis;  \n  \nnamespace SampleSynthesis  \n{  \n  class Program  \n  {  \n    static void Main(string[] args)  \n    {  \n  \n      // Initialize a new instance of the SpeechSynthesizer.  \n      SpeechSynthesizer synth = new SpeechSynthesizer() ;  \n  \n      // Configure the audio output.   \n      synth.SetOutputToDefaultAudioDevice();  \n  \n      // Subscribe to the SpeakProgress event.         \n      synth.SpeakProgress += new EventHandler<SpeakProgressEventArgs>(synth_SpeakProgress);  \n  \n      // Write the state of the SpeechSynthesizer to the console.  \n      Console.WriteLine(\"Current Synthesizer state: \" + synth.State + \"\\n\");  \n  \n      // Speak a string asynchronously.  \n      synth.SpeakAsync(\"What is your favorite color?\");  \n  \n      // Write the state of the SpeechSynthesizer to the console while it is speaking.  \n      Thread.Sleep(1000);  \n      Console.WriteLine(\"\\n - Current Synthesizer state: \" + synth.State + \" - \\n\");  \n  \n      // Write the state of the SpeechSynthesizer to the console after it is done speaking.  \n      Thread.Sleep(2000);  \n      Console.WriteLine(\"\\nCurrent Synthesizer state: \" + synth.State);  \n  \n      Console.WriteLine();  \n      Console.WriteLine(\"Press any key to exit...\");  \n      Console.ReadKey();  \n    }  \n  \n    static void synth_SpeakProgress(object sender, SpeakProgressEventArgs e)  \n    {  \n      Console.WriteLine(e.Text);  \n    }  \n  }  \n}  \n  \n```"
   syntax:
@@ -1904,7 +1904,7 @@ items:
   - System.Speech
   namespace: System.Speech.Synthesis
   summary: Gets information about the current voice of the <xref href="System.Speech.Synthesis.SpeechSynthesizer"></xref> object.
-  remarks: When you initialize a new <xref:System.Speech.Synthesis.SpeechSynthesizer>, it uses the default system voice. To configure the <xref:System.Speech.Synthesis.SpeechSynthesizer> object to use one of the installed speech synthesis voices, use the <xref:System.Speech.Synthesis.SpeechSynthesizer.SelectVoice%2A> or <xref:System.Speech.Synthesis.SpeechSynthesizer.SelectVoiceByHints%2A> method. To get information about which voices are installed, use the <xref:System.Speech.Synthesis.SpeechSynthesizer.GetInstalledVoices%2A> method and the <xref:System.Speech.Synthesis.VoiceInfo> class.
+  remarks: 'When you initialize a new <xref:System.Speech.Synthesis.SpeechSynthesizer>, it uses the default system voice. To configure the <xref:System.Speech.Synthesis.SpeechSynthesizer> object to use one of the installed speech synthesis voices, use the <xref:System.Speech.Synthesis.SpeechSynthesizer.SelectVoice%2A> or <xref:System.Speech.Synthesis.SpeechSynthesizer.SelectVoiceByHints%2A> method. To get information about which voices are installed, use the <xref:System.Speech.Synthesis.SpeechSynthesizer.GetInstalledVoices%2A> method and the <xref:System.Speech.Synthesis.VoiceInfo> class.'
   example:
   - "The following example initializes an instance of <xref:System.Speech.Synthesis.SpeechSynthesizer>and gets information about the current voice.  \n  \n```csharp  \nusing System;  \nusing System.IO;  \nusing System.Speech.Synthesis;  \nusing System.Speech.AudioFormat;  \n  \nnamespace SampleSynthesis  \n{  \n  class Program  \n  {  \n    static void Main(string[] args)  \n    {  \n  \n      // Initialize a new instance of the SpeechSynthesizer.  \n      using (SpeechSynthesizer synth = new SpeechSynthesizer())  \n      {  \n  \n        // Get information about supported audio formats.  \n        string AudioFormats = \"\";  \n        foreach (SpeechAudioFormatInfo fmt in synth.Voice.SupportedAudioFormats)  \n        {  \n          AudioFormats += String.Format(\"{0}\\n\",  \n          fmt.EncodingFormat.ToString());  \n        }  \n  \n        // Write information about the voice to the console.  \n        Console.WriteLine(\" Name:          \" + synth.Voice.Name);  \n        Console.WriteLine(\" Culture:       \" + synth.Voice.Culture);  \n        Console.WriteLine(\" Age:           \" + synth.Voice.Age);  \n        Console.WriteLine(\" Gender:        \" + synth.Voice.Gender);  \n        Console.WriteLine(\" Description:   \" + synth.Voice.Description);  \n        Console.WriteLine(\" ID:            \" + synth.Voice.Id);  \n        if (synth.Voice.SupportedAudioFormats.Count != 0)  \n        {  \n          Console.WriteLine(\" Audio formats: \" + AudioFormats);  \n        }  \n        else  \n        {  \n          Console.WriteLine(\" No supported audio formats found\");  \n        }  \n  \n        // Get additional information about the voice.  \n        string AdditionalInfo = \"\";  \n        foreach (string key in synth.Voice.AdditionalInfo.Keys)  \n        {  \n          AdditionalInfo += String.Format(\"  {0}: {1}\\n\",  \n            key, synth.Voice.AdditionalInfo[key]);  \n        }  \n  \n        Console.WriteLine(\" Additional Info - \" + AdditionalInfo);  \n        Console.WriteLine();  \n      }  \n  \n      Console.WriteLine();  \n      Console.WriteLine(\"Press any key to exit...\");  \n      Console.ReadKey();  \n    }  \n  }  \n}  \n  \n```"
   syntax:
@@ -1998,7 +1998,7 @@ items:
     content: public int Volume { get; set; }
     return:
       type: System.Int32
-      description: Returns the volume of the <xref href="System.Speech.Synthesis.SpeechSynthesizer"></xref>, from 0 through 100.
+      description: 'Returns the volume of the <xref href="System.Speech.Synthesis.SpeechSynthesizer"></xref>, from 0 through 100.'
   overload: System.Speech.Synthesis.SpeechSynthesizer.Volume*
   exceptions: []
   version:

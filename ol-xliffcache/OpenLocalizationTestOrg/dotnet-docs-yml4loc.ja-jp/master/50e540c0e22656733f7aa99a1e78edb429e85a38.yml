@@ -174,7 +174,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Initializes the channel factory with the behaviors provided by a specified configuration file and with those in the service endpoint of the channel factory.
-  remarks: If `configurationName` is `null`, only the behaviors specified in the service endpoint are loaded. If the wildcard, "*", is used, any endpoint configuration in the client configuration file is used, but only if there is precisely one. Otherwise an exception is thrown. Any other value for the `configurationName`, including the empty string "", matches the endpoint configuration with the same name. See the [WCF Client Configuration](~/docs/framework/wcf/feature-details/client-configuration.md) topic for a discussion of the client configuration.
+  remarks: 'If `configurationName` is `null`, only the behaviors specified in the service endpoint are loaded. If the wildcard, "*", is used, any endpoint configuration in the client configuration file is used, but only if there is precisely one. Otherwise an exception is thrown. Any other value for the `configurationName`, including the empty string "", matches the endpoint configuration with the same name. See the [WCF Client Configuration](~/docs/framework/wcf/feature-details/client-configuration.md) topic for a discussion of the client configuration.'
   syntax:
     content: protected virtual void ApplyConfiguration (string configurationName);
     parameters:
@@ -227,7 +227,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: When implemented in a derived class, creates a description of the service endpoint associated with the channel factory.
+  summary: 'When implemented in a derived class, creates a description of the service endpoint associated with the channel factory.'
   syntax:
     content: protected abstract System.ServiceModel.Description.ServiceEndpoint CreateDescription ();
     parameters: []
@@ -381,7 +381,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Gets the default interval of time provided for a close operation to complete.
-  remarks: Gets the default service model close time-out if both the <xref:System.ServiceModel.Description.ServiceEndpoint> and <xref:System.ServiceModel.Description.ServiceEndpoint.Binding%2A> are `null`. The default value for the service model close time-out is 1 minute. Otherwise, the value is set to the <xref:System.ServiceModel.Channels.Binding.CloseTimeout%2A> value associated with the <xref:System.ServiceModel.Description.ServiceEndpoint>.
+  remarks: 'Gets the default service model close time-out if both the <xref:System.ServiceModel.Description.ServiceEndpoint> and <xref:System.ServiceModel.Description.ServiceEndpoint.Binding%2A> are `null`. The default value for the service model close time-out is 1 minute. Otherwise, the value is set to the <xref:System.ServiceModel.Channels.Binding.CloseTimeout%2A> value associated with the <xref:System.ServiceModel.Description.ServiceEndpoint>.'
   syntax:
     content: protected override TimeSpan DefaultCloseTimeout { get; }
     return:
@@ -431,7 +431,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Gets the default interval of time provided for an open operation to complete.
-  remarks: Gets the default service model open time-out if both the <xref:System.ServiceModel.Description.ServiceEndpoint> and <xref:System.ServiceModel.Description.ServiceEndpoint.Binding%2A> are `null`. The default value for the service model open time-out is 1 minute. Otherwise, the value is set to the <xref:System.ServiceModel.Channels.Binding.OpenTimeout%2A> value associated with the <xref:System.ServiceModel.Description.ServiceEndpoint>.
+  remarks: 'Gets the default service model open time-out if both the <xref:System.ServiceModel.Description.ServiceEndpoint> and <xref:System.ServiceModel.Description.ServiceEndpoint.Binding%2A> are `null`. The default value for the service model open time-out is 1 minute. Otherwise, the value is set to the <xref:System.ServiceModel.Channels.Binding.OpenTimeout%2A> value associated with the <xref:System.ServiceModel.Description.ServiceEndpoint>.'
   syntax:
     content: protected override TimeSpan DefaultOpenTimeout { get; }
     return:
@@ -530,7 +530,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Opens the current channel factory if it is not yet opened.
-  remarks: Before opening the channel factory, checks that it is not <xref:System.ServiceModel.CommunicationState.Closed>, <xref:System.ServiceModel.CommunicationState.Closing>, or <xref:System.ServiceModel.CommunicationState.Opened>.
+  remarks: 'Before opening the channel factory, checks that it is not <xref:System.ServiceModel.CommunicationState.Closed>, <xref:System.ServiceModel.CommunicationState.Closing>, or <xref:System.ServiceModel.CommunicationState.Opened>.'
   syntax:
     content: protected void EnsureOpened ();
     parameters: []
@@ -580,7 +580,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: Returns the typed object requested, if present, from the appropriate layer in the channel stack, or `null` if not present.
+  summary: 'Returns the typed object requested, if present, from the appropriate layer in the channel stack, or `null` if not present.'
   remarks: "Use this to retrieve capabilities, requirements and parameters from the channel stack. If a channel factory supports returning the requested object, it returns it. If not, it delegates the call down to the next level in the stack. If it gets to the bottom of the stack and no channel factory supported the requested object, then the method returns `null`.  \n  \n `T` is typically some channel interface that the channel factory can support. If, for example, `GetProperty<IChannelListener>` is called on a duplex channel factory, it returns the underlying listener."
   syntax:
     content: 'public T GetProperty<T> () where T : class;'
@@ -635,7 +635,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Initializes the service endpoint of the channel factory with a specified address and configuration.
-  remarks: Use <xref:System.ServiceModel.ChannelFactory.InitializeEndpoint%28System.ServiceModel.Channels.Binding%2CSystem.ServiceModel.EndpointAddress%29> if you have just the binding.
+  remarks: 'Use <xref:System.ServiceModel.ChannelFactory.InitializeEndpoint%28System.ServiceModel.Channels.Binding%2CSystem.ServiceModel.EndpointAddress%29> if you have just the binding.'
   syntax:
     content: protected void InitializeEndpoint (string configurationName, System.ServiceModel.EndpointAddress remoteAddress);
     parameters:
@@ -689,7 +689,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Initializes the service endpoint of the channel factory with a specified binding and address.
-  remarks: Use <xref:System.ServiceModel.ChannelFactory.InitializeEndpoint%28System.String%2CSystem.ServiceModel.EndpointAddress%29> if you have the configuration.
+  remarks: 'Use <xref:System.ServiceModel.ChannelFactory.InitializeEndpoint%28System.String%2CSystem.ServiceModel.EndpointAddress%29> if you have the configuration.'
   syntax:
     content: protected void InitializeEndpoint (System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress address);
     parameters:
@@ -743,7 +743,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Initializes the service endpoint of the channel factory with a specified endpoint.
-  remarks: Use <xref:System.ServiceModel.ChannelFactory.InitializeEndpoint%28System.ServiceModel.Channels.Binding%2CSystem.ServiceModel.EndpointAddress%29> if you have just the binding. Use <xref:System.ServiceModel.ChannelFactory.InitializeEndpoint%28System.String%2CSystem.ServiceModel.EndpointAddress%29> if you have the configuration.
+  remarks: 'Use <xref:System.ServiceModel.ChannelFactory.InitializeEndpoint%28System.ServiceModel.Channels.Binding%2CSystem.ServiceModel.EndpointAddress%29> if you have just the binding. Use <xref:System.ServiceModel.ChannelFactory.InitializeEndpoint%28System.String%2CSystem.ServiceModel.EndpointAddress%29> if you have the configuration.'
   syntax:
     content: protected void InitializeEndpoint (System.ServiceModel.Description.ServiceEndpoint endpoint);
     parameters:
@@ -797,7 +797,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Terminates the inner channel factory of the current channel factory.
-  remarks: The <xref:System.ServiceModel.ChannelFactory.OnAbort%2A> method is called on a factory after it transitions to the closing state if the <xref:System.ServiceModel.Channels.CommunicationObject.Abort%2A> method is invoked.
+  remarks: 'The <xref:System.ServiceModel.ChannelFactory.OnAbort%2A> method is called on a factory after it transitions to the closing state if the <xref:System.ServiceModel.Channels.CommunicationObject.Abort%2A> method is invoked.'
   syntax:
     content: protected override void OnAbort ();
     parameters: []
@@ -845,7 +845,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Begins an asynchronous close operation on the inner channel factory of the current channel factory that has a state object associated with it.
-  remarks: This method receives notification, through a callback, of the identity of the event handler for the operation. The operation is not complete until either the asynchronous close on the inner channel factory returns or the time-out occurs.
+  remarks: 'This method receives notification, through a callback, of the identity of the event handler for the operation. The operation is not complete until either the asynchronous close on the inner channel factory returns or the time-out occurs.'
   syntax:
     content: protected override IAsyncResult OnBeginClose (TimeSpan timeout, AsyncCallback callback, object state);
     parameters:
@@ -857,7 +857,7 @@ items:
       description: The <xref href="System.AsyncCallback"></xref> delegate that receives the notification of the asynchronous operation completion.
     - id: state
       type: System.Object
-      description: An object, specified by the application, that contains state information associated with the asynchronous operation.
+      description: 'An object, specified by the application, that contains state information associated with the asynchronous operation.'
     return:
       type: System.IAsyncResult
       description: The <xref href="System.IAsyncResult"></xref> that references the asynchronous operation.
@@ -905,7 +905,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Begins an asynchronous open operation on the inner channel factory of the current channel factory that has a state object associated with it.
-  remarks: This method receives notification, through a callback, of the identity of the event handler for the operation. The operation is not complete until either the asynchronous open on the inner channel factory returns or the time-out occurs.
+  remarks: 'This method receives notification, through a callback, of the identity of the event handler for the operation. The operation is not complete until either the asynchronous open on the inner channel factory returns or the time-out occurs.'
   syntax:
     content: protected override IAsyncResult OnBeginOpen (TimeSpan timeout, AsyncCallback callback, object state);
     parameters:
@@ -917,7 +917,7 @@ items:
       description: The <xref href="System.AsyncCallback"></xref> delegate that receives the notification of the asynchronous operation completion.
     - id: state
       type: System.Object
-      description: An object, specified by the application, that contains state information associated with the asynchronous operation.
+      description: 'An object, specified by the application, that contains state information associated with the asynchronous operation.'
     return:
       type: System.IAsyncResult
       description: The <xref href="System.IAsyncResult"></xref> that references the asynchronous operation.
@@ -1020,7 +1020,7 @@ items:
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: The <xref href="System.IAsyncResult"></xref> returned by a call to the <xref href="System.ServiceModel.ChannelFactory.OnBeginClose(System.TimeSpan,System.AsyncCallback,System.Object)"></xref> method.
+      description: 'The <xref href="System.IAsyncResult"></xref> returned by a call to the <xref href="System.ServiceModel.ChannelFactory.OnBeginClose(System.TimeSpan,System.AsyncCallback,System.Object)"></xref> method.'
   overload: System.ServiceModel.ChannelFactory.OnEndClose*
   exceptions: []
   version:
@@ -1070,7 +1070,7 @@ items:
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: The <xref href="System.IAsyncResult"></xref> returned by a call to the <xref href="System.ServiceModel.ChannelFactory.OnBeginOpen(System.TimeSpan,System.AsyncCallback,System.Object)"></xref> method.
+      description: 'The <xref href="System.IAsyncResult"></xref> returned by a call to the <xref href="System.ServiceModel.ChannelFactory.OnBeginOpen(System.TimeSpan,System.AsyncCallback,System.Object)"></xref> method.'
   overload: System.ServiceModel.ChannelFactory.OnEndOpen*
   exceptions: []
   version:
@@ -1168,7 +1168,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Initializes a read-only copy of the <xref href="System.ServiceModel.Description.ClientCredentials"></xref> object for the channel factory.
-  remarks: Overrides and invokes the <xref:System.ServiceModel.Channels.CommunicationObject.OnOpened%2A> method, which is called during the transition of an object into the opened state. The <xref:System.ServiceModel.Description.ClientCredentials> object is stored as a type of endpoint behavior and can be accessed through the <xref:System.ServiceModel.Description.ServiceEndpoint.Behaviors%2A> property.
+  remarks: 'Overrides and invokes the <xref:System.ServiceModel.Channels.CommunicationObject.OnOpened%2A> method, which is called during the transition of an object into the opened state. The <xref:System.ServiceModel.Description.ClientCredentials> object is stored as a type of endpoint behavior and can be accessed through the <xref:System.ServiceModel.Description.ServiceEndpoint.Behaviors%2A> property.'
   syntax:
     content: protected override void OnOpened ();
     parameters: []

@@ -193,7 +193,7 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Initializes a new instance of the <xref href="System.Xaml.XamlType"></xref> class based on a string name for the type.
-  remarks: This is a protected constructor. No current public derived classes exist that use this particular path for construction. As a consumer of the existing <xref:System.Xaml.XamlType>, you must use the other constructor signatures (<xref:System.Xaml.XamlType.%23ctor%28System.Type%2CSystem.Xaml.XamlSchemaContext%2CSystem.Xaml.Schema.XamlTypeInvoker%29>, <xref:System.Xaml.XamlType.%23ctor%28System.Type%2CSystem.Xaml.XamlSchemaContext%29>, or <xref:System.Xaml.XamlType.%23ctor%28System.String%2CSystem.String%2CSystem.Collections.Generic.IList%7BSystem.Xaml.XamlType%7D%2CSystem.Xaml.XamlSchemaContext%29>) to initialize a <xref:System.Xaml.XamlType> object.
+  remarks: 'This is a protected constructor. No current public derived classes exist that use this particular path for construction. As a consumer of the existing <xref:System.Xaml.XamlType>, you must use the other constructor signatures (<xref:System.Xaml.XamlType.%23ctor%28System.Type%2CSystem.Xaml.XamlSchemaContext%2CSystem.Xaml.Schema.XamlTypeInvoker%29>, <xref:System.Xaml.XamlType.%23ctor%28System.Type%2CSystem.Xaml.XamlSchemaContext%29>, or <xref:System.Xaml.XamlType.%23ctor%28System.String%2CSystem.String%2CSystem.Collections.Generic.IList%7BSystem.Xaml.XamlType%7D%2CSystem.Xaml.XamlSchemaContext%29>) to initialize a <xref:System.Xaml.XamlType> object.'
   syntax:
     content: protected XamlType (string typeName, System.Collections.Generic.IList<System.Xaml.XamlType> typeArguments, System.Xaml.XamlSchemaContext schemaContext);
     parameters:
@@ -202,7 +202,7 @@ items:
       description: The name of the type to create.
     - id: typeArguments
       type: System.Collections.Generic.IList{System.Xaml.XamlType}
-      description: The type arguments for a <xref href="System.Xaml.XamlType"></xref> that represents a generic type. Can be (and often is) `null`, which indicates that the represented type is not a generic type.
+      description: 'The type arguments for a <xref href="System.Xaml.XamlType"></xref> that represents a generic type. Can be (and often is) `null`, which indicates that the represented type is not a generic type.'
     - id: schemaContext
       type: System.Xaml.XamlSchemaContext
       description: XAML schema context for XAML readers and XAML writers.
@@ -296,19 +296,19 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Initializes a new instance of the <xref href="System.Xaml.XamlType"></xref> class based on the XAML namespace and a string name for the type. This constructor is exclusively for analysis and XAML-node recording of type usages that are known to not have backing in the supporting type system and XAML schema context.
-  remarks: Use this constructor only for "unknown" types where a XAML type that maps to an underlying type system is unavailable. This constructor might not produce a result where <xref:System.Xaml.XamlType.IsUnknown%2A?displayProperty=fullName> is `true`. Instead, the default reflector logic reports the underlying type as <xref:System.Xaml.XamlLanguage.Object%2A?displayProperty=fullName>. However, this behavior can change because of the <xref:System.Xaml.XamlType.LookupIsUnknown%2A> override.
+  remarks: 'Use this constructor only for "unknown" types where a XAML type that maps to an underlying type system is unavailable. This constructor might not produce a result where <xref:System.Xaml.XamlType.IsUnknown%2A?displayProperty=fullName> is `true`. Instead, the default reflector logic reports the underlying type as <xref:System.Xaml.XamlLanguage.Object%2A?displayProperty=fullName>. However, this behavior can change because of the <xref:System.Xaml.XamlType.LookupIsUnknown%2A> override.'
   syntax:
     content: public XamlType (string unknownTypeNamespace, string unknownTypeName, System.Collections.Generic.IList<System.Xaml.XamlType> typeArguments, System.Xaml.XamlSchemaContext schemaContext);
     parameters:
     - id: unknownTypeNamespace
       type: System.String
-      description: The XAML namespace for the type, as a string.
+      description: 'The XAML namespace for the type, as a string.'
     - id: unknownTypeName
       type: System.String
       description: The name of the type in the provided <code>unknownTypeNamespace</code> XAML namespace.
     - id: typeArguments
       type: System.Collections.Generic.IList{System.Xaml.XamlType}
-      description: The type arguments for a <xref href="System.Xaml.XamlType"></xref> that represents a generic type. Can be (and often is) `null`, which indicates that the represented type is not a generic type.
+      description: 'The type arguments for a <xref href="System.Xaml.XamlType"></xref> that represents a generic type. Can be (and often is) `null`, which indicates that the represented type is not a generic type.'
     - id: schemaContext
       type: System.Xaml.XamlSchemaContext
       description: XAML schema context for XAML readers or XAML writers.
@@ -316,7 +316,7 @@ items:
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: One or more of <code>unknownTypeNamespace</code>, <code>unknownTypeName</code>, or <code>schemaContext</code> are `null`.
+    description: 'One or more of <code>unknownTypeNamespace</code>, <code>unknownTypeName</code>, or <code>schemaContext</code> are `null`.'
   version:
   - netframework-4.5.1
   - netframework-4.5.2
@@ -480,8 +480,8 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: Gets a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> must have arguments (generic constraints through `x:TypeArguments`, initialization text, or other XAML techniques) to construct a valid instance of the type.
-  remarks: If you do not use the default internal CLR reflection technique for a <xref:System.Xaml.XamlType>, calls to this property can invoke <xref:System.Xaml.XamlType.LookupConstructionRequiresArguments%2A> overrides on <xref:System.Xaml.XamlType> derived classes. For more information about return values and other behavior, see the documentation for <xref:System.Xaml.XamlType.LookupConstructionRequiresArguments%2A> on this type.
+  summary: 'Gets a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> must have arguments (generic constraints through `x:TypeArguments`, initialization text, or other XAML techniques) to construct a valid instance of the type.'
+  remarks: 'If you do not use the default internal CLR reflection technique for a <xref:System.Xaml.XamlType>, calls to this property can invoke <xref:System.Xaml.XamlType.LookupConstructionRequiresArguments%2A> overrides on <xref:System.Xaml.XamlType> derived classes. For more information about return values and other behavior, see the documentation for <xref:System.Xaml.XamlType.LookupConstructionRequiresArguments%2A> on this type.'
   syntax:
     content: public bool ConstructionRequiresArguments { get; }
     return:
@@ -564,13 +564,13 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: Gets the types that are used to wrap content for a content property when it is not a strict type match, such as strings in a strongly typed `Collection<T>`.
+  summary: 'Gets the types that are used to wrap content for a content property when it is not a strict type match, such as strings in a strongly typed `Collection<T>`.'
   remarks: "If there are no wrappers to account for type match loosening, this property is `null`.  \n  \n Types that evaluate as <xref:System.Xaml.XamlType.CanAssignTo%2A> for a specific content type are not considered multiple types for purposes of <xref:System.Xaml.XamlType.ContentWrappers%2A>.  \n  \n In the CLR binding for <xref:System.Xaml> and <xref:System.Xaml.XamlType>, the XAML content wrapper type can be specified on a type as a <xref:System.Windows.Markup.ContentWrapperAttribute>.  \n  \n If you do not use the default internal CLR reflection technique for a <xref:System.Xaml.XamlType>, calls to this property can invoke <xref:System.Xaml.XamlType.LookupContentWrappers%2A> overrides on <xref:System.Xaml.XamlType> derived classes. For more information about return values and other behavior, see the documentation for <xref:System.Xaml.XamlType.LookupContentWrappers%2A> on this type."
   syntax:
     content: public System.Collections.Generic.IList<System.Xaml.XamlType> ContentWrappers { get; }
     return:
       type: System.Collections.Generic.IList{System.Xaml.XamlType}
-      description: A read-only collection of possible content wrapper types; otherwise, `null`.
+      description: 'A read-only collection of possible content wrapper types; otherwise, `null`.'
   overload: System.Xaml.XamlType.ContentWrappers*
   exceptions: []
   version:
@@ -739,7 +739,7 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Returns the XAML member that is aliased to a XAML directive by this <xref href="System.Xaml.XamlType"></xref>.
-  remarks: If you do not use the default internal CLR reflection technique for a <xref:System.Xaml.XamlType>, calls to this method can invoke <xref:System.Xaml.XamlType.LookupAliasedProperty%2A> overrides on <xref:System.Xaml.XamlType> derived classes. For more information about return values and other behavior, see the documentation for <xref:System.Xaml.XamlType.LookupAliasedProperty%2A> on this type.
+  remarks: 'If you do not use the default internal CLR reflection technique for a <xref:System.Xaml.XamlType>, calls to this method can invoke <xref:System.Xaml.XamlType.LookupAliasedProperty%2A> overrides on <xref:System.Xaml.XamlType> derived classes. For more information about return values and other behavior, see the documentation for <xref:System.Xaml.XamlType.LookupAliasedProperty%2A> on this type.'
   syntax:
     content: public System.Xaml.XamlMember GetAliasedProperty (System.Xaml.XamlDirective directive);
     parameters:
@@ -748,7 +748,7 @@ items:
       description: The directive for which to find the aliased member.
     return:
       type: System.Xaml.XamlMember
-      description: The aliased member, if found; otherwise, `null`.
+      description: 'The aliased member, if found; otherwise, `null`.'
   overload: System.Xaml.XamlType.GetAliasedProperty*
   exceptions: []
   version:
@@ -828,7 +828,7 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Returns a collection that contains all the members that are exposed by this <xref href="System.Xaml.XamlType"></xref>.
-  remarks: Calls to this method can invoke <xref:System.Xaml.XamlType.LookupAllMembers%2A> overrides on <xref:System.Xaml.XamlType> derived classes.
+  remarks: 'Calls to this method can invoke <xref:System.Xaml.XamlType.LookupAllMembers%2A> overrides on <xref:System.Xaml.XamlType> derived classes.'
   syntax:
     content: public System.Collections.Generic.ICollection<System.Xaml.XamlMember> GetAllMembers ();
     parameters: []
@@ -877,10 +877,10 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: The name of the attachable member to get, in <code>ownerTypeName.MemberName</code> form.
+      description: 'The name of the attachable member to get, in <code>ownerTypeName.MemberName</code> form.'
     return:
       type: System.Xaml.XamlMember
-      description: A <xref href="System.Xaml.XamlMember"></xref> object for the requested attachable member; otherwise, `null`, if no attachable member by that name exists.
+      description: 'A <xref href="System.Xaml.XamlMember"></xref> object for the requested attachable member; otherwise, `null`, if no attachable member by that name exists.'
   overload: System.Xaml.XamlType.GetAttachableMember*
   exceptions: []
   version:
@@ -968,7 +968,7 @@ items:
       description: The name of the member to get (as a string).
     return:
       type: System.Xaml.XamlMember
-      description: The <xref href="System.Xaml.XamlMember"></xref> information for the member, if such a member was found; otherwise, `null`.
+      description: 'The <xref href="System.Xaml.XamlMember"></xref> information for the member, if such a member was found; otherwise, `null`.'
   overload: System.Xaml.XamlType.GetMember*
   exceptions: []
   version:
@@ -1004,7 +1004,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: For markup extension types, returns the types of the positional parameters that are supported in a specific markup extension usage for this <xref href="System.Xaml.XamlType"></xref>.
+  summary: 'For markup extension types, returns the types of the positional parameters that are supported in a specific markup extension usage for this <xref href="System.Xaml.XamlType"></xref>.'
   remarks: "This API is only relevant if this <xref:System.Xaml.XamlType> represents a markup extension (<xref:System.Xaml.XamlType.IsMarkupExtension%2A> is `true`).  \n  \n The input `parameterCount` is not for requesting the type of a specific positional parameter. It is for specifying the arity of a markup extension usage. Markup extension usage often has multiple \"signatures\" and uses different parameter arity (count) of positional parameters to differentiate. However, you can configure a schema context to allow duplicate arities and use types of the positional parameters for differentiation. For more information, see <xref:System.Xaml.XamlSchemaContext.SupportMarkupExtensionsWithDuplicateArity%2A>. For a specific arity (count), the parameter positions and types can vary. To get the positional type of a specific arity's markup extension usage, you first call <xref:System.Xaml.XamlType.GetPositionalParameters%2A> specifying the arity count. Then get the item at that position from the returned collection.  \n  \n Calls to this method can invoke <xref:System.Xaml.XamlType.LookupPositionalParameters%2A> overrides on <xref:System.Xaml.XamlType> derived classes."
   syntax:
     content: public System.Collections.Generic.IList<System.Xaml.XamlType> GetPositionalParameters (int parameterCount);
@@ -1014,7 +1014,7 @@ items:
       description: The count (arity) of the particular syntax or constructor mode that you want information about.
     return:
       type: System.Collections.Generic.IList{System.Xaml.XamlType}
-      description: A list of <xref href="System.Xaml.XamlType"></xref> values, where each <xref href="System.Xaml.XamlType"></xref> is the type for that position in the syntax. You must specify the types in the same order when you supply markup input for the markup extension.
+      description: 'A list of <xref href="System.Xaml.XamlType"></xref> values, where each <xref href="System.Xaml.XamlType"></xref> is the type for that position in the syntax. You must specify the types in the same order when you supply markup input for the markup extension.'
   overload: System.Xaml.XamlType.GetPositionalParameters*
   exceptions: []
   version:
@@ -1057,7 +1057,7 @@ items:
     parameters: []
     return:
       type: System.Collections.Generic.IList{System.String}
-      description: A list of string values, where each string is the URI identifier for a XAML namespace.
+      description: 'A list of string values, where each string is the URI identifier for a XAML namespace.'
   overload: System.Xaml.XamlType.GetXamlNamespaces*
   exceptions: []
   version:
@@ -1135,8 +1135,8 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: Gets a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> represents an ambient type, as per the XAML definition.
-  remarks: If you do not use the default internal CLR reflection technique for a <xref:System.Xaml.XamlType>, calls to this property can invoke <xref:System.Xaml.XamlType.LookupIsAmbient%2A> overrides on <xref:System.Xaml.XamlType> derived classes. For more information about return values and other behavior, see the documentation for <xref:System.Xaml.XamlType.LookupIsAmbient%2A> on this type.
+  summary: 'Gets a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> represents an ambient type, as per the XAML definition.'
+  remarks: 'If you do not use the default internal CLR reflection technique for a <xref:System.Xaml.XamlType>, calls to this property can invoke <xref:System.Xaml.XamlType.LookupIsAmbient%2A> overrides on <xref:System.Xaml.XamlType> derived classes. For more information about return values and other behavior, see the documentation for <xref:System.Xaml.XamlType.LookupIsAmbient%2A> on this type.'
   syntax:
     content: public bool IsAmbient { get; }
     return:
@@ -1178,7 +1178,7 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Gets a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> represents an array.
-  remarks: If you do not use the default internal CLR reflection technique for a <xref:System.Xaml.XamlType>, calls to this property can invoke <xref:System.Xaml.XamlType.LookupCollectionKind%2A> overrides on <xref:System.Xaml.XamlType> derived classes. For more information about return values and other behavior, see the documentation for <xref:System.Xaml.XamlType.LookupCollectionKind%2A> on this type.
+  remarks: 'If you do not use the default internal CLR reflection technique for a <xref:System.Xaml.XamlType>, calls to this property can invoke <xref:System.Xaml.XamlType.LookupCollectionKind%2A> overrides on <xref:System.Xaml.XamlType> derived classes. For more information about return values and other behavior, see the documentation for <xref:System.Xaml.XamlType.LookupCollectionKind%2A> on this type.'
   syntax:
     content: public bool IsArray { get; }
     return:
@@ -1220,7 +1220,7 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Gets a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> represents a collection.
-  remarks: If you do not use the default internal CLR reflection technique for a <xref:System.Xaml.XamlType>, calls to this property can invoke <xref:System.Xaml.XamlType.LookupCollectionKind%2A> overrides on <xref:System.Xaml.XamlType> derived classes. For more information about return values and other behavior, see the documentation for <xref:System.Xaml.XamlType.LookupCollectionKind%2A> on this type.
+  remarks: 'If you do not use the default internal CLR reflection technique for a <xref:System.Xaml.XamlType>, calls to this property can invoke <xref:System.Xaml.XamlType.LookupCollectionKind%2A> overrides on <xref:System.Xaml.XamlType> derived classes. For more information about return values and other behavior, see the documentation for <xref:System.Xaml.XamlType.LookupCollectionKind%2A> on this type.'
   syntax:
     content: public bool IsCollection { get; }
     return:
@@ -1261,7 +1261,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: Gets a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> represents a constructible type, as per the XAML definition.
+  summary: 'Gets a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> represents a constructible type, as per the XAML definition.'
   remarks: "This property aligns to the `[is default constructible]` information item in the [MS-XAML] specification.  \n  \n If you do not use the default internal CLR reflection technique for a <xref:System.Xaml.XamlType>, calls to this property can invoke <xref:System.Xaml.XamlType.LookupIsConstructible%2A> overrides on <xref:System.Xaml.XamlType> derived classes. For more information about return values and other behavior, see the documentation for <xref:System.Xaml.XamlType.LookupIsConstructible%2A> on this type."
   syntax:
     content: public bool IsConstructible { get; }
@@ -1303,7 +1303,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: Gets a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> represents a dictionary, as per the XAML definition.
+  summary: 'Gets a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> represents a dictionary, as per the XAML definition.'
   remarks: "This property aligns to the `[is dictionary]` information item in the [MS-XAML] specification.  \n  \n If you do not use the default internal CLR reflection technique for a <xref:System.Xaml.XamlType>, calls to this property can invoke <xref:System.Xaml.XamlType.LookupCollectionKind%2A> overrides on <xref:System.Xaml.XamlType> derived classes. For more information about return values and other behavior, see the documentation for <xref:System.Xaml.XamlType.LookupCollectionKind%2A> on this type."
   syntax:
     content: public bool IsDictionary { get; }
@@ -1346,7 +1346,7 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Gets a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> represents a generic type.
-  remarks: This property is a helper property that checks for a null value of <xref:System.Xaml.XamlType.TypeArguments%2A>. There is no specific `Lookup` method related to <xref:System.Xaml.XamlType.IsGeneric%2A>.
+  remarks: 'This property is a helper property that checks for a null value of <xref:System.Xaml.XamlType.TypeArguments%2A>. There is no specific `Lookup` method related to <xref:System.Xaml.XamlType.IsGeneric%2A>.'
   syntax:
     content: public bool IsGeneric { get; }
     return:
@@ -1429,7 +1429,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: Gets a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> represents a XAML namescope, as per the XAML definition.
+  summary: 'Gets a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> represents a XAML namescope, as per the XAML definition.'
   remarks: "A XAML namescope enforces the name uniqueness of the property or properties used for `x:Name` / `[name property]`. If <xref:System.Xaml.XamlType.IsNameScope%2A> is `true`, some mechanism for enforcing uniqueness should exist and should evaluate from the perspective of this type owning a XAML namescope. The XAML namescope then extends to the content of the type until another XAML namescope-owning type is encountered.  \n  \n This property aligns to the `[is name scope]` information item in the [MS-XAML] specification.  \n  \n If you do not use the default internal CLR reflection technique for a <xref:System.Xaml.XamlType>, calls to this property can invoke <xref:System.Xaml.XamlType.LookupIsNameScope%2A> overrides on <xref:System.Xaml.XamlType> derived classes."
   syntax:
     content: public bool IsNameScope { get; }
@@ -1512,7 +1512,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: Gets a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> represents a nullable type, as per the XAML definition.
+  summary: 'Gets a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> represents a nullable type, as per the XAML definition.'
   remarks: "This property aligns to the `[is nullable]` information item in the [MS-XAML] specification.  \n  \n If you are not using the default internal CLR reflection technique for a <xref:System.Xaml.XamlType>, calls to this property can invoke <xref:System.Xaml.XamlType.LookupIsNullable%2A> overrides on <xref:System.Xaml.XamlType> derived classes."
   syntax:
     content: public bool IsNullable { get; }
@@ -1680,8 +1680,8 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: Gets a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> represents a whitespace significant collection, as per the XML definition.
-  remarks: If you do not use the default internal CLR reflection technique for a <xref:System.Xaml.XamlType>, calls to this property can invoke <xref:System.Xaml.XamlType.LookupIsWhitespaceSignificantCollection%2A> overrides on <xref:System.Xaml.XamlType> derived classes. For more information about return values and other behavior, see the documentation for <xref:System.Xaml.XamlType.LookupIsWhitespaceSignificantCollection%2A> on this type.
+  summary: 'Gets a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> represents a whitespace significant collection, as per the XML definition.'
+  remarks: 'If you do not use the default internal CLR reflection technique for a <xref:System.Xaml.XamlType>, calls to this property can invoke <xref:System.Xaml.XamlType.LookupIsWhitespaceSignificantCollection%2A> overrides on <xref:System.Xaml.XamlType> derived classes. For more information about return values and other behavior, see the documentation for <xref:System.Xaml.XamlType.LookupIsWhitespaceSignificantCollection%2A> on this type.'
   syntax:
     content: public bool IsWhitespaceSignificantCollection { get; }
     return:
@@ -1722,7 +1722,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: Gets a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> represents XML `XDATA`, as per the XAML definition.
+  summary: 'Gets a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> represents XML `XDATA`, as per the XAML definition.'
   remarks: "This property aligns to the `[is xdata]` information item in the [MS-XAML] specification.  \n  \n If you do not use the default internal CLR reflection technique for a <xref:System.Xaml.XamlType>, calls to this property can invoke <xref:System.Xaml.XamlType.LookupIsXData%2A> overrides on <xref:System.Xaml.XamlType> derived classes. For more information about return values and other behavior, see the documentation for <xref:System.Xaml.XamlType.LookupIsXData%2A> on this type."
   syntax:
     content: public bool IsXData { get; }
@@ -1770,7 +1770,7 @@ items:
     content: public System.Xaml.XamlType ItemType { get; }
     return:
       type: System.Xaml.XamlType
-      description: A <xref href="System.Xaml.XamlType"></xref> object for the type of the items in the collection; otherwise, `null`, if this <xref href="System.Xaml.XamlType"></xref> does not represent a collection.
+      description: 'A <xref href="System.Xaml.XamlType"></xref> object for the type of the items in the collection; otherwise, `null`, if this <xref href="System.Xaml.XamlType"></xref> does not represent a collection.'
   overload: System.Xaml.XamlType.ItemType*
   exceptions: []
   version:
@@ -1806,13 +1806,13 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: Gets a value that provides the type information for the key property of this <xref href="System.Xaml.XamlType"></xref>, if the <xref href="System.Xaml.XamlType"></xref> represents a dictionary.
+  summary: 'Gets a value that provides the type information for the key property of this <xref href="System.Xaml.XamlType"></xref>, if the <xref href="System.Xaml.XamlType"></xref> represents a dictionary.'
   remarks: "This property is only relevant if this <xref:System.Xaml.XamlType> represents a dictionary (<xref:System.Xaml.XamlType.IsDictionary%2A> is `true`).  \n  \n If you do not use the default internal CLR reflection technique for a <xref:System.Xaml.XamlType>, calls to this property can invoke <xref:System.Xaml.XamlType.LookupKeyType%2A> overrides on <xref:System.Xaml.XamlType> derived classes. For more information about return values and other behavior, see the documentation for <xref:System.Xaml.XamlType.LookupKeyType%2A> on this type."
   syntax:
     content: public System.Xaml.XamlType KeyType { get; }
     return:
       type: System.Xaml.XamlType
-      description: A <xref href="System.Xaml.XamlType"></xref> object for the type of the key for dictionary usage, otherwise, `null`, if this <xref href="System.Xaml.XamlType"></xref> does not represent a dictionary.
+      description: 'A <xref href="System.Xaml.XamlType"></xref> object for the type of the key for dictionary usage, otherwise, `null`, if this <xref href="System.Xaml.XamlType"></xref> does not represent a dictionary.'
   overload: System.Xaml.XamlType.KeyType*
   exceptions: []
   version:
@@ -1858,7 +1858,7 @@ items:
       description: The directive for which to find the aliased member.
     return:
       type: System.Xaml.XamlMember
-      description: The aliased member, if found; otherwise, `null`.
+      description: 'The aliased member, if found; otherwise, `null`.'
   overload: System.Xaml.XamlType.LookupAliasedProperty*
   exceptions: []
   version:
@@ -1901,7 +1901,7 @@ items:
     parameters: []
     return:
       type: System.Collections.Generic.IEnumerable{System.Xaml.XamlMember}
-      description: An enumerable set that contains zero or more <xref href="System.Xaml.XamlMember"></xref> values; otherwise, `null`.
+      description: 'An enumerable set that contains zero or more <xref href="System.Xaml.XamlMember"></xref> values; otherwise, `null`.'
   overload: System.Xaml.XamlType.LookupAllAttachableMembers*
   exceptions: []
   version:
@@ -2030,10 +2030,10 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: The name of the attachable member to get, in <code>ownerTypeName.MemberName</code> form.
+      description: 'The name of the attachable member to get, in <code>ownerTypeName.MemberName</code> form.'
     return:
       type: System.Xaml.XamlMember
-      description: A <xref href="System.Xaml.XamlMember"></xref> object for the requested attachable member; otherwise, `null`, if no attachable member by that name exists.
+      description: 'A <xref href="System.Xaml.XamlMember"></xref> object for the requested attachable member; otherwise, `null`, if no attachable member by that name exists.'
   overload: System.Xaml.XamlType.LookupAttachableMember*
   exceptions: []
   version:
@@ -2155,7 +2155,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: Returns a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> must have arguments (generic constraints through `x:TypeArguments`, initialization text, or other XAML techniques) to construct a valid instance of the type.
+  summary: 'Returns a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> must have arguments (generic constraints through `x:TypeArguments`, initialization text, or other XAML techniques) to construct a valid instance of the type.'
   remarks: "This method can be invoked when a caller gets a value from <xref:System.Xaml.XamlType.ConstructionRequiresArguments%2A>.  \n  \n The default implementation returns `false` for types considered value types in the CLR type system. For other than value types, CLR reflection <xref:System.Reflection.ConstructorInfo> is used to determine whether a default constructor exists.  \n  \n Override this method if you are not relying on default internal CLR reflection and are using metadata or other techniques for reporting the XAML type system information or schema information of a type."
   syntax:
     content: protected virtual bool LookupConstructionRequiresArguments ();
@@ -2284,7 +2284,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: When implemented in a derived class, returns an <xref href="System.Reflection.ICustomAttributeProvider"></xref> implementation.
+  summary: 'When implemented in a derived class, returns an <xref href="System.Reflection.ICustomAttributeProvider"></xref> implementation.'
   remarks: "Override this method to provide the internal reflection with an alternative way to obtain CLR attribute values. In absence of an override, the internal reflector uses typical CLR reflection logic.  \n  \n The default implementation returns `null`."
   syntax:
     content: protected virtual System.Reflection.ICustomAttributeProvider LookupCustomAttributeProvider ();
@@ -2327,7 +2327,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: Returns a <xref href="System.Xaml.Schema.XamlValueConverter`1"></xref> object, which is used for deferred loading of XAML-declared objects.
+  summary: 'Returns a <xref href="System.Xaml.Schema.XamlValueConverter`1"></xref> object, which is used for deferred loading of XAML-declared objects.'
   remarks: "This method can be invoked when a caller gets a value from <xref:System.Xaml.XamlType.DeferringLoader%2A>. Override this method if you want <xref:System.Xaml.XamlType.DeferringLoader%2A> to return a different value than is enabled by default internal reflection and are also providing custom <xref:System.Xaml.Schema.XamlTypeInvoker> information.  \n  \n The default implementation returns an object on the basis of reading <xref:System.Windows.Markup.XamlDeferLoadAttribute>. It can also  check <xref:System.Xaml.XamlType.BaseType%2A> for the attribute if no attribute is found on the immediate underlying type. If a value is unavailable, this method returns `null`."
   syntax:
     content: protected virtual System.Xaml.Schema.XamlValueConverter<System.Xaml.XamlDeferringLoader> LookupDeferringLoader ();
@@ -2377,7 +2377,7 @@ items:
     parameters: []
     return:
       type: System.Xaml.Schema.XamlTypeInvoker
-      description: The <xref href="System.Xaml.Schema.XamlTypeInvoker"></xref> information for this <xref href="System.Xaml.XamlType"></xref>; otherwise, `null`.
+      description: 'The <xref href="System.Xaml.Schema.XamlTypeInvoker"></xref> information for this <xref href="System.Xaml.XamlType"></xref>; otherwise, `null`.'
   overload: System.Xaml.XamlType.LookupInvoker*
   exceptions: []
   version:
@@ -2413,7 +2413,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: Returns a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> represents an ambient type, as per the XAML definition.
+  summary: 'Returns a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> represents an ambient type, as per the XAML definition.'
   remarks: "This method can be invoked by calls to <xref:System.Xaml.XamlType.IsAmbient%2A>.  \n  \n The default implementation uses CLR reflection on the <xref:System.Xaml.XamlType.UnderlyingType%2A> and can check the base types. This implementation checks for the <xref:System.Windows.Markup.AmbientAttribute> that is applied to the relevant type's definition at the class level and returns `true` in this case. All other cases return `false`.  \n  \n Override this method if you want <xref:System.Xaml.XamlType.IsAmbient%2A> to return a different value than is enabled by default internal reflection."
   syntax:
     content: protected virtual bool LookupIsAmbient ();
@@ -2456,7 +2456,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: Returns a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> represents a constructible type, as per the XAML definition.
+  summary: 'Returns a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> represents a constructible type, as per the XAML definition.'
   remarks: "This method can be invoked by calls to <xref:System.Xaml.XamlType.IsConstructible%2A>.  \n  \n The default implementation uses CLR reflection on the <xref:System.Xaml.XamlType.UnderlyingType%2A>. The type must be concrete, non-nested, and closed. The default implementation checks whether the type is a value type and the return of <xref:System.Xaml.XamlType.ConstructionRequiresArguments%2A>. For a null <xref:System.Xaml.XamlType.UnderlyingType%2A>, this method returns `true`.  \n  \n Override this method if you want <xref:System.Xaml.XamlType.IsConstructible%2A> to return a different value than is enabled by default internal reflection."
   syntax:
     content: protected virtual bool LookupIsConstructible ();
@@ -2542,7 +2542,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: Returns a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> represents a XAML namescope, as per the XAML definition.
+  summary: 'Returns a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> represents a XAML namescope, as per the XAML definition.'
   remarks: "This method can be invoked by calls to <xref:System.Xaml.XamlType.IsNameScope%2A>.  \n  \n The default implementation makes a <xref:System.Xaml.XamlType.CanAssignTo%2A> call indirectly against the type <xref:System.Windows.Markup.INameScope>. <xref:System.Windows.Markup.INameScope> is an interface that is defined in the assembly WindowsBase. This technique for XAML namescope identification is used both by WPF and [!INCLUDE[TLA#tla_workflow](~/includes/tlasharptla-workflow-md.md)] implementations of XAML.  \n  \n Override this method if you want <xref:System.Xaml.XamlType.IsNameScope%2A> to use different logic.  \n  \n A XAML namescope enforces the name uniqueness of the property or properties that are used for `x:Name` / `[name property]`. If <xref:System.Xaml.XamlType.IsNameScope%2A> is `true`, then some mechanism for enforcing uniqueness should exist and should evaluate from the perspective of this type owning a XAML namescope. The XAML namescope then extends to the content of the type until another XAML namescope owning type is encountered."
   syntax:
     content: protected virtual bool LookupIsNameScope ();
@@ -2585,7 +2585,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: Returns a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> represents a nullable type, as per the XAML definition.
+  summary: 'Returns a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> represents a nullable type, as per the XAML definition.'
   remarks: "This method can be invoked by calls to <xref:System.Xaml.XamlType.IsNullable%2A>.  \n  \n The default implementation makes a determination based on the CLR core library nullable concept, checked against <xref:System.Xaml.XamlType.UnderlyingType%2A>. For a null <xref:System.Xaml.XamlType.UnderlyingType%2A>, it returns `true`.  \n  \n Override this method if you want <xref:System.Xaml.XamlType.IsNullable%2A> to use different logic."
   syntax:
     content: protected virtual bool LookupIsNullable ();
@@ -2714,7 +2714,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: Returns a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> represents a whitespace significant collection, as per the XML definition.
+  summary: 'Returns a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> represents a whitespace significant collection, as per the XML definition.'
   remarks: "This method can be invoked by calls to <xref:System.Xaml.XamlType.IsWhitespaceSignificantCollection%2A>.  \n  \n The default implementation returns a value based on reading <xref:System.Windows.Markup.WhitespaceSignificantCollectionAttribute>. It can also check the <xref:System.Xaml.XamlType.BaseType%2A> for the attribute if no attribute is found on the immediate underlying type. If a value is not available, it returns `false`.  \n  \n Override this method if you want <xref:System.Xaml.XamlType.IsWhitespaceSignificantCollection%2A> to use different logic."
   syntax:
     content: protected virtual bool LookupIsWhitespaceSignificantCollection ();
@@ -2757,7 +2757,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: Returns a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> represents XML `XDATA`, as per the XAML definition.
+  summary: 'Returns a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> represents XML `XDATA`, as per the XAML definition.'
   remarks: "This method can be invoked by calls to <xref:System.Xaml.XamlType.IsXData%2A>.  \n  \n The default implementation makes a <xref:System.Xaml.XamlType.CanAssignTo%2A> call indirectly against the type <xref:System.Xml.Serialization.IXmlSerializable>.  \n  \n Override this method if you want <xref:System.Xaml.XamlType.IsXData%2A> to use different logic."
   syntax:
     content: protected virtual bool LookupIsXData ();
@@ -2807,7 +2807,7 @@ items:
     parameters: []
     return:
       type: System.Xaml.XamlType
-      description: A <xref href="System.Xaml.XamlType"></xref> object for the type of the items in the collection; otherwise, `null` if this <xref href="System.Xaml.XamlType"></xref> does not represent a collection.
+      description: 'A <xref href="System.Xaml.XamlType"></xref> object for the type of the items in the collection; otherwise, `null` if this <xref href="System.Xaml.XamlType"></xref> does not represent a collection.'
   overload: System.Xaml.XamlType.LookupItemType*
   exceptions: []
   version:
@@ -2843,14 +2843,14 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: Returns a value that provides the type information for the key property of this <xref href="System.Xaml.XamlType"></xref>, if the <xref href="System.Xaml.XamlType"></xref> represents a dictionary.
+  summary: 'Returns a value that provides the type information for the key property of this <xref href="System.Xaml.XamlType"></xref>, if the <xref href="System.Xaml.XamlType"></xref> represents a dictionary.'
   remarks: "This method can be invoked by calls to <xref:System.Xaml.XamlType.KeyType%2A>.  \n  \n The default implementation can use CLR reflection concepts, such as checking for an `Add` method by <xref:System.Reflection.MethodInfo> and using the <xref:System.Reflection.ParameterInfo>; and checking <xref:System.Xaml.XamlType.BaseType%2A> and trying the same logic there.  \n  \n Override this method if you want <xref:System.Xaml.XamlType.KeyType%2A> to use different logic. Cases where <xref:System.Xaml.XamlType.LookupCollectionKind%2A> does not return <xref:System.Xaml.Schema.XamlCollectionKind?displayProperty=fullName> should return `null`."
   syntax:
     content: protected virtual System.Xaml.XamlType LookupKeyType ();
     parameters: []
     return:
       type: System.Xaml.XamlType
-      description: A <xref href="System.Xaml.XamlType"></xref> object for the type of the key for dictionary usage, or `null` if this <xref href="System.Xaml.XamlType"></xref> does not represent a dictionary,
+      description: 'A <xref href="System.Xaml.XamlType"></xref> object for the type of the key for dictionary usage, or `null` if this <xref href="System.Xaml.XamlType"></xref> does not represent a dictionary,'
   overload: System.Xaml.XamlType.LookupKeyType*
   exceptions: []
   version:
@@ -2886,14 +2886,14 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: Returns a value that provides the type information for the returned `ProvideValue` of this <xref href="System.Xaml.XamlType"></xref>, if it represents a markup extension.
+  summary: 'Returns a value that provides the type information for the returned `ProvideValue` of this <xref href="System.Xaml.XamlType"></xref>, if it represents a markup extension.'
   remarks: "This method can be invoked by calls to <xref:System.Xaml.XamlType.MarkupExtensionReturnType%2A>.  \n  \n The default implementation returns a <xref:System.Xaml.XamlType> on the basis of reading <xref:System.Windows.Markup.MarkupExtensionReturnTypeAttribute>. It can also check <xref:System.Xaml.XamlType.BaseType%2A> for the attribute if no attribute is found on the immediate underlying type. If a value is not available, it returns `null`.  \n  \n Override this method if you want <xref:System.Xaml.XamlType.MarkupExtensionReturnType%2A> to use different logic."
   syntax:
     content: protected virtual System.Xaml.XamlType LookupMarkupExtensionReturnType ();
     parameters: []
     return:
       type: System.Xaml.XamlType
-      description: A <xref href="System.Xaml.XamlType"></xref> object for the return type for markup extension usage; otherwise, `null`, if this <xref href="System.Xaml.XamlType"></xref> does not represent a markup extension.
+      description: 'A <xref href="System.Xaml.XamlType"></xref> object for the return type for markup extension usage; otherwise, `null`, if this <xref href="System.Xaml.XamlType"></xref> does not represent a markup extension.'
   overload: System.Xaml.XamlType.LookupMarkupExtensionReturnType*
   exceptions: []
   version:
@@ -2942,7 +2942,7 @@ items:
       description: '`true` to return a member even if that member has a `true` value for <xref href="System.Xaml.XamlMember.IsReadOnly"></xref>; `false` to not return a <xref href="System.Xaml.XamlMember.IsReadOnly"></xref> member. The default is `false`.'
     return:
       type: System.Xaml.XamlMember
-      description: The <xref href="System.Xaml.XamlMember"></xref> information for the member, if a member was found; otherwise, `null`.
+      description: 'The <xref href="System.Xaml.XamlMember"></xref> information for the member, if a member was found; otherwise, `null`.'
   overload: System.Xaml.XamlType.LookupMember*
   exceptions: []
   version:
@@ -2978,7 +2978,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: For markup extension types, returns the types of the positional parameters that are supported in a specific markup extension usage for this <xref href="System.Xaml.XamlType"></xref>.
+  summary: 'For markup extension types, returns the types of the positional parameters that are supported in a specific markup extension usage for this <xref href="System.Xaml.XamlType"></xref>.'
   remarks: "This method can be invoked by calls to <xref:System.Xaml.XamlType.GetPositionalParameters%2A>.  \n  \n The default implementation uses internal reflection information based on finding constructors and checking the arity. Override this method if you want <xref:System.Xaml.XamlType.GetPositionalParameters%2A> to use different logic.  \n  \n This API is only relevant if this <xref:System.Xaml.XamlType> represents a markup extension (<xref:System.Xaml.XamlType.IsMarkupExtension%2A> is `true`).  \n  \n The input `parameterCount` is not for requesting the type of a specific positional parameter. It is for specifying the arity of a markup extension usage. Markup extension usage often has multiple signatures and uses different parameter arity (count) of positional parameters to differentiate. However, you can configure a schema context to allow duplicate arities and use types of the positional parameters for differentiation. For more information, see <xref:System.Xaml.XamlSchemaContext.SupportMarkupExtensionsWithDuplicateArity%2A>. For a specific arity count, the parameter positions and types can vary. To get the positional type of a specific arity's markup extension usage, you first call <xref:System.Xaml.XamlType.GetPositionalParameters%2A> with the arity count. Then get the item at that position from the returned collection."
   syntax:
     content: protected virtual System.Collections.Generic.IList<System.Xaml.XamlType> LookupPositionalParameters (int parameterCount);
@@ -3025,7 +3025,7 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Returns a handler callback to use for the set operations of markup extensions.
-  remarks: The default implementation returns a value based on reading <xref:System.Windows.Markup.XamlSetMarkupExtensionAttribute>. It can also check <xref:System.Xaml.XamlType.BaseType%2A> for the attribute if no attribute is found on the immediate underlying type. If a value is unavailable, it returns `null`.
+  remarks: 'The default implementation returns a value based on reading <xref:System.Windows.Markup.XamlSetMarkupExtensionAttribute>. It can also check <xref:System.Xaml.XamlType.BaseType%2A> for the attribute if no attribute is found on the immediate underlying type. If a value is unavailable, it returns `null`.'
   syntax:
     content: protected virtual EventHandler<System.Windows.Markup.XamlSetMarkupExtensionEventArgs> LookupSetMarkupExtensionHandler ();
     parameters: []
@@ -3068,7 +3068,7 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Returns a handler to use for type converter setting cases.
-  remarks: The default implementation returns a value based on reading <xref:System.Windows.Markup.XamlSetTypeConverterAttribute>. It can also check <xref:System.Xaml.XamlType.BaseType%2A> for the attribute if no attribute is found on the immediate underlying type. If a value is unavailable, it returns `null`.
+  remarks: 'The default implementation returns a value based on reading <xref:System.Windows.Markup.XamlSetTypeConverterAttribute>. It can also check <xref:System.Xaml.XamlType.BaseType%2A> for the attribute if no attribute is found on the immediate underlying type. If a value is unavailable, it returns `null`.'
   syntax:
     content: protected virtual EventHandler<System.Windows.Markup.XamlSetTypeConverterEventArgs> LookupSetTypeConverterHandler ();
     parameters: []
@@ -3153,14 +3153,14 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: Returns a <xref href="System.Xaml.Schema.XamlValueConverter`1"></xref> that has a <xref href="System.ComponentModel.TypeConverter"></xref> constraint, which represents type-conversion behavior for values of this <xref href="System.Xaml.XamlType"></xref>.
+  summary: 'Returns a <xref href="System.Xaml.Schema.XamlValueConverter`1"></xref> that has a <xref href="System.ComponentModel.TypeConverter"></xref> constraint, which represents type-conversion behavior for values of this <xref href="System.Xaml.XamlType"></xref>.'
   remarks: "This method can be invoked by calls to <xref:System.Xaml.XamlType.TypeConverter%2A>.  \n  \n The default implementation returns a value based on reading <xref:System.ComponentModel.TypeConverterAttribute>. The default implementation can also check <xref:System.Xaml.XamlType.BaseType%2A> for the attribute if no attribute is found on the immediate underlying type. It also includes special logic for default conversion of enumerations, common value types, and generics. If a value is unavailable, it returns `null`.  \n  \n Override this method if you want <xref:System.Xaml.XamlType.TypeConverter%2A> to use different logic."
   syntax:
     content: protected virtual System.Xaml.Schema.XamlValueConverter<System.ComponentModel.TypeConverter> LookupTypeConverter ();
     parameters: []
     return:
       type: System.Xaml.Schema.XamlValueConverter{System.ComponentModel.TypeConverter}
-      description: A <xref href="System.Xaml.Schema.XamlValueConverter`1"></xref> with <xref href="System.ComponentModel.TypeConverter"></xref> constraint that represents type-conversion behavior for values of this <xref href="System.Xaml.XamlType"></xref>; otherwise, `null`.
+      description: 'A <xref href="System.Xaml.Schema.XamlValueConverter`1"></xref> with <xref href="System.ComponentModel.TypeConverter"></xref> constraint that represents type-conversion behavior for values of this <xref href="System.Xaml.XamlType"></xref>; otherwise, `null`.'
   overload: System.Xaml.XamlType.LookupTypeConverter*
   exceptions: []
   version:
@@ -3203,7 +3203,7 @@ items:
     parameters: []
     return:
       type: System.Type
-      description: The CLR <xref href="System.Type"></xref> that underlies this <xref href="System.Xaml.XamlType"></xref>; otherwise, `null`.
+      description: 'The CLR <xref href="System.Type"></xref> that underlies this <xref href="System.Xaml.XamlType"></xref>; otherwise, `null`.'
   overload: System.Xaml.XamlType.LookupUnderlyingType*
   exceptions: []
   version:
@@ -3282,14 +3282,14 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: Returns a <xref href="System.Xaml.Schema.XamlValueConverter`1"></xref> that has a <xref href="System.Windows.Markup.ValueSerializer"></xref> constraint, which represents value serialization behavior for values of this <xref href="System.Xaml.XamlType"></xref>.
+  summary: 'Returns a <xref href="System.Xaml.Schema.XamlValueConverter`1"></xref> that has a <xref href="System.Windows.Markup.ValueSerializer"></xref> constraint, which represents value serialization behavior for values of this <xref href="System.Xaml.XamlType"></xref>.'
   remarks: "This method can be invoked by calls to <xref:System.Xaml.XamlType.ValueSerializer%2A>.  \n  \n The default implementation returns a value based on reading <xref:System.Windows.Markup.ValueSerializerAttribute>. It can also check <xref:System.Xaml.XamlType.BaseType%2A> for the attribute if no attribute is found on the immediate underlying type. It also includes special logic for default serialization of enumerations, common value types, or generics. If a value is unavailable, it returns `null`.  \n  \n Override this method if you want <xref:System.Xaml.XamlType.ValueSerializer%2A> to use different logic."
   syntax:
     content: protected virtual System.Xaml.Schema.XamlValueConverter<System.Windows.Markup.ValueSerializer> LookupValueSerializer ();
     parameters: []
     return:
       type: System.Xaml.Schema.XamlValueConverter{System.Windows.Markup.ValueSerializer}
-      description: A <xref href="System.Xaml.Schema.XamlValueConverter`1"></xref> with <xref href="System.Windows.Markup.ValueSerializer"></xref> constraint that represents value serialization behavior for values of this <xref href="System.Xaml.XamlType"></xref>; otherwise, `null`.
+      description: 'A <xref href="System.Xaml.Schema.XamlValueConverter`1"></xref> with <xref href="System.Windows.Markup.ValueSerializer"></xref> constraint that represents value serialization behavior for values of this <xref href="System.Xaml.XamlType"></xref>; otherwise, `null`.'
   overload: System.Xaml.XamlType.LookupValueSerializer*
   exceptions: []
   version:
@@ -3325,13 +3325,13 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: Gets a value that provides the type information for the returned `ProvideValue` of this <xref href="System.Xaml.XamlType"></xref>, if it represents a markup extension.
+  summary: 'Gets a value that provides the type information for the returned `ProvideValue` of this <xref href="System.Xaml.XamlType"></xref>, if it represents a markup extension.'
   remarks: "This property is only relevant if this <xref:System.Xaml.XamlType> represents a markup extension (`x:MarkupExtension` is in the assignable types list).  \n  \n If you do not use the default internal CLR reflection technique for a <xref:System.Xaml.XamlType>, calls to this property can invoke <xref:System.Xaml.XamlType.LookupMarkupExtensionReturnType%2A> overrides on <xref:System.Xaml.XamlType> derived classes. For more information about return values and other behavior, see the documentation for <xref:System.Xaml.XamlType.LookupMarkupExtensionReturnType%2A> on this type."
   syntax:
     content: public System.Xaml.XamlType MarkupExtensionReturnType { get; }
     return:
       type: System.Xaml.XamlType
-      description: A <xref href="System.Xaml.XamlType"></xref> object for the return type for markup extension usage; otherwise, `null`, if this <xref href="System.Xaml.XamlType"></xref> does not represent a markup extension.
+      description: 'A <xref href="System.Xaml.XamlType"></xref> object for the return type for markup extension usage; otherwise, `null`, if this <xref href="System.Xaml.XamlType"></xref> does not represent a markup extension.'
   overload: System.Xaml.XamlType.MarkupExtensionReturnType*
   exceptions: []
   version:
@@ -3368,7 +3368,7 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Gets the string name of the type that this <xref href="System.Xaml.XamlType"></xref> represents.
-  remarks: This property typically gets the schema-constructed name (per the <xref:System.Xaml.XamlType.%23ctor%2A> signature), or the name of the <xref:System.Type>, if it is constructed by using the pertinent constructor of the CLR type system.
+  remarks: 'This property typically gets the schema-constructed name (per the <xref:System.Xaml.XamlType.%23ctor%2A> signature), or the name of the <xref:System.Type>, if it is constructed by using the pertinent constructor of the CLR type system.'
   syntax:
     content: public string Name { get; }
     return:
@@ -3506,12 +3506,12 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Gets the single XAML namespace that is the primary XAML namespace for this <xref href="System.Xaml.XamlType"></xref>.
-  remarks: This implementation provides the same value as calling <xref:System.Xaml.XamlType.GetXamlNamespaces%2A> and then getting the first value string from the returned enumerable set.
+  remarks: 'This implementation provides the same value as calling <xref:System.Xaml.XamlType.GetXamlNamespaces%2A> and then getting the first value string from the returned enumerable set.'
   syntax:
     content: public string PreferredXamlNamespace { get; }
     return:
       type: System.String
-      description: The identifier, as a string, of the primary XAML namespace for this XAML type.
+      description: 'The identifier, as a string, of the primary XAML namespace for this XAML type.'
   overload: System.Xaml.XamlType.PreferredXamlNamespace*
   exceptions: []
   version:
@@ -3548,7 +3548,7 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Gets the active <xref href="System.Xaml.XamlSchemaContext"></xref> for processing this <xref href="System.Xaml.XamlType"></xref>.
-  remarks: <xref:System.Xaml.XamlSchemaContext> is a required parameter entry when constructing a <xref:System.Xaml.XamlType>.
+  remarks: '<xref:System.Xaml.XamlSchemaContext> is a required parameter entry when constructing a <xref:System.Xaml.XamlType>.'
   syntax:
     content: public System.Xaml.XamlSchemaContext SchemaContext { get; }
     return:
@@ -3590,7 +3590,7 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Returns a string representation of this <xref href="System.Xaml.XamlType"></xref>.
-  remarks: The <xref:System.Xaml.XamlType> implementation of <xref:System.Object.ToString%2A> returns the <xref:System.Xaml.XamlType.Name%2A> property of the <xref:System.Xaml.XamlType>.
+  remarks: 'The <xref:System.Xaml.XamlType> implementation of <xref:System.Object.ToString%2A> returns the <xref:System.Xaml.XamlType.Name%2A> property of the <xref:System.Xaml.XamlType>.'
   syntax:
     content: public override string ToString ();
     parameters: []
@@ -3633,7 +3633,7 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Gets a value that indicates whether this <xref href="System.Xaml.XamlType"></xref> has whitespace handling behavior for serialization that trims the surrounding whitespace in its content.
-  remarks: If you do not use the default internal CLR reflection technique for a <xref:System.Xaml.XamlType>, calls to this property can invoke <xref:System.Xaml.XamlType.LookupIsWhitespaceSignificantCollection%2A> overrides on <xref:System.Xaml.XamlType> derived classes. For more information about return values and other behavior, see the documentation for <xref:System.Xaml.XamlType.LookupIsWhitespaceSignificantCollection%2A> on this type.
+  remarks: 'If you do not use the default internal CLR reflection technique for a <xref:System.Xaml.XamlType>, calls to this property can invoke <xref:System.Xaml.XamlType.LookupIsWhitespaceSignificantCollection%2A> overrides on <xref:System.Xaml.XamlType> derived classes. For more information about return values and other behavior, see the documentation for <xref:System.Xaml.XamlType.LookupIsWhitespaceSignificantCollection%2A> on this type.'
   syntax:
     content: public bool TrimSurroundingWhitespace { get; }
     return:
@@ -3675,12 +3675,12 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Gets a list of type arguments for cases where this <xref href="System.Xaml.XamlType"></xref> represents a generic.
-  remarks: There are certain scenarios for a <xref:System.Xaml.XamlType> where calling the <xref:System.Xaml.XamlType.TypeArguments%2A> parameter returns a list where the types are still open. In this case, one or more of the returned <xref:System.Xaml.XamlType> values will have placeholder values for <xref:System.Xaml.XamlType.Name%2A?displayProperty=fullName>, such as `T`, to represent that the generic is still open. This scenario can occur if you get a <xref:System.Xaml.XamlType> from a call to <xref:System.Xaml.XamlSchemaContext.GetXamlType%2A>, instead of from a XAML reader implementation.
+  remarks: 'There are certain scenarios for a <xref:System.Xaml.XamlType> where calling the <xref:System.Xaml.XamlType.TypeArguments%2A> parameter returns a list where the types are still open. In this case, one or more of the returned <xref:System.Xaml.XamlType> values will have placeholder values for <xref:System.Xaml.XamlType.Name%2A?displayProperty=fullName>, such as `T`, to represent that the generic is still open. This scenario can occur if you get a <xref:System.Xaml.XamlType> from a call to <xref:System.Xaml.XamlSchemaContext.GetXamlType%2A>, instead of from a XAML reader implementation.'
   syntax:
     content: public System.Collections.Generic.IList<System.Xaml.XamlType> TypeArguments { get; }
     return:
       type: System.Collections.Generic.IList{System.Xaml.XamlType}
-      description: A list of type argument types; otherwise, `null`, if this <xref href="System.Xaml.XamlType"></xref> does not represent a generic.
+      description: 'A list of type argument types; otherwise, `null`, if this <xref href="System.Xaml.XamlType"></xref> does not represent a generic.'
   overload: System.Xaml.XamlType.TypeArguments*
   exceptions: []
   version:
@@ -3717,7 +3717,7 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Gets a <xref href="System.Xaml.Schema.XamlValueConverter`1"></xref> with <xref href="System.ComponentModel.TypeConverter"></xref> constraint that represents type conversion behavior for values of this <xref href="System.Xaml.XamlType"></xref>.
-  remarks: If you do not use the default internal CLR reflection technique for a <xref:System.Xaml.XamlType>, calls to this property can invoke <xref:System.Xaml.XamlType.LookupTypeConverter%2A> overrides on <xref:System.Xaml.XamlType> derived classes. For more information about return values and other behavior, see the documentation for <xref:System.Xaml.XamlType.LookupTypeConverter%2A> on this type.
+  remarks: 'If you do not use the default internal CLR reflection technique for a <xref:System.Xaml.XamlType>, calls to this property can invoke <xref:System.Xaml.XamlType.LookupTypeConverter%2A> overrides on <xref:System.Xaml.XamlType> derived classes. For more information about return values and other behavior, see the documentation for <xref:System.Xaml.XamlType.LookupTypeConverter%2A> on this type.'
   syntax:
     content: public System.Xaml.Schema.XamlValueConverter<System.ComponentModel.TypeConverter> TypeConverter { get; }
     return:
@@ -3805,12 +3805,12 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Gets a <xref href="System.Xaml.Schema.XamlValueConverter`1"></xref> with <xref href="System.Windows.Markup.ValueSerializer"></xref> constraint that represents value serialization behavior for values of this <xref href="System.Xaml.XamlType"></xref>.
-  remarks: If you do not use the default internal CLR reflection technique for a <xref:System.Xaml.XamlType>, calls to this property can invoke <xref:System.Xaml.XamlType.LookupValueSerializer%2A> overrides on <xref:System.Xaml.XamlType> derived classes. For more information about return values and other behavior, see the documentation for <xref:System.Xaml.XamlType.LookupValueSerializer%2A> on this type.
+  remarks: 'If you do not use the default internal CLR reflection technique for a <xref:System.Xaml.XamlType>, calls to this property can invoke <xref:System.Xaml.XamlType.LookupValueSerializer%2A> overrides on <xref:System.Xaml.XamlType> derived classes. For more information about return values and other behavior, see the documentation for <xref:System.Xaml.XamlType.LookupValueSerializer%2A> on this type.'
   syntax:
     content: public System.Xaml.Schema.XamlValueConverter<System.Windows.Markup.ValueSerializer> ValueSerializer { get; }
     return:
       type: System.Xaml.Schema.XamlValueConverter{System.Windows.Markup.ValueSerializer}
-      description: A <xref href="System.Xaml.Schema.XamlValueConverter`1"></xref> with <xref href="System.Windows.Markup.ValueSerializer"></xref> constraint that represents value serialization behavior for values of this <xref href="System.Xaml.XamlType"></xref>; otherwise, `null`.
+      description: 'A <xref href="System.Xaml.Schema.XamlValueConverter`1"></xref> with <xref href="System.Windows.Markup.ValueSerializer"></xref> constraint that represents value serialization behavior for values of this <xref href="System.Xaml.XamlType"></xref>; otherwise, `null`.'
   overload: System.Xaml.XamlType.ValueSerializer*
   exceptions: []
   version:

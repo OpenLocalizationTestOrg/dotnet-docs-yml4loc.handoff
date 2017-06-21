@@ -101,7 +101,7 @@ items:
   - System.Security.Permissions
   namespace: System.Security.Policy
   summary: Adds a <xref href="System.Security.Policy.StrongNameMembershipCondition"></xref> corresponding to the specified <xref href="System.Security.Policy.StrongName"></xref> to the list of <xref href="System.Security.Policy.StrongNameMembershipCondition"></xref> objects used to determine whether an assembly is a member of the group of assemblies that should not be evaluated.
-  remarks: The <xref:System.Security.Policy.PolicyLevel.AddFullTrustAssembly%2A> method is not supported in version 2.0 or later of the .NET Framework because the list of full trust assemblies is not used in those versions.
+  remarks: 'The <xref:System.Security.Policy.PolicyLevel.AddFullTrustAssembly%2A> method is not supported in version 2.0 or later of the .NET Framework because the list of full trust assemblies is not used in those versions.'
   syntax:
     content: >-
       [System.Obsolete("All GACed assemblies are now fully trusted and all permissions now succeed on fully trusted code.")]
@@ -166,7 +166,7 @@ items:
   - System.Security.Permissions
   namespace: System.Security.Policy
   summary: Adds the specified <xref href="System.Security.Policy.StrongNameMembershipCondition"></xref> to the list of <xref href="System.Security.Policy.StrongNameMembershipCondition"></xref> objects used to determine whether an assembly is a member of the group of assemblies that should not be evaluated.
-  remarks: The <xref:System.Security.Policy.PolicyLevel.AddFullTrustAssembly%2A> method is not supported in version 2.0 or later of the .NET Framework because the list of full trust assemblies is not used in those versions.
+  remarks: 'The <xref:System.Security.Policy.PolicyLevel.AddFullTrustAssembly%2A> method is not supported in version 2.0 or later of the .NET Framework because the list of full trust assemblies is not used in those versions.'
   syntax:
     content: >-
       [System.Obsolete("All GACed assemblies are now fully trusted and all permissions now succeed on fully trusted code.")]
@@ -356,7 +356,7 @@ items:
   - System.Security.Permissions
   namespace: System.Security.Policy
   summary: Creates a new policy level for use at the application domain policy level.
-  remarks: This method creates a new <xref:System.Security.Policy.PolicyLevel> with the <xref:System.Security.Policy.PolicyLevel.Label%2A> "AppDomain". The new <xref:System.Security.Policy.PolicyLevel> will initially contain the same <xref:System.Security.NamedPermissionSet> objects as in the default computer policy, and will have a single root code group that grants `FullTrust` to all code.
+  remarks: 'This method creates a new <xref:System.Security.Policy.PolicyLevel> with the <xref:System.Security.Policy.PolicyLevel.Label%2A> "AppDomain". The new <xref:System.Security.Policy.PolicyLevel> will initially contain the same <xref:System.Security.NamedPermissionSet> objects as in the default computer policy, and will have a single root code group that grants `FullTrust` to all code.'
   syntax:
     content: public static System.Security.Policy.PolicyLevel CreateAppDomainLevel ();
     parameters: []
@@ -535,7 +535,7 @@ items:
       description: The name of the <xref href="System.Security.NamedPermissionSet"></xref> to find.
     return:
       type: System.Security.NamedPermissionSet
-      description: The <xref href="System.Security.NamedPermissionSet"></xref> in the current policy level with the specified name, if found; otherwise, `null`.
+      description: 'The <xref href="System.Security.NamedPermissionSet"></xref> in the current policy level with the specified name, if found; otherwise, `null`.'
   overload: System.Security.Policy.PolicyLevel.GetNamedPermissionSet*
   exceptions:
   - type: System.ArgumentNullException
@@ -745,7 +745,7 @@ items:
   - System.Security.Permissions
   namespace: System.Security.Policy
   summary: Removes an assembly with the specified <xref href="System.Security.Policy.StrongName"></xref> from the list of assemblies the policy level uses to evaluate policy.
-  remarks: The <xref:System.Security.Policy.PolicyLevel.RemoveFullTrustAssembly%2A> method is not supported in version 2.0 or later of the .NET Framework because the list of full trust assemblies is not used in those versions.
+  remarks: 'The <xref:System.Security.Policy.PolicyLevel.RemoveFullTrustAssembly%2A> method is not supported in version 2.0 or later of the .NET Framework because the list of full trust assemblies is not used in those versions.'
   syntax:
     content: >-
       [System.Obsolete("All GACed assemblies are now fully trusted and all permissions now succeed on fully trusted code.")]
@@ -810,7 +810,7 @@ items:
   - System.Security.Permissions
   namespace: System.Security.Policy
   summary: Removes an assembly with the specified <xref href="System.Security.Policy.StrongNameMembershipCondition"></xref> from the list of assemblies the policy level uses to evaluate policy.
-  remarks: The <xref:System.Security.Policy.PolicyLevel.RemoveFullTrustAssembly%2A> method is not supported in version 2.0 or later of the .NET Framework because the list of full trust assemblies is not used in those versions.
+  remarks: 'The <xref:System.Security.Policy.PolicyLevel.RemoveFullTrustAssembly%2A> method is not supported in version 2.0 or later of the .NET Framework because the list of full trust assemblies is not used in those versions.'
   syntax:
     content: >-
       [System.Obsolete("All GACed assemblies are now fully trusted and all permissions now succeed on fully trusted code.")]
@@ -1049,7 +1049,7 @@ items:
   - mscorlib
   - System.Security.Permissions
   namespace: System.Security.Policy
-  summary: Resolves policy based on evidence for the policy level, and returns the resulting <xref href="System.Security.Policy.PolicyStatement"></xref>.
+  summary: 'Resolves policy based on evidence for the policy level, and returns the resulting <xref href="System.Security.Policy.PolicyStatement"></xref>.'
   remarks: "<xref:System.Security.Policy.PolicyLevel.Resolve%2A> is the basic policy evaluation operation for policy levels. Given a set of evidence as input, this method tests membership conditions of code groups starting at the root and working down as matched. The combination of permissions resulting from the matching code groups produces a <xref:System.Security.Policy.PolicyStatement> that is returned.  \n  \n In granting permissions to code, security policy uses the resolved policy statements for all applicable policy levels, together with the code request for permissions."
   example:
   - "The following code shows the use of the <xref:System.Security.Policy.PolicyLevel.Resolve%2A> method. This code example is part of a larger example provided for the <xref:System.Security.Policy.PolicyLevel> class.  \n  \n [!code-cpp[system.Security.policy.policylevel#13](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.Security.policy.policylevel/CPP/policylevel.cpp#13)]\n [!code-csharp[system.Security.policy.policylevel#13](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Security.policy.policylevel/CS/policylevel.cs#13)]\n [!code-vb[system.Security.policy.policylevel#13](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Security.policy.policylevel/VB/policylevel.vb#13)]"
@@ -1178,7 +1178,7 @@ items:
   - System.Security.Permissions
   namespace: System.Security.Policy
   summary: Gets or sets the root code group for the policy level.
-  remarks: Every policy level has one root <xref:System.Security.Policy.CodeGroup>.
+  remarks: 'Every policy level has one root <xref:System.Security.Policy.CodeGroup>.'
   syntax:
     content: public System.Security.Policy.CodeGroup RootCodeGroup { get; set; }
     return:
@@ -1241,7 +1241,7 @@ items:
     content: public string StoreLocation { get; }
     return:
       type: System.String
-      description: The path where the policy file is stored, or `null` if the <xref href="System.Security.Policy.PolicyLevel"></xref> does not have a storage location.
+      description: 'The path where the policy file is stored, or `null` if the <xref href="System.Security.Policy.PolicyLevel"></xref> does not have a storage location.'
   overload: System.Security.Policy.PolicyLevel.StoreLocation*
   exceptions: []
   version:
@@ -1294,7 +1294,7 @@ items:
     parameters: []
     return:
       type: System.Security.SecurityElement
-      description: An XML encoding of the security object, including any state information.
+      description: 'An XML encoding of the security object, including any state information.'
   overload: System.Security.Policy.PolicyLevel.ToXml*
   exceptions: []
   version:

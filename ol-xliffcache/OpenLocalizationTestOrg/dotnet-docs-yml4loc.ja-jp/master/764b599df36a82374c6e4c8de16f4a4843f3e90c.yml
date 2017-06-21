@@ -49,8 +49,8 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media
-  summary: Classes that derive from this abstract base class define geometric shapes. <xref href="System.Windows.Media.Geometry"></xref> objects can be used for clipping, hit-testing, and rendering 2-D graphic data.
-  remarks: "## Geometry Compared to Shape  \n The <xref:System.Windows.Shapes.Shape?displayProperty=fullName> class has a <xref:System.Windows.Shapes.Shape.Fill%2A>, <xref:System.Windows.Shapes.Shape.Stroke%2A>, and other rendering properties that <xref:System.Windows.Media.Geometry> and its derived classes lack. The <xref:System.Windows.Shapes.Shape> class is a <xref:System.Windows.FrameworkElement> and therefore participates in the layout system; its derived classes can be used as the content of any element that supports <xref:System.Windows.UIElement> children.  \n  \n The <xref:System.Windows.Media.Geometry> class, on the other hand, simply defines the geometry of a shape, and cannot render itself. Because of its simplicity, it has a wider range of uses.  \n  \n **Freezable Features:** Because it inherits from the <xref:System.Windows.Freezable> class, the <xref:System.Windows.Media.Geometry> class provides several special features: <xref:System.Windows.Media.Geometry> objects can be declared as , shared among multiple objects, made read-only to improve performance, cloned, and made thread-safe. For more information about the different features provided by <xref:System.Windows.Freezable> objects, see [Freezable Objects Overview](~/docs/framework/wpf/advanced/freezable-objects-overview.md)."
+  summary: 'Classes that derive from this abstract base class define geometric shapes. <xref href="System.Windows.Media.Geometry"></xref> objects can be used for clipping, hit-testing, and rendering 2-D graphic data.'
+  remarks: "## <a name=\"geometry-compared-to-shape\"></a>Geometry Compared to Shape  \n The <xref:System.Windows.Shapes.Shape?displayProperty=fullName> class has a <xref:System.Windows.Shapes.Shape.Fill%2A>, <xref:System.Windows.Shapes.Shape.Stroke%2A>, and other rendering properties that <xref:System.Windows.Media.Geometry> and its derived classes lack. The <xref:System.Windows.Shapes.Shape> class is a <xref:System.Windows.FrameworkElement> and therefore participates in the layout system; its derived classes can be used as the content of any element that supports <xref:System.Windows.UIElement> children.  \n  \n The <xref:System.Windows.Media.Geometry> class, on the other hand, simply defines the geometry of a shape, and cannot render itself. Because of its simplicity, it has a wider range of uses.  \n  \n **Freezable Features:** Because it inherits from the <xref:System.Windows.Freezable> class, the <xref:System.Windows.Media.Geometry> class provides several special features: <xref:System.Windows.Media.Geometry> objects can be declared as , shared among multiple objects, made read-only to improve performance, cloned, and made thread-safe. For more information about the different features provided by <xref:System.Windows.Freezable> objects, see [Freezable Objects Overview](~/docs/framework/wpf/advanced/freezable-objects-overview.md)."
   syntax:
     content: >-
       [System.ComponentModel.TypeConverter(typeof(System.Windows.Media.GeometryConverter))]
@@ -207,7 +207,7 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media
-  summary: Creates a modifiable clone of the <xref href="System.Windows.Media.Geometry"></xref>, making deep copies of the object's values. When copying dependency properties, this method copies resource references and data bindings (but they might no longer resolve) but not animations or their current values.
+  summary: 'Creates a modifiable clone of the <xref href="System.Windows.Media.Geometry"></xref>, making deep copies of the object''s values. When copying dependency properties, this method copies resource references and data bindings (but they might no longer resolve) but not animations or their current values.'
   remarks: "This method is used to produce modifiable copies of frozen <xref:System.Windows.Freezable> objects (or any <xref:System.Windows.Freezable> object). For convenience, this method shadows the inherited version with a strongly typed implementation.  \n  \n For more information, see <xref:System.Windows.Freezable.Clone%2A?displayProperty=fullName>."
   syntax:
     content: public System.Windows.Media.Geometry Clone ();
@@ -252,7 +252,7 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media
-  summary: Creates a modifiable clone of the <xref href="System.Windows.Media.Geometry"></xref> object, making deep copies of the object's current values. Resource references, data bindings, and animations are not copied, but their current values are.
+  summary: 'Creates a modifiable clone of the <xref href="System.Windows.Media.Geometry"></xref> object, making deep copies of the object''s current values. Resource references, data bindings, and animations are not copied, but their current values are.'
   remarks: "This method is used to produce modifiable copies of frozen <xref:System.Windows.Freezable> objects (or any <xref:System.Windows.Freezable> object). For convenience, this method shadows the inherited version with a strongly typed implementation.  \n  \n For more information, see <xref:System.Windows.Freezable.CloneCurrentValue%2A?displayProperty=fullName>."
   syntax:
     content: public System.Windows.Media.Geometry CloneCurrentValue ();
@@ -313,7 +313,7 @@ items:
       description: One of the enumeration values that specifies how the geometries are combined.
     - id: transform
       type: System.Windows.Media.Transform
-      description: A transformation to apply to the combined geometry, or `null`.
+      description: 'A transformation to apply to the combined geometry, or `null`.'
     return:
       type: System.Windows.Media.PathGeometry
       description: The combined geometry.
@@ -354,7 +354,7 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media
-  summary: Combines the two geometries using the specified <xref href="System.Windows.Media.GeometryCombineMode"></xref> and tolerance factor, and applies the specified transform to the resulting geometry.
+  summary: 'Combines the two geometries using the specified <xref href="System.Windows.Media.GeometryCombineMode"></xref> and tolerance factor, and applies the specified transform to the resulting geometry.'
   remarks: "Some <xref:System.Windows.Media.Geometry> methods (such as <xref:System.Windows.Media.Geometry.Combine%2A>) produce or use a polygonal approximation of the geometry. The tolerance factor specifies the maximum distance between points in this polygonal approximation. Smaller tolerance values produce better approximations, but require more processing than an approximation with a large tolerance factor.  \n  \n Careful thought should be involved when using <xref:System.Windows.Media.Geometry.Combine%2A> to perform a union as it can be very CPU-expensive. In most cases, a <xref:System.Windows.Media.GeometryGroup> or <xref:System.Windows.Media.PathGeometry.AddGeometry%2A> will work better.  \n  \n Use <xref:System.Windows.Media.Geometry.Combine%2A> only when any of the following apply:  \n  \n-   The geometric operation is not a union.  \n  \n-   Either of the geometries has a <xref:System.Windows.Media.FillRule> value of <xref:System.Windows.Media.FillRule.EvenOdd> and the geometries are self-intersecting (i.e. the <xref:System.Windows.Media.FillRule> actually matters).  \n  \n-   Time is not a concern, but space is (for instance, if the geometry is created once and then cached). Typically, <xref:System.Windows.Media.Geometry.Combine%2A> produces smaller output than <xref:System.Windows.Media.PathGeometry.AddGeometry%2A>.  \n  \n-   The resulting geometry will be stroked or used in a path animation and <xref:System.Windows.Media.PathGeometry.AddGeometry%2A> does not provide the desired outline."
   syntax:
     content: public static System.Windows.Media.PathGeometry Combine (System.Windows.Media.Geometry geometry1, System.Windows.Media.Geometry geometry2, System.Windows.Media.GeometryCombineMode mode, System.Windows.Media.Transform transform, double tolerance, System.Windows.Media.ToleranceType type);
@@ -370,10 +370,10 @@ items:
       description: One of the enumeration values that specifies how the geometries are combined.
     - id: transform
       type: System.Windows.Media.Transform
-      description: A transformation to apply to the combined geometry, or `null`.
+      description: 'A transformation to apply to the combined geometry, or `null`.'
     - id: tolerance
       type: System.Double
-      description: The maximum bounds on the distance between points in the polygonal approximation of the geometries. Smaller values produce more accurate results but cause slower execution. If <code>tolerance</code> is less than .000001, .000001 is used instead.
+      description: 'The maximum bounds on the distance between points in the polygonal approximation of the geometries. Smaller values produce more accurate results but cause slower execution. If <code>tolerance</code> is less than .000001, .000001 is used instead.'
     - id: type
       type: System.Windows.Media.ToleranceType
       description: One of the <xref href="System.Windows.Media.ToleranceType"></xref> values that specifies whether the tolerance factor is an absolute value or relative to the area of the geometry.
@@ -461,7 +461,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Indicates whether the current geometry completely contains the specified <xref href="System.Windows.Media.Geometry"></xref>.
-  remarks: The default margin of error (described by the <xref:System.Windows.Media.Geometry.StandardFlatteningTolerance%2A> property) is used when determining whether the current geometry contains the specified geometry. To specify your own margin of error, use the <xref:System.Windows.Media.Geometry.FillContains%2A> method.
+  remarks: 'The default margin of error (described by the <xref:System.Windows.Media.Geometry.StandardFlatteningTolerance%2A> property) is used when determining whether the current geometry contains the specified geometry. To specify your own margin of error, use the <xref:System.Windows.Media.Geometry.FillContains%2A> method.'
   syntax:
     content: public bool FillContains (System.Windows.Media.Geometry geometry);
     parameters:
@@ -509,7 +509,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Indicates whether the geometry contains the specified <xref href="System.Windows.Point"></xref>.
-  remarks: The default tolerance factor (described by the <xref:System.Windows.Media.Geometry.StandardFlatteningTolerance%2A> property) is used when determining whether the geometry contains the specified point. To specify your own tolerance factor, use the <xref:System.Windows.Media.Geometry.FillContains%2A> method.
+  remarks: 'The default tolerance factor (described by the <xref:System.Windows.Media.Geometry.StandardFlatteningTolerance%2A> property) is used when determining whether the geometry contains the specified point. To specify your own tolerance factor, use the <xref:System.Windows.Media.Geometry.FillContains%2A> method.'
   syntax:
     content: public bool FillContains (System.Windows.Point hitPoint);
     parameters:
@@ -556,8 +556,8 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media
-  summary: Indicates whether the current geometry contains the specified <xref href="System.Windows.Media.Geometry"></xref>, given the specified margin of error.
-  remarks: Some <xref:System.Windows.Media.Geometry> methods (such as <xref:System.Windows.Media.Geometry.FillContains%2A>) produce or use a polygonal approximation of the geometry. The tolerance factor specifies the maximum distance between points in this polygonal approximation. Smaller tolerance values produce better approximations, but require more processing than an approximation with a large tolerance factor.
+  summary: 'Indicates whether the current geometry contains the specified <xref href="System.Windows.Media.Geometry"></xref>, given the specified margin of error.'
+  remarks: 'Some <xref:System.Windows.Media.Geometry> methods (such as <xref:System.Windows.Media.Geometry.FillContains%2A>) produce or use a polygonal approximation of the geometry. The tolerance factor specifies the maximum distance between points in this polygonal approximation. Smaller tolerance values produce better approximations, but require more processing than an approximation with a large tolerance factor.'
   syntax:
     content: public bool FillContains (System.Windows.Media.Geometry geometry, double tolerance, System.Windows.Media.ToleranceType type);
     parameters:
@@ -566,7 +566,7 @@ items:
       description: The geometry to test for containment.
     - id: tolerance
       type: System.Double
-      description: The maximum bounds on the distance between points in the polygonal approximation of the geometries. Smaller values produce more accurate results but cause slower execution. If <code>tolerance</code> is less than .000001, .000001 is used instead.
+      description: 'The maximum bounds on the distance between points in the polygonal approximation of the geometries. Smaller values produce more accurate results but cause slower execution. If <code>tolerance</code> is less than .000001, .000001 is used instead.'
     - id: type
       type: System.Windows.Media.ToleranceType
       description: One of the <xref href="System.Windows.Media.ToleranceType"></xref> values that specifies whether the tolerance factor is an absolute value or relative to the area of the geometry.
@@ -610,8 +610,8 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media
-  summary: Indicates whether the geometry contains the specified <xref href="System.Windows.Point"></xref>, given the specified margin of error.
-  remarks: Some <xref:System.Windows.Media.Geometry> methods (such as <xref:System.Windows.Media.Geometry.FillContains%2A>) produce or use a polygonal approximation of the geometry. The tolerance factor specifies the maximum distance between points in this polygonal approximation. Smaller tolerance values produce better approximations, but require more processing than an approximation with a large tolerance factor.
+  summary: 'Indicates whether the geometry contains the specified <xref href="System.Windows.Point"></xref>, given the specified margin of error.'
+  remarks: 'Some <xref:System.Windows.Media.Geometry> methods (such as <xref:System.Windows.Media.Geometry.FillContains%2A>) produce or use a polygonal approximation of the geometry. The tolerance factor specifies the maximum distance between points in this polygonal approximation. Smaller tolerance values produce better approximations, but require more processing than an approximation with a large tolerance factor.'
   syntax:
     content: public bool FillContains (System.Windows.Point hitPoint, double tolerance, System.Windows.Media.ToleranceType type);
     parameters:
@@ -620,7 +620,7 @@ items:
       description: The point to test for containment.
     - id: tolerance
       type: System.Double
-      description: The maximum bounds on the distance between points in the polygonal approximation of the geometry. Smaller values produce more accurate results but cause slower execution. If <code>tolerance</code> is less than .000001, .000001 is used instead.
+      description: 'The maximum bounds on the distance between points in the polygonal approximation of the geometry. Smaller values produce more accurate results but cause slower execution. If <code>tolerance</code> is less than .000001, .000001 is used instead.'
     - id: type
       type: System.Windows.Media.ToleranceType
       description: One of the <xref href="System.Windows.Media.ToleranceType"></xref> values that specifies whether the tolerance factor is an absolute value or relative to the area of the geometry.
@@ -711,8 +711,8 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media
-  summary: Returns a value that describes the intersection between the current geometry and the specified geometry, given the specified margin of error.
-  remarks: Some <xref:System.Windows.Media.Geometry> methods (such as <xref:System.Windows.Media.Geometry.FillContainsWithDetail%2A>) produce or use a polygonal approximation of the geometry. The tolerance factor specifies the maximum distance between points in this polygonal approximation. Smaller tolerance values produce better approximations, but require more processing than an approximation with a large tolerance factor.
+  summary: 'Returns a value that describes the intersection between the current geometry and the specified geometry, given the specified margin of error.'
+  remarks: 'Some <xref:System.Windows.Media.Geometry> methods (such as <xref:System.Windows.Media.Geometry.FillContainsWithDetail%2A>) produce or use a polygonal approximation of the geometry. The tolerance factor specifies the maximum distance between points in this polygonal approximation. Smaller tolerance values produce better approximations, but require more processing than an approximation with a large tolerance factor.'
   syntax:
     content: public virtual System.Windows.Media.IntersectionDetail FillContainsWithDetail (System.Windows.Media.Geometry geometry, double tolerance, System.Windows.Media.ToleranceType type);
     parameters:
@@ -721,7 +721,7 @@ items:
       description: The geometry to test for containment.
     - id: tolerance
       type: System.Double
-      description: The maximum bounds on the distance between points in the polygonal approximation of the geometries. Smaller values produce more accurate results but cause slower execution. If <code>tolerance</code> is less than .000001, .000001 is used instead.
+      description: 'The maximum bounds on the distance between points in the polygonal approximation of the geometries. Smaller values produce more accurate results but cause slower execution. If <code>tolerance</code> is less than .000001, .000001 is used instead.'
     - id: type
       type: System.Windows.Media.ToleranceType
       description: One of the <xref href="System.Windows.Media.ToleranceType"></xref> values that specifies whether the tolerance factor is an absolute value or relative to the area of the geometry.
@@ -766,7 +766,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Gets the area of the filled region of the <xref href="System.Windows.Media.Geometry"></xref> object.
-  remarks: Some <xref:System.Windows.Media.Geometry> methods (such as <xref:System.Windows.Media.Geometry.GetArea%2A>) produce or use a polygonal approximation of the geometry. The tolerance factor specifies the maximum distance between points in this polygonal approximation. Smaller tolerance values produce better approximations, but require more processing than an approximation with a large tolerance factor.
+  remarks: 'Some <xref:System.Windows.Media.Geometry> methods (such as <xref:System.Windows.Media.Geometry.GetArea%2A>) produce or use a polygonal approximation of the geometry. The tolerance factor specifies the maximum distance between points in this polygonal approximation. Smaller tolerance values produce better approximations, but require more processing than an approximation with a large tolerance factor.'
   syntax:
     content: public double GetArea ();
     parameters: []
@@ -810,8 +810,8 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media
-  summary: Gets the area, within the specified tolerance, of the filled region of the <xref href="System.Windows.Media.Geometry"></xref> object.
-  remarks: Some <xref:System.Windows.Media.Geometry> methods (such as <xref:System.Windows.Media.Geometry.GetArea%2A>) produce or use a polygonal approximation of the geometry. The tolerance factor specifies the maximum distance between points in this polygonal approximation. Smaller tolerance values produce better approximations, but require more processing than an approximation with a large tolerance factor.
+  summary: 'Gets the area, within the specified tolerance, of the filled region of the <xref href="System.Windows.Media.Geometry"></xref> object.'
+  remarks: 'Some <xref:System.Windows.Media.Geometry> methods (such as <xref:System.Windows.Media.Geometry.GetArea%2A>) produce or use a polygonal approximation of the geometry. The tolerance factor specifies the maximum distance between points in this polygonal approximation. Smaller tolerance values produce better approximations, but require more processing than an approximation with a large tolerance factor.'
   syntax:
     content: >-
       [System.Security.SecurityCritical]
@@ -820,7 +820,7 @@ items:
     parameters:
     - id: tolerance
       type: System.Double
-      description: The maximum bounds on the distance between points in the polygonal approximation of the geometry. Smaller values produce more accurate results but cause slower execution. If <code>tolerance</code> is less than .000001, .000001 is used instead.
+      description: 'The maximum bounds on the distance between points in the polygonal approximation of the geometry. Smaller values produce more accurate results but cause slower execution. If <code>tolerance</code> is less than .000001, .000001 is used instead.'
     - id: type
       type: System.Windows.Media.ToleranceType
       description: One of the <xref href="System.Windows.Media.ToleranceType"></xref> values that specifies whether the tolerance factor is an absolute value or relative to the area of the geometry.
@@ -911,8 +911,8 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media
-  summary: Gets a <xref href="System.Windows.Media.PathGeometry"></xref>, within the specified tolerance, that is a polygonal approximation of the <xref href="System.Windows.Media.Geometry"></xref> object.
-  remarks: Some <xref:System.Windows.Media.Geometry> methods (such as <xref:System.Windows.Media.Geometry.GetFlattenedPathGeometry%2A>) produce or use a polygonal approximation of the geometry. The tolerance factor specifies the maximum distance between points in this polygonal approximation. Smaller tolerance values produce better approximations, but require more processing than an approximation with a large tolerance factor.
+  summary: 'Gets a <xref href="System.Windows.Media.PathGeometry"></xref>, within the specified tolerance, that is a polygonal approximation of the <xref href="System.Windows.Media.Geometry"></xref> object.'
+  remarks: 'Some <xref:System.Windows.Media.Geometry> methods (such as <xref:System.Windows.Media.Geometry.GetFlattenedPathGeometry%2A>) produce or use a polygonal approximation of the geometry. The tolerance factor specifies the maximum distance between points in this polygonal approximation. Smaller tolerance values produce better approximations, but require more processing than an approximation with a large tolerance factor.'
   syntax:
     content: >-
       [System.Security.SecurityCritical]
@@ -921,7 +921,7 @@ items:
     parameters:
     - id: tolerance
       type: System.Double
-      description: The maximum bounds on the distance between points in the polygonal approximation of the geometry. Smaller values produce more accurate results but cause slower execution. If <code>tolerance</code> is less than .000001, .000001 is used instead.
+      description: 'The maximum bounds on the distance between points in the polygonal approximation of the geometry. Smaller values produce more accurate results but cause slower execution. If <code>tolerance</code> is less than .000001, .000001 is used instead.'
     - id: type
       type: System.Windows.Media.ToleranceType
       description: One of the <xref href="System.Windows.Media.ToleranceType"></xref> values that specifies whether the tolerance factor is an absolute value or relative to the area of the geometry.
@@ -966,8 +966,8 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media
-  summary: Gets a <xref href="System.Windows.Media.PathGeometry"></xref>, within the specified tolerance, that is a simplified outline of the filled region of the <xref href="System.Windows.Media.Geometry"></xref>.
-  remarks: Some <xref:System.Windows.Media.Geometry> methods (such as <xref:System.Windows.Media.Geometry.GetOutlinedPathGeometry%2A>) produce or use a polygonal approximation of the geometry. The tolerance factor specifies the maximum distance between points in this polygonal approximation. Smaller tolerance values produce better approximations, but require more processing than an approximation with a large tolerance factor.
+  summary: 'Gets a <xref href="System.Windows.Media.PathGeometry"></xref>, within the specified tolerance, that is a simplified outline of the filled region of the <xref href="System.Windows.Media.Geometry"></xref>.'
+  remarks: 'Some <xref:System.Windows.Media.Geometry> methods (such as <xref:System.Windows.Media.Geometry.GetOutlinedPathGeometry%2A>) produce or use a polygonal approximation of the geometry. The tolerance factor specifies the maximum distance between points in this polygonal approximation. Smaller tolerance values produce better approximations, but require more processing than an approximation with a large tolerance factor.'
   syntax:
     content: >-
       [System.Security.SecurityCritical]
@@ -976,7 +976,7 @@ items:
     parameters:
     - id: tolerance
       type: System.Double
-      description: The maximum bounds on the distance between points in the polygonal approximation of the geometry. Smaller values produce more accurate results but cause slower execution. If <code>tolerance</code> is less than .000001, .000001 is used instead.
+      description: 'The maximum bounds on the distance between points in the polygonal approximation of the geometry. Smaller values produce more accurate results but cause slower execution. If <code>tolerance</code> is less than .000001, .000001 is used instead.'
     - id: type
       type: System.Windows.Media.ToleranceType
       description: One of the <xref href="System.Windows.Media.ToleranceType"></xref> values that specifies whether the tolerance factor is an absolute value or relative to the area of the geometry.
@@ -1114,8 +1114,8 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media
-  summary: Returns an axis-aligned rectangle that is exactly large enough to contain the geometry after it has been outlined with the specified <xref href="System.Windows.Media.Pen"></xref>, given the specified tolerance factor.
-  remarks: Some <xref:System.Windows.Media.Geometry> methods (such as <xref:System.Windows.Media.Geometry.GetRenderBounds%2A>) produce or use a polygonal approximation of the geometry. The tolerance factor specifies the maximum distance between points in this polygonal approximation. Smaller tolerance values produce better approximations, but require more processing than an approximation with a large tolerance factor.
+  summary: 'Returns an axis-aligned rectangle that is exactly large enough to contain the geometry after it has been outlined with the specified <xref href="System.Windows.Media.Pen"></xref>, given the specified tolerance factor.'
+  remarks: 'Some <xref:System.Windows.Media.Geometry> methods (such as <xref:System.Windows.Media.Geometry.GetRenderBounds%2A>) produce or use a polygonal approximation of the geometry. The tolerance factor specifies the maximum distance between points in this polygonal approximation. Smaller tolerance values produce better approximations, but require more processing than an approximation with a large tolerance factor.'
   syntax:
     content: public virtual System.Windows.Rect GetRenderBounds (System.Windows.Media.Pen pen, double tolerance, System.Windows.Media.ToleranceType type);
     parameters:
@@ -1124,7 +1124,7 @@ items:
       description: An object that describes the area of the geometry's stroke.
     - id: tolerance
       type: System.Double
-      description: The maximum bounds on the distance between points in the polygonal approximation of the geometry. Smaller values produce more accurate results but cause slower execution. If <code>tolerance</code> is less than .000001, .000001 is used instead.
+      description: 'The maximum bounds on the distance between points in the polygonal approximation of the geometry. Smaller values produce more accurate results but cause slower execution. If <code>tolerance</code> is less than .000001, .000001 is used instead.'
     - id: type
       type: System.Windows.Media.ToleranceType
       description: One of the <xref href="System.Windows.Media.ToleranceType"></xref> values that specifies whether the tolerance factor is an absolute value or relative to the area of the geometry.
@@ -1168,7 +1168,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Gets a <xref href="System.Windows.Media.PathGeometry"></xref> that is the shape defined by the stroke on the <xref href="System.Windows.Media.Geometry"></xref> produced by the specified <xref href="System.Windows.Media.Pen"></xref>.
-  remarks: Some <xref:System.Windows.Media.Geometry> methods (such as <xref:System.Windows.Media.Geometry.GetWidenedPathGeometry%2A>) produce or use a polygonal approximation of the geometry. The tolerance factor specifies the maximum distance between points in this polygonal approximation. Smaller tolerance values produce better approximations, but require more processing than an approximation with a large tolerance factor.
+  remarks: 'Some <xref:System.Windows.Media.Geometry> methods (such as <xref:System.Windows.Media.Geometry.GetWidenedPathGeometry%2A>) produce or use a polygonal approximation of the geometry. The tolerance factor specifies the maximum distance between points in this polygonal approximation. Smaller tolerance values produce better approximations, but require more processing than an approximation with a large tolerance factor.'
   syntax:
     content: public System.Windows.Media.PathGeometry GetWidenedPathGeometry (System.Windows.Media.Pen pen);
     parameters:
@@ -1214,8 +1214,8 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media
-  summary: Gets a <xref href="System.Windows.Media.PathGeometry"></xref> that is the shape defined by the stroke on the <xref href="System.Windows.Media.Geometry"></xref> produced by the specified <xref href="System.Windows.Media.Pen"></xref>, given the specified tolerance factor.
-  remarks: Some <xref:System.Windows.Media.Geometry> methods (such as <xref:System.Windows.Media.Geometry.GetWidenedPathGeometry%2A>) produce or use a polygonal approximation of the geometry. The tolerance factor specifies the maximum distance between points in this polygonal approximation. Smaller tolerance values produce better approximations, but require more processing than an approximation with a large tolerance factor.
+  summary: 'Gets a <xref href="System.Windows.Media.PathGeometry"></xref> that is the shape defined by the stroke on the <xref href="System.Windows.Media.Geometry"></xref> produced by the specified <xref href="System.Windows.Media.Pen"></xref>, given the specified tolerance factor.'
+  remarks: 'Some <xref:System.Windows.Media.Geometry> methods (such as <xref:System.Windows.Media.Geometry.GetWidenedPathGeometry%2A>) produce or use a polygonal approximation of the geometry. The tolerance factor specifies the maximum distance between points in this polygonal approximation. Smaller tolerance values produce better approximations, but require more processing than an approximation with a large tolerance factor.'
   syntax:
     content: >-
       [System.Security.SecurityCritical]
@@ -1227,13 +1227,13 @@ items:
       description: The object used to define the area of the geometry's stroke.
     - id: tolerance
       type: System.Double
-      description: The maximum bounds on the distance between points in the polygonal approximation of the geometry. Smaller values produce more accurate results but cause slower execution. If <code>tolerance</code> is less than .000001, .000001 is used instead.
+      description: 'The maximum bounds on the distance between points in the polygonal approximation of the geometry. Smaller values produce more accurate results but cause slower execution. If <code>tolerance</code> is less than .000001, .000001 is used instead.'
     - id: type
       type: System.Windows.Media.ToleranceType
       description: One of the <xref href="System.Windows.Media.ToleranceType"></xref> values that specifies whether the tolerance factor is an absolute value or relative to the area of the geometry.
     return:
       type: System.Windows.Media.PathGeometry
-      description: The geometry, widened by <code>pen</code>.
+      description: 'The geometry, widened by <code>pen</code>.'
   overload: System.Windows.Media.Geometry.GetWidenedPathGeometry*
   exceptions: []
   attributes:
@@ -1361,7 +1361,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Creates a new <xref href="System.Windows.Media.Geometry"></xref> instance from the specified string using the current culture.
-  remarks: See [Path Markup Syntax](~/docs/framework/wpf/graphics-multimedia/path-markup-syntax.md) for information about how this string is formatted
+  remarks: 'See [Path Markup Syntax](~/docs/framework/wpf/graphics-multimedia/path-markup-syntax.md) for information about how this string is formatted'
   syntax:
     content: public static System.Windows.Media.Geometry Parse (string source);
     parameters:
@@ -1414,7 +1414,7 @@ items:
     parameters: []
     return:
       type: System.Boolean
-      description: "`true` if the value of the geometry's <xref href=\"System.Windows.Media.Geometry.Transform\"></xref> property should be serialized; otherwise, `false`."
+      description: '`true` if the value of the geometry''s <xref href="System.Windows.Media.Geometry.Transform"></xref> property should be serialized; otherwise, `false`.'
   overload: System.Windows.Media.Geometry.ShouldSerializeTransform*
   exceptions: []
   attributes: []
@@ -1457,7 +1457,7 @@ items:
     content: public static double StandardFlatteningTolerance { get; }
     return:
       type: System.Double
-      description: The standard tolerance, 0.25.
+      description: 'The standard tolerance, 0.25.'
   overload: System.Windows.Media.Geometry.StandardFlatteningTolerance*
   exceptions: []
   version:
@@ -1546,8 +1546,8 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media
-  summary: Determines whether the specified <xref href="System.Windows.Point"></xref> is contained in the stroke produced by applying the specified <xref href="System.Windows.Media.Pen"></xref> to the geometry, given the specified margin of error.
-  remarks: Some <xref:System.Windows.Media.Geometry> methods (such as <xref:System.Windows.Media.Geometry.StrokeContains%2A>) produce or use a polygonal approximation of the geometry. The tolerance factor specifies the maximum distance between points in this polygonal approximation. Smaller tolerance values produce better approximations, but require more processing than an approximation with a large tolerance factor.
+  summary: 'Determines whether the specified <xref href="System.Windows.Point"></xref> is contained in the stroke produced by applying the specified <xref href="System.Windows.Media.Pen"></xref> to the geometry, given the specified margin of error.'
+  remarks: 'Some <xref:System.Windows.Media.Geometry> methods (such as <xref:System.Windows.Media.Geometry.StrokeContains%2A>) produce or use a polygonal approximation of the geometry. The tolerance factor specifies the maximum distance between points in this polygonal approximation. Smaller tolerance values produce better approximations, but require more processing than an approximation with a large tolerance factor.'
   syntax:
     content: public bool StrokeContains (System.Windows.Media.Pen pen, System.Windows.Point hitPoint, double tolerance, System.Windows.Media.ToleranceType type);
     parameters:
@@ -1559,7 +1559,7 @@ items:
       description: The point to test for containment.
     - id: tolerance
       type: System.Double
-      description: The maximum bounds on the distance between points in the polygonal approximation of the geometry. Smaller values produce more accurate results but cause slower execution. If <code>tolerance</code> is less than .000001, .000001 is used instead.
+      description: 'The maximum bounds on the distance between points in the polygonal approximation of the geometry. Smaller values produce more accurate results but cause slower execution. If <code>tolerance</code> is less than .000001, .000001 is used instead.'
     - id: type
       type: System.Windows.Media.ToleranceType
       description: One of the <xref href="System.Windows.Media.ToleranceType"></xref> values that specifies whether the tolerance factor is an absolute value or relative to the area of the geometry.
@@ -1654,8 +1654,8 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media
-  summary: Gets a value that describes the intersection between the specified <xref href="System.Windows.Media.Geometry"></xref> and the stroke created by applying the specified <xref href="System.Windows.Media.Pen"></xref> to the current geometry, given the specified margin of error.
-  remarks: Some <xref:System.Windows.Media.Geometry> methods (such as <xref:System.Windows.Media.Geometry.StrokeContainsWithDetail%2A>) produce or use a polygonal approximation of the geometry. The tolerance factor specifies the maximum distance between points in this polygonal approximation. Smaller tolerance values produce better approximations, but require more processing than an approximation with a large tolerance factor.
+  summary: 'Gets a value that describes the intersection between the specified <xref href="System.Windows.Media.Geometry"></xref> and the stroke created by applying the specified <xref href="System.Windows.Media.Pen"></xref> to the current geometry, given the specified margin of error.'
+  remarks: 'Some <xref:System.Windows.Media.Geometry> methods (such as <xref:System.Windows.Media.Geometry.StrokeContainsWithDetail%2A>) produce or use a polygonal approximation of the geometry. The tolerance factor specifies the maximum distance between points in this polygonal approximation. Smaller tolerance values produce better approximations, but require more processing than an approximation with a large tolerance factor.'
   syntax:
     content: public System.Windows.Media.IntersectionDetail StrokeContainsWithDetail (System.Windows.Media.Pen pen, System.Windows.Media.Geometry geometry, double tolerance, System.Windows.Media.ToleranceType type);
     parameters:
@@ -1667,7 +1667,7 @@ items:
       description: The geometry to test for containment.
     - id: tolerance
       type: System.Double
-      description: The maximum bounds on the distance between points in the polygonal approximation of the geometries. Smaller values produce more accurate results but cause slower execution. If <code>tolerance</code> is less than .000001, .000001 is used instead.
+      description: 'The maximum bounds on the distance between points in the polygonal approximation of the geometries. Smaller values produce more accurate results but cause slower execution. If <code>tolerance</code> is less than .000001, .000001 is used instead.'
     - id: type
       type: System.Windows.Media.ToleranceType
       description: One of the <xref href="System.Windows.Media.ToleranceType"></xref> values that specifies whether the tolerance factor is an absolute value or relative to the area of the geometry.
@@ -1717,7 +1717,7 @@ items:
     parameters:
     - id: provider
       type: System.IFormatProvider
-      description: Culture-specific formatting information, or `null` to use the current culture.
+      description: 'Culture-specific formatting information, or `null` to use the current culture.'
     return:
       type: System.String
       description: A string representation of the object.
@@ -1803,7 +1803,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Media
   summary: Gets or sets the <xref href="System.Windows.Media.Transform"></xref> object applied to a <xref href="System.Windows.Media.Geometry"></xref>.
-  remarks: "This method returns the identity transformation if the current object has no transformation value. Otherwise, it returns the <xref:System.Windows.Media.Transform> applied to the current object.  \n  \n<a name=\"dependencyPropertyInfo_Transform\"></a>   \n## Dependency Property Information  \n  \n|||  \n|-|-|  \n|Identifier field|<xref:System.Windows.Media.Geometry.TransformProperty>|  \n|Metadata properties set to `true`|None|"
+  remarks: "This method returns the identity transformation if the current object has no transformation value. Otherwise, it returns the <xref:System.Windows.Media.Transform> applied to the current object.  \n  \n<a name=\"dependencyPropertyInfo_Transform\"></a>   \n## <a name=\"dependency-property-information\"></a>Dependency Property Information  \n  \n|||  \n|-|-|  \n|Identifier field|<xref:System.Windows.Media.Geometry.TransformProperty>|  \n|Metadata properties set to `true`|None|"
   example:
   - "The following example shows how to use the <xref:System.Windows.Media.Geometry.Transform%2A> property to apply a <xref:System.Windows.Media.RotateTransform> to a <xref:System.Windows.Media.Geometry> object.  \n  \n The example uses a <xref:System.Windows.Media.GeometryGroup> to create a composite shape from three <xref:System.Windows.Media.Geometry> objects and then rotates the geometry 45 degrees by using the <xref:System.Windows.Media.Geometry.Transform%2A> property.  \n  \n [!code-xml[Transforms_snip#GeometryTransformExampleWholePage](~/samples/snippets/csharp/VS_Snippets_Wpf/Transforms_snip/CS/GeometryTransformExample.xaml#geometrytransformexamplewholepage)]"
   syntax:

@@ -20,7 +20,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: Describes a service that can return objects that are specified by XAML name, or alternatively, returns a token that defers name resolution. The service can also return an enumerable set of all named objects that are in the XAML namescope.
+  summary: 'Describes a service that can return objects that are specified by XAML name, or alternatively, returns a token that defers name resolution. The service can also return an enumerable set of all named objects that are in the XAML namescope.'
   remarks: "This interface is not intended for external implementation of typical XAML scenarios because it is a service. This service enables markup extensions and type converters to resolve XAML names to other objects from the same XAML source while they are still in a XAML node representation. The service can be used to resolve forward references for any mechanism that relies on XAML names for nonlinear access to the surrounding XAML production. For more information, see [Type Converters and Markup Extensions for XAML](~/docs/framework/xaml-services/type-converters-and-markup-extensions-for-xaml.md).  \n  \n Type converters and markup extensions can query for <xref:System.Xaml.IXamlNameResolver> as a service on the service context that is provided by a XAML object writer, when the XAML object writer invokes value conversion behavior. For more information, see [Type Converters and Markup Extensions for XAML](~/docs/framework/xaml-services/type-converters-and-markup-extensions-for-xaml.md) and [Service Contexts Available to Type Converters and Markup Extensions](~/docs/framework/xaml-services/service-contexts-available-to-type-converters-and-markup-extensions.md).  \n  \n This service exposes an API that can defer name resolution. The metaphor implemented by the service is that names that cannot be resolved in a first pass against a partial name-object graph should be stored and used to create the fixup token. In the default behavior, all such names are submitted for another resolution attempt on a second pass. On the second pass, the overall name-object graph is complete, and all the fixup tokens are able to resolve.  \n  \n> [!NOTE]\n>  Even if they are permitted by a particular implementation, forward references in XAML inevitably have performance consequences. As a best practice for production-quality XAML, avoid forward references whenever possible."
   syntax:
     content: public interface IXamlNameResolver
@@ -64,7 +64,7 @@ items:
     parameters: []
     return:
       type: System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}}
-      description: An enumerable set of <xref href="System.Collections.Generic.KeyValuePair`2"></xref> objects. For each <xref href="System.Collections.Generic.KeyValuePair`2"></xref>, the <xref href="System.Collections.Generic.KeyValuePair`2.Key"></xref> component is a string, and the <xref href="System.Collections.Generic.KeyValuePair`2.Value"></xref> component is the object that uses the <xref href="System.Collections.Generic.KeyValuePair`2.Key"></xref> name in the XAML namescope.
+      description: 'An enumerable set of <xref href="System.Collections.Generic.KeyValuePair`2"></xref> objects. For each <xref href="System.Collections.Generic.KeyValuePair`2"></xref>, the <xref href="System.Collections.Generic.KeyValuePair`2.Key"></xref> component is a string, and the <xref href="System.Collections.Generic.KeyValuePair`2.Value"></xref> component is the object that uses the <xref href="System.Collections.Generic.KeyValuePair`2.Key"></xref> name in the XAML namescope.'
   overload: System.Xaml.IXamlNameResolver.GetAllNamesAndValuesInScope*
   exceptions: []
   version:
@@ -195,8 +195,8 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: Gets a value that determines whether calling <xref href="System.Xaml.IXamlNameResolver.GetFixupToken(System.Collections.Generic.IEnumerable{System.String},System.Boolean)"></xref> is available in order to resolve a name into a token for forward resolution.
-  remarks: This property returns `false` when <xref:System.Xaml.IXamlNameResolver.GetFixupToken%2A> does not return a token because a <xref:System.Xaml.Schema.XamlValueConverter%601> is involved in the second pass on an existing token.
+  summary: 'Gets a value that determines whether calling <xref href="System.Xaml.IXamlNameResolver.GetFixupToken(System.Collections.Generic.IEnumerable{System.String},System.Boolean)"></xref> is available in order to resolve a name into a token for forward resolution.'
+  remarks: 'This property returns `false` when <xref:System.Xaml.IXamlNameResolver.GetFixupToken%2A> does not return a token because a <xref:System.Xaml.Schema.XamlValueConverter%601> is involved in the second pass on an existing token.'
   syntax:
     content: public bool IsFixupTokenAvailable { get; }
     return:
@@ -278,7 +278,7 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Resolves an object from a name reference.
-  remarks: If a value is returned as `null`, a forward reference might exist. Implementations that want to support forward references can use the `FixupToken` pattern through the <xref:System.Xaml.IXamlNameResolver.GetFixupToken%2A> and <xref:System.Xaml.IXamlNameResolver.IsFixupTokenAvailable%2A> APIs.
+  remarks: 'If a value is returned as `null`, a forward reference might exist. Implementations that want to support forward references can use the `FixupToken` pattern through the <xref:System.Xaml.IXamlNameResolver.GetFixupToken%2A> and <xref:System.Xaml.IXamlNameResolver.IsFixupTokenAvailable%2A> APIs.'
   syntax:
     content: public object Resolve (string name);
     parameters:
@@ -323,7 +323,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: Resolves an object from a name reference, and provides a tracking value that reports whether the object is fully initialized for object graph purposes.
+  summary: 'Resolves an object from a name reference, and provides a tracking value that reports whether the object is fully initialized for object graph purposes.'
   syntax:
     content: public object Resolve (string name, out bool isFullyInitialized);
     parameters:
@@ -332,7 +332,7 @@ items:
       description: The name reference to resolve.
     - id: isFullyInitialized
       type: System.Boolean
-      description: When this method returns, `true` if the returned object has any dependencies on unresolved references; otherwise, `false`.
+      description: 'When this method returns, `true` if the returned object has any dependencies on unresolved references; otherwise, `false`.'
     return:
       type: System.Object
       description: An object that provides a token for lookup behavior to be evaluated later.

@@ -605,7 +605,7 @@ items:
   - netstandard
   namespace: System.Net.Http
   summary: Releases the unmanaged resources used by the <xref href="System.Net.Http.MultipartContent"></xref> and optionally disposes of the managed resources.
-  remarks: This method is called by the public `Dispose()` method and the <xref:System.Object.Finalize%2A> method. `Dispose()` invokes the protected `Dispose(Boolean)` method with the `disposing` parameter set to `true`. <xref:System.Object.Finalize%2A> invokes `Dispose` with `disposing` set to `false`.When the `disposing` parameter is `true`, this method releases all resources held by any managed objects that this <xref:System.Net.Http.MultipartContent> references. This method invokes the `Dispose()` method of each referenced object.
+  remarks: 'This method is called by the public `Dispose()` method and the <xref:System.Object.Finalize%2A> method. `Dispose()` invokes the protected `Dispose(Boolean)` method with the `disposing` parameter set to `true`. <xref:System.Object.Finalize%2A> invokes `Dispose` with `disposing` set to `false`.When the `disposing` parameter is `true`, this method releases all resources held by any managed objects that this <xref:System.Net.Http.MultipartContent> references. This method invokes the `Dispose()` method of each referenced object.'
   syntax:
     content: protected override void Dispose (bool disposing);
     parameters:
@@ -739,7 +739,7 @@ items:
   - netstandard
   namespace: System.Net.Http
   summary: Serialize the multipart HTTP content to a stream as an asynchronous operation.
-  remarks: This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after all of the content has been serialized to the target stream.
+  remarks: 'This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after all of the content has been serialized to the target stream.'
   syntax:
     content: protected override System.Threading.Tasks.Task SerializeToStreamAsync (System.IO.Stream stream, System.Net.TransportContext context);
     parameters:
@@ -748,7 +748,7 @@ items:
       description: The target stream.
     - id: context
       type: System.Net.TransportContext
-      description: Information about the transport (channel binding token, for example). This parameter may be `null`.
+      description: 'Information about the transport (channel binding token, for example). This parameter may be `null`.'
     return:
       type: System.Threading.Tasks.Task
       description: The task object representing the asynchronous operation.
@@ -813,7 +813,7 @@ items:
   - netstandard
   namespace: System.Net.Http
   summary: Determines whether the HTTP multipart content has a valid length in bytes.
-  remarks: The <xref:System.Net.Http.MultipartContent.TryComputeLength%2A> method gives HTTP multipart content the ability to calculate the content length. This is useful for content types which are able to easily calculate the content length. If computing the content length is not possible or expensive (would require the system to buffer the whole content where the serialization would be expensive or require the system to allocate a lot of memory), this method can return `false`. If this method returns `false`, this implies that either chunked transfer is needed or the content must get buffered before being sent to the server.
+  remarks: 'The <xref:System.Net.Http.MultipartContent.TryComputeLength%2A> method gives HTTP multipart content the ability to calculate the content length. This is useful for content types which are able to easily calculate the content length. If computing the content length is not possible or expensive (would require the system to buffer the whole content where the serialization would be expensive or require the system to allocate a lot of memory), this method can return `false`. If this method returns `false`, this implies that either chunked transfer is needed or the content must get buffered before being sent to the server.'
   syntax:
     content: protected override bool TryComputeLength (out long length);
     parameters:

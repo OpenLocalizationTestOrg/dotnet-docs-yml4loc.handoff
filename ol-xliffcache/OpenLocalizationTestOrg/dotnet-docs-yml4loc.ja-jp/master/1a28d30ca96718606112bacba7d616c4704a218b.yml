@@ -305,7 +305,7 @@ items:
   - mscorlib
   namespace: System.Runtime.CompilerServices
   summary: Ensures that resources are freed and other cleanup operations are performed when the garbage collector reclaims the <xref href="System.Runtime.CompilerServices.ConditionalWeakTable`2"></xref> object.
-  remarks: The garbage collector calls <xref:System.Runtime.CompilerServices.ConditionalWeakTable%602.Finalize%2A> when the current object is ready to be finalized.
+  remarks: 'The garbage collector calls <xref:System.Runtime.CompilerServices.ConditionalWeakTable%602.Finalize%2A> when the current object is ready to be finalized.'
   syntax:
     content: ~ConditionalWeakTable`2 ();
     parameters: []
@@ -368,7 +368,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Runtime.CompilerServices
-  summary: Atomically searches for a specified key in the table and returns the corresponding value. If the key does not exist in the table, the method invokes the default constructor of the class that represents the table's value to create a value that is bound to the specified key.
+  summary: 'Atomically searches for a specified key in the table and returns the corresponding value. If the key does not exist in the table, the method invokes the default constructor of the class that represents the table''s value to create a value that is bound to the specified key.'
   remarks: "If `key` does not exist in the table, the method adds it, along with the object that is instantiated by calling the default constructor of the class defined by the `TValue` generic type parameter. If the `TValue` class has no default constructor, a <xref:System.MissingMethodException> is thrown.  \n  \n This is the recommended method of retrieving an existing value or adding a new value to the <xref:System.Runtime.CompilerServices.ConditionalWeakTable%602> table if the class of the table's value defines a default constructor. If it does not define a default constructor, you can instead call the <xref:System.Runtime.CompilerServices.ConditionalWeakTable%602.GetValue%2A> method, which relies on a callback-provided method to instantiate the object representing the table's value  \n  \n To retrieve the value of an existing key without adding the key/value pair if the key is not found in the table, call the <xref:System.Runtime.CompilerServices.ConditionalWeakTable%602.TryGetValue%2A> method."
   example:
   - "The following example defines a `MainClass` class and a `MainInfo` class, which provides information about the `MainClass` instance. The example calls the <xref:System.Runtime.CompilerServices.ConditionalWeakTable%602.GetOrCreateValue%2A> method to add a `MainClass` object and its attached `MainInfo` object to a <xref:System.Runtime.CompilerServices.ConditionalWeakTable%602> table. The example also illustrates calls to the <xref:System.Runtime.CompilerServices.ConditionalWeakTable%602.Add%2A> and <xref:System.Runtime.CompilerServices.ConditionalWeakTable%602.GetValue%2A> methods to add key/value pairs to the table, and to the <xref:System.Runtime.CompilerServices.ConditionalWeakTable%602.TryGetValue%2A> method to retrieve the value of an existing key.  \n  \n [!code-csharp[System.Runtime.CompilerServices.ConditionalWeakTable.GetValue#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.runtime.compilerservices.conditionalweaktable.getvalue/cs/getvalue1.cs#1)]\n [!code-vb[System.Runtime.CompilerServices.ConditionalWeakTable.GetValue#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.runtime.compilerservices.conditionalweaktable.getvalue/vb/getvalue1.vb#1)]"
@@ -380,7 +380,7 @@ items:
       description: The key to search for. <code>key</code> represents the object to which the property is attached.
     return:
       type: TValue
-      description: The value that corresponds to <code>key</code>, if <code>key</code> already exists in the table; otherwise, a new value created by the default constructor of the class defined by the <code>TValue</code> generic type parameter.
+      description: 'The value that corresponds to <code>key</code>, if <code>key</code> already exists in the table; otherwise, a new value created by the default constructor of the class defined by the <code>TValue</code> generic type parameter.'
   overload: System.Runtime.CompilerServices.ConditionalWeakTable`2.GetOrCreateValue*
   exceptions:
   - type: System.ArgumentNullException
@@ -448,7 +448,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Runtime.CompilerServices
-  summary: Atomically searches for a specified key in the table and returns the corresponding value. If the key does not exist in the table, the method invokes a callback method to create a value that is bound to the specified key.
+  summary: 'Atomically searches for a specified key in the table and returns the corresponding value. If the key does not exist in the table, the method invokes a callback method to create a value that is bound to the specified key.'
   remarks: "If `key` does not exist in the table, <xref:System.Runtime.CompilerServices.ConditionalWeakTable%602.GetValue%2A> invokes the method that is defined by the `createValueCallback` parameter and passes it the key. A new value is bound to the key in the table and returned as a result.  \n  \n Use this method only when the class that represents the table's value does not define a default constructor. If it does define a default constructor, use the <xref:System.Runtime.CompilerServices.ConditionalWeakTable%602.GetOrCreateValue%2A> method instead. To retrieve the value of an existing key without adding the key/value pair if the key is not found in the table, call the <xref:System.Runtime.CompilerServices.ConditionalWeakTable%602.TryGetValue%2A> method.  \n  \n If multiple threads try to create the same key, `createValueCallback` may be invoked multiple times with the same key. Only one of these calls will succeed, and its returned value will be added to the table. Which thread succeeds in creating the value is indeterminate. This rule permits the table to invoke `createValueCallback` outside the internal table lock to prevent deadlocks."
   example:
   - "The following example defines a `MainClass` class and a `MainInfo` class, which provides information about the `MainClass` instance. It also defines a static (`Shared` in Visual Basic) `CreateAttachedValue` method that can be assigned to the <xref:System.Runtime.CompilerServices.ConditionalWeakTable%602.CreateValueCallback> delegate and passed to the <xref:System.Runtime.CompilerServices.ConditionalWeakTable%602.GetValue%2A> method. The example calls the <xref:System.Runtime.CompilerServices.ConditionalWeakTable%602.GetValue%2A> method to add a `MainClass` object and its attached `MainInfo` object to a <xref:System.Runtime.CompilerServices.ConditionalWeakTable%602> table. The example also illustrates calls to the <xref:System.Runtime.CompilerServices.ConditionalWeakTable%602.Add%2A> and <xref:System.Runtime.CompilerServices.ConditionalWeakTable%602.GetOrCreateValue%2A> methods to add key/value pairs to the table, and to the <xref:System.Runtime.CompilerServices.ConditionalWeakTable%602.TryGetValue%2A> method to retrieve the value of an existing key.  \n  \n [!code-csharp[System.Runtime.CompilerServices.ConditionalWeakTable.GetValue#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.runtime.compilerservices.conditionalweaktable.getvalue/cs/getvalue1.cs#1)]\n [!code-vb[System.Runtime.CompilerServices.ConditionalWeakTable.GetValue#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.runtime.compilerservices.conditionalweaktable.getvalue/vb/getvalue1.vb#1)]"
@@ -460,10 +460,10 @@ items:
       description: The key to search for. <code>key</code> represents the object to which the property is attached.
     - id: createValueCallback
       type: System.Runtime.CompilerServices.ConditionalWeakTable{TKey,TValue}
-      description: A delegate to a method that can create a value for the given <code>key</code>. It has a single parameter of type <code>TKey</code>, and returns a value of type <code>TValue</code>.
+      description: 'A delegate to a method that can create a value for the given <code>key</code>. It has a single parameter of type <code>TKey</code>, and returns a value of type <code>TValue</code>.'
     return:
       type: TValue
-      description: The value attached to <code>key</code>, if <code>key</code> already exists in the table; otherwise, the new value returned by the <code>createValueCallback</code> delegate.
+      description: 'The value attached to <code>key</code>, if <code>key</code> already exists in the table; otherwise, the new value returned by the <code>createValueCallback</code> delegate.'
   overload: System.Runtime.CompilerServices.ConditionalWeakTable`2.GetValue*
   exceptions:
   - type: System.ArgumentNullException
@@ -529,7 +529,7 @@ items:
   - netstandard
   namespace: System.Runtime.CompilerServices
   summary: Removes a key and its value from the table.
-  remarks: If the key is garbage-collected during this operation, the method does not raise an exception and the return value is undefined.
+  remarks: 'If the key is garbage-collected during this operation, the method does not raise an exception and the return value is undefined.'
   syntax:
     content: public bool Remove (TKey key);
     parameters:
@@ -604,7 +604,7 @@ items:
   - netstandard
   namespace: System.Runtime.CompilerServices
   summary: Gets the value of the specified key.
-  remarks: If the key is garbage-collected during this operation, the method may return `false` and set `value` to the default value (as if the key were not present).
+  remarks: 'If the key is garbage-collected during this operation, the method may return `false` and set `value` to the default value (as if the key were not present).'
   example:
   - "The following example defines a `MainClass` class and a `MainInfo` class, which provides information about the `MainClass` instance. The example calls the <xref:System.Runtime.CompilerServices.ConditionalWeakTable%602.Add%2A>, <xref:System.Runtime.CompilerServices.ConditionalWeakTable%602.GetOrCreateValue%2A>, and <xref:System.Runtime.CompilerServices.ConditionalWeakTable%602.GetValue%2A> methods to add key/value pairs to a <xref:System.Runtime.CompilerServices.ConditionalWeakTable%602> table. In each case, the example calls the <xref:System.Runtime.CompilerServices.ConditionalWeakTable%602.TryGetValue%2A> method to confirm that the key/value pair has been added to the table.  \n  \n [!code-csharp[System.Runtime.CompilerServices.ConditionalWeakTable.GetValue#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.runtime.compilerservices.conditionalweaktable.getvalue/cs/getvalue1.cs#1)]\n [!code-vb[System.Runtime.CompilerServices.ConditionalWeakTable.GetValue#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.runtime.compilerservices.conditionalweaktable.getvalue/vb/getvalue1.vb#1)]"
   syntax:
@@ -615,7 +615,7 @@ items:
       description: The key that represents an object with an attached property.
     - id: value
       type: TValue
-      description: When this method returns, contains the attached property value. If <code>key</code> is not found, <code>value</code> contains the default value.
+      description: 'When this method returns, contains the attached property value. If <code>key</code> is not found, <code>value</code> contains the default value.'
     return:
       type: System.Boolean
       description: '`true` if <code>key</code> is found; otherwise, `false`.'

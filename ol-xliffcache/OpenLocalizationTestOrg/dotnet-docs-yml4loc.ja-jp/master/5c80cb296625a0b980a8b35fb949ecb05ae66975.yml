@@ -30,7 +30,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Diagnostics
-  summary: Represents a stack trace, which is an ordered collection of one or more stack frames.
+  summary: 'Represents a stack trace, which is an ordered collection of one or more stack frames.'
   remarks: "<xref:System.Diagnostics.StackTrace> information will be most informative with Debug build configurations. By default, Debug builds include debug symbols, while Release builds do not. The debug symbols contain most of the file, method name, line number, and column information used in constructing <xref:System.Diagnostics.StackFrame> and <xref:System.Diagnostics.StackTrace> objects.  \n  \n <xref:System.Diagnostics.StackTrace> might not report as many method calls as expected, due to code transformations that occur during optimization."
   example:
   - "The following console application demonstrates how to create a simple <xref:System.Diagnostics.StackTrace> and iterate through its frames to obtain debugging and diagnostic information.  \n  \n [!code-cpp[StackTraceSample1#1](~/samples/snippets/cpp/VS_Snippets_CLR/StackTraceSample1/CPP/stacktracesample1.cpp#1)]\n [!code-csharp[StackTraceSample1#1](~/samples/snippets/csharp/VS_Snippets_CLR/StackTraceSample1/CS/stacktracesample1.cs#1)]\n [!code-vb[StackTraceSample1#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/StackTraceSample1/VB/stacktracesample1.vb#1)]"
@@ -158,8 +158,8 @@ items:
   - netstandard
   - System.Diagnostics.StackTrace
   namespace: System.Diagnostics
-  summary: Initializes a new instance of the <xref href="System.Diagnostics.StackTrace"></xref> class from the caller's frame, optionally capturing source information.
-  remarks: The <xref:System.Diagnostics.StackTrace> is created with the caller's current thread.
+  summary: 'Initializes a new instance of the <xref href="System.Diagnostics.StackTrace"></xref> class from the caller''s frame, optionally capturing source information.'
+  remarks: 'The <xref:System.Diagnostics.StackTrace> is created with the caller''s current thread.'
   example:
   - "The following code example demonstrates various <xref:System.Diagnostics.StackTrace> constructor methods.  \n  \n [!code-cpp[StackFrameSample1#4](~/samples/snippets/cpp/VS_Snippets_CLR/StackFrameSample1/CPP/source.cpp#4)]\n [!code-csharp[StackFrameSample1#4](~/samples/snippets/csharp/VS_Snippets_CLR/StackFrameSample1/CS/source.cs#4)]\n [!code-vb[StackFrameSample1#4](~/samples/snippets/visualbasic/VS_Snippets_CLR/StackFrameSample1/VB/source.vb#4)]"
   syntax:
@@ -336,7 +336,7 @@ items:
   - netstandard
   - System.Diagnostics.StackTrace
   namespace: System.Diagnostics
-  summary: Initializes a new instance of the <xref href="System.Diagnostics.StackTrace"></xref> class from the caller's frame, skipping the specified number of frames.
+  summary: 'Initializes a new instance of the <xref href="System.Diagnostics.StackTrace"></xref> class from the caller''s frame, skipping the specified number of frames.'
   remarks: "The <xref:System.Diagnostics.StackTrace> is created with the caller's current thread, and does not contain file name, line number, or column information.  \n  \n If the number of frames to skip is greater than or equal to the total number of frames on the call stack at the time the instance is created, the <xref:System.Diagnostics.StackTrace> will contain no frames."
   syntax:
     content: public StackTrace (int skipFrames);
@@ -396,7 +396,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Diagnostics
-  summary: Initializes a new instance of the <xref href="System.Diagnostics.StackTrace"></xref> class, using the provided exception object and optionally capturing source information.
+  summary: 'Initializes a new instance of the <xref href="System.Diagnostics.StackTrace"></xref> class, using the provided exception object and optionally capturing source information.'
   remarks: The resulting stack trace describes the stack at the time of the exception.
   syntax:
     content: public StackTrace (Exception e, bool fNeedFileInfo);
@@ -529,8 +529,8 @@ items:
   - netstandard
   - System.Diagnostics.StackTrace
   namespace: System.Diagnostics
-  summary: Initializes a new instance of the <xref href="System.Diagnostics.StackTrace"></xref> class from the caller's frame, skipping the specified number of frames and optionally capturing source information.
-  remarks: If the number of frames to skip is greater than or equal to the total number of frames on the call stack at the time the instance is created, the <xref:System.Diagnostics.StackTrace> will contain no frames.
+  summary: 'Initializes a new instance of the <xref href="System.Diagnostics.StackTrace"></xref> class from the caller''s frame, skipping the specified number of frames and optionally capturing source information.'
+  remarks: 'If the number of frames to skip is greater than or equal to the total number of frames on the call stack at the time the instance is created, the <xref:System.Diagnostics.StackTrace> will contain no frames.'
   example:
   - "The following code example demonstrates various <xref:System.Diagnostics.StackTrace> constructor methods.  \n  \n [!code-cpp[StackFrameSample1#4](~/samples/snippets/cpp/VS_Snippets_CLR/StackFrameSample1/CPP/source.cpp#4)]\n [!code-csharp[StackFrameSample1#4](~/samples/snippets/csharp/VS_Snippets_CLR/StackFrameSample1/CS/source.cs#4)]\n [!code-vb[StackFrameSample1#4](~/samples/snippets/visualbasic/VS_Snippets_CLR/StackFrameSample1/VB/source.vb#4)]"
   syntax:
@@ -593,10 +593,7 @@ items:
   - mscorlib
   namespace: System.Diagnostics
   summary: "Initializes a new instance of the <xref href=\"System.Diagnostics.StackTrace\"></xref> class for a specific thread, optionally capturing source information.  \n  \n Do not use this constructor overload."
-  remarks: >-
-    > [!IMPORTANT]
-
-    >  Do not use this constructor. It is obsolete, and there is no recommended alternative. When you suspend a thread, you have no way of knowing what code it is executing, and deadlocks can occur very easily. For example, if you suspend a thread while it holds locks during a security permission evaluation, other threads in the <xref:System.AppDomain> might be blocked. If you suspend a thread while it is executing a class constructor, other threads in the <xref:System.AppDomain> that attempt to use that class are blocked.
+  remarks: "> [!IMPORTANT]\n>  Do not use this constructor. It is obsolete, and there is no recommended alternative. When you suspend a thread, you have no way of knowing what code it is executing, and deadlocks can occur very easily. For example, if you suspend a thread while it holds locks during a security permission evaluation, other threads in the <xref:System.AppDomain> might be blocked. If you suspend a thread while it is executing a class constructor, other threads in the <xref:System.AppDomain> that attempt to use that class are blocked."
   syntax:
     content: >-
       [System.Obsolete]
@@ -659,7 +656,7 @@ items:
   - netstandard
   - System.Diagnostics.StackTrace
   namespace: System.Diagnostics
-  summary: Initializes a new instance of the <xref href="System.Diagnostics.StackTrace"></xref> class using the provided exception object, skipping the specified number of frames and optionally capturing source information.
+  summary: 'Initializes a new instance of the <xref href="System.Diagnostics.StackTrace"></xref> class using the provided exception object, skipping the specified number of frames and optionally capturing source information.'
   remarks: "The resulting stack trace describes the stack at the time of the exception.  \n  \n If the number of frames to skip is greater than or equal to the total number of frames on the call stack at the time the instance is created, the <xref:System.Diagnostics.StackTrace> will contain no frames."
   syntax:
     content: public StackTrace (Exception e, int skipFrames, bool fNeedFileInfo);
@@ -787,7 +784,7 @@ items:
   - System.Diagnostics.StackTrace
   namespace: System.Diagnostics
   summary: Gets the specified stack frame.
-  remarks: Stack frames are numbered starting at 0, which is the last stack frame pushed.
+  remarks: 'Stack frames are numbered starting at 0, which is the last stack frame pushed.'
   example:
   - "The following code example displays the first and last function calls in a stack trace.  \n  \n [!code-cpp[StackFrameSample1#8](~/samples/snippets/cpp/VS_Snippets_CLR/StackFrameSample1/CPP/source.cpp#8)]\n [!code-csharp[StackFrameSample1#8](~/samples/snippets/csharp/VS_Snippets_CLR/StackFrameSample1/CS/source.cs#8)]\n [!code-vb[StackFrameSample1#8](~/samples/snippets/visualbasic/VS_Snippets_CLR/StackFrameSample1/VB/source.vb#8)]"
   syntax:

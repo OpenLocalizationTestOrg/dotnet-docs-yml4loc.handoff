@@ -157,7 +157,7 @@ items:
   - netstandard
   namespace: System.Xml.Linq
   summary: Initializes a new instance of the <xref href="System.Xml.Linq.XText"></xref> class.
-  remarks: You typically do not create text nodes by using the <xref:System.Xml.Linq.XText> constructors. When you pass text content when constructing an <xref:System.Xml.Linq.XElement>, text nodes are automatically created.
+  remarks: 'You typically do not create text nodes by using the <xref:System.Xml.Linq.XText> constructors. When you pass text content when constructing an <xref:System.Xml.Linq.XElement>, text nodes are automatically created.'
   example:
   - "The following example creates an element that contains a text node.  \n  \n```csharp  \n  \n                XElement root = new XElement(\"Root\", \"Some text\");  \nConsole.WriteLine(root);  \n```  \n  \n```vb  \n  \n                Dim root As XElement = <Root>Some text</Root>  \nConsole.WriteLine(root)  \n```  \n  \n This example produces the following output:  \n  \n```xml  \n  \n<Root>Some text</Root>  \n```"
   syntax:
@@ -305,14 +305,14 @@ items:
   - netstandard
   namespace: System.Xml.Linq
   summary: Gets the node type for this node.
-  remarks: Because all classes that derive from <xref:System.Xml.Linq.XObject> contain a <xref:System.Xml.Linq.XObject.NodeType%2A> property, you can write code that operates on collections of concrete subclass of <xref:System.Xml.Linq.XObject>. Your code can then test for the node type of each node in the collection.
+  remarks: 'Because all classes that derive from <xref:System.Xml.Linq.XObject> contain a <xref:System.Xml.Linq.XObject.NodeType%2A> property, you can write code that operates on collections of concrete subclass of <xref:System.Xml.Linq.XObject>. Your code can then test for the node type of each node in the collection.'
   example:
   - "The following example creates an XML tree that contains a number of types of nodes. It then iterates through the tree, outputting the node type of each node.  \n  \n Note that `Child2` contains an <xref:System.Xml.Linq.XText> node, implicitly converted from the string content.  \n  \n```csharp  \n  \n                // Note that XNode uses XmlNodeType, which is in the System.Xml namespace.  \nXDocument xmlTree = new XDocument(  \n    new XComment(\"a comment\"),  \n    new XProcessingInstruction(\"xml-stylesheet\", \"type=\\\"text/xsl\\\" href=\\\"hello.xsl\\\"\"),  \n    new XElement(\"Root\",  \n        new XAttribute(\"Att\", \"attContent\"),  \n        new XElement(\"Child1\",  \n            new XCData(\"CDATA content\")  \n        ),  \n        new XElement(\"Child2\", \"Text content\")  \n    )  \n);  \n  \nforeach (XNode node in xmlTree.DescendantNodes())  \n{  \n    Console.WriteLine(node.NodeType);  \n    if (node.NodeType == XmlNodeType.Element)  \n    {  \n        foreach (XAttribute att in ((XElement)node).Attributes())  \n            Console.WriteLine(att.NodeType);  \n    }  \n}  \n```  \n  \n```vb  \n  \n                ' Note that XNode uses XmlNodeType, which is in the System.Xml namespace.  \nDim xmlTree As XDocument = _  \n    <?xml version='1.0'?>  \n    <!-- a comment -->  \n    <?xml-stylesheet type='text/xsl' href='hello.xsl'?>  \n    <Root Att=\"attContent\">  \n        <Child1>  \n            <![CDATA[CDATA content]]>  \n        </Child1>  \n        <Child2>Text content</Child2>  \n    </Root>  \n  \nFor Each node As XNode In xmlTree.DescendantNodes  \n    Console.WriteLine(node.NodeType.ToString())  \n    If node.NodeType = XmlNodeType.Element Then  \n        For Each att In DirectCast(node, XElement).Attributes  \n            Console.WriteLine(att.NodeType.ToString())  \n        Next  \n    End If  \nNext  \n  \n```  \n  \n This example produces the following output:  \n  \n```  \nComment  \nProcessingInstruction  \nElement  \nAttribute  \nElement  \nCDATA  \nElement  \nText  \n```"
   syntax:
     content: public override System.Xml.XmlNodeType NodeType { get; }
     return:
       type: System.Xml.XmlNodeType
-      description: The node type. For <xref href="System.Xml.Linq.XText"></xref> objects, this value is <xref href="System.Xml.XmlNodeType.Text"></xref>.
+      description: 'The node type. For <xref href="System.Xml.Linq.XText"></xref> objects, this value is <xref href="System.Xml.XmlNodeType.Text"></xref>.'
   overload: System.Xml.Linq.XText.NodeType*
   exceptions: []
   version:
@@ -379,7 +379,7 @@ items:
   - netstandard
   namespace: System.Xml.Linq
   summary: Gets or sets the value of this node.
-  remarks: Setting this property will raise the <xref:System.Xml.Linq.XObject.Changed> and the <xref:System.Xml.Linq.XObject.Changing> events.
+  remarks: 'Setting this property will raise the <xref:System.Xml.Linq.XObject.Changed> and the <xref:System.Xml.Linq.XObject.Changing> events.'
   example:
   - "The following example shows getting and setting this property.  \n  \n```csharp  \n  \n                XElement root = new XElement(\"Root\", \"Some text\");  \nXText txtNode = root.Nodes().OfType<XText>().First();  \nConsole.WriteLine(txtNode.Value);  \ntxtNode.Value = \"New text\";  \nConsole.WriteLine(txtNode.Value);  \n  \nroot.Value = \"Newer text\";  \ntxtNode = root.Nodes().OfType<XText>().First();  \nConsole.WriteLine(txtNode.Value);  \n```  \n  \n```vb  \n  \n                Dim root As XElement = <Root>Some text</Root>  \nDim txtNode As XText = root.Nodes().OfType(Of XText).First()  \nConsole.WriteLine(txtNode.Value)  \ntxtNode.Value = \"New text\"  \nConsole.WriteLine(txtNode.Value)  \n  \nroot.Value = \"Newer text\"  \ntxtNode = root.Nodes().OfType(Of XText).First()  \nConsole.WriteLine(txtNode.Value)  \n```  \n  \n This example produces the following output:  \n  \n```  \nSome text  \nNew text  \nNewer text  \n```"
   syntax:
@@ -453,7 +453,7 @@ items:
   - netstandard
   namespace: System.Xml.Linq
   summary: Writes this node to an <xref href="System.Xml.XmlWriter"></xref>.
-  remarks: This method is primarily used internally by the methods that write an XML tree to an <xref:System.Xml.XmlWriter>.
+  remarks: 'This method is primarily used internally by the methods that write an XML tree to an <xref:System.Xml.XmlWriter>.'
   syntax:
     content: public override void WriteTo (System.Xml.XmlWriter writer);
     parameters:

@@ -99,7 +99,7 @@ items:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
   summary: Initializes a new instance of the <xref href="System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService"></xref> class by using the specified parameters.
-  remarks: This constructor is invoked when the workflow runtime engine loads services from an application configuration file. It can also be programmatically invoked with the `NameValueCollection` parameter. The valid parameters are `ConnectionString`, `OwnershipTimeoutSeconds`, `UnloadOnIdle`, and `EnableRetries`. An <xref:System.ArgumentException> is thrown if parameters contain any other keys.
+  remarks: 'This constructor is invoked when the workflow runtime engine loads services from an application configuration file. It can also be programmatically invoked with the `NameValueCollection` parameter. The valid parameters are `ConnectionString`, `OwnershipTimeoutSeconds`, `UnloadOnIdle`, and `EnableRetries`. An <xref:System.ArgumentException> is thrown if parameters contain any other keys.'
   syntax:
     content: public SqlWorkflowPersistenceService (System.Collections.Specialized.NameValueCollection parameters);
     parameters:
@@ -193,7 +193,7 @@ items:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
   summary: Initializes a new instance of the <xref href="System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService"></xref> class using a database connection string and other parameters.
-  remarks: Note that using this constructor (which provides a value for `instanceOwnershipDuration`) enables locking. To create a persistence service that does not enable locking, use a different constructor that does not specify `instanceOwnershipDuration`.
+  remarks: 'Note that using this constructor (which provides a value for `instanceOwnershipDuration`) enables locking. To create a persistence service that does not enable locking, use a different constructor that does not specify `instanceOwnershipDuration`.'
   syntax:
     content: public SqlWorkflowPersistenceService (string connectionString, bool unloadOnIdle, TimeSpan instanceOwnershipDuration, TimeSpan loadingInterval);
     parameters:
@@ -332,7 +332,7 @@ items:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
   summary: Retrieves the specified completed scope from the database.
-  remarks: The workflow run-time engine uses <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.LoadCompletedContextActivity%2A> during compensation. <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.LoadCompletedContextActivity%2A> should only be called by the workflow run-time engine.
+  remarks: 'The workflow run-time engine uses <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.LoadCompletedContextActivity%2A> during compensation. <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.LoadCompletedContextActivity%2A> should only be called by the workflow run-time engine.'
   syntax:
     content: protected override System.Workflow.ComponentModel.Activity LoadCompletedContextActivity (Guid id, System.Workflow.ComponentModel.Activity outerActivity);
     parameters:
@@ -468,7 +468,7 @@ items:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
   summary: Retrieves the specified workflow instance state from the database.
-  remarks: <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.LoadWorkflowInstanceState%2A> should only be called by the workflow run-time engine.
+  remarks: '<xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.LoadWorkflowInstanceState%2A> should only be called by the workflow run-time engine.'
   syntax:
     content: protected override System.Workflow.ComponentModel.Activity LoadWorkflowInstanceState (Guid id);
     parameters:
@@ -687,7 +687,7 @@ items:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
   summary: Starts the <xref href="System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService"></xref>.
-  remarks: <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.Start%2A> must only be called by the workflow run-time engine.
+  remarks: '<xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.Start%2A> must only be called by the workflow run-time engine.'
   syntax:
     content: protected override void Start ();
     parameters: []
@@ -811,7 +811,7 @@ items:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
   summary: Unlocks access to the specified workflow instance state.
-  remarks: This method is used by the workflow runtime to unlock a workflow instance state in the data store without persistence and is called by the workflow runtime if the runtime must unlock the state without persisting, for example, in the case of an <xref:System.Workflow.Runtime.WorkflowInstance.Abort%2A>.
+  remarks: 'This method is used by the workflow runtime to unlock a workflow instance state in the data store without persistence and is called by the workflow runtime if the runtime must unlock the state without persisting, for example, in the case of an <xref:System.Workflow.Runtime.WorkflowInstance.Abort%2A>.'
   syntax:
     content: protected override void UnlockWorkflowInstanceState (System.Workflow.ComponentModel.Activity rootActivity);
     parameters:
@@ -952,7 +952,7 @@ items:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
   summary: Returns a value that indicates whether the collection of serialized state objects should be written to the database.
-  remarks: <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.System%23Workflow%23Runtime%23IPendingWork%23MustCommit(System.Collections.ICollection) always returns `true`, which instructs the workflow run-time engine to invoke <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.System%23Workflow%23Runtime%23IPendingWork%23MustCommit(System.Collections.ICollection)> on the batch.
+  remarks: '<xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.System%23Workflow%23Runtime%23IPendingWork%23MustCommit(System.Collections.ICollection) always returns `true`, which instructs the workflow run-time engine to invoke <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.System%23Workflow%23Runtime%23IPendingWork%23MustCommit(System.Collections.ICollection)> on the batch.'
   syntax:
     content: bool IPendingWork.MustCommit (System.Collections.ICollection items);
     parameters:

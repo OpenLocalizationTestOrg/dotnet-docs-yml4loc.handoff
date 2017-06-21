@@ -139,7 +139,7 @@ items:
   assemblies:
   - System.Data.Entity
   namespace: System.Data.EntityClient
-  summary: Initializes a new instance of the <xref href="System.Data.EntityClient.EntityConnection"></xref> class, based on the connection string.
+  summary: 'Initializes a new instance of the <xref href="System.Data.EntityClient.EntityConnection"></xref> class, based on the connection string.'
   remarks: "The  generate a named connection string that is stored in the application's configuration file. This named connection string can be supplied in place of the `connectionString` parameter when you instantiate the <xref:System.Data.EntityClient.EntityConnection> class.  \n  \n To avoid inadvertently putting objects <xref:System.Data.Common.CommandTrees> and <xref:System.Data.Objects.ObjectContext> out of sync with their metadata, <xref:System.Data.EntityClient.EntityConnection> must lock its metadata. No changes to the connection string are allowed after the metadata is locked. The following are two scenarios in which metadata is locked:  \n  \n-   The <xref:System.Data.EntityClient.EntityConnection> instance is constructed through the default constructor, or through this constructor (<xref:System.Data.EntityClient.EntityConnection.%23ctor%28System.String%29>), which accepts a connection string. In either case the connection string might be changed multiple times before the connection is opened. Calling <xref:System.Data.EntityClient.EntityConnection.Open%2A> or <xref:System.Data.EntityClient.EntityConnection.GetMetadataWorkspace%2A> locks the metadata.  \n  \n-   The <xref:System.Data.EntityClient.EntityConnection> instance is constructed through the <xref:System.Data.EntityClient.EntityConnection.%23ctor%28System.Data.Metadata.Edm.MetadataWorkspace%2CSystem.Data.Common.DbConnection%29> constructor, which accepts a <xref:System.Data.Metadata.Edm.MetadataWorkspace> and a <xref:System.Data.Common.DbConnection>. In this case the metadata is locked at construction time. No changes to the connection string are ever allowed.  \n  \n When metadata is loaded, the <xref:System.Data.EntityClient.EntityConnection> verifies that the conceptual model, the storage model, and the mapping file are all present.  \n  \n For code examples, see [Working with EntityClient](http://msdn.microsoft.com/en-us/dec4728c-8dff-4e30-abe0-0f78fb5d5af5)."
   syntax:
     content: public EntityConnection (string connectionString);
@@ -151,7 +151,7 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: An invalid connection string keyword has been provided, or a required connection string keyword has not been provided.
+    description: 'An invalid connection string keyword has been provided, or a required connection string keyword has not been provided.'
   version:
   - netframework-4.5.1
   - netframework-4.5.2
@@ -334,7 +334,7 @@ items:
   - System.Data.Entity
   namespace: System.Data.EntityClient
   summary: Begins a transaction with the specified isolation level by using the underlying provider.
-  remarks: At any particular moment there can be no more than one active transaction that was created through <xref:System.Data.EntityClient.EntityConnection.BeginTransaction%2A>. An attempt to call any of the <xref:System.Data.EntityClient.EntityConnection.BeginTransaction%2A> overloads on an <xref:System.Data.EntityClient.EntityConnection> that already has a current transaction results in an <xref:System.InvalidOperationException>.
+  remarks: 'At any particular moment there can be no more than one active transaction that was created through <xref:System.Data.EntityClient.EntityConnection.BeginTransaction%2A>. An attempt to call any of the <xref:System.Data.EntityClient.EntityConnection.BeginTransaction%2A> overloads on an <xref:System.Data.EntityClient.EntityConnection> that already has a current transaction results in an <xref:System.InvalidOperationException>.'
   syntax:
     content: public System.Data.EntityClient.EntityTransaction BeginTransaction (System.Data.IsolationLevel isolationLevel);
     parameters:
@@ -385,7 +385,7 @@ items:
   - System.Data.Entity
   namespace: System.Data.EntityClient
   summary: Not supported.
-  remarks: The <xref:System.Data.EntityClient.EntityConnection.ChangeDatabase%2A> method is required when deriving from <xref:System.Data.Common.DbConnection>. This method is not supported and will raise a <xref:System.NotSupportedException>.
+  remarks: 'The <xref:System.Data.EntityClient.EntityConnection.ChangeDatabase%2A> method is required when deriving from <xref:System.Data.Common.DbConnection>. This method is not supported and will raise a <xref:System.NotSupportedException>.'
   syntax:
     content: public override void ChangeDatabase (string databaseName);
     parameters:
@@ -433,7 +433,7 @@ items:
   - System.Data.Entity
   namespace: System.Data.EntityClient
   summary: Closes the connection to the database.
-  remarks: If the underlying data provider is not known, the call to <xref:System.Data.EntityClient.EntityConnection.Close%2A> does nothing.
+  remarks: 'If the underlying data provider is not known, the call to <xref:System.Data.EntityClient.EntityConnection.Close%2A> does nothing.'
   syntax:
     content: public override void Close ();
     parameters: []
@@ -485,12 +485,12 @@ items:
     content: public override string ConnectionString { get; set; }
     return:
       type: System.String
-      description: The connection string required to establish the initial connection to a data source. The default value is an empty string. On a closed connection, the currently set value is returned. If no value has been set, an empty string is returned.
+      description: 'The connection string required to establish the initial connection to a data source. The default value is an empty string. On a closed connection, the currently set value is returned. If no value has been set, an empty string is returned.'
   overload: System.Data.EntityClient.EntityConnection.ConnectionString*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An attempt was made to set the <xref href="System.Data.EntityClient.EntityConnection.ConnectionString"></xref> property after the <xref href="EntityConnection"></xref>’s <xref href="System.Data.Metadata.Edm.MetadataWorkspace"></xref> was initialized. The <xref href="MetadataWorkspace"></xref> is initialized either when the <xref href="EntityConnection"></xref> instance is constructed through the overload that takes a <xref href="MetadataWorkspace"></xref> as a parameter, or when the <xref href="System.Data.EntityClient.EntityConnection"></xref> instance has been opened.
+    description: 'An attempt was made to set the <xref href="System.Data.EntityClient.EntityConnection.ConnectionString"></xref> property after the <xref href="EntityConnection"></xref>’s <xref href="System.Data.Metadata.Edm.MetadataWorkspace"></xref> was initialized. The <xref href="MetadataWorkspace"></xref> is initialized either when the <xref href="EntityConnection"></xref> instance is constructed through the overload that takes a <xref href="MetadataWorkspace"></xref> as a parameter, or when the <xref href="System.Data.EntityClient.EntityConnection"></xref> instance has been opened.'
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
     description: An invalid connection string keyword has been provided or a required connection string keyword has not been provided.
@@ -576,7 +576,7 @@ items:
   assemblies:
   - System.Data.Entity
   namespace: System.Data.EntityClient
-  summary: Creates a new instance of an <xref href="System.Data.EntityClient.EntityCommand"></xref>, with the <xref href="System.Data.EntityClient.EntityCommand.Connection"></xref> set to this <xref href="System.Data.EntityClient.EntityConnection"></xref>.
+  summary: 'Creates a new instance of an <xref href="System.Data.EntityClient.EntityCommand"></xref>, with the <xref href="System.Data.EntityClient.EntityCommand.Connection"></xref> set to this <xref href="System.Data.EntityClient.EntityConnection"></xref>.'
   syntax:
     content: public System.Data.EntityClient.EntityCommand CreateCommand ();
     parameters: []
@@ -661,8 +661,8 @@ items:
   assemblies:
   - System.Data.Entity
   namespace: System.Data.EntityClient
-  summary: Gets the name of the current database, or the database that will be used after a connection is opened.
-  remarks: For the specific keyword value, such as `Database`, that maps to the <xref:System.Data.EntityClient.EntityConnection.Database%2A> property, see the documentation for the underlying data provider. For [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] equivalent keywords, see the documentation for the <xref:System.Data.SqlClient.SqlConnection.ConnectionString%2A> property.
+  summary: 'Gets the name of the current database, or the database that will be used after a connection is opened.'
+  remarks: 'For the specific keyword value, such as `Database`, that maps to the <xref:System.Data.EntityClient.EntityConnection.Database%2A> property, see the documentation for the underlying data provider. For [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] equivalent keywords, see the documentation for the <xref:System.Data.SqlClient.SqlConnection.ConnectionString%2A> property.'
   syntax:
     content: public override string Database { get; }
     return:
@@ -709,7 +709,7 @@ items:
   - System.Data.Entity
   namespace: System.Data.EntityClient
   summary: Gets the name or network address of the data source to connect to.
-  remarks: For the specific keyword value, such as `DataSource`, that maps to the <xref:System.Data.EntityClient.EntityConnection.DataSource%2A> property, see the documentation for the underlying data provider. For [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] equivalent keywords, see the documentation for the <xref:System.Data.SqlClient.SqlConnection.ConnectionString%2A> property.
+  remarks: 'For the specific keyword value, such as `DataSource`, that maps to the <xref:System.Data.EntityClient.EntityConnection.DataSource%2A> property, see the documentation for the underlying data provider. For [!INCLUDE[ssNoVersion](~/includes/ssnoversion-md.md)] equivalent keywords, see the documentation for the <xref:System.Data.SqlClient.SqlConnection.ConnectionString%2A> property.'
   syntax:
     content: public override string DataSource { get; }
     return:
@@ -831,7 +831,7 @@ items:
   - System.Data.Entity
   namespace: System.Data.EntityClient
   summary: Enlists this <xref href="System.Data.EntityClient.EntityConnection"></xref> in the specified transaction.
-  remarks: This method forwards the call to the data source connection to explicitly enlist in the passed <xref:System.Transactions.Transaction>.
+  remarks: 'This method forwards the call to the data source connection to explicitly enlist in the passed <xref:System.Transactions.Transaction>.'
   syntax:
     content: public override void EnlistTransaction (System.Transactions.Transaction transaction);
     parameters:
@@ -940,7 +940,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: An error occurs when you open the connection, or the name of the underlying data provider is not known.
+    description: 'An error occurs when you open the connection, or the name of the underlying data provider is not known.'
   - type: System.Data.MetadataException
     commentId: T:System.Data.MetadataException
     description: The inline connection string contains an invalid `Metadata` keyword value.
@@ -1025,12 +1025,12 @@ items:
   assemblies:
   - System.Data.Entity
   namespace: System.Data.EntityClient
-  summary: Gets the <xref href="System.Data.ConnectionState"></xref> property of the underlying provider if the <xref href="System.Data.EntityClient.EntityConnection"></xref> is open. Otherwise, returns <xref href="System.Data.ConnectionState.Closed"></xref>.
+  summary: 'Gets the <xref href="System.Data.ConnectionState"></xref> property of the underlying provider if the <xref href="System.Data.EntityClient.EntityConnection"></xref> is open. Otherwise, returns <xref href="System.Data.ConnectionState.Closed"></xref>.'
   syntax:
     content: public override System.Data.ConnectionState State { get; }
     return:
       type: System.Data.ConnectionState
-      description: <xref href="System.Data.ConnectionState.Open"></xref>, if and only if both the <xref href="System.Data.EntityClient.EntityConnection"></xref>’s internal state and the underlying provider's <xref href="System.Data.ConnectionState"></xref> are open. If the <xref href="System.Data.EntityClient.EntityConnection"></xref>’s state is open but the provider's <xref href="System.Data.ConnectionState"></xref> is closed, this property returns <xref href="System.Data.ConnectionState.Broken"></xref>. Otherwise, it returns <xref href="System.Data.ConnectionState.Closed"></xref>.
+      description: '<xref href="System.Data.ConnectionState.Open"></xref>, if and only if both the <xref href="System.Data.EntityClient.EntityConnection"></xref>’s internal state and the underlying provider''s <xref href="System.Data.ConnectionState"></xref> are open. If the <xref href="System.Data.EntityClient.EntityConnection"></xref>’s state is open but the provider''s <xref href="System.Data.ConnectionState"></xref> is closed, this property returns <xref href="System.Data.ConnectionState.Broken"></xref>. Otherwise, it returns <xref href="System.Data.ConnectionState.Closed"></xref>.'
   overload: System.Data.EntityClient.EntityConnection.State*
   exceptions: []
   version:

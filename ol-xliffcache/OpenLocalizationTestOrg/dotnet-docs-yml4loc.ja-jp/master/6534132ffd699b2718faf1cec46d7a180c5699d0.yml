@@ -19,7 +19,7 @@ items:
   - netstandard
   namespace: System.ComponentModel
   summary: Defines members that data entity classes can implement to provide custom synchronous and asynchronous validation support.
-  remarks: This interface enables data entity classes to implement custom validation rules and expose validation results asynchronously. This interface also supports custom error objects, multiple errors per property, cross-property errors, and entity-level errors. Cross-property errors are errors that affect multiple properties. You can associate these errors with one or all of the affected properties, or you can treat them as entity-level errors. Entity-level errors are errors that either affect multiple properties or affect the entire entity without affecting a particular property.
+  remarks: 'This interface enables data entity classes to implement custom validation rules and expose validation results asynchronously. This interface also supports custom error objects, multiple errors per property, cross-property errors, and entity-level errors. Cross-property errors are errors that affect multiple properties. You can associate these errors with one or all of the affected properties, or you can treat them as entity-level errors. Entity-level errors are errors that either affect multiple properties or affect the entire entity without affecting a particular property.'
   syntax:
     content: public interface INotifyDataErrorInfo
   implements: []
@@ -87,7 +87,7 @@ items:
   - netstandard
   namespace: System.ComponentModel
   summary: Occurs when the validation errors have changed for a property or for the entire entity.
-  remarks: The implementing class should raise this event on the user interface thread whenever the <xref:System.ComponentModel.INotifyDataErrorInfo.GetErrors%2A> return value changes, even if the return value implements <xref:System.Collections.Specialized.INotifyCollectionChanged>.
+  remarks: 'The implementing class should raise this event on the user interface thread whenever the <xref:System.ComponentModel.INotifyDataErrorInfo.GetErrors%2A> return value changes, even if the return value implements <xref:System.Collections.Specialized.INotifyCollectionChanged>.'
   syntax:
     content: public event EventHandler<System.ComponentModel.DataErrorsChangedEventArgs> ErrorsChanged;
     return:
@@ -164,7 +164,7 @@ items:
     parameters:
     - id: propertyName
       type: System.String
-      description: The name of the property to retrieve validation errors for; or `null` or <xref href="System.String.Empty"></xref>, to retrieve entity-level errors.
+      description: 'The name of the property to retrieve validation errors for; or `null` or <xref href="System.String.Empty"></xref>, to retrieve entity-level errors.'
     return:
       type: System.Collections.IEnumerable
       description: The validation errors for the property or entity.
@@ -234,7 +234,7 @@ items:
   - netstandard
   namespace: System.ComponentModel
   summary: Gets a value that indicates whether the entity has validation errors.
-  remarks: This property returns `false` if there are no known entity-level or property-level validation errors for the entity at the time it is accessed. However, some validation rules may still be running asynchronously as described for the <xref:System.ComponentModel.INotifyDataErrorInfo.GetErrors%2A> method.
+  remarks: 'This property returns `false` if there are no known entity-level or property-level validation errors for the entity at the time it is accessed. However, some validation rules may still be running asynchronously as described for the <xref:System.ComponentModel.INotifyDataErrorInfo.GetErrors%2A> method.'
   syntax:
     content: public bool HasErrors { get; }
     return:

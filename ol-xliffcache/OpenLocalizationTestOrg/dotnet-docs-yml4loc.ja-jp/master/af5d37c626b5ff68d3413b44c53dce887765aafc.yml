@@ -28,7 +28,7 @@ items:
   - System.Core
   - netstandard
   namespace: System.IO.Pipes
-  summary: Exposes a stream around an anonymous pipe, which supports both synchronous and asynchronous read and write operations.
+  summary: 'Exposes a stream around an anonymous pipe, which supports both synchronous and asynchronous read and write operations.'
   remarks: "Anonymous pipes help provide safe and secure interprocess communication between child and parent processes. The <xref:System.IO.Pipes.AnonymousPipeServerStream> class enables a parent process to send or receive information from a child process.  \n  \n Anonymous pipes are unnamed, one-way pipes that typically transfer data between parent and child processes. Anonymous pipes are always local; they cannot be used over a network. A <xref:System.IO.Pipes.PipeDirection> value of <xref:System.IO.Pipes.PipeDirection.InOut> is not supported because anonymous pipes are defined to be one-way.  \n  \n Anonymous pipes do not support <xref:System.IO.Pipes.PipeTransmissionMode.Message> read modes.  \n  \n The client side of an anonymous pipe must be created from a pipe handle provided by the server side by calling the <xref:System.IO.Pipes.AnonymousPipeServerStream.GetClientHandleAsString%2A> method. The string is then passed as a parameter when creating the client process. From the client process, it is then passed to the <xref:System.IO.Pipes.AnonymousPipeClientStream> constructor as the `pipeHandleAsString` parameter.  \n  \n The <xref:System.IO.Pipes.AnonymousPipeServerStream> object must dispose the client handle using the <xref:System.IO.Pipes.AnonymousPipeServerStream.DisposeLocalCopyOfClientHandle%2A> method in order to be notified when the client exits.  \n  \n> [!NOTE]\n>  For [!INCLUDE[winxppro](~/includes/winxppro-md.md)] and [!INCLUDE[win2kserver](~/includes/win2kserver-md.md)], a maximum of 10 pipes can simultaneously connect over the network."
   example:
   - "The following example demonstrates a way to send a string from a parent process to a child process using anonymous pipes. This example creates an <xref:System.IO.Pipes.AnonymousPipeServerStream> object in a parent process with a <xref:System.IO.Pipes.PipeDirection> value of <xref:System.IO.Pipes.PipeDirection.Out>. It also creates an <xref:System.IO.Pipes.AnonymousPipeClientStream> object in a child process with a <xref:System.IO.Pipes.PipeDirection> value of <xref:System.IO.Pipes.PipeDirection.In>. The parent process then sends a user-supplied string to the child process. The string is displayed to the console.  \n  \n This example is for the server process, which uses the <xref:System.IO.Pipes.AnonymousPipeServerStream> class. For the entire code example, including the code for both the pipe client and server, see [How to: Use Anonymous Pipes for Local Interprocess Communication](~/docs/standard/io/how-to-use-anonymous-pipes-for-local-interprocess-communication.md).  \n  \n [!code-cpp[System.IO.Pipes.AnonymousPipeServerStream_Sample#01](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.IO.Pipes.AnonymousPipeServerStream_Sample/cpp/program.cpp#01)]\n [!code-csharp[System.IO.Pipes.AnonymousPipeServerStream_Sample#01](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.IO.Pipes.AnonymousPipeServerStream_Sample/cs/Program.cs#01)]\n [!code-vb[System.IO.Pipes.AnonymousPipeServerStream_Sample#01](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.IO.Pipes.AnonymousPipeServerStream_Sample/vb/program.vb#01)]"
@@ -346,7 +346,7 @@ items:
   - netstandard
   namespace: System.IO.Pipes
   summary: Initializes a new instance of the <xref href="System.IO.Pipes.AnonymousPipeServerStream"></xref> class from the specified pipe handles.
-  remarks: A <xref:System.IO.Pipes.PipeDirection> value of <xref:System.IO.Pipes.PipeDirection.InOut> is not supported because anonymous pipes are defined to be one-way.
+  remarks: 'A <xref:System.IO.Pipes.PipeDirection> value of <xref:System.IO.Pipes.PipeDirection.InOut> is not supported because anonymous pipes are defined to be one-way.'
   syntax:
     content: public AnonymousPipeServerStream (System.IO.Pipes.PipeDirection direction, Microsoft.Win32.SafeHandles.SafePipeHandle serverSafePipeHandle, Microsoft.Win32.SafeHandles.SafePipeHandle clientSafePipeHandle);
     parameters:
@@ -424,7 +424,7 @@ items:
   - System.Core
   - netstandard
   namespace: System.IO.Pipes
-  summary: Initializes a new instance of the <xref href="System.IO.Pipes.AnonymousPipeServerStream"></xref> class with the specified pipe direction, inheritability mode, and buffer size.
+  summary: 'Initializes a new instance of the <xref href="System.IO.Pipes.AnonymousPipeServerStream"></xref> class with the specified pipe direction, inheritability mode, and buffer size.'
   remarks: "A <xref:System.IO.Pipes.PipeDirection> value of <xref:System.IO.Pipes.PipeDirection.InOut> is not supported because anonymous pipes are defined to be one-way.  \n  \n This constructor creates an <xref:System.IO.Pipes.AnonymousPipeServerStream> object without pipe security."
   syntax:
     content: public AnonymousPipeServerStream (System.IO.Pipes.PipeDirection direction, System.IO.HandleInheritability inheritability, int bufferSize);
@@ -495,8 +495,8 @@ items:
   assemblies:
   - System.Core
   namespace: System.IO.Pipes
-  summary: Initializes a new instance of the <xref href="System.IO.Pipes.AnonymousPipeServerStream"></xref> class with the specified pipe direction, inheritability mode, buffer size, and pipe security.
-  remarks: A <xref:System.IO.Pipes.PipeDirection> value of <xref:System.IO.Pipes.PipeDirection.InOut> is not supported because anonymous pipes are defined to be one-way.
+  summary: 'Initializes a new instance of the <xref href="System.IO.Pipes.AnonymousPipeServerStream"></xref> class with the specified pipe direction, inheritability mode, buffer size, and pipe security.'
+  remarks: 'A <xref:System.IO.Pipes.PipeDirection> value of <xref:System.IO.Pipes.PipeDirection.InOut> is not supported because anonymous pipes are defined to be one-way.'
   syntax:
     content: public AnonymousPipeServerStream (System.IO.Pipes.PipeDirection direction, System.IO.HandleInheritability inheritability, int bufferSize, System.IO.Pipes.PipeSecurity pipeSecurity);
     parameters:
@@ -564,7 +564,7 @@ items:
   - netstandard
   namespace: System.IO.Pipes
   summary: Gets the safe handle for the <xref href="System.IO.Pipes.AnonymousPipeClientStream"></xref> object that is currently connected to the <xref href="System.IO.Pipes.AnonymousPipeServerStream"></xref> object.
-  remarks: The <xref:System.IO.Pipes.AnonymousPipeServerStream.DisposeLocalCopyOfClientHandle%2A> method should be called after a client handle has been passed to a client process. If this method is not called, the <xref:System.IO.Pipes.AnonymousPipeServerStream> object will not receive notice when the client disposes of its <xref:System.IO.Pipes.PipeStream> object.
+  remarks: 'The <xref:System.IO.Pipes.AnonymousPipeServerStream.DisposeLocalCopyOfClientHandle%2A> method should be called after a client handle has been passed to a client process. If this method is not called, the <xref:System.IO.Pipes.AnonymousPipeServerStream> object will not receive notice when the client disposes of its <xref:System.IO.Pipes.PipeStream> object.'
   syntax:
     content: public Microsoft.Win32.SafeHandles.SafePipeHandle ClientSafePipeHandle { get; }
     return:
@@ -672,7 +672,7 @@ items:
   - netstandard
   namespace: System.IO.Pipes
   summary: Closes the local copy of the <xref href="System.IO.Pipes.AnonymousPipeClientStream"></xref> object's handle.
-  remarks: The <xref:System.IO.Pipes.AnonymousPipeServerStream.DisposeLocalCopyOfClientHandle%2A> method should be called after the client handle has been passed to the client. If this method is not called, the <xref:System.IO.Pipes.AnonymousPipeServerStream> object will not receive notice when the client disposes of its <xref:System.IO.Pipes.PipeStream> object.
+  remarks: 'The <xref:System.IO.Pipes.AnonymousPipeServerStream.DisposeLocalCopyOfClientHandle%2A> method should be called after the client handle has been passed to the client. If this method is not called, the <xref:System.IO.Pipes.AnonymousPipeServerStream> object will not receive notice when the client disposes of its <xref:System.IO.Pipes.PipeStream> object.'
   example:
   - "The following example demonstrates a way to send a string from a parent process to a child process by using anonymous pipes. In this example, an <xref:System.IO.Pipes.AnonymousPipeServerStream> object is created in a parent process with a <xref:System.IO.Pipes.PipeDirection> value of <xref:System.IO.Pipes.PipeDirection.Out>.  \n  \n [!code-cpp[System.IO.Pipes.AnonymousPipeServerStream_Sample#01](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.IO.Pipes.AnonymousPipeServerStream_Sample/cpp/program.cpp#01)]\n [!code-csharp[System.IO.Pipes.AnonymousPipeServerStream_Sample#01](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.IO.Pipes.AnonymousPipeServerStream_Sample/cs/Program.cs#01)]\n [!code-vb[System.IO.Pipes.AnonymousPipeServerStream_Sample#01](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.IO.Pipes.AnonymousPipeServerStream_Sample/vb/program.vb#01)]"
   syntax:
@@ -786,7 +786,7 @@ items:
   - netstandard
   namespace: System.IO.Pipes
   summary: Gets the connected <xref href="System.IO.Pipes.AnonymousPipeClientStream"></xref> object's handle as a string.
-  remarks: The <xref:System.IO.Pipes.AnonymousPipeServerStream.DisposeLocalCopyOfClientHandle%2A> method should be called after a client handle has been passed to a client process. If this method is not called, the <xref:System.IO.Pipes.AnonymousPipeServerStream> object will not receive notice when the client disposes of its <xref:System.IO.Pipes.PipeStream> object.
+  remarks: 'The <xref:System.IO.Pipes.AnonymousPipeServerStream.DisposeLocalCopyOfClientHandle%2A> method should be called after a client handle has been passed to a client process. If this method is not called, the <xref:System.IO.Pipes.AnonymousPipeServerStream> object will not receive notice when the client disposes of its <xref:System.IO.Pipes.PipeStream> object.'
   example:
   - "The following example demonstrates a way to send a string from a parent process to a child process by using anonymous pipes. In this example, an <xref:System.IO.Pipes.AnonymousPipeServerStream> object is created in a parent process with a <xref:System.IO.Pipes.PipeDirection> value of <xref:System.IO.Pipes.PipeDirection.Out>.  \n  \n [!code-cpp[System.IO.Pipes.AnonymousPipeServerStream_Sample#01](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.IO.Pipes.AnonymousPipeServerStream_Sample/cpp/program.cpp#01)]\n [!code-csharp[System.IO.Pipes.AnonymousPipeServerStream_Sample#01](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.IO.Pipes.AnonymousPipeServerStream_Sample/cs/Program.cs#01)]\n [!code-vb[System.IO.Pipes.AnonymousPipeServerStream_Sample#01](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.IO.Pipes.AnonymousPipeServerStream_Sample/vb/program.vb#01)]"
   syntax:
@@ -848,8 +848,8 @@ items:
   - System.Core
   - netstandard
   namespace: System.IO.Pipes
-  summary: Sets the reading mode for the <xref href="System.IO.Pipes.AnonymousPipeServerStream"></xref> object. For anonymous pipes, transmission mode must be <xref href="System.IO.Pipes.PipeTransmissionMode.Byte"></xref>.
-  remarks: Anonymous pipes do not support <xref:System.IO.Pipes.PipeTransmissionMode.Message> read mode.
+  summary: 'Sets the reading mode for the <xref href="System.IO.Pipes.AnonymousPipeServerStream"></xref> object. For anonymous pipes, transmission mode must be <xref href="System.IO.Pipes.PipeTransmissionMode.Byte"></xref>.'
+  remarks: 'Anonymous pipes do not support <xref:System.IO.Pipes.PipeTransmissionMode.Message> read mode.'
   example:
   - "The following example demonstrates a way to send a string from a parent process to a child process by using anonymous pipes. In this example, the <xref:System.NotSupportedException> is caught when the <xref:System.IO.Pipes.AnonymousPipeServerStream.ReadMode%2A> property is set to <xref:System.IO.Pipes.PipeTransmissionMode.Message>.  \n  \n [!code-cpp[System.IO.Pipes.AnonymousPipeServerStream_Sample#01](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.IO.Pipes.AnonymousPipeServerStream_Sample/cpp/program.cpp#01)]\n [!code-csharp[System.IO.Pipes.AnonymousPipeServerStream_Sample#01](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.IO.Pipes.AnonymousPipeServerStream_Sample/cs/Program.cs#01)]\n [!code-vb[System.IO.Pipes.AnonymousPipeServerStream_Sample#01](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.IO.Pipes.AnonymousPipeServerStream_Sample/vb/program.vb#01)]"
   syntax:
@@ -861,10 +861,10 @@ items:
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: The transmission mode is not valid. For anonymous pipes, only <xref href="System.IO.Pipes.PipeTransmissionMode.Byte"></xref> is supported.
+    description: 'The transmission mode is not valid. For anonymous pipes, only <xref href="System.IO.Pipes.PipeTransmissionMode.Byte"></xref> is supported.'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: The property is set to <xref href="System.IO.Pipes.PipeTransmissionMode.Message"></xref>, which is not supported for anonymous pipes.
+    description: 'The property is set to <xref href="System.IO.Pipes.PipeTransmissionMode.Message"></xref>, which is not supported for anonymous pipes.'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
     description: The connection is broken or another I/O error occurs.
@@ -923,7 +923,7 @@ items:
   - netstandard
   namespace: System.IO.Pipes
   summary: Gets the pipe transmission mode that is supported by the current pipe.
-  remarks: Anonymous pipes do not support <xref:System.IO.Pipes.PipeTransmissionMode.Message> read mode.
+  remarks: 'Anonymous pipes do not support <xref:System.IO.Pipes.PipeTransmissionMode.Message> read mode.'
   example:
   - "The following example demonstrates a way to send a string from a parent process to a child process by using anonymous pipes. In this example, an <xref:System.IO.Pipes.AnonymousPipeServerStream> object is created in a parent process and the <xref:System.IO.Pipes.AnonymousPipeServerStream.TransmissionMode%2A> property is displayed to the console.  \n  \n [!code-cpp[System.IO.Pipes.AnonymousPipeServerStream_Sample#01](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.IO.Pipes.AnonymousPipeServerStream_Sample/cpp/program.cpp#01)]\n [!code-csharp[System.IO.Pipes.AnonymousPipeServerStream_Sample#01](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.IO.Pipes.AnonymousPipeServerStream_Sample/cs/Program.cs#01)]\n [!code-vb[System.IO.Pipes.AnonymousPipeServerStream_Sample#01](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.IO.Pipes.AnonymousPipeServerStream_Sample/vb/program.vb#01)]"
   syntax:

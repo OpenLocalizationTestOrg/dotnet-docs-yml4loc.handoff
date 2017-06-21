@@ -96,7 +96,7 @@ items:
   - System.IO.Log
   namespace: System.IO.Log
   summary: Moves the base sequence number of the log forward.
-  remarks: When you use a <xref:System.IO.Log.LogRecordSequence> instance and try to advance the sequence number to free up space in the log, the new base sequence number must reside in a different log extent for the previous extent to be marked as empty. Freeing extents partially is not supported.
+  remarks: 'When you use a <xref:System.IO.Log.LogRecordSequence> instance and try to advance the sequence number to free up space in the log, the new base sequence number must reside in a different log extent for the previous extent to be marked as empty. Freeing extents partially is not supported.'
   syntax:
     content: public void AdvanceBaseSequenceNumber (System.IO.Log.SequenceNumber newBaseSequenceNumber);
     parameters:
@@ -155,7 +155,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, writes a log record to the <xref href="System.IO.Log.IRecordSequence"></xref>.
+  summary: 'When overridden in a derived class, writes a log record to the <xref href="System.IO.Log.IRecordSequence"></xref>.'
   remarks: "Data contained in the `data` parameter will be concatenated into a single byte array for appending as the record. However, no provision is made for splitting data back into array segments when the record is read.  \n  \n Normally, this method completes before the record has been written. To ensure that a record has been written, either specify the <xref:System.IO.Log.RecordAppendOptions.ForceFlush> flag using the `recordAppendOptions` parameter, or call the <xref:System.IO.Log.IRecordSequence.Flush%2A> method."
   syntax:
     content: public System.IO.Log.SequenceNumber Append (ArraySegment<byte> data, System.IO.Log.SequenceNumber nextUndoRecord, System.IO.Log.SequenceNumber previousRecord, System.IO.Log.RecordAppendOptions recordAppendOptions);
@@ -224,7 +224,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, appends a log record to the <xref href="System.IO.Log.IRecordSequence"></xref>.
+  summary: 'When overridden in a derived class, appends a log record to the <xref href="System.IO.Log.IRecordSequence"></xref>.'
   remarks: "Data contained in the `data` parameter will be concatenated into a single byte array for appending as the record. However, no provision is made for splitting data back into array segments when the record is read.  \n  \n Normally, this method completes before the record has been written. To ensure that a record has been written, either specify the <xref:System.IO.Log.RecordAppendOptions.ForceFlush> flag using the `recordAppendOptions` parameter, or call the <xref:System.IO.Log.IRecordSequence.Flush%2A> method."
   syntax:
     content: public System.IO.Log.SequenceNumber Append (System.Collections.Generic.IList<ArraySegment<byte>> data, System.IO.Log.SequenceNumber nextUndoRecord, System.IO.Log.SequenceNumber previousRecord, System.IO.Log.RecordAppendOptions recordAppendOptions);
@@ -293,7 +293,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, appends a log record to the <xref href="System.IO.Log.IRecordSequence"></xref>, using space previously reserved in the sequence.
+  summary: 'When overridden in a derived class, appends a log record to the <xref href="System.IO.Log.IRecordSequence"></xref>, using space previously reserved in the sequence.'
   remarks: "Data contained in the `data` parameter will be concatenated into a single byte array for appending as the record. However, no provision is made for splitting data back into array segments when the record is read.  \n  \n The appended record will consume space that has been previously reserved, using a reservation specified by the `reservations` parameter. If the append succeeds, it will consume the smallest reservation area that can hold the data, and that reservation area will be removed from the collection.  \n  \n Normally, this method completes before the record has been written. To ensure that a record has been written, either specify the <xref:System.IO.Log.RecordAppendOptions.ForceFlush> flag using the `recordAppendOptions` parameter, or call the <xref:System.IO.Log.IRecordSequence.Flush%2A> method."
   syntax:
     content: public System.IO.Log.SequenceNumber Append (ArraySegment<byte> data, System.IO.Log.SequenceNumber nextUndoRecord, System.IO.Log.SequenceNumber previousRecord, System.IO.Log.RecordAppendOptions recordAppendOptions, System.IO.Log.ReservationCollection reservations);
@@ -365,7 +365,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, appends a log record to the <xref href="System.IO.Log.IRecordSequence"></xref>, using space previously reserved in the sequence.
+  summary: 'When overridden in a derived class, appends a log record to the <xref href="System.IO.Log.IRecordSequence"></xref>, using space previously reserved in the sequence.'
   remarks: "Data contained in the `data` parameter will be concatenated into a single byte array for appending as the record. However, no provision is made for splitting data back into array segments when the record is read.  \n  \n The appended record will consume space that has been previously reserved, using a reservation specified by the `reservations` parameter. If the append succeeds, it will consume the smallest reservation area that can hold the data, and that reservation area will be removed from the collection.  \n  \n Normally, this method completes before the record has been written. To ensure that a record has been written, either specify the <xref:System.IO.Log.RecordAppendOptions.ForceFlush> flag using the `recordAppendOptions` parameter, or call the <xref:System.IO.Log.IRecordSequence.Flush%2A> method."
   syntax:
     content: public System.IO.Log.SequenceNumber Append (System.Collections.Generic.IList<ArraySegment<byte>> data, System.IO.Log.SequenceNumber nextUndoRecord, System.IO.Log.SequenceNumber previousRecord, System.IO.Log.RecordAppendOptions recordAppendOptions, System.IO.Log.ReservationCollection reservations);
@@ -437,7 +437,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, gets the sequence number of the first valid record in the current <xref href="System.IO.Log.IRecordSequence"></xref>.
+  summary: 'When overridden in a derived class, gets the sequence number of the first valid record in the current <xref href="System.IO.Log.IRecordSequence"></xref>.'
   remarks: "Valid sequence numbers are greater than or equal to <xref:System.IO.Log.IRecordSequence.BaseSequenceNumber%2A> and less than <xref:System.IO.Log.IRecordSequence.LastSequenceNumber%2A>.  \n  \n The value of this property can be changed by calling the <xref:System.IO.Log.IRecordSequence.AdvanceBaseSequenceNumber%2A> or <xref:System.IO.Log.IRecordSequence.WriteRestartArea%2A> method."
   syntax:
     content: public System.IO.Log.SequenceNumber BaseSequenceNumber { get; }
@@ -484,7 +484,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, begins an asynchronous append operation, using space previously reserved in the sequence.
+  summary: 'When overridden in a derived class, begins an asynchronous append operation, using space previously reserved in the sequence.'
   remarks: "You should pass the <xref:System.IAsyncResult> returned by this method to the <xref:System.IO.Log.IRecordSequence.EndAppend%2A> method to ensure that the append operation has completed and resources can be freed appropriately. If an error has occurred during an asynchronous append, an exception is not thrown until the <xref:System.IO.Log.IRecordSequence.EndAppend%2A> method is called with the <xref:System.IAsyncResult> returned by this method.  \n  \n Data contained in the `data` parameter will be concatenated into a single byte array for appending as the record. However, no provision is made for splitting data back into array segments when the record is read.  \n  \n The appended record will consume space that has been previously reserved, using a reservation specified by the `reservations` parameter. If the append succeeds, it will consume the smallest reservation area that can hold the data, and that reservation area will be removed from the collection.  \n  \n Normally, this method completes before the record has been written. To ensure that a record has been written, either specify the <xref:System.IO.Log.RecordAppendOptions.ForceFlush> flag using the `recordAppendOptions` parameter, or call the <xref:System.IO.Log.IRecordSequence.Flush%2A> method."
   syntax:
     content: public IAsyncResult BeginAppend (System.Collections.Generic.IList<ArraySegment<byte>> data, System.IO.Log.SequenceNumber nextUndoRecord, System.IO.Log.SequenceNumber previousUndoRecord, System.IO.Log.RecordAppendOptions recordAppendOptions, System.IO.Log.ReservationCollection reservations, AsyncCallback callback, object state);
@@ -506,13 +506,13 @@ items:
       description: A <xref href="System.IO.Log.ReservationCollection"></xref> that contains the reservation that should be used for this record.
     - id: callback
       type: System.AsyncCallback
-      description: An optional asynchronous callback, to be called when the append is complete.
+      description: 'An optional asynchronous callback, to be called when the append is complete.'
     - id: state
       type: System.Object
       description: A user-provided object that distinguishes this particular asynchronous append request from other requests.
     return:
       type: System.IAsyncResult
-      description: An <xref href="System.IAsyncResult"></xref> that represents the asynchronous append, which could still be pending.
+      description: 'An <xref href="System.IAsyncResult"></xref> that represents the asynchronous append, which could still be pending.'
   overload: System.IO.Log.IRecordSequence.BeginAppend*
   exceptions:
   - type: System.ArgumentException
@@ -562,7 +562,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, begins an asynchronous append operation using space previously reserved in the sequence.
+  summary: 'When overridden in a derived class, begins an asynchronous append operation using space previously reserved in the sequence.'
   remarks: "You should pass the <xref:System.IAsyncResult> returned by this method to the <xref:System.IO.Log.IRecordSequence.EndAppend%2A> method to ensure that the append operation has completed and resources can be freed appropriately. If an error has occurred during an asynchronous append, an exception is not thrown until the <xref:System.IO.Log.IRecordSequence.EndAppend%2A> method is called with the <xref:System.IAsyncResult> returned by this method.  \n  \n Data contained in the `data` parameter will be concatenated into a single byte array for appending as the record. However, no provision is made for splitting data back into array segments when the record is read.  \n  \n The appended record will consume space that has been previously reserved, using a reservation specified by the `reservations` parameter. If the append succeeds, it will consume the smallest reservation area that can hold the data, and that reservation area will be removed from the collection.  \n  \n Normally, this method completes before the record has been written. To ensure that a record has been written, either specify the <xref:System.IO.Log.RecordAppendOptions.ForceFlush> flag using the `recordAppendOptions` parameter, or call the <xref:System.IO.Log.IRecordSequence.Flush%2A> method."
   syntax:
     content: public IAsyncResult BeginAppend (ArraySegment<byte> data, System.IO.Log.SequenceNumber nextUndoRecord, System.IO.Log.SequenceNumber previousRecord, System.IO.Log.RecordAppendOptions recordAppendOptions, System.IO.Log.ReservationCollection reservations, AsyncCallback callback, object state);
@@ -584,13 +584,13 @@ items:
       description: A <xref href="System.IO.Log.ReservationCollection"></xref> that contains the reservation that should be used for this record.
     - id: callback
       type: System.AsyncCallback
-      description: An optional asynchronous callback, to be called when the append is complete.
+      description: 'An optional asynchronous callback, to be called when the append is complete.'
     - id: state
       type: System.Object
       description: A user-provided object that distinguishes this particular asynchronous append request from other requests.
     return:
       type: System.IAsyncResult
-      description: An <xref href="System.IAsyncResult"></xref> that represents the asynchronous append, which could still be pending.
+      description: 'An <xref href="System.IAsyncResult"></xref> that represents the asynchronous append, which could still be pending.'
   overload: System.IO.Log.IRecordSequence.BeginAppend*
   exceptions:
   - type: System.ArgumentException
@@ -640,7 +640,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, begins an asynchronous append operation.
+  summary: 'When overridden in a derived class, begins an asynchronous append operation.'
   remarks: "You should pass the <xref:System.IAsyncResult> returned by this method to the <xref:System.IO.Log.IRecordSequence.EndAppend%2A> method to ensure that the append operation has completed and resources can be freed appropriately. If an error has occurred during an asynchronous append, an exception is not thrown until the <xref:System.IO.Log.IRecordSequence.EndAppend%2A> method is called with the <xref:System.IAsyncResult> returned by this method.  \n  \n Data contained in the `data` parameter will be concatenated into a single byte array for appending as the record. However, no provision is made for splitting data back into array segments when the record is read.  \n  \n Normally, this method completes before the record has been written. To ensure that a record has been written, either specify the <xref:System.IO.Log.RecordAppendOptions.ForceFlush> flag using the `recordAppendOptions` parameter, or call the <xref:System.IO.Log.IRecordSequence.Flush%2A> method."
   syntax:
     content: public IAsyncResult BeginAppend (ArraySegment<byte> data, System.IO.Log.SequenceNumber nextUndoRecord, System.IO.Log.SequenceNumber previousRecord, System.IO.Log.RecordAppendOptions recordAppendOptions, AsyncCallback callback, object state);
@@ -659,13 +659,13 @@ items:
       description: A valid value of <xref href="System.IO.Log.RecordAppendOptions"></xref> that specifies how the data should be written.
     - id: callback
       type: System.AsyncCallback
-      description: An optional asynchronous callback, to be called when the append is complete.
+      description: 'An optional asynchronous callback, to be called when the append is complete.'
     - id: state
       type: System.Object
       description: A user-provided object that distinguishes this particular asynchronous append request from other requests.
     return:
       type: System.IAsyncResult
-      description: An <xref href="System.IAsyncResult"></xref> that represents the asynchronous append, which could still be pending.
+      description: 'An <xref href="System.IAsyncResult"></xref> that represents the asynchronous append, which could still be pending.'
   overload: System.IO.Log.IRecordSequence.BeginAppend*
   exceptions:
   - type: System.ArgumentException
@@ -715,7 +715,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, begins an asynchronous append operation, using space previously reserved in the sequence.
+  summary: 'When overridden in a derived class, begins an asynchronous append operation, using space previously reserved in the sequence.'
   remarks: "You should pass the <xref:System.IAsyncResult> returned by this method to the <xref:System.IO.Log.IRecordSequence.EndAppend%2A> method to ensure that the append operation has completed and resources can be freed appropriately. If an error has occurred during an asynchronous append, an exception is not thrown until the <xref:System.IO.Log.IRecordSequence.EndAppend%2A> method is called with the <xref:System.IAsyncResult> returned by this method.  \n  \n Data contained in the `data` parameter will be concatenated into a single byte array for appending as the record. However, no provision is made for splitting data back into array segments when the record is read.  \n  \n Normally, this method completes before the record has been written. To ensure that a record has been written, either specify the <xref:System.IO.Log.RecordAppendOptions.ForceFlush> flag using the `recordAppendOptions` parameter, or call the <xref:System.IO.Log.IRecordSequence.Flush%2A> method."
   syntax:
     content: public IAsyncResult BeginAppend (System.Collections.Generic.IList<ArraySegment<byte>> data, System.IO.Log.SequenceNumber nextUndoRecord, System.IO.Log.SequenceNumber previousRecord, System.IO.Log.RecordAppendOptions recordAppendOptions, AsyncCallback callback, object state);
@@ -734,13 +734,13 @@ items:
       description: A valid value of <xref href="System.IO.Log.RecordAppendOptions"></xref> that specifies how the data should be written.
     - id: callback
       type: System.AsyncCallback
-      description: An optional asynchronous callback, to be called when the append is complete.
+      description: 'An optional asynchronous callback, to be called when the append is complete.'
     - id: state
       type: System.Object
       description: A user-provided object that distinguishes this particular asynchronous append request from other requests.
     return:
       type: System.IAsyncResult
-      description: An <xref href="System.IAsyncResult"></xref> that represents the asynchronous append, which could still be pending.
+      description: 'An <xref href="System.IAsyncResult"></xref> that represents the asynchronous append, which could still be pending.'
   overload: System.IO.Log.IRecordSequence.BeginAppend*
   exceptions:
   - type: System.ArgumentException
@@ -790,23 +790,23 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, begins an asynchronous flush operation, using space previously reserved in the sequence.
+  summary: 'When overridden in a derived class, begins an asynchronous flush operation, using space previously reserved in the sequence.'
   remarks: "You should pass the <xref:System.IAsyncResult> returned by the current method to the <xref:System.IO.Log.IRecordSequence.EndFlush%2A> method to ensure that the flush completes and resources are freed appropriately. If an error occurs during an asynchronous flush, an exception is not thrown until the <xref:System.IO.Log.IRecordSequence.EndFlush%2A> method is called with the <xref:System.IAsyncResult> returned by this method.  \n  \n Calling this method ensures that all records that have been appended to the <xref:System.IO.Log.IRecordSequence> are durably written.  \n  \n If a record sequence has been disposed of, or if you pass an invalid argument, exceptions are thrown immediately within this operation. Errors that occurred during an asynchronous flush request, for example, a disk failure during the I/O request, will result in exceptions being thrown when the <xref:System.IO.Log.IRecordSequence.EndFlush%2A> method is called."
   syntax:
     content: public IAsyncResult BeginFlush (System.IO.Log.SequenceNumber sequenceNumber, AsyncCallback callback, object state);
     parameters:
     - id: sequenceNumber
       type: System.IO.Log.SequenceNumber
-      description: The sequence number of the latest record that must be written. If this <xref href="System.IO.Log.SequenceNumber"></xref> is invalid, then all records must be written.
+      description: 'The sequence number of the latest record that must be written. If this <xref href="System.IO.Log.SequenceNumber"></xref> is invalid, then all records must be written.'
     - id: callback
       type: System.AsyncCallback
-      description: An optional asynchronous callback, to be called when the flush is complete.
+      description: 'An optional asynchronous callback, to be called when the flush is complete.'
     - id: state
       type: System.Object
       description: A user-provided object that distinguishes this particular asynchronous flush request from other requests.
     return:
       type: System.IAsyncResult
-      description: An <xref href="System.IAsyncResult"></xref> that represents the asynchronous flush operation, which could still be pending.
+      description: 'An <xref href="System.IAsyncResult"></xref> that represents the asynchronous flush operation, which could still be pending.'
   overload: System.IO.Log.IRecordSequence.BeginFlush*
   exceptions:
   - type: System.ArgumentException
@@ -853,7 +853,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, begins an asynchronous reserve and append operation.
+  summary: 'When overridden in a derived class, begins an asynchronous reserve and append operation.'
   remarks: "You should pass the <xref:System.IAsyncResult> returned by this method to the <xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A> method to ensure that the append operation has completed and resources can be freed appropriately. If an error has occurred during an asynchronous append, an exception is not thrown until the <xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A> method is called with the <xref:System.IAsyncResult> returned by this method.  \n  \n Data contained in the `data` parameter will be concatenated into a single byte array for appending as the record. However, no provision is made for splitting data back into array segments when the record is read.  \n  \n The specified reservations are added to the provided reservation collection in an atomic operation with a record append operation. If the append fails, no space is reserved.  \n  \n Normally, this method may complete before the record has been written. To ensure that a record has been written, either specify the <xref:System.IO.Log.RecordAppendOptions.ForceFlush> flag using the `recordAppendOptions` parameter, or call the <xref:System.IO.Log.IRecordSequence.Flush%2A> method.  \n  \n If a record sequence has been disposed of, or if you pass an invalid argument, exceptions are thrown immediately within this operation. Errors that occurred during an asynchronous append request, for example, a disk failure during the I/O request, will result in exceptions being thrown when the <xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A> method is called."
   syntax:
     content: public IAsyncResult BeginReserveAndAppend (ArraySegment<byte> data, System.IO.Log.SequenceNumber nextUndoRecord, System.IO.Log.SequenceNumber previousRecord, System.IO.Log.RecordAppendOptions recordAppendOptions, System.IO.Log.ReservationCollection reservationCollection, long[] reservations, AsyncCallback callback, object state);
@@ -875,16 +875,16 @@ items:
       description: The reservation collection to make reservations in.
     - id: reservations
       type: System.Int64[]
-      description: The reservations to make, in bytes.
+      description: 'The reservations to make, in bytes.'
     - id: callback
       type: System.AsyncCallback
-      description: An optional asynchronous callback, to be called when the append is complete.
+      description: 'An optional asynchronous callback, to be called when the append is complete.'
     - id: state
       type: System.Object
       description: A user-provided object that distinguishes this particular asynchronous append request from other requests.
     return:
       type: System.IAsyncResult
-      description: An <xref href="System.IAsyncResult"></xref> that represents this asynchronous operation, which could still be pending.
+      description: 'An <xref href="System.IAsyncResult"></xref> that represents this asynchronous operation, which could still be pending.'
   overload: System.IO.Log.IRecordSequence.BeginReserveAndAppend*
   exceptions:
   - type: System.ArgumentException
@@ -895,7 +895,7 @@ items:
     description: An I/O error occurred while appending the record.
   - type: System.IO.Log.SequenceFullException
     commentId: T:System.IO.Log.SequenceFullException
-    description: The record sequence could not make enough free space to contain the new record, or to make the reservation.
+    description: 'The record sequence could not make enough free space to contain the new record, or to make the reservation.'
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
     description: The method was called after the sequence has been disposed of.
@@ -934,7 +934,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, begins an asynchronous reserve and append operation.
+  summary: 'When overridden in a derived class, begins an asynchronous reserve and append operation.'
   remarks: "You should pass the <xref:System.IAsyncResult> returned by this method to the <xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A> method to ensure that the append operation has completed and resources can be freed appropriately. If an error has occurred during an asynchronous append, an exception is not thrown until the <xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A> method is called with the <xref:System.IAsyncResult> returned by this method.  \n  \n Data contained in the `data` parameter will be concatenated into a single byte array for appending as the record. However, no provision is made for splitting data back into array segments when the record is read.  \n  \n The specified reservations are added to the provided reservation collection in an atomic operation with a record append operation. If the append fails, no space is reserved.  \n  \n Normally, this method may complete before the record has been written. To ensure that a record has been written, either specify the <xref:System.IO.Log.RecordAppendOptions.ForceFlush> flag using the `recordAppendOptions` parameter, or call the <xref:System.IO.Log.IRecordSequence.Flush%2A> method.  \n  \n If a record sequence has been disposed of, or if you pass an invalid argument, exceptions are thrown immediately within this operation. Errors that occurred during an asynchronous append request, for example, a disk failure during the I/O request, will result in exceptions being thrown when the <xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A> method is called."
   syntax:
     content: public IAsyncResult BeginReserveAndAppend (System.Collections.Generic.IList<ArraySegment<byte>> data, System.IO.Log.SequenceNumber nextUndoRecord, System.IO.Log.SequenceNumber previousRecord, System.IO.Log.RecordAppendOptions recordAppendOptions, System.IO.Log.ReservationCollection reservationCollection, long[] reservations, AsyncCallback callback, object state);
@@ -956,16 +956,16 @@ items:
       description: The reservation collection to make reservations in.
     - id: reservations
       type: System.Int64[]
-      description: The reservations to make, in bytes.
+      description: 'The reservations to make, in bytes.'
     - id: callback
       type: System.AsyncCallback
-      description: An optional asynchronous callback, to be called when the append is complete.
+      description: 'An optional asynchronous callback, to be called when the append is complete.'
     - id: state
       type: System.Object
       description: A user-provided object that distinguishes this particular asynchronous append request from other requests.
     return:
       type: System.IAsyncResult
-      description: An <xref href="System.IAsyncResult"></xref> that represents this asynchronous operation, which could still be pending.
+      description: 'An <xref href="System.IAsyncResult"></xref> that represents this asynchronous operation, which could still be pending.'
   overload: System.IO.Log.IRecordSequence.BeginReserveAndAppend*
   exceptions:
   - type: System.ArgumentException
@@ -976,7 +976,7 @@ items:
     description: An I/O error occurred while appending the record.
   - type: System.IO.Log.SequenceFullException
     commentId: T:System.IO.Log.SequenceFullException
-    description: The record sequence could not make enough free space to contain the new record, or to make the reservation.
+    description: 'The record sequence could not make enough free space to contain the new record, or to make the reservation.'
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
     description: The method was called after the sequence has been disposed of.
@@ -1015,7 +1015,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, begins an asynchronous restart area write operation, using space previously reserved in the sequence.
+  summary: 'When overridden in a derived class, begins an asynchronous restart area write operation, using space previously reserved in the sequence.'
   remarks: "You should pass the <xref:System.IAsyncResult> returned by this method to the <xref:System.IO.Log.IRecordSequence.EndWriteRestartArea%2A> method, to assure that the restart area write operation has completed and resources can be freed appropriately. If an error has occurred during an asynchronous restart area write operation, an exception is not thrown until the <xref:System.IO.Log.IRecordSequence.EndWriteRestartArea%2A> method is called with the <xref:System.IAsyncResult> returned by this method.  \n  \n Data contained in the `data` parameter will be concatenated into a single byte array for appending as the record. However, no provision is made for splitting data back into array segments when the record is read.  \n  \n When the operation successfully completes, the base sequence number has been updated. All log records with sequence numbers less than the new base sequence number are inaccessible.  \n  \n If a <xref:System.IO.Log.ReservationCollection> is specified, the written restart area will consume space that has been previously reserved, using a reservation contained in the collection. If the method succeeds, it will consume the smallest reservation that can hold the data, and that reservation will be removed from the collection.  \n  \n If a record sequence has been disposed of, or if you pass an invalid argument, exceptions are thrown immediately within this operation. Errors that occurred during an asynchronous append request, for example, a disk failure during the I/O request, will result in exceptions being thrown when the <xref:System.IO.Log.IRecordSequence.EndWriteRestartArea%2A> method is called."
   syntax:
     content: public IAsyncResult BeginWriteRestartArea (ArraySegment<byte> data, System.IO.Log.SequenceNumber newBaseSequenceNumber, System.IO.Log.ReservationCollection reservation, AsyncCallback callback, object state);
@@ -1031,13 +1031,13 @@ items:
       description: A <xref href="System.IO.Log.ReservationCollection"></xref> that contains the reservation that should be used for this restart area.
     - id: callback
       type: System.AsyncCallback
-      description: An optional asynchronous callback, to be called when the restart area write is complete.
+      description: 'An optional asynchronous callback, to be called when the restart area write is complete.'
     - id: state
       type: System.Object
       description: A user-provided object that distinguishes this particular asynchronous restart area write request from other requests.
     return:
       type: System.IAsyncResult
-      description: An <xref href="System.IAsyncResult"></xref> that represents the asynchronous restart area write operation, which could still be pending.
+      description: 'An <xref href="System.IAsyncResult"></xref> that represents the asynchronous restart area write operation, which could still be pending.'
   overload: System.IO.Log.IRecordSequence.BeginWriteRestartArea*
   exceptions: []
   version:
@@ -1075,7 +1075,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, begins an asynchronous restart area write operation, using space previously reserved in the sequence.
+  summary: 'When overridden in a derived class, begins an asynchronous restart area write operation, using space previously reserved in the sequence.'
   remarks: "You should pass the <xref:System.IAsyncResult> returned by this method to the <xref:System.IO.Log.IRecordSequence.EndWriteRestartArea%2A> method to ensure that the restart area write operation has completed and resources can be freed appropriately. If an error has occurred during an asynchronous restart area write operation, an exception is not thrown until the <xref:System.IO.Log.IRecordSequence.EndWriteRestartArea%2A> method is called with the <xref:System.IAsyncResult> returned by this method.  \n  \n Data contained in the `data` parameter will be concatenated into a single byte array for appending as the record. However, no provision is made for splitting data back into array segments when the record is read.  \n  \n When the operation successfully completes, the base sequence number has been updated. All log records with sequence numbers less than the new base sequence number are inaccessible.  \n  \n If a <xref:System.IO.Log.ReservationCollection> is specified, the written restart area will consume space that has been previously reserved, using a reservation contained in the collection. If the method succeeds, it will consume the smallest reservation that can hold the data, and that reservation will be removed from the collection.  \n  \n If a record sequence has been disposed of, or if you pass an invalid argument, exceptions are thrown immediately within this operation. Errors that occurred during an asynchronous append request, for example, a disk failure during the I/O request, will result in exceptions being thrown when the <xref:System.IO.Log.IRecordSequence.EndWriteRestartArea%2A> method is called."
   syntax:
     content: public IAsyncResult BeginWriteRestartArea (System.Collections.Generic.IList<ArraySegment<byte>> data, System.IO.Log.SequenceNumber newBaseSequenceNumber, System.IO.Log.ReservationCollection reservation, AsyncCallback callback, object state);
@@ -1091,13 +1091,13 @@ items:
       description: A <xref href="System.IO.Log.ReservationCollection"></xref> that contains the reservation that should be used for this restart area.
     - id: callback
       type: System.AsyncCallback
-      description: An optional asynchronous callback, to be called when the restart area write is complete.
+      description: 'An optional asynchronous callback, to be called when the restart area write is complete.'
     - id: state
       type: System.Object
       description: A user-provided object that distinguishes this particular asynchronous restart area write request from other requests.
     return:
       type: System.IAsyncResult
-      description: An <xref href="System.IAsyncResult"></xref> that represents the asynchronous restart area write operation, which could still be pending.
+      description: 'An <xref href="System.IAsyncResult"></xref> that represents the asynchronous restart area write operation, which could still be pending.'
   overload: System.IO.Log.IRecordSequence.BeginWriteRestartArea*
   exceptions:
   - type: System.ArgumentException
@@ -1147,7 +1147,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, creates a new <xref href="System.IO.Log.ReservationCollection"></xref>.
+  summary: 'When overridden in a derived class, creates a new <xref href="System.IO.Log.ReservationCollection"></xref>.'
   syntax:
     content: public System.IO.Log.ReservationCollection CreateReservationCollection ();
     parameters: []
@@ -1194,7 +1194,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, ends an asynchronous append operation.
+  summary: 'When overridden in a derived class, ends an asynchronous append operation.'
   remarks: "This method blocks until the I/O operation has completed. Errors that occur during an asynchronous write request, such as a disk failure during the I/O request, become visible when <xref:System.IO.Log.IRecordSequence.EndAppend%2A> is called.  \n  \n This method must be called exactly once on every <xref:System.IAsyncResult> returned by the <xref:System.IO.Log.IRecordSequence.BeginAppend%2A> method."
   syntax:
     content: public System.IO.Log.SequenceNumber EndAppend (IAsyncResult result);
@@ -1248,7 +1248,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, ends an asynchronous flush operation.
+  summary: 'When overridden in a derived class, ends an asynchronous flush operation.'
   remarks: "This method blocks until the I/O operation has completed. Errors that occur during an asynchronous flush request, such as a disk failure during the I/O request, become visible when <xref:System.IO.Log.IRecordSequence.EndFlush%2A> is called.  \n  \n This method must be called exactly once on every <xref:System.IAsyncResult> returned by the <xref:System.IO.Log.IRecordSequence.BeginFlush%2A> method."
   syntax:
     content: public System.IO.Log.SequenceNumber EndFlush (IAsyncResult result);
@@ -1302,7 +1302,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, ends an asynchronous reserve and append operation.
+  summary: 'When overridden in a derived class, ends an asynchronous reserve and append operation.'
   remarks: "This method blocks until the I/O operation has completed. Errors that occur during an asynchronous write request, such as a disk failure during the I/O request, become visible when <xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A> is called.  \n  \n This method must be called exactly once on every <xref:System.IAsyncResult> returned by the <xref:System.IO.Log.IRecordSequence.BeginReserveAndAppend%2A> method."
   syntax:
     content: public System.IO.Log.SequenceNumber EndReserveAndAppend (IAsyncResult result);
@@ -1356,7 +1356,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, ends an asynchronous restart area write operation.
+  summary: 'When overridden in a derived class, ends an asynchronous restart area write operation.'
   remarks: "This method blocks until the I/O operation has completed. Errors that occur during an asynchronous write request, such as a disk failure during the I/O request, become visible when <xref:System.IO.Log.IRecordSequence.EndWriteRestartArea%2A> is called.  \n  \n This method must be called exactly once on every <xref:System.IAsyncResult> returned by the <xref:System.IO.Log.IRecordSequence.BeginWriteRestartArea%2A> method."
   syntax:
     content: public System.IO.Log.SequenceNumber EndWriteRestartArea (IAsyncResult result);
@@ -1410,8 +1410,8 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, ensures that all appended records have been written.
-  remarks: Calling this method ensures that all records that have been appended to the <xref:System.IO.Log.IRecordSequence> have been durably written.
+  summary: 'When overridden in a derived class, ensures that all appended records have been written.'
+  remarks: 'Calling this method ensures that all records that have been appended to the <xref:System.IO.Log.IRecordSequence> have been durably written.'
   syntax:
     content: public System.IO.Log.SequenceNumber Flush ();
     parameters: []
@@ -1461,14 +1461,14 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, ensures that all appended records up to and including the record with the specified sequence number have been durably written.
+  summary: 'When overridden in a derived class, ensures that all appended records up to and including the record with the specified sequence number have been durably written.'
   remarks: Calling this method ensures that all records with sequence numbers up to and including the specified sequence number have been durably written.
   syntax:
     content: public System.IO.Log.SequenceNumber Flush (System.IO.Log.SequenceNumber sequenceNumber);
     parameters:
     - id: sequenceNumber
       type: System.IO.Log.SequenceNumber
-      description: The sequence number of the latest record that must be written. If this <xref href="System.IO.Log.SequenceNumber"></xref> is invalid, then all records must be written.
+      description: 'The sequence number of the latest record that must be written. If this <xref href="System.IO.Log.SequenceNumber"></xref> is invalid, then all records must be written.'
     return:
       type: System.IO.Log.SequenceNumber
       description: The sequence number of the last record written.
@@ -1518,7 +1518,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, gets the sequence number which is greater than the last record appended.
+  summary: 'When overridden in a derived class, gets the sequence number which is greater than the last record appended.'
   remarks: "This property contains a sequence number that is guaranteed to be larger than the sequence number of the last appended record. Valid sequence numbers are greater than or equal to <xref:System.IO.Log.IRecordSequence.BaseSequenceNumber%2A> and less than <xref:System.IO.Log.IRecordSequence.LastSequenceNumber%2A>.  \n  \n> [!NOTE]\n>  When using a <xref:System.IO.Log.LogRecordSequence> instance, the <xref:System.IO.Log.LogRecordSequence.LastSequenceNumber%2A> value can become out of date until records are flushed to the log. See <xref:System.IO.Log.IRecordSequence.Flush%2A> and <xref:System.IO.Log.RecordAppendOptions> for more information on flushing records.."
   syntax:
     content: public System.IO.Log.SequenceNumber LastSequenceNumber { get; }
@@ -1565,12 +1565,12 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, gets the size of the largest record that can be appended to or read from this sequence, in bytes.
+  summary: 'When overridden in a derived class, gets the size of the largest record that can be appended to or read from this sequence, in bytes.'
   syntax:
     content: public long MaximumRecordLength { get; }
     return:
       type: System.Int64
-      description: The size of the largest record that can be appended to or read from this sequence, in bytes.
+      description: 'The size of the largest record that can be appended to or read from this sequence, in bytes.'
   overload: System.IO.Log.IRecordSequence.MaximumRecordLength*
   exceptions:
   - type: System.ObjectDisposedException
@@ -1611,8 +1611,8 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, returns an enumerable collection of records in the sequence.
-  remarks: When overridden in a derived class, returns an enumerable collection of records in the sequence. The order of the enumerated records depends on the value of the `logRecordEnum` parameter.
+  summary: 'When overridden in a derived class, returns an enumerable collection of records in the sequence.'
+  remarks: 'When overridden in a derived class, returns an enumerable collection of records in the sequence. The order of the enumerated records depends on the value of the `logRecordEnum` parameter.'
   example:
   - "This sample demonstrates the use of the <xref:System.IO.Log.IRecordSequence.ReadLogRecords%2A> method.  \n  \n```csharp  \nusing System;  \n using System.IO;  \n using System.IO.Log;  \n  \n class ReadRecordsSample  \n {  \n     static SequenceNumber AppendRecord(IRecordSequence sequence,  \n                                        string message,  \n                                        SequenceNumber user,  \n                                        SequenceNumber previous)  \n     {  \n         MemoryStream data = new MemoryStream();  \n         BinaryWriter writer = new BinaryWriter(data);  \n         writer.Write(message);  \n  \n         ArraySegment<byte>[] segments;  \n         segments = new ArraySegment<byte>[1];  \n         segments[0] = new ArraySegment(data.GetBuffer(),  \n                                        0,  \n                                        Data.Length);  \n  \n         return sequence.Append(segments,  \n                                user,  \n                                previous,  \n                                WriteFlags.None);  \n     }  \n  \n     public static void Main(string[] args)  \n     {  \n         IRecordSequence sequence;  \n         sequence = new FileIRecordSequence(args[0]);  \n  \n         SequenceNumber a, b, c, d;  \n  \n         a = AppendRecord(sequence,  \n                          \"This is record A\",  \n                          SequenceNumber.Invalid,  \n                          SequenceNumber.Invalid);  \n         Console.WriteLine(\"Record A has sequence number System.IO.Log\", a);  \n  \n         b = AppendRecord(sequence,  \n                          \"This is record B\",  \n                          a,  \n                          a);  \n         Console.WriteLine(\"Record B has sequence number System.IO.Log\", b);  \n  \n         c = AppendRecord(sequence,  \n                          \"This is record C\",  \n                          a,  \n                          a);  \n         Console.WriteLine(\"Record C has sequence number System.IO.Log\", c);  \n  \n         d = AppendRecord(sequence,  \n                          \"This is record D\",  \n                          b,  \n                          c);  \n         Console.WriteLine(\"Record D has sequence number System.IO.Log\", d);  \n  \n         foreach(LogRecord record in  \n                 sequence.ReadLogRecords(a, ReadDirection.Forward))  \n         {  \n             BinaryReader reader = new BinaryReader(record.Data);  \n             Console.WriteLine(\"System.IO.Log: T:System.IO.Log.IRecordSequence\",  \n                               record.SequenceNumber,  \n                               reader.ReadString());  \n         }  \n  \n         foreach(LogRecord record in  \n                 sequence.ReadLogRecords(d, ReadDirection.User))  \n         {  \n             BinaryReader reader = new BinaryReader(record.Data);  \n             Console.WriteLine(\"System.IO.Log: T:System.IO.Log.IRecordSequence\",  \n                               record.SequenceNumber,  \n                               reader.ReadString());  \n         }  \n  \n         foreach(LogRecord record in  \n                 sequence.ReadLogRecords(d, ReadDirection.Previous))  \n         {  \n             BinaryReader reader = new BinaryReader(record.Data);  \n             Console.WriteLine(\"System.IO.Log: T:System.IO.Log.IRecordSequence\",  \n                               record.SequenceNumber,  \n                               reader.ReadString());  \n         }  \n     }  \n       }  \n```"
   syntax:
@@ -1623,7 +1623,7 @@ items:
       description: The sequence number of the first record where the reading starts.
     - id: logRecordEnum
       type: System.IO.Log.LogRecordEnumeratorType
-      description: A valid <xref href="System.IO.Log.LogRecordEnumeratorType"></xref> value that specifies the manner (that is, forward or backward) in which records should be read from a <xref href="System.IO.Log.LogRecordSequence"></xref>.
+      description: 'A valid <xref href="System.IO.Log.LogRecordEnumeratorType"></xref> value that specifies the manner (that is, forward or backward) in which records should be read from a <xref href="System.IO.Log.LogRecordSequence"></xref>.'
     return:
       type: System.Collections.Generic.IEnumerable{System.IO.Log.LogRecord}
       description: An enumerable collection of records in the sequence.
@@ -1673,7 +1673,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, returns an enumerable collection of the restart areas in the sequence.
+  summary: 'When overridden in a derived class, returns an enumerable collection of the restart areas in the sequence.'
   remarks: "The restart areas are enumerated in reverse sequence number order, that is, from the highest sequence number to the lowest sequence number. Only restart areas with sequence numbers between the last sequence number and the base sequence number are enumerated.  \n  \n> [!NOTE]\n>  If the log extent containing the <xref:System.IO.Log.IRecordSequence.BaseSequenceNumber%2A> becomes corrupted, this method can throw an <xref:System.IO.IOException> with the error message \"The request could not be performed because of an unexpected I/O exception. The following error code was returned: '80070026'\"."
   syntax:
     content: public System.Collections.Generic.IEnumerable<System.IO.Log.LogRecord> ReadRestartAreas ();
@@ -1727,7 +1727,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, automatically makes a single reservation and appends a record to the sequence.
+  summary: 'When overridden in a derived class, automatically makes a single reservation and appends a record to the sequence.'
   remarks: "Data contained in the `data` parameter will be concatenated into a single byte array for appending as the record. However, no provision is made for splitting data back into array segments when the record is read.  \n  \n The specified reservations are added to the provided reservation collection in an atomic operation with a record append operation. If the append fails, no space is reserved.  \n  \n Normally, this method may complete before the record has been written. To ensure that a record has been written, either specify the <xref:System.IO.Log.RecordAppendOptions.ForceFlush> flag using the `recordAppendOptions` parameter, or call the <xref:System.IO.Log.IRecordSequence.Flush%2A> method."
   syntax:
     content: public System.IO.Log.SequenceNumber ReserveAndAppend (ArraySegment<byte> data, System.IO.Log.SequenceNumber nextUndoRecord, System.IO.Log.SequenceNumber previousRecord, System.IO.Log.RecordAppendOptions recordAppendOptions, System.IO.Log.ReservationCollection reservationCollection, long[] reservations);
@@ -1749,7 +1749,7 @@ items:
       description: A <xref href="System.IO.Log.ReservationCollection"></xref> that contains the collection to make reservations in.
     - id: reservations
       type: System.Int64[]
-      description: The reservations to make, in bytes.
+      description: 'The reservations to make, in bytes.'
     return:
       type: System.IO.Log.SequenceNumber
       description: The sequence number of the appended log record.
@@ -1763,7 +1763,7 @@ items:
     description: An I/O error occurred while appending the record.
   - type: System.IO.Log.SequenceFullException
     commentId: T:System.IO.Log.SequenceFullException
-    description: The record sequence could not make enough free space to contain the new record, or to make the reservation.
+    description: 'The record sequence could not make enough free space to contain the new record, or to make the reservation.'
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
     description: The method was called after the sequence has been disposed of.
@@ -1802,7 +1802,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, automatically makes a single reservation and appends a record to the sequence.
+  summary: 'When overridden in a derived class, automatically makes a single reservation and appends a record to the sequence.'
   remarks: "Data contained in the `data` parameter will be concatenated into a single byte array for appending as the record. However, no provision is made for splitting data back into array segments when the record is read.  \n  \n The specified reservations are added to the provided reservation collection in an atomic operation with a record append operation. If the append fails, no space is reserved.  \n  \n Normally, this method may complete before the record has been written. To ensure that a record has been written, either specify the <xref:System.IO.Log.RecordAppendOptions.ForceFlush> flag using the `recordAppendOptions` parameter, or call the <xref:System.IO.Log.IRecordSequence.Flush%2A> method."
   syntax:
     content: public System.IO.Log.SequenceNumber ReserveAndAppend (System.Collections.Generic.IList<ArraySegment<byte>> data, System.IO.Log.SequenceNumber nextUndoRecord, System.IO.Log.SequenceNumber previousRecord, System.IO.Log.RecordAppendOptions recordAppendOptions, System.IO.Log.ReservationCollection reservationCollection, long[] reservations);
@@ -1824,7 +1824,7 @@ items:
       description: The reservation collection to make reservations in.
     - id: reservations
       type: System.Int64[]
-      description: The reservations to make, in bytes.
+      description: 'The reservations to make, in bytes.'
     return:
       type: System.IO.Log.SequenceNumber
       description: The sequence number of the appended log record.
@@ -1838,7 +1838,7 @@ items:
     description: An I/O error occurred while appending the record.
   - type: System.IO.Log.SequenceFullException
     commentId: T:System.IO.Log.SequenceFullException
-    description: The record sequence could not make enough free space to contain the new record, or to make the reservation.
+    description: 'The record sequence could not make enough free space to contain the new record, or to make the reservation.'
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
     description: The method was called after the sequence has been disposed of.
@@ -1877,7 +1877,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, gets the total number of bytes that have been reserved.
+  summary: 'When overridden in a derived class, gets the total number of bytes that have been reserved.'
   syntax:
     content: public long ReservedBytes { get; }
     return:
@@ -1923,8 +1923,8 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, gets the sequence number of the most recently written restart area.
-  remarks: A restart area is used to temporarily store information containing a client's last checkpoint operation. When a recovery is necessary, you can parse the restart area to retrieve all the data from the last checkpoint operation. This data initializes the transaction table, dirty pages table, and open file table so they can be used in the recovery process.
+  summary: 'When overridden in a derived class, gets the sequence number of the most recently written restart area.'
+  remarks: 'A restart area is used to temporarily store information containing a client''s last checkpoint operation. When a recovery is necessary, you can parse the restart area to retrieve all the data from the last checkpoint operation. This data initializes the transaction table, dirty pages table, and open file table so they can be used in the recovery process.'
   syntax:
     content: public System.IO.Log.SequenceNumber RestartSequenceNumber { get; }
     return:
@@ -1971,7 +1971,7 @@ items:
   - System.IO.Log
   namespace: System.IO.Log
   summary: Gets or sets a value indicating whether appends are automatically retried if the log is full.
-  remarks: If the value of this property is `true`, and an <xref:System.IO.Log.IRecordSequence.Append%2A> call fails because there is not enough space in the sequence, the record sequence will try to free space and retry the append.
+  remarks: 'If the value of this property is `true`, and an <xref:System.IO.Log.IRecordSequence.Append%2A> call fails because there is not enough space in the sequence, the record sequence will try to free space and retry the append.'
   syntax:
     content: public bool RetryAppend { get; set; }
     return:
@@ -2018,7 +2018,7 @@ items:
   - System.IO.Log
   namespace: System.IO.Log
   summary: Occurs when the record sequence determines that the tail must be moved forward.
-  remarks: You can fire this event when the record sequence has run out of space. When this event is fired, the tail of the sequence (that is, the base sequence number) is moved forward to free up space.
+  remarks: 'You can fire this event when the record sequence has run out of space. When this event is fired, the tail of the sequence (that is, the base sequence number) is moved forward to free up space.'
   syntax:
     content: public event EventHandler<System.IO.Log.TailPinnedEventArgs> TailPinned;
     return:
@@ -2060,7 +2060,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, writes a restart area to the <xref href="System.IO.Log.IRecordSequence"></xref>.
+  summary: 'When overridden in a derived class, writes a restart area to the <xref href="System.IO.Log.IRecordSequence"></xref>.'
   remarks: "A restart area is used to temporarily store information containing a client's last checkpoint operation. The Common Log File System (CLFS) maintains two restart areas to guarantee that at least one valid area is always available. When a recovery is necessary, the CLFS reads its restart area and all the data from the last checkpoint operation. This data initializes the transaction table, dirty pages table, and open file table so they can be used in the recovery process.  \n  \n A restart area can be read using the <xref:System.IO.Log.IRecordSequence.ReadRestartAreas%2A> method.  \n  \n The data in the byte array segments will be concatenated into a single byte array for appending as the record. No provision is made for splitting data back into array segments when the restart area is read."
   syntax:
     content: public System.IO.Log.SequenceNumber WriteRestartArea (ArraySegment<byte> data);
@@ -2120,7 +2120,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, writes a restart area to the <xref href="System.IO.Log.IRecordSequence"></xref>.
+  summary: 'When overridden in a derived class, writes a restart area to the <xref href="System.IO.Log.IRecordSequence"></xref>.'
   remarks: "A restart area is used to temporarily store information containing a client's last checkpoint operation. When a recovery is necessary, you can parse the restart area to retrieve all the data from the last checkpoint operation. This data initializes the transaction table, dirty pages table, and open file table so they can be used in the recovery process. A restart area can be read using the <xref:System.IO.Log.IRecordSequence.ReadRestartAreas%2A> method.  \n  \n The data in the byte array segments will be concatenated into a single byte array for appending as the record. No provision is made for splitting data back into array segments when the restart area is read."
   syntax:
     content: public System.IO.Log.SequenceNumber WriteRestartArea (System.Collections.Generic.IList<ArraySegment<byte>> data);
@@ -2180,7 +2180,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, writes a restart area to the <xref href="System.IO.Log.IRecordSequence"></xref> and updates the base sequence number
+  summary: 'When overridden in a derived class, writes a restart area to the <xref href="System.IO.Log.IRecordSequence"></xref> and updates the base sequence number'
   remarks: "A restart area is used to temporarily store information containing a client's last checkpoint operation. When a recovery is necessary, you can parse the restart area to retrieve all the data from the last checkpoint operation. This data initializes the transaction table, dirty pages table, and open file table so they can be used in the recovery process. A restart area can be read using the <xref:System.IO.Log.IRecordSequence.ReadRestartAreas%2A> method.  \n  \n When a restart area is written, the data in the byte array segments are concatenated into a single byte array for appending as the record. No provision is made for splitting data back into array segments when the restart area is read.  \n  \n When this method successfully completes, the base sequence number has been updated. All log records with sequence numbers less than the new base sequence number are inaccessible."
   syntax:
     content: public System.IO.Log.SequenceNumber WriteRestartArea (ArraySegment<byte> data, System.IO.Log.SequenceNumber newBaseSequenceNumber);
@@ -2243,7 +2243,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, writes a restart area to the <xref href="System.IO.Log.IRecordSequence"></xref> and updates the base sequence number.
+  summary: 'When overridden in a derived class, writes a restart area to the <xref href="System.IO.Log.IRecordSequence"></xref> and updates the base sequence number.'
   remarks: "A restart area is used to temporarily store information containing a client's last checkpoint operation. When a recovery is necessary, you can parse the restart area to retrieve all the data from the last checkpoint operation. This data initializes the transaction table, dirty pages table, and open file table so they can be used in the recovery process. A restart area can be read using the <xref:System.IO.Log.IRecordSequence.ReadRestartAreas%2A> method.  \n  \n When a restart area is written, the data in the byte array segments are concatenated into a single byte array for appending as the record. No provision is made for splitting data back into array segments when the restart area is read.  \n  \n When this method successfully completes, the base sequence number has been updated. All log records with sequence numbers less than the new base sequence number are inaccessible."
   syntax:
     content: public System.IO.Log.SequenceNumber WriteRestartArea (System.Collections.Generic.IList<ArraySegment<byte>> data, System.IO.Log.SequenceNumber newBaseSequenceNumber);
@@ -2306,7 +2306,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, writes a restart area to the <xref href="System.IO.Log.IRecordSequence"></xref> using a reservation, and updates the base sequence number
+  summary: 'When overridden in a derived class, writes a restart area to the <xref href="System.IO.Log.IRecordSequence"></xref> using a reservation, and updates the base sequence number'
   remarks: "A restart area is used to temporarily store information containing a client's last checkpoint operation. When a recovery is necessary, you can parse the restart area to retrieve all the data from the last checkpoint operation. This data initializes the transaction table, dirty pages table, and open file table so they can be used in the recovery process. A restart area can be read using the <xref:System.IO.Log.IRecordSequence.ReadRestartAreas%2A> method.  \n  \n When a restart area is written, the data in the byte array segments are concatenated into a single byte array for appending as the record. No provision is made for splitting data back into array segments when the restart area is read.  \n  \n If a reservation is specified, the written restart area will consume space that has been previously reserved, using a reservation contained in the collection. If the method succeeds, it will consume the smallest reservation that can contain the data, and that reservation will be removed from the collection.  \n  \n When this method successfully completes, the base sequence number has been updated. All log records with sequence numbers less than the new base sequence number are inaccessible.  \n  \n If a record sequence has been disposed of, or if you pass an invalid argument, exceptions are thrown immediately within this operation. Errors that occurred during an asynchronous append request, for example, a disk failure during the I/O request, will result in exceptions being thrown when the <xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A> method is called."
   syntax:
     content: public System.IO.Log.SequenceNumber WriteRestartArea (ArraySegment<byte> data, System.IO.Log.SequenceNumber newBaseSequenceNumber, System.IO.Log.ReservationCollection reservation);
@@ -2372,7 +2372,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: When overridden in a derived class, writes a restart area to the <xref href="System.IO.Log.IRecordSequence"></xref> using a reservation, and updates the base sequence number.
+  summary: 'When overridden in a derived class, writes a restart area to the <xref href="System.IO.Log.IRecordSequence"></xref> using a reservation, and updates the base sequence number.'
   remarks: "A restart area is used to temporarily store information containing a client's last checkpoint operation. When a recovery is necessary, you can parse the restart area to retrieve all the data from the last checkpoint operation. This data initializes the transaction table, dirty pages table, and open file table so they can be used in the recovery process. A restart area can be read using the <xref:System.IO.Log.IRecordSequence.ReadRestartAreas%2A> method.  \n  \n When a restart area is written, the data in the byte array segments are concatenated into a single byte array for appending as the record. No provision is made for splitting data back into array segments when the restart area is read.  \n  \n If a reservation is specified, the written restart area will consume space that has been previously reserved, using a reservation contained in the collection. If the method succeeds, it will consume the smallest reservation that can contain the data, and that reservation will be removed from the collection.  \n  \n When this method successfully completes, the base sequence number has been updated. All log records with sequence numbers less than the new base sequence number are inaccessible.  \n  \n If a record sequence has been disposed of, or if you pass an invalid argument, exceptions are thrown immediately within this operation. Errors that occurred during an asynchronous append request, for example, a disk failure during the I/O request, will result in exceptions being thrown when the <xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A> method is called."
   syntax:
     content: public System.IO.Log.SequenceNumber WriteRestartArea (System.Collections.Generic.IList<ArraySegment<byte>> data, System.IO.Log.SequenceNumber newBaseSequenceNumber, System.IO.Log.ReservationCollection reservation);

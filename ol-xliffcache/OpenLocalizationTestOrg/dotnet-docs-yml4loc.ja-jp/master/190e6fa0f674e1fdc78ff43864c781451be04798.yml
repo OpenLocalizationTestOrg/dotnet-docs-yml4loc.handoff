@@ -31,7 +31,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: The base class for <xref href="System.ServiceModel.NetMsmqBinding"></xref> and <xref href="System.ServiceModel.MsmqIntegration.MsmqIntegrationBinding"></xref>.
-  remarks: This abstract class contains properties common to <xref:System.ServiceModel.NetMsmqBinding> and <xref:System.ServiceModel.MsmqIntegration.MsmqIntegrationBinding>. All of the fundamental concepts in queuing are displayed in the form of properties.
+  remarks: 'This abstract class contains properties common to <xref:System.ServiceModel.NetMsmqBinding> and <xref:System.ServiceModel.MsmqIntegration.MsmqIntegrationBinding>. All of the fundamental concepts in queuing are displayed in the form of properties.'
   syntax:
     content: 'public abstract class MsmqBindingBase : System.ServiceModel.Channels.Binding, System.ServiceModel.Channels.IBindingRuntimePreferences'
   inheritance:
@@ -151,7 +151,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: Gets or sets a URI that contains the location of the dead-letter queue for each application, where messages that have expired or that have failed transfer or delivery are placed.
+  summary: 'Gets or sets a URI that contains the location of the dead-letter queue for each application, where messages that have expired or that have failed transfer or delivery are placed.'
   remarks: "The dead-letter queue is a queue on the queue manager of the sending application for expired messages that failed to be delivered.  \n  \n The URI that is specified by <xref:System.ServiceModel.MsmqBindingBase.CustomDeadLetterQueue%2A> must use the net.msmq scheme.  \n  \n If <xref:System.ServiceModel.MsmqBindingBase.DeadLetterQueue%2A> is set to <xref:System.ServiceModel.DeadLetterQueue.None> or <xref:System.ServiceModel.DeadLetterQueue.System>, then <xref:System.ServiceModel.MsmqBindingBase.CustomDeadLetterQueue%2A> must be set to `null`. If <xref:System.ServiceModel.MsmqBindingBase.CustomDeadLetterQueue%2A> is not `null`, then <xref:System.ServiceModel.MsmqBindingBase.DeadLetterQueue%2A> must be set to <xref:System.ServiceModel.DeadLetterQueue.Custom>."
   syntax:
     content: public Uri CustomDeadLetterQueue { get; set; }
@@ -331,13 +331,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: Gets or sets the maximum size, in bytes, for a message that is processed by this binding.
+  summary: 'Gets or sets the maximum size, in bytes, for a message that is processed by this binding.'
   remarks: This bound on message size is intended to limit exposure to Denial of Service (DoS) attacks.
   syntax:
     content: public long MaxReceivedMessageSize { get; set; }
     return:
       type: System.Int64
-      description: The maximum size (in bytes) for a message that is processed by this binding. The default value is 65,536 bytes.
+      description: 'The maximum size (in bytes) for a message that is processed by this binding. The default value is 65,536 bytes.'
   overload: System.ServiceModel.MsmqBindingBase.MaxReceivedMessageSize*
   exceptions: []
   attributes: []
@@ -377,7 +377,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Gets or sets the maximum number of retry cycles to attempt delivery of messages to the receiving application.
-  remarks: A single retry cycle attempts to deliver a message to an application a specified number of times. The number of attempts made is set by the <xref:System.ServiceModel.MsmqBindingBase.ReceiveRetryCount%2A> property. If the application fails to access the message after the specified number of immediate retries, the message is sent to a retry queue. Subsequent retry cycles consist of the message being returned from the retry queue to the application queue to attempt delivery to the application again, after a delay specified by the <xref:System.ServiceModel.MsmqBindingBase.RetryCycleDelay%2A> property. The <xref:System.ServiceModel.MsmqBindingBase.MaxRetryCycles%2A> property specifies the number of retry cycles that the application uses to attempt to deliver the message.
+  remarks: 'A single retry cycle attempts to deliver a message to an application a specified number of times. The number of attempts made is set by the <xref:System.ServiceModel.MsmqBindingBase.ReceiveRetryCount%2A> property. If the application fails to access the message after the specified number of immediate retries, the message is sent to a retry queue. Subsequent retry cycles consist of the message being returned from the retry queue to the application queue to attempt delivery to the application again, after a delay specified by the <xref:System.ServiceModel.MsmqBindingBase.RetryCycleDelay%2A> property. The <xref:System.ServiceModel.MsmqBindingBase.MaxRetryCycles%2A> property specifies the number of retry cycles that the application uses to attempt to deliver the message.'
   syntax:
     content: public int MaxRetryCycles { get; set; }
     return:
@@ -556,7 +556,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Gets or sets a value that indicates the time delay between retry cycles when attempting to deliver a message that cannot be delivered immediately.
-  remarks: A single retry cycle attempts to deliver a message to a receiving application a specified number of times. The number of attempts made is specified by the <xref:System.ServiceModel.MsmqBindingBase.ReceiveRetryCount%2A> property. If the application fails to access the message after the specified number of immediate retries, the message is sent to a retry queue. Subsequent retry cycles consist of the message being returned from the retry queue to the application queue to attempt delivery to the application again, after a delay specified by the <xref:System.ServiceModel.MsmqBindingBase.RetryCycleDelay%2A>. The number of retry cycles is specified by <xref:System.ServiceModel.MsmqBindingBase.MaxRetryCycles%2A>.
+  remarks: 'A single retry cycle attempts to deliver a message to a receiving application a specified number of times. The number of attempts made is specified by the <xref:System.ServiceModel.MsmqBindingBase.ReceiveRetryCount%2A> property. If the application fails to access the message after the specified number of immediate retries, the message is sent to a retry queue. Subsequent retry cycles consist of the message being returned from the retry queue to the application queue to attempt delivery to the application again, after a delay specified by the <xref:System.ServiceModel.MsmqBindingBase.RetryCycleDelay%2A>. The number of retry cycles is specified by <xref:System.ServiceModel.MsmqBindingBase.MaxRetryCycles%2A>.'
   syntax:
     content: public TimeSpan RetryCycleDelay { get; set; }
     return:
@@ -645,7 +645,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Gets or sets the interval of time that indicates how long the messages processed by this binding can be in the queue before they expire.
-  remarks: The <xref:System.ServiceModel.MsmqBindingBase.TimeToLive%2A> property is set to ensure that time-sensitive messages do not become stale before they are processed by the receiving applications. A message in a queue that is not accessed by the receiving application within the time interval specified is expired. Expired messages are sent to a special queue called the dead-letter queue. The location of the dead-letter queue is set with the <xref:System.ServiceModel.MsmqBindingBase.DeadLetterQueue%2A> property or to the appropriate default, based on assurances.
+  remarks: 'The <xref:System.ServiceModel.MsmqBindingBase.TimeToLive%2A> property is set to ensure that time-sensitive messages do not become stale before they are processed by the receiving applications. A message in a queue that is not accessed by the receiving application within the time interval specified is expired. Expired messages are sent to a special queue called the dead-letter queue. The location of the dead-letter queue is set with the <xref:System.ServiceModel.MsmqBindingBase.DeadLetterQueue%2A> property or to the appropriate default, based on assurances.'
   syntax:
     content: public TimeSpan TimeToLive { get; set; }
     return:
@@ -690,7 +690,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Gets or sets a value that indicates whether messages processed by this binding should be traced.
-  remarks: When tracing is enabled, report messages are created and sent to the report queue each time the message leaves or arrives at a Message Queuing (MSMQ) computer.
+  remarks: 'When tracing is enabled, report messages are created and sent to the report queue each time the message leaves or arrives at a Message Queuing (MSMQ) computer.'
   syntax:
     content: public bool UseMsmqTracing { get; set; }
     return:
@@ -735,7 +735,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Gets or sets a value that indicates whether copies of messages processed by this binding should be stored in the source journal queue.
-  remarks: Queued applications that keep a record of messages that have left the computer's outgoing queue can copy the messages to a journal queue. Once a message leaves the outgoing queue and an acknowledgment is received that the message was received on the destination computer, a copy of the message is kept in the sending computer's system journal queue.
+  remarks: 'Queued applications that keep a record of messages that have left the computer''s outgoing queue can copy the messages to a journal queue. Once a message leaves the outgoing queue and an acknowledgment is received that the message was received on the destination computer, a copy of the message is kept in the sending computer''s system journal queue.'
   syntax:
     content: public bool UseSourceJournal { get; set; }
     return:
@@ -780,10 +780,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Gets or sets a value that specifies the duration a message will be locked by the receive context feature.
-  remarks: >-
-    > [!IMPORTANT]
-
-    >  If <xref:System.ServiceModel.MsmqBindingBase.ValidityDuration%2A> expires for a message, any transaction that may be used for its processing will be aborted along with the workflow instance if the expiration occurs during the transaction.
+  remarks: "> [!IMPORTANT]\n>  If <xref:System.ServiceModel.MsmqBindingBase.ValidityDuration%2A> expires for a message, any transaction that may be used for its processing will be aborted along with the workflow instance if the expiration occurs during the transaction."
   syntax:
     content: public TimeSpan ValidityDuration { get; set; }
     return:
@@ -829,7 +826,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Gets a value that indicates whether incoming requests can be handled more efficiently synchronously or asynchronously.
-  remarks: The <xref:System.ServiceModel.MsmqBindingBase.System.ServiceModel.Channels.IBindingRuntimePreferences.ReceiveSynchronously%2A> property is set to `true` when the <xref:System.ServiceModel.MsmqBindingBase.ExactlyOnce%2A> is `true`.
+  remarks: 'The <xref:System.ServiceModel.MsmqBindingBase.System.ServiceModel.Channels.IBindingRuntimePreferences.ReceiveSynchronously%2A> property is set to `true` when the <xref:System.ServiceModel.MsmqBindingBase.ExactlyOnce%2A> is `true`.'
   syntax:
     content: bool System.ServiceModel.Channels.IBindingRuntimePreferences.ReceiveSynchronously { get; }
     return:

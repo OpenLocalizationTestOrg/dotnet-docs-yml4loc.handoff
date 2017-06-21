@@ -229,7 +229,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Specifies whether to automatically close a session when a client closes an output session.
-  remarks: By default when a client closes an output session and the service has finished processing any remaining messages the server closes the session. Setting <xref:System.ServiceModel.ServiceBehaviorAttribute.AutomaticSessionShutdown%2A> to `false` prevents the server from automatically closing the session and enables custom control of session lifetimes.
+  remarks: 'By default when a client closes an output session and the service has finished processing any remaining messages the server closes the session. Setting <xref:System.ServiceModel.ServiceBehaviorAttribute.AutomaticSessionShutdown%2A> to `false` prevents the server from automatically closing the session and enables custom control of session lifetimes.'
   syntax:
     content: public bool AutomaticSessionShutdown { get; set; }
     return:
@@ -273,7 +273,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: Gets or sets whether a service supports one thread, multiple threads, or reentrant calls.
+  summary: 'Gets or sets whether a service supports one thread, multiple threads, or reentrant calls.'
   remarks: "This property indicates whether an instance of a service can handle one thread or multiple threads that execute concurrently, and if single-threaded, whether reentrancy is supported.  \n  \n> [!NOTE]\n>  The <xref:System.ServiceModel.ServiceBehaviorAttribute.ConcurrencyMode%2A> property interacts with some other settings. For example, if the <xref:System.ServiceModel.ServiceBehaviorAttribute.InstanceContextMode%2A> value is set to <xref:System.ServiceModel.InstanceContextMode.Single> the result is that your service can only process one message at a time unless you also set the <xref:System.ServiceModel.ServiceBehaviorAttribute.ConcurrencyMode%2A> value to <xref:System.ServiceModel.ConcurrencyMode.Multiple>. This property also produces behavior in combination with the <xref:System.ServiceModel.ServiceContractAttribute.SessionMode%2A?displayProperty=fullName> property. For details, see [Sessions, Instancing, and Concurrency](~/docs/framework/wcf/feature-details/sessions-instancing-and-concurrency.md).  \n  \n Setting <xref:System.ServiceModel.ConcurrencyMode> to <xref:System.ServiceModel.ConcurrencyMode.Single> instructs the system to restrict instances of the service to one thread of execution at a time, which frees you from dealing with threading issues. A value of <xref:System.ServiceModel.ConcurrencyMode.Multiple> means that service objects can be executed by multiple threads at any one time. In this case, you must ensure thread safety.  \n  \n <xref:System.ServiceModel.ConcurrencyMode.Reentrant> also restricts access to a single thread at a time; while the operation is processing, no other message can enter the operation. If during the operation a call to another service leaves, the current message loses the lock on the operation, which is free to process other messages. When the service call out returns, the lock is reestablished and the original message can continue processing to its conclusion or until another call out of the operation occurs.  \n  \n> [!IMPORTANT]\n>  Even though <xref:System.ServiceModel.ConcurrencyMode.Single> restricts instances of the service to one thread of execution at a time, you must also set <xref:System.ServiceModel.Description.ServiceThrottlingBehavior.MaxConcurrentCalls%2A> to 1 to guarantee no out-of-order messages.  \n>   \n>  Also, it is your responsibility to leave your object state consistent before callouts and you must confirm that operation-local data is valid after callouts. Note that the service instance is unlocked only by calling another service over a [!INCLUDE[indigo2](~/includes/indigo2-md.md)] channel. In this case, the called service can reenter the first service via a callback. If the first service is not reentrant, the sequence of calls results in a deadlock. For details, see <xref:System.ServiceModel.ConcurrencyMode>.  \n  \n During any outbound call from a processing operation, data not local to the operation can be modified. (Local state data is guaranteed to be valid when the original message resumes processing.) As a result, before your outbound call you must ensure that non-local data is valid for other incoming calls and revalidate non-local data after the outbound call returns.  \n  \n The following pseudo-code illustrates the required pattern for successful reentrant support.  \n  \n```csharp  \npublic void MyMethod()  \n{  \n  this.SomeNonLocalDataState;  \n  // Here you need to clean nonlocal state for other users  \n  OutboundProxy proxy = new OutboundProxy();  \n  int returnValue = proxy.CallOutOfOperation();  \n  // Ensure that this.SomeNonLocalDataState is valid for continued use.  \n  this.ModifyNonLocalState;  \n  return returnValue;  \n}  \n  \n```  \n  \n Using the Begin/End asynchronous call pattern for an outbound call when the <xref:System.ServiceModel.ServiceBehaviorAttribute.ConcurrencyMode%2A> is <xref:System.ServiceModel.ConcurrencyMode.Reentrant> triggers an exception. Asynchronous outbound calls require an operation in which <xref:System.ServiceModel.ServiceBehaviorAttribute.ConcurrencyMode%2A> is <xref:System.ServiceModel.ConcurrencyMode.Multiple>, in which case you must handle synchronization issues.  \n  \n Generally, if a message arrives for an instance that violates its concurrency mode, the message waits until the instance is available, or until it times out.  \n  \n In addition, if the <xref:System.ServiceModel.ConcurrencyMode> is set to <xref:System.ServiceModel.ConcurrencyMode.Single> and a reentrant call is blocked while waiting for the instance to be freed, the system detects the deadlock and throws an exception.  \n  \n> [!NOTE]\n>  A <xref:System.InvalidOperationException> is thrown at runtime if <xref:System.ServiceModel.ServiceBehaviorAttribute.ReleaseServiceInstanceOnTransactionComplete%2A> is `true` when the <xref:System.ServiceModel.ServiceBehaviorAttribute.ConcurrencyMode%2A> property is set to <xref:System.ServiceModel.ConcurrencyMode.Single>.  \n  \n Note that you must explicitly set <xref:System.ServiceModel.ServiceBehaviorAttribute.ReleaseServiceInstanceOnTransactionComplete%2A> to `false` if there is an operation with <xref:System.ServiceModel.OperationBehaviorAttribute.TransactionScopeRequired%2A?displayProperty=fullName> set to true and you set <xref:System.ServiceModel.ServiceBehaviorAttribute.ConcurrencyMode%2A> to <xref:System.ServiceModel.ConcurrencyMode.Reentrant>. Otherwise a validation exception is thrown because the default value of <xref:System.ServiceModel.ServiceBehaviorAttribute.ReleaseServiceInstanceOnTransactionComplete%2A> is `true`.  \n  \n There is an interaction of the <xref:System.ServiceModel.ServiceBehaviorAttribute.ConcurrencyMode%2A> and other properties that can alter runtime behavior. For a complete description of these interactions, see [Sessions, Instancing, and Concurrency](~/docs/framework/wcf/feature-details/sessions-instancing-and-concurrency.md)."
   example:
   - "The following code example demonstrates the different between using <xref:System.ServiceModel.ConcurrencyMode.Single>, <xref:System.ServiceModel.ConcurrencyMode.Reentrant>, and <xref:System.ServiceModel.ConcurrencyMode.Multiple>. This sample does not compile without a real implementation behind it, but does demonstrate the kind of threading guarantees that [!INCLUDE[indigo1](~/includes/indigo1-md.md)] makes and what that means for your operation code.  \n  \n [!code-csharp[C_BestPractices-Concurrency#1](~/samples/snippets/csharp/VS_Snippets_CFX/c_bestpractices-concurrency/cs/reentrantandmultiple.cs#1)]"
@@ -418,7 +418,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: Retrieves an object that implements the service and that is used as the singleton instance of the service, or `null` if there is no singleton instance.
+  summary: 'Retrieves an object that implements the service and that is used as the singleton instance of the service, or `null` if there is no singleton instance.'
   remarks: A non-`null` value provides the service instance to which all messages addressed to the service will be dispatched.
   syntax:
     content: public object GetWellKnownSingleton ();
@@ -608,7 +608,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Gets or sets the maximum number of items allowed in a serialized object.
-  remarks: Use the <xref:System.ServiceModel.ServiceBehaviorAttribute.MaxItemsInObjectGraph%2A> property set a limit on the number of items in an object graph that are serialized. You can also set this property using the [\&lt;dataContractSerializer\&gt;](~/docs/framework/configure-apps/file-schema/wcf/datacontractserializer-element.md) element in an application configuration file.
+  remarks: 'Use the <xref:System.ServiceModel.ServiceBehaviorAttribute.MaxItemsInObjectGraph%2A> property set a limit on the number of items in an object graph that are serialized. You can also set this property using the [\&lt;dataContractSerializer\&gt;](~/docs/framework/configure-apps/file-schema/wcf/datacontractserializer-element.md) element in an application configuration file.'
   syntax:
     content: public int MaxItemsInObjectGraph { get; set; }
     return:
@@ -657,7 +657,7 @@ items:
     content: public string Name { get; set; }
     return:
       type: System.String
-      description: The value of the name attribute in the `<wsdl:service>` element when exported.
+      description: 'The value of the name attribute in the `<wsdl:service>` element when exported.'
   overload: System.ServiceModel.ServiceBehaviorAttribute.Name*
   exceptions: []
   attributes: []
@@ -701,7 +701,7 @@ items:
     content: public string Namespace { get; set; }
     return:
       type: System.String
-      description: The value of the `targetNamespace` attribute for the `<wsdl:definitions>` element that contains the `<wsdl:service>` element.
+      description: 'The value of the `targetNamespace` attribute for the `<wsdl:definitions>` element that contains the `<wsdl:service>` element.'
   overload: System.ServiceModel.ServiceBehaviorAttribute.Namespace*
   exceptions: []
   attributes: []
@@ -1097,7 +1097,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: Specifies the transaction isolation level for new transactions created inside the service, and incoming transactions flowed from a client.
+  summary: 'Specifies the transaction isolation level for new transactions created inside the service, and incoming transactions flowed from a client.'
   remarks: "The isolation level in which your transaction runs determines how data is treated when changes are made in other transactions and how long your transaction must hold locks to protect against these changes. For example, the default value, <xref:System.Transactions.IsolationLevel.Unspecified>, specifies that no updating or inserting can occur until the transaction is complete.  \n  \n This property can also be used to restrict the isolation level of incoming transactions flowed from a client."
   example:
   - "The following code example sets the transaction isolation level to <xref:System.Transactions.IsolationLevel.ReadCommitted>, does not support concurrent transactions, requires a flowed transaction from the method call, and commits the transaction automatically if no unhandled exception occurs.  \n  \n [!code-csharp[SBA.Transactions#2](~/samples/snippets/csharp/VS_Snippets_CFX/sba.transactions/cs/services.cs#2)]\n [!code-vb[SBA.Transactions#2](~/samples/snippets/visualbasic/VS_Snippets_CFX/sba.transactions/vb/services.vb#2)]  \n  \n The underlying binding must support flowed transactions for the following code example to execute properly. To support flowed transactions using the <xref:System.ServiceModel.WSHttpBinding>, for example, set the <xref:System.ServiceModel.WSHttpBindingBase.TransactionFlow%2A> property to `true` in code or in an application configuration file. The following code example shows a configuration file for the preceding sample.  \n  \n [!code-xml[SBA.Transactions#1](~/samples/snippets/csharp/VS_Snippets_CFX/sba.transactions/cs/hostapplication.exe.config#1)]"
@@ -1147,7 +1147,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Gets or sets the period within which a transaction must complete.
-  remarks: This value sets the <xref:System.ServiceModel.Dispatcher.ChannelDispatcher.TransactionTimeout%2A?displayProperty=fullName> property. You can also set this property using the [\&lt;serviceTimeouts\&gt;](~/docs/framework/configure-apps/file-schema/wcf/servicetimeouts.md) element in an application configuration file.
+  remarks: 'This value sets the <xref:System.ServiceModel.Dispatcher.ChannelDispatcher.TransactionTimeout%2A?displayProperty=fullName> property. You can also set this property using the [\&lt;serviceTimeouts\&gt;](~/docs/framework/configure-apps/file-schema/wcf/servicetimeouts.md) element in an application configuration file.'
   example:
   - "The following configuration file specifies a transaction timeout period of three minutes.  \n  \n [!code-csharp[SBA.TransactionTimeout#2](~/samples/snippets/csharp/VS_Snippets_CFX/sba.transactiontimeout/cs/services.cs#2)]\n [!code-vb[SBA.TransactionTimeout#2](~/samples/snippets/visualbasic/VS_Snippets_CFX/sba.transactiontimeout/vb/services.vb#2)]"
   syntax:
@@ -1199,7 +1199,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Gets or sets a value that specifies whether to use the current synchronization context to choose the thread of execution.
-  remarks: Use this property to provide the user interface thread affinity that some applications require. For example, a Windows Forms application may be registered as a singleton service object. In this case, all calls into the service must run on the Windows Forms thread. The default case, in which <xref:System.ServiceModel.ServiceBehaviorAttribute.UseSynchronizationContext%2A> is set to `true`, synchronizes all calls to the service to run on the thread captured from the <xref:System.Threading.SynchronizationContext?displayProperty=fullName>.
+  remarks: 'Use this property to provide the user interface thread affinity that some applications require. For example, a Windows Forms application may be registered as a singleton service object. In this case, all calls into the service must run on the Windows Forms thread. The default case, in which <xref:System.ServiceModel.ServiceBehaviorAttribute.UseSynchronizationContext%2A> is set to `true`, synchronizes all calls to the service to run on the thread captured from the <xref:System.Threading.SynchronizationContext?displayProperty=fullName>.'
   syntax:
     content: public bool UseSynchronizationContext { get; set; }
     return:
@@ -1244,7 +1244,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Gets or sets a value that specifies whether the system or the application enforces SOAP `MustUnderstand` header processing.
-  remarks: Use the <xref:System.ServiceModel.ServiceBehaviorAttribute.ValidateMustUnderstand%2A> property to turn off the enforced validation of arriving message headers. In normal execution, message headers are compared against the <xref:System.ServiceModel.Channels.MessageHeaders.UnderstoodHeaders%2A> property to confirm that arriving headers are explicitly handled by the service. Set this to `false` to disable this checking. When set to `false`, the application must check for headers marked with MustUnderstand="true" and return a fault if one or more of them were not understood. This is useful when the application is supposed to accept any incoming SOAP messages (for example, when using typed or untyped messages) and perform custom header processing.
+  remarks: 'Use the <xref:System.ServiceModel.ServiceBehaviorAttribute.ValidateMustUnderstand%2A> property to turn off the enforced validation of arriving message headers. In normal execution, message headers are compared against the <xref:System.ServiceModel.Channels.MessageHeaders.UnderstoodHeaders%2A> property to confirm that arriving headers are explicitly handled by the service. Set this to `false` to disable this checking. When set to `false`, the application must check for headers marked with MustUnderstand="true" and return a fault if one or more of them were not understood. This is useful when the application is supposed to accept any incoming SOAP messages (for example, when using typed or untyped messages) and perform custom header processing.'
   syntax:
     content: public bool ValidateMustUnderstand { get; set; }
     return:

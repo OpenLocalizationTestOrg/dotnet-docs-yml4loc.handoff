@@ -75,8 +75,8 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: Encodes and decodes XML names, and provides methods for converting between common language runtime types and XML Schema definition language (XSD) types. When converting data types, the values returned are locale-independent.
-  remarks: "The <xref:System.Xml.XmlConvert> class is functionally equivalent to the <xref:System.Convert> class, but it supports XML standards. The type system is based on the XML Schema definition language (XSD) schema type, and the values returned are always locale-independent.  \n  \n## Encoding and decoding  \n Element and attribute names or ID values are limited to a range of XML characters according to the W3C [XML 1.0 recommendation](http://www.w3.org/TR/2006/REC-xml-20060816/). When names contain invalid characters, you can use the <xref:System.Xml.XmlConvert.EncodeName%2A> and <xref:System.Xml.XmlConvert.DecodeName%2A> methods in this class to translate them into valid XML names.  \n  \n For example, if you want to use the column heading \"Order Detail\" in a database, the database allows the space between the two words. However, in XML, the space between \"Order\" and \"Detail\" is considered an invalid XML character. You have to convert it into an escaped hexadecimal encoding and decode it later.  \n  \n You can use the <xref:System.Xml.XmlConvert.EncodeName%2A> method with the <xref:System.Xml.XmlWriter> class to ensure the names being written are valid XML names. The following C# code converts the name \"Order Detail\" into a valid XML name and writes the element `<Order_0x0020_Detail>My order</Order_0x0020_Detail>`.  \n  \n```  \nwriter.WriteElementString(XmlConvert.EncodeName(\"Order Detail\"),\"My order\");  \n  \n```  \n  \n The following <xref:System.Xml.XmlConvert> methods perform encoding and decoding.  \n  \n|Method|Description|  \n|------------|-----------------|  \n|<xref:System.Xml.XmlConvert.EncodeName%2A>|Takes a name and returns the encoded name along with any invalid character that is replaced by an escape string. This method allows colons in any position, which means that the name may still be invalid according to the W3C [Namespaces in XML 1.0 recommendation](http://www.w3.org/TR/REC-xml-names).|  \n|<xref:System.Xml.XmlConvert.EncodeNmToken%2A>|Takes a name and returns the encoded name.|  \n|<xref:System.Xml.XmlConvert.EncodeLocalName%2A>|Same as <xref:System.Xml.XmlConvert.EncodeName%2A> except that it also encodes the colon character, guaranteeing that the name can be used as the `LocalName` part of a namespace-qualified name.|  \n|<xref:System.Xml.XmlConvert.DecodeName%2A>|Reverses the transformation for all the encoding methods.|  \n  \n## Name validation  \n The <xref:System.Xml.XmlConvert> class contains two methods that check the characters in an element or attribute name and verify that the name conforms to the rules set by the W3C [XML 1.0 recommendation](http://www.w3.org/TR/2006/REC-xml-20060816/):  \n  \n-   <xref:System.Xml.XmlConvert.VerifyName%2A> checks the characters and verifies that the name is valid. The method returns the name if it's valid, and throws an exception if it isn't.  \n  \n-   <xref:System.Xml.XmlConvert.VerifyNCName%2A> performs the same validation, but accepts non-qualified names.  \n  \n The <xref:System.Xml.XmlConvert> contains additional methods that validate tokens, white-space characters, public IDs, and other strings.  \n  \n## Data type conversion  \n <xref:System.Xml.XmlConvert> also provides methods that enable you to convert data from a string to a strongly typed data type. For example, the <xref:System.Xml.XmlConvert.ToDateTime%2A> method converts a string to its <xref:System.DateTime> equivalent. This is useful because most methods in the <xref:System.Xml.XmlReader> class return data as a string. After the data is read, it can be converted to the proper data type before being used. The <xref:System.Xml.XmlConvert.ToString%2A> overloads provide the complementary operation by converting strongly typed data to strings. For example, this is useful when you want to add the data to text boxes on a webpage. Locale settings are not taken into account during data conversion. The data types are based on the XML Schema (XSD) data types."
+  summary: 'Encodes and decodes XML names, and provides methods for converting between common language runtime types and XML Schema definition language (XSD) types. When converting data types, the values returned are locale-independent.'
+  remarks: "The <xref:System.Xml.XmlConvert> class is functionally equivalent to the <xref:System.Convert> class, but it supports XML standards. The type system is based on the XML Schema definition language (XSD) schema type, and the values returned are always locale-independent.  \n  \n## <a name=\"encoding-and-decoding\"></a>Encoding and decoding  \n Element and attribute names or ID values are limited to a range of XML characters according to the W3C [XML 1.0 recommendation](http://www.w3.org/TR/2006/REC-xml-20060816/). When names contain invalid characters, you can use the <xref:System.Xml.XmlConvert.EncodeName%2A> and <xref:System.Xml.XmlConvert.DecodeName%2A> methods in this class to translate them into valid XML names.  \n  \n For example, if you want to use the column heading \"Order Detail\" in a database, the database allows the space between the two words. However, in XML, the space between \"Order\" and \"Detail\" is considered an invalid XML character. You have to convert it into an escaped hexadecimal encoding and decode it later.  \n  \n You can use the <xref:System.Xml.XmlConvert.EncodeName%2A> method with the <xref:System.Xml.XmlWriter> class to ensure the names being written are valid XML names. The following C# code converts the name \"Order Detail\" into a valid XML name and writes the element `<Order_0x0020_Detail>My order</Order_0x0020_Detail>`.  \n  \n```  \nwriter.WriteElementString(XmlConvert.EncodeName(\"Order Detail\"),\"My order\");  \n  \n```  \n  \n The following <xref:System.Xml.XmlConvert> methods perform encoding and decoding.  \n  \n|Method|Description|  \n|------------|-----------------|  \n|<xref:System.Xml.XmlConvert.EncodeName%2A>|Takes a name and returns the encoded name along with any invalid character that is replaced by an escape string. This method allows colons in any position, which means that the name may still be invalid according to the W3C [Namespaces in XML 1.0 recommendation](http://www.w3.org/TR/REC-xml-names).|  \n|<xref:System.Xml.XmlConvert.EncodeNmToken%2A>|Takes a name and returns the encoded name.|  \n|<xref:System.Xml.XmlConvert.EncodeLocalName%2A>|Same as <xref:System.Xml.XmlConvert.EncodeName%2A> except that it also encodes the colon character, guaranteeing that the name can be used as the `LocalName` part of a namespace-qualified name.|  \n|<xref:System.Xml.XmlConvert.DecodeName%2A>|Reverses the transformation for all the encoding methods.|  \n  \n## <a name=\"name-validation\"></a>Name validation  \n The <xref:System.Xml.XmlConvert> class contains two methods that check the characters in an element or attribute name and verify that the name conforms to the rules set by the W3C [XML 1.0 recommendation](http://www.w3.org/TR/2006/REC-xml-20060816/):  \n  \n-   <xref:System.Xml.XmlConvert.VerifyName%2A> checks the characters and verifies that the name is valid. The method returns the name if it's valid, and throws an exception if it isn't.  \n  \n-   <xref:System.Xml.XmlConvert.VerifyNCName%2A> performs the same validation, but accepts non-qualified names.  \n  \n The <xref:System.Xml.XmlConvert> contains additional methods that validate tokens, white-space characters, public IDs, and other strings.  \n  \n## <a name=\"data-type-conversion\"></a>Data type conversion  \n <xref:System.Xml.XmlConvert> also provides methods that enable you to convert data from a string to a strongly typed data type. For example, the <xref:System.Xml.XmlConvert.ToDateTime%2A> method converts a string to its <xref:System.DateTime> equivalent. This is useful because most methods in the <xref:System.Xml.XmlReader> class return data as a string. After the data is read, it can be converted to the proper data type before being used. The <xref:System.Xml.XmlConvert.ToString%2A> overloads provide the complementary operation by converting strongly typed data to strings. For example, this is useful when you want to add the data to text boxes on a webpage. Locale settings are not taken into account during data conversion. The data types are based on the XML Schema (XSD) data types."
   syntax:
     content: public class XmlConvert
   inheritance:
@@ -525,7 +525,7 @@ items:
       description: The character to verify as a non-colon character.
     return:
       type: System.Boolean
-      description: Returns `true` if the character is a valid non-colon character type; otherwise, `false`.
+      description: 'Returns `true` if the character is a valid non-colon character type; otherwise, `false`.'
   overload: System.Xml.XmlConvert.IsNCNameChar*
   exceptions: []
   version:
@@ -575,7 +575,7 @@ items:
   - netstandard
   - System.Xml.ReaderWriter
   namespace: System.Xml
-  summary: Returns the passed-in character instance if the character in the argument is a valid public id character, otherwise `null`.
+  summary: 'Returns the passed-in character instance if the character in the argument is a valid public id character, otherwise `null`.'
   syntax:
     content: public static bool IsPublicIdChar (char ch);
     parameters:
@@ -584,7 +584,7 @@ items:
       description: <xref href="System.Char"></xref> object to validate.
     return:
       type: System.Boolean
-      description: Returns the passed-in character if the character is a valid public id character, otherwise `null`.
+      description: 'Returns the passed-in character if the character is a valid public id character, otherwise `null`.'
   overload: System.Xml.XmlConvert.IsPublicIdChar*
   exceptions: []
   version:
@@ -635,7 +635,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml
   summary: Checks if the passed-in character is a valid Start Name Character type.
-  remarks: For details about allowed characters, see the [XML 1.0 spec (fourth edition)](http://go.microsoft.com/fwlink/?LinkId=147985) recommendation.
+  remarks: 'For details about allowed characters, see the [XML 1.0 spec (fourth edition)](http://go.microsoft.com/fwlink/?LinkId=147985) recommendation.'
   syntax:
     content: public static bool IsStartNCNameChar (char ch);
     parameters:
@@ -695,7 +695,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml
   summary: Checks if the passed-in character is a valid XML whitespace character.
-  remarks: For details about allowed characters, see the [XML 1.0 spec (fourth edition)](http://go.microsoft.com/fwlink/?LinkID=147985) recommendation.
+  remarks: 'For details about allowed characters, see the [XML 1.0 spec (fourth edition)](http://go.microsoft.com/fwlink/?LinkID=147985) recommendation.'
   syntax:
     content: public static bool IsWhitespaceChar (char ch);
     parameters:
@@ -755,7 +755,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml
   summary: Checks if the passed-in character is a valid XML character.
-  remarks: For details about allowed characters, see the [XML 1.0 spec (fourth edition)](http://go.microsoft.com/fwlink/?LinkId=147985) recommendation.
+  remarks: 'For details about allowed characters, see the [XML 1.0 spec (fourth edition)](http://go.microsoft.com/fwlink/?LinkId=147985) recommendation.'
   syntax:
     content: public static bool IsXmlChar (char ch);
     parameters:
@@ -886,7 +886,7 @@ items:
       description: The string to convert.
     return:
       type: System.Boolean
-      description: A `Boolean` value, that is, `true` or `false`.
+      description: 'A `Boolean` value, that is, `true` or `false`.'
   overload: System.Xml.XmlConvert.ToBoolean*
   exceptions:
   - type: System.ArgumentNullException
@@ -1124,10 +1124,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml
   summary: Converts the <xref href="System.String"></xref> to a <xref href="System.DateTime"></xref> equivalent.
-  remarks: >-
-    > [!NOTE]
-
-    >  The <xref:System.Xml.XmlConvert.ToDateTime%28System.String%29?displayProperty=fullName> method is obsolete in the 2.0 version of the .NET Framework and has been replaced by the <xref:System.Xml.XmlConvert.ToDateTime%28System.String%2CSystem.Xml.XmlDateTimeSerializationMode%29?displayProperty=fullName> method.
+  remarks: "> [!NOTE]\n>  The <xref:System.Xml.XmlConvert.ToDateTime%28System.String%29?displayProperty=fullName> method is obsolete in the 2.0 version of the .NET Framework and has been replaced by the <xref:System.Xml.XmlConvert.ToDateTime%28System.String%2CSystem.Xml.XmlDateTimeSerializationMode%29?displayProperty=fullName> method."
   example:
   - "The following example uses <xref:System.Xml.XmlConvert.ToDouble%2A> and `ToDateTime` to read strongly typed data.  \n  \n [!code-cpp[XmlConvert.ToDouble#1](~/samples/snippets/cpp/VS_Snippets_Data/XmlConvert.ToDouble/CPP/readData.cpp#1)]\n [!code-csharp[XmlConvert.ToDouble#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlConvert.ToDouble/CS/readdata.cs#1)]\n [!code-vb[XmlConvert.ToDouble#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlConvert.ToDouble/VB/readdata.vb#1)]  \n  \n The example uses the file, `orderData.xml`, as input.  \n  \n [!code-xml[XmlConvert.ToDouble#2](~/samples/snippets/xml/VS_Snippets_Data/XmlConvert.ToDouble/XML/orderdata.xml#2)]"
   syntax:
@@ -1208,7 +1205,7 @@ items:
       description: The string to convert.
     - id: format
       type: System.String
-      description: The format structure to apply to the converted `DateTime`. Valid formats include "yyyy-MM-ddTHH:mm:sszzzzzz" and its subsets. The string is validated against this format.
+      description: 'The format structure to apply to the converted `DateTime`. Valid formats include "yyyy-MM-ddTHH:mm:sszzzzzz" and its subsets. The string is validated against this format.'
     return:
       type: System.DateTime
       description: A `DateTime` equivalent of the string.
@@ -1277,7 +1274,7 @@ items:
       description: The string to convert.
     - id: formats
       type: System.String[]
-      description: An array containing the format structures to apply to the converted `DateTime`. Valid formats include "yyyy-MM-ddTHH:mm:sszzzzzz" and its subsets.
+      description: 'An array containing the format structures to apply to the converted `DateTime`. Valid formats include "yyyy-MM-ddTHH:mm:sszzzzzz" and its subsets.'
     return:
       type: System.DateTime
       description: A `DateTime` equivalent of the string.
@@ -1345,7 +1342,7 @@ items:
       description: The <xref href="System.String"></xref> value to convert.
     - id: dateTimeOption
       type: System.Xml.XmlDateTimeSerializationMode
-      description: One of the <xref href="System.Xml.XmlDateTimeSerializationMode"></xref> values that specify whether the date should be converted to local time or preserved as Coordinated Universal Time (UTC), if it is a UTC date.
+      description: 'One of the <xref href="System.Xml.XmlDateTimeSerializationMode"></xref> values that specify whether the date should be converted to local time or preserved as Coordinated Universal Time (UTC), if it is a UTC date.'
     return:
       type: System.DateTime
       description: A <xref href="System.DateTime"></xref> equivalent of the <xref href="System.String"></xref>.
@@ -1429,7 +1426,7 @@ items:
       description: The string to convert.
     - id: formats
       type: System.String[]
-      description: An array of formats from which <code>s</code> can be converted. Each format in <code>formats</code> can be any subset of the W3C Recommendation for the XML dateTime type. (For more information see http://www.w3.org/TR/xmlschema-2/#dateTime.) The string <code>s</code> is validated against one of these formats.
+      description: 'An array of formats from which <code>s</code> can be converted. Each format in <code>formats</code> can be any subset of the W3C Recommendation for the XML dateTime type. (For more information see http://www.w3.org/TR/xmlschema-2/#dateTime.) The string <code>s</code> is validated against one of these formats.'
     return:
       type: System.DateTimeOffset
       description: The <xref href="System.DateTimeOffset"></xref> equivalent of the supplied string.
@@ -1510,7 +1507,7 @@ items:
       description: The string to convert.
     - id: format
       type: System.String
-      description: The format from which <code>s</code> is converted. The format parameter can be any subset of the W3C Recommendation for the XML dateTime type. (For more information see http://www.w3.org/TR/xmlschema-2/#dateTime.) The string <code>s</code> is validated against this format.
+      description: 'The format from which <code>s</code> is converted. The format parameter can be any subset of the W3C Recommendation for the XML dateTime type. (For more information see http://www.w3.org/TR/xmlschema-2/#dateTime.) The string <code>s</code> is validated against this format.'
     return:
       type: System.DateTimeOffset
       description: The <xref href="System.DateTimeOffset"></xref> equivalent of the supplied string.
@@ -1586,7 +1583,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Converts the supplied <xref href="System.String"></xref> to a <xref href="System.DateTimeOffset"></xref> equivalent.
-  remarks: When more than seven digits are specified for fractional seconds, the value is rounded. For example, 00000004 becomes 0000000 and 00000005 becomes 0000001.
+  remarks: 'When more than seven digits are specified for fractional seconds, the value is rounded. For example, 00000004 becomes 0000000 and 00000005 becomes 0000001.'
   example:
   - "The following example demonstrates how to read a string from an XML file and use the <xref:System.Xml.XmlConvert.ToDateTimeOffset%2A> method to convert the string to a <xref:System.DateTimeOffset> type.  \n  \n [!code-csharp[XmlConvert_ToDateTimeOffset_ex1#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlConvert_ToDateTimeOffset_ex1/CS/XmlConvert_ToDateTimeOffset_ex1.cs#1)]\n [!code-vb[XmlConvert_ToDateTimeOffset_ex1#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlConvert_ToDateTimeOffset_ex1/VB/XmlConvert_ToDateTimeOffset_ex1.vb#1)]  \n  \n The example uses the transactions.xml file.  \n  \n```  \n<?xml version=\"1.0\"?>  \n<transactions>  \n   <transaction>  \n      <id>123456789</id>  \n      <amount>1.00</amount>  \n      <currency>USD</currency>  \n      <time>2007-08-03T22:05:13-07:00</time>  \n   </transaction>  \n</transactions>  \n```"
   syntax:
@@ -1605,10 +1602,10 @@ items:
     description: <code>s</code> is `null`.
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: The argument passed to this method is outside the range of allowable values. For information about allowable values, see <xref href="System.DateTimeOffset"></xref>.
+    description: 'The argument passed to this method is outside the range of allowable values. For information about allowable values, see <xref href="System.DateTimeOffset"></xref>.'
   - type: System.FormatException
     commentId: T:System.FormatException
-    description: The argument passed to this method does not conform to a subset of the W3C Recommendations for the XML dateTime type. For more information see [http://www.w3.org/TR/xmlschema-2/#dateTime](http://go.microsoft.com/fwlink/?LinkId=97914).
+    description: 'The argument passed to this method does not conform to a subset of the W3C Recommendations for the XML dateTime type. For more information see [http://www.w3.org/TR/xmlschema-2/#dateTime](http://go.microsoft.com/fwlink/?LinkId=97914).'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -1757,7 +1754,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Converts the <xref href="System.String"></xref> to a <xref href="System.Double"></xref> equivalent.
-  remarks: If `s` is INF or -INF, this method returns Double.PositiveInfinity or Double.NegativeInfinity respectively.
+  remarks: 'If `s` is INF or -INF, this method returns Double.PositiveInfinity or Double.NegativeInfinity respectively.'
   example:
   - "The following example uses `ToDouble` and <xref:System.Xml.XmlConvert.ToDateTime%2A> to read strongly typed data.  \n  \n [!code-cpp[XmlConvert.ToDouble#1](~/samples/snippets/cpp/VS_Snippets_Data/XmlConvert.ToDouble/CPP/readData.cpp#1)]\n [!code-csharp[XmlConvert.ToDouble#1](~/samples/snippets/csharp/VS_Snippets_Data/XmlConvert.ToDouble/CS/readdata.cs#1)]\n [!code-vb[XmlConvert.ToDouble#1](~/samples/snippets/visualbasic/VS_Snippets_Data/XmlConvert.ToDouble/VB/readdata.vb#1)]  \n  \n The example uses the file, `orderData.xml`, as input.  \n  \n [!code-xml[XmlConvert.ToDouble#2](~/samples/snippets/xml/VS_Snippets_Data/XmlConvert.ToDouble/XML/orderdata.xml#2)]"
   syntax:
@@ -2260,7 +2257,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Converts the <xref href="System.String"></xref> to a <xref href="System.Single"></xref> equivalent.
-  remarks: If `s` is INF or -INF, this method returns Single.PositiveInfinity or Single.NegativeInfinity respectively.
+  remarks: 'If `s` is INF or -INF, this method returns Single.PositiveInfinity or Single.NegativeInfinity respectively.'
   syntax:
     content: public static float ToSingle (string s);
     parameters:
@@ -2345,7 +2342,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Converts the <xref href="System.Single"></xref> to a <xref href="System.String"></xref>.
-  remarks: If `value` is Single.PositiveInfinity or Single.NegativeInfinity, this method returns the string INF or -INF respectively.
+  remarks: 'If `value` is Single.PositiveInfinity or Single.NegativeInfinity, this method returns the string INF or -INF respectively.'
   syntax:
     content: public static string ToString (float value);
     parameters:
@@ -2661,7 +2658,7 @@ items:
       description: The <xref href="System.DateTimeOffset"></xref> to be converted.
     - id: format
       type: System.String
-      description: The format to which <code>s</code> is converted. The format parameter can be any subset of the W3C Recommendation for the XML dateTime type. (For more information see http://www.w3.org/TR/xmlschema-2/#dateTime.)
+      description: 'The format to which <code>s</code> is converted. The format parameter can be any subset of the W3C Recommendation for the XML dateTime type. (For more information see http://www.w3.org/TR/xmlschema-2/#dateTime.)'
     return:
       type: System.String
       description: A <xref href="System.String"></xref> representation in the specified format of the supplied <xref href="System.DateTimeOffset"></xref>.
@@ -2742,7 +2739,7 @@ items:
       description: The value to convert.
     - id: format
       type: System.String
-      description: The format structure that defines how to display the converted string. Valid formats include "yyyy-MM-ddTHH:mm:sszzzzzz" and its subsets.
+      description: 'The format structure that defines how to display the converted string. Valid formats include "yyyy-MM-ddTHH:mm:sszzzzzz" and its subsets.'
     return:
       type: System.String
       description: A string representation of the `DateTime` in the specified format.
@@ -3117,7 +3114,7 @@ items:
       description: The value to convert.
     return:
       type: System.String
-      description: A string representation of the `Boolean`, that is, "true" or "false".
+      description: 'A string representation of the `Boolean`, that is, "true" or "false".'
   overload: System.Xml.XmlConvert.ToString*
   exceptions: []
   version:
@@ -3337,7 +3334,7 @@ items:
   - netstandard
   namespace: System.Xml
   summary: Converts the <xref href="System.Double"></xref> to a <xref href="System.String"></xref>.
-  remarks: If `value` is Double.PositiveInfinity or Double.NegativeInfinity, this method returns the string INF or -INF respectively.
+  remarks: 'If `value` is Double.PositiveInfinity or Double.NegativeInfinity, this method returns the string INF or -INF respectively.'
   example:
   - "The following example, converts data types to string and then writes the information out to the console.  \n  \n [!code-cpp[Classic WebData XmlConvert.ToString Example#1](~/samples/snippets/cpp/VS_Snippets_Data/Classic WebData XmlConvert.ToString Example/CPP/source.cpp#1)]\n [!code-csharp[Classic WebData XmlConvert.ToString Example#1](~/samples/snippets/csharp/VS_Snippets_Data/Classic WebData XmlConvert.ToString Example/CS/source.cs#1)]\n [!code-vb[Classic WebData XmlConvert.ToString Example#1](~/samples/snippets/visualbasic/VS_Snippets_Data/Classic WebData XmlConvert.ToString Example/VB/source.vb#1)]"
   syntax:
@@ -3568,10 +3565,7 @@ items:
   - System.Xml.ReaderWriter
   namespace: System.Xml
   summary: Converts the <xref href="System.DateTime"></xref> to a <xref href="System.String"></xref>.
-  remarks: >-
-    > [!NOTE]
-
-    >  The <xref:System.Xml.XmlConvert.ToString%28System.DateTime%29?displayProperty=fullName> method is obsolete in the 2.0 version of the .NET Framework and has been replaced with the <xref:System.Xml.XmlConvert.ToString%28System.DateTime%2CSystem.Xml.XmlDateTimeSerializationMode%29?displayProperty=fullName> method.
+  remarks: "> [!NOTE]\n>  The <xref:System.Xml.XmlConvert.ToString%28System.DateTime%29?displayProperty=fullName> method is obsolete in the 2.0 version of the .NET Framework and has been replaced with the <xref:System.Xml.XmlConvert.ToString%28System.DateTime%2CSystem.Xml.XmlDateTimeSerializationMode%29?displayProperty=fullName> method."
   syntax:
     content: >-
       [System.Obsolete("Use XmlConvert.ToString() that takes in XmlDateTimeSerializationMode")]
@@ -3583,7 +3577,7 @@ items:
       description: The value to convert.
     return:
       type: System.String
-      description: A string representation of the `DateTime` in the format yyyy-MM-ddTHH:mm:ss where 'T' is a constant literal.
+      description: 'A string representation of the `DateTime` in the format yyyy-MM-ddTHH:mm:ss where ''T'' is a constant literal.'
   overload: System.Xml.XmlConvert.ToString*
   exceptions: []
   attributes:
@@ -4211,7 +4205,7 @@ items:
       description: The name to verify.
     return:
       type: System.String
-      description: The name, if it is a valid XML name.
+      description: 'The name, if it is a valid XML name.'
   overload: System.Xml.XmlConvert.VerifyName*
   exceptions:
   - type: System.Xml.XmlException
@@ -4292,7 +4286,7 @@ items:
       description: The name to verify.
     return:
       type: System.String
-      description: The name, if it is a valid NCName.
+      description: 'The name, if it is a valid NCName.'
   overload: System.Xml.XmlConvert.VerifyNCName*
   exceptions:
   - type: System.ArgumentNullException
@@ -4374,7 +4368,7 @@ items:
       description: The string you wish to verify.
     return:
       type: System.String
-      description: The name token, if it is a valid NMTOKEN.
+      description: 'The name token, if it is a valid NMTOKEN.'
   overload: System.Xml.XmlConvert.VerifyNMTOKEN*
   exceptions:
   - type: System.Xml.XmlException
@@ -4532,7 +4526,7 @@ items:
       description: The string value you wish to verify.
     return:
       type: System.String
-      description: The token, if it is a valid token.
+      description: 'The token, if it is a valid token.'
   overload: System.Xml.XmlConvert.VerifyTOKEN*
   exceptions:
   - type: System.Xml.XmlException
@@ -4597,7 +4591,7 @@ items:
       description: <xref href="System.String"></xref> to verify.
     return:
       type: System.String
-      description: Returns the passed-in string instance if all the characters in the string argument are valid whitespace characters, otherwise `null`.
+      description: 'Returns the passed-in string instance if all the characters in the string argument are valid whitespace characters, otherwise `null`.'
   overload: System.Xml.XmlConvert.VerifyWhitespace*
   exceptions: []
   version:
@@ -4663,7 +4657,7 @@ items:
   - System.Xml
   - netstandard
   namespace: System.Xml
-  summary: Returns the passed-in string if all the characters and surrogate pair characters in the string argument are valid XML characters, otherwise an `XmlException` is thrown with information on the first invalid character encountered.
+  summary: 'Returns the passed-in string if all the characters and surrogate pair characters in the string argument are valid XML characters, otherwise an `XmlException` is thrown with information on the first invalid character encountered.'
   remarks: "No other values than the passed in argument should be returned. See [XML 1.0 spec (fourth edition)](http://go.microsoft.com/fwlink/?LinkID=147985) production [2] `Char` for details on the allowed characters.  \n  \n If the parameter is null, an `ArgumentNullException` will be thrown. If any of the characters are not valid xml characters, an `XmlException` is thrown with information on the first invalid character encountered."
   example:
   - "The following example uses the <xref:System.Xml.XmlConvert.VerifyXmlChars%2A> method used to detect an illegal character in the start element.  \n  \n [!code-csharp[XmlConvert.NewVerify#3](~/samples/snippets/csharp/VS_Snippets_Data/xmlconvert.newverify/cs/xmlconvertnewverify.cs#3)]\n [!code-vb[XmlConvert.NewVerify#3](~/samples/snippets/visualbasic/VS_Snippets_Data/xmlconvert.newverify/vb/xmlconvertnewverify.vb#3)]"
@@ -4675,7 +4669,7 @@ items:
       description: <xref href="System.String"></xref> that contains characters to verify.
     return:
       type: System.String
-      description: Returns the passed-in string if all the characters and surrogate-pair characters in the string argument are valid XML characters, otherwise an `XmlException` is thrown with information on the first invalid character encountered.
+      description: 'Returns the passed-in string if all the characters and surrogate-pair characters in the string argument are valid XML characters, otherwise an `XmlException` is thrown with information on the first invalid character encountered.'
   overload: System.Xml.XmlConvert.VerifyXmlChars*
   exceptions: []
   version:

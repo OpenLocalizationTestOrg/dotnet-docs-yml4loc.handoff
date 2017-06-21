@@ -89,7 +89,7 @@ items:
   - System.Messaging
   namespace: System.Messaging
   summary: Frees the resources associated with the enumerator.
-  remarks: The operating system retains an open handle to the queue during the lifetime of the cursor. When you have finished working with the enumerator, call <xref:System.Messaging.MessageEnumerator.Close%2A> to release the resources associated with the handle.
+  remarks: 'The operating system retains an open handle to the queue during the lifetime of the cursor. When you have finished working with the enumerator, call <xref:System.Messaging.MessageEnumerator.Close%2A> to release the resources associated with the handle.'
   syntax:
     content: public void Close ();
     parameters: []
@@ -131,7 +131,7 @@ items:
   - System.Messaging
   namespace: System.Messaging
   summary: Gets the current <xref href="System.Messaging.Message"></xref> that this enumerator points to.
-  remarks: When the enumerator is created, it points to the head of the queue, at a location before the first message. In this case, <xref:System.Messaging.MessageEnumerator.Current%2A> is not valid and will throw an exception if it is accessed. You must call <xref:System.Messaging.MessageEnumerator.MoveNext%2A> to position the cursor at the first message in the queue.
+  remarks: 'When the enumerator is created, it points to the head of the queue, at a location before the first message. In this case, <xref:System.Messaging.MessageEnumerator.Current%2A> is not valid and will throw an exception if it is accessed. You must call <xref:System.Messaging.MessageEnumerator.MoveNext%2A> to position the cursor at the first message in the queue.'
   syntax:
     content: public System.Messaging.Message Current { get; }
     return:
@@ -181,7 +181,7 @@ items:
   - System.Messaging
   namespace: System.Messaging
   summary: Gets the native Message Queuing cursor handle used to browse messages in the queue.
-  remarks: This property contains the native handle to the enumeration. When you have finished working with the enumerator, call <xref:System.Messaging.MessageEnumerator.Close%2A> to release this resource.
+  remarks: 'This property contains the native handle to the enumeration. When you have finished working with the enumerator, call <xref:System.Messaging.MessageEnumerator.Close%2A> to release this resource.'
   syntax:
     content: public IntPtr CursorHandle { get; }
     return:
@@ -228,7 +228,7 @@ items:
   - System.Messaging
   namespace: System.Messaging
   summary: Releases all resources used by the <xref href="System.Messaging.MessageEnumerator"></xref>.
-  remarks: Calling <xref:System.Messaging.MessageEnumerator.Dispose%2A> allows the resources used by the <xref:System.Messaging.MessageEnumerator> to be reallocated for other purposes. For more information about <xref:System.Messaging.MessageEnumerator.Dispose%2A>, see [Cleaning Up Unmanaged Resources](~/docs/standard/garbage-collection/unmanaged.md).
+  remarks: 'Calling <xref:System.Messaging.MessageEnumerator.Dispose%2A> allows the resources used by the <xref:System.Messaging.MessageEnumerator> to be reallocated for other purposes. For more information about <xref:System.Messaging.MessageEnumerator.Dispose%2A>, see [Cleaning Up Unmanaged Resources](~/docs/standard/garbage-collection/unmanaged.md).'
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -337,7 +337,7 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: Advances the enumerator to the next message in the queue, if one is currently available.
+  summary: 'Advances the enumerator to the next message in the queue, if one is currently available.'
   remarks: "This overload returns immediately if there is no message in the queue. There is another overload that waits a specified <xref:System.TimeSpan> for a message to arrive.  \n  \n If a message is not currently available because the queue is empty or because you have moved beyond the last element in the collection, <xref:System.Messaging.MessageEnumerator.MoveNext%2A> returns `false` to the calling method.  \n  \n Upon creation, an enumerator is conceptually positioned before the first message of the queue, and the first call to <xref:System.Messaging.MessageEnumerator.MoveNext%2A> brings the first message of the queue into view."
   syntax:
     content: public bool MoveNext ();
@@ -385,7 +385,7 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: Advances the enumerator to the next message in the queue. If the enumerator is positioned at the end of the queue, <xref href="System.Messaging.MessageEnumerator.MoveNext"></xref> waits until a message is available or the given timeout expires.
+  summary: 'Advances the enumerator to the next message in the queue. If the enumerator is positioned at the end of the queue, <xref href="System.Messaging.MessageEnumerator.MoveNext"></xref> waits until a message is available or the given timeout expires.'
   remarks: "This overload waits if there is no message in the queue or if the cursor has reached the end of the queue. If a message is not currently available because the queue is empty or because you have moved beyond the last element in the collection, <xref:System.Messaging.MessageEnumerator.MoveNext%2A> waits the specified timeout.  \n  \n If the cursor is already at the end of the queue, <xref:System.Messaging.MessageEnumerator.MoveNext%2A> only returns `true` if the new message arrives within the specified time interval, has lower priority than all messages currently in the queue and is placed at the end of the queue. An overload with no parameter returns immediately if no further messages are in the queue.  \n  \n Upon creation, an enumerator is conceptually positioned before the first message of the enumeration, and the first call to <xref:System.Messaging.MessageEnumerator.MoveNext%2A> brings the first message of the enumeration into view."
   syntax:
     content: public bool MoveNext (TimeSpan timeout);
@@ -542,7 +542,7 @@ items:
     parameters:
     - id: transactionType
       type: System.Messaging.MessageQueueTransactionType
-      description: One of the <xref href="System.Messaging.MessageQueueTransactionType"></xref> values, describing the type of transaction context to associate with the message.
+      description: 'One of the <xref href="System.Messaging.MessageQueueTransactionType"></xref> values, describing the type of transaction context to associate with the message.'
     return:
       type: System.Messaging.Message
       description: A <xref href="System.Messaging.Message"></xref> that references the first message available in the queue.
@@ -586,7 +586,7 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: Removes the current message from the queue and returns the message to the calling application. If there is a message to remove, the method returns it immediately. Otherwise, the method waits the specified timeout for a new message to arrive.
+  summary: 'Removes the current message from the queue and returns the message to the calling application. If there is a message to remove, the method returns it immediately. Otherwise, the method waits the specified timeout for a new message to arrive.'
   remarks: "<xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A> removes and returns the message at the cursor's current location. If the cursor is at the end of the queue, this overload of the method waits until a message is available or the interval specified by the `timeout` parameter has expired.  \n  \n If you are using queue journaling, removing the message causes a copy to be kept in the journal queue, just as the <xref:System.Messaging.MessageQueue> class's <xref:System.Messaging.MessageQueue.Receive%2A> method does.  \n  \n When you remove the current message, the cursor is moved to the next message. You do not have to call <xref:System.Messaging.MessageEnumerator.MoveNext%2A> after calling <xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A>.  \n  \n If you call this overload on a transactional queue, Message Queuing creates a single internal transaction."
   syntax:
     content: public System.Messaging.Message RemoveCurrent (TimeSpan timeout);
@@ -640,7 +640,7 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: Removes the current message from a transactional queue and returns the message to the calling application. If there is a message to remove, the method returns it immediately. Otherwise, the method waits the specified timeout for a new message to arrive.
+  summary: 'Removes the current message from a transactional queue and returns the message to the calling application. If there is a message to remove, the method returns it immediately. Otherwise, the method waits the specified timeout for a new message to arrive.'
   remarks: "<xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A> removes and returns the message at the cursor's current location. If the cursor is at the end of the queue, this overload of the method waits until a message is available or the interval specified by the `timeout` parameter has expired.  \n  \n When working with transactional queues, a rollback of a transaction causes any messages removed by a call to <xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A> to be returned to the queue. The removal is not irreversible until the transaction is committed.  \n  \n If you are using queue journaling, removing the message causes a copy to be kept in the journal queue, just as the <xref:System.Messaging.MessageQueue> class's <xref:System.Messaging.MessageQueue.Receive%2A> method does.  \n  \n When you remove the current message, the cursor is moved to the next message. You do not have to call <xref:System.Messaging.MessageEnumerator.MoveNext%2A> after calling <xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A>."
   syntax:
     content: public System.Messaging.Message RemoveCurrent (TimeSpan timeout, System.Messaging.MessageQueueTransaction transaction);
@@ -700,7 +700,7 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: Removes the current message from a queue and returns the message to the calling application. If there is a message to remove, the method returns it immediately. Otherwise, the method waits the specified timeout for a new message to arrive.
+  summary: 'Removes the current message from a queue and returns the message to the calling application. If there is a message to remove, the method returns it immediately. Otherwise, the method waits the specified timeout for a new message to arrive.'
   remarks: "<xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A> removes and returns the message at the cursor's current location, using a transaction context defined by the `transactionType` parameter. If the cursor is at the end of the queue, this overload of the method waits until a message is available or the interval specified by the `timeout` parameter has expired.  \n  \n Specify `Automatic` for the `transactionType` parameter if there is already an external transaction context attached to the thread that you want to use to receive the message. Specify `Single` if you want to receive the message as a single internal transaction. You can specify `None` if you want to receive a message from a transactional queue outside of a transaction context.  \n  \n If you are using queue journaling, removing the message causes a copy to be kept in the journal queue, just as the <xref:System.Messaging.MessageQueue> class's <xref:System.Messaging.MessageQueue.Receive%2A> method does.  \n  \n When working with transactional queues, a rollback of a transaction causes any messages removed by a call to <xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A> to be returned to the queue. The removal is not irreversible until the transaction is committed.  \n  \n When you remove the current message, the cursor is moved to the next message. You do not have to call <xref:System.Messaging.MessageEnumerator.MoveNext%2A> after calling <xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A>."
   syntax:
     content: public System.Messaging.Message RemoveCurrent (TimeSpan timeout, System.Messaging.MessageQueueTransactionType transactionType);
@@ -710,7 +710,7 @@ items:
       description: The interval of time to wait for the message to be removed.
     - id: transactionType
       type: System.Messaging.MessageQueueTransactionType
-      description: One of the <xref href="System.Messaging.MessageQueueTransactionType"></xref> values, describing the type of transaction context to associate with the message.
+      description: 'One of the <xref href="System.Messaging.MessageQueueTransactionType"></xref> values, describing the type of transaction context to associate with the message.'
     return:
       type: System.Messaging.Message
       description: A <xref href="System.Messaging.Message"></xref> that references the first message available in the queue.

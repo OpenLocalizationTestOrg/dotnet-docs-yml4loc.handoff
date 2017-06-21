@@ -108,7 +108,7 @@ items:
   - System.DirectoryServices.AccountManagement
   namespace: System.DirectoryServices.AccountManagement
   summary: Initializes a new instance of the <xref href="System.DirectoryServices.AccountManagement.GroupPrincipal"></xref> class by using the specified context.
-  remarks: The group principal account is not persisted when it is created. To persist the account, call the <xref:System.DirectoryServices.AccountManagement.Principal.Save%2A> method.
+  remarks: 'The group principal account is not persisted when it is created. To persist the account, call the <xref:System.DirectoryServices.AccountManagement.Principal.Save%2A> method.'
   syntax:
     content: public GroupPrincipal (System.DirectoryServices.AccountManagement.PrincipalContext context);
     parameters:
@@ -153,7 +153,7 @@ items:
   - System.DirectoryServices.AccountManagement
   namespace: System.DirectoryServices.AccountManagement
   summary: Initializes a new instance of the <xref href="System.DirectoryServices.AccountManagement.GroupPrincipal"></xref> class and assigns it to the specified context and SAM account name.
-  remarks: The group principal account is not persisted when it is created. To persist the account, call the <xref:System.DirectoryServices.AccountManagement.Principal.Save%2A> method.
+  remarks: 'The group principal account is not persisted when it is created. To persist the account, call the <xref:System.DirectoryServices.AccountManagement.Principal.Save%2A> method.'
   syntax:
     content: public GroupPrincipal (System.DirectoryServices.AccountManagement.PrincipalContext context, string samAccountName);
     parameters:
@@ -253,7 +253,7 @@ items:
       description: The identity of the group principal. This parameter can be any format that is contained in the <xref href="System.DirectoryServices.AccountManagement.IdentityType"></xref> enumeration.
     return:
       type: System.DirectoryServices.AccountManagement.GroupPrincipal
-      description: A <xref href="System.DirectoryServices.AccountManagement.GroupPrincipal"></xref> object that matches the specified identity value and type, or null if no matches are found.
+      description: 'A <xref href="System.DirectoryServices.AccountManagement.GroupPrincipal"></xref> object that matches the specified identity value and type, or null if no matches are found.'
   overload: System.DirectoryServices.AccountManagement.GroupPrincipal.FindByIdentity*
   exceptions:
   - type: System.MultipleMatchesException
@@ -294,7 +294,7 @@ items:
   assemblies:
   - System.DirectoryServices.AccountManagement
   namespace: System.DirectoryServices.AccountManagement
-  summary: Returns a group principal object that matches the specified identity type, and value. This version of the <xref href="System.DirectoryServices.AccountManagement.GroupPrincipal.FindByIdentity"></xref> method determines the format of the identity value.
+  summary: 'Returns a group principal object that matches the specified identity type, and value. This version of the <xref href="System.DirectoryServices.AccountManagement.GroupPrincipal.FindByIdentity"></xref> method determines the format of the identity value.'
   syntax:
     content: public static System.DirectoryServices.AccountManagement.GroupPrincipal FindByIdentity (System.DirectoryServices.AccountManagement.PrincipalContext context, System.DirectoryServices.AccountManagement.IdentityType identityType, string identityValue);
     parameters:
@@ -309,7 +309,7 @@ items:
       description: The identity of the group principal. This parameter can be any format that is contained in the <xref href="System.DirectoryServices.AccountManagement.IdentityType"></xref> enumeration.
     return:
       type: System.DirectoryServices.AccountManagement.GroupPrincipal
-      description: A <xref href="System.DirectoryServices.AccountManagement.GroupPrincipal"></xref> that matches the specified identity value and type, or null if no matches are found.
+      description: 'A <xref href="System.DirectoryServices.AccountManagement.GroupPrincipal"></xref> that matches the specified identity value and type, or null if no matches are found.'
   overload: System.DirectoryServices.AccountManagement.GroupPrincipal.FindByIdentity*
   exceptions:
   - type: System.MultipleMatchesException
@@ -360,7 +360,7 @@ items:
     parameters: []
     return:
       type: System.DirectoryServices.AccountManagement.PrincipalSearchResult{System.DirectoryServices.AccountManagement.Principal}
-      description: A <xref href="System.DirectoryServices.AccountManagement.PrincipalSearchResult'1"></xref> object that contains the principal objects that are members of the group, or an empty collection if the group has no members.
+      description: 'A <xref href="System.DirectoryServices.AccountManagement.PrincipalSearchResult''1"></xref> object that contains the principal objects that are members of the group, or an empty collection if the group has no members.'
   overload: System.DirectoryServices.AccountManagement.GroupPrincipal.GetMembers*
   exceptions: []
   version:
@@ -398,7 +398,7 @@ items:
   assemblies:
   - System.DirectoryServices.AccountManagement
   namespace: System.DirectoryServices.AccountManagement
-  summary: Returns a collection of the principal objects that is contained in the group. When the recursive flag is set to true, this method searches the current group recursively and returns all nested group members.
+  summary: 'Returns a collection of the principal objects that is contained in the group. When the recursive flag is set to true, this method searches the current group recursively and returns all nested group members.'
   remarks: "The returned principal collection does not contain group objects when the recursive flag is set to `true`; only leaf nodes are returned. For example, when a group that contains a computer object and a group object (with only user principals) is searched recursively, the returned collection contains the computer object and the user principal objects in the nested group. Since the group object is not a leaf, even when it is empty, it is not returned in the recursive search.  When the recursive flag is set to `false`, the returned collection may contain group objects.  \n  \n Members are returned without respect to the context. For example, if an AD DS context based at \"CN=SpecialUsers,DC=Fabrikam,DC=com\", the PrincipalFindResult set will include group members that are located under \"CN=NormalUsers,DC=Fabrikam,DC=com\" also, even though they fall under a scope that is not part of the context that is searched. The returned principal collection may also contain members that are located in a different store than the group."
   example:
   - "The following code connects to the LDAP domain \"fabrikam.com\" with the username set to \"administrator\" and the password set to \"SecretPwd123\" in the <xref:System.DirectoryServices.AccountManagement.PrincipalContext> constructor.  \n  \n A search is performed to find the group that has the name \"Domain Admins\" under the container specified in the <xref:System.DirectoryServices.AccountManagement.PrincipalContext> constructor \"DC=fabrikam,DC=com.\" If the group is found, all the principals that are members of this group, which includes recursive members, are then enumerated  \n  \n```  \nPrincipalContext ctx = new PrincipalContext(ContextType.Domain,                                                                      \n                                            \"fabrikam.com\",   \n                                            \"DC=fabrikam,DC=com\",   \n                                            \"administrator\",   \n                                            \"SecretPwd123\");  \n  \nGroupPrincipal grp = GroupPrincipal.FindByIdentity(ctx,   \n                                                   IdentityType.Name,   \n                                                   \"Domain Admins\");  \n  \nif (grp != null)  \n{  \n    foreach (Principal p in grp.GetMembers(true))  \n    {  \n         Console.WriteLine(p.Name);  \n    }  \n    grp.Dispose();  \n}  \n  \nctx.Dispose();   \n```"
@@ -410,7 +410,7 @@ items:
       description: A Boolean value that specifies whether the group is searched recursively.
     return:
       type: System.DirectoryServices.AccountManagement.PrincipalSearchResult{System.DirectoryServices.AccountManagement.Principal}
-      description: A <xref href="System.DirectoryServices.AccountManagement.PrincipalSearchResult'1"></xref> object that contains the principal objects that are members of the group, or an empty collection if the group has no members.
+      description: 'A <xref href="System.DirectoryServices.AccountManagement.PrincipalSearchResult''1"></xref> object that contains the principal objects that are members of the group, or an empty collection if the group has no members.'
   overload: System.DirectoryServices.AccountManagement.GroupPrincipal.GetMembers*
   exceptions: []
   version:

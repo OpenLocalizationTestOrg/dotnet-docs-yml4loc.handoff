@@ -30,8 +30,8 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization.Formatters.Binary
-  summary: Serializes and deserializes an object, or an entire graph of connected objects, in binary format.
-  remarks: "The <xref:System.Runtime.Serialization.Formatters.Soap.SoapFormatter> and <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter> classes implement the <xref:System.Runtime.Remoting.Messaging.IRemotingFormatter> interface to support remote procedure calls (RPCs), and the <xref:System.Runtime.Serialization.IFormatter> interface (inherited by the <xref:System.Runtime.Remoting.Messaging.IRemotingFormatter>) to support serialization of a graph of objects. The <xref:System.Runtime.Serialization.Formatters.Soap.SoapFormatter> class also supports RPCs with <xref:System.Runtime.Serialization.Formatters.ISoapMessage> objects, without using the <xref:System.Runtime.Remoting.Messaging.IRemotingFormatter> functionality.  \n  \n During RPCs, the <xref:System.Runtime.Remoting.Messaging.IRemotingFormatter> interface allows the specification of two separate object graphs: the graph of objects to serialize, and an additional graph that contains an array of header objects that convey information about the remote function call (for example, transaction ID or a method signature).  \n  \n RPCs that use the <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter> separate into two distinct parts: method calls, which are sent to the server with the remote object that contains the method called, and method responses, which are sent from the server to the client with the status and response information from the called method.  \n  \n During serialization of a method call the first object of the object graph must support the <xref:System.Runtime.Remoting.Messaging.IMethodCallMessage> interface. To deserialize a method call, use the <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize%2A> method with the <xref:System.Runtime.Remoting.Messaging.HeaderHandler> parameter. The remoting infrastructure uses the <xref:System.Runtime.Remoting.Messaging.HeaderHandler> delegate to produce an object that supports the <xref:System.Runtime.Serialization.ISerializable> interface. When the <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter> invokes the <xref:System.Runtime.Remoting.Messaging.HeaderHandler> delegate, it returns the URI of the remote object with the method that is being called. The first object in the graph returned supports the <xref:System.Runtime.Remoting.Messaging.IMethodCallMessage> interface.  \n  \n The serialization procedure for a method response is identical to that of a method call, except the first object of the object graph must support the <xref:System.Runtime.Remoting.Messaging.IMethodReturnMessage> interface. To deserialize a method response, use the <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.DeserializeMethodResponse%2A> method. To save time, details about the caller object are not sent to the remote object during the method call. These details are instead obtained from the original method call, which is passed to the <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.DeserializeMethodResponse%2A> method in the <xref:System.Runtime.Remoting.Messaging.IMethodCallMessage> parameter. The first object in the graph returned by the <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.DeserializeMethodResponse%2A> method supports the <xref:System.Runtime.Remoting.Messaging.IMethodReturnMessage> interface.  \n  \n> [!IMPORTANT]\n>  Using binary serialization to deserialize untrusted data can lead to security risks. For more information, see [Untrusted Data Security Risks](http://go.microsoft.com/fwlink/?LinkId=330378).  \n  \n## Unpaired Surrogates  \n Any unpaired surrogate characters are lost in binary serialization. For example, the following string contains a high surrogate Unicode character `(\\ud800`) in between the two `Test` words:  \n  \n `Test\\ud800Test`  \n  \n Before serialization, the byte array of the string is as follows:  \n  \n|Byte Array Value|Character|  \n|----------------------|---------------|  \n|84|T|  \n|101|e|  \n|115|s|  \n|116|t|  \n|55296|\\ud800|  \n|84|T|  \n|101|e|  \n|115|s|  \n|116|t|  \n  \n After deserialization, the high surrogate Unicode character is lost:  \n  \n|Byte Array Value|Character|  \n|----------------------|---------------|  \n|84|T|  \n|101|e|  \n|115|s|  \n|116|t|  \n|84|T|  \n|101|e|  \n|115|s|  \n|116|t|"
+  summary: 'Serializes and deserializes an object, or an entire graph of connected objects, in binary format.'
+  remarks: "The <xref:System.Runtime.Serialization.Formatters.Soap.SoapFormatter> and <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter> classes implement the <xref:System.Runtime.Remoting.Messaging.IRemotingFormatter> interface to support remote procedure calls (RPCs), and the <xref:System.Runtime.Serialization.IFormatter> interface (inherited by the <xref:System.Runtime.Remoting.Messaging.IRemotingFormatter>) to support serialization of a graph of objects. The <xref:System.Runtime.Serialization.Formatters.Soap.SoapFormatter> class also supports RPCs with <xref:System.Runtime.Serialization.Formatters.ISoapMessage> objects, without using the <xref:System.Runtime.Remoting.Messaging.IRemotingFormatter> functionality.  \n  \n During RPCs, the <xref:System.Runtime.Remoting.Messaging.IRemotingFormatter> interface allows the specification of two separate object graphs: the graph of objects to serialize, and an additional graph that contains an array of header objects that convey information about the remote function call (for example, transaction ID or a method signature).  \n  \n RPCs that use the <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter> separate into two distinct parts: method calls, which are sent to the server with the remote object that contains the method called, and method responses, which are sent from the server to the client with the status and response information from the called method.  \n  \n During serialization of a method call the first object of the object graph must support the <xref:System.Runtime.Remoting.Messaging.IMethodCallMessage> interface. To deserialize a method call, use the <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize%2A> method with the <xref:System.Runtime.Remoting.Messaging.HeaderHandler> parameter. The remoting infrastructure uses the <xref:System.Runtime.Remoting.Messaging.HeaderHandler> delegate to produce an object that supports the <xref:System.Runtime.Serialization.ISerializable> interface. When the <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter> invokes the <xref:System.Runtime.Remoting.Messaging.HeaderHandler> delegate, it returns the URI of the remote object with the method that is being called. The first object in the graph returned supports the <xref:System.Runtime.Remoting.Messaging.IMethodCallMessage> interface.  \n  \n The serialization procedure for a method response is identical to that of a method call, except the first object of the object graph must support the <xref:System.Runtime.Remoting.Messaging.IMethodReturnMessage> interface. To deserialize a method response, use the <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.DeserializeMethodResponse%2A> method. To save time, details about the caller object are not sent to the remote object during the method call. These details are instead obtained from the original method call, which is passed to the <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.DeserializeMethodResponse%2A> method in the <xref:System.Runtime.Remoting.Messaging.IMethodCallMessage> parameter. The first object in the graph returned by the <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.DeserializeMethodResponse%2A> method supports the <xref:System.Runtime.Remoting.Messaging.IMethodReturnMessage> interface.  \n  \n> [!IMPORTANT]\n>  Using binary serialization to deserialize untrusted data can lead to security risks. For more information, see [Untrusted Data Security Risks](http://go.microsoft.com/fwlink/?LinkId=330378).  \n  \n## <a name=\"unpaired-surrogates\"></a>Unpaired Surrogates  \n Any unpaired surrogate characters are lost in binary serialization. For example, the following string contains a high surrogate Unicode character `(\\ud800`) in between the two `Test` words:  \n  \n `Test\\ud800Test`  \n  \n Before serialization, the byte array of the string is as follows:  \n  \n|Byte Array Value|Character|  \n|----------------------|---------------|  \n|84|T|  \n|101|e|  \n|115|s|  \n|116|t|  \n|55296|\\ud800|  \n|84|T|  \n|101|e|  \n|115|s|  \n|116|t|  \n  \n After deserialization, the high surrogate Unicode character is lost:  \n  \n|Byte Array Value|Character|  \n|----------------------|---------------|  \n|84|T|  \n|101|e|  \n|115|s|  \n|116|t|  \n|84|T|  \n|101|e|  \n|115|s|  \n|116|t|"
   example:
   - >-
     [!code-cpp[BinaryFormatterClass Example#1](~/samples/snippets/cpp/VS_Snippets_Remoting/BinaryFormatterClass Example/CPP/binaryformatter.cpp#1)]
@@ -334,7 +334,7 @@ items:
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization.Formatters.Binary
   summary: Gets or sets the <xref href="System.Runtime.Serialization.StreamingContext"></xref> for this formatter.
-  remarks: The <xref:System.Runtime.Serialization.StreamingContext> provides an enumeration that describes the source and the destination for a given serialized stream, as well as a way for serialization to retain that context and an additional caller-defined context.
+  remarks: 'The <xref:System.Runtime.Serialization.StreamingContext> provides an enumeration that describes the source and the destination for a given serialized stream, as well as a way for serialization to retain that context and an additional caller-defined context.'
   syntax:
     content: public System.Runtime.Serialization.StreamingContext Context { get; set; }
     return:
@@ -549,7 +549,7 @@ items:
     description: The <code>serializationStream</code> is `null`.
   - type: System.Runtime.Serialization.SerializationException
     commentId: T:System.Runtime.Serialization.SerializationException
-    description: The <code>serializationStream</code> supports seeking, but its length is 0.
+    description: 'The <code>serializationStream</code> supports seeking, but its length is 0.'
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
     description: The caller does not have the required permission.
@@ -597,7 +597,7 @@ items:
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization.Formatters.Binary
   summary: Gets or sets the <xref href="System.Runtime.Serialization.Formatters.TypeFilterLevel"></xref> of automatic deserialization the <xref href="System.Runtime.Serialization.Formatters.Binary.BinaryFormatter"></xref> performs.
-  remarks: Supported values are <xref:System.Runtime.Serialization.Formatters.TypeFilterLevel.Low> and <xref:System.Runtime.Serialization.Formatters.TypeFilterLevel.Full> (the default). For details about deserialization levels, see [&#91;\<topic://cpconAutomaticDeserializationInNETRemoting>&#93;](http://msdn.microsoft.com/en-us/313a0e88-5b2b-4a17-8391-0ddf9f7a787b).
+  remarks: 'Supported values are <xref:System.Runtime.Serialization.Formatters.TypeFilterLevel.Low> and <xref:System.Runtime.Serialization.Formatters.TypeFilterLevel.Full> (the default). For details about deserialization levels, see [&#91;\<topic://cpconAutomaticDeserializationInNETRemoting>&#93;](http://msdn.microsoft.com/en-us/313a0e88-5b2b-4a17-8391-0ddf9f7a787b).'
   syntax:
     content: public System.Runtime.Serialization.Formatters.TypeFilterLevel FilterLevel { get; set; }
     return:
@@ -651,7 +651,7 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization.Formatters.Binary
-  summary: Serializes the object, or graph of objects with the specified top (root), to the given stream.
+  summary: 'Serializes the object, or graph of objects with the specified top (root), to the given stream.'
   remarks: ''
   example:
   - >-
@@ -674,7 +674,7 @@ items:
     description: "The <code>serializationStream</code> is `null`.  \n  \n -or-  \n  \n The <code>graph</code> is null."
   - type: System.Runtime.Serialization.SerializationException
     commentId: T:System.Runtime.Serialization.SerializationException
-    description: An error has occurred during serialization, such as if an object in the <code>graph</code> parameter is not marked as serializable.
+    description: 'An error has occurred during serialization, such as if an object in the <code>graph</code> parameter is not marked as serializable.'
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
     description: The caller does not have the required permission.
@@ -722,7 +722,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization.Formatters.Binary
-  summary: Serializes the object, or graph of objects with the specified top (root), to the given stream attaching the provided headers.
+  summary: 'Serializes the object, or graph of objects with the specified top (root), to the given stream attaching the provided headers.'
   remarks: "The serialization process includes the information supplied in the `headers` parameter at the front of the serialized stream.  \n  \n Headers are used only for specific remoting applications."
   syntax:
     content: public void Serialize (System.IO.Stream serializationStream, object graph, System.Runtime.Remoting.Messaging.Header[] headers);
@@ -743,7 +743,7 @@ items:
     description: The <code>serializationStream</code> is `null`.
   - type: System.Runtime.Serialization.SerializationException
     commentId: T:System.Runtime.Serialization.SerializationException
-    description: An error has occurred during serialization, such as if an object in the <code>graph</code> parameter is not marked as serializable.
+    description: 'An error has occurred during serialization, such as if an object in the <code>graph</code> parameter is not marked as serializable.'
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
     description: The caller does not have the required permission.
@@ -791,7 +791,7 @@ items:
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization.Formatters.Binary
   summary: Gets or sets a <xref href="System.Runtime.Serialization.ISurrogateSelector"></xref> that controls type substitution during serialization and deserialization.
-  remarks: The surrogate selector is used by <xref:System.Runtime.Remoting> to generate <xref:System.Runtime.Remoting.ObjRef> instances for objects that derive from <xref:System.MarshalByRefObject>.
+  remarks: 'The surrogate selector is used by <xref:System.Runtime.Remoting> to generate <xref:System.Runtime.Remoting.ObjRef> instances for objects that derive from <xref:System.MarshalByRefObject>.'
   syntax:
     content: public System.Runtime.Serialization.ISurrogateSelector SurrogateSelector { get; set; }
     return:
@@ -923,7 +923,7 @@ items:
     description: The <code>serializationStream</code> is `null`.
   - type: System.Runtime.Serialization.SerializationException
     commentId: T:System.Runtime.Serialization.SerializationException
-    description: The <code>serializationStream</code> supports seeking, but its length is 0.
+    description: 'The <code>serializationStream</code> supports seeking, but its length is 0.'
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
     description: The caller does not have the required permission.
@@ -999,7 +999,7 @@ items:
     description: The <code>serializationStream</code> is `null`.
   - type: System.Runtime.Serialization.SerializationException
     commentId: T:System.Runtime.Serialization.SerializationException
-    description: The <code>serializationStream</code> supports seeking, but its length is 0.
+    description: 'The <code>serializationStream</code> supports seeking, but its length is 0.'
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
     description: The caller does not have the required permission.

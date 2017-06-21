@@ -281,7 +281,7 @@ items:
   - netstandard
   - System.Runtime.Extensions
   namespace: System.IO
-  summary: Begins an asynchronous read operation. (Consider using <xref href="System.IO.BufferedStream.ReadAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)"></xref> instead.)
+  summary: 'Begins an asynchronous read operation. (Consider using <xref href="System.IO.BufferedStream.ReadAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)"></xref> instead.)'
   remarks: "In the .NET Framework 4 and earlier versions, you have to use methods such as <xref:System.IO.Stream.BeginRead%2A> and <xref:System.IO.Stream.EndRead%2A> to implement asynchronous file operations. These methods are still available in the [!INCLUDE[net_v45](~/includes/net-v45-md.md)] to support legacy code; however, the new async methods, such as <xref:System.IO.BufferedStream.ReadAsync%2A>, <xref:System.IO.BufferedStream.WriteAsync%2A>, and <xref:System.IO.BufferedStream.FlushAsync%2A>, help you implement asynchronous file operations more easily.  \n  \n <xref:System.IO.BufferedStream.EndWrite%2A> must be called exactly once for every call to <xref:System.IO.BufferedStream.BeginRead%2A>. Failing to end a read process before beginning another read can cause undesirable behavior such as deadlock.  \n  \n> [!NOTE]\n>  Use the <xref:System.IO.BufferedStream.CanRead%2A> property to determine whether the current instance supports reading.  \n  \n <xref:System.IO.BufferedStream.EndRead%2A> must be called with this <xref:System.IAsyncResult> to find out how many bytes were read."
   syntax:
     content: public override IAsyncResult BeginRead (byte[] buffer, int offset, int count, AsyncCallback callback, object state);
@@ -297,13 +297,13 @@ items:
       description: The maximum number of bytes to read.
     - id: callback
       type: System.AsyncCallback
-      description: An optional asynchronous callback, to be called when the read is complete.
+      description: 'An optional asynchronous callback, to be called when the read is complete.'
     - id: state
       type: System.Object
       description: A user-provided object that distinguishes this particular asynchronous read request from other requests.
     return:
       type: System.IAsyncResult
-      description: An object that represents the asynchronous read, which could still be pending.
+      description: 'An object that represents the asynchronous read, which could still be pending.'
   overload: System.IO.BufferedStream.BeginRead*
   exceptions:
   - type: System.ArgumentNullException
@@ -368,7 +368,7 @@ items:
   - netstandard
   - System.Runtime.Extensions
   namespace: System.IO
-  summary: Begins an asynchronous write operation. (Consider using <xref href="System.IO.BufferedStream.WriteAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)"></xref> instead.)
+  summary: 'Begins an asynchronous write operation. (Consider using <xref href="System.IO.BufferedStream.WriteAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)"></xref> instead.)'
   remarks: "In the .NET Framework 4 and earlier versions, you have to use methods such as <xref:System.IO.Stream.BeginWrite%2A> and <xref:System.IO.Stream.EndWrite%2A> to implement asynchronous file operations. These methods are still available in the [!INCLUDE[net_v45](~/includes/net-v45-md.md)] to support legacy code; however, the new async methods, such as <xref:System.IO.BufferedStream.ReadAsync%2A>, <xref:System.IO.BufferedStream.WriteAsync%2A>, and <xref:System.IO.BufferedStream.FlushAsync%2A>, help you implement asynchronous file operations more easily.  \n  \n <xref:System.IO.BufferedStream.EndWrite%2A> must be called exactly once on every <xref:System.IAsyncResult> from <xref:System.IO.BufferedStream.BeginWrite%2A>. <xref:System.IO.BufferedStream.EndWrite%2A> will block until the I/O operation has completed."
   syntax:
     content: public override IAsyncResult BeginWrite (byte[] buffer, int offset, int count, AsyncCallback callback, object state);
@@ -737,7 +737,7 @@ items:
   - netstandard
   - System.Runtime.Extensions
   namespace: System.IO
-  summary: Waits for the pending asynchronous read operation to complete. (Consider using <xref href="System.IO.BufferedStream.ReadAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)"></xref> instead.)
+  summary: 'Waits for the pending asynchronous read operation to complete. (Consider using <xref href="System.IO.BufferedStream.ReadAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)"></xref> instead.)'
   remarks: "In the .NET Framework 4 and earlier versions, you have to use methods such as <xref:System.IO.Stream.BeginRead%2A> and <xref:System.IO.Stream.EndRead%2A> to implement asynchronous file operations. These methods are still available in the [!INCLUDE[net_v45](~/includes/net-v45-md.md)] to support legacy code; however, the new async methods, such as <xref:System.IO.BufferedStream.ReadAsync%2A>, <xref:System.IO.BufferedStream.WriteAsync%2A>, and <xref:System.IO.BufferedStream.FlushAsync%2A>, help you implement asynchronous file operations more easily.  \n  \n <xref:System.IO.BufferedStream.EndRead%2A> must be called with this <xref:System.IAsyncResult> to find out how many bytes were read."
   syntax:
     content: public override int EndRead (IAsyncResult asyncResult);
@@ -747,7 +747,7 @@ items:
       description: The reference to the pending asynchronous request to wait for.
     return:
       type: System.Int32
-      description: The number of bytes read from the stream, between 0 (zero) and the number of bytes you requested. Streams only return 0 only at the end of the stream, otherwise, they should block until at least 1 byte is available.
+      description: 'The number of bytes read from the stream, between 0 (zero) and the number of bytes you requested. Streams only return 0 only at the end of the stream, otherwise, they should block until at least 1 byte is available.'
   overload: System.IO.BufferedStream.EndRead*
   exceptions:
   - type: System.ArgumentNullException
@@ -755,7 +755,7 @@ items:
     description: <code>asyncResult</code> is `null`.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: This <xref href="System.IAsyncResult"></xref> object was not created by calling <xref href="System.IO.BufferedStream.BeginRead(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"></xref> on this class.
+    description: 'This <xref href="System.IAsyncResult"></xref> object was not created by calling <xref href="System.IO.BufferedStream.BeginRead(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"></xref> on this class.'
   version:
   - netcore-2.0
   - netframework-4.5.1
@@ -803,7 +803,7 @@ items:
   - netstandard
   - System.Runtime.Extensions
   namespace: System.IO
-  summary: Ends an asynchronous write operation and blocks until the I/O operation is complete. (Consider using <xref href="System.IO.BufferedStream.WriteAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)"></xref> instead.)
+  summary: 'Ends an asynchronous write operation and blocks until the I/O operation is complete. (Consider using <xref href="System.IO.BufferedStream.WriteAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)"></xref> instead.)'
   remarks: "In the .NET Framework 4 and earlier versions, you have to use methods such as <xref:System.IO.Stream.BeginWrite%2A> and <xref:System.IO.Stream.EndWrite%2A> to implement asynchronous file operations. These methods are still available in the [!INCLUDE[net_v45](~/includes/net-v45-md.md)] to support legacy code; however, the new async methods, such as <xref:System.IO.BufferedStream.ReadAsync%2A>, <xref:System.IO.BufferedStream.WriteAsync%2A>, and <xref:System.IO.BufferedStream.FlushAsync%2A>, help you implement asynchronous file operations more easily.  \n  \n <xref:System.IO.BufferedStream.EndWrite%2A> must be called exactly once for every call to <xref:System.IO.BufferedStream.BeginRead%2A>. Failing to end a read process before beginning another read operation can cause deadlock or other undesirable behavior."
   syntax:
     content: public override void EndWrite (IAsyncResult asyncResult);
@@ -818,7 +818,7 @@ items:
     description: <code>asyncResult</code> is `null`.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: This <xref href="System.IAsyncResult"></xref> object was not created by calling <xref href="System.IO.BufferedStream.BeginWrite(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"></xref> on this class.
+    description: 'This <xref href="System.IAsyncResult"></xref> object was not created by calling <xref href="System.IO.BufferedStream.BeginWrite(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"></xref> on this class.'
   version:
   - netcore-2.0
   - netframework-4.5.1
@@ -938,7 +938,7 @@ items:
   - netstandard
   - System.Runtime.Extensions
   namespace: System.IO
-  summary: Asynchronously clears all buffers for this stream, causes any buffered data to be written to the underlying device, and monitors cancellation requests.
+  summary: 'Asynchronously clears all buffers for this stream, causes any buffered data to be written to the underlying device, and monitors cancellation requests.'
   syntax:
     content: public override System.Threading.Tasks.Task FlushAsync (System.Threading.CancellationToken cancellationToken);
     parameters:
@@ -1093,10 +1093,10 @@ items:
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: The value passed to <xref href="System.IO.BufferedStream.Seek(System.Int64,System.IO.SeekOrigin)"></xref> is negative.
+    description: 'The value passed to <xref href="System.IO.BufferedStream.Seek(System.Int64,System.IO.SeekOrigin)"></xref> is negative.'
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: An I/O error occurs, such as the stream being closed.
+    description: 'An I/O error occurs, such as the stream being closed.'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
     description: The stream does not support seeking.
@@ -1177,7 +1177,7 @@ items:
       description: The number of bytes to be read.
     return:
       type: System.Int32
-      description: The total number of bytes read into <code>array</code>. This can be less than the number of bytes requested if that many bytes are not currently available, or 0 if the end of the stream has been reached before any data can be read.
+      description: 'The total number of bytes read into <code>array</code>. This can be less than the number of bytes requested if that many bytes are not currently available, or 0 if the end of the stream has been reached before any data can be read.'
   overload: System.IO.BufferedStream.Read*
   exceptions:
   - type: System.ArgumentException
@@ -1254,8 +1254,8 @@ items:
   - netstandard
   - System.Runtime.Extensions
   namespace: System.IO
-  summary: Asynchronously reads a sequence of bytes from the current stream, advances the position within the stream by the number of bytes read, and monitors cancellation requests.
-  remarks: You can create a cancellation token by creating an instance of the <xref:System.Threading.CancellationTokenSource> class and passing the <xref:System.Threading.CancellationTokenSource.Token%2A> property as the `cancellationToken` parameter.
+  summary: 'Asynchronously reads a sequence of bytes from the current stream, advances the position within the stream by the number of bytes read, and monitors cancellation requests.'
+  remarks: 'You can create a cancellation token by creating an instance of the <xref:System.Threading.CancellationTokenSource> class and passing the <xref:System.Threading.CancellationTokenSource.Token%2A> property as the `cancellationToken` parameter.'
   syntax:
     content: public override System.Threading.Tasks.Task<int> ReadAsync (byte[] buffer, int offset, int count, System.Threading.CancellationToken cancellationToken);
     parameters:
@@ -1273,7 +1273,7 @@ items:
       description: The token to monitor for cancellation requests.
     return:
       type: System.Threading.Tasks.Task{System.Int32}
-      description: A task that represents the asynchronous read operation. The value of the <code>TResult</code> parameter contains the total number of bytes read into the buffer. The result value can be less than the number of bytes requested if the number of bytes currently available is less than the requested number, or it can be 0 (zero) if the end of the stream has been reached.
+      description: 'A task that represents the asynchronous read operation. The value of the <code>TResult</code> parameter contains the total number of bytes read into the buffer. The result value can be less than the number of bytes requested if the number of bytes currently available is less than the requested number, or it can be 0 (zero) if the end of the stream has been reached.'
   overload: System.IO.BufferedStream.ReadAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -1350,18 +1350,18 @@ items:
   - netstandard
   - System.Runtime.Extensions
   namespace: System.IO
-  summary: Reads a byte from the underlying stream and returns the byte cast to an `int`, or returns -1 if reading from the end of the stream.
+  summary: 'Reads a byte from the underlying stream and returns the byte cast to an `int`, or returns -1 if reading from the end of the stream.'
   syntax:
     content: public override int ReadByte ();
     parameters: []
     return:
       type: System.Int32
-      description: The byte cast to an `int`, or -1 if reading from the end of the stream.
+      description: 'The byte cast to an `int`, or -1 if reading from the end of the stream.'
   overload: System.IO.BufferedStream.ReadByte*
   exceptions:
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: An I/O error occurs, such as the stream being closed.
+    description: 'An I/O error occurs, such as the stream being closed.'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
     description: The stream does not support reading.
@@ -1700,8 +1700,8 @@ items:
   - netstandard
   - System.Runtime.Extensions
   namespace: System.IO
-  summary: Asynchronously writes a sequence of bytes to the current stream, advances the current position within this stream by the number of bytes written, and monitors cancellation requests.
-  remarks: You can create a cancellation token by creating an instance of the <xref:System.Threading.CancellationTokenSource> class and passing the <xref:System.Threading.CancellationTokenSource.Token%2A> property as the `cancellationToken` parameter.
+  summary: 'Asynchronously writes a sequence of bytes to the current stream, advances the current position within this stream by the number of bytes written, and monitors cancellation requests.'
+  remarks: 'You can create a cancellation token by creating an instance of the <xref:System.Threading.CancellationTokenSource> class and passing the <xref:System.Threading.CancellationTokenSource.Token%2A> property as the `cancellationToken` parameter.'
   syntax:
     content: public override System.Threading.Tasks.Task WriteAsync (byte[] buffer, int offset, int count, System.Threading.CancellationToken cancellationToken);
     parameters:

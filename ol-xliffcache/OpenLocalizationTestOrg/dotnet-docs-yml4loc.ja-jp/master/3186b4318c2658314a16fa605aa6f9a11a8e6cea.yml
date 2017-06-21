@@ -21,7 +21,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Specifies a base type used to define the contract for the registration and resolution of a peer mesh ID to the endpoint addresses of nodes participating in the mesh.
-  remarks: This class is the base class for the implementation of custom peer name resolvers. A peer name resolver is a discovery service used by peer channels to find peer nodes participating in a peer mesh. It is also used to "register" a node with a peer mesh, the mechanism by which the peer node becomes known and available from the peer mesh.
+  remarks: 'This class is the base class for the implementation of custom peer name resolvers. A peer name resolver is a discovery service used by peer channels to find peer nodes participating in a peer mesh. It is also used to "register" a node with a peer mesh, the mechanism by which the peer node becomes known and available from the peer mesh.'
   syntax:
     content: public abstract class PeerResolver
   inheritance:
@@ -112,7 +112,7 @@ items:
     content: public abstract bool CanShareReferrals { get; }
     return:
       type: System.Boolean
-      description: If true, the peer name resolver can share referrals; if false, it cannot.
+      description: 'If true, the peer name resolver can share referrals; if false, it cannot.'
   overload: System.ServiceModel.PeerResolver.CanShareReferrals*
   exceptions: []
   version:
@@ -149,7 +149,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Initializes the current peer resolver instance with the new supplied endpoint address and settings.
-  remarks: This method simply initializes the existing peer resolver instance; it does not create a new one. To create a new peer resolver, call the CreatePeerResolver method on the corresponding binding element (for example, <xref:System.ServiceModel.Channels.PnrpPeerResolverBindingElement>).
+  remarks: 'This method simply initializes the existing peer resolver instance; it does not create a new one. To create a new peer resolver, call the CreatePeerResolver method on the corresponding binding element (for example, <xref:System.ServiceModel.Channels.PnrpPeerResolverBindingElement>).'
   syntax:
     content: public virtual void Initialize (System.ServiceModel.EndpointAddress address, System.ServiceModel.Channels.Binding binding, System.ServiceModel.Description.ClientCredentials credentials, System.ServiceModel.PeerResolvers.PeerReferralPolicy referralPolicy);
     parameters:
@@ -212,10 +212,10 @@ items:
       description: The <xref href="System.ServiceModel.PeerNodeAddress"></xref> to be registered with the peer mesh.
     - id: timeout
       type: System.TimeSpan
-      description: The length of time to wait for success before aborting the attempt to register with the peer mesh. If the attempt fails, <xref href="System.TimeoutException"></xref> is raised on the peer.
+      description: 'The length of time to wait for success before aborting the attempt to register with the peer mesh. If the attempt fails, <xref href="System.TimeoutException"></xref> is raised on the peer.'
     return:
       type: System.Object
-      description: An <xref href="System.Object"></xref> that represents the registration ID. This registration ID object is passed to the <xref href="System.ServiceModel.PeerResolver.Update(System.Object,System.ServiceModel.PeerNodeAddress,System.TimeSpan)"></xref> and <xref href="System.ServiceModel.PeerResolver.Unregister(System.Object,System.TimeSpan)"></xref> methods.
+      description: 'An <xref href="System.Object"></xref> that represents the registration ID. This registration ID object is passed to the <xref href="System.ServiceModel.PeerResolver.Update(System.Object,System.ServiceModel.PeerNodeAddress,System.TimeSpan)"></xref> and <xref href="System.ServiceModel.PeerResolver.Unregister(System.Object,System.TimeSpan)"></xref> methods.'
   overload: System.ServiceModel.PeerResolver.Register*
   exceptions: []
   version:
@@ -263,7 +263,7 @@ items:
       description: The number of endpoint addresses to return.
     - id: timeout
       type: System.TimeSpan
-      description: The length of time to wait for success before aborting the attempt to resolve endpoint addresses within the peer mesh. If the attempt fails, <xref href="System.TimeoutException"></xref> is raised on the peer.
+      description: 'The length of time to wait for success before aborting the attempt to resolve endpoint addresses within the peer mesh. If the attempt fails, <xref href="System.TimeoutException"></xref> is raised on the peer.'
     return:
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.ServiceModel.PeerNodeAddress}
       description: A <xref href="System.Collections.ObjectModel.ReadOnlyCollection`1"></xref> that contains <xref href="System.ServiceModel.PeerNodeAddress"></xref> objects representing nodes participating in the peer mesh.
@@ -309,10 +309,10 @@ items:
     parameters:
     - id: registrationId
       type: System.Object
-      description: A registration ID for the node obtained by a previous call to <xref href="System.ServiceModel.PeerResolver.Register(System.String,System.ServiceModel.PeerNodeAddress,System.TimeSpan)"></xref>.
+      description: 'A registration ID for the node obtained by a previous call to <xref href="System.ServiceModel.PeerResolver.Register(System.String,System.ServiceModel.PeerNodeAddress,System.TimeSpan)"></xref>.'
     - id: timeout
       type: System.TimeSpan
-      description: The length of time to wait for a successful removal of the registration from the peer mesh. If the attempt fails, <xref href="System.TimeoutException"></xref> is raised on the peer.
+      description: 'The length of time to wait for a successful removal of the registration from the peer mesh. If the attempt fails, <xref href="System.TimeoutException"></xref> is raised on the peer.'
   overload: System.ServiceModel.PeerResolver.Unregister*
   exceptions: []
   version:
@@ -349,19 +349,19 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Updates the <xref href="System.ServiceModel.PeerNodeAddress"></xref> for a node registered with a specific peer mesh.
-  remarks: <xref:System.ServiceModel.PeerResolver.Update%2A> is called when the address of the <xref:System.ServiceModel.PeerNode> changes on the local machine.
+  remarks: '<xref:System.ServiceModel.PeerResolver.Update%2A> is called when the address of the <xref:System.ServiceModel.PeerNode> changes on the local machine.'
   syntax:
     content: public abstract void Update (object registrationId, System.ServiceModel.PeerNodeAddress updatedNodeAddress, TimeSpan timeout);
     parameters:
     - id: registrationId
       type: System.Object
-      description: A registration ID token for the node, obtained by a previous call to <xref href="System.ServiceModel.PeerResolver.Register(System.String,System.ServiceModel.PeerNodeAddress,System.TimeSpan)"></xref>
+      description: 'A registration ID token for the node, obtained by a previous call to <xref href="System.ServiceModel.PeerResolver.Register(System.String,System.ServiceModel.PeerNodeAddress,System.TimeSpan)"></xref>'
     - id: updatedNodeAddress
       type: System.ServiceModel.PeerNodeAddress
       description: The updated endpoint address (and other multihoming IP addresses).
     - id: timeout
       type: System.TimeSpan
-      description: The length of time to wait for success before aborting the attempt to update the node's registration within the peer mesh. If the attempt fails, <xref href="System.TimeoutException"></xref> is raised on the peer.
+      description: 'The length of time to wait for success before aborting the attempt to update the node''s registration within the peer mesh. If the attempt fails, <xref href="System.TimeoutException"></xref> is raised on the peer.'
   overload: System.ServiceModel.PeerResolver.Update*
   exceptions: []
   version:

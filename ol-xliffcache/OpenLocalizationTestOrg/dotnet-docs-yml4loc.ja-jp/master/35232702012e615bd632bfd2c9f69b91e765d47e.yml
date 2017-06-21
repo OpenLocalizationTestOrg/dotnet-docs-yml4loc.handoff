@@ -34,7 +34,7 @@ items:
   - System.WorkflowServices
   namespace: System.ServiceModel.Persistence
   summary: The abstract base class from which all durable service persistence providers that implement locking are derived.
-  remarks: In addition to persistence, the <xref:System.ServiceModel.Persistence.LockingPersistenceProvider> class implements locking of service state data records. Methods that interact with persisted data (such as the `Load` method) have an optional parameter (`lockInstance`) that defines whether locks on the data in question are released or maintained.
+  remarks: 'In addition to persistence, the <xref:System.ServiceModel.Persistence.LockingPersistenceProvider> class implements locking of service state data records. Methods that interact with persisted data (such as the `Load` method) have an optional parameter (`lockInstance`) that defines whether locks on the data in question are released or maintained.'
   syntax:
     content: >-
       [System.Obsolete("The WF3 types are deprecated.  Instead, please use the new WF4 types from System.Activities.*")]
@@ -136,7 +136,7 @@ items:
   assemblies:
   - System.WorkflowServices
   namespace: System.ServiceModel.Persistence
-  summary: When implemented in a derived class, creates a new instance of the <xref href="System.ServiceModel.Persistence.LockingPersistenceProvider"></xref> class, configured with the specified identity value.
+  summary: 'When implemented in a derived class, creates a new instance of the <xref href="System.ServiceModel.Persistence.LockingPersistenceProvider"></xref> class, configured with the specified identity value.'
   syntax:
     content: protected LockingPersistenceProvider (Guid id);
     parameters:
@@ -181,7 +181,7 @@ items:
   - System.WorkflowServices
   namespace: System.ServiceModel.Persistence
   summary: Begins an asynchronous operation to create instance state information in the persistence store using the parameters. This method does not unlock the instance after saving the state information.
-  remarks: This method calls into the <xref:System.ServiceModel.Persistence.LockingPersistenceProvider.BeginCreate%2A> method, which takes an additional parameter to determine whether the instance is unlocked. This method passes `false` as a value for this parameter to the calling method.
+  remarks: 'This method calls into the <xref:System.ServiceModel.Persistence.LockingPersistenceProvider.BeginCreate%2A> method, which takes an additional parameter to determine whether the instance is unlocked. This method passes `false` as a value for this parameter to the calling method.'
   syntax:
     content: public override IAsyncResult BeginCreate (object instance, TimeSpan timeout, AsyncCallback callback, object state);
     parameters:
@@ -297,7 +297,7 @@ items:
   - System.WorkflowServices
   namespace: System.ServiceModel.Persistence
   summary: Begins an asynchronous operation to load an instance based on state information in the persistence store using the parameters. This method does not lock the instance.
-  remarks: This method calls into the <xref:System.ServiceModel.Persistence.LockingPersistenceProvider.BeginLoad%2A>, which takes an additional parameter that specifies whether the instance must be locked in the persistence store. This method passes `false` as a value for this parameter to the calling method.
+  remarks: 'This method calls into the <xref:System.ServiceModel.Persistence.LockingPersistenceProvider.BeginLoad%2A>, which takes an additional parameter that specifies whether the instance must be locked in the persistence store. This method passes `false` as a value for this parameter to the calling method.'
   syntax:
     content: public override IAsyncResult BeginLoad (TimeSpan timeout, AsyncCallback callback, object state);
     parameters:
@@ -406,7 +406,7 @@ items:
   assemblies:
   - System.WorkflowServices
   namespace: System.ServiceModel.Persistence
-  summary: When implemented in a derived class, represents the beginning of the LoadIfChanged phase. The LoadIfChanged phase occurs when state data is loaded into the persistence provider from the persistence store and the state data in the persistence store has been changed. This method call does not lock the instance in the persistence store.
+  summary: 'When implemented in a derived class, represents the beginning of the LoadIfChanged phase. The LoadIfChanged phase occurs when state data is loaded into the persistence provider from the persistence store and the state data in the persistence store has been changed. This method call does not lock the instance in the persistence store.'
   syntax:
     content: public override IAsyncResult BeginLoadIfChanged (TimeSpan timeout, object instanceToken, AsyncCallback callback, object state);
     parameters:
@@ -462,7 +462,7 @@ items:
   assemblies:
   - System.WorkflowServices
   namespace: System.ServiceModel.Persistence
-  summary: When implemented in a derived class, represents the beginning of the LoadIfChanged phase. The LoadIfChanged phase occurs when state data is loaded into the persistence provider from the persistence store and the state data in the persistence store has been changed. This method call lets you specify whether you want to lock the instance in the persistence store.
+  summary: 'When implemented in a derived class, represents the beginning of the LoadIfChanged phase. The LoadIfChanged phase occurs when state data is loaded into the persistence provider from the persistence store and the state data in the persistence store has been changed. This method call lets you specify whether you want to lock the instance in the persistence store.'
   syntax:
     content: public virtual IAsyncResult BeginLoadIfChanged (TimeSpan timeout, object instanceToken, bool lockInstance, AsyncCallback callback, object state);
     parameters:
@@ -634,7 +634,7 @@ items:
   - System.WorkflowServices
   namespace: System.ServiceModel.Persistence
   summary: Begins an asynchronous operation to update instance state information in the persistence store using the parameters passed. This operation does not unlock the instance in the instance store.
-  remarks: This method calls into the <xref:System.ServiceModel.Persistence.LockingPersistenceProvider.BeginUpdate%2A> method and passes a `false` value for the `unlockInstance` parameter.
+  remarks: 'This method calls into the <xref:System.ServiceModel.Persistence.LockingPersistenceProvider.BeginUpdate%2A> method and passes a `false` value for the `unlockInstance` parameter.'
   syntax:
     content: public override IAsyncResult BeginUpdate (object instance, TimeSpan timeout, AsyncCallback callback, object state);
     parameters:
@@ -838,7 +838,7 @@ items:
   - System.WorkflowServices
   namespace: System.ServiceModel.Persistence
   summary: Loads service state information from the persistence store without locking the instance.
-  remarks: This method invokes the <xref:System.ServiceModel.Persistence.LockingPersistenceProvider.Load%2A> method with `lockInstance` parameter set to `false`.
+  remarks: 'This method invokes the <xref:System.ServiceModel.Persistence.LockingPersistenceProvider.Load%2A> method with `lockInstance` parameter set to `false`.'
   syntax:
     content: public override object Load (TimeSpan timeout);
     parameters:
@@ -944,7 +944,7 @@ items:
       description: The time period after which the persistence provider aborts this operation.
     - id: instanceToken
       type: System.Object
-      description: The token returned by the previous `Create` or `Update` method calls, which represents the current state held by the caller.
+      description: 'The token returned by the previous `Create` or `Update` method calls, which represents the current state held by the caller.'
     - id: instance
       type: System.Object
       description: The actual instance state information.
@@ -997,7 +997,7 @@ items:
       description: The time period after which the persistence provider aborts this operation.
     - id: instanceToken
       type: System.Object
-      description: The token returned by the previous Create or Update method calls, which represents the current state held by the caller.
+      description: 'The token returned by the previous Create or Update method calls, which represents the current state held by the caller.'
     - id: lockInstance
       type: System.Boolean
       description: '`true` if the instance should be locked in the persistence store at the end of this operation; otherwise `false`.'
@@ -1088,7 +1088,7 @@ items:
   assemblies:
   - System.WorkflowServices
   namespace: System.ServiceModel.Persistence
-  summary: When implemented in a derived class, updates the instance state information in the persistence store. This method does not unlock the instance after updating the instance state information in the persistence store.
+  summary: 'When implemented in a derived class, updates the instance state information in the persistence store. This method does not unlock the instance after updating the instance state information in the persistence store.'
   syntax:
     content: public override object Update (object instance, TimeSpan timeout);
     parameters:
@@ -1138,7 +1138,7 @@ items:
   assemblies:
   - System.WorkflowServices
   namespace: System.ServiceModel.Persistence
-  summary: When implemented in a derived class, updates the instance state information in the persistence store. This method does not unlock the instance after updating the instance state information in the persistence store.
+  summary: 'When implemented in a derived class, updates the instance state information in the persistence store. This method does not unlock the instance after updating the instance state information in the persistence store.'
   syntax:
     content: public abstract object Update (object instance, TimeSpan timeout, bool unlockInstance);
     parameters:

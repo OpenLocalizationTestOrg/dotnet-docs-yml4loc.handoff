@@ -51,7 +51,7 @@ items:
   - netstandard
   namespace: System
   summary: Represents a 32-bit signed integer.
-  remarks: "> [!NOTE]\n>  To view the .NET Framework source code for this type, see the [Reference Source](http://referencesource.microsoft.com/#mscorlib/system/int32.cs#225942ed7b7a3252). You can browse through the source code online, download the reference for offline viewing, and step through the sources (including patches and updates) during debugging; see [instructions](http://referencesource.microsoft.com/).  \n  \n <xref:System.Int32> is an immutable value type that represents signed integers with values that range from negative 2,147,483,648 (which is represented by the <xref:System.Int32.MinValue?displayProperty=fullName> constant) through positive 2,147,483,647 (which is represented by the <xref:System.Int32.MaxValue?displayProperty=fullName> constant. The .NET Framework also includes an unsigned 32-bit integer value type, <xref:System.UInt32>, which represents values that range from 0 to 4,294,967,295.  \n  \n## Instantiating an Int32 Value  \n You can instantiate an <xref:System.Int32> value in several ways:  \n  \n-   You can declare an <xref:System.Int32> variable and assign it a literal integer value that is within the range of the <xref:System.Int32> data type. The following example declares two <xref:System.Int32> variables and assigns them values in this way.  \n  \n     [!code-csharp[System.Int32.Instantiation#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Int32.Instantiation/cs/Instantiate1.cs#1)]\n     [!code-vb[System.Int32.Instantiation#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Int32.Instantiation/vb/Instantiate1.vb#1)]  \n  \n-   You can assign the value of an integer type whose range is a subset of the <xref:System.Int32> type. This is a widening conversion that does not require a cast operator in C# or a conversion method in Visual Basic.  \n  \n     [!code-csharp[System.Int32.Instantiation#4](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Int32.Instantiation/cs/Instantiate1.cs#4)]\n     [!code-vb[System.Int32.Instantiation#4](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Int32.Instantiation/vb/Instantiate1.vb#4)]  \n  \n-   You can assign the value of a numeric type whose range exceeds that of the <xref:System.Int32> type. This is a narrowing conversion, so it requires a cast operator in C# and a conversion method in Visual Basic if `Option Strict` is on. If the numeric value is a <xref:System.Single>, <xref:System.Double>, or <xref:System.Decimal> value that includes a fractional component, the handling of its fractional part depends on the compiler performing the conversion. The following example performs narrowing conversions to assign several numeric values to <xref:System.Int32> variables.  \n  \n     [!code-csharp[System.Int32.Instantiation#2](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Int32.Instantiation/cs/Instantiate1.cs#2)]\n     [!code-vb[System.Int32.Instantiation#2](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Int32.Instantiation/vb/Instantiate1.vb#2)]  \n  \n-   You can call a method of the <xref:System.Convert> class to convert any supported type to an <xref:System.Int32> value. This is possible because <xref:System.Int32> supports the <xref:System.IConvertible> interface. The following example illustrates the conversion of an array of <xref:System.Decimal> values to <xref:System.Int32> values.  \n  \n     [!code-csharp[System.Convert.ToInt32#4](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.convert.toint32/cs/toint32_1.cs#4)]\n     [!code-vb[System.Convert.ToInt32#4](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.convert.toint32/vb/toint32_1.vb#4)]  \n  \n-   You can call the <xref:System.Int32.Parse%2A> or <xref:System.Int32.TryParse%2A> method to convert the string representation of an <xref:System.Int32> value to an <xref:System.Int32>. The string can contain either decimal or hexadecimal digits. The following example illustrates the parse operation by using both a decimal and a hexadecimal string.  \n  \n     [!code-csharp[System.Int32.Instantiation#3](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Int32.Instantiation/cs/Instantiate1.cs#3)]\n     [!code-vb[System.Int32.Instantiation#3](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Int32.Instantiation/vb/Instantiate1.vb#3)]  \n  \n## Performing Operations on Int32 Values  \n The <xref:System.Int32> type supports standard mathematical operations such as addition, subtraction, division, multiplication, negation, and unary negation. Like the other integral types, the <xref:System.Int32> type also supports the bitwise `AND`, `OR`, `XOR`, left shift, and right shift operators.  \n  \n You can use the standard numeric operators to compare two <xref:System.Int32> values, or you can call the <xref:System.Int32.CompareTo%2A> or <xref:System.Int32.Equals%2A> method.  \n  \n You can also call the members of the <xref:System.Math> class to perform a wide range of numeric operations, including getting the absolute value of a number, calculating the quotient and remainder from integral division, determining the maximum or minimum value of two integers, getting the sign of a number, and rounding a number.  \n  \n## Representing an Int32 as a String  \n The <xref:System.Int32> type provides full support for standard and custom numeric format strings. (For more information, see [Formatting Types](~/docs/standard/base-types/formatting-types.md), [Standard Numeric Format Strings](~/docs/standard/base-types/standard-numeric-format-strings.md), and [Custom Numeric Format Strings](~/docs/standard/base-types/custom-numeric-format-strings.md).)  \n  \n To format an <xref:System.Int32> value as an integral string with no leading zeros, you can call the parameterless <xref:System.Int32.ToString> method. By using the \"D\" format specifier, you can also include a specified number of leading zeros in the string representation. By using the \"N\" format specifier, you can include group separators and specify the number of decimal digits to appear in the string representation of the number. By using the \"X\" format specifier, you can represent an <xref:System.Int32> value as a hexadecimal string. The following example formats the elements in an array of <xref:System.Int32> values in these four ways.  \n  \n [!code-csharp[System.Int32.Formatting#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Int32.Formatting/cs/Formatting1.cs#1)]\n [!code-vb[System.Int32.Formatting#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Int32.Formatting/vb/Formatting1.vb#1)]  \n  \n You can also format an <xref:System.Int32> value as a binary, octal, decimal, or hexadecimal string by calling the <xref:System.Convert.ToString%28System.Int32%2CSystem.Int32%29> method and supplying the base as the method's second parameter. The following example calls this method to display the binary, octal, and hexadecimal representations of an array of integer values.  \n  \n [!code-csharp[System.Int32.Formatting#2](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Int32.Formatting/cs/Formatting1.cs#2)]\n [!code-vb[System.Int32.Formatting#2](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Int32.Formatting/vb/Formatting1.vb#2)]  \n  \n## Working with Non-Decimal 32-Bit Integer Values  \n In addition to working with individual integers as decimal values, you may want to perform bitwise operations with integer values, or work with the binary or hexadecimal representations of integer values. <xref:System.Int32> values are represented in 31 bits, with the thirty-second bit used as a sign bit. Positive values are represented by using sign-and-magnitude representation. Negative values are in two's complement representation. This is important to keep in mind when you perform bitwise operations on <xref:System.Int32> values or when you work with individual bits. In order to perform a numeric, Boolean, or comparison operation on any two non-decimal values, both values must use the same representation."
+  remarks: "> [!NOTE]\n>  To view the .NET Framework source code for this type, see the [Reference Source](http://referencesource.microsoft.com/#mscorlib/system/int32.cs#225942ed7b7a3252). You can browse through the source code online, download the reference for offline viewing, and step through the sources (including patches and updates) during debugging; see [instructions](http://referencesource.microsoft.com/).  \n  \n <xref:System.Int32> is an immutable value type that represents signed integers with values that range from negative 2,147,483,648 (which is represented by the <xref:System.Int32.MinValue?displayProperty=fullName> constant) through positive 2,147,483,647 (which is represented by the <xref:System.Int32.MaxValue?displayProperty=fullName> constant. The .NET Framework also includes an unsigned 32-bit integer value type, <xref:System.UInt32>, which represents values that range from 0 to 4,294,967,295.  \n  \n## <a name=\"instantiating-an-int32-value\"></a>Instantiating an Int32 Value  \n You can instantiate an <xref:System.Int32> value in several ways:  \n  \n-   You can declare an <xref:System.Int32> variable and assign it a literal integer value that is within the range of the <xref:System.Int32> data type. The following example declares two <xref:System.Int32> variables and assigns them values in this way.  \n  \n     [!code-csharp[System.Int32.Instantiation#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Int32.Instantiation/cs/Instantiate1.cs#1)]  [!code-vb[System.Int32.Instantiation#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Int32.Instantiation/vb/Instantiate1.vb#1)]  \n  \n-   You can assign the value of an integer type whose range is a subset of the <xref:System.Int32> type. This is a widening conversion that does not require a cast operator in C# or a conversion method in Visual Basic.  \n  \n     [!code-csharp[System.Int32.Instantiation#4](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Int32.Instantiation/cs/Instantiate1.cs#4)]  [!code-vb[System.Int32.Instantiation#4](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Int32.Instantiation/vb/Instantiate1.vb#4)]  \n  \n-   You can assign the value of a numeric type whose range exceeds that of the <xref:System.Int32> type. This is a narrowing conversion, so it requires a cast operator in C# and a conversion method in Visual Basic if `Option Strict` is on. If the numeric value is a <xref:System.Single>, <xref:System.Double>, or <xref:System.Decimal> value that includes a fractional component, the handling of its fractional part depends on the compiler performing the conversion. The following example performs narrowing conversions to assign several numeric values to <xref:System.Int32> variables.  \n  \n     [!code-csharp[System.Int32.Instantiation#2](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Int32.Instantiation/cs/Instantiate1.cs#2)]  [!code-vb[System.Int32.Instantiation#2](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Int32.Instantiation/vb/Instantiate1.vb#2)]  \n  \n-   You can call a method of the <xref:System.Convert> class to convert any supported type to an <xref:System.Int32> value. This is possible because <xref:System.Int32> supports the <xref:System.IConvertible> interface. The following example illustrates the conversion of an array of <xref:System.Decimal> values to <xref:System.Int32> values.  \n  \n     [!code-csharp[System.Convert.ToInt32#4](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.convert.toint32/cs/toint32_1.cs#4)]  [!code-vb[System.Convert.ToInt32#4](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.convert.toint32/vb/toint32_1.vb#4)]  \n  \n-   You can call the <xref:System.Int32.Parse%2A> or <xref:System.Int32.TryParse%2A> method to convert the string representation of an <xref:System.Int32> value to an <xref:System.Int32>. The string can contain either decimal or hexadecimal digits. The following example illustrates the parse operation by using both a decimal and a hexadecimal string.  \n  \n     [!code-csharp[System.Int32.Instantiation#3](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Int32.Instantiation/cs/Instantiate1.cs#3)]  [!code-vb[System.Int32.Instantiation#3](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Int32.Instantiation/vb/Instantiate1.vb#3)]  \n  \n## <a name=\"performing-operations-on-int32-values\"></a>Performing Operations on Int32 Values  \n The <xref:System.Int32> type supports standard mathematical operations such as addition, subtraction, division, multiplication, negation, and unary negation. Like the other integral types, the <xref:System.Int32> type also supports the bitwise `AND`, `OR`, `XOR`, left shift, and right shift operators.  \n  \n You can use the standard numeric operators to compare two <xref:System.Int32> values, or you can call the <xref:System.Int32.CompareTo%2A> or <xref:System.Int32.Equals%2A> method.  \n  \n You can also call the members of the <xref:System.Math> class to perform a wide range of numeric operations, including getting the absolute value of a number, calculating the quotient and remainder from integral division, determining the maximum or minimum value of two integers, getting the sign of a number, and rounding a number.  \n  \n## <a name=\"representing-an-int32-as-a-string\"></a>Representing an Int32 as a String  \n The <xref:System.Int32> type provides full support for standard and custom numeric format strings. (For more information, see [Formatting Types](~/docs/standard/base-types/formatting-types.md), [Standard Numeric Format Strings](~/docs/standard/base-types/standard-numeric-format-strings.md), and [Custom Numeric Format Strings](~/docs/standard/base-types/custom-numeric-format-strings.md).)  \n  \n To format an <xref:System.Int32> value as an integral string with no leading zeros, you can call the parameterless <xref:System.Int32.ToString> method. By using the \"D\" format specifier, you can also include a specified number of leading zeros in the string representation. By using the \"N\" format specifier, you can include group separators and specify the number of decimal digits to appear in the string representation of the number. By using the \"X\" format specifier, you can represent an <xref:System.Int32> value as a hexadecimal string. The following example formats the elements in an array of <xref:System.Int32> values in these four ways.  \n  \n [!code-csharp[System.Int32.Formatting#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Int32.Formatting/cs/Formatting1.cs#1)] [!code-vb[System.Int32.Formatting#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Int32.Formatting/vb/Formatting1.vb#1)]  \n  \n You can also format an <xref:System.Int32> value as a binary, octal, decimal, or hexadecimal string by calling the <xref:System.Convert.ToString%28System.Int32%2CSystem.Int32%29> method and supplying the base as the method's second parameter. The following example calls this method to display the binary, octal, and hexadecimal representations of an array of integer values.  \n  \n [!code-csharp[System.Int32.Formatting#2](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Int32.Formatting/cs/Formatting1.cs#2)] [!code-vb[System.Int32.Formatting#2](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Int32.Formatting/vb/Formatting1.vb#2)]  \n  \n## <a name=\"working-with-non-decimal-32-bit-integer-values\"></a>Working with Non-Decimal 32-Bit Integer Values  \n In addition to working with individual integers as decimal values, you may want to perform bitwise operations with integer values, or work with the binary or hexadecimal representations of integer values. <xref:System.Int32> values are represented in 31 bits, with the thirty-second bit used as a sign bit. Positive values are represented by using sign-and-magnitude representation. Negative values are in two's complement representation. This is important to keep in mind when you perform bitwise operations on <xref:System.Int32> values or when you work with individual bits. In order to perform a numeric, Boolean, or comparison operation on any two non-decimal values, both values must use the same representation."
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -145,7 +145,7 @@ items:
       description: An integer to compare.
     return:
       type: System.Int32
-      description: "A signed number indicating the relative values of this instance and <code>value</code>.  \n  \n <table><thead><tr><th> Return Value  \n  \n </th><th> Description  \n  \n </th></tr></thead><tbody><tr><td> Less than zero  \n  \n </td><td> This instance is less than <code>value</code>.  \n  \n </td></tr><tr><td> Zero  \n  \n </td><td> This instance is equal to <code>value</code>.  \n  \n </td></tr><tr><td> Greater than zero  \n  \n </td><td> This instance is greater than <code>value</code>.  \n  \n </td></tr></tbody></table>"
+      description: "A signed number indicating the relative values of this instance and <code>value</code>.  \n  \n <table><thead><tr><th> Return Value\n </th><th> Description\n </th></tr></thead><tbody><tr><td> Less than zero\n </td><td> This instance is less than <code>value</code>.  \n  \n </td></tr><tr><td> Zero\n </td><td> This instance is equal to <code>value</code>.  \n  \n </td></tr><tr><td> Greater than zero\n </td><td> This instance is greater than <code>value</code>.  \n  \n </td></tr></tbody></table>"
   overload: System.Int32.CompareTo*
   exceptions: []
   version:
@@ -220,10 +220,10 @@ items:
     parameters:
     - id: value
       type: System.Object
-      description: An object to compare, or `null`.
+      description: 'An object to compare, or `null`.'
     return:
       type: System.Int32
-      description: "A signed number indicating the relative values of this instance and <code>value</code>.  \n  \n <table><thead><tr><th> Return Value  \n  \n </th><th> Description  \n  \n </th></tr></thead><tbody><tr><td> Less than zero  \n  \n </td><td> This instance is less than <code>value</code>.  \n  \n </td></tr><tr><td> Zero  \n  \n </td><td> This instance is equal to <code>value</code>.  \n  \n </td></tr><tr><td> Greater than zero  \n  \n </td><td> This instance is greater than <code>value</code>.  \n  \n -or-  \n  \n <code>value</code> is `null`.  \n  \n </td></tr></tbody></table>"
+      description: "A signed number indicating the relative values of this instance and <code>value</code>.  \n  \n <table><thead><tr><th> Return Value\n </th><th> Description\n </th></tr></thead><tbody><tr><td> Less than zero\n </td><td> This instance is less than <code>value</code>.  \n  \n </td></tr><tr><td> Zero\n </td><td> This instance is equal to <code>value</code>.  \n  \n </td></tr><tr><td> Greater than zero\n </td><td> This instance is greater than <code>value</code>.  \n  \n -or-  \n  \n <code>value</code> is `null`.  \n  \n </td></tr></tbody></table>"
   overload: System.Int32.CompareTo*
   exceptions:
   - type: System.ArgumentException
@@ -277,7 +277,7 @@ items:
   - netstandard
   namespace: System
   summary: Returns a value indicating whether this instance is equal to a specified <xref href="System.Int32"></xref> value.
-  remarks: This method implements the <xref:System.IEquatable%601?displayProperty=fullName> interface, and performs slightly better than <xref:System.Int32.Equals%28System.Object%29?displayProperty=fullName> because it does not have to convert the `obj` parameter to an object.
+  remarks: 'This method implements the <xref:System.IEquatable%601?displayProperty=fullName> interface, and performs slightly better than <xref:System.Int32.Equals%28System.Object%29?displayProperty=fullName> because it does not have to convert the `obj` parameter to an object.'
   syntax:
     content: public bool Equals (int obj);
     parameters:
@@ -514,7 +514,7 @@ items:
     parameters: []
     return:
       type: System.TypeCode
-      description: The enumerated constant, <xref href="System.TypeCode.Int32"></xref>.
+      description: 'The enumerated constant, <xref href="System.TypeCode.Int32"></xref>.'
   overload: System.Int32.GetTypeCode*
   exceptions: []
   version:
@@ -565,7 +565,7 @@ items:
   - netstandard
   namespace: System
   summary: Represents the largest possible value of an <xref href="System.Int32"></xref>. This field is constant.
-  remarks: The value of this constant is 2,147,483,647; that is, hexadecimal 0x7FFFFFFF.
+  remarks: 'The value of this constant is 2,147,483,647; that is, hexadecimal 0x7FFFFFFF.'
   example:
   - "The following example uses the <xref:System.Int32.MaxValue> property to prevent an <xref:System.OverflowException> when converting to an <xref:System.Int32> value.  \n  \n [!code-cpp[System.Int32.MaxValue#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.int32.maxvalue/cpp/maxvalue1.cpp#1)]\n [!code-csharp[System.Int32.MaxValue#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.int32.maxvalue/cs/maxvalue1.cs#1)]\n [!code-vb[System.Int32.MaxValue#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.int32.maxvalue/vb/maxvalue1.vb#1)]"
   syntax:
@@ -640,7 +640,7 @@ items:
   - netstandard
   namespace: System
   summary: Represents the smallest possible value of <xref href="System.Int32"></xref>. This field is constant.
-  remarks: The value of this constant is -2,147,483,648; that is, hexadecimal 0x80000000.
+  remarks: 'The value of this constant is -2,147,483,648; that is, hexadecimal 0x80000000.'
   example:
   - "The following example uses the <xref:System.Int32.MinValue> property to prevent an <xref:System.OverflowException> when converting to an <xref:System.Int32> value.  \n  \n [!code-cpp[System.Int32.MaxValue#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.int32.maxvalue/cpp/maxvalue1.cpp#1)]\n [!code-csharp[System.Int32.MaxValue#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.int32.maxvalue/cs/maxvalue1.cs#1)]\n [!code-vb[System.Int32.MaxValue#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.int32.maxvalue/vb/maxvalue1.vb#1)]"
   syntax:
@@ -1097,7 +1097,7 @@ items:
     parameters: []
     return:
       type: System.String
-      description: The string representation of the value of this instance, consisting of a negative sign if the value is negative, and a sequence of digits ranging from 0 to 9 with no leading zeroes.
+      description: 'The string representation of the value of this instance, consisting of a negative sign if the value is negative, and a sequence of digits ranging from 0 to 9 with no leading zeroes.'
   overload: System.Int32.ToString*
   exceptions: []
   attributes: []
@@ -1253,7 +1253,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: Converts the numeric value of this instance to its equivalent string representation, using the specified format.
+  summary: 'Converts the numeric value of this instance to its equivalent string representation, using the specified format.'
   remarks: "The <xref:System.Int32.ToString%28System.String%29> method formats an <xref:System.Int32> value in a specified format by using a <xref:System.Globalization.NumberFormatInfo> object that represents the conventions of the current culture. If you want to use the default (\"G\", or general) format or specify a different culture, use the other overloads of the <xref:System.Int32.ToString%2A> method, as follows:  \n  \n|To use format|For culture|Use the overload|  \n|-------------------|-----------------|----------------------|  \n|Default (\"G\") format|Default (current) culture|<xref:System.Int32.ToString>|  \n|Default (\"G\") format|A specific culture|<xref:System.Int32.ToString%28System.IFormatProvider%29>|  \n|A specific format|A specific culture|<xref:System.Int32.ToString%28System.String%2CSystem.IFormatProvider%29>|  \n  \n The `format` parameter can be any valid standard numeric format specifier except for \"R\", as well as any combination of custom numeric format specifiers. If `format` is `null` or an empty string (\"\"), the return value of this instance is formatted with the general numeric format specifier (\"G\").  \n  \n The .NET Framework provides extensive formatting support, which is described in greater detail in the following formatting topics:  \n  \n-   For more information about numeric format specifiers, see [Standard Numeric Format Strings](~/docs/standard/base-types/standard-numeric-format-strings.md) and [Custom Numeric Format Strings](~/docs/standard/base-types/custom-numeric-format-strings.md).  \n  \n-   For more information about formatting, see [Formatting Types](~/docs/standard/base-types/formatting-types.md).  \n  \n The return value of this instance is formatted with the <xref:System.Globalization.NumberFormatInfo> for the current culture."
   example:
   - "The following example displays an <xref:System.Int32> value using each of the supported standard numeric format specifiers, together with two custom numeric format strings. In converting the numeric values to strings, the example uses the formatting conventions of the en-US culture.  \n  \n [!code-cpp[System.Int32.ToString#3](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.Int32.ToString/cpp/ToString3.cpp#3)]\n [!code-csharp[System.Int32.ToString#3](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Int32.ToString/cs/ToString.cs#3)]\n [!code-vb[System.Int32.ToString#3](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Int32.ToString/vb/ToString.vb#3)]"
@@ -1430,7 +1430,7 @@ items:
       description: A string containing a number to convert.
     - id: result
       type: System.Int32
-      description: When this method returns, contains the 32-bit signed integer value equivalent of the number contained in <code>s</code>, if the conversion succeeded, or zero if the conversion failed. The conversion fails if the <code>s</code> parameter is `null` or <xref href="System.String.Empty"></xref>, is not of the correct format, or represents a number less than <xref href="System.Int32.MinValue"></xref> or greater than <xref href="System.Int32.MaxValue"></xref>. This parameter is passed uninitialized; any value originally supplied in <code>result</code> will be overwritten.
+      description: 'When this method returns, contains the 32-bit signed integer value equivalent of the number contained in <code>s</code>, if the conversion succeeded, or zero if the conversion failed. The conversion fails if the <code>s</code> parameter is `null` or <xref href="System.String.Empty"></xref>, is not of the correct format, or represents a number less than <xref href="System.Int32.MinValue"></xref> or greater than <xref href="System.Int32.MaxValue"></xref>. This parameter is passed uninitialized; any value originally supplied in <code>result</code> will be overwritten.'
     return:
       type: System.Boolean
       description: '`true` if <code>s</code> was converted successfully; otherwise, `false`.'
@@ -1519,7 +1519,7 @@ items:
       description: An object that supplies culture-specific formatting information about <code>s</code>.
     - id: result
       type: System.Int32
-      description: When this method returns, contains the 32-bit signed integer value equivalent of the number contained in <code>s</code>, if the conversion succeeded, or zero if the conversion failed. The conversion fails if the <code>s</code> parameter is `null` or <xref href="System.String.Empty"></xref>, is not in a format compliant with <code>style</code>, or represents a number less than <xref href="System.Int32.MinValue"></xref> or greater than <xref href="System.Int32.MaxValue"></xref>. This parameter is passed uninitialized; any value originally supplied in <code>result</code> will be overwritten.
+      description: 'When this method returns, contains the 32-bit signed integer value equivalent of the number contained in <code>s</code>, if the conversion succeeded, or zero if the conversion failed. The conversion fails if the <code>s</code> parameter is `null` or <xref href="System.String.Empty"></xref>, is not in a format compliant with <code>style</code>, or represents a number less than <xref href="System.Int32.MinValue"></xref> or greater than <xref href="System.Int32.MaxValue"></xref>. This parameter is passed uninitialized; any value originally supplied in <code>result</code> will be overwritten.'
     return:
       type: System.Boolean
       description: '`true` if <code>s</code> was converted successfully; otherwise, `false`.'
@@ -1677,8 +1677,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: For a description of this member, see <xref href="System.IConvertible.ToBoolean(System.IFormatProvider)"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Int32> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToBoolean%28System.Int32%29?displayProperty=fullName> method.
+  summary: 'For a description of this member, see <xref href="System.IConvertible.ToBoolean(System.IFormatProvider)"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Int32> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToBoolean%28System.Int32%29?displayProperty=fullName> method.'
   syntax:
     content: bool IConvertible.ToBoolean (IFormatProvider provider);
     parameters:
@@ -1750,8 +1750,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: For a description of this member, see <xref href="System.IConvertible.ToByte(System.IFormatProvider)"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Int32> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToByte%28System.Int32%29?displayProperty=fullName> method.
+  summary: 'For a description of this member, see <xref href="System.IConvertible.ToByte(System.IFormatProvider)"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Int32> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToByte%28System.Int32%29?displayProperty=fullName> method.'
   syntax:
     content: byte IConvertible.ToByte (IFormatProvider provider);
     parameters:
@@ -1760,7 +1760,7 @@ items:
       description: This parameter is ignored.
     return:
       type: System.Byte
-      description: The value of the current instance, converted to a <xref href="System.Byte"></xref>.
+      description: 'The value of the current instance, converted to a <xref href="System.Byte"></xref>.'
   overload: System.Int32.System#IConvertible#ToByte*
   exceptions: []
   version:
@@ -1823,8 +1823,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: For a description of this member, see <xref href="System.IConvertible.ToChar(System.IFormatProvider)"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Int32> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToChar%28System.Int32%29?displayProperty=fullName> method.
+  summary: 'For a description of this member, see <xref href="System.IConvertible.ToChar(System.IFormatProvider)"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Int32> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToChar%28System.Int32%29?displayProperty=fullName> method.'
   syntax:
     content: char IConvertible.ToChar (IFormatProvider provider);
     parameters:
@@ -1833,7 +1833,7 @@ items:
       description: This parameter is ignored.
     return:
       type: System.Char
-      description: The value of the current instance, converted to a <xref href="System.Char"></xref>.
+      description: 'The value of the current instance, converted to a <xref href="System.Char"></xref>.'
   overload: System.Int32.System#IConvertible#ToChar*
   exceptions: []
   version:
@@ -1971,8 +1971,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: For a description of this member, see <xref href="System.IConvertible.ToDecimal(System.IFormatProvider)"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Int32> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToDecimal%2A?displayProperty=fullName> method.
+  summary: 'For a description of this member, see <xref href="System.IConvertible.ToDecimal(System.IFormatProvider)"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Int32> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToDecimal%2A?displayProperty=fullName> method.'
   syntax:
     content: decimal IConvertible.ToDecimal (IFormatProvider provider);
     parameters:
@@ -1981,7 +1981,7 @@ items:
       description: This parameter is ignored.
     return:
       type: System.Decimal
-      description: The value of the current instance, converted to a <xref href="System.Decimal"></xref>.
+      description: 'The value of the current instance, converted to a <xref href="System.Decimal"></xref>.'
   overload: System.Int32.System#IConvertible#ToDecimal*
   exceptions: []
   version:
@@ -2044,8 +2044,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: For a description of this member, see <xref href="System.IConvertible.ToDouble(System.IFormatProvider)"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Int32> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToDouble%28System.Int32%29?displayProperty=fullName> method.
+  summary: 'For a description of this member, see <xref href="System.IConvertible.ToDouble(System.IFormatProvider)"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Int32> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToDouble%28System.Int32%29?displayProperty=fullName> method.'
   syntax:
     content: double IConvertible.ToDouble (IFormatProvider provider);
     parameters:
@@ -2054,7 +2054,7 @@ items:
       description: This parameter is ignored.
     return:
       type: System.Double
-      description: The value of the current instance, converted to a <xref href="System.Double"></xref>.
+      description: 'The value of the current instance, converted to a <xref href="System.Double"></xref>.'
   overload: System.Int32.System#IConvertible#ToDouble*
   exceptions: []
   version:
@@ -2117,8 +2117,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: For a description of this member, see <xref href="System.IConvertible.ToInt16(System.IFormatProvider)"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Int32> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToInt16%28System.Int32%29?displayProperty=fullName> method.
+  summary: 'For a description of this member, see <xref href="System.IConvertible.ToInt16(System.IFormatProvider)"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Int32> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToInt16%28System.Int32%29?displayProperty=fullName> method.'
   syntax:
     content: short IConvertible.ToInt16 (IFormatProvider provider);
     parameters:
@@ -2127,7 +2127,7 @@ items:
       description: This parameter is ignored.
     return:
       type: System.Int16
-      description: The value of the current instance, converted to an <xref href="System.Int16"></xref>.
+      description: 'The value of the current instance, converted to an <xref href="System.Int16"></xref>.'
   overload: System.Int32.System#IConvertible#ToInt16*
   exceptions: []
   version:
@@ -2190,8 +2190,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: For a description of this member, see <xref href="System.IConvertible.ToInt32(System.IFormatProvider)"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Int32> instance is cast to an <xref:System.IConvertible> interface.
+  summary: 'For a description of this member, see <xref href="System.IConvertible.ToInt32(System.IFormatProvider)"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Int32> instance is cast to an <xref:System.IConvertible> interface.'
   syntax:
     content: int IConvertible.ToInt32 (IFormatProvider provider);
     parameters:
@@ -2200,7 +2200,7 @@ items:
       description: This parameter is ignored.
     return:
       type: System.Int32
-      description: The value of the current instance, unchanged.
+      description: 'The value of the current instance, unchanged.'
   overload: System.Int32.System#IConvertible#ToInt32*
   exceptions: []
   version:
@@ -2263,8 +2263,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: For a description of this member, see <xref href="System.IConvertible.ToInt64(System.IFormatProvider)"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Int32> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToInt64%28System.Int32%29?displayProperty=fullName> method.
+  summary: 'For a description of this member, see <xref href="System.IConvertible.ToInt64(System.IFormatProvider)"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Int32> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToInt64%28System.Int32%29?displayProperty=fullName> method.'
   syntax:
     content: long IConvertible.ToInt64 (IFormatProvider provider);
     parameters:
@@ -2273,7 +2273,7 @@ items:
       description: This parameter is ignored.
     return:
       type: System.Int64
-      description: The value of the current instance, converted to an <xref href="System.Int64"></xref>.
+      description: 'The value of the current instance, converted to an <xref href="System.Int64"></xref>.'
   overload: System.Int32.System#IConvertible#ToInt64*
   exceptions: []
   version:
@@ -2336,8 +2336,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: For a description of this member, see <xref href="System.IConvertible.ToSByte(System.IFormatProvider)"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Int32> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToSByte%28System.Int32%29?displayProperty=fullName> method.
+  summary: 'For a description of this member, see <xref href="System.IConvertible.ToSByte(System.IFormatProvider)"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Int32> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToSByte%28System.Int32%29?displayProperty=fullName> method.'
   syntax:
     content: sbyte IConvertible.ToSByte (IFormatProvider provider);
     parameters:
@@ -2346,7 +2346,7 @@ items:
       description: This parameter is ignored.
     return:
       type: System.SByte
-      description: The value of the current instance, converted to an <xref href="System.SByte"></xref>.
+      description: 'The value of the current instance, converted to an <xref href="System.SByte"></xref>.'
   overload: System.Int32.System#IConvertible#ToSByte*
   exceptions: []
   version:
@@ -2409,8 +2409,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: For a description of this member, see <xref href="System.IConvertible.ToSingle(System.IFormatProvider)"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Int32> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToSingle%28System.Int32%29?displayProperty=fullName> method.
+  summary: 'For a description of this member, see <xref href="System.IConvertible.ToSingle(System.IFormatProvider)"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Int32> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToSingle%28System.Int32%29?displayProperty=fullName> method.'
   syntax:
     content: float IConvertible.ToSingle (IFormatProvider provider);
     parameters:
@@ -2419,7 +2419,7 @@ items:
       description: This parameter is ignored.
     return:
       type: System.Single
-      description: The value of the current instance, converted to a <xref href="System.Single"></xref>.
+      description: 'The value of the current instance, converted to a <xref href="System.Single"></xref>.'
   overload: System.Int32.System#IConvertible#ToSingle*
   exceptions: []
   version:
@@ -2482,8 +2482,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: For a description of this member, see <xref href="System.IConvertible.ToType(System.Type,System.IFormatProvider)"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Int32> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the `static` (`Shared` in Visual Basic) <xref:System.Convert.ChangeType%2A?displayProperty=fullName> method instead.
+  summary: 'For a description of this member, see <xref href="System.IConvertible.ToType(System.Type,System.IFormatProvider)"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Int32> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the `static` (`Shared` in Visual Basic) <xref:System.Convert.ChangeType%2A?displayProperty=fullName> method instead.'
   syntax:
     content: object IConvertible.ToType (Type type, IFormatProvider provider);
     parameters:
@@ -2495,7 +2495,7 @@ items:
       description: An object that provides information about the format of the returned value.
     return:
       type: System.Object
-      description: The value of the current instance, converted to <code>type</code>.
+      description: 'The value of the current instance, converted to <code>type</code>.'
   overload: System.Int32.System#IConvertible#ToType*
   exceptions: []
   version:
@@ -2558,8 +2558,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: For a description of this member, see <xref href="System.IConvertible.ToUInt16(System.IFormatProvider)"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Int32> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToUInt16%28System.Int32%29?displayProperty=fullName> method.
+  summary: 'For a description of this member, see <xref href="System.IConvertible.ToUInt16(System.IFormatProvider)"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Int32> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToUInt16%28System.Int32%29?displayProperty=fullName> method.'
   syntax:
     content: ushort IConvertible.ToUInt16 (IFormatProvider provider);
     parameters:
@@ -2568,7 +2568,7 @@ items:
       description: This parameter is ignored.
     return:
       type: System.UInt16
-      description: The value of the current instance, converted to a <xref href="System.UInt16"></xref>.
+      description: 'The value of the current instance, converted to a <xref href="System.UInt16"></xref>.'
   overload: System.Int32.System#IConvertible#ToUInt16*
   exceptions: []
   version:
@@ -2631,8 +2631,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: For a description of this member, see <xref href="System.IConvertible.ToUInt32(System.IFormatProvider)"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Int32> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToUInt32%28System.Int32%29?displayProperty=fullName> method.
+  summary: 'For a description of this member, see <xref href="System.IConvertible.ToUInt32(System.IFormatProvider)"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Int32> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToUInt32%28System.Int32%29?displayProperty=fullName> method.'
   syntax:
     content: uint IConvertible.ToUInt32 (IFormatProvider provider);
     parameters:
@@ -2641,7 +2641,7 @@ items:
       description: This parameter is ignored.
     return:
       type: System.UInt32
-      description: The value of the current instance, converted to a <xref href="System.UInt32"></xref>.
+      description: 'The value of the current instance, converted to a <xref href="System.UInt32"></xref>.'
   overload: System.Int32.System#IConvertible#ToUInt32*
   exceptions: []
   version:
@@ -2704,8 +2704,8 @@ items:
   - mscorlib
   - netstandard
   namespace: System
-  summary: For a description of this member, see <xref href="System.IConvertible.ToUInt64(System.IFormatProvider)"></xref>.
-  remarks: This member is an explicit interface member implementation. It can be used only when the <xref:System.Int32> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToUInt64%28System.Int32%29?displayProperty=fullName> method.
+  summary: 'For a description of this member, see <xref href="System.IConvertible.ToUInt64(System.IFormatProvider)"></xref>.'
+  remarks: 'This member is an explicit interface member implementation. It can be used only when the <xref:System.Int32> instance is cast to an <xref:System.IConvertible> interface. The recommended alternative is to call the <xref:System.Convert.ToUInt64%28System.Int32%29?displayProperty=fullName> method.'
   syntax:
     content: ulong IConvertible.ToUInt64 (IFormatProvider provider);
     parameters:
@@ -2714,7 +2714,7 @@ items:
       description: This parameter is ignored.
     return:
       type: System.UInt64
-      description: The value of the current instance, converted to a <xref href="System.UInt64"></xref>.
+      description: 'The value of the current instance, converted to a <xref href="System.UInt64"></xref>.'
   overload: System.Int32.System#IConvertible#ToUInt64*
   exceptions: []
   version:

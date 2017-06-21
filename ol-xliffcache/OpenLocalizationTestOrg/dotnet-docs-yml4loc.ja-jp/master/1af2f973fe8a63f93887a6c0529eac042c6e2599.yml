@@ -31,7 +31,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.Adapters
-  summary: Customizes rendering for the derived control to which the adapter is attached, to modify the default markup or behavior for specific browsers, and is the base class from which all control adapters inherit.
+  summary: 'Customizes rendering for the derived control to which the adapter is attached, to modify the default markup or behavior for specific browsers, and is the base class from which all control adapters inherit.'
   remarks: "Control adapters are components that override certain <xref:System.Web.UI.Control> class methods and events in its execution lifecycle to allow browser or markup-specific handling. The .NET Framework maps a single derived control adapter to a <xref:System.Web.UI.Control> object for each client request.  \n  \n An adapter modifies a control for a specific browser or class of browsers or acts as an arbitrary filter on some capability. Typically the adapter is defined by the markup language that the browser uses (for example, XHTML or HTML 3.2). Much of the adaptability in rendering behavior can be encapsulated in the specialized classes that derive from the <xref:System.Web.UI.HtmlTextWriter> class. Therefore, it is likely that a single adapter can be used for a number of browser class behaviors or that inclusion of the adaptability in the <xref:System.Web.UI.HtmlTextWriter> classes could make the use of a control adapter unnecessary.  \n  \n An adapter for a control class applies to all controls that inherit from that class, unless more specialized adapters are present. For example, an adapter for the <xref:System.Web.UI.WebControls.BaseValidator> class can be used for all `Validator` objects.  \n  \n Adapters typically do not inherit directly from the <xref:System.Web.UI.Adapters.ControlAdapter> class, but from one of the target-specific adapter base classes that provide additional functionality specific to the control type and target browser or the particular rendering required.  \n  \n Controls themselves do not necessarily require an adapter. If controls are extended through composition, generally the child control adapters are sufficient.  \n  \n Each control has explicit mappings to adapters through the .browser definition files. Thus, any access to the <xref:System.Web.UI.Control.Adapter%2A?displayProperty=fullName> property uses the <xref:System.Web.HttpBrowserCapabilities> object extracted from the browser definition files to perform the lookup for the mapping of the adapter to control.  \n  \n During processing, the .NET Framework intercepts calls to the overridable methods of a control that could be target-specific. If a control adapter is attached, the .NET Framework calls the associated adapter methods.  \n  \n The adapter performs rendering for the control through the <xref:System.Web.UI.Adapters.ControlAdapter.Render%2A> method. If overridden, <xref:System.Web.UI.Adapters.ControlAdapter.Render%2A> potentially should not call the base class implementation because that performs a call back on the <xref:System.Web.UI.Control.Render%2A?displayProperty=fullName> method. This might cause the rendering to occur twice, once by the adapter and once by the control.  \n  \n The <xref:System.Web.UI.Adapters.ControlAdapter.Render%2A> base method calls back on the <xref:System.Web.UI.Control.Render%2A?displayProperty=fullName> method of the control. Thus, if you override <xref:System.Web.UI.Adapters.ControlAdapter.Render%2A>, you should not call the base class implementation unless the rendering you implement is in addition to that provided by <xref:System.Web.UI.Control.Render%2A?displayProperty=fullName> of the control.  \n  \n You must ensure that the .NET Framework performs interception for adapters of the child controls. You can do this by calling the <xref:System.Web.UI.Adapters.ControlAdapter.RenderChildren%2A> base method, which calls the <xref:System.Web.UI.Control.RenderChildren%2A?displayProperty=fullName> method of the control, from your <xref:System.Web.UI.Adapters.ControlAdapter.Render%2A> override.  \n  \n The <xref:System.Web.UI.Adapters.ControlAdapter.BeginRender%2A> and <xref:System.Web.UI.Adapters.ControlAdapter.EndRender%2A> methods are called by the control immediately before and after (respectively) the control calls the <xref:System.Web.UI.Adapters.ControlAdapter.Render%2A> method. If pre- and post-rendering are the only browser-specific processing tasks required, using <xref:System.Web.UI.Adapters.ControlAdapter.BeginRender%2A> and <xref:System.Web.UI.Adapters.ControlAdapter.EndRender%2A> might make it unnecessary to override <xref:System.Web.UI.Adapters.ControlAdapter.Render%2A>. The default behavior of the <xref:System.Web.UI.Adapters.ControlAdapter.BeginRender%2A> and <xref:System.Web.UI.Adapters.ControlAdapter.EndRender%2A> methods is to call the corresponding methods of the <xref:System.Web.UI.HtmlTextWriter>.  \n  \n To maintain its own state information, a control adapter can override the <xref:System.Web.UI.Adapters.ControlAdapter.SaveAdapterControlState%2A>, <xref:System.Web.UI.Adapters.ControlAdapter.LoadAdapterControlState%2A>, <xref:System.Web.UI.Adapters.ControlAdapter.SaveAdapterViewState%2A>, and <xref:System.Web.UI.Adapters.ControlAdapter.LoadAdapterViewState%2A> methods. <xref:System.Web.UI.Adapters.ControlAdapter.SaveAdapterControlState%2A>, <xref:System.Web.UI.Adapters.ControlAdapter.SaveAdapterViewState%2A>, <xref:System.Web.UI.Adapters.ControlAdapter.LoadAdapterControlState%2A>, and <xref:System.Web.UI.Adapters.ControlAdapter.LoadAdapterViewState%2A> are called when the private control and view states are saved and loaded, respectively.  \n  \n The <xref:System.Web.UI.Adapters.ControlAdapter.OnInit%2A>, <xref:System.Web.UI.Adapters.ControlAdapter.OnLoad%2A>, <xref:System.Web.UI.Adapters.ControlAdapter.OnPreRender%2A>, and <xref:System.Web.UI.Adapters.ControlAdapter.OnUnload%2A> base methods call back on the corresponding <xref:System.Web.UI.Control> class methods. Thus, any of these <xref:System.Web.UI.Adapters.ControlAdapter> methods that are overridden must call their base methods; otherwise, the event associated with the <xref:System.Web.UI.Control> class method will not be raised.  \n  \n Controls and adapters optionally implement the <xref:System.Web.UI.IPostBackDataHandler> and <xref:System.Web.UI.IPostBackEventHandler> interfaces. The .NET Framework determines whether an adapter exists and whether the adapter implements these interfaces. If it does, the adapter should override the <xref:System.Web.UI.IPostBackDataHandler.LoadPostData%2A>, <xref:System.Web.UI.IPostBackDataHandler.RaisePostDataChangedEvent%2A>, and <xref:System.Web.UI.IPostBackEventHandler.RaisePostBackEvent%2A> methods, as necessary. If the postback data is not recognized in the adapter, it must call back on the control to process it. Subsequent event handlers also must call back on the control."
   syntax:
     content: public abstract class ControlAdapter
@@ -85,7 +85,7 @@ items:
   - System.Web
   namespace: System.Web.UI.Adapters
   summary: Initializes a new instance of the <xref href="System.Web.UI.Adapters.ControlAdapter"></xref> class.
-  remarks: The .NET Framework internally constructs this adapter when it creates the corresponding <xref:System.Web.UI.Control> object.
+  remarks: 'The .NET Framework internally constructs this adapter when it creates the corresponding <xref:System.Web.UI.Control> object.'
   syntax:
     content: protected ControlAdapter ();
     parameters: []
@@ -126,7 +126,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.Adapters
-  summary: Called prior to the rendering of a control. In a derived adapter class, generates opening tags that are required by a specific target but not needed by HTML browsers.
+  summary: 'Called prior to the rendering of a control. In a derived adapter class, generates opening tags that are required by a specific target but not needed by HTML browsers.'
   remarks: "The <xref:System.Web.UI.Adapters.ControlAdapter.BeginRender%2A> method is called just before the <xref:System.Web.UI.Adapters.ControlAdapter.Render%2A> method, and is used to perform target-specific preprocessing before the rendering of the control.  \n  \n Use the <xref:System.Web.UI.Adapters.ControlAdapter.BeginRender%2A> method in combination with the <xref:System.Web.UI.Adapters.ControlAdapter.EndRender%2A> method to ensure opening and closing tag consistency."
   syntax:
     content: protected virtual void BeginRender (System.Web.UI.HtmlTextWriter writer);
@@ -172,7 +172,7 @@ items:
   - System.Web
   namespace: System.Web.UI.Adapters
   summary: Gets a reference to the browser capabilities of the client making the current HTTP request.
-  remarks: A <xref:System.Web.UI.Adapters.ControlAdapter> object determines the client browser capabilities from the <xref:System.Web.HttpBrowserCapabilities> object that is returned by the <xref:System.Web.UI.Adapters.ControlAdapter.Browser%2A> property. This enables the <xref:System.Web.UI.Adapters.ControlAdapter> object to render browser-specific markup or otherwise modify the behavior of the <xref:System.Web.UI.Control>.
+  remarks: 'A <xref:System.Web.UI.Adapters.ControlAdapter> object determines the client browser capabilities from the <xref:System.Web.HttpBrowserCapabilities> object that is returned by the <xref:System.Web.UI.Adapters.ControlAdapter.Browser%2A> property. This enables the <xref:System.Web.UI.Adapters.ControlAdapter> object to render browser-specific markup or otherwise modify the behavior of the <xref:System.Web.UI.Control>.'
   example:
   - "The following code example shows how to use the <xref:System.Web.UI.Adapters.ControlAdapter.Browser%2A> property to access the details of the requesting browser. In this example, the code checks to determine whether the browser is compatible with JavaScript, and then allows the developer to render customized output in that case.  \n  \n [!code-cpp[ControlAdapter_Browser#1](~/samples/snippets/cpp/VS_Snippets_WebNet/ControlAdapter_Browser/CPP/controladapter_browser.cpp#1)]\n [!code-csharp[ControlAdapter_Browser#1](~/samples/snippets/csharp/VS_Snippets_WebNet/ControlAdapter_Browser/CS/controladapter_browser.cs#1)]\n [!code-vb[ControlAdapter_Browser#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/ControlAdapter_Browser/VB/controladapter_browser.vb#1)]"
   syntax:
@@ -218,7 +218,7 @@ items:
   - System.Web
   namespace: System.Web.UI.Adapters
   summary: Gets a reference to the control to which this control adapter is attached.
-  remarks: When a derived control adapter is attached to a control, the .NET Framework calls certain adapter members instead of the control members.
+  remarks: 'When a derived control adapter is attached to a control, the .NET Framework calls certain adapter members instead of the control members.'
   example:
   - "The following code example shows how to derive a custom control from the <xref:System.Web.UI.Control> class, and then create a corresponding adapter that inherits from the <xref:System.Web.UI.Adapters.ControlAdapter> class. The adapter overrides the <xref:System.Web.UI.Adapters.ControlAdapter.Control%2A> property and returns a strongly-typed reference to the control.  \n  \n [!code-cpp[ControlAdapter.Control#1](~/samples/snippets/cpp/VS_Snippets_WebNet/ControlAdapter.Control/CPP/controladapter.control.cpp#1)]\n [!code-csharp[ControlAdapter.Control#1](~/samples/snippets/csharp/VS_Snippets_WebNet/ControlAdapter.Control/CS/controladapter.control.cs#1)]\n [!code-vb[ControlAdapter.Control#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/ControlAdapter.Control/VB/controladapter.control.vb#1)]"
   syntax:
@@ -310,7 +310,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.Adapters
-  summary: Called after the rendering of a control. In a derived adapter class, generates closing tags that are required by a specific target but not needed by HTML browsers.
+  summary: 'Called after the rendering of a control. In a derived adapter class, generates closing tags that are required by a specific target but not needed by HTML browsers.'
   remarks: "The <xref:System.Web.UI.Adapters.ControlAdapter.EndRender%2A> method is called just after the <xref:System.Web.UI.Adapters.ControlAdapter.Render%2A> method, and is used to perform target-specific postprocessing after the rendering of the control.  \n  \n Use the <xref:System.Web.UI.Adapters.ControlAdapter.EndRender%2A> method in combination with the <xref:System.Web.UI.Adapters.ControlAdapter.BeginRender%2A> method to ensure opening and closing tag consistency."
   syntax:
     content: protected virtual void EndRender (System.Web.UI.HtmlTextWriter writer);
@@ -628,7 +628,7 @@ items:
   - System.Web
   namespace: System.Web.UI.Adapters
   summary: Gets a reference to the page where the control associated with this adapter resides.
-  remarks: The <xref:System.Web.UI.Adapters.ControlAdapter.Page%2A> property provides access to the <xref:System.Web.UI.Page?displayProperty=fullName> object where the control is situated.
+  remarks: 'The <xref:System.Web.UI.Adapters.ControlAdapter.Page%2A> property provides access to the <xref:System.Web.UI.Page?displayProperty=fullName> object where the control is situated.'
   syntax:
     content: >-
       [System.ComponentModel.Browsable(false)]
@@ -726,7 +726,7 @@ items:
   - System.Web
   namespace: System.Web.UI.Adapters
   summary: Generates the target-specific markup for the control to which the control adapter is attached.
-  remarks: Override the <xref:System.Web.UI.Adapters.ControlAdapter.Render%2A> method to generate target-specific markup to send to the client browser. The <xref:System.Web.UI.Adapters.ControlAdapter.Render%2A> method is called in place of the <xref:System.Web.UI.Control.Render%2A?displayProperty=fullName> method if a <xref:System.Web.UI.Adapters.ControlAdapter> object is attached to a <xref:System.Web.UI.Control> object.
+  remarks: 'Override the <xref:System.Web.UI.Adapters.ControlAdapter.Render%2A> method to generate target-specific markup to send to the client browser. The <xref:System.Web.UI.Adapters.ControlAdapter.Render%2A> method is called in place of the <xref:System.Web.UI.Control.Render%2A?displayProperty=fullName> method if a <xref:System.Web.UI.Adapters.ControlAdapter> object is attached to a <xref:System.Web.UI.Control> object.'
   syntax:
     content: protected virtual void Render (System.Web.UI.HtmlTextWriter writer);
     parameters:
@@ -771,7 +771,7 @@ items:
   - System.Web
   namespace: System.Web.UI.Adapters
   summary: Generates the target-specific markup for the child controls in a composite control to which the control adapter is attached.
-  remarks: Override the <xref:System.Web.UI.Adapters.ControlAdapter.RenderChildren%2A> method when it is necessary to generate target-specific markup for the child control set of a composite control, in addition to the markup for the individual child controls.
+  remarks: 'Override the <xref:System.Web.UI.Adapters.ControlAdapter.RenderChildren%2A> method when it is necessary to generate target-specific markup for the child control set of a composite control, in addition to the markup for the individual child controls.'
   syntax:
     content: protected virtual void RenderChildren (System.Web.UI.HtmlTextWriter writer);
     parameters:

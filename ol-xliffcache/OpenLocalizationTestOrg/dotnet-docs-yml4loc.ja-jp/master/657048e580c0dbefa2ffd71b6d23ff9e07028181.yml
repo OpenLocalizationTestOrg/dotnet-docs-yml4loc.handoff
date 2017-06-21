@@ -22,7 +22,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: Identifies the callback method in a server control acting as the provider in a Web Parts connection, and enables developers to specify details about the provider's connection point.
+  summary: 'Identifies the callback method in a server control acting as the provider in a Web Parts connection, and enables developers to specify details about the provider''s connection point.'
   remarks: "A Web Parts connection consists of two server controls residing in a <xref:System.Web.UI.WebControls.WebParts.WebPartZoneBase> zone and sharing data by means of an interface instance passed from one control to the other. The control that serves the interface instance is called the provider, and the control that receives the interface instance and processes or displays the data is called the consumer. For details on connections, see the <xref:System.Web.UI.WebControls.WebParts.WebPartConnection> class and [Web Parts Connections Overview](http://msdn.microsoft.com/library/d98cfd0f-ebd6-4871-89d5-abbd2cdef67b).  \n  \n The provider control in a connection can be a <xref:System.Web.UI.WebControls.WebParts.WebPart> control or any type of server or user control, but it must have a method designated as a callback method. The callback method is invoked during the connection process, and its purpose is to return to the consumer an interface instance that contains data. To designate the method that serves as the callback method in a provider, you must add a `ConnectionProviderAttribute` metadata element to the method (the element is based on the <xref:System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute> class).  \n  \n In addition to designating the callback method in a provider, the <xref:System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute> object also enables you to specify certain details about a provider's connection point. A provider connection point is an instance of the <xref:System.Web.UI.WebControls.WebParts.ProviderConnectionPoint> class that encapsulates all the details about a provider needed to establish a connection, including the provider's control type, whether it can connect to multiple consumers at the same time, what type of interface the provider serves to consumers, details about the callback method, and a display name that represents the provider connection point in the user interface (UI). Every Web Parts connection includes a provider connection point that is associated with the provider control.  \n  \n When you add the `ConnectionProviderAttribute` metadata element to the callback method in a provider, you can also use it to specify the following details about the provider connection point: a display name for the connection point (for details, see the <xref:System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute.DisplayName%2A> property), whether the provider can connect to multiple consumers at the same time (for details, see the <xref:System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute.AllowsMultipleConnections%2A> property), an ID for the connection point (for details, see the <xref:System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute.ID%2A> property), and the type of the connection point that the provider uses (for details, see the <xref:System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute.ConnectionPointType%2A> property). The four overloads of the constructor for the <xref:System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute> class each have parameters that allow you to specify values for one or more of these connection point properties when a new instance of the class is created. Most of the properties for a provider connection point can also be set programmatically; setting them using the `ConnectionProviderAttribute` element is optional.  \n  \n> [!NOTE]\n>  When you add the `ConnectionProviderAttribute` metadata element to a callback method in a provider, the only required parameter that you must always specify is the `displayName` parameter (for details, see the <xref:System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute.%23ctor%28System.String%29> constructor overload). The value of this parameter is assigned to the <xref:System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute.DisplayName%2A> property, and when a user opens the connection UI (created by the <xref:System.Web.UI.WebControls.WebParts.ConnectionsZone> control), the display name represents the provider connection point in the UI. If you designate multiple callback methods in a provider control, you will have multiple possible connection points to choose from, and when you add the `ConnectionProviderAttribute` metadata element to each callback method, you should also specify a value for the `id` parameter, so that each provider connection point has a known, unique identifier."
   example:
   - "The following code example demonstrates using the <xref:System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute> class, by showing how to declare the `ConnectionProviderAttribute` metadata element on a callback method in a provider control. Note that the simplest overload of the constructor is used; only the `displayName` parameter value is supplied.  \n  \n [!code-csharp[UI.WebControls.WebParts.Connection#6](~/samples/snippets/csharp/VS_Snippets_WebNet/UI.WebControls.WebParts.Connection/CS/rowproviderwebpart.cs#6)]\n [!code-vb[UI.WebControls.WebParts.Connection#6](~/samples/snippets/visualbasic/VS_Snippets_WebNet/UI.WebControls.WebParts.Connection/VB/rowproviderwebpart.vb#6)]  \n  \n The following code examples demonstrate how to create a basic, static connection between two Web Parts controls using the <xref:System.Web.UI.WebControls.WebParts.WebPartConnection> class. The provider and consumer code files should be put into the App_Code folder under the application folder that contains the .aspx page.  \n  \n The first example shows a class acting as a provider. Notice that a method is designated as the callback method with the `ConnectionProviderAttribute` metadata element.  \n  \n [!code-csharp[UI.WebControls.WebParts.Connection#1](~/samples/snippets/csharp/VS_Snippets_WebNet/UI.WebControls.WebParts.Connection/CS/rowproviderwebpart.cs#1)]\n [!code-vb[UI.WebControls.WebParts.Connection#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/UI.WebControls.WebParts.Connection/VB/rowproviderwebpart.vb#1)]  \n  \n The second example shows a class acting as a consumer.  \n  \n [!code-csharp[UI.WebControls.WebParts.Connection#2](~/samples/snippets/csharp/VS_Snippets_WebNet/UI.WebControls.WebParts.Connection/CS/rowconsumerwebpart.cs#2)]\n [!code-vb[UI.WebControls.WebParts.Connection#2](~/samples/snippets/visualbasic/VS_Snippets_WebNet/UI.WebControls.WebParts.Connection/VB/rowconsumerwebpart.vb#2)]  \n  \n The final example shows the ASP.NET page that contains the two controls.  \n  \n <!-- TODO: review snippet reference [!code-csharp[UI.WebControls.WebParts.Connection#3](~/samples/snippets/csharp/VS_Snippets_WebNet/UI.WebControls.WebParts.Connection/CS/defaultcs.aspx#3)]  -->\n <!-- TODO: review snippet reference [!code-vb[UI.WebControls.WebParts.Connection#3](~/samples/snippets/visualbasic/VS_Snippets_WebNet/UI.WebControls.WebParts.Connection/VB/defaultvb.aspx#3)]  -->"
@@ -119,7 +119,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: Initializes a new instance of the <xref href="System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute"></xref> class, specifying a display name for the provider connection point.
+  summary: 'Initializes a new instance of the <xref href="System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute"></xref> class, specifying a display name for the provider connection point.'
   remarks: "This constructor creates an instance of the attribute that is used with a method of a Web Parts control acting as a provider. This method becomes the connection point between the provider and the consumer. Typically, the way you use this constructor is to declare a `ConnectionProviderAttribute` metadata element on a method that you want to designate as a callback method in a provider control.  \n  \n The `displayName` parameter is a friendly name of the provider connection point that is used by the <xref:System.Web.UI.WebControls.WebParts.ConnectionsZone> control to represent a provider's connection point in the UI."
   example:
   - "The following code example demonstrates using the <xref:System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute> class, by showing how to declare the `ConnectionProviderAttribute` metadata element on a callback method in a provider control. Note that the simplest overload of the constructor is used; only the `displayName` parameter value is supplied. For the full code required to run the code example, see the <xref:System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute> class overview.  \n  \n [!code-csharp[UI.WebControls.WebParts.Connection#6](~/samples/snippets/csharp/VS_Snippets_WebNet/UI.WebControls.WebParts.Connection/CS/rowproviderwebpart.cs#6)]\n [!code-vb[UI.WebControls.WebParts.Connection#6](~/samples/snippets/visualbasic/VS_Snippets_WebNet/UI.WebControls.WebParts.Connection/VB/rowproviderwebpart.vb#6)]"
@@ -169,7 +169,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: Initializes a new instance of the <xref href="System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute"></xref> class, specifying a display name and an ID for the provider connection point.
+  summary: 'Initializes a new instance of the <xref href="System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute"></xref> class, specifying a display name and an ID for the provider connection point.'
   remarks: "The `displayName` parameter is a friendly name of the provider connection point that is used by the <xref:System.Web.UI.WebControls.WebParts.ConnectionsZone> control to represent a provider's connection point in the UI.  \n  \n The `id` parameter is used to specify the ID for the provider connection point associated with the specific callback method. A control can have multiple connection points, but the `id` for each must be unique. Therefore, this overload of the constructor is useful if you have multiple callback methods in your provider control."
   syntax:
     content: public ConnectionProviderAttribute (string displayName, string id);
@@ -179,7 +179,7 @@ items:
       description: A string that contains a friendly name for the provider connection point to display in the user interface (UI).
     - id: id
       type: System.String
-      description: The <xref href="System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute.ID"></xref>, a unique string value assigned to the provider connection point.
+      description: 'The <xref href="System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute.ID"></xref>, a unique string value assigned to the provider connection point.'
   overload: System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute.#ctor*
   exceptions:
   - type: System.ArgumentNullException
@@ -220,7 +220,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: Initializes a new instance of the <xref href="System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute"></xref> class, specifying a display name and a specific type of connection point object to use for the provider connection point.
+  summary: 'Initializes a new instance of the <xref href="System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute"></xref> class, specifying a display name and a specific type of connection point object to use for the provider connection point.'
   remarks: "The `displayName` parameter is a friendly name of the provider connection point that is used by the <xref:System.Web.UI.WebControls.WebParts.ConnectionsZone> control to represent a provider's connection point in the UI.  \n  \n The `connectionPointType` parameter must be a <xref:System.Type> derived from <xref:System.Web.UI.WebControls.WebParts.ProviderConnectionPoint>. If this parameter is specified, the <xref:System.Type> is used to create the connection point instead of the standard <xref:System.Web.UI.WebControls.WebParts.ProviderConnectionPoint> class provided with the Web Parts control set."
   syntax:
     content: public ConnectionProviderAttribute (string displayName, Type connectionPointType);
@@ -230,7 +230,7 @@ items:
       description: A string that contains a friendly name for the provider connection point to display in the user interface (UI).
     - id: connectionPointType
       type: System.Type
-      description: A <xref href="System.Type"></xref> that derives from <xref href="System.Web.UI.WebControls.WebParts.ConnectionPoint"></xref>, and that you want to specify as the type of connection point object to use with a specific callback method.
+      description: 'A <xref href="System.Type"></xref> that derives from <xref href="System.Web.UI.WebControls.WebParts.ConnectionPoint"></xref>, and that you want to specify as the type of connection point object to use with a specific callback method.'
   overload: System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute.#ctor*
   exceptions:
   - type: System.ArgumentNullException
@@ -274,7 +274,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: Initializes a new instance of the <xref href="System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute"></xref> class, specifying a display name, an ID, and a specific type of connection point object to use for the provider connection point.
+  summary: 'Initializes a new instance of the <xref href="System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute"></xref> class, specifying a display name, an ID, and a specific type of connection point object to use for the provider connection point.'
   remarks: "The `displayName` parameter is a friendly name of the provider connection point that is used by the <xref:System.Web.UI.WebControls.WebParts.ConnectionsZone> control to represent a provider's connection point in the UI.  \n  \n The `id` parameter is used to specify the ID for the provider connection point associated with the specific callback method. A control can have multiple connection points, but the `id` for each must be unique. Therefore, this overload of the constructor is useful if you have multiple callback methods in your provider control.  \n  \n The `connectionPointType` parameter must be a <xref:System.Type> derived from <xref:System.Web.UI.WebControls.WebParts.ProviderConnectionPoint>. If this parameter is specified, the <xref:System.Type> is used to create the connection point instead of the standard <xref:System.Web.UI.WebControls.WebParts.ProviderConnectionPoint> class provided with the Web Parts control set."
   syntax:
     content: public ConnectionProviderAttribute (string displayName, string id, Type connectionPointType);
@@ -284,15 +284,15 @@ items:
       description: A string that contains a friendly name for the provider connection point to display in the user interface (UI).
     - id: id
       type: System.String
-      description: The <xref href="System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute.ID"></xref>, a unique string value assigned to the provider connection point.
+      description: 'The <xref href="System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute.ID"></xref>, a unique string value assigned to the provider connection point.'
     - id: connectionPointType
       type: System.Type
-      description: A <xref href="System.Type"></xref> that derives from <xref href="System.Web.UI.WebControls.WebParts.ProviderConnectionPoint"></xref>, and that you want to specify as the type of connection point object to use with a specific callback method.
+      description: 'A <xref href="System.Type"></xref> that derives from <xref href="System.Web.UI.WebControls.WebParts.ProviderConnectionPoint"></xref>, and that you want to specify as the type of connection point object to use with a specific callback method.'
   overload: System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: <code>displayName</code>, <code>id</code>, or <code>connectionPointType</code> is `null`.
+    description: '<code>displayName</code>, <code>id</code>, or <code>connectionPointType</code> is `null`.'
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
     description: <code>connectionPointType</code> is not valid.
@@ -332,7 +332,7 @@ items:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
   summary: Gets or sets a value that indicates whether the connection point allows multiple connections.
-  remarks: Provider connection points can connect to multiple consumers by default, and this property on the <xref:System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute> attribute is set to `true`.
+  remarks: 'Provider connection points can connect to multiple consumers by default, and this property on the <xref:System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute> attribute is set to `true`.'
   syntax:
     content: public bool AllowsMultipleConnections { get; set; }
     return:
@@ -376,7 +376,7 @@ items:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
   summary: Gets the type of the connection point associated with a provider control.
-  remarks: This property returns the <xref:System.Type> of the provider connection point. The <xref:System.Type> must derive from <xref:System.Web.UI.WebControls.WebParts.ProviderConnectionPoint>, and when you declare the `connectionPointType` parameter with a `ConnectionProviderAttribute` metadata element on a callback method, an instance of the type you declare is used to create a connection point instead of the standard <xref:System.Web.UI.WebControls.WebParts.ProviderConnectionPoint> class.
+  remarks: 'This property returns the <xref:System.Type> of the provider connection point. The <xref:System.Type> must derive from <xref:System.Web.UI.WebControls.WebParts.ProviderConnectionPoint>, and when you declare the `connectionPointType` parameter with a `ConnectionProviderAttribute` metadata element on a callback method, an instance of the type you declare is used to create a connection point instead of the standard <xref:System.Web.UI.WebControls.WebParts.ProviderConnectionPoint> class.'
   syntax:
     content: public Type ConnectionPointType { get; }
     return:
@@ -468,8 +468,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: Gets or sets the string used as the value of the <xref href="System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute.DisplayName"></xref> property, for use in localization scenarios.
-  remarks: This extra property exists so that you can derive from <xref:System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute> and provide a localized version. The derived localizable <xref:System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute> attribute will maintain a private Boolean field to indicate whether it has been localized. On the first access to the <xref:System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute.DisplayName%2A> property, it will look up the localized string, and then use the <xref:System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute.DisplayNameValue%2A> property to assign the localized value to the <xref:System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute.DisplayName%2A> property.
+  summary: 'Gets or sets the string used as the value of the <xref href="System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute.DisplayName"></xref> property, for use in localization scenarios.'
+  remarks: 'This extra property exists so that you can derive from <xref:System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute> and provide a localized version. The derived localizable <xref:System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute> attribute will maintain a private Boolean field to indicate whether it has been localized. On the first access to the <xref:System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute.DisplayName%2A> property, it will look up the localized string, and then use the <xref:System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute.DisplayNameValue%2A> property to assign the localized value to the <xref:System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute.DisplayName%2A> property.'
   syntax:
     content: protected string DisplayNameValue { get; set; }
     return:
@@ -513,7 +513,7 @@ items:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
   summary: Gets a string that represents the unique identity of the provider connection point object.
-  remarks: If searching through a connection point collection, you should use the <xref:System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute.ID%2A> property to locate a particular connection point. This property can be used to distinguish between two connection points of the same name. Provider connection points can have the same <xref:System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute.DisplayName%2A> property value, but the <xref:System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute.ID%2A> property must be different.
+  remarks: 'If searching through a connection point collection, you should use the <xref:System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute.ID%2A> property to locate a particular connection point. This property can be used to distinguish between two connection points of the same name. Provider connection points can have the same <xref:System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute.DisplayName%2A> property value, but the <xref:System.Web.UI.WebControls.WebParts.ConnectionProviderAttribute.ID%2A> property must be different.'
   syntax:
     content: public string ID { get; }
     return:

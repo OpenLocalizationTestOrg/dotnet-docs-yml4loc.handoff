@@ -34,7 +34,7 @@ items:
   - System.Data.Services
   namespace: System.Data.Services
   summary: Interface that specifies interactions between WCF Data Services and its hosting environment.
-  remarks: Each component that hosts [!INCLUDE[ssAstoria](~/includes/ssastoria-md.md)], such as Windows Communication Foundation (WCF) must implement this interface. <xref:System.Data.Services.IDataServiceHost> is the contract between [!INCLUDE[ssAstoria](~/includes/ssastoria-md.md)] and its hosting environment. This abstraction allows the [!INCLUDE[ssAstoria](~/includes/ssastoria-md.md)] runtime to be agnostic to any particular hosting environment. The interface provides [!INCLUDE[ssAstoria](~/includes/ssastoria-md.md)] with access to inbound HTTP requests. A new object implementing this interface is instantiated for each HTTP request and is then used to inspect properties of the HTTP request and configure the HTTP response.
+  remarks: 'Each component that hosts [!INCLUDE[ssAstoria](~/includes/ssastoria-md.md)], such as Windows Communication Foundation (WCF) must implement this interface. <xref:System.Data.Services.IDataServiceHost> is the contract between [!INCLUDE[ssAstoria](~/includes/ssastoria-md.md)] and its hosting environment. This abstraction allows the [!INCLUDE[ssAstoria](~/includes/ssastoria-md.md)] runtime to be agnostic to any particular hosting environment. The interface provides [!INCLUDE[ssAstoria](~/includes/ssastoria-md.md)] with access to inbound HTTP requests. A new object implementing this interface is instantiated for each HTTP request and is then used to inspect properties of the HTTP request and configure the HTTP response.'
   syntax:
     content: public interface IDataServiceHost
   derivedClasses:
@@ -76,7 +76,7 @@ items:
   - System.Data.Services
   namespace: System.Data.Services
   summary: Gets an absolute URI that is the URI as sent by the client.
-  remarks: The <xref:System.Data.Services.IDataServiceHost.AbsoluteRequestUri%2A> property always returns the absolute URI from the client HTTP request. This enables consistent access to the request URI, even in cases where the host revises the URI.
+  remarks: 'The <xref:System.Data.Services.IDataServiceHost.AbsoluteRequestUri%2A> property always returns the absolute URI from the client HTTP request. This enables consistent access to the request URI, even in cases where the host revises the URI.'
   syntax:
     content: public Uri AbsoluteRequestUri { get; }
     return:
@@ -120,7 +120,7 @@ items:
   - System.Data.Services
   namespace: System.Data.Services
   summary: Gets an absolute URI that is the root URI of the data service.
-  remarks: The <xref:System.Data.Services.IDataServiceHost.AbsoluteServiceUri%2A> property always returns the absolute root URI of the service request. This enables consistent access to the root data service URI, even in cases where the host revises the URI.
+  remarks: 'The <xref:System.Data.Services.IDataServiceHost.AbsoluteServiceUri%2A> property always returns the absolute root URI of the service request. This enables consistent access to the root data service URI, even in cases where the host revises the URI.'
   syntax:
     content: public Uri AbsoluteServiceUri { get; }
     return:
@@ -164,7 +164,7 @@ items:
   - System.Data.Services
   namespace: System.Data.Services
   summary: Gets a data item identified by the identity key contained by the parameter of the method.
-  remarks: The query string portion of an [!INCLUDE[ssAstoria](~/includes/ssastoria-md.md)] URI is made up of key/value pairs, with the key and value separated by the ‘=’ character. `GetQueryStringItem` returns a data item for an identity key specified by the parameter of the method.
+  remarks: 'The query string portion of an [!INCLUDE[ssAstoria](~/includes/ssastoria-md.md)] URI is made up of key/value pairs, with the key and value separated by the ‘=’ character. `GetQueryStringItem` returns a data item for an identity key specified by the parameter of the method.'
   syntax:
     content: public string GetQueryStringItem (string item);
     parameters:
@@ -256,7 +256,7 @@ items:
   - System.Data.Services
   namespace: System.Data.Services
   summary: The transport protocol specified by the request accept header.
-  remarks: Protocols currently supported by [!INCLUDE[ssAstoria](~/includes/ssastoria-md.md)] include JSON and AtomPub.
+  remarks: 'Protocols currently supported by [!INCLUDE[ssAstoria](~/includes/ssastoria-md.md)] include JSON and AtomPub.'
   syntax:
     content: public string RequestAccept { get; }
     return:
@@ -344,7 +344,7 @@ items:
   - System.Data.Services
   namespace: System.Data.Services
   summary: Gets the transport protocol specified by the content type header.
-  remarks: Protocols currently supported by [!INCLUDE[ssAstoria](~/includes/ssastoria-md.md)] include JSON and AtomPub.
+  remarks: 'Protocols currently supported by [!INCLUDE[ssAstoria](~/includes/ssastoria-md.md)] include JSON and AtomPub.'
   syntax:
     content: public string RequestContentType { get; }
     return:
@@ -387,8 +387,8 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: Gets the request method of GET, PUT, POST, or DELETE.
-  remarks: For more information about the properties supported by <xref:System.Data.Services.IDataServiceHost> and their use, see [WCF Data Services Client Library](~/docs/framework/data/wcf/wcf-data-services-client-library.md).
+  summary: 'Gets the request method of GET, PUT, POST, or DELETE.'
+  remarks: 'For more information about the properties supported by <xref:System.Data.Services.IDataServiceHost> and their use, see [WCF Data Services Client Library](~/docs/framework/data/wcf/wcf-data-services-client-library.md).'
   syntax:
     content: public string RequestHttpMethod { get; }
     return:
@@ -522,7 +522,7 @@ items:
     content: public string RequestMaxVersion { get; }
     return:
       type: System.String
-      description: A string that contains the highest version that the request client is able to process, possibly null.
+      description: 'A string that contains the highest version that the request client is able to process, possibly null.'
   overload: System.Data.Services.IDataServiceHost.RequestMaxVersion*
   exceptions: []
   version:
@@ -603,13 +603,13 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: Gets the value that identifies the version of the request that the client submitted, possibly null.
-  remarks: If this value is null, the version is assumed to be 1.0.
+  summary: 'Gets the value that identifies the version of the request that the client submitted, possibly null.'
+  remarks: 'If this value is null, the version is assumed to be 1.0.'
   syntax:
     content: public string RequestVersion { get; }
     return:
       type: System.String
-      description: A string that identifies the version of the request that the client submitted, possibly null.
+      description: 'A string that identifies the version of the request that the client submitted, possibly null.'
   overload: System.Data.Services.IDataServiceHost.RequestVersion*
   exceptions: []
   version:
@@ -869,7 +869,7 @@ items:
   - System.Data.Services
   namespace: System.Data.Services
   summary: Gets the response stream to which the HTTP response body will be written.
-  remarks: If a null stream is returned or an exception occurs when writing to the stream, [!INCLUDE[ssAstoria](~/includes/ssastoria-md.md)] aborts the request.
+  remarks: 'If a null stream is returned or an exception occurs when writing to the stream, [!INCLUDE[ssAstoria](~/includes/ssastoria-md.md)] aborts the request.'
   syntax:
     content: public System.IO.Stream ResponseStream { get; }
     return:

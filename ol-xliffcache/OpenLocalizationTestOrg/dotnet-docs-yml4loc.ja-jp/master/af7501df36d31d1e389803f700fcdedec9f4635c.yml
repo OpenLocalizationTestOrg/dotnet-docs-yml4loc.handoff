@@ -121,7 +121,7 @@ items:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
   summary: Gets a value indicating whether the specified security token can be validated by this security token authenticator.
-  remarks: The <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.CanValidateToken%2A> method checks whether the token parameter is `null` and then calls the <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.CanValidateTokenCore%2A> method to determine whether this security token authenticator can authenticate the security token type for `token`.
+  remarks: 'The <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.CanValidateToken%2A> method checks whether the token parameter is `null` and then calls the <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.CanValidateTokenCore%2A> method to determine whether this security token authenticator can authenticate the security token type for `token`.'
   syntax:
     content: public bool CanValidateToken (System.IdentityModel.Tokens.SecurityToken token);
     parameters:
@@ -173,8 +173,8 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: When overridden in a derived class, gets a value indicating whether the specified security token can be validated by this security token authenticator.
-  remarks: The <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.CanValidateTokenCore%2A> method is called by the <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.CanValidateToken%2A> method to determine whether this security token authenticator can authenticate the security token type for `token`. This does not authenticate the security token; that is performed by the <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.ValidateToken%2A> method.
+  summary: 'When overridden in a derived class, gets a value indicating whether the specified security token can be validated by this security token authenticator.'
+  remarks: 'The <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.CanValidateTokenCore%2A> method is called by the <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.CanValidateToken%2A> method to determine whether this security token authenticator can authenticate the security token type for `token`. This does not authenticate the security token; that is performed by the <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.ValidateToken%2A> method.'
   syntax:
     content: protected abstract bool CanValidateTokenCore (System.IdentityModel.Tokens.SecurityToken token);
     parameters:
@@ -224,7 +224,7 @@ items:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
   summary: Authenticates the specified security token and returns the set of authorization policies for the security token.
-  remarks: The <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.ValidateToken%2A> method checks whether the `token` parameter is `null`, calls the <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.CanValidateToken%2A> method to determine if this security token authenticator can authenticate this security token, and then if it can, calls the <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.ValidateTokenCore%2A> method.
+  remarks: 'The <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.ValidateToken%2A> method checks whether the `token` parameter is `null`, calls the <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.CanValidateToken%2A> method to determine if this security token authenticator can authenticate this security token, and then if it can, calls the <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.ValidateTokenCore%2A> method.'
   syntax:
     content: public System.Collections.ObjectModel.ReadOnlyCollection<System.IdentityModel.Policy.IAuthorizationPolicy> ValidateToken (System.IdentityModel.Tokens.SecurityToken token);
     parameters:
@@ -279,7 +279,7 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: When overridden in a derived class, authenticates the specified security token and returns the set of authorization policies for the security token.
+  summary: 'When overridden in a derived class, authenticates the specified security token and returns the set of authorization policies for the security token.'
   remarks: "Override the <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.ValidateTokenCore%2A> method to authenticate a specific security token type.  \n  \n When the <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.ValidateTokenCore%2A> method is overridden, follow these guidelines:  \n  \n-   When the security token passed into the `token` parameter cannot be validated, throw the <xref:System.IdentityModel.Tokens.SecurityTokenValidationException> exception.  \n  \n-   When there are no authorization policies in effect for this application, return an empty <xref:System.Collections.ObjectModel.ReadOnlyCollection%601> of type <xref:System.IdentityModel.Policy.IAuthorizationPolicy>.  \n  \n When `null` is returned by this method, [!INCLUDE[vsindigo](~/includes/vsindigo-md.md)] throws the <xref:System.IdentityModel.Tokens.SecurityTokenValidationException> exception.  \n  \n The <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.ValidateTokenCore%2A> method is called by the <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.ValidateToken%2A> method."
   syntax:
     content: protected abstract System.Collections.ObjectModel.ReadOnlyCollection<System.IdentityModel.Policy.IAuthorizationPolicy> ValidateTokenCore (System.IdentityModel.Tokens.SecurityToken token);

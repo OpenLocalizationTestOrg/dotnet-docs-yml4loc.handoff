@@ -148,13 +148,13 @@ items:
   - System.Design
   namespace: System.ComponentModel.Design
   summary: Initializes a new instance of the <xref href="System.ComponentModel.Design.DesignSurface"></xref> class.
-  remarks: When `parentProvide` is present, designers contained within the surface can retrieve services from the application.
+  remarks: 'When `parentProvide` is present, designers contained within the surface can retrieve services from the application.'
   syntax:
     content: public DesignSurface (IServiceProvider parentProvider);
     parameters:
     - id: parentProvider
       type: System.IServiceProvider
-      description: The parent service provider, or `null` if there is no parent used to resolve services.
+      description: 'The parent service provider, or `null` if there is no parent used to resolve services.'
   overload: System.ComponentModel.Design.DesignSurface.#ctor*
   exceptions:
   - type: System.ObjectDisposedException
@@ -247,13 +247,13 @@ items:
   - System.Design
   namespace: System.ComponentModel.Design
   summary: Initializes a new instance of the <xref href="System.ComponentModel.Design.DesignSurface"></xref> class.
-  remarks: Using the <xref:System.ComponentModel.Design.DesignSurface.%23ctor%2A> constructor creates a simple designer loader that creates a component of the given type and then ends the loading process. This is a straightforward way to create a designer, under the assumption that all saving of state will be done externally. Internally, this calls <xref:System.ComponentModel.Design.DesignSurface.BeginLoad%2A> and passes the root component type.
+  remarks: 'Using the <xref:System.ComponentModel.Design.DesignSurface.%23ctor%2A> constructor creates a simple designer loader that creates a component of the given type and then ends the loading process. This is a straightforward way to create a designer, under the assumption that all saving of state will be done externally. Internally, this calls <xref:System.ComponentModel.Design.DesignSurface.BeginLoad%2A> and passes the root component type.'
   syntax:
     content: public DesignSurface (IServiceProvider parentProvider, Type rootComponentType);
     parameters:
     - id: parentProvider
       type: System.IServiceProvider
-      description: The parent service provider, or `null` if there is no parent used to resolve services.
+      description: 'The parent service provider, or `null` if there is no parent used to resolve services.'
     - id: rootComponentType
       type: System.Type
       description: The type of root component to create.
@@ -403,7 +403,7 @@ items:
   - System.Design
   namespace: System.ComponentModel.Design
   summary: Gets the <xref href="System.ComponentModel.IContainer"></xref> implementation within the design surface.
-  remarks: The <xref:System.ComponentModel.Design.DesignSurface.ComponentContainer%2A> property holds all objects that are currently in design mode. When components are added to <xref:System.ComponentModel.Design.DesignSurface.ComponentContainer%2A>, their designer, if any, is loaded. The component is sited with a site that provides full access to the design surface.
+  remarks: 'The <xref:System.ComponentModel.Design.DesignSurface.ComponentContainer%2A> property holds all objects that are currently in design mode. When components are added to <xref:System.ComponentModel.Design.DesignSurface.ComponentContainer%2A>, their designer, if any, is loaded. The component is sited with a site that provides full access to the design surface.'
   syntax:
     content: public System.ComponentModel.IContainer ComponentContainer { get; }
     return:
@@ -450,7 +450,7 @@ items:
   - System.Design
   namespace: System.ComponentModel.Design
   summary: Creates an instance of a component.
-  remarks: The <xref:System.ComponentModel.Design.DesignSurface.CreateComponent%2A> method is called by the design surface’s <xref:System.ComponentModel.Design.IDesignerHost.CreateComponent%2A> method to create an instance of a component. The component should be created and added to the public container on the design surface.
+  remarks: 'The <xref:System.ComponentModel.Design.DesignSurface.CreateComponent%2A> method is called by the design surface’s <xref:System.ComponentModel.Design.IDesignerHost.CreateComponent%2A> method to create an instance of a component. The component should be created and added to the public container on the design surface.'
   syntax:
     content: >-
       [System.Obsolete("CreateComponent has been replaced by CreateInstance and will be removed after Beta2")]
@@ -521,7 +521,7 @@ items:
       description: '`true` to create a root designer; `false` to create a normal designer.'
     return:
       type: System.ComponentModel.Design.IDesigner
-      description: An instance of the requested designer, or `null` if no matching designer could be found.
+      description: 'An instance of the requested designer, or `null` if no matching designer could be found.'
   overload: System.ComponentModel.Design.DesignSurface.CreateDesigner*
   exceptions:
   - type: System.ArgumentNullException
@@ -566,7 +566,7 @@ items:
   - System.Design
   namespace: System.ComponentModel.Design
   summary: Creates an instance of the given type.
-  remarks: If `type` is an <xref:System.ComponentModel.IComponent>, <xref:System.ComponentModel.Design.DesignSurface.CreateInstance%2A> searches for a constructor of type <xref:System.ComponentModel.IContainer> first, followed by an empty constructor.
+  remarks: 'If `type` is an <xref:System.ComponentModel.IComponent>, <xref:System.ComponentModel.Design.DesignSurface.CreateInstance%2A> searches for a constructor of type <xref:System.ComponentModel.IContainer> first, followed by an empty constructor.'
   syntax:
     content: protected virtual object CreateInstance (Type type);
     parameters:
@@ -818,7 +818,7 @@ items:
   - System.Design
   namespace: System.ComponentModel.Design
   summary: Occurs when the design surface is disposed.
-  remarks: The surface is only disposed when the public <xref:System.ComponentModel.Design.DesignSurface.Dispose%2A> method on <xref:System.ComponentModel.Design.DesignSurface> is called.
+  remarks: 'The surface is only disposed when the public <xref:System.ComponentModel.Design.DesignSurface.Dispose%2A> method on <xref:System.ComponentModel.Design.DesignSurface> is called.'
   syntax:
     content: public event EventHandler Disposed;
     return:
@@ -904,7 +904,7 @@ items:
   - System.Design
   namespace: System.ComponentModel.Design
   summary: Serializes changes to the design surface.
-  remarks: The <xref:System.ComponentModel.Design.DesignSurface.Flush%2A> method can be called to push changes made to the design surface down to the serializer. This ensures that the design surface and its serialized state are synchronized. The actual implementation of this method is forwarded to the designer loader associated with design surface. The designer loader may choose to defer changes until <xref:System.ComponentModel.Design.DesignSurface.Flush%2A> is called, or it may choose to keep the serialized data up to date with all user changes. The <xref:System.ComponentModel.Design.DesignSurface.Flush%2A> method ensures that regardless of the model the designer loader chooses to use, the serialized state is synchronized with the actual design surface.
+  remarks: 'The <xref:System.ComponentModel.Design.DesignSurface.Flush%2A> method can be called to push changes made to the design surface down to the serializer. This ensures that the design surface and its serialized state are synchronized. The actual implementation of this method is forwarded to the designer loader associated with design surface. The designer loader may choose to defer changes until <xref:System.ComponentModel.Design.DesignSurface.Flush%2A> is called, or it may choose to keep the serialized data up to date with all user changes. The <xref:System.ComponentModel.Design.DesignSurface.Flush%2A> method ensures that regardless of the model the designer loader chooses to use, the serialized state is synchronized with the actual design surface.'
   syntax:
     content: public void Flush ();
     parameters: []
@@ -946,7 +946,7 @@ items:
   - System.Design
   namespace: System.ComponentModel.Design
   summary: Occurs when a call is made to the <xref href="System.ComponentModel.Design.DesignSurface.Flush"></xref> method of <xref href="System.ComponentModel.Design.DesignSurface"></xref>.
-  remarks: The designer loader is flushed first, and then the <xref:System.ComponentModel.Design.DesignSurface.Flushed> event is raised.
+  remarks: 'The designer loader is flushed first, and then the <xref:System.ComponentModel.Design.DesignSurface.Flushed> event is raised.'
   syntax:
     content: public event EventHandler Flushed;
     return:
@@ -989,7 +989,7 @@ items:
   - System.Design
   namespace: System.ComponentModel.Design
   summary: Gets a service from the service container.
-  remarks: The <xref:System.ComponentModel.Design.DesignSurface.GetService%2A> method retrieves a service in the design surface’s service container. In addition, this will forward to any service provider that was given to the design surface at construction time.
+  remarks: 'The <xref:System.ComponentModel.Design.DesignSurface.GetService%2A> method retrieves a service in the design surface’s service container. In addition, this will forward to any service provider that was given to the design surface at construction time.'
   syntax:
     content: public object GetService (Type serviceType);
     parameters:
@@ -998,7 +998,7 @@ items:
       description: The type of service to retrieve.
     return:
       type: System.Object
-      description: An object that implements, or is a derived class of, <code>serviceType</code>, or `null` if the service does not exist in the service container.
+      description: 'An object that implements, or is a derived class of, <code>serviceType</code>, or `null` if the service does not exist in the service container.'
   overload: System.ComponentModel.Design.DesignSurface.GetService*
   exceptions: []
   version:
@@ -1428,7 +1428,7 @@ items:
   - System.Design
   namespace: System.ComponentModel.Design
   summary: Gets the service container.
-  remarks: At construction time, <xref:System.ComponentModel.Design.DesignSurface> adds default services into this service container. You can leave the default services in their present state, or you can remove them and replace them with your own. The default services are all demand-created, so there is no loss in performance for adding them at construction time.
+  remarks: 'At construction time, <xref:System.ComponentModel.Design.DesignSurface> adds default services into this service container. You can leave the default services in their present state, or you can remove them and replace them with your own. The default services are all demand-created, so there is no loss in performance for adding them at construction time.'
   syntax:
     content: protected System.ComponentModel.Design.ServiceContainer ServiceContainer { get; }
     return:
@@ -1517,7 +1517,7 @@ items:
   - System.Design
   namespace: System.ComponentModel.Design
   summary: Occurs when a designer is about to unload.
-  remarks: When a designer unloads, the entire state for that designer is destroyed, including the designer’s view. The view should be unparented at this time.
+  remarks: 'When a designer unloads, the entire state for that designer is destroyed, including the designer’s view. The view should be unparented at this time.'
   syntax:
     content: public event EventHandler Unloading;
     return:
@@ -1572,10 +1572,10 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The design surface is not loading, the designer loader has not yet created a root designer, or the design surface finished the load, but failed. More information may available in the <xref href="System.Exception.InnerException"></xref>.
+    description: 'The design surface is not loading, the designer loader has not yet created a root designer, or the design surface finished the load, but failed. More information may available in the <xref href="System.Exception.InnerException"></xref>.'
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: The designer loaded, but it does not offer a view compatible with this design surface.
+    description: 'The designer loaded, but it does not offer a view compatible with this design surface.'
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
     description: The <xref href="System.ComponentModel.Design.IDesignerHost"></xref> attached to the <xref href="System.ComponentModel.Design.DesignSurface"></xref> has been disposed.
@@ -1615,7 +1615,7 @@ items:
   - System.Design
   namespace: System.ComponentModel.Design
   summary: Occurs when the <xref href="System.ComponentModel.Design.IDesignerHost.Activate"></xref> method has been called on <xref href="System.ComponentModel.Design.IDesignerHost"></xref>.
-  remarks: If you want to support the <xref:System.ComponentModel.Design.IDesignerHost.Activate%2A> method, your event handler should activate the window for this design surface.
+  remarks: 'If you want to support the <xref:System.ComponentModel.Design.IDesignerHost.Activate%2A> method, your event handler should activate the window for this design surface.'
   syntax:
     content: public event EventHandler ViewActivated;
     return:

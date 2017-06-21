@@ -47,7 +47,7 @@ items:
   - System.Drawing
   namespace: System.Drawing.Drawing2D
   summary: Encapsulates a 3-by-3 affine matrix that represents a geometric transform. This class cannot be inherited.
-  remarks: "In [!INCLUDE[ndptecgdiplus](~/includes/ndptecgdiplus-md.md)] you can store an affine transformation in a <xref:System.Drawing.Drawing2D.Matrix> object. Because the third column of a matrix that represents an affine transformation is always (0, 0, 1), you specify only the six numbers in the first two columns when you construct a <xref:System.Drawing.Drawing2D.Matrix> object. The statement `Matrix myMatrix = new Matrix(0, 1, -1, 0, 3, 4)` constructs the matrix shown in the following figure.  \n  \n ![Transformations](~/add/media/aboutgdip05-art10.gif \"Transformations\")  \n  \n## Composite Transformations  \n A composite transformation is a sequence of transformations, one followed by the other. Consider the matrices and transformations in the following list:  \n  \n|||  \n|-|-|  \n|Matrix A|Rotate 90 degrees|  \n|Matrix B|Scale by a factor of 2 in the x direction|  \n|Matrix C|Translate 3 units in the y direction|  \n  \n If we start with the point (2, 1) — represented by the matrix [2 1 1] — and multiply by A, then B, then C, the point (2, 1) will undergo the three transformations in the order listed.  \n  \n [2 1 1]ABC = [-2 5 1]  \n  \n Rather than store the three parts of the composite transformation in three separate matrices, you can multiply A, B, and C together to get a single 3×3 matrix that stores the entire composite transformation. Suppose ABC = D. Then a point multiplied by D gives the same result as a point multiplied by A, then B, then C.  \n  \n [2 1 1]D = [-2 5 1]  \n  \n The following illustration shows the matrices A, B, C, and D.  \n  \n ![Transformations](~/add/media/aboutgdip05-art12.gif \"Transformations\")  \n  \n The fact that the matrix of a composite transformation can be formed by multiplying the individual transformation matrices means that any sequence of affine transformations can be stored in a single <xref:System.Drawing.Drawing2D.Matrix> object.  \n  \n> [!CAUTION]\n>  The order of a composite transformation is important. In general, rotate, then scale, then translate is not the same as scale, then rotate, then translate. Similarly, the order of matrix multiplication is important. In general, ABC is not the same as BAC.  \n  \n The <xref:System.Drawing.Drawing2D.Matrix> class provides several methods for building a composite transformation: <xref:System.Drawing.Drawing2D.Matrix.Multiply%2A>, <xref:System.Drawing.Drawing2D.Matrix.Rotate%2A>, <xref:System.Drawing.Drawing2D.Matrix.RotateAt%2A>, <xref:System.Drawing.Drawing2D.Matrix.Scale%2A>, <xref:System.Drawing.Drawing2D.Matrix.Shear%2A>, and <xref:System.Drawing.Drawing2D.Matrix.Translate%2A>. The following example creates the matrix of a composite transformation that first rotates 30 degrees, then scales by a factor of 2 in the y direction, and then translates 5 units in the x direction:  \n  \n [!code-csharp[System.Drawing.CoordinateSystems#11](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Drawing.CoordinateSystems/CS/Class1.cs#11)]\n [!code-vb[System.Drawing.CoordinateSystems#11](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Drawing.CoordinateSystems/VB/Class1.vb#11)]"
+  remarks: "In [!INCLUDE[ndptecgdiplus](~/includes/ndptecgdiplus-md.md)] you can store an affine transformation in a <xref:System.Drawing.Drawing2D.Matrix> object. Because the third column of a matrix that represents an affine transformation is always (0, 0, 1), you specify only the six numbers in the first two columns when you construct a <xref:System.Drawing.Drawing2D.Matrix> object. The statement `Matrix myMatrix = new Matrix(0, 1, -1, 0, 3, 4)` constructs the matrix shown in the following figure.  \n  \n ![Transformations](~/add/media/aboutgdip05-art10.gif \"Transformations\")  \n  \n## <a name=\"composite-transformations\"></a>Composite Transformations  \n A composite transformation is a sequence of transformations, one followed by the other. Consider the matrices and transformations in the following list:  \n  \n|||  \n|-|-|  \n|Matrix A|Rotate 90 degrees|  \n|Matrix B|Scale by a factor of 2 in the x direction|  \n|Matrix C|Translate 3 units in the y direction|  \n  \n If we start with the point (2, 1) — represented by the matrix [2 1 1] — and multiply by A, then B, then C, the point (2, 1) will undergo the three transformations in the order listed.  \n  \n [2 1 1]ABC = [-2 5 1]  \n  \n Rather than store the three parts of the composite transformation in three separate matrices, you can multiply A, B, and C together to get a single 3×3 matrix that stores the entire composite transformation. Suppose ABC = D. Then a point multiplied by D gives the same result as a point multiplied by A, then B, then C.  \n  \n [2 1 1]D = [-2 5 1]  \n  \n The following illustration shows the matrices A, B, C, and D.  \n  \n ![Transformations](~/add/media/aboutgdip05-art12.gif \"Transformations\")  \n  \n The fact that the matrix of a composite transformation can be formed by multiplying the individual transformation matrices means that any sequence of affine transformations can be stored in a single <xref:System.Drawing.Drawing2D.Matrix> object.  \n  \n> [!CAUTION]\n>  The order of a composite transformation is important. In general, rotate, then scale, then translate is not the same as scale, then rotate, then translate. Similarly, the order of matrix multiplication is important. In general, ABC is not the same as BAC.  \n  \n The <xref:System.Drawing.Drawing2D.Matrix> class provides several methods for building a composite transformation: <xref:System.Drawing.Drawing2D.Matrix.Multiply%2A>, <xref:System.Drawing.Drawing2D.Matrix.Rotate%2A>, <xref:System.Drawing.Drawing2D.Matrix.RotateAt%2A>, <xref:System.Drawing.Drawing2D.Matrix.Scale%2A>, <xref:System.Drawing.Drawing2D.Matrix.Shear%2A>, and <xref:System.Drawing.Drawing2D.Matrix.Translate%2A>. The following example creates the matrix of a composite transformation that first rotates 30 degrees, then scales by a factor of 2 in the y direction, and then translates 5 units in the x direction:  \n  \n [!code-csharp[System.Drawing.CoordinateSystems#11](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Drawing.CoordinateSystems/CS/Class1.cs#11)] [!code-vb[System.Drawing.CoordinateSystems#11](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Drawing.CoordinateSystems/VB/Class1.vb#11)]"
   syntax:
     content: 'public sealed class Matrix : MarshalByRefObject, IDisposable'
   inheritance:
@@ -142,7 +142,7 @@ items:
   - System.Drawing
   namespace: System.Drawing.Drawing2D
   summary: Initializes a new instance of the <xref href="System.Drawing.Drawing2D.Matrix"></xref> class to the geometric transform defined by the specified rectangle and array of points.
-  remarks: This method initializes the new Matrix such that it represents the geometric transform that maps the rectangle specified by the `rect` parameter to the parallelogram defined by the three points in the `plgpts` parameter. The upper-left corner of the rectangle is mapped to the first point in the `plgpts` array, the upper-right corner is mapped to the second point, and the lower-left corner is mapped to the third point. The lower-right point of the parallelogram is implied by the first three.
+  remarks: 'This method initializes the new Matrix such that it represents the geometric transform that maps the rectangle specified by the `rect` parameter to the parallelogram defined by the three points in the `plgpts` parameter. The upper-left corner of the rectangle is mapped to the first point in the `plgpts` array, the upper-right corner is mapped to the second point, and the lower-left corner is mapped to the third point. The lower-right point of the parallelogram is implied by the first three.'
   syntax:
     content: public Matrix (System.Drawing.Rectangle rect, System.Drawing.Point[] plgpts);
     parameters:
@@ -151,7 +151,7 @@ items:
       description: A <xref href="System.Drawing.Rectangle"></xref> structure that represents the rectangle to be transformed.
     - id: plgpts
       type: System.Drawing.Point[]
-      description: An array of three <xref href="System.Drawing.Point"></xref> structures that represents the points of a parallelogram to which the upper-left, upper-right, and lower-left corners of the rectangle is to be transformed. The lower-right corner of the parallelogram is implied by the first three corners.
+      description: 'An array of three <xref href="System.Drawing.Point"></xref> structures that represents the points of a parallelogram to which the upper-left, upper-right, and lower-left corners of the rectangle is to be transformed. The lower-right corner of the parallelogram is implied by the first three corners.'
   overload: System.Drawing.Drawing2D.Matrix.#ctor*
   exceptions: []
   version:
@@ -190,7 +190,7 @@ items:
   - System.Drawing
   namespace: System.Drawing.Drawing2D
   summary: Initializes a new instance of the <xref href="System.Drawing.Drawing2D.Matrix"></xref> class to the geometric transform defined by the specified rectangle and array of points.
-  remarks: This method initializes the new <xref:System.Drawing.Drawing2D.Matrix> such that it represents the geometric transform that maps the rectangle specified by the `rect` parameter to the parallelogram defined by the three points in the `plgpts` parameter. The upper-left corner of the rectangle is mapped to the first point in the `plgpts` array, the upper-right corner is mapped to the second point, and the lower-left corner is mapped to the third point. The lower-right point of the parallelogram is implied by the first three.
+  remarks: 'This method initializes the new <xref:System.Drawing.Drawing2D.Matrix> such that it represents the geometric transform that maps the rectangle specified by the `rect` parameter to the parallelogram defined by the three points in the `plgpts` parameter. The upper-left corner of the rectangle is mapped to the first point in the `plgpts` array, the upper-right corner is mapped to the second point, and the lower-left corner is mapped to the third point. The lower-right point of the parallelogram is implied by the first three.'
   syntax:
     content: public Matrix (System.Drawing.RectangleF rect, System.Drawing.PointF[] plgpts);
     parameters:
@@ -199,7 +199,7 @@ items:
       description: A <xref href="System.Drawing.RectangleF"></xref> structure that represents the rectangle to be transformed.
     - id: plgpts
       type: System.Drawing.PointF[]
-      description: An array of three <xref href="System.Drawing.PointF"></xref> structures that represents the points of a parallelogram to which the upper-left, upper-right, and lower-left corners of the rectangle is to be transformed. The lower-right corner of the parallelogram is implied by the first three corners.
+      description: 'An array of three <xref href="System.Drawing.PointF"></xref> structures that represents the points of a parallelogram to which the upper-left, upper-right, and lower-left corners of the rectangle is to be transformed. The lower-right corner of the parallelogram is implied by the first three corners.'
   overload: System.Drawing.Drawing2D.Matrix.#ctor*
   exceptions: []
   version:
@@ -341,7 +341,7 @@ items:
   - System.Drawing
   namespace: System.Drawing.Drawing2D
   summary: Releases all resources used by this <xref href="System.Drawing.Drawing2D.Matrix"></xref>.
-  remarks: Calling `Dispose` allows the resources used by this <xref:System.Drawing.Drawing2D.Matrix> object to be reallocated for other purposes.
+  remarks: 'Calling `Dispose` allows the resources used by this <xref:System.Drawing.Drawing2D.Matrix> object to be reallocated for other purposes.'
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -383,7 +383,7 @@ items:
   - System.Drawing
   namespace: System.Drawing.Drawing2D
   summary: Gets an array of floating-point values that represents the elements of this <xref href="System.Drawing.Drawing2D.Matrix"></xref>.
-  remarks: The elements m11, m12, m21, m22, dx, and dy of the <xref:System.Drawing.Drawing2D.Matrix> are represented by the values in the array in that order.
+  remarks: 'The elements m11, m12, m21, m22, dx, and dy of the <xref:System.Drawing.Drawing2D.Matrix> are represented by the values in the array in that order.'
   syntax:
     content: public float[] Elements { get; }
     return:
@@ -435,7 +435,7 @@ items:
       description: The object to test.
     return:
       type: System.Boolean
-      description: This method returns `true` if <code>obj</code> is the specified <xref href="System.Drawing.Drawing2D.Matrix"></xref> identical to this <xref href="System.Drawing.Drawing2D.Matrix"></xref>; otherwise, `false`.
+      description: 'This method returns `true` if <code>obj</code> is the specified <xref href="System.Drawing.Drawing2D.Matrix"></xref> identical to this <xref href="System.Drawing.Drawing2D.Matrix"></xref>; otherwise, `false`.'
   overload: System.Drawing.Drawing2D.Matrix.Equals*
   exceptions: []
   version:
@@ -558,7 +558,7 @@ items:
   assemblies:
   - System.Drawing
   namespace: System.Drawing.Drawing2D
-  summary: Inverts this <xref href="System.Drawing.Drawing2D.Matrix"></xref>, if it is invertible.
+  summary: 'Inverts this <xref href="System.Drawing.Drawing2D.Matrix"></xref>, if it is invertible.'
   remarks: ''
   example:
   - "The following code example creates a matrix and inverts it:  \n  \n```csharp  \nMatrix myMatrix = new Matrix(3, 5, 1, 2, 2, 4);  \n myMatrix.Invert();  \n```"
@@ -607,7 +607,7 @@ items:
     content: public bool IsIdentity { get; }
     return:
       type: System.Boolean
-      description: This property is `true` if this <xref href="System.Drawing.Drawing2D.Matrix"></xref> is identity; otherwise, `false`.
+      description: 'This property is `true` if this <xref href="System.Drawing.Drawing2D.Matrix"></xref> is identity; otherwise, `false`.'
   overload: System.Drawing.Drawing2D.Matrix.IsIdentity*
   exceptions: []
   version:
@@ -650,7 +650,7 @@ items:
     content: public bool IsInvertible { get; }
     return:
       type: System.Boolean
-      description: This property is `true` if this <xref href="System.Drawing.Drawing2D.Matrix"></xref> is invertible; otherwise, `false`.
+      description: 'This property is `true` if this <xref href="System.Drawing.Drawing2D.Matrix"></xref> is invertible; otherwise, `false`.'
   overload: System.Drawing.Drawing2D.Matrix.IsInvertible*
   exceptions: []
   version:
@@ -688,7 +688,7 @@ items:
   assemblies:
   - System.Drawing
   namespace: System.Drawing.Drawing2D
-  summary: Multiplies this <xref href="System.Drawing.Drawing2D.Matrix"></xref> by the matrix specified in the <code>matrix</code> parameter, by prepending the specified <xref href="System.Drawing.Drawing2D.Matrix"></xref>.
+  summary: 'Multiplies this <xref href="System.Drawing.Drawing2D.Matrix"></xref> by the matrix specified in the <code>matrix</code> parameter, by prepending the specified <xref href="System.Drawing.Drawing2D.Matrix"></xref>.'
   remarks: ''
   example:
   - For an example, see <xref:System.Drawing.Drawing2D.Matrix.Multiply%2A>.
@@ -735,8 +735,8 @@ items:
   assemblies:
   - System.Drawing
   namespace: System.Drawing.Drawing2D
-  summary: Multiplies this <xref href="System.Drawing.Drawing2D.Matrix"></xref> by the matrix specified in the <code>matrix</code> parameter, and in the order specified in the <code>order</code> parameter.
-  remarks: If the specified order is <xref:System.Drawing.Drawing2D.MatrixOrder.Prepend>, this <xref:System.Drawing.Drawing2D.Matrix> is multiplied by the specified matrix in a prepended order. If the specified order is <xref:System.Drawing.Drawing2D.MatrixOrder.Append>, this <xref:System.Drawing.Drawing2D.Matrix> is multiplied by the specified matrix in an appended order.
+  summary: 'Multiplies this <xref href="System.Drawing.Drawing2D.Matrix"></xref> by the matrix specified in the <code>matrix</code> parameter, and in the order specified in the <code>order</code> parameter.'
+  remarks: 'If the specified order is <xref:System.Drawing.Drawing2D.MatrixOrder.Prepend>, this <xref:System.Drawing.Drawing2D.Matrix> is multiplied by the specified matrix in a prepended order. If the specified order is <xref:System.Drawing.Drawing2D.MatrixOrder.Append>, this <xref:System.Drawing.Drawing2D.Matrix> is multiplied by the specified matrix in an appended order.'
   example:
   - "The following code example is designed for use with Windows Forms, and it requires <xref:System.Windows.Forms.PaintEventArgs>`e`, an <xref:System.Windows.Forms.Control.Paint> event object. The code performs the following actions:  \n  \n-   Creates three matrices.  \n  \n-   Lists the contents of matrix 1 to the screen.  \n  \n-   Multiplies matrix 1 by matrix 2 and stores the result in matrix 1.  \n  \n-   Lists the contents of matrix 1 to the screen.  \n  \n-   Multiplies the result stored in matrix 1 by matrix 3, and again stores the result in matrix 1.  \n  \n-   Lists the contents of matrix 1 to the screen.  \n  \n-   Draws a rectangle to the screen prior to applying the matrix 1 transform (the blue rectangle).  \n  \n-   Applies the transform to the rectangle.  \n  \n-   Draws the transformed rectangle to the screen (the red rectangle), using the same coordinates as the previous rectangle.  \n  \n Notice that the red rectangle has been scaled by a factor of two in the horizontal direction, then rotated 90 degrees, and then moved (translated) 250 points in the x direction and 50 points in the y direction.  \n  \n [!code-cpp[System.Drawing.Drawing2D.ClassicMatrixExamples#1](~/samples/snippets/cpp/VS_Snippets_Winforms/System.Drawing.Drawing2D.ClassicMatrixExamples/CPP/form1.cpp#1)]\n [!code-csharp[System.Drawing.Drawing2D.ClassicMatrixExamples#1](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Drawing.Drawing2D.ClassicMatrixExamples/CS/form1.cs#1)]\n [!code-vb[System.Drawing.Drawing2D.ClassicMatrixExamples#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Drawing.Drawing2D.ClassicMatrixExamples/VB/form1.vb#1)]"
   syntax:
@@ -785,7 +785,7 @@ items:
   assemblies:
   - System.Drawing
   namespace: System.Drawing.Drawing2D
-  summary: Gets the x translation value (the dx value, or the element in the third row and first column) of this <xref href="System.Drawing.Drawing2D.Matrix"></xref>.
+  summary: 'Gets the x translation value (the dx value, or the element in the third row and first column) of this <xref href="System.Drawing.Drawing2D.Matrix"></xref>.'
   syntax:
     content: public float OffsetX { get; }
     return:
@@ -828,7 +828,7 @@ items:
   assemblies:
   - System.Drawing
   namespace: System.Drawing.Drawing2D
-  summary: Gets the y translation value (the dy value, or the element in the third row and second column) of this <xref href="System.Drawing.Drawing2D.Matrix"></xref>.
+  summary: 'Gets the y translation value (the dy value, or the element in the third row and second column) of this <xref href="System.Drawing.Drawing2D.Matrix"></xref>.'
   syntax:
     content: public float OffsetY { get; }
     return:
@@ -915,7 +915,7 @@ items:
   assemblies:
   - System.Drawing
   namespace: System.Drawing.Drawing2D
-  summary: Prepend to this <xref href="System.Drawing.Drawing2D.Matrix"></xref> a clockwise rotation, around the origin and by the specified angle.
+  summary: 'Prepend to this <xref href="System.Drawing.Drawing2D.Matrix"></xref> a clockwise rotation, around the origin and by the specified angle.'
   remarks: ''
   example:
   - For an example, see <xref:System.Drawing.Drawing2D.Matrix.Rotate%28System.Single%2CSystem.Drawing.Drawing2D.MatrixOrder%29>.
@@ -924,7 +924,7 @@ items:
     parameters:
     - id: angle
       type: System.Single
-      description: The angle of the rotation, in degrees.
+      description: 'The angle of the rotation, in degrees.'
   overload: System.Drawing.Drawing2D.Matrix.Rotate*
   exceptions: []
   version:
@@ -962,7 +962,7 @@ items:
   assemblies:
   - System.Drawing
   namespace: System.Drawing.Drawing2D
-  summary: Applies a clockwise rotation of an amount specified in the <code>angle</code> parameter, around the origin (zero x and y coordinates) for this <xref href="System.Drawing.Drawing2D.Matrix"></xref>.
+  summary: 'Applies a clockwise rotation of an amount specified in the <code>angle</code> parameter, around the origin (zero x and y coordinates) for this <xref href="System.Drawing.Drawing2D.Matrix"></xref>.'
   remarks: ''
   example:
   - "The following code example is designed for use with Windows Forms, and it requires <xref:System.Windows.Forms.PaintEventArgs>`e`, an <xref:System.Windows.Forms.Control.Paint> event object. The code performs the following actions:  \n  \n-   Draws a rectangle to the screen prior to applying a rotation transform (the blue rectangle).  \n  \n-   Creates a matrix and rotates it 45 degrees.  \n  \n-   Applies this matrix transform to the rectangle.  \n  \n-   Draws the transformed rectangle to the screen (the red rectangle).  \n  \n Notice that the red rectangle has been rotated around the 0, 0 screen coordinates.  \n  \n [!code-cpp[System.Drawing.Drawing2D.ClassicMatrixExamples#3](~/samples/snippets/cpp/VS_Snippets_Winforms/System.Drawing.Drawing2D.ClassicMatrixExamples/CPP/form1.cpp#3)]\n [!code-csharp[System.Drawing.Drawing2D.ClassicMatrixExamples#3](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Drawing.Drawing2D.ClassicMatrixExamples/CS/form1.cs#3)]\n [!code-vb[System.Drawing.Drawing2D.ClassicMatrixExamples#3](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Drawing.Drawing2D.ClassicMatrixExamples/VB/form1.vb#3)]"
@@ -971,7 +971,7 @@ items:
     parameters:
     - id: angle
       type: System.Single
-      description: The angle (extent) of the rotation, in degrees.
+      description: 'The angle (extent) of the rotation, in degrees.'
     - id: order
       type: System.Drawing.Drawing2D.MatrixOrder
       description: A <xref href="System.Drawing.Drawing2D.MatrixOrder"></xref> that specifies the order (append or prepend) in which the rotation is applied to this <xref href="System.Drawing.Drawing2D.Matrix"></xref>.
@@ -1012,7 +1012,7 @@ items:
   assemblies:
   - System.Drawing
   namespace: System.Drawing.Drawing2D
-  summary: Applies a clockwise rotation to this <xref href="System.Drawing.Drawing2D.Matrix"></xref> around the point specified in the <code>point</code> parameter, and by prepending the rotation.
+  summary: 'Applies a clockwise rotation to this <xref href="System.Drawing.Drawing2D.Matrix"></xref> around the point specified in the <code>point</code> parameter, and by prepending the rotation.'
   remarks: ''
   example:
   - "The following code example demonstrates using a <xref:System.Drawing.Drawing2D.Matrix> and the <xref:System.Drawing.Drawing2D.GraphicsPath.Transform%2A> method to rotate a string. This example is designed to be used with Windows Forms. Create a form and paste the following code into it. Call the `DrawVerticalStringFromBottomUp` method in the form's <xref:System.Windows.Forms.Control.Paint> event handler, passing `e` as <xref:System.Windows.Forms.PaintEventArgs>.  \n  \n [!code-cpp[System.Drawing.MiscExamples#5](~/samples/snippets/cpp/VS_Snippets_Winforms/System.Drawing.MiscExamples/CPP/form1.cpp#5)]\n [!code-csharp[System.Drawing.MiscExamples#5](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Drawing.MiscExamples/CS/form1.cs#5)]\n [!code-vb[System.Drawing.MiscExamples#5](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Drawing.MiscExamples/VB/form1.vb#5)]"
@@ -1021,7 +1021,7 @@ items:
     parameters:
     - id: angle
       type: System.Single
-      description: The angle (extent) of the rotation, in degrees.
+      description: 'The angle (extent) of the rotation, in degrees.'
     - id: point
       type: System.Drawing.PointF
       description: A <xref href="System.Drawing.PointF"></xref> that represents the center of the rotation.
@@ -1071,7 +1071,7 @@ items:
     parameters:
     - id: angle
       type: System.Single
-      description: The angle of the rotation, in degrees.
+      description: 'The angle of the rotation, in degrees.'
     - id: point
       type: System.Drawing.PointF
       description: A <xref href="System.Drawing.PointF"></xref> that represents the center of the rotation.
@@ -1219,7 +1219,7 @@ items:
   - System.Drawing
   namespace: System.Drawing.Drawing2D
   summary: Applies the specified shear vector to this <xref href="System.Drawing.Drawing2D.Matrix"></xref> by prepending the shear transformation.
-  remarks: The transformation applied in this method is a pure shear only if one of the parameters is 0. Applied to a rectangle at the origin, when the `shearY` factor is 0, the transformation moves the bottom edge horizontally by `shearX` times the height of the rectangle. When the `shearX` factor is 0, it moves the right edge vertically by `shearY` times the width of the rectangle. Caution is in order when both parameters are nonzero, because the results are hard to predict. For example, if both factors are 1, the transformation is singular (hence noninvertible), squeezing the entire plane to a single line.
+  remarks: 'The transformation applied in this method is a pure shear only if one of the parameters is 0. Applied to a rectangle at the origin, when the `shearY` factor is 0, the transformation moves the bottom edge horizontally by `shearX` times the height of the rectangle. When the `shearX` factor is 0, it moves the right edge vertically by `shearY` times the width of the rectangle. Caution is in order when both parameters are nonzero, because the results are hard to predict. For example, if both factors are 1, the transformation is singular (hence noninvertible), squeezing the entire plane to a single line.'
   example:
   - "The following code example is designed for use with Windows Forms, and it requires <xref:System.Windows.Forms.PaintEventArgs>`e`, an <xref:System.Windows.Forms.Control.Paint> event object. The code performs the following action:  \n  \n-   Draws a rectangle to the screen, using a green pen, prior to applying a scaling transform.  \n  \n-   Creates a <xref:System.Drawing.Drawing2D.Matrix> and uses it to set a world-coordinate transform for the <xref:System.Drawing.Graphics>.  \n  \n-   Draws another rectangle using a red pen.  \n  \n-   Draws an ellipse using a blue pen.  \n  \n The result is a green rectangle, a red parallelogram and a transformed, blue ellipse. Notice that the green rectangle (drawn prior to setting the transform) directly uses the coordinates supplied in the <xref:System.Drawing.Graphics.DrawRectangle%2A> call. The other two figures are transformed prior to drawing. The rectangle is transformed to a parallelogram (red), and the ellipse (blue) is transformed to fit into the transformed parallelogram. Notice the bottom of the rectangle is moved (sheared) in the x-axis by a factor of two times the height of the rectangle, thus forming the parallelogram.  \n  \n [!code-cpp[System.Drawing.Drawing2D.ClassicMatrixExamples#6](~/samples/snippets/cpp/VS_Snippets_Winforms/System.Drawing.Drawing2D.ClassicMatrixExamples/CPP/form1.cpp#6)]\n [!code-csharp[System.Drawing.Drawing2D.ClassicMatrixExamples#6](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Drawing.Drawing2D.ClassicMatrixExamples/CS/form1.cs#6)]\n [!code-vb[System.Drawing.Drawing2D.ClassicMatrixExamples#6](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Drawing.Drawing2D.ClassicMatrixExamples/VB/form1.vb#6)]"
   syntax:
@@ -1269,7 +1269,7 @@ items:
   - System.Drawing
   namespace: System.Drawing.Drawing2D
   summary: Applies the specified shear vector to this <xref href="System.Drawing.Drawing2D.Matrix"></xref> in the specified order.
-  remarks: The transformation applied in this method is a pure shear only if one of the parameters is 0. Applied to a rectangle at the origin, when the `shearY` factor is 0, the transformation moves the bottom edge horizontally by `shearX` times the height of the rectangle. When the `shearX` factor is 0, it moves the right edge vertically by `shearY` times the width of the rectangle. Caution is in order when both parameters are nonzero, because the results are hard to predict. For example, if both factors are 1, the transformation is singular (hence noninvertible), squeezing the entire plane to a single line.
+  remarks: 'The transformation applied in this method is a pure shear only if one of the parameters is 0. Applied to a rectangle at the origin, when the `shearY` factor is 0, the transformation moves the bottom edge horizontally by `shearX` times the height of the rectangle. When the `shearX` factor is 0, it moves the right edge vertically by `shearY` times the width of the rectangle. Caution is in order when both parameters are nonzero, because the results are hard to predict. For example, if both factors are 1, the transformation is singular (hence noninvertible), squeezing the entire plane to a single line.'
   example:
   - For an example, see <xref:System.Drawing.Drawing2D.Matrix.Shear%28System.Single%2CSystem.Single%29>.
   syntax:

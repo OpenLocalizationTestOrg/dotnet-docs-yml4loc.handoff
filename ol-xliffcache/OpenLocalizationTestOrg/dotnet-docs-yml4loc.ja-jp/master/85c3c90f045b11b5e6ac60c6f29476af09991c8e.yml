@@ -185,7 +185,7 @@ items:
   - WindowsBase
   namespace: System.Windows
   summary: Delivers the event being managed to each listener in the provided list.
-  remarks: This method is necessary if your manager implementation maintains separate listeners lists based on information that is captured in the event data. If you use this advanced technique, you must create and maintain the separate lists as part of your manager implementation, and you must provide a way to add listeners to a specific list. Your handler implementation that listens to the raw event must act upon the condition that you use to differentiate the lists, and deliver the event only to the appropriate list or lists.
+  remarks: 'This method is necessary if your manager implementation maintains separate listeners lists based on information that is captured in the event data. If you use this advanced technique, you must create and maintain the separate lists as part of your manager implementation, and you must provide a way to add listeners to a specific list. Your handler implementation that listens to the raw event must act upon the condition that you use to differentiate the lists, and deliver the event only to the appropriate list or lists.'
   syntax:
     content: protected void DeliverEventToList (object sender, EventArgs args, System.Windows.WeakEventManager.ListenerList list);
     parameters:
@@ -236,7 +236,7 @@ items:
   - WindowsBase
   namespace: System.Windows
   summary: Returns the <xref href="System.Windows.WeakEventManager"></xref> implementation that is used for the provided type.
-  remarks: <xref:System.Windows.IWeakEventListener.ReceiveWeakEvent%2A> implementations call this method using their passed `managerType`. The returned <xref:System.Windows.WeakEventManager> is then used as the differentiator that determines which event was received, and which private class handler to invoke.
+  remarks: '<xref:System.Windows.IWeakEventListener.ReceiveWeakEvent%2A> implementations call this method using their passed `managerType`. The returned <xref:System.Windows.WeakEventManager> is then used as the differentiator that determines which event was received, and which private class handler to invoke.'
   syntax:
     content: protected static System.Windows.WeakEventManager GetCurrentManager (Type managerType);
     parameters:
@@ -284,7 +284,7 @@ items:
   - WindowsBase
   namespace: System.Windows
   summary: Gets or sets the data being stored for the specified source.
-  remarks: Derived classes can choose what data and type to store in this indexer. Typically this is implemented as a <xref:System.Windows.WeakEventManager.ListenerList>, which is a list of weak references to listeners. You would only have to change this type if the <xref:System.Windows.WeakEventManager.ListenerList> type cannot contain your required information. If so, you will have to override the <xref:System.Windows.WeakEventManager.Purge%2A> method so that all cleanup of the underlying type is performed correctly.
+  remarks: 'Derived classes can choose what data and type to store in this indexer. Typically this is implemented as a <xref:System.Windows.WeakEventManager.ListenerList>, which is a list of weak references to listeners. You would only have to change this type if the <xref:System.Windows.WeakEventManager.ListenerList> type cannot contain your required information. If so, you will have to override the <xref:System.Windows.WeakEventManager.Purge%2A> method so that all cleanup of the underlying type is performed correctly.'
   syntax:
     content: protected object this[object source] { get; set; }
     parameters:
@@ -564,7 +564,7 @@ items:
   - WindowsBase
   namespace: System.Windows
   summary: Removes inactive listener entries from the data list for the provided source. Returns `true` if some entries were actually removed from the list.
-  remarks: The <xref:System.Windows.WeakEventManager.Purge%2A> method has a default implementation that will remove all entries when data is a <xref:System.Windows.WeakEventManager.ListenerList>.
+  remarks: 'The <xref:System.Windows.WeakEventManager.Purge%2A> method has a default implementation that will remove all entries when data is a <xref:System.Windows.WeakEventManager.ListenerList>.'
   syntax:
     content: protected virtual bool Purge (object source, object data, bool purgeAll);
     parameters:
@@ -616,8 +616,8 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows
-  summary: Establishes a read-lock on the underlying data table, and returns an <xref href="System.IDisposable"></xref>.
-  remarks: In derived classes, queries to the table contained in <xref:System.Windows.WeakEventManager.Item%2A> should always occur within a `using (ReadLock) { ... }` clause, except for queries that are already within a write lock. These queries may be necessary if your class supports a more sophisticated `AddListener` implementation that requires more data beyond the `source` and the `listener`, and uses the <xref:System.Windows.WeakEventManager.Item%2A> collection to store the extra information.
+  summary: 'Establishes a read-lock on the underlying data table, and returns an <xref href="System.IDisposable"></xref>.'
+  remarks: 'In derived classes, queries to the table contained in <xref:System.Windows.WeakEventManager.Item%2A> should always occur within a `using (ReadLock) { ... }` clause, except for queries that are already within a write lock. These queries may be necessary if your class supports a more sophisticated `AddListener` implementation that requires more data beyond the `source` and the `listener`, and uses the <xref:System.Windows.WeakEventManager.Item%2A> collection to store the extra information.'
   syntax:
     content: protected IDisposable ReadLock { get; }
     return:
@@ -704,7 +704,7 @@ items:
   - WindowsBase
   namespace: System.Windows
   summary: Requests that a purge of unused entries in the underlying listener list be performed on a lower priority thread.
-  remarks: Calling the <xref:System.Windows.WeakEventManager.ScheduleCleanup%2A> method is similar to calling the <xref:System.Windows.WeakEventManager.Purge%2A> method on the current manager's list, at lower thread priority, with the `purgeAll` parameter set to `false`.
+  remarks: 'Calling the <xref:System.Windows.WeakEventManager.ScheduleCleanup%2A> method is similar to calling the <xref:System.Windows.WeakEventManager.Purge%2A> method on the current manager''s list, at lower thread priority, with the `purgeAll` parameter set to `false`.'
   syntax:
     content: protected void ScheduleCleanup ();
     parameters: []
@@ -746,7 +746,7 @@ items:
   - WindowsBase
   namespace: System.Windows
   summary: Sets the current manager for the specified manager type.
-  remarks: Call the <xref:System.Windows.WeakEventManager.SetCurrentManager%2A> method to initialize a manager, if that is required by a call to your `CurrentManager` property on a <xref:System.Windows.WeakEventManager> implementation.
+  remarks: 'Call the <xref:System.Windows.WeakEventManager.SetCurrentManager%2A> method to initialize a manager, if that is required by a call to your `CurrentManager` property on a <xref:System.Windows.WeakEventManager> implementation.'
   syntax:
     content: protected static void SetCurrentManager (Type managerType, System.Windows.WeakEventManager manager);
     parameters:
@@ -792,7 +792,7 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows
-  summary: When overridden in a derived class, starts listening for the event being managed. After the <xref href="System.Windows.WeakEventManager.StartListening(System.Object)"></xref> method is first called, the manager should be in the state of calling <xref href="System.Windows.WeakEventManager.DeliverEvent(System.Object,System.EventArgs)"></xref> or <xref href="System.Windows.WeakEventManager.DeliverEventToList(System.Object,System.EventArgs,System.Windows.WeakEventManager.ListenerList)"></xref> whenever the relevant event from the provided source is handled.
+  summary: 'When overridden in a derived class, starts listening for the event being managed. After the <xref href="System.Windows.WeakEventManager.StartListening(System.Object)"></xref> method is first called, the manager should be in the state of calling <xref href="System.Windows.WeakEventManager.DeliverEvent(System.Object,System.EventArgs)"></xref> or <xref href="System.Windows.WeakEventManager.DeliverEventToList(System.Object,System.EventArgs,System.Windows.WeakEventManager.ListenerList)"></xref> whenever the relevant event from the provided source is handled.'
   syntax:
     content: protected abstract void StartListening (object source);
     parameters:
@@ -836,7 +836,7 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows
-  summary: When overridden in a derived class, stops listening on the provided source for the event being managed.
+  summary: 'When overridden in a derived class, stops listening on the provided source for the event being managed.'
   syntax:
     content: protected abstract void StopListening (object source);
     parameters:
@@ -879,8 +879,8 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows
-  summary: Establishes a write-lock on the underlying data table, and returns an <xref href="System.IDisposable"></xref>.
-  remarks: In derived classes, all modifications to the underlying data table should occur within a `using (WriteLock) { ... }` clause. These modifications may be necessary if your class supports a more sophisticated `AddListener` implementation that requires more data beyond the `source` and the `listener`, and uses the <xref:System.Windows.WeakEventManager.Item%2A> collection to store the extra information.
+  summary: 'Establishes a write-lock on the underlying data table, and returns an <xref href="System.IDisposable"></xref>.'
+  remarks: 'In derived classes, all modifications to the underlying data table should occur within a `using (WriteLock) { ... }` clause. These modifications may be necessary if your class supports a more sophisticated `AddListener` implementation that requires more data beyond the `source` and the `listener`, and uses the <xref:System.Windows.WeakEventManager.Item%2A> collection to store the extra information.'
   syntax:
     content: protected IDisposable WriteLock { get; }
     return:

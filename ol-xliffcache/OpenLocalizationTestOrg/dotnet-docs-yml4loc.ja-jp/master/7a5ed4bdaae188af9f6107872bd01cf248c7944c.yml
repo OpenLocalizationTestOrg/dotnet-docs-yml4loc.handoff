@@ -40,7 +40,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Interop
   summary: An <xref href="System.Windows.Media.ImageSource"></xref> that displays a user-created Direct3D surface.
-  remarks: "Use the <xref:System.Windows.Interop.D3DImage> class to host Direct3D content in a Windows Presentation Foundation (WPF) application.  \n  \n Call the <xref:System.Windows.Interop.D3DImage.Lock%2A> method to change the Direct3D content displayed by the <xref:System.Windows.Interop.D3DImage>. Call the <xref:System.Windows.Interop.D3DImage.SetBackBuffer%2A> method to assign a Direct3D surface to a <xref:System.Windows.Interop.D3DImage>. Call the <xref:System.Windows.Interop.D3DImage.AddDirtyRect%2A> method to track updates to the Direct3D surface. Call the <xref:System.Windows.Interop.D3DImage.Unlock%2A> method to display the changed areas.  \n  \n The <xref:System.Windows.Interop.D3DImage> class manages two display buffers, which are called the *back buffer* and the *front buffer*. The back buffer is your Direct3D surface.  Changes to the back buffer are copied forward to the front buffer when you call the <xref:System.Windows.Interop.D3DImage.Unlock%2A> method, where it is displayed on the hardware. Occasionally, the front buffer becomes unavailable. This lack of availability can be caused by screen locking, full-screen exclusive Direct3D applications, user-switching, or other system activities. When this occurs, your WPF application is notified by handling the <xref:System.Windows.Interop.D3DImage.IsFrontBufferAvailableChanged> event.  How your application responds to the front buffer becoming unavailable depends on whether WPF is enabled to fall back to software rendering. The <xref:System.Windows.Interop.D3DImage.SetBackBuffer%2A> method has an overload that takes a parameter that specifies whether WPF falls back to software rendering.  \n  \n## Responding to an Unavailable Front Buffer when WPF Does not Fall Back to Software Rendering  \n When you call the <xref:System.Windows.Interop.D3DImage.SetBackBuffer%28System.Windows.Interop.D3DResourceType%2CSystem.IntPtr%29> overload or call the <xref:System.Windows.Interop.D3DImage.SetBackBuffer%28System.Windows.Interop.D3DResourceType%2CSystem.IntPtr%2CSystem.Boolean%29> overload with the `enableSoftwareFallback` parameter set to `false`, the rendering system releases its reference to the back buffer when the front buffer becomes unavailable and nothing is displayed. When the front buffer is available again, the rendering system raises the <xref:System.Windows.Interop.D3DImage.IsFrontBufferAvailableChanged> event to notify your WPF application.  You can create an event handler for the <xref:System.Windows.Interop.D3DImage.IsFrontBufferAvailableChanged> event to restart rendering again with a valid Direct3D surface. To restart rendering, you must call <xref:System.Windows.Interop.D3DImage.SetBackBuffer%2A>.  \n  \n## Responding to an Unavailable Front Buffer when WPF Falls Back to Software Rendering  \n When you call the <xref:System.Windows.Interop.D3DImage.SetBackBuffer%28System.Windows.Interop.D3DResourceType%2CSystem.IntPtr%2CSystem.Boolean%29> overload with the `enableSoftwareFallback` parameter set to `true`, the rendering system retains its reference to the back buffer when the front buffer becomes unavailable, so there is no need to call <xref:System.Windows.Interop.D3DImage.SetBackBuffer%2A> when the front buffer is available again.  There may be situations where the user’s device becomes unavailable.  When that occurs, call <xref:System.Windows.Interop.D3DImage.SetBackBuffer%2A> to release WPF’s reference to the back buffer.  If you need to reset your device, call <xref:System.Windows.Interop.D3DImage.SetBackBuffer%2A> with the `backBuffer` parameter set to `null`, and then call <xref:System.Windows.Interop.D3DImage.SetBackBuffer%2A> again with `backBuffer` set to a valid Direct3D surface.  \n  \n> [!NOTE]\n>  Performance depends greatly on the settings of the Direct3D surface. For more information, see [Performance Considerations for Direct3D9 and WPF Interoperability](~/docs/framework/wpf/advanced/performance-considerations-for-direct3d9-and-wpf-interoperability.md).  \n  \n> [!NOTE]\n>  The <xref:System.Windows.Interop.D3DImage> class does not display Direct3D content when WPF renders in software, such as over a Remote Desktop connection, unless you call <xref:System.Windows.Interop.D3DImage.SetBackBuffer%28System.Windows.Interop.D3DResourceType%2CSystem.IntPtr%2CSystem.Boolean%29> and specify `true` for the `enableSoftwareFallback` parameter."
+  remarks: "Use the <xref:System.Windows.Interop.D3DImage> class to host Direct3D content in a Windows Presentation Foundation (WPF) application.  \n  \n Call the <xref:System.Windows.Interop.D3DImage.Lock%2A> method to change the Direct3D content displayed by the <xref:System.Windows.Interop.D3DImage>. Call the <xref:System.Windows.Interop.D3DImage.SetBackBuffer%2A> method to assign a Direct3D surface to a <xref:System.Windows.Interop.D3DImage>. Call the <xref:System.Windows.Interop.D3DImage.AddDirtyRect%2A> method to track updates to the Direct3D surface. Call the <xref:System.Windows.Interop.D3DImage.Unlock%2A> method to display the changed areas.  \n  \n The <xref:System.Windows.Interop.D3DImage> class manages two display buffers, which are called the *back buffer* and the *front buffer*. The back buffer is your Direct3D surface.  Changes to the back buffer are copied forward to the front buffer when you call the <xref:System.Windows.Interop.D3DImage.Unlock%2A> method, where it is displayed on the hardware. Occasionally, the front buffer becomes unavailable. This lack of availability can be caused by screen locking, full-screen exclusive Direct3D applications, user-switching, or other system activities. When this occurs, your WPF application is notified by handling the <xref:System.Windows.Interop.D3DImage.IsFrontBufferAvailableChanged> event.  How your application responds to the front buffer becoming unavailable depends on whether WPF is enabled to fall back to software rendering. The <xref:System.Windows.Interop.D3DImage.SetBackBuffer%2A> method has an overload that takes a parameter that specifies whether WPF falls back to software rendering.  \n  \n## <a name=\"responding-to-an-unavailable-front-buffer-when-wpf-does-not-fall-back-to-software-rendering\"></a>Responding to an Unavailable Front Buffer when WPF Does not Fall Back to Software Rendering  \n When you call the <xref:System.Windows.Interop.D3DImage.SetBackBuffer%28System.Windows.Interop.D3DResourceType%2CSystem.IntPtr%29> overload or call the <xref:System.Windows.Interop.D3DImage.SetBackBuffer%28System.Windows.Interop.D3DResourceType%2CSystem.IntPtr%2CSystem.Boolean%29> overload with the `enableSoftwareFallback` parameter set to `false`, the rendering system releases its reference to the back buffer when the front buffer becomes unavailable and nothing is displayed. When the front buffer is available again, the rendering system raises the <xref:System.Windows.Interop.D3DImage.IsFrontBufferAvailableChanged> event to notify your WPF application.  You can create an event handler for the <xref:System.Windows.Interop.D3DImage.IsFrontBufferAvailableChanged> event to restart rendering again with a valid Direct3D surface. To restart rendering, you must call <xref:System.Windows.Interop.D3DImage.SetBackBuffer%2A>.  \n  \n## <a name=\"responding-to-an-unavailable-front-buffer-when-wpf-falls-back-to-software-rendering\"></a>Responding to an Unavailable Front Buffer when WPF Falls Back to Software Rendering  \n When you call the <xref:System.Windows.Interop.D3DImage.SetBackBuffer%28System.Windows.Interop.D3DResourceType%2CSystem.IntPtr%2CSystem.Boolean%29> overload with the `enableSoftwareFallback` parameter set to `true`, the rendering system retains its reference to the back buffer when the front buffer becomes unavailable, so there is no need to call <xref:System.Windows.Interop.D3DImage.SetBackBuffer%2A> when the front buffer is available again.  There may be situations where the user’s device becomes unavailable.  When that occurs, call <xref:System.Windows.Interop.D3DImage.SetBackBuffer%2A> to release WPF’s reference to the back buffer.  If you need to reset your device, call <xref:System.Windows.Interop.D3DImage.SetBackBuffer%2A> with the `backBuffer` parameter set to `null`, and then call <xref:System.Windows.Interop.D3DImage.SetBackBuffer%2A> again with `backBuffer` set to a valid Direct3D surface.  \n  \n> [!NOTE]\n>  Performance depends greatly on the settings of the Direct3D surface. For more information, see [Performance Considerations for Direct3D9 and WPF Interoperability](~/docs/framework/wpf/advanced/performance-considerations-for-direct3d9-and-wpf-interoperability.md).  \n  \n> [!NOTE]\n>  The <xref:System.Windows.Interop.D3DImage> class does not display Direct3D content when WPF renders in software, such as over a Remote Desktop connection, unless you call <xref:System.Windows.Interop.D3DImage.SetBackBuffer%28System.Windows.Interop.D3DResourceType%2CSystem.IntPtr%2CSystem.Boolean%29> and specify `true` for the `enableSoftwareFallback` parameter."
   example:
   - "The following code example shows how to declare a <xref:System.Windows.Interop.D3DImage> in XAML. You must map the <xref:System.Windows.Interop> namespace, because it is not included in the default XAML namespaces. For more information, see [Walkthrough: Hosting Direct3D9 Content in WPF](~/docs/framework/wpf/advanced/walkthrough-hosting-direct3d9-content-in-wpf.md).  \n  \n [!code-xml[System.Windows.Interop.D3DImage#10](~/samples/snippets/csharp/VS_Snippets_Wpf/System.Windows.Interop.D3DImage/CS/window1.xaml#10)]"
   syntax:
@@ -253,7 +253,7 @@ items:
     description: "The bitmap has not been locked by a call to the <xref href=\"System.Windows.Interop.D3DImage.Lock\"></xref> or <xref href=\"System.Windows.Interop.D3DImage.TryLock(System.Windows.Duration)\"></xref> methods.  \n  \n -or-  \n  \n The back buffer has not been assigned by a call to the <xref href=\"System.Windows.Interop.D3DImage.SetBackBuffer(System.Windows.Interop.D3DResourceType,System.IntPtr)\"></xref> method."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "One or more of the following conditions is true.  \n  \n <code>dirtyRect.X</code> < 0  \n  \n <code>dirtyRect.Y</code> < 0  \n  \n <code>dirtyRect.Width</code> < 0 or <code>dirtyRect.Width</code> > <xref href=\"System.Windows.Interop.D3DImage.PixelWidth\"></xref><code>dirtyRect.Height</code> < 0 or <code>dirtyRect.Height</code> > <xref href=\"System.Windows.Interop.D3DImage.PixelHeight\"></xref>"
+    description: "One or more of the following conditions is true.  \n  \n <code>dirtyRect.X</code> < 0  <code>dirtyRect.Y</code> < 0  <code>dirtyRect.Width</code> < 0 or <code>dirtyRect.Width</code> > <xref href=\"System.Windows.Interop.D3DImage.PixelWidth\"></xref><code>dirtyRect.Height</code> < 0 or <code>dirtyRect.Height</code> > <xref href=\"System.Windows.Interop.D3DImage.PixelHeight\"></xref>"
   attributes:
   - type: System.Security.SecurityCriticalAttribute
   version:
@@ -291,7 +291,7 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Interop
-  summary: Creates a modifiable clone of this <xref href="System.Windows.Interop.D3DImage"></xref> object, making deep copies of this object's values. When copying dependency properties, this method copies resource references and data bindings (which may no longer resolve), but not animations or their current values.
+  summary: 'Creates a modifiable clone of this <xref href="System.Windows.Interop.D3DImage"></xref> object, making deep copies of this object''s values. When copying dependency properties, this method copies resource references and data bindings (which may no longer resolve), but not animations or their current values.'
   remarks: "This method is used to produce modifiable copies of frozen <xref:System.Windows.Freezable> objects (or any <xref:System.Windows.Freezable> object). For convenience, this method shadows the inherited version with a strongly typed implementation.  \n  \n For more information, see <xref:System.Windows.Freezable.Clone%2A?displayProperty=fullName>."
   syntax:
     content: public System.Windows.Interop.D3DImage Clone ();
@@ -380,7 +380,7 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Interop
-  summary: Creates a modifiable clone of this <xref href="System.Windows.Interop.D3DImage"></xref> object, making deep copies of this object's current values. Resource references, data bindings, and animations are not copied, but their current values are copied.
+  summary: 'Creates a modifiable clone of this <xref href="System.Windows.Interop.D3DImage"></xref> object, making deep copies of this object''s current values. Resource references, data bindings, and animations are not copied, but their current values are copied.'
   remarks: "This method is used to produce modifiable copies of frozen <xref:System.Windows.Freezable> objects (or any <xref:System.Windows.Freezable> object). For convenience, this method shadows the inherited version with a strongly typed implementation.  \n  \n For more information, see <xref:System.Windows.Freezable.CloneCurrentValue%2A?displayProperty=fullName>."
   syntax:
     content: public System.Windows.Interop.D3DImage CloneCurrentValue ();
@@ -480,7 +480,7 @@ items:
     parameters: []
     return:
       type: System.Windows.Media.Imaging.BitmapSource
-      description: A <xref href="System.Windows.Media.Imaging.BitmapSource"></xref> that is a software copy of the current state of the back buffer; otherwise, `null` if the back buffer cannot be read.
+      description: 'A <xref href="System.Windows.Media.Imaging.BitmapSource"></xref> that is a software copy of the current state of the back buffer; otherwise, `null` if the back buffer cannot be read.'
   overload: System.Windows.Interop.D3DImage.CopyBackBuffer*
   exceptions: []
   attributes:
@@ -521,8 +521,8 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Interop
-  summary: When implemented in a derived class, creates a new instance of the <xref href="System.Windows.Interop.D3DImage"></xref> derived class.
-  remarks: If you derive from the <xref:System.Windows.Interop.D3DImage> class, you must override the <xref:System.Windows.Interop.D3DImage.CreateInstanceCore%2A> method to enable correct cloning. The default implementation performs a `return new D3DImage()`, which will not be correct if the instance is a different class.
+  summary: 'When implemented in a derived class, creates a new instance of the <xref href="System.Windows.Interop.D3DImage"></xref> derived class.'
+  remarks: 'If you derive from the <xref:System.Windows.Interop.D3DImage> class, you must override the <xref:System.Windows.Interop.D3DImage.CreateInstanceCore%2A> method to enable correct cloning. The default implementation performs a `return new D3DImage()`, which will not be correct if the instance is a different class.'
   syntax:
     content: protected override System.Windows.Freezable CreateInstanceCore ();
     parameters: []
@@ -617,7 +617,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Interop
   summary: Makes the <xref href="System.Windows.Interop.D3DImage"></xref> unmodifiable or determines whether it can be made unmodifiable.
-  remarks: The <xref:System.Windows.Interop.D3DImage> class does not allow freezing because changes are always possible due to front buffer availability.
+  remarks: 'The <xref:System.Windows.Interop.D3DImage> class does not allow freezing because changes are always possible due to front buffer availability.'
   syntax:
     content: protected override sealed bool FreezeCore (bool isChecking);
     parameters:
@@ -707,7 +707,7 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Interop
-  summary: Makes the current instance a frozen clone of the specified <xref href="System.Windows.Freezable"></xref>. If the object has animated dependency properties, their current animated values are copied.
+  summary: 'Makes the current instance a frozen clone of the specified <xref href="System.Windows.Freezable"></xref>. If the object has animated dependency properties, their current animated values are copied.'
   syntax:
     content: protected override void GetCurrentValueAsFrozenCore (System.Windows.Freezable sourceFreezable);
     parameters:
@@ -752,12 +752,12 @@ items:
   - PresentationCore
   namespace: System.Windows.Interop
   summary: Gets the height of the <xref href="System.Windows.Interop.D3DImage"></xref>.
-  remarks: The value of <xref:System.Windows.Interop.D3DImage.Height%2A> can change when a new back buffer is assigned by a call to the <xref:System.Windows.Interop.D3DImage.SetBackBuffer%2A> method.
+  remarks: 'The value of <xref:System.Windows.Interop.D3DImage.Height%2A> can change when a new back buffer is assigned by a call to the <xref:System.Windows.Interop.D3DImage.SetBackBuffer%2A> method.'
   syntax:
     content: public override sealed double Height { get; }
     return:
       type: System.Double
-      description: The height of the <xref href="System.Windows.Interop.D3DImage"></xref>, in measure units. A measure unit is 1/96th inch.
+      description: 'The height of the <xref href="System.Windows.Interop.D3DImage"></xref>, in measure units. A measure unit is 1/96th inch.'
   overload: System.Windows.Interop.D3DImage.Height*
   exceptions: []
   version:
@@ -795,7 +795,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Interop
   summary: Gets a value that indicates whether a front buffer exists.
-  remarks: "Occasionally, the front buffer becomes unavailable. This lack of availability can be caused by screen locking, full-screen exclusive Direct3D applications, user-switching, or other system activities. When this occurs, your WPF application is notified by handling the <xref:System.Windows.Interop.D3DImage.IsFrontBufferAvailableChanged> event.  How your application responds to the front buffer becoming unavailable depends on whether WPF is enabled to fall back to software rendering. The <xref:System.Windows.Interop.D3DImage.SetBackBuffer%2A> method has an overload that takes a parameter that specifies whether WPF falls back to software rendering. For more information, see the remarks in the <xref:System.Windows.Interop.D3DImage> class.  \n  \n<a name=\"dependencyPropertyInfo_IsFrontBufferAvailable\"></a>   \n## Dependency Property Information  \n  \n|||  \n|-|-|  \n|Identifier field|<xref:System.Windows.Interop.D3DImage.IsFrontBufferAvailableProperty>|  \n|Metadata properties set to `true`|None|"
+  remarks: "Occasionally, the front buffer becomes unavailable. This lack of availability can be caused by screen locking, full-screen exclusive Direct3D applications, user-switching, or other system activities. When this occurs, your WPF application is notified by handling the <xref:System.Windows.Interop.D3DImage.IsFrontBufferAvailableChanged> event.  How your application responds to the front buffer becoming unavailable depends on whether WPF is enabled to fall back to software rendering. The <xref:System.Windows.Interop.D3DImage.SetBackBuffer%2A> method has an overload that takes a parameter that specifies whether WPF falls back to software rendering. For more information, see the remarks in the <xref:System.Windows.Interop.D3DImage> class.  \n  \n<a name=\"dependencyPropertyInfo_IsFrontBufferAvailable\"></a>   \n## <a name=\"dependency-property-information\"></a>Dependency Property Information  \n  \n|||  \n|-|-|  \n|Identifier field|<xref:System.Windows.Interop.D3DImage.IsFrontBufferAvailableProperty>|  \n|Metadata properties set to `true`|None|"
   example:
   - "The following code example shows how to check the <xref:System.Windows.Interop.D3DImage.IsFrontBufferAvailable%2A> property when rendering the composition target. For more information, see [Walkthrough: Hosting Direct3D9 Content in WPF](~/docs/framework/wpf/advanced/walkthrough-hosting-direct3d9-content-in-wpf.md).  \n  \n [!code-csharp[System.Windows.Interop.D3DImage#2](~/samples/snippets/csharp/VS_Snippets_Wpf/System.Windows.Interop.D3DImage/CS/window1.xaml.cs#2)]"
   syntax:
@@ -841,7 +841,7 @@ items:
   - PresentationCore
   namespace: System.Windows.Interop
   summary: Occurs when the <xref href="System.Windows.Interop.D3DImage.IsFrontBufferAvailable"></xref> property changes.
-  remarks: Handle the <xref:System.Windows.Interop.D3DImage.IsFrontBufferAvailableChanged> to be notified when the status of the front buffer changes. How your application responds to the front buffer becoming unavailable depends on whether WPF is enabled to fall back to software rendering. The <xref:System.Windows.Interop.D3DImage.SetBackBuffer%2A> method has an overload that takes a parameter that specifies whether WPF falls back to software rendering. For more information, see the remarks in the <xref:System.Windows.Interop.D3DImage> class.
+  remarks: 'Handle the <xref:System.Windows.Interop.D3DImage.IsFrontBufferAvailableChanged> to be notified when the status of the front buffer changes. How your application responds to the front buffer becoming unavailable depends on whether WPF is enabled to fall back to software rendering. The <xref:System.Windows.Interop.D3DImage.SetBackBuffer%2A> method has an overload that takes a parameter that specifies whether WPF falls back to software rendering. For more information, see the remarks in the <xref:System.Windows.Interop.D3DImage> class.'
   syntax:
     content: public event System.Windows.DependencyPropertyChangedEventHandler IsFrontBufferAvailableChanged;
     return:
@@ -1015,15 +1015,15 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Interop
-  summary: Gets the height of the <xref href="System.Windows.Interop.D3DImage"></xref>, in pixels.
-  remarks: The value of <xref:System.Windows.Interop.D3DImage.PixelHeight%2A> can change when a new back buffer is assigned by a call to the <xref:System.Windows.Interop.D3DImage.SetBackBuffer%2A> method.
+  summary: 'Gets the height of the <xref href="System.Windows.Interop.D3DImage"></xref>, in pixels.'
+  remarks: 'The value of <xref:System.Windows.Interop.D3DImage.PixelHeight%2A> can change when a new back buffer is assigned by a call to the <xref:System.Windows.Interop.D3DImage.SetBackBuffer%2A> method.'
   example:
   - "The following code example shows how to use the <xref:System.Windows.Interop.D3DImage.PixelHeight%2A> property to specify the changed region in the back buffer. For more information, see [Walkthrough: Hosting Direct3D9 Content in WPF](~/docs/framework/wpf/advanced/walkthrough-hosting-direct3d9-content-in-wpf.md).  \n  \n [!code-csharp[System.Windows.Interop.D3DImage#3](~/samples/snippets/csharp/VS_Snippets_Wpf/System.Windows.Interop.D3DImage/CS/window1.xaml.cs#3)]"
   syntax:
     content: public int PixelHeight { get; }
     return:
       type: System.Int32
-      description: The height of the <xref href="System.Windows.Interop.D3DImage"></xref>, in pixels.
+      description: 'The height of the <xref href="System.Windows.Interop.D3DImage"></xref>, in pixels.'
   overload: System.Windows.Interop.D3DImage.PixelHeight*
   exceptions: []
   version:
@@ -1060,15 +1060,15 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Interop
-  summary: Gets the width of the <xref href="System.Windows.Interop.D3DImage"></xref>, in pixels.
-  remarks: The value of <xref:System.Windows.Interop.D3DImage.PixelWidth%2A> can change when a new back buffer is assigned by a call to the <xref:System.Windows.Interop.D3DImage.SetBackBuffer%2A> method.
+  summary: 'Gets the width of the <xref href="System.Windows.Interop.D3DImage"></xref>, in pixels.'
+  remarks: 'The value of <xref:System.Windows.Interop.D3DImage.PixelWidth%2A> can change when a new back buffer is assigned by a call to the <xref:System.Windows.Interop.D3DImage.SetBackBuffer%2A> method.'
   example:
   - "The following code example shows how to use the <xref:System.Windows.Interop.D3DImage.PixelWidth%2A> property to specify the changed region in the back buffer. For more information, see [Walkthrough: Hosting Direct3D9 Content in WPF](~/docs/framework/wpf/advanced/walkthrough-hosting-direct3d9-content-in-wpf.md).  \n  \n [!code-csharp[System.Windows.Interop.D3DImage#3](~/samples/snippets/csharp/VS_Snippets_Wpf/System.Windows.Interop.D3DImage/CS/window1.xaml.cs#3)]"
   syntax:
     content: public int PixelWidth { get; }
     return:
       type: System.Int32
-      description: The width of the <xref href="System.Windows.Interop.D3DImage"></xref>, in pixels.
+      description: 'The width of the <xref href="System.Windows.Interop.D3DImage"></xref>, in pixels.'
   overload: System.Windows.Interop.D3DImage.PixelWidth*
   exceptions: []
   version:
@@ -1317,12 +1317,12 @@ items:
   - PresentationCore
   namespace: System.Windows.Interop
   summary: Gets the width of the <xref href="System.Windows.Interop.D3DImage"></xref>.
-  remarks: The value of <xref:System.Windows.Interop.D3DImage.Width%2A> can change when a new back buffer is assigned by a call to the <xref:System.Windows.Interop.D3DImage.SetBackBuffer%2A> method.
+  remarks: 'The value of <xref:System.Windows.Interop.D3DImage.Width%2A> can change when a new back buffer is assigned by a call to the <xref:System.Windows.Interop.D3DImage.SetBackBuffer%2A> method.'
   syntax:
     content: public override sealed double Width { get; }
     return:
       type: System.Double
-      description: The width of the <xref href="System.Windows.Interop.D3DImage"></xref>, in measure units. A measure unit is 1/96th inch.
+      description: 'The width of the <xref href="System.Windows.Interop.D3DImage"></xref>, in measure units. A measure unit is 1/96th inch.'
   overload: System.Windows.Interop.D3DImage.Width*
   exceptions: []
   version:

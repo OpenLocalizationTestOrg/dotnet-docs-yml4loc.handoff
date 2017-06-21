@@ -49,7 +49,7 @@ items:
   - netstandard
   namespace: System.Security.Cryptography
   summary: Defines the core functionality for keys that are used with Cryptography Next Generation (CNG) objects.
-  remarks: This class wraps NCrypt keys, not BCrypt keys. NCrypt is a subset of CNG that provides key storage functionality. BCrypt is a subset that provides base cryptographic services such as random number generation, hash functions, signatures, and encryption keys.
+  remarks: 'This class wraps NCrypt keys, not BCrypt keys. NCrypt is a subset of CNG that provides key storage functionality. BCrypt is a subset that provides base cryptographic services such as random number generation, hash functions, signatures, and encryption keys.'
   syntax:
     content: 'public sealed class CngKey : IDisposable'
   inheritance:
@@ -265,7 +265,7 @@ items:
   - netstandard
   namespace: System.Security.Cryptography
   summary: Creates a <xref href="System.Security.Cryptography.CngKey"></xref> object that can be used with the specified algorithm.
-  remarks: This overload creates a key without a name, which means that the key is ephemeral (that is, it will not be persisted). It also creates a default <xref:System.Security.Cryptography.CngKeyCreationParameters> object that specifies a default <xref:System.Security.Cryptography.CngProvider> and other advanced parameters for the key.
+  remarks: 'This overload creates a key without a name, which means that the key is ephemeral (that is, it will not be persisted). It also creates a default <xref:System.Security.Cryptography.CngKeyCreationParameters> object that specifies a default <xref:System.Security.Cryptography.CngProvider> and other advanced parameters for the key.'
   syntax:
     content: public static System.Security.Cryptography.CngKey Create (System.Security.Cryptography.CngAlgorithm algorithm);
     parameters:
@@ -336,7 +336,7 @@ items:
   - netstandard
   namespace: System.Security.Cryptography
   summary: Creates a named <xref href="System.Security.Cryptography.CngKey"></xref> object that provides the specified algorithm.
-  remarks: If `keyName` is provided, this overload creates a persisted key. If `keyName` is not provided, the key will be ephemeral. This overload also creates a default <xref:System.Security.Cryptography.CngKeyCreationParameters> object that specifies a default <xref:System.Security.Cryptography.CngProvider> and other advanced parameters for the key.
+  remarks: 'If `keyName` is provided, this overload creates a persisted key. If `keyName` is not provided, the key will be ephemeral. This overload also creates a default <xref:System.Security.Cryptography.CngKeyCreationParameters> object that specifies a default <xref:System.Security.Cryptography.CngProvider> and other advanced parameters for the key.'
   syntax:
     content: public static System.Security.Cryptography.CngKey Create (System.Security.Cryptography.CngAlgorithm algorithm, string keyName);
     parameters:
@@ -345,7 +345,7 @@ items:
       description: The algorithm that the key will be used with.
     - id: keyName
       type: System.String
-      description: The key name. If a name is not provided, the key will not be persisted.
+      description: 'The key name. If a name is not provided, the key will not be persisted.'
     return:
       type: System.Security.Cryptography.CngKey
       description: A persisted or ephemeral key that provides the specified algorithm.
@@ -409,8 +409,8 @@ items:
   - System.Core
   - netstandard
   namespace: System.Security.Cryptography
-  summary: Creates a named <xref href="System.Security.Cryptography.CngKey"></xref> object that provides the specified algorithm, using the supplied key creation parameters.
-  remarks: If `keyName` is provided, this overload creates a persisted key. If `keyName` is not provided, the key will be ephemeral.
+  summary: 'Creates a named <xref href="System.Security.Cryptography.CngKey"></xref> object that provides the specified algorithm, using the supplied key creation parameters.'
+  remarks: 'If `keyName` is provided, this overload creates a persisted key. If `keyName` is not provided, the key will be ephemeral.'
   syntax:
     content: public static System.Security.Cryptography.CngKey Create (System.Security.Cryptography.CngAlgorithm algorithm, string keyName, System.Security.Cryptography.CngKeyCreationParameters creationParameters);
     parameters:
@@ -419,10 +419,10 @@ items:
       description: The algorithm that the key will be used with.
     - id: keyName
       type: System.String
-      description: The key name. If a name is not provided, the key will not be persisted.
+      description: 'The key name. If a name is not provided, the key will not be persisted.'
     - id: creationParameters
       type: System.Security.Cryptography.CngKeyCreationParameters
-      description: An object that specifies advanced parameters for the method, including the <xref href="System.Security.Cryptography.CngProvider"></xref>.
+      description: 'An object that specifies advanced parameters for the method, including the <xref href="System.Security.Cryptography.CngProvider"></xref>.'
     return:
       type: System.Security.Cryptography.CngKey
       description: A persisted or ephemeral key that provides the specified algorithm.
@@ -607,8 +607,8 @@ items:
   - System.Core
   - netstandard
   namespace: System.Security.Cryptography
-  summary: Checks to see whether a named key exists in the specified key storage provider (KSP), according to the specified options.
-  remarks: Use this overload to check for the existence of a key in a KSP other than the default <xref:System.Security.Cryptography.CngProvider.MicrosoftSoftwareKeyStorageProvider%2A>, and to specify key open options.
+  summary: 'Checks to see whether a named key exists in the specified key storage provider (KSP), according to the specified options.'
+  remarks: 'Use this overload to check for the existence of a key in a KSP other than the default <xref:System.Security.Cryptography.CngProvider.MicrosoftSoftwareKeyStorageProvider%2A>, and to specify key open options.'
   syntax:
     content: public static bool Exists (string keyName, System.Security.Cryptography.CngProvider provider, System.Security.Cryptography.CngKeyOpenOptions options);
     parameters:
@@ -686,7 +686,7 @@ items:
   - netstandard
   namespace: System.Security.Cryptography
   summary: Checks to see whether a named key exists in the default key storage provider (KSP).
-  remarks: The default KSP is <xref:System.Security.Cryptography.CngProvider.MicrosoftSoftwareKeyStorageProvider%2A>.
+  remarks: 'The default KSP is <xref:System.Security.Cryptography.CngProvider.MicrosoftSoftwareKeyStorageProvider%2A>.'
   syntax:
     content: public static bool Exists (string keyName);
     parameters:
@@ -757,7 +757,7 @@ items:
   - netstandard
   namespace: System.Security.Cryptography
   summary: Checks to see whether a named key exists in the specified key storage provider (KSP).
-  remarks: Use this overload to check for the existence of a key in a KSP other than the default KSP, which is <xref:System.Security.Cryptography.CngProvider.MicrosoftSoftwareKeyStorageProvider%2A>.
+  remarks: 'Use this overload to check for the existence of a key in a KSP other than the default KSP, which is <xref:System.Security.Cryptography.CngProvider.MicrosoftSoftwareKeyStorageProvider%2A>.'
   syntax:
     content: public static bool Exists (string keyName, System.Security.Cryptography.CngProvider provider);
     parameters:
@@ -830,8 +830,8 @@ items:
   - System.Core
   - netstandard
   namespace: System.Security.Cryptography
-  summary: Exports the key material into a BLOB, in the specified format.
-  remarks: Cryptography Next Generation (CNG) allows export in any format that the underlying key storage provider (KSP) supports. For example, on Windows Vista,the default KSP (which is <xref:System.Security.Cryptography.CngProvider.MicrosoftSoftwareKeyStorageProvider%2A>) only allows export of private keys in the <xref:System.Security.Cryptography.CngKeyBlobFormat.Pkcs8PrivateBlob%2A>, <xref:System.Security.Cryptography.CngKeyBlobFormat.EccPrivateBlob%2A>, and <xref:System.Security.Cryptography.CngKeyBlobFormat.OpaqueTransportBlob%2A> formats. This restriction is controlled by the underlying KSP. If you use a different KSP, other formats may apply.
+  summary: 'Exports the key material into a BLOB, in the specified format.'
+  remarks: 'Cryptography Next Generation (CNG) allows export in any format that the underlying key storage provider (KSP) supports. For example, on Windows Vista,the default KSP (which is <xref:System.Security.Cryptography.CngProvider.MicrosoftSoftwareKeyStorageProvider%2A>) only allows export of private keys in the <xref:System.Security.Cryptography.CngKeyBlobFormat.Pkcs8PrivateBlob%2A>, <xref:System.Security.Cryptography.CngKeyBlobFormat.EccPrivateBlob%2A>, and <xref:System.Security.Cryptography.CngKeyBlobFormat.OpaqueTransportBlob%2A> formats. This restriction is controlled by the underlying KSP. If you use a different KSP, other formats may apply.'
   syntax:
     content: public byte[] Export (System.Security.Cryptography.CngKeyBlobFormat format);
     parameters:
@@ -848,7 +848,7 @@ items:
     description: <code>format</code> is `null`.
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: All other errors. Typically, the <xref href="System.Security.Cryptography.CngKey.ExportPolicy"></xref> does not allow the key to be exported.
+    description: 'All other errors. Typically, the <xref href="System.Security.Cryptography.CngKey.ExportPolicy"></xref> does not allow the key to be exported.'
   attributes: []
   version:
   - netcore-1.0
@@ -962,7 +962,7 @@ items:
   - System.Core
   - netstandard
   namespace: System.Security.Cryptography
-  summary: Gets a property, given a name and a set of property options.
+  summary: 'Gets a property, given a name and a set of property options.'
   remarks: "The purpose of this method is to return the value of an arbitrary property of the key. The typical way to retrieve properties is by using the property accessors provided by the <xref:System.Security.Cryptography.CngKey> class. <xref:System.Security.Cryptography.CngKey> provides wrappers for several, but not all, properties. The <xref:System.Security.Cryptography.CngKey.GetProperty%2A> method is primarily used to access the value of a property that is not wrapped.  \n  \n This method is useful in the following cases:  \n  \n-   A new version of the operating system supports a new Cryptography Next Generation (CNG) key property that does not have a wrapper.  \n  \n-   You add a custom property to the key.  \n  \n The `options` parameter is specifically used to indicate the following:  \n  \n-   Whether the property is built-in, or custom.  \n  \n-   Whether the property should be persisted with the key.  \n  \n These options must match the value that the property was set with, or the property will not be found.  \n  \n <xref:System.Security.Cryptography.CryptographicException> is thrown if the property cannot be found. You should call the <xref:System.Security.Cryptography.CngKey.HasProperty%2A> method first to avoid the exception instead of wrapping the method call in a `try/catch` block."
   syntax:
     content: public System.Security.Cryptography.CngProperty GetProperty (string name, System.Security.Cryptography.CngPropertyOptions options);
@@ -1166,11 +1166,8 @@ items:
   - System.Core
   - netstandard
   namespace: System.Security.Cryptography
-  summary: Creates a new key by importing the specified key material into the specified key storage provider (KSP), using the specified format.
-  remarks: >-
-    > [!IMPORTANT]
-
-    >  On Windows operating systems before Windows 7 and Windows Server 2008 R2, some CNG key binary large object (BLOB) formats are not supported.
+  summary: 'Creates a new key by importing the specified key material into the specified key storage provider (KSP), using the specified format.'
+  remarks: "> [!IMPORTANT]\n>  On Windows operating systems before Windows 7 and Windows Server 2008 R2, some CNG key binary large object (BLOB) formats are not supported."
   syntax:
     content: public static System.Security.Cryptography.CngKey Import (byte[] keyBlob, System.Security.Cryptography.CngKeyBlobFormat format, System.Security.Cryptography.CngProvider provider);
     parameters:
@@ -1190,7 +1187,7 @@ items:
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: <code>keyBlob</code>, <code>format</code>, or <code>provider</code> is `null`.
+    description: '<code>keyBlob</code>, <code>format</code>, or <code>provider</code> is `null`.'
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
     description: Cryptography Next Generation (CNG) is not supported on this system.
@@ -1457,7 +1454,7 @@ items:
       public string KeyName { get; }
     return:
       type: System.String
-      description: The name of the key. If the key is ephemeral, the value is `null`.
+      description: 'The name of the key. If the key is ephemeral, the value is `null`.'
   overload: System.Security.Cryptography.CngKey.KeyName*
   exceptions: []
   attributes:
@@ -1730,7 +1727,7 @@ items:
     description: <code>keyHandle</code> is `null`.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: <code>keyHandle</code> is invalid or malformed, or it is already closed. This exception is also thrown if the key is an ephemeral key that is created by the common language runtime (CLR), but the <xref href="System.Security.Cryptography.CngKeyHandleOpenOptions.EphemeralKey"></xref> value is not specified.
+    description: '<code>keyHandle</code> is invalid or malformed, or it is already closed. This exception is also thrown if the key is an ephemeral key that is created by the common language runtime (CLR), but the <xref href="System.Security.Cryptography.CngKeyHandleOpenOptions.EphemeralKey"></xref> value is not specified.'
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
     description: Cryptography Next Generation (CNG) is not supported on this system.
@@ -1788,8 +1785,8 @@ items:
   - System.Core
   - netstandard
   namespace: System.Security.Cryptography
-  summary: Creates an instance of an <xref href="System.Security.Cryptography.CngKey"></xref> object that represents an existing named key, using the specified key storage provider (KSP).
-  remarks: Unlike the <xref:System.Security.Cryptography.CngKey.Open%28System.String%29> method overload, this overload lets you specify the provider. In addition, a default <xref:System.Security.Cryptography.CngKeyOpenOptions> value of <xref:System.Security.Cryptography.CngKeyOpenOptions.None> is created and bound to the key.
+  summary: 'Creates an instance of an <xref href="System.Security.Cryptography.CngKey"></xref> object that represents an existing named key, using the specified key storage provider (KSP).'
+  remarks: 'Unlike the <xref:System.Security.Cryptography.CngKey.Open%28System.String%29> method overload, this overload lets you specify the provider. In addition, a default <xref:System.Security.Cryptography.CngKeyOpenOptions> value of <xref:System.Security.Cryptography.CngKeyOpenOptions.None> is created and bound to the key.'
   syntax:
     content: public static System.Security.Cryptography.CngKey Open (string keyName, System.Security.Cryptography.CngProvider provider);
     parameters:
@@ -1862,8 +1859,8 @@ items:
   - System.Core
   - netstandard
   namespace: System.Security.Cryptography
-  summary: Creates an instance of an <xref href="System.Security.Cryptography.CngKey"></xref> object that represents an existing named key, using the specified key storage provider (KSP) and key open options.
-  remarks: Unlike the <xref:System.Security.Cryptography.CngKey.Open%28System.String%29> method overload, this overload lets you specify both the provider and the key open options.
+  summary: 'Creates an instance of an <xref href="System.Security.Cryptography.CngKey"></xref> object that represents an existing named key, using the specified key storage provider (KSP) and key open options.'
+  remarks: 'Unlike the <xref:System.Security.Cryptography.CngKey.Open%28System.String%29> method overload, this overload lets you specify both the provider and the key open options.'
   syntax:
     content: public static System.Security.Cryptography.CngKey Open (string keyName, System.Security.Cryptography.CngProvider provider, System.Security.Cryptography.CngKeyOpenOptions openOptions);
     parameters:
@@ -1875,7 +1872,7 @@ items:
       description: The KSP that contains the key.
     - id: openOptions
       type: System.Security.Cryptography.CngKeyOpenOptions
-      description: A bitwise combination of the enumeration values that specify options for opening the key, such as where the key is opened from (machine or user storage) and whether to suppress UI prompting.
+      description: 'A bitwise combination of the enumeration values that specify options for opening the key, such as where the key is opened from (machine or user storage) and whether to suppress UI prompting.'
     return:
       type: System.Security.Cryptography.CngKey
       description: An existing key.
@@ -2132,7 +2129,7 @@ items:
   - netstandard
   namespace: System.Security.Cryptography
   summary: Sets a named property on the key.
-  remarks: This method enables you to add a new custom property to an existing key by using a <xref:System.Security.Cryptography.CngProperty> object. The options set on the <xref:System.Security.Cryptography.CngProperty> object must exactly match the options in the <xref:System.Security.Cryptography.CngKey.GetProperty%2A> call. Otherwise, the property will not be found.
+  remarks: 'This method enables you to add a new custom property to an existing key by using a <xref:System.Security.Cryptography.CngProperty> object. The options set on the <xref:System.Security.Cryptography.CngProperty> object must exactly match the options in the <xref:System.Security.Cryptography.CngKey.GetProperty%2A> call. Otherwise, the property will not be found.'
   syntax:
     content: public void SetProperty (System.Security.Cryptography.CngProperty property);
     parameters:
@@ -2255,7 +2252,7 @@ items:
   - netstandard
   namespace: System.Security.Cryptography
   summary: Gets the unique name for the key.
-  remarks: This property gets an alternate name that can be used when accessing the key. You can use this property if the original key name does not uniquely identify the persisted key. The <xref:System.Security.Cryptography.CngProvider.MicrosoftSoftwareKeyStorageProvider%2A> property will return the file name of the key as this property. The name returned by the <xref:System.Security.Cryptography.CngProvider.MicrosoftSmartCardKeyStorageProvider%2A> is implementation-dependent.
+  remarks: 'This property gets an alternate name that can be used when accessing the key. You can use this property if the original key name does not uniquely identify the persisted key. The <xref:System.Security.Cryptography.CngProvider.MicrosoftSoftwareKeyStorageProvider%2A> property will return the file name of the key as this property. The name returned by the <xref:System.Security.Cryptography.CngProvider.MicrosoftSmartCardKeyStorageProvider%2A> is implementation-dependent.'
   syntax:
     content: >-
       [get: System.Security.SecuritySafeCritical]
@@ -2263,7 +2260,7 @@ items:
       public string UniqueName { get; }
     return:
       type: System.String
-      description: An alternate name for the key. If the key is ephemeral, the value is `null`.
+      description: 'An alternate name for the key. If the key is ephemeral, the value is `null`.'
   overload: System.Security.Cryptography.CngKey.UniqueName*
   exceptions: []
   attributes:

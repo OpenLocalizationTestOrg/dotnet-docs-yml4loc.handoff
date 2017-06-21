@@ -27,7 +27,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: Provides default implementation and base class definitions for a XAML writer. This is not a working default XAML writer; you must either derive from <xref href="System.Xaml.XamlWriter"></xref> and implement its abstract members, or use an existing <xref href="System.Xaml.XamlWriter"></xref> derived class.
+  summary: 'Provides default implementation and base class definitions for a XAML writer. This is not a working default XAML writer; you must either derive from <xref href="System.Xaml.XamlWriter"></xref> and implement its abstract members, or use an existing <xref href="System.Xaml.XamlWriter"></xref> derived class.'
   remarks: "The two most relevant practical derived classes of <xref:System.Xaml.XamlWriter> are the <xref:System.Xaml.XamlXmlWriter> and <xref:System.Xaml.XamlObjectWriter> classes, as the following details explain:  \n  \n-   <xref:System.Xaml.XamlXmlWriter> processes a XAML node set and produces an XML text file. This class might be used for serialization or as part of the function of a tool that works with in-memory representation of XAML and produces XAML file output.  \n  \n-   <xref:System.Xaml.XamlObjectWriter> processes a XAML node set and produces an object graph. This class might be used as part of a full or partial customization of a technology's XAML parser.  \n  \n <xref:System.Xaml.XamlWriterSettings> is a class for settings that are used by a <xref:System.Xaml.XamlWriter>; however, by default, the <xref:System.Xaml.XamlWriterSettings> class does not hold any specific settings. The <xref:System.Xaml.XamlWriter> base constructor does not use this settings class as an argument, nor does any other <xref:System.Xaml.XamlWriter> member. Instead, the <xref:System.Xaml.XamlXmlWriter> and <xref:System.Xaml.XamlObjectWriter> classes include their own settings classes as construction arguments. These settings classes are <xref:System.Xaml.XamlXmlWriterSettings> and <xref:System.Xaml.XamlObjectWriterSettings>. The settings classes define actual settings values and are based on <xref:System.Xaml.XamlWriterSettings>, so that they can use the <xref:System.Xaml.XamlWriterSettings> merge feature."
   syntax:
     content: 'public abstract class XamlWriter : IDisposable'
@@ -119,7 +119,7 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Closes the XAML writer object.
-  remarks: In the base implementation, calling <xref:System.Xaml.XamlWriter.Close%2A> calls the <xref:System.Xaml.XamlWriter.Dispose%2A> method with the `isDisposing` parameter as `true`.
+  remarks: 'In the base implementation, calling <xref:System.Xaml.XamlWriter.Close%2A> calls the <xref:System.Xaml.XamlWriter.Dispose%2A> method with the `isDisposing` parameter as `true`.'
   syntax:
     content: public void Close ();
     parameters: []
@@ -159,7 +159,7 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Releases the unmanaged resources used by the <xref href="System.Xaml.XamlWriter"></xref> and optionally releases the managed resources.
-  remarks: You must call the base class to get <xref:System.Xaml.XamlWriter.IsDisposed%2A> = `true`.
+  remarks: 'You must call the base class to get <xref:System.Xaml.XamlWriter.IsDisposed%2A> = `true`.'
   syntax:
     content: protected virtual void Dispose (bool disposing);
     parameters:
@@ -242,7 +242,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: When implemented in a derived class, gets the active XAML schema context.
+  summary: 'When implemented in a derived class, gets the active XAML schema context.'
   syntax:
     content: public abstract System.Xaml.XamlSchemaContext SchemaContext { get; }
     return:
@@ -283,7 +283,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: When implemented in a derived class, produces the representation of an end member node.
+  summary: 'When implemented in a derived class, produces the representation of an end member node.'
   syntax:
     content: public abstract void WriteEndMember ();
     parameters: []
@@ -322,7 +322,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: When implemented in a derived class, produces the representation of an end object node.
+  summary: 'When implemented in a derived class, produces the representation of an end object node.'
   syntax:
     content: public abstract void WriteEndObject ();
     parameters: []
@@ -361,7 +361,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: When implemented in a derived class, produces an object for cases where the object is a default or implicit value of the property being set, instead of being specified as a discrete object value in the input XAML node set.
+  summary: 'When implemented in a derived class, produces an object for cases where the object is a default or implicit value of the property being set, instead of being specified as a discrete object value in the input XAML node set.'
   syntax:
     content: public abstract void WriteGetObject ();
     parameters: []
@@ -400,7 +400,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: When implemented in a derived class, writes a XAML namespace declaration node.
+  summary: 'When implemented in a derived class, writes a XAML namespace declaration node.'
   syntax:
     content: public abstract void WriteNamespace (System.Xaml.NamespaceDeclaration namespaceDeclaration);
     parameters:
@@ -443,7 +443,7 @@ items:
   - System.Xaml
   namespace: System.Xaml
   summary: Performs switching based on node type from the XAML reader (<xref href="System.Xaml.XamlReader.NodeType"></xref>) and calls the relevant `Write` method for the writer implementation.
-  remarks: "## Notes for Inheritors  \n The <xref:System.Xaml.XamlWriter.WriteNode%2A> method is not a virtual method because it has practical implementation for all existing <xref:System.Xaml.XamlNodeType> values. Based on <xref:System.Xaml.XamlNodeType>, <xref:System.Xaml.XamlWriter.WriteNode%2A> calls into the `Write` virtual members that are dedicated to particular node types.  \n  \n If you have an advanced XAML writing scenario that expands the XAML type system and XAML node stream concept so that new node types are defined, do not use <xref:System.Xaml.XamlWriter.WriteNode%2A> calls in your logic. You must instead provide your own alternative for node-type switching logic in the class or in virtual overrides."
+  remarks: "## <a name=\"notes-for-inheritors\"></a>Notes for Inheritors  \n The <xref:System.Xaml.XamlWriter.WriteNode%2A> method is not a virtual method because it has practical implementation for all existing <xref:System.Xaml.XamlNodeType> values. Based on <xref:System.Xaml.XamlNodeType>, <xref:System.Xaml.XamlWriter.WriteNode%2A> calls into the `Write` virtual members that are dedicated to particular node types.  \n  \n If you have an advanced XAML writing scenario that expands the XAML type system and XAML node stream concept so that new node types are defined, do not use <xref:System.Xaml.XamlWriter.WriteNode%2A> calls in your logic. You must instead provide your own alternative for node-type switching logic in the class or in virtual overrides."
   syntax:
     content: public void WriteNode (System.Xaml.XamlReader reader);
     parameters:
@@ -491,7 +491,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: When implemented in a derived class, writes the representation of a start member node.
+  summary: 'When implemented in a derived class, writes the representation of a start member node.'
   syntax:
     content: public abstract void WriteStartMember (System.Xaml.XamlMember xamlMember);
     parameters:
@@ -533,7 +533,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: When implemented in a derived class, writes the representation of a start object node.
+  summary: 'When implemented in a derived class, writes the representation of a start object node.'
   syntax:
     content: public abstract void WriteStartObject (System.Xaml.XamlType type);
     parameters:
@@ -575,7 +575,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: When implemented in a derived class, writes a value node.
+  summary: 'When implemented in a derived class, writes a value node.'
   syntax:
     content: public abstract void WriteValue (object value);
     parameters:

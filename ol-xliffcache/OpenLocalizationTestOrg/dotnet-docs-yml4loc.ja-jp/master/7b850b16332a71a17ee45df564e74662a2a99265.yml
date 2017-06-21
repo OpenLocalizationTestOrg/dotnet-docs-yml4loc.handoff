@@ -295,7 +295,7 @@ items:
   - System.Web
   namespace: System.Web.UI
   summary: Adds a <xref href="System.Web.UI.WebControls.Content"></xref> control to the <xref href="System.Web.UI.MasterPage.ContentTemplates"></xref> dictionary.
-  remarks: Derived master page classes can add <xref:System.Web.UI.WebControls.Content> controls to the <xref:System.Web.UI.MasterPage.ContentTemplates%2A> dictionary using the <xref:System.Web.UI.MasterPage.AddContentTemplate%2A> method. Derived types do not typically override the <xref:System.Web.UI.MasterPage.AddContentTemplate%2A> method.
+  remarks: 'Derived master page classes can add <xref:System.Web.UI.WebControls.Content> controls to the <xref:System.Web.UI.MasterPage.ContentTemplates%2A> dictionary using the <xref:System.Web.UI.MasterPage.AddContentTemplate%2A> method. Derived types do not typically override the <xref:System.Web.UI.MasterPage.AddContentTemplate%2A> method.'
   syntax:
     content: protected void AddContentTemplate (string templateName, System.Web.UI.ITemplate template);
     parameters:
@@ -346,7 +346,7 @@ items:
   - System.Web
   namespace: System.Web.UI
   summary: Gets a list of <xref href="System.Web.UI.WebControls.ContentPlaceHolder"></xref> controls that the master page uses to define different content regions.
-  remarks: Derived master page classes access the <xref:System.Web.UI.MasterPage.ContentPlaceHolders%2A> property to list the current <xref:System.Web.UI.WebControls.ContentPlaceHolder> controls that are contained by the master. Derived types do not typically override the <xref:System.Web.UI.MasterPage.ContentPlaceHolders%2A> property.
+  remarks: 'Derived master page classes access the <xref:System.Web.UI.MasterPage.ContentPlaceHolders%2A> property to list the current <xref:System.Web.UI.WebControls.ContentPlaceHolder> controls that are contained by the master. Derived types do not typically override the <xref:System.Web.UI.MasterPage.ContentPlaceHolders%2A> property.'
   syntax:
     content: >-
       [System.ComponentModel.Browsable(false)]
@@ -394,7 +394,7 @@ items:
   - System.Web
   namespace: System.Web.UI
   summary: Gets a list of content controls that are associated with the master page.
-  remarks: Derived master page classes access the <xref:System.Web.UI.MasterPage.ContentTemplates%2A> property to retrieve the current <xref:System.Web.UI.WebControls.Content> controls, as defined by associated content pages. Derived types do not typically override the <xref:System.Web.UI.MasterPage.ContentTemplates%2A> property.
+  remarks: 'Derived master page classes access the <xref:System.Web.UI.MasterPage.ContentTemplates%2A> property to retrieve the current <xref:System.Web.UI.WebControls.Content> controls, as defined by associated content pages. Derived types do not typically override the <xref:System.Web.UI.MasterPage.ContentTemplates%2A> property.'
   syntax:
     content: >-
       [System.ComponentModel.Browsable(false)]
@@ -488,7 +488,7 @@ items:
   - System.Web
   namespace: System.Web.UI
   summary: Gets the parent master page of the current master in nested master pages scenarios.
-  remarks: The <xref:System.Web.UI.MasterPage.Master%2A> property is read-only, because master page hierarchies cannot be built at run time.
+  remarks: 'The <xref:System.Web.UI.MasterPage.Master%2A> property is read-only, because master page hierarchies cannot be built at run time.'
   example:
   - "This section contains three code examples. The first code example demonstrates how to create a nested master page`.` The second code example demonstrates how to reference the master page that was created in the first code example. The third code example demonstrates how to use a content page to reference the master page that was created in the second code example.  \n  \n The following code example demonstrates how to create a nested master page and represents the parent master page named `ParentMasterPage_1`.  \n  \n```csharp  \n<%@ Master Language=\"C#\" %>  \n  \n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">  \n  \n<html >  \n<head runat=\"server\">  \n    <title>Nested Master Page Example</title>  \n</head>  \n<body>  \n    <form id=\"form1\" runat=\"server\">  \n    <h1>This is content in the parent master page.</h1>  \n    <div>  \n        <asp:contentplaceholder id=\"ContentPlaceHolder1\" runat=\"server\">  \n        </asp:contentplaceholder>  \n    </div>  \n    </form>  \n</body>  \n</html>  \n```  \n  \n```vb  \n<%@ Master Language=\"VB\" %>  \n  \n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">  \n  \n<html >  \n<head runat=\"server\">  \n    <title>Nested Master Page Example</title>  \n</head>  \n<body>  \n    <form id=\"form1\" runat=\"server\">  \n    <h1>This is content in the parent master page.</h1>  \n    <div>  \n        <asp:contentplaceholder id=\"ContentPlaceHolder1\" runat=\"server\">  \n        </asp:contentplaceholder>  \n    </div>  \n    </form>  \n</body>  \n</html>  \n```  \n  \n The following code example demonstrates how to use a nested master page named `ChildMasterPage_1` that references the master page that was created in the preceding code example.  \n  \n```csharp  \n<%@ Master Language=\"C#\" MasterPageFile=\"~/ParentMasterPage_1cs.master\" %>  \n  \n<asp:Content Runat=\"Server\" ContentPlaceHolderID=\"ContentPlaceHolder1\">  \n    <h2>This is the content of a nested Master Page.</h2>  \n    <div>  \n        <asp:contentplaceholder id=\"ContentPlaceHolder2\" runat=\"server\">  \n        </asp:contentplaceholder>  \n    </div>  \n</asp:Content>  \n```  \n  \n```vb  \n<%@ Master Language=\"VB\" MasterPageFile=\"~/ParentMasterPage_1vb.master\" %>  \n  \n<asp:Content Runat=\"Server\" ContentPlaceHolderID=\"ContentPlaceHolder1\">  \n    <h2>This is the content of a nested Master Page.</h2>  \n    <div>  \n        <asp:contentplaceholder id=\"ContentPlaceHolder2\" runat=\"server\">  \n        </asp:contentplaceholder>  \n    </div>  \n</asp:Content>  \n```  \n  \n The following code example demonstrates how to use a content page named `ContentPage` that references the `ChildMasterPage_1` that was created in the preceding code example.  \n  \n```csharp  \n<%@ Page Language=\"C#\" MasterPageFile=\"~/ChildMasterPage_1cs.master\" Title=\"Untitled Page\"%>  \n  \n<asp:content runat=\"server\" contentplaceholderid=\"ContentPlaceHolder2\">  \nThis is the content of a Content control.  \n</asp:content>  \n```  \n  \n```vb  \n<%@ Page Language=\"VB\" MasterPageFile=\"~/ChildMasterPage_1vb.master\" Title=\"Untitled Page\"%>  \n  \n<asp:content runat=\"server\" contentplaceholderid=\"ContentPlaceHolder2\">  \nThis is the content of a Content control.  \n</asp:content>  \n```"
   syntax:
@@ -498,7 +498,7 @@ items:
       public System.Web.UI.MasterPage Master { get; }
     return:
       type: System.Web.UI.MasterPage
-      description: The master page that is the parent of the current master page; otherwise, `null`, if the current master page has no parent.
+      description: 'The master page that is the parent of the current master page; otherwise, `null`, if the current master page has no parent.'
   overload: System.Web.UI.MasterPage.Master*
   exceptions: []
   attributes:
@@ -545,7 +545,7 @@ items:
     content: public string MasterPageFile { get; set; }
     return:
       type: System.String
-      description: The name of the master page that is the parent of the current master page; otherwise, `null`, if the current master page has no parent.
+      description: 'The name of the master page that is the parent of the current master page; otherwise, `null`, if the current master page has no parent.'
   overload: System.Web.UI.MasterPage.MasterPageFile*
   exceptions:
   - type: System.InvalidOperationException

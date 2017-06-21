@@ -157,8 +157,8 @@ items:
   - System.Data
   - netstandard
   namespace: System.Data.SqlClient
-  summary: Gets the <xref href="System.Data.SqlClient.SqlConnection"></xref> object associated with the transaction, or `null` if the transaction is no longer valid.
-  remarks: A single application may have multiple database connections, each with zero or more transactions. This property lets you determine the connection object associated with a particular transaction created by <xref:System.Data.SqlClient.SqlConnection.BeginTransaction%2A>.
+  summary: 'Gets the <xref href="System.Data.SqlClient.SqlConnection"></xref> object associated with the transaction, or `null` if the transaction is no longer valid.'
+  remarks: 'A single application may have multiple database connections, each with zero or more transactions. This property lets you determine the connection object associated with a particular transaction created by <xref:System.Data.SqlClient.SqlConnection.BeginTransaction%2A>.'
   syntax:
     content: public System.Data.SqlClient.SqlConnection Connection { get; }
     return:
@@ -440,7 +440,7 @@ items:
   - System.Data
   - netstandard
   namespace: System.Data.SqlClient
-  summary: Rolls back a transaction from a pending state, and specifies the transaction or savepoint name.
+  summary: 'Rolls back a transaction from a pending state, and specifies the transaction or savepoint name.'
   remarks: "The <xref:System.Data.SqlClient.SqlTransaction.Rollback%2A> method is equivalent to the Transact-SQL ROLLBACK TRANSACTION statement. For more information, see \"Explicit Transactions\" and \"Transaction Savepoints\" in SQL Server Books Online.  \n  \n The transaction can only be rolled back from a pending state (after <xref:System.Data.SqlClient.SqlConnection.BeginTransaction%2A> has been called, but before <xref:System.Data.SqlClient.SqlTransaction.Commit%2A> is called). The transaction is rolled back if it is disposed before `Commit` or `Rollback` is called.  \n  \n> [!NOTE]\n>  `Try`/`Catch` exception handling should always be used when rolling back a transaction. A `Rollback` generates an <xref:System.InvalidOperationException> if the connection is terminated or if the transaction has already been rolled back on the server.  \n  \n For more information on SQL Server transactions, see \"Explicit Transactions\" and \"Coding Efficient Transactions\" in SQL Server Books Online."
   example:
   - "The following example creates a <xref:System.Data.SqlClient.SqlConnection> and a <xref:System.Data.SqlClient.SqlTransaction>. It also demonstrates how to use the <xref:System.Data.SqlClient.SqlConnection.BeginTransaction%2A>, <xref:System.Data.SqlClient.SqlTransaction.Commit%2A>, and <xref:System.Data.SqlClient.SqlTransaction.Rollback%2A> methods. The transaction is rolled back on any error. `Try`/`Catch` error handling is used to handle any errors when attempting to commit or roll back the transaction.  \n  \n [!code-csharp[Classic WebData SqlConnection.BeginTransaction2 Example#1](~/samples/snippets/csharp/VS_Snippets_ADO.NET/Classic WebData SqlConnection.BeginTransaction2 Example/CS/source.cs#1)]\n [!code-vb[Classic WebData SqlConnection.BeginTransaction2 Example#1](~/samples/snippets/visualbasic/VS_Snippets_ADO.NET/Classic WebData SqlConnection.BeginTransaction2 Example/VB/source.vb#1)]"
@@ -449,7 +449,7 @@ items:
     parameters:
     - id: transactionName
       type: System.String
-      description: The name of the transaction to roll back, or the savepoint to which to roll back.
+      description: 'The name of the transaction to roll back, or the savepoint to which to roll back.'
   overload: System.Data.SqlClient.SqlTransaction.Rollback*
   exceptions:
   - type: System.ArgumentException
@@ -507,7 +507,7 @@ items:
   - System.Data
   - netstandard
   namespace: System.Data.SqlClient
-  summary: Creates a savepoint in the transaction that can be used to roll back a part of the transaction, and specifies the savepoint name.
+  summary: 'Creates a savepoint in the transaction that can be used to roll back a part of the transaction, and specifies the savepoint name.'
   remarks: "<xref:System.Data.SqlClient.SqlTransaction.Save%2A> method is equivalent to the Transact-SQL SAVE TRANSACTION statement.  \n  \n The value used in the `savePoint` parameter can be the same value used in the `transactionName` parameter of some implementations of the <xref:System.Data.SqlClient.SqlConnection.BeginTransaction%2A> method.  \n  \n Savepoints offer a mechanism to roll back parts of transactions. You create a savepoint using the <xref:System.Data.SqlClient.SqlTransaction.Save%2A> method, and then later call the <xref:System.Data.SqlClient.SqlTransaction.Rollback%2A> method to roll back to the savepoint instead of rolling back to the start of the transaction."
   syntax:
     content: public void Save (string savePointName);

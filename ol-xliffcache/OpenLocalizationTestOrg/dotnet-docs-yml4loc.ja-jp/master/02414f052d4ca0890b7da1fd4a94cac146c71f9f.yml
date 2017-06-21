@@ -22,7 +22,7 @@ items:
   assemblies:
   - System.Web.Services
   namespace: System.Web.Services.Protocols
-  summary: When overridden in a derived class, represents the content of a SOAP header.
+  summary: 'When overridden in a derived class, represents the content of a SOAP header.'
   remarks: "SOAP headers offer a method for passing data to and from an XML Web service method if the data is not directly related to the XML Web service method's primary functionality. For instance, an XML Web service might contain several XML Web service methods that each require a custom authentication scheme. Instead of adding parameters to each XML Web service method for the custom authentication scheme, a <xref:System.Web.Services.Protocols.SoapHeaderAttribute>, referring to a class deriving from <xref:System.Web.Services.Protocols.SoapHeader>, can be applied to each XML Web service method. The implementation for the class deriving from <xref:System.Web.Services.Protocols.SoapHeader> handles the custom authentication scheme. In this manner, the XML Web service method implements only the functionality specific to it and adds additional functionality using a SOAP header.  \n  \n The following list outlines the basic steps to receiving and processing a SOAP header:  \n  \n1.  Create a class that derives from <xref:System.Web.Services.Protocols.SoapHeader> representing the data passed into the SOAP header.  \n  \n2.  Add a member to the class implementing an XML Web service or an XML Web service client proxy class, of the type created in the first step.  \n  \n3.  Apply a <xref:System.Web.Services.Protocols.SoapHeaderAttribute> to the XML Web service method or the corresponding method in the proxy class, specifying the member created in the second step in the <xref:System.Web.Services.Protocols.SoapHeaderAttribute.MemberName%2A> property.  \n  \n4.  Within the XML Web service method or XML Web service client code, access the <xref:System.Web.Services.Protocols.SoapHeaderAttribute.MemberName%2A> property to process the data sent in the SOAP header."
   example:
   - The following `MyWebService` XML Web service defines the `MyHeader` SOAP header and requires it to be sent with any calls to the `MyWebMethod` XML Web service method. Additionally, `MyWebMethod` receives any SOAP headers other than the `MyHeader` SOAP header.
@@ -184,7 +184,7 @@ items:
   - System.Web.Services
   namespace: System.Web.Services.Protocols
   summary: Gets or sets a value indicating whether an XML Web service method properly processed a SOAP header.
-  remarks: For SOAP headers defined by an XML Web service, ASP.NET assumes the XML Web service method properly processed the SOAP header by setting the initial value of <xref:System.Web.Services.Protocols.SoapHeader.DidUnderstand%2A> to `true`. For SOAP headers not defined by the XML Web service, the initial value is `false`. If ASP.NET detects SOAP headers passed to an XML Web service method with <xref:System.Web.Services.Protocols.SoapHeader.DidUnderstand%2A> set to `false` after the method returns, a <xref:System.Web.Services.Protocols.SoapHeaderException> is thrown back to the XML Web service client instead of the results from the XML Web service method.
+  remarks: 'For SOAP headers defined by an XML Web service, ASP.NET assumes the XML Web service method properly processed the SOAP header by setting the initial value of <xref:System.Web.Services.Protocols.SoapHeader.DidUnderstand%2A> to `true`. For SOAP headers not defined by the XML Web service, the initial value is `false`. If ASP.NET detects SOAP headers passed to an XML Web service method with <xref:System.Web.Services.Protocols.SoapHeader.DidUnderstand%2A> set to `false` after the method returns, a <xref:System.Web.Services.Protocols.SoapHeaderException> is thrown back to the XML Web service client instead of the results from the XML Web service method.'
   example:
   - The following `MyWebService` XML Web service defines the `MyHeader` SOAP header and requires it to be sent with any calls to the `MyWebMethod` XML Web service method. Additionally, the `MyWebMethod` receives any SOAP headers other than the `MyHeader` SOAP header. For SOAP headers that `MyWebMethod` can process, <xref:System.Web.Services.Protocols.SoapHeader.DidUnderstand%2A> is set to `true`.
   syntax:
@@ -237,7 +237,7 @@ items:
   - System.Web.Services
   namespace: System.Web.Services.Protocols
   summary: Gets or sets the value of the `mustUnderstand` XML attribute for the SOAP header when communicating with SOAP protocol version 1.1.
-  remarks: Do not use this property. Instead use the <xref:System.Web.Services.Protocols.SoapHeader.MustUnderstand%2A> property.
+  remarks: 'Do not use this property. Instead use the <xref:System.Web.Services.Protocols.SoapHeader.MustUnderstand%2A> property.'
   example:
   - >-
     [!code-cpp[SoapHeader_EncodedMustUnderstand#1](~/samples/snippets/cpp/VS_Snippets_Remoting/SoapHeader_EncodedMustUnderstand/CPP/soapheader_encodedmustunderstand.cpp#1)]
@@ -296,7 +296,7 @@ items:
   - System.Web.Services
   namespace: System.Web.Services.Protocols
   summary: Gets or sets the value of the `mustUnderstand` XML attribute for the SOAP header when communicating with SOAP protocol version 1.2.
-  remarks: Do not use this property. Instead use the <xref:System.Web.Services.Protocols.SoapHeader.MustUnderstand%2A> property.
+  remarks: 'Do not use this property. Instead use the <xref:System.Web.Services.Protocols.SoapHeader.MustUnderstand%2A> property.'
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(false)]
@@ -354,7 +354,7 @@ items:
   - System.Web.Services
   namespace: System.Web.Services.Protocols
   summary: Gets or sets the relay attribute of the SOAP 1.2 header.
-  remarks: The <xref:System.Web.Services.Protocols.SoapHeader.EncodedRelay%2A> property applies only to SOAP 1.2 and indicates whether the recipient of the message forwards this header when it forwards the message to the next node downstream. Because the .NET Framework does not support SOAP intermediaries, this property is serialized and deserialized but ignored.
+  remarks: 'The <xref:System.Web.Services.Protocols.SoapHeader.EncodedRelay%2A> property applies only to SOAP 1.2 and indicates whether the recipient of the message forwards this header when it forwards the message to the next node downstream. Because the .NET Framework does not support SOAP intermediaries, this property is serialized and deserialized but ignored.'
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(false)]
@@ -362,7 +362,7 @@ items:
       public string EncodedRelay { get; set; }
     return:
       type: System.String
-      description: Either "0", "false", "1", or "true".
+      description: 'Either "0", "false", "1", or "true".'
   overload: System.Web.Services.Protocols.SoapHeader.EncodedRelay*
   exceptions: []
   attributes:

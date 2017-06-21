@@ -40,7 +40,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: A secure, reliable binding suitable for cross-machine communication.
+  summary: 'A secure, reliable binding suitable for cross-machine communication.'
   remarks: "The <xref:System.ServiceModel.NetTcpBinding> generates a run-time communication stack by default, which uses transport security, TCP for message delivery, and a binary message encoding. This binding is an appropriate [!INCLUDE[indigo1](~/includes/indigo1-md.md)] system-provided choice for communicating over an Intranet.  \n  \n The default configuration for the <xref:System.ServiceModel.NetTcpBinding> is faster than the configuration provided by the <xref:System.ServiceModel.WSHttpBinding>, but it is intended only for [!INCLUDE[indigo2](~/includes/indigo2-md.md)]-to-[!INCLUDE[indigo2](~/includes/indigo2-md.md)] communication. The security behavior is configurable using the optional `securityMode` parameter in the constructor. The use of WS-ReliableMessaging is configurable using the optional `reliableSessionEnabled` parameter. But reliable messaging is off by default. More generally, the HTTP system-provided bindings such as <xref:System.ServiceModel.WSHttpBinding> and <xref:System.ServiceModel.BasicHttpBinding> are configured to turn things on by default, whereas the <xref:System.ServiceModel.NetTcpBinding> binding turns things off by default so that you have to opt-in to get support, for example, for one of the WS-* specifications. This means that the default configuration for TCP is faster at exchanging messages between endpoints than that configured for the HTTP bindings by default.  \n  \n> [!WARNING]\n>  The <xref:System.ServiceModel.NetTcpBinding> uses TCP connection pooling based on the service’s host DNS name and the port number the service is listening on. This works well when a client makes calls to different services on different ports, or services are hosted in a single process and share a port. If a single client calls multiple services sharing a port that are hosted in different processes, or are WAS/IIS hosted, the client side pooling may lead to problems where a connection to Service A is reused for Service B, resulting in an exception being thrown, the connection aborted, and a new channel created. To avoid this problem, use a CustomBinding and specify a different ConnectionPoolSettings.GroupName for each service the client communicates with."
   example:
   - "This example shows how to create a <xref:System.ServiceModel.NetTcpBinding>, setting the security mode and transport credential type.  \n  \n [!code-csharp[S_UENetTcpBinding#1](~/samples/snippets/csharp/VS_Snippets_CFX/s_uenettcpbinding/cs/source.cs#1)]"
@@ -127,7 +127,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Initializes a new instance of the <xref href="System.ServiceModel.NetTcpBinding"></xref> class.
-  remarks: By default, transport security is used to secure communication (that is, the value of <xref:System.ServiceModel.SecurityMode> is set to <xref:System.ServiceModel.SecurityMode.Transport>) and reliable sessions are disabled (that is <xref:System.ServiceModel.OptionalReliableSession.Enabled%2A> is `false`).
+  remarks: 'By default, transport security is used to secure communication (that is, the value of <xref:System.ServiceModel.SecurityMode> is set to <xref:System.ServiceModel.SecurityMode.Transport>) and reliable sessions are disabled (that is <xref:System.ServiceModel.OptionalReliableSession.Enabled%2A> is `false`).'
   example:
   - "This example shows how to create a <xref:System.ServiceModel.NetTcpBinding>, setting the security mode and transport credential type.  \n  \n [!code-csharp[S_UENETTCPBINDING#1](~/samples/snippets/csharp/VS_Snippets_CFX/s_uenettcpbinding/cs/source.cs#1)]"
   syntax:
@@ -177,7 +177,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Initializes a new instance of the <xref href="System.ServiceModel.NetTcpBinding"></xref> class with the type of security used specified.
-  remarks: Use this constructor when you want to configure the security. If you want to configure security and enable reliable sessions, use <xref:System.ServiceModel.NetTcpBinding.%23ctor%28System.ServiceModel.SecurityMode%2CSystem.Boolean%29?displayProperty=fullName>.
+  remarks: 'Use this constructor when you want to configure the security. If you want to configure security and enable reliable sessions, use <xref:System.ServiceModel.NetTcpBinding.%23ctor%28System.ServiceModel.SecurityMode%2CSystem.Boolean%29?displayProperty=fullName>.'
   example:
   - "This example shows how to create a <xref:System.ServiceModel.NetTcpBinding> using the security mode parameter.  \n  \n [!code-csharp[S_UENETTCPBINDING#3](~/samples/snippets/csharp/VS_Snippets_CFX/s_uenettcpbinding/cs/source.cs#3)]"
   syntax:
@@ -451,7 +451,7 @@ items:
     content: public System.ServiceModel.HostNameComparisonMode HostNameComparisonMode { get; set; }
     return:
       type: System.ServiceModel.HostNameComparisonMode
-      description: One of the <xref href="System.ServiceModel.Configuration.WSDualHttpBindingElement.HostNameComparisonMode"></xref> values that indicates whether the hostname is used to reach the service when matching the URI. The default value is <xref href="System.ServiceModel.HostNameComparisonMode.StrongWildcard"></xref>, which ignores the hostname in the match.
+      description: 'One of the <xref href="System.ServiceModel.Configuration.WSDualHttpBindingElement.HostNameComparisonMode"></xref> values that indicates whether the hostname is used to reach the service when matching the URI. The default value is <xref href="System.ServiceModel.HostNameComparisonMode.StrongWildcard"></xref>, which ignores the hostname in the match.'
   overload: System.ServiceModel.NetTcpBinding.HostNameComparisonMode*
   exceptions: []
   version:
@@ -496,7 +496,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Gets or sets the maximum number of queued connection requests that can be pending.
-  remarks: <xref:System.ServiceModel.Channels.TcpTransportBindingElement.ListenBacklog%2A> is a socket-level property that describes the number of "pending accept" requests to be queued. If the listen backlog queue fills up, new socket requests will be rejected.
+  remarks: '<xref:System.ServiceModel.Channels.TcpTransportBindingElement.ListenBacklog%2A> is a socket-level property that describes the number of "pending accept" requests to be queued. If the listen backlog queue fills up, new socket requests will be rejected.'
   example:
   - "This example shows how to get the <xref:System.ServiceModel.NetTcpBinding.ListenBacklog%2A> value.  \n  \n [!code-csharp[S_UENetTcpBinding#8](~/samples/snippets/csharp/VS_Snippets_CFX/s_uenettcpbinding/cs/source.cs#8)]"
   syntax:
@@ -550,15 +550,15 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: Gets or sets the maximum size, in bytes, allowed for a buffer pool that stores TCP messages processed by the binding.
-  remarks: If you receive more data than you can buffer, the data that exceeds the buffer size remains on the underlying socket until your buffer has room for the rest of the data.
+  summary: 'Gets or sets the maximum size, in bytes, allowed for a buffer pool that stores TCP messages processed by the binding.'
+  remarks: 'If you receive more data than you can buffer, the data that exceeds the buffer size remains on the underlying socket until your buffer has room for the rest of the data.'
   example:
   - "This example shows how to get the <xref:System.ServiceModel.NetTcpBinding.MaxBufferPoolSize%2A> value.  \n  \n [!code-csharp[S_UENetTcpBinding#9](~/samples/snippets/csharp/VS_Snippets_CFX/s_uenettcpbinding/cs/source.cs#9)]"
   syntax:
     content: public long MaxBufferPoolSize { get; set; }
     return:
       type: System.Int64
-      description: The maximum size allowed for a buffer pool that stores TCP messages processed by the binding. The default value is 524,288 bytes.
+      description: 'The maximum size allowed for a buffer pool that stores TCP messages processed by the binding. The default value is 524,288 bytes.'
   overload: System.ServiceModel.NetTcpBinding.MaxBufferPoolSize*
   exceptions: []
   version:
@@ -602,15 +602,15 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: Gets or sets a value that specifies the maximum size, in bytes, of the buffer used to store messages in memory.
-  remarks: If you receive more data than you can buffer, the data that exceeds the buffer size remains on the underlying socket until your buffer has room for the rest of the data.
+  summary: 'Gets or sets a value that specifies the maximum size, in bytes, of the buffer used to store messages in memory.'
+  remarks: 'If you receive more data than you can buffer, the data that exceeds the buffer size remains on the underlying socket until your buffer has room for the rest of the data.'
   example:
   - "This example shows how to get the value of the <xref:System.ServiceModel.NetTcpBinding.MaxBufferSize%2A>.  \n  \n [!code-csharp[S_UENetTcpBinding#10](~/samples/snippets/csharp/VS_Snippets_CFX/s_uenettcpbinding/cs/source.cs#10)]"
   syntax:
     content: public int MaxBufferSize { get; set; }
     return:
       type: System.Int32
-      description: The maximum size, in bytes, of the buffer used to store messages in memory. The default value is 65,536 bytes.
+      description: 'The maximum size, in bytes, of the buffer used to store messages in memory. The default value is 65,536 bytes.'
   overload: System.ServiceModel.NetTcpBinding.MaxBufferSize*
   exceptions: []
   version:
@@ -662,7 +662,7 @@ items:
     content: public int MaxConnections { get; set; }
     return:
       type: System.Int32
-      description: On the client, the maximum number of connections to be pooled for subsequent reuse; on the server, the maximum number of connections allowed to be pending dispatch.
+      description: 'On the client, the maximum number of connections to be pooled for subsequent reuse; on the server, the maximum number of connections allowed to be pending dispatch.'
   overload: System.ServiceModel.NetTcpBinding.MaxConnections*
   exceptions: []
   version:
@@ -706,7 +706,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: Gets or sets the maximum size, in bytes, for a received message that is processed by the binding.
+  summary: 'Gets or sets the maximum size, in bytes, for a received message that is processed by the binding.'
   remarks: ''
   example:
   - "This example shows how to get the <xref:System.ServiceModel.NetTcpBinding.MaxReceivedMessageSize%2A> value.  \n  \n [!code-csharp[S_UENetTcpBinding#12](~/samples/snippets/csharp/VS_Snippets_CFX/s_uenettcpbinding/cs/source.cs#12)]"
@@ -714,7 +714,7 @@ items:
     content: public long MaxReceivedMessageSize { get; set; }
     return:
       type: System.Int64
-      description: The maximum size (in bytes) for a received message that is processed by the binding. The default value is 65,536 bytes.
+      description: 'The maximum size (in bytes) for a received message that is processed by the binding. The default value is 65,536 bytes.'
   overload: System.ServiceModel.NetTcpBinding.MaxReceivedMessageSize*
   exceptions: []
   version:
@@ -922,7 +922,7 @@ items:
     content: public override string Scheme { get; }
     return:
       type: System.String
-      description: The URI scheme for the transport, which is "net.tcp".
+      description: 'The URI scheme for the transport, which is "net.tcp".'
   overload: System.ServiceModel.NetTcpBinding.Scheme*
   exceptions: []
   version:
@@ -967,7 +967,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Gets an object that specifies the type of security used with services configured with this binding.
-  remarks: The <xref:System.ServiceModel.NetTcpSecurity> provides the types of security and settings available to the <xref:System.ServiceModel.NetTcpBinding>.
+  remarks: 'The <xref:System.ServiceModel.NetTcpSecurity> provides the types of security and settings available to the <xref:System.ServiceModel.NetTcpBinding>.'
   example:
   - "This example shows how to get the <xref:System.ServiceModel.NetTcpBinding.Security%2A> value.  \n  \n [!code-csharp[S_UENetTcpBinding#17](~/samples/snippets/csharp/VS_Snippets_CFX/s_uenettcpbinding/cs/source.cs#17)]"
   syntax:
@@ -1440,7 +1440,7 @@ items:
   - System.ServiceModel
   namespace: System.ServiceModel
   summary: Gets a value that indicates whether incoming requests are handled synchronously or asynchronously.
-  remarks: This run-time behavior for receiving messages in either a service or client application can be changed using [\&lt;synchronousReceive\&gt;](~/docs/framework/configure-apps/file-schema/wcf/synchronousreceive-element.md).
+  remarks: 'This run-time behavior for receiving messages in either a service or client application can be changed using [\&lt;synchronousReceive\&gt;](~/docs/framework/configure-apps/file-schema/wcf/synchronousreceive-element.md).'
   example:
   - "This example shows how to get the <xref:System.ServiceModel.NetTcpBinding.TransferMode%2A> value.  \n  \n [!code-csharp[S_UENetTcpBinding#21](~/samples/snippets/csharp/VS_Snippets_CFX/s_uenettcpbinding/cs/source.cs#21)]"
   syntax:

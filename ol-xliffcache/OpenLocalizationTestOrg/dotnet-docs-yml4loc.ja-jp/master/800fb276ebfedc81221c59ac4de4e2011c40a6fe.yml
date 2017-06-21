@@ -45,7 +45,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Provides helper methods for processing Web requests.
-  remarks: The methods and properties of the <xref:System.Web.HttpServerUtility> class are exposed through the intrinsic <xref:System.Web.HttpContext.Server%2A> object provided by ASP.NET.
+  remarks: 'The methods and properties of the <xref:System.Web.HttpServerUtility> class are exposed through the intrinsic <xref:System.Web.HttpContext.Server%2A> object provided by ASP.NET.'
   example:
   - "A Visual Studio Web site project with source code is available to accompany this topic: [Download](http://go.microsoft.com/fwlink/?LinkId=192870).  \n  \n The following example demonstrates how to use the <xref:System.Web.HttpServerUtility.HtmlEncode%2A> method and the <xref:System.Web.HttpServerUtility.UrlEncode%2A> method of the <xref:System.Web.HttpServerUtility> class. The <xref:System.Web.HttpServerUtility.HtmlEncode%2A> method helps ensure that any user-supplied string input will be rendered as static text in browsers instead of executable script or HTML elements. The <xref:System.Web.HttpServerUtility.UrlEncode%2A> method encodes URLs so that they are correctly transmitted in the HTTP stream.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.HttpServerUtility1#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.HttpServerUtility1/cs/HttpServerUtilityCS.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.HttpServerUtility1#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.HttpServerUtility1/vb/HttpServerUtilityVB.aspx#1)]  -->"
   syntax:
@@ -978,7 +978,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: For the current request, terminates execution of the current page and starts execution of a new page by using the specified URL path of the page.
+  summary: 'For the current request, terminates execution of the current page and starts execution of a new page by using the specified URL path of the page.'
   remarks: "The page transferred to should be another .aspx page. For instance, a transfer to an .asp or .asmx page is not valid. The <xref:System.Web.HttpServerUtility.Transfer%2A> method preserves the <xref:System.Web.HttpRequest.QueryString%2A> and <xref:System.Web.HttpRequest.Form%2A> collections.  \n  \n <xref:System.Web.HttpServerUtility.Transfer%2A> calls <xref:System.Web.HttpResponse.End%2A>, which throws a <xref:System.Threading.ThreadAbortException> exception upon completion.  \n  \n ASP.NET does not verify that the current user is authorized to view the resource delivered by the <xref:System.Web.HttpServerUtility.Transfer%2A> method. Although the ASP.NET authorization and authentication logic runs before the original resource handler is called, ASP.NET directly calls the handler indicated by the <xref:System.Web.HttpServerUtility.Transfer%2A> method and does not rerun authentication and authorization logic for the new resource. If your application's security policy requires clients to have appropriate authorization to access the resource, the application should force reauthorization or provide a custom access-control mechanism.  \n  \n You can force reauthorization by using the <xref:System.Web.HttpResponse.Redirect%2A> method instead of the <xref:System.Web.HttpServerUtility.Transfer%2A> method. The <xref:System.Web.HttpResponse.Redirect%2A> method performs a client-side redirect in which the browser requests the new resource. Because this redirect is a new request entering the system, it is subjected to all the authentication and authorization logic of both Internet Information Services (IIS) and ASP.NET security policy.  \n  \n You can verify that the user has permission to view the resource by incorporating a custom authorization method that uses the <xref:System.Security.Principal.WindowsPrincipal.IsInRole%2A> method before the application calls the <xref:System.Web.HttpServerUtility.Transfer%2A> method."
   syntax:
     content: public void Transfer (string path);
@@ -1128,7 +1128,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Performs an asynchronous execution of the specified URL.
-  remarks: This method overload calls the <xref:System.Web.HttpServerUtility.TransferRequest%2A> overload with the `preserveForm` parameter set to `false`, the `method` parameter set to `null`, the `headers` parameter set to `null`, and the `preserveUser` parameter set to `true`. For more information, see the "Remarks" section in <xref:System.Web.HttpServerUtility.TransferRequest%28System.String%2CSystem.Boolean%2CSystem.String%2CSystem.Collections.Specialized.NameValueCollection%29> overload.
+  remarks: 'This method overload calls the <xref:System.Web.HttpServerUtility.TransferRequest%2A> overload with the `preserveForm` parameter set to `false`, the `method` parameter set to `null`, the `headers` parameter set to `null`, and the `preserveUser` parameter set to `true`. For more information, see the "Remarks" section in <xref:System.Web.HttpServerUtility.TransferRequest%28System.String%2CSystem.Boolean%2CSystem.String%2CSystem.Collections.Specialized.NameValueCollection%29> overload.'
   syntax:
     content: public void TransferRequest (string path);
     parameters:
@@ -1139,7 +1139,7 @@ items:
   exceptions:
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: The request requires the integrated pipeline mode of [!INCLUDE[iisver](~/includes/iisver-md.md)].
+    description: 'The request requires the integrated pipeline mode of [!INCLUDE[iisver](~/includes/iisver-md.md)].'
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
     description: The server is not available to handle the request.
@@ -1199,7 +1199,7 @@ items:
   exceptions:
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: The request requires the integrated pipeline mode of [!INCLUDE[iisver](~/includes/iisver-md.md)].
+    description: 'The request requires the integrated pipeline mode of [!INCLUDE[iisver](~/includes/iisver-md.md)].'
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
     description: The server is not available to handle the request.
@@ -1265,7 +1265,7 @@ items:
   exceptions:
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: The request requires [!INCLUDE[iisver](~/includes/iisver-md.md)] running in integrated mode.
+    description: 'The request requires [!INCLUDE[iisver](~/includes/iisver-md.md)] running in integrated mode.'
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
     description: The server is not available to handle the request.
@@ -1310,8 +1310,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Performs an asynchronous execution of the specified URL using the specified HTTP method, headers, and path, and optionally preserves form values and the user identity.
-  remarks: For more information, see the "Remarks" section in <xref:System.Web.HttpServerUtility.TransferRequest%28System.String%2CSystem.Boolean%2CSystem.String%2CSystem.Collections.Specialized.NameValueCollection%29>.
+  summary: 'Performs an asynchronous execution of the specified URL using the specified HTTP method, headers, and path, and optionally preserves form values and the user identity.'
+  remarks: 'For more information, see the "Remarks" section in <xref:System.Web.HttpServerUtility.TransferRequest%28System.String%2CSystem.Boolean%2CSystem.String%2CSystem.Collections.Specialized.NameValueCollection%29>.'
   syntax:
     content: public void TransferRequest (string path, bool preserveForm, string method, System.Collections.Specialized.NameValueCollection headers, bool preserveUser);
     parameters:
@@ -1334,7 +1334,7 @@ items:
   exceptions:
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: The request requires the integrated pipeline mode of [!INCLUDE[iisver](~/includes/iisver-md.md)].
+    description: 'The request requires the integrated pipeline mode of [!INCLUDE[iisver](~/includes/iisver-md.md)].'
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
     description: The server is not available to handle the request.
@@ -1677,7 +1677,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Encodes a byte array into its equivalent string representation using base 64 digits, which is usable for transmission on the URL.
+  summary: 'Encodes a byte array into its equivalent string representation using base 64 digits, which is usable for transmission on the URL.'
   remarks: "The <xref:System.Web.HttpServerUtility.UrlTokenEncode%2A> method converts a byte array into an equivalent string representation encoded with base 64 digits. The resulting string token can be transmitted on the URL.  \n  \n The <xref:System.Web.HttpServerUtility.UrlTokenEncode%2A> will return an empty string if the `input` parameter has a length of less than one."
   syntax:
     content: public static string UrlTokenEncode (byte[] input);
@@ -1687,7 +1687,7 @@ items:
       description: The byte array to encode.
     return:
       type: System.String
-      description: The string containing the encoded token if the byte array *length* is greater than one; otherwise, an empty string ("").
+      description: 'The string containing the encoded token if the byte array *length* is greater than one; otherwise, an empty string ("").'
   overload: System.Web.HttpServerUtility.UrlTokenEncode*
   exceptions:
   - type: System.ArgumentNullException

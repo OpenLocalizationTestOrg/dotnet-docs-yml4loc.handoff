@@ -69,7 +69,7 @@ items:
   - mscorlib
   namespace: System.Reflection.Emit
   summary: Defines and represents a method (or constructor) on a dynamic class.
-  remarks: "The <xref:System.Reflection.Emit.MethodBuilder> class is used to fully describe a method in Microsoft intermediate language (MSIL), including the name, attributes, signature, and method body. It is used in conjunction with the <xref:System.Reflection.Emit.TypeBuilder> class to create classes at runtime.  \n  \n## Global methods and methods as type members  \n You can use reflection emit to define global methods and to define methods as type members. The APIs that define methods return <xref:System.Reflection.Emit.MethodBuilder> objects.  \n  \n### Global methods  \n A global method is defined by using the <xref:System.Reflection.Emit.ModuleBuilder.DefineGlobalMethod%2A?displayProperty=fullName> method, which returns a **MethodBuilder** object.  \n  \n Global methods must be static. If a dynamic module contains global methods, the <xref:System.Reflection.Emit.ModuleBuilder.CreateGlobalFunctions%2A?displayProperty=fullName> method must be called before persisting the dynamic module or the containing dynamic assembly because the common language runtime postpones fixing up the dynamic module until all global functions have been defined.  \n  \n A global native method is defined by using the <xref:System.Reflection.Emit.ModuleBuilder.DefinePInvokeMethod%2A?displayProperty=fullName> method. Platform invoke (PInvoke) methods must not be declared abstract or virtual. The runtime sets the <xref:System.Reflection.MethodAttributes?displayProperty=fullName> attribute for a platform invoke method.  \n  \n### Methods as members of types  \n A method is defined as a type member by using the <xref:System.Reflection.Emit.TypeBuilder.DefineMethod%2A?displayProperty=fullName> method, which returns a <xref:System.Reflection.Emit.MethodBuilder> object.  \n  \n The <xref:System.Reflection.Emit.MethodBuilder.DefineParameter%2A> method is used to set the name and parameter attributes of a parameter, or of the return value. The<xref:System.Reflection.Emit.ParameterBuilder> object returned by this method represents a parameter or the return value. The <xref:System.Reflection.Emit.ParameterBuilder> object can be used to set the marshaling, to set the constant value, and to apply custom attributes.  \n  \n## Attributes  \n Members of the <xref:System.Reflection.MethodAttributes> enumeration define the precise character of a dynamic method:  \n  \n-   Static methods are specified using the <xref:System.Reflection.MethodAttributes?displayProperty=fullName> attribute.  \n  \n-   Final methods (methods that cannot be overridden) are specified using the <xref:System.Reflection.MethodAttributes?displayProperty=fullName> attribute.  \n  \n-   Virtual methods are specified using the <xref:System.Reflection.MethodAttributes?displayProperty=fullName> attribute.  \n  \n-   Abstract methods are specified using the <xref:System.Reflection.MethodAttributes?displayProperty=fullName> attribute.  \n  \n-   Several attributes determine method visibility. See the description of the <xref:System.Reflection.MethodAttributes> enumeration.  \n  \n-   Methods that implement overloaded operators must set the <xref:System.Reflection.MethodAttributes?displayProperty=fullName> attribute.  \n  \n-   Finalizers must set the <xref:System.Reflection.MethodAttributes?displayProperty=fullName> attribute.  \n  \n## Known Issues  \n  \n-   Although <xref:System.Reflection.Emit.MethodBuilder> is derived from <xref:System.Reflection.MethodInfo>, some of the abstract methods defined in the <xref:System.Reflection.MethodInfo> class are not fully implemented in <xref:System.Reflection.Emit.MethodBuilder>. These <xref:System.Reflection.Emit.MethodBuilder> methods throw the <xref:System.NotSupportedException>. For example the <xref:System.Reflection.Emit.MethodBuilder.Invoke%2A?displayProperty=fullName> method is not fully implemented. You can reflect on these methods by retrieving the enclosing type using the <xref:System.Type.GetType%2A?displayProperty=fullName> or <xref:System.Reflection.Assembly.GetType%2A?displayProperty=fullName> methods.  \n  \n-   Custom modifiers are supported starting with the .NET Framework version 2.0. They are not supported in earlier versions."
+  remarks: "The <xref:System.Reflection.Emit.MethodBuilder> class is used to fully describe a method in Microsoft intermediate language (MSIL), including the name, attributes, signature, and method body. It is used in conjunction with the <xref:System.Reflection.Emit.TypeBuilder> class to create classes at runtime.  \n  \n## <a name=\"global-methods-and-methods-as-type-members\"></a>Global methods and methods as type members  \n You can use reflection emit to define global methods and to define methods as type members. The APIs that define methods return <xref:System.Reflection.Emit.MethodBuilder> objects.  \n  \n### <a name=\"global-methods\"></a>Global methods  \n A global method is defined by using the <xref:System.Reflection.Emit.ModuleBuilder.DefineGlobalMethod%2A?displayProperty=fullName> method, which returns a **MethodBuilder** object.  \n  \n Global methods must be static. If a dynamic module contains global methods, the <xref:System.Reflection.Emit.ModuleBuilder.CreateGlobalFunctions%2A?displayProperty=fullName> method must be called before persisting the dynamic module or the containing dynamic assembly because the common language runtime postpones fixing up the dynamic module until all global functions have been defined.  \n  \n A global native method is defined by using the <xref:System.Reflection.Emit.ModuleBuilder.DefinePInvokeMethod%2A?displayProperty=fullName> method. Platform invoke (PInvoke) methods must not be declared abstract or virtual. The runtime sets the <xref:System.Reflection.MethodAttributes?displayProperty=fullName> attribute for a platform invoke method.  \n  \n### <a name=\"methods-as-members-of-types\"></a>Methods as members of types  \n A method is defined as a type member by using the <xref:System.Reflection.Emit.TypeBuilder.DefineMethod%2A?displayProperty=fullName> method, which returns a <xref:System.Reflection.Emit.MethodBuilder> object.  \n  \n The <xref:System.Reflection.Emit.MethodBuilder.DefineParameter%2A> method is used to set the name and parameter attributes of a parameter, or of the return value. The<xref:System.Reflection.Emit.ParameterBuilder> object returned by this method represents a parameter or the return value. The <xref:System.Reflection.Emit.ParameterBuilder> object can be used to set the marshaling, to set the constant value, and to apply custom attributes.  \n  \n## <a name=\"attributes\"></a>Attributes  \n Members of the <xref:System.Reflection.MethodAttributes> enumeration define the precise character of a dynamic method:  \n  \n-   Static methods are specified using the <xref:System.Reflection.MethodAttributes?displayProperty=fullName> attribute.  \n  \n-   Final methods (methods that cannot be overridden) are specified using the <xref:System.Reflection.MethodAttributes?displayProperty=fullName> attribute.  \n  \n-   Virtual methods are specified using the <xref:System.Reflection.MethodAttributes?displayProperty=fullName> attribute.  \n  \n-   Abstract methods are specified using the <xref:System.Reflection.MethodAttributes?displayProperty=fullName> attribute.  \n  \n-   Several attributes determine method visibility. See the description of the <xref:System.Reflection.MethodAttributes> enumeration.  \n  \n-   Methods that implement overloaded operators must set the <xref:System.Reflection.MethodAttributes?displayProperty=fullName> attribute.  \n  \n-   Finalizers must set the <xref:System.Reflection.MethodAttributes?displayProperty=fullName> attribute.  \n  \n## <a name=\"known-issues\"></a>Known Issues  \n  \n-   Although <xref:System.Reflection.Emit.MethodBuilder> is derived from <xref:System.Reflection.MethodInfo>, some of the abstract methods defined in the <xref:System.Reflection.MethodInfo> class are not fully implemented in <xref:System.Reflection.Emit.MethodBuilder>. These <xref:System.Reflection.Emit.MethodBuilder> methods throw the <xref:System.NotSupportedException>. For example the <xref:System.Reflection.Emit.MethodBuilder.Invoke%2A?displayProperty=fullName> method is not fully implemented. You can reflect on these methods by retrieving the enclosing type using the <xref:System.Type.GetType%2A?displayProperty=fullName> or <xref:System.Reflection.Assembly.GetType%2A?displayProperty=fullName> methods.  \n  \n-   Custom modifiers are supported starting with the .NET Framework version 2.0. They are not supported in earlier versions."
   example:
   - "The following example uses the <xref:System.Reflection.Emit.MethodBuilder> class to create a method within a dynamic type.  \n  \n [!code-cpp[System.Reflection.Emit.MethodBuilder Example#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.Reflection.Emit.MethodBuilder Example/CPP/source.cpp#1)]\n [!code-csharp[System.Reflection.Emit.MethodBuilder Example#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Reflection.Emit.MethodBuilder Example/CS/source.cs#1)]\n [!code-vb[System.Reflection.Emit.MethodBuilder Example#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Reflection.Emit.MethodBuilder Example/VB/source.vb#1)]"
   syntax:
@@ -251,7 +251,7 @@ items:
     parameters:
     - id: action
       type: System.Security.Permissions.SecurityAction
-      description: The security action to be taken (Demand, Assert, and so on).
+      description: 'The security action to be taken (Demand, Assert, and so on).'
     - id: pset
       type: System.Security.PermissionSet
       description: The set of permissions the action applies to.
@@ -259,7 +259,7 @@ items:
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: The <code>action</code> is invalid (`RequestMinimum`, `RequestOptional`, and `RequestRefuse` are invalid).
+    description: 'The <code>action</code> is invalid (`RequestMinimum`, `RequestOptional`, and `RequestRefuse` are invalid).'
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
     description: "The containing type has been created using <xref href=\"System.Reflection.Emit.TypeBuilder.CreateType\"></xref>.  \n  \n -or-  \n  \n The permission set <code>pset</code> contains an action that was added earlier by <xref href=\"System.Reflection.Emit.MethodBuilder.AddDeclarativeSecurity(System.Security.Permissions.SecurityAction,System.Security.PermissionSet)\"></xref>.  \n  \n -or-  \n  \n For the current method, the <xref href=\"System.Reflection.Emit.MethodBuilder.IsGenericMethod\"></xref> property is `true`, but the <xref href=\"System.Reflection.Emit.MethodBuilder.IsGenericMethodDefinition\"></xref> property is `false`."
@@ -482,7 +482,7 @@ items:
     parameters:
     - id: il
       type: System.Byte[]
-      description: An array containing valid MSIL instructions. If this parameter is `null`, the method's body is cleared.
+      description: 'An array containing valid MSIL instructions. If this parameter is `null`, the method''s body is cleared.'
     - id: count
       type: System.Int32
       description: The number of valid bytes in the MSIL array. This value is ignored if MSIL is `null`.
@@ -593,7 +593,7 @@ items:
   - System.Reflection.Emit
   - mscorlib
   namespace: System.Reflection.Emit
-  summary: Sets the number of generic type parameters for the current method, specifies their names, and returns an array of <xref href="System.Reflection.Emit.GenericTypeParameterBuilder"></xref> objects that can be used to define their constraints.
+  summary: 'Sets the number of generic type parameters for the current method, specifies their names, and returns an array of <xref href="System.Reflection.Emit.GenericTypeParameterBuilder"></xref> objects that can be used to define their constraints.'
   remarks: "Calling the <xref:System.Reflection.Emit.MethodBuilder.DefineGenericParameters%2A> method makes the current method generic. There is no way to undo this change. Calling this method a second time causes an <xref:System.InvalidOperationException>.  \n  \n The type parameters of the generic method can be retrieved later by using the <xref:System.Reflection.Emit.MethodBuilder.GetGenericArguments%2A> method.  \n  \n By convention, a type parameter name is a single uppercase letter.  \n  \n For more information, see <xref:System.Reflection.MethodInfo.IsGenericMethod%2A?displayProperty=fullName> and <xref:System.Reflection.MethodInfo.GetGenericMethodDefinition%2A?displayProperty=fullName>. For information on generic types, see <xref:System.Type.IsGenericType%2A?displayProperty=fullName>."
   example:
   - "The following code example creates a dynamic type, `DemoType`, which contains the dynamic generic method `DemoMethod`. This method has two generic type parameters, one of which is used as a parameter, and the other as the return type.  \n  \n When the code is executed, the dynamic assembly is saved as DemoGenericMethod1.dll, and can be examined using the [Ildasm.exe (IL Disassembler)](~/docs/framework/tools/ildasm-exe-il-disassembler.md).  \n  \n> [!NOTE]\n>  This code example generates a simple method body that merely returns a null reference. For a code example with a more fully developed method body that creates and uses generic types, see [How to: Define a Generic Method with Reflection Emit](~/docs/framework/reflection-and-codedom/how-to-define-a-generic-method-with-reflection-emit.md).  \n  \n [!code-cpp[GenericMethodBuilder#1](~/samples/snippets/cpp/VS_Snippets_CLR/GenericMethodBuilder/cpp/source.cpp#1)]\n [!code-csharp[GenericMethodBuilder#1](~/samples/snippets/csharp/VS_Snippets_CLR/GenericMethodBuilder/CS/source.cs#1)]\n [!code-vb[GenericMethodBuilder#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/GenericMethodBuilder/VB/source.vb#1)]"
@@ -665,7 +665,7 @@ items:
   - System.Reflection.Emit
   - mscorlib
   namespace: System.Reflection.Emit
-  summary: Sets the parameter attributes and the name of a parameter of this method, or of the return value of this method. Returns a ParameterBuilder that can be used to apply custom attributes.
+  summary: 'Sets the parameter attributes and the name of a parameter of this method, or of the return value of this method. Returns a ParameterBuilder that can be used to apply custom attributes.'
   remarks: "The <xref:System.Reflection.Emit.ParameterBuilder> object returned by this method can be used to set the default value for a parameter or to apply custom attributes.  \n  \n Parameter numbering begins with 1, so `position` is 1 for the first parameter. If `position` is zero, this method affects the return value.  \n  \n> [!NOTE]\n>  In the .NET Framework versions 1.0 and 1.1, an exception is thrown if `position` is zero, so this method cannot be used to modify attributes of the return value in those versions."
   syntax:
     content: public System.Reflection.Emit.ParameterBuilder DefineParameter (int position, System.Reflection.ParameterAttributes attributes, string strParamName);
@@ -739,7 +739,7 @@ items:
   - mscorlib
   namespace: System.Reflection.Emit
   summary: Determines whether the given object is equal to this instance.
-  remarks: Equality is determined by having the same name, attributes, and signature.
+  remarks: 'Equality is determined by having the same name, attributes, and signature.'
   syntax:
     content: public override bool Equals (object obj);
     parameters:
@@ -866,7 +866,7 @@ items:
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: This method is not currently supported. Retrieve the method using <xref href="System.Type.GetMethod(System.String,System.Reflection.BindingFlags,System.Reflection.Binder,System.Reflection.CallingConventions,System.Type[],System.Reflection.ParameterModifier[])"></xref> and call <xref href="System.Reflection.MemberInfo.GetCustomAttributes(System.Boolean)"></xref> on the returned <xref href="System.Reflection.MethodInfo"></xref>.
+    description: 'This method is not currently supported. Retrieve the method using <xref href="System.Type.GetMethod(System.String,System.Reflection.BindingFlags,System.Reflection.Binder,System.Reflection.CallingConventions,System.Type[],System.Reflection.ParameterModifier[])"></xref> and call <xref href="System.Reflection.MemberInfo.GetCustomAttributes(System.Boolean)"></xref> on the returned <xref href="System.Reflection.MethodInfo"></xref>.'
   version:
   - netcore-2.0
   - netframework-4.5.1
@@ -923,7 +923,7 @@ items:
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: This method is not currently supported. Retrieve the method using <xref href="System.Type.GetMethod(System.String,System.Reflection.BindingFlags,System.Reflection.Binder,System.Reflection.CallingConventions,System.Type[],System.Reflection.ParameterModifier[])"></xref> and call <xref href="System.Reflection.MemberInfo.GetCustomAttributes(System.Boolean)"></xref> on the returned <xref href="System.Reflection.MethodInfo"></xref>.
+    description: 'This method is not currently supported. Retrieve the method using <xref href="System.Type.GetMethod(System.String,System.Reflection.BindingFlags,System.Reflection.Binder,System.Reflection.CallingConventions,System.Type[],System.Reflection.ParameterModifier[])"></xref> and call <xref href="System.Reflection.MemberInfo.GetCustomAttributes(System.Boolean)"></xref> on the returned <xref href="System.Reflection.MethodInfo"></xref>.'
   version:
   - netcore-2.0
   - netframework-4.5.1
@@ -966,14 +966,14 @@ items:
   - System.Reflection.Emit
   - mscorlib
   namespace: System.Reflection.Emit
-  summary: Returns an array of <xref href="System.Reflection.Emit.GenericTypeParameterBuilder"></xref> objects that represent the type parameters of the method, if it is generic.
+  summary: 'Returns an array of <xref href="System.Reflection.Emit.GenericTypeParameterBuilder"></xref> objects that represent the type parameters of the method, if it is generic.'
   remarks: "The type parameters of a generic method also are returned by the <xref:System.Reflection.Emit.MethodBuilder.DefineGenericParameters%2A> method that is used to define them.  \n  \n For more information, see <xref:System.Reflection.MethodInfo.IsGenericMethod%2A?displayProperty=fullName> and <xref:System.Reflection.MethodInfo.GetGenericArguments%2A?displayProperty=fullName>. For information on generic types, see <xref:System.Type.IsGenericType%2A?displayProperty=fullName>."
   syntax:
     content: public override Type[] GetGenericArguments ();
     parameters: []
     return:
       type: System.Type[]
-      description: An array of <xref href="System.Reflection.Emit.GenericTypeParameterBuilder"></xref> objects representing the type parameters, if the method is generic, or `null` if the method is not generic.
+      description: 'An array of <xref href="System.Reflection.Emit.GenericTypeParameterBuilder"></xref> objects representing the type parameters, if the method is generic, or `null` if the method is not generic.'
   overload: System.Reflection.Emit.MethodBuilder.GetGenericArguments*
   exceptions: []
   version:
@@ -1034,7 +1034,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The current method is not generic. That is, the <xref href="System.Reflection.Emit.MethodBuilder.IsGenericMethod"></xref> property returns `false`.
+    description: 'The current method is not generic. That is, the <xref href="System.Reflection.Emit.MethodBuilder.IsGenericMethod"></xref> property returns `false`.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -1208,7 +1208,7 @@ items:
     parameters:
     - id: size
       type: System.Int32
-      description: The size of the MSIL stream, in bytes.
+      description: 'The size of the MSIL stream, in bytes.'
     return:
       type: System.Reflection.Emit.ILGenerator
       description: Returns an `ILGenerator` object for this method.
@@ -1381,7 +1381,7 @@ items:
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: This method is not currently supported. Retrieve the method using <xref href="System.Type.GetMethod(System.String,System.Reflection.BindingFlags,System.Reflection.Binder,System.Reflection.CallingConventions,System.Type[],System.Reflection.ParameterModifier[])"></xref> and call `GetParameters` on the returned <xref href="System.Reflection.MethodInfo"></xref>.
+    description: 'This method is not currently supported. Retrieve the method using <xref href="System.Type.GetMethod(System.String,System.Reflection.BindingFlags,System.Reflection.Binder,System.Reflection.CallingConventions,System.Type[],System.Reflection.ParameterModifier[])"></xref> and call `GetParameters` on the returned <xref href="System.Reflection.MethodInfo"></xref>.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -1479,7 +1479,7 @@ items:
   - mscorlib
   namespace: System.Reflection.Emit
   summary: Gets or sets a Boolean value that specifies whether the local variables in this method are zero initialized. The default value of this property is `true`.
-  remarks: If this property is set to `true`, the emitted MSIL includes initialization of local variables. If it is set to `false`, local variables are not initialized and the generated code is unverifiable.
+  remarks: 'If this property is set to `true`, the emitted MSIL includes initialization of local variables. If it is set to `false`, local variables are not initialized and the generated code is unverifiable.'
   syntax:
     content: public bool InitLocals { get; set; }
     return:
@@ -1489,7 +1489,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: For the current method, the <xref href="System.Reflection.Emit.MethodBuilder.IsGenericMethod"></xref> property is `true`, but the <xref href="System.Reflection.Emit.MethodBuilder.IsGenericMethodDefinition"></xref> property is `false`. (Get or set.)
+    description: 'For the current method, the <xref href="System.Reflection.Emit.MethodBuilder.IsGenericMethod"></xref> property is `true`, but the <xref href="System.Reflection.Emit.MethodBuilder.IsGenericMethodDefinition"></xref> property is `false`. (Get or set.)'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -1538,26 +1538,26 @@ items:
   - mscorlib
   - System.Reflection.Emit
   namespace: System.Reflection.Emit
-  summary: Dynamically invokes the method reflected by this instance on the given object, passing along the specified parameters, and under the constraints of the given binder.
+  summary: 'Dynamically invokes the method reflected by this instance on the given object, passing along the specified parameters, and under the constraints of the given binder.'
   remarks: "If the method is static, the `obj` parameter is ignored. For non-static methods, `obj` should be an instance of a class that inherits or declares the method and must be the same type as this class. If the method has no parameters, the value of `parameters` should be `null`. Otherwise the number, type, and order of elements in the parameters array should be identical to the number, type, and order of parameters for the method reflected by this instance.  \n  \n> [!NOTE]\n>  Access restrictions are ignored for fully-trusted code. That is, private constructors, methods, fields, and properties can be accessed and invoked using Reflection whenever the code is fully-trusted."
   syntax:
     content: public override object Invoke (object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, object[] parameters, System.Globalization.CultureInfo culture);
     parameters:
     - id: obj
       type: System.Object
-      description: The object on which to invoke the specified method. If the method is static, this parameter is ignored.
+      description: 'The object on which to invoke the specified method. If the method is static, this parameter is ignored.'
     - id: invokeAttr
       type: System.Reflection.BindingFlags
       description: 'This must be a bit flag from <xref href="System.Reflection.BindingFlags"></xref> : `InvokeMethod`, `NonPublic`, and so on.'
     - id: binder
       type: System.Reflection.Binder
-      description: An object that enables the binding, coercion of argument types, invocation of members, and retrieval of MemberInfo objects via reflection. If binder is `null`, the default binder is used. For more details, see <xref href="System.Reflection.Binder"></xref>.
+      description: 'An object that enables the binding, coercion of argument types, invocation of members, and retrieval of MemberInfo objects via reflection. If binder is `null`, the default binder is used. For more details, see <xref href="System.Reflection.Binder"></xref>.'
     - id: parameters
       type: System.Object[]
-      description: An argument list. This is an array of arguments with the same number, order, and type as the parameters of the method to be invoked. If there are no parameters this should be `null`.
+      description: 'An argument list. This is an array of arguments with the same number, order, and type as the parameters of the method to be invoked. If there are no parameters this should be `null`.'
     - id: culture
       type: System.Globalization.CultureInfo
-      description: An instance of <xref href="System.Globalization.CultureInfo"></xref> used to govern the coercion of types. If this is null, the <xref href="System.Globalization.CultureInfo"></xref> for the current thread is used. (Note that this is necessary to, for example, convert a <xref href="System.String"></xref> that represents 1000 to a <xref href="System.Double"></xref> value, since 1000 is represented differently by different cultures.)
+      description: 'An instance of <xref href="System.Globalization.CultureInfo"></xref> used to govern the coercion of types. If this is null, the <xref href="System.Globalization.CultureInfo"></xref> for the current thread is used. (Note that this is necessary to, for example, convert a <xref href="System.String"></xref> that represents 1000 to a <xref href="System.Double"></xref> value, since 1000 is represented differently by different cultures.)'
     return:
       type: System.Object
       description: Returns an object containing the return value of the invoked method.
@@ -1565,7 +1565,7 @@ items:
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: This method is not currently supported. Retrieve the method using <xref href="System.Type.GetMethod(System.String,System.Reflection.BindingFlags,System.Reflection.Binder,System.Reflection.CallingConventions,System.Type[],System.Reflection.ParameterModifier[])"></xref> and call <xref href="System.Type.InvokeMember(System.String,System.Reflection.BindingFlags,System.Reflection.Binder,System.Object,System.Object[],System.Reflection.ParameterModifier[],System.Globalization.CultureInfo,System.String[])"></xref> on the returned <xref href="System.Reflection.MethodInfo"></xref>.
+    description: 'This method is not currently supported. Retrieve the method using <xref href="System.Type.GetMethod(System.String,System.Reflection.BindingFlags,System.Reflection.Binder,System.Reflection.CallingConventions,System.Type[],System.Reflection.ParameterModifier[])"></xref> and call <xref href="System.Type.InvokeMember(System.String,System.Reflection.BindingFlags,System.Reflection.Binder,System.Object,System.Object[],System.Reflection.ParameterModifier[],System.Globalization.CultureInfo,System.String[])"></xref> on the returned <xref href="System.Reflection.MethodInfo"></xref>.'
   version:
   - netcore-2.0
   - netframework-4.5.1
@@ -1625,7 +1625,7 @@ items:
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: This method is not currently supported. Retrieve the method using <xref href="System.Type.GetMethod(System.String,System.Reflection.BindingFlags,System.Reflection.Binder,System.Reflection.CallingConventions,System.Type[],System.Reflection.ParameterModifier[])"></xref> and call <xref href="System.Reflection.MemberInfo.IsDefined(System.Type,System.Boolean)"></xref> on the returned <xref href="System.Reflection.MethodInfo"></xref>.
+    description: 'This method is not currently supported. Retrieve the method using <xref href="System.Type.GetMethod(System.String,System.Reflection.BindingFlags,System.Reflection.Binder,System.Reflection.CallingConventions,System.Type[],System.Reflection.ParameterModifier[])"></xref> and call <xref href="System.Reflection.MemberInfo.IsDefined(System.Type,System.Boolean)"></xref> on the returned <xref href="System.Reflection.MethodInfo"></xref>.'
   version:
   - netcore-2.0
   - netframework-4.5.1
@@ -1669,7 +1669,7 @@ items:
   - mscorlib
   namespace: System.Reflection.Emit
   summary: Gets a value indicating whether the method is a generic method.
-  remarks: A method is generic if it has type parameters. You can make a method generic by calling the <xref:System.Reflection.Emit.MethodBuilder.DefineGenericParameters%2A> method to add type parameters. This change cannot be reversed.
+  remarks: 'A method is generic if it has type parameters. You can make a method generic by calling the <xref:System.Reflection.Emit.MethodBuilder.DefineGenericParameters%2A> method to add type parameters. This change cannot be reversed.'
   example:
   - "The following code example displays the status of a method. This code is part of a larger example provided for the <xref:System.Reflection.Emit.MethodBuilder.DefineGenericParameters%2A> method.  \n  \n [!code-cpp[GenericMethodBuilder#7](~/samples/snippets/cpp/VS_Snippets_CLR/GenericMethodBuilder/cpp/source.cpp#7)]\n [!code-csharp[GenericMethodBuilder#7](~/samples/snippets/csharp/VS_Snippets_CLR/GenericMethodBuilder/CS/source.cs#7)]\n [!code-vb[GenericMethodBuilder#7](~/samples/snippets/visualbasic/VS_Snippets_CLR/GenericMethodBuilder/VB/source.vb#7)]"
   syntax:
@@ -1726,7 +1726,7 @@ items:
   - mscorlib
   namespace: System.Reflection.Emit
   summary: Gets a value indicating whether the current <xref href="System.Reflection.Emit.MethodBuilder"></xref> object represents the definition of a generic method.
-  remarks: A <xref:System.Reflection.Emit.MethodBuilder> can only be used to create generic method definitions; it cannot be used to create a constructed generic method directly. However, a subclass of <xref:System.Reflection.Emit.MethodBuilder> might represent a constructed generic method.
+  remarks: 'A <xref:System.Reflection.Emit.MethodBuilder> can only be used to create generic method definitions; it cannot be used to create a constructed generic method directly. However, a subclass of <xref:System.Reflection.Emit.MethodBuilder> might represent a constructed generic method.'
   example:
   - "The following code example displays the status of a method. This code is part of a larger example provided for the <xref:System.Reflection.Emit.MethodBuilder.DefineGenericParameters%2A> method.  \n  \n [!code-cpp[GenericMethodBuilder#7](~/samples/snippets/cpp/VS_Snippets_CLR/GenericMethodBuilder/cpp/source.cpp#7)]\n [!code-csharp[GenericMethodBuilder#7](~/samples/snippets/csharp/VS_Snippets_CLR/GenericMethodBuilder/CS/source.cs#7)]\n [!code-vb[GenericMethodBuilder#7](~/samples/snippets/visualbasic/VS_Snippets_CLR/GenericMethodBuilder/VB/source.vb#7)]"
   syntax:
@@ -1782,7 +1782,7 @@ items:
   - mscorlib
   namespace: System.Reflection.Emit
   summary: Throws a <xref href="System.NotSupportedException"></xref> in all cases.
-  remarks: To determine whether a method in a dynamic assembly is security-critical, complete the type by calling <xref:System.Reflection.Emit.TypeBuilder.CreateType%2A?displayProperty=fullName>, call the <xref:System.Type.GetMethod%2A> method on the completed type, and get the <xref:System.Reflection.MethodBase.IsSecurityCritical%2A> property on the resulting <xref:System.Reflection.MethodInfo>.
+  remarks: 'To determine whether a method in a dynamic assembly is security-critical, complete the type by calling <xref:System.Reflection.Emit.TypeBuilder.CreateType%2A?displayProperty=fullName>, call the <xref:System.Type.GetMethod%2A> method on the completed type, and get the <xref:System.Reflection.MethodBase.IsSecurityCritical%2A> property on the resulting <xref:System.Reflection.MethodInfo>.'
   syntax:
     content: public override bool IsSecurityCritical { get; }
     return:
@@ -1829,7 +1829,7 @@ items:
   - mscorlib
   namespace: System.Reflection.Emit
   summary: Throws a <xref href="System.NotSupportedException"></xref> in all cases.
-  remarks: To determine whether a method in a dynamic assembly is security-safe-critical, complete the type by calling <xref:System.Reflection.Emit.TypeBuilder.CreateType%2A?displayProperty=fullName>, call the <xref:System.Type.GetMethod%2A> method on the completed type, and get the <xref:System.Reflection.MethodBase.IsSecuritySafeCritical%2A> property on the resulting <xref:System.Reflection.MethodInfo>.
+  remarks: 'To determine whether a method in a dynamic assembly is security-safe-critical, complete the type by calling <xref:System.Reflection.Emit.TypeBuilder.CreateType%2A?displayProperty=fullName>, call the <xref:System.Type.GetMethod%2A> method on the completed type, and get the <xref:System.Reflection.MethodBase.IsSecuritySafeCritical%2A> property on the resulting <xref:System.Reflection.MethodInfo>.'
   syntax:
     content: public override bool IsSecuritySafeCritical { get; }
     return:
@@ -1876,7 +1876,7 @@ items:
   - mscorlib
   namespace: System.Reflection.Emit
   summary: Throws a <xref href="System.NotSupportedException"></xref> in all cases.
-  remarks: To determine whether a method in a dynamic assembly is security-transparent, complete the type by calling <xref:System.Reflection.Emit.TypeBuilder.CreateType%2A?displayProperty=fullName>, call the <xref:System.Type.GetMethod%2A> method on the completed type, and get the <xref:System.Reflection.MethodBase.IsSecurityTransparent%2A> property on the resulting <xref:System.Reflection.MethodInfo>.
+  remarks: 'To determine whether a method in a dynamic assembly is security-transparent, complete the type by calling <xref:System.Reflection.Emit.TypeBuilder.CreateType%2A?displayProperty=fullName>, call the <xref:System.Type.GetMethod%2A> method on the completed type, and get the <xref:System.Reflection.MethodBase.IsSecurityTransparent%2A> property on the resulting <xref:System.Reflection.MethodInfo>.'
   syntax:
     content: public override bool IsSecurityTransparent { get; }
     return:
@@ -1924,7 +1924,7 @@ items:
   - mscorlib
   namespace: System.Reflection.Emit
   summary: Returns a generic method constructed from the current generic method definition using the specified generic type arguments.
-  remarks: When you are emitting dynamic code, you might need to emit a call to a method constructed from the generic method definition represented by a <xref:System.Reflection.Emit.MethodBuilder>, before the enclosing type has been completed. You can use the <xref:System.Reflection.Emit.MethodBuilder.MakeGenericMethod%2A> method to create a <xref:System.Reflection.MethodInfo> for such a constructed method, and use the <xref:System.Reflection.MethodInfo> in the emitted call.
+  remarks: 'When you are emitting dynamic code, you might need to emit a call to a method constructed from the generic method definition represented by a <xref:System.Reflection.Emit.MethodBuilder>, before the enclosing type has been completed. You can use the <xref:System.Reflection.Emit.MethodBuilder.MakeGenericMethod%2A> method to create a <xref:System.Reflection.MethodInfo> for such a constructed method, and use the <xref:System.Reflection.MethodInfo> in the emitted call.'
   example:
   - "The following code example creates a constructed method from an incomplete generic method definition in an incomplete type.  \n  \n The example creates a transient assembly and module with a single type, adds a method `M`, and makes the method generic by adding a type parameter T using the <xref:System.Reflection.Emit.MethodBuilder.DefineGenericParameters%2A> method. The type parameter is used as the type of the method's parameter, and also as its return type. The generic method definition is not given a body, and the enclosing type is not completed. The <xref:System.Reflection.Emit.MethodBuilder.MakeGenericMethod%2A> method is then used to make the constructed method `M<String>` (`M(Of String)` in Visual Basic). The example code has no output, because the subclass of <xref:System.Reflection.MethodInfo> returned by the <xref:System.Reflection.Emit.MethodBuilder.MakeGenericMethod%2A> method does not allow reflection over its parameters.  \n  \n> [!NOTE]\n>  For another code example that uses <xref:System.Reflection.Emit.MethodBuilder.MakeGenericMethod%2A>, see <xref:System.Reflection.Emit.MethodBuilder.DefineGenericParameters%2A>. <xref:System.Reflection.Emit.MethodBuilder.MakeGenericMethod%2A> is also used extensively when emitting code that uses generic types. See [How to: Define a Generic Method with Reflection Emit](~/docs/framework/reflection-and-codedom/how-to-define-a-generic-method-with-reflection-emit.md).  \n  \n [!code-cpp[MethodBuilder.MakeGenericMethod#1](~/samples/snippets/cpp/VS_Snippets_CLR/MethodBuilder.MakeGenericMethod/cpp/source.cpp#1)]\n [!code-csharp[MethodBuilder.MakeGenericMethod#1](~/samples/snippets/csharp/VS_Snippets_CLR/MethodBuilder.MakeGenericMethod/cs/source.cs#1)]\n [!code-vb[MethodBuilder.MakeGenericMethod#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/MethodBuilder.MakeGenericMethod/vb/source.vb#1)]"
   syntax:
@@ -1994,7 +1994,7 @@ items:
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: This method is not currently supported. Retrieve the method using <xref href="System.Type.GetMethod(System.String,System.Reflection.BindingFlags,System.Reflection.Binder,System.Reflection.CallingConventions,System.Type[],System.Reflection.ParameterModifier[])"></xref> and call <xref href="System.Reflection.MethodBase.MethodHandle"></xref> on the returned <xref href="System.Reflection.MethodInfo"></xref>.
+    description: 'This method is not currently supported. Retrieve the method using <xref href="System.Type.GetMethod(System.String,System.Reflection.BindingFlags,System.Reflection.Binder,System.Reflection.CallingConventions,System.Type[],System.Reflection.ParameterModifier[])"></xref> and call <xref href="System.Reflection.MethodBase.MethodHandle"></xref> on the returned <xref href="System.Reflection.MethodInfo"></xref>.'
   version:
   - netcore-2.0
   - netframework-4.5.1
@@ -2221,8 +2221,8 @@ items:
   - System.Reflection.Emit
   - mscorlib
   namespace: System.Reflection.Emit
-  summary: Gets a <xref href="System.Reflection.ParameterInfo"></xref> object that contains information about the return type of the method, such as whether the return type has custom modifiers.
-  remarks: Compiler designers can use the <xref:System.Reflection.ParameterInfo> object returned by this property to discover whether custom modifiers, such as <xref:Microsoft.VisualC.IsConstModifier>, have been applied to the return type.
+  summary: 'Gets a <xref href="System.Reflection.ParameterInfo"></xref> object that contains information about the return type of the method, such as whether the return type has custom modifiers.'
+  remarks: 'Compiler designers can use the <xref:System.Reflection.ParameterInfo> object returned by this property to discover whether custom modifiers, such as <xref:Microsoft.VisualC.IsConstModifier>, have been applied to the return type.'
   syntax:
     content: public override System.Reflection.ParameterInfo ReturnParameter { get; }
     return:
@@ -2280,10 +2280,7 @@ items:
   - mscorlib
   namespace: System.Reflection.Emit
   summary: Gets the return type of the method represented by this <xref href="System.Reflection.Emit.MethodBuilder"></xref>.
-  remarks: >-
-    > [!NOTE]
-
-    >  Starting with the .NET Framework 2.0 and the .NET Compact Framework 2.0, this member is inherited from the base class, <xref:System.Reflection.MethodInfo>. See <xref:System.Reflection.MethodInfo.ReturnType%2A?displayProperty=fullName>.
+  remarks: "> [!NOTE]\n>  Starting with the .NET Framework 2.0 and the .NET Compact Framework 2.0, this member is inherited from the base class, <xref:System.Reflection.MethodInfo>. See <xref:System.Reflection.MethodInfo.ReturnType%2A?displayProperty=fullName>."
   syntax:
     content: public override Type ReturnType { get; }
     return:
@@ -2338,7 +2335,7 @@ items:
   - System.Reflection.Emit
   namespace: System.Reflection.Emit
   summary: Returns the custom attributes of the method's return type.
-  remarks: This method always returns `null`. Get the <xref:System.Reflection.MethodInfo> after the containing <xref:System.Type> has been created and invoked <xref:System.Reflection.MethodInfo.ReturnTypeCustomAttributes%2A> on the <xref:System.Reflection.MethodInfo>.
+  remarks: 'This method always returns `null`. Get the <xref:System.Reflection.MethodInfo> after the containing <xref:System.Type> has been created and invoked <xref:System.Reflection.MethodInfo.ReturnTypeCustomAttributes%2A> on the <xref:System.Reflection.MethodInfo>.'
   syntax:
     content: public override System.Reflection.ICustomAttributeProvider ReturnTypeCustomAttributes { get; }
     return:
@@ -2409,7 +2406,7 @@ items:
     description: <code>con</code> or <code>binaryAttribute</code> is `null`.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: For the current method, the <xref href="System.Reflection.Emit.MethodBuilder.IsGenericMethod"></xref> property is `true`, but the <xref href="System.Reflection.Emit.MethodBuilder.IsGenericMethodDefinition"></xref> property is `false`.
+    description: 'For the current method, the <xref href="System.Reflection.Emit.MethodBuilder.IsGenericMethod"></xref> property is `true`, but the <xref href="System.Reflection.Emit.MethodBuilder.IsGenericMethodDefinition"></xref> property is `false`.'
   attributes:
   - type: System.Runtime.InteropServices.ComVisibleAttribute
   version:
@@ -2461,7 +2458,7 @@ items:
   - mscorlib
   namespace: System.Reflection.Emit
   summary: Sets a custom attribute using a custom attribute builder.
-  remarks: The <xref:System.Reflection.Emit.MethodBuilder.SetCustomAttribute%2A> method can interact with the <xref:System.Reflection.Emit.MethodBuilder.SetImplementationFlags%2A> method when the two methods are used in combination. See the Remarks section of the <xref:System.Reflection.Emit.MethodBuilder.SetImplementationFlags%2A> method for details.
+  remarks: 'The <xref:System.Reflection.Emit.MethodBuilder.SetCustomAttribute%2A> method can interact with the <xref:System.Reflection.Emit.MethodBuilder.SetImplementationFlags%2A> method when the two methods are used in combination. See the Remarks section of the <xref:System.Reflection.Emit.MethodBuilder.SetImplementationFlags%2A> method for details.'
   syntax:
     content: public void SetCustomAttribute (System.Reflection.Emit.CustomAttributeBuilder customBuilder);
     parameters:
@@ -2475,7 +2472,7 @@ items:
     description: <code>customBuilder</code> is `null`.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: For the current method, the <xref href="System.Reflection.Emit.MethodBuilder.IsGenericMethod"></xref> property is `true`, but the <xref href="System.Reflection.Emit.MethodBuilder.IsGenericMethodDefinition"></xref> property is `false`.
+    description: 'For the current method, the <xref href="System.Reflection.Emit.MethodBuilder.IsGenericMethod"></xref> property is `true`, but the <xref href="System.Reflection.Emit.MethodBuilder.IsGenericMethodDefinition"></xref> property is `false`.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -2663,7 +2660,7 @@ items:
       description: A collection that contains the exception handlers for the method. Specify `null` if the method has no exception handlers.
     - id: tokenFixups
       type: System.Collections.Generic.IEnumerable{System.Int32}
-      description: A collection of values that represent offsets in <code>il</code>, each of which specifies the beginning of a token that may be modified. Specify `null` if the method has no tokens that have to be modified.
+      description: 'A collection of values that represent offsets in <code>il</code>, each of which specifies the beginning of a token that may be modified. Specify `null` if the method has no tokens that have to be modified.'
   overload: System.Reflection.Emit.MethodBuilder.SetMethodBody*
   exceptions:
   - type: System.ArgumentNullException
@@ -2729,7 +2726,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The current method is generic, but is not a generic method definition. That is, the <xref href="System.Reflection.Emit.MethodBuilder.IsGenericMethod"></xref> property is `true`, but the <xref href="System.Reflection.Emit.MethodBuilder.IsGenericMethodDefinition"></xref> property is `false`.
+    description: 'The current method is generic, but is not a generic method definition. That is, the <xref href="System.Reflection.Emit.MethodBuilder.IsGenericMethod"></xref> property is `true`, but the <xref href="System.Reflection.Emit.MethodBuilder.IsGenericMethodDefinition"></xref> property is `false`.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -2792,7 +2789,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The current method is generic, but is not a generic method definition. That is, the <xref href="System.Reflection.Emit.MethodBuilder.IsGenericMethod"></xref> property is `true`, but the <xref href="System.Reflection.Emit.MethodBuilder.IsGenericMethodDefinition"></xref> property is `false`.
+    description: 'The current method is generic, but is not a generic method definition. That is, the <xref href="System.Reflection.Emit.MethodBuilder.IsGenericMethod"></xref> property is `true`, but the <xref href="System.Reflection.Emit.MethodBuilder.IsGenericMethodDefinition"></xref> property is `false`.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -2841,7 +2838,7 @@ items:
   - System.Reflection.Emit
   - mscorlib
   namespace: System.Reflection.Emit
-  summary: Sets the method signature, including the return type, the parameter types, and the required and optional custom modifiers of the return type and parameter types.
+  summary: 'Sets the method signature, including the return type, the parameter types, and the required and optional custom modifiers of the return type and parameter types.'
   remarks: "If the return type and the number and types of the parameters are known when the method is defined, they can be established using any overload of the <xref:System.Reflection.Emit.TypeBuilder.DefineMethod%2A?displayProperty=fullName> method that accepts an array of parameter types. However, a generic method can have parameters whose types are specified by one or more of its own generic type parameters, which cannot be defined until after the method has been defined. Use this method to set the parameter types in that case.  \n  \n If neither the return type nor the parameter types have optional or required custom modifiers, such as <xref:Microsoft.VisualC.IsConstModifier>, you can use the <xref:System.Reflection.Emit.MethodBuilder.SetReturnType%2A> and <xref:System.Reflection.Emit.MethodBuilder.SetParameters%2A> methods.  \n  \n Calling this method replaces the parameters and return type established using the <xref:System.Reflection.Emit.TypeBuilder.DefineMethod%2A?displayProperty=fullName> method."
   example:
   - "The following code example contains source code for a generic class named Sample that has a type parameter `T`. The class has a field named `Field`, of type `T`, and a generic method `GM` with its own type parameter, `U`. Method `GM` creates an instance of Sample, substituting its own type parameter `U` for the type parameter of Sample, and stores its input parameter in `Field`. This source code is compiled but not used; you can view it with the [Ildasm.exe (IL Disassembler)](~/docs/framework/tools/ildasm-exe-il-disassembler.md), and compare it to the code emitted by class `Example`.  \n  \n The code in class `Example` demonstrates the use of the <xref:System.Reflection.Emit.MethodBuilder.SetSignature%2A> method in emitting generic code. The `Main` method of class `Example` creates a dynamic assembly containing a class named `Sample`, and uses the <xref:System.Reflection.Emit.TypeBuilder.DefineGenericParameters%2A?displayProperty=fullName> method to make it generic by adding a type parameter named `T`. A default constructor and a field named `Field`, of type `T`, are added to class `Sample`. A method `GM` is added, and turned into a generic method using the <xref:System.Reflection.Emit.MethodBuilder.DefineGenericParameters%2A> method. The type parameter of `GM` is named `U`. Once the type parameter is defined, the signature of `GM` is added, using the <xref:System.Reflection.Emit.MethodBuilder.SetSignature%2A> method. There is no return type, and no required or custom modifiers, so all the parameters of this method are `null` except `parameterTypes`, which sets the type of the only parameter of the method; this is set to the method's type parameter, `U`. The body of the method creates an instance of the constructed type `Sample<U>` (`Sample(Of U)` in Visual Basic), assigns the method's parameter to `Field`, and then prints the value of `Field`. A dummy type is defined, to hold the entry point method `Main`. In the body of `Main`, the static `GM` method is invoked on the constructed generic type `Sample<int>` (`Sample(Of Integer)` in Visual Basic), with type <xref:System.String> substituted for `U`. The <xref:System.Reflection.Emit.TypeBuilder.GetMethod%2A?displayProperty=fullName> method is used to create a <xref:System.Reflection.MethodInfo> for the static `GM` method of the constructed generic type `Sample<U>`, and the <xref:System.Reflection.MethodInfo.MakeGenericMethod%2A?displayProperty=fullName> method is then used to create a <xref:System.Reflection.MethodInfo> that can emitted in a method call.  \n  \n When the code example is run, it saves the emitted assembly as TypeBuilderGetFieldExample.exe. You can run TypeBuilderGetFieldExample.exe, and you can use the [Ildasm.exe (IL Disassembler)](~/docs/framework/tools/ildasm-exe-il-disassembler.md) to compare the emitted code with the code for the `Sample` class that is compiled into the code example itself.  \n  \n [!code-csharp[TypeBuilder.GetField_Generic#1](~/samples/snippets/csharp/VS_Snippets_CLR/TypeBuilder.GetField_Generic/cs/source.cs#1)]\n [!code-vb[TypeBuilder.GetField_Generic#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/TypeBuilder.GetField_Generic/VB/source.vb#1)]"
@@ -2853,24 +2850,24 @@ items:
       description: The return type of the method.
     - id: returnTypeRequiredCustomModifiers
       type: System.Type[]
-      description: An array of types representing the required custom modifiers, such as <xref href="System.Runtime.CompilerServices.IsConst"></xref>, for the return type of the method. If the return type has no required custom modifiers, specify `null`.
+      description: 'An array of types representing the required custom modifiers, such as <xref href="System.Runtime.CompilerServices.IsConst"></xref>, for the return type of the method. If the return type has no required custom modifiers, specify `null`.'
     - id: returnTypeOptionalCustomModifiers
       type: System.Type[]
-      description: An array of types representing the optional custom modifiers, such as <xref href="System.Runtime.CompilerServices.IsConst"></xref>, for the return type of the method. If the return type has no optional custom modifiers, specify `null`.
+      description: 'An array of types representing the optional custom modifiers, such as <xref href="System.Runtime.CompilerServices.IsConst"></xref>, for the return type of the method. If the return type has no optional custom modifiers, specify `null`.'
     - id: parameterTypes
       type: System.Type[]
       description: The types of the parameters of the method.
     - id: parameterTypeRequiredCustomModifiers
       type: System.Type[][]
-      description: An array of arrays of types. Each array of types represents the required custom modifiers for the corresponding parameter, such as <xref href="System.Runtime.CompilerServices.IsConst"></xref>. If a particular parameter has no required custom modifiers, specify `null` instead of an array of types. If none of the parameters have required custom modifiers, specify `null` instead of an array of arrays.
+      description: 'An array of arrays of types. Each array of types represents the required custom modifiers for the corresponding parameter, such as <xref href="System.Runtime.CompilerServices.IsConst"></xref>. If a particular parameter has no required custom modifiers, specify `null` instead of an array of types. If none of the parameters have required custom modifiers, specify `null` instead of an array of arrays.'
     - id: parameterTypeOptionalCustomModifiers
       type: System.Type[][]
-      description: An array of arrays of types. Each array of types represents the optional custom modifiers for the corresponding parameter, such as <xref href="System.Runtime.CompilerServices.IsConst"></xref>. If a particular parameter has no optional custom modifiers, specify `null` instead of an array of types. If none of the parameters have optional custom modifiers, specify `null` instead of an array of arrays.
+      description: 'An array of arrays of types. Each array of types represents the optional custom modifiers for the corresponding parameter, such as <xref href="System.Runtime.CompilerServices.IsConst"></xref>. If a particular parameter has no optional custom modifiers, specify `null` instead of an array of types. If none of the parameters have optional custom modifiers, specify `null` instead of an array of arrays.'
   overload: System.Reflection.Emit.MethodBuilder.SetSignature*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The current method is generic, but is not a generic method definition. That is, the <xref href="System.Reflection.Emit.MethodBuilder.IsGenericMethod"></xref> property is `true`, but the <xref href="System.Reflection.Emit.MethodBuilder.IsGenericMethodDefinition"></xref> property is `false`.
+    description: 'The current method is generic, but is not a generic method definition. That is, the <xref href="System.Reflection.Emit.MethodBuilder.IsGenericMethod"></xref> property is `true`, but the <xref href="System.Reflection.Emit.MethodBuilder.IsGenericMethodDefinition"></xref> property is `false`.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -2919,7 +2916,7 @@ items:
   - mscorlib
   namespace: System.Reflection.Emit
   summary: Set a symbolic custom attribute using a blob.
-  remarks: Unlike the metadata custom attribute, this custom attribute is associated with a symbol writer.
+  remarks: 'Unlike the metadata custom attribute, this custom attribute is associated with a symbol writer.'
   example:
   - "The code sample below illustrates the contextual usage of the `SetSymCustomAttribute` method to set the byte values for the name and key of a custom attribute attached to a method.  \n  \n [!code-cpp[System.Reflection.Emit.MethodBuilder.SetSymCustomAttribute Example#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.Reflection.Emit.MethodBuilder.SetSymCustomAttribute Example/CPP/source2.cpp#1)]\n [!code-csharp[System.Reflection.Emit.MethodBuilder.SetSymCustomAttribute Example#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Reflection.Emit.MethodBuilder.SetSymCustomAttribute Example/CS/source2.cs#1)]\n [!code-vb[System.Reflection.Emit.MethodBuilder.SetSymCustomAttribute Example#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Reflection.Emit.MethodBuilder.SetSymCustomAttribute Example/VB/source2.vb#1)]"
   syntax:
@@ -3029,7 +3026,7 @@ items:
     parameters: []
     return:
       type: System.String
-      description: Returns a string containing the name, attributes, method signature, exceptions, and local signature of this method followed by the current Microsoft intermediate language (MSIL) stream.
+      description: 'Returns a string containing the name, attributes, method signature, exceptions, and local signature of this method followed by the current Microsoft intermediate language (MSIL) stream.'
   overload: System.Reflection.Emit.MethodBuilder.ToString*
   exceptions: []
   version:
@@ -3079,7 +3076,7 @@ items:
   - mscorlib
   namespace: System.Reflection.Emit
   summary: Maps a set of names to a corresponding set of dispatch identifiers.
-  remarks: This method is for access to managed classes from unmanaged code, and should not be called from managed code. For more information about `IDispatch::GetIDsOfNames`, see the MSDN Library.
+  remarks: 'This method is for access to managed classes from unmanaged code, and should not be called from managed code. For more information about `IDispatch::GetIDsOfNames`, see the MSDN Library.'
   syntax:
     content: void _MethodBuilder.GetIDsOfNames (ref Guid riid, IntPtr rgszNames, uint cNames, uint lcid, IntPtr rgDispId);
     parameters:
@@ -3143,8 +3140,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Reflection.Emit
-  summary: Retrieves the type information for an object, which can then be used to get the type information for an interface.
-  remarks: This method is for access to managed classes from unmanaged code, and should not be called from managed code. For more information about `IDispatch::GetTypeInfo`, see the MSDN Library.
+  summary: 'Retrieves the type information for an object, which can then be used to get the type information for an interface.'
+  remarks: 'This method is for access to managed classes from unmanaged code, and should not be called from managed code. For more information about `IDispatch::GetTypeInfo`, see the MSDN Library.'
   syntax:
     content: void _MethodBuilder.GetTypeInfo (uint iTInfo, uint lcid, IntPtr ppTInfo);
     parameters:
@@ -3203,7 +3200,7 @@ items:
   - mscorlib
   namespace: System.Reflection.Emit
   summary: Retrieves the number of type information interfaces that an object provides (either 0 or 1).
-  remarks: This method is for access to managed classes from unmanaged code, and should not be called from managed code. For more information about `IDispatch::GetTypeInfoCount`, see the MSDN Library.
+  remarks: 'This method is for access to managed classes from unmanaged code, and should not be called from managed code. For more information about `IDispatch::GetTypeInfoCount`, see the MSDN Library.'
   syntax:
     content: void _MethodBuilder.GetTypeInfoCount (out uint pcTInfo);
     parameters:
@@ -3256,7 +3253,7 @@ items:
   - mscorlib
   namespace: System.Reflection.Emit
   summary: Provides access to properties and methods exposed by an object.
-  remarks: This method is for access to managed classes from unmanaged code, and should not be called from managed code. For more information about `IDispatch::Invoke`, see the MSDN Library.
+  remarks: 'This method is for access to managed classes from unmanaged code, and should not be called from managed code. For more information about `IDispatch::Invoke`, see the MSDN Library.'
   syntax:
     content: void _MethodBuilder.Invoke (uint dispIdMember, ref Guid riid, uint lcid, short wFlags, IntPtr pDispParams, IntPtr pVarResult, IntPtr pExcepInfo, IntPtr puArgErr);
     parameters:
@@ -3274,7 +3271,7 @@ items:
       description: Flags describing the context of the call.
     - id: pDispParams
       type: System.IntPtr
-      description: Pointer to a structure containing an array of arguments, an array of argument DispIDs for named arguments, and counts for the number of elements in the arrays.
+      description: 'Pointer to a structure containing an array of arguments, an array of argument DispIDs for named arguments, and counts for the number of elements in the arrays.'
     - id: pVarResult
       type: System.IntPtr
       description: Pointer to the location where the result is to be stored.

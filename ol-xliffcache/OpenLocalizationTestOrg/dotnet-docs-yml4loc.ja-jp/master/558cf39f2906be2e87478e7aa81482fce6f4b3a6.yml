@@ -101,10 +101,10 @@ items:
     parameters:
     - id: selector
       type: System.Runtime.Serialization.ISurrogateSelector
-      description: The surrogate selector to use. The <xref href="System.Runtime.Serialization.ISurrogateSelector"></xref> determines the correct surrogate to use when deserializing objects of a given type. At deserialization time, the surrogate selector creates a new instance of the object from the information transmitted on the stream.
+      description: 'The surrogate selector to use. The <xref href="System.Runtime.Serialization.ISurrogateSelector"></xref> determines the correct surrogate to use when deserializing objects of a given type. At deserialization time, the surrogate selector creates a new instance of the object from the information transmitted on the stream.'
     - id: context
       type: System.Runtime.Serialization.StreamingContext
-      description: The streaming context. The <xref href="System.Runtime.Serialization.StreamingContext"></xref> is not used by `ObjectManager`, but is passed as a parameter to any objects implementing <xref href="System.Runtime.Serialization.ISerializable"></xref> or having a <xref href="System.Runtime.Serialization.ISerializationSurrogate"></xref>. These objects can take specific actions depending on the source of the information to deserialize.
+      description: 'The streaming context. The <xref href="System.Runtime.Serialization.StreamingContext"></xref> is not used by `ObjectManager`, but is passed as a parameter to any objects implementing <xref href="System.Runtime.Serialization.ISerializable"></xref> or having a <xref href="System.Runtime.Serialization.ISerializationSurrogate"></xref>. These objects can take specific actions depending on the source of the information to deserialize.'
   overload: System.Runtime.Serialization.ObjectManager.#ctor*
   exceptions:
   - type: System.Security.SecurityException
@@ -157,7 +157,7 @@ items:
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
   summary: Performs all the recorded fixups.
-  remarks: The fixups are carried out by any appropriate surrogate, the object itself (if it implements <xref:System.Runtime.Serialization.ISerializable>), or the default implementation.
+  remarks: 'The fixups are carried out by any appropriate surrogate, the object itself (if it implements <xref:System.Runtime.Serialization.ISerializable>), or the default implementation.'
   syntax:
     content: public virtual void DoFixups ();
     parameters: []
@@ -213,7 +213,7 @@ items:
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
   summary: Returns the object with the specified object ID.
-  remarks: An object can be registered and issued an object ID with a call to the <xref:System.Runtime.Serialization.ObjectManager.RegisterObject%2A> method.
+  remarks: 'An object can be registered and issued an object ID with a call to the <xref:System.Runtime.Serialization.ObjectManager.RegisterObject%2A> method.'
   syntax:
     content: public virtual object GetObject (long objectID);
     parameters:
@@ -445,7 +445,7 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
-  summary: Records fixups for the specified elements in an array, to be executed later.
+  summary: 'Records fixups for the specified elements in an array, to be executed later.'
   remarks: The fixup is for specified elements of a specified array. The value used during the fixup process is provided in the `objectRequired` parameter.
   syntax:
     content: public virtual void RecordArrayElementFixup (long arrayToBeFixed, int[] indices, long objectRequired);
@@ -512,7 +512,7 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
-  summary: Records a fixup for an object member, to be executed later.
+  summary: 'Records a fixup for an object member, to be executed later.'
   remarks: The fixup is for a specified member of a specified object. The value to be used during the fixup process is provided as the `objectRequired` argument.
   syntax:
     content: public virtual void RecordDelayedFixup (long objectToBeFixed, string memberName, long objectRequired);
@@ -579,7 +579,7 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
-  summary: Records a fixup for a member of an object, to be executed later.
+  summary: 'Records a fixup for a member of an object, to be executed later.'
   remarks: The fixup is for a specified member of a specified object. The value to be used during the fixup process is provided as the `objectRequired` parameter.
   syntax:
     content: public virtual void RecordFixup (long objectToBeFixed, System.Reflection.MemberInfo member, long objectRequired);
@@ -646,8 +646,8 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
-  summary: Registers an object as it is deserialized, associating it with <code>objectID</code>.
-  remarks: <xref:System.Runtime.Serialization.ObjectManager> retains information about both the object and its ID. Later during deserialization, <xref:System.Runtime.Serialization.ObjectManager.GetObject%2A> can be used to determine whether a particular object ID has already been deserialized, or whether it is a forward reference to an object that has not yet been deserialized.
+  summary: 'Registers an object as it is deserialized, associating it with <code>objectID</code>.'
+  remarks: '<xref:System.Runtime.Serialization.ObjectManager> retains information about both the object and its ID. Later during deserialization, <xref:System.Runtime.Serialization.ObjectManager.GetObject%2A> can be used to determine whether a particular object ID has already been deserialized, or whether it is a forward reference to an object that has not yet been deserialized.'
   syntax:
     content: >-
       [System.Security.SecurityCritical]
@@ -718,8 +718,8 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
-  summary: Registers an object as it is deserialized, associating it with <code>objectID</code>, and recording the <xref href="System.Runtime.Serialization.SerializationInfo"></xref> used with it.
-  remarks: <xref:System.Runtime.Serialization.ObjectManager> retains the information about both the object and its ID. Later during deserialization, you can use <xref:System.Runtime.Serialization.ObjectManager.GetObject%2A> to discover whether a particular object ID has already been deserialized, or if it is a forward reference to an object that has not yet been deserialized.
+  summary: 'Registers an object as it is deserialized, associating it with <code>objectID</code>, and recording the <xref href="System.Runtime.Serialization.SerializationInfo"></xref> used with it.'
+  remarks: '<xref:System.Runtime.Serialization.ObjectManager> retains the information about both the object and its ID. Later during deserialization, you can use <xref:System.Runtime.Serialization.ObjectManager.GetObject%2A> to discover whether a particular object ID has already been deserialized, or if it is a forward reference to an object that has not yet been deserialized.'
   syntax:
     content: >-
       [System.Security.SecurityCritical]
@@ -793,7 +793,7 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
-  summary: Registers a member of an object as it is deserialized, associating it with <code>objectID</code>, and recording the <xref href="System.Runtime.Serialization.SerializationInfo"></xref>.
+  summary: 'Registers a member of an object as it is deserialized, associating it with <code>objectID</code>, and recording the <xref href="System.Runtime.Serialization.SerializationInfo"></xref>.'
   remarks: "You need to provide the `member` and `idOfContainingObj` parameters if `obj` is a <xref:System.ValueType> because of the way fixups are performed on <xref:System.ValueType> objects. The space to store the information for a <xref:System.ValueType> is allocated inline with its containing object. However, when the <xref:System.ValueType> is boxed to be registered with the <xref:System.Runtime.Serialization.ObjectManager>, it loses the connection with its containing object. To guarantee that fixups occur in the instance of the <xref:System.ValueType> stored in the containing object and not in the boxed instance, the <xref:System.Runtime.Serialization.ObjectManager> retains some additional information.  \n  \n <xref:System.Runtime.Serialization.ObjectManager> retains information about both the object and its ID. Later during deserialization, <xref:System.Runtime.Serialization.ObjectManager.GetObject%2A> can be used to discover whether a particular object ID has already been deserialized, or whether it is a forward reference to an object not yet deserialized."
   syntax:
     content: >-
@@ -826,7 +826,7 @@ items:
     description: The <code>objectID</code> parameter is less than or equal to zero.
   - type: System.Runtime.Serialization.SerializationException
     commentId: T:System.Runtime.Serialization.SerializationException
-    description: The <code>objectID</code> has already been registered for an object other than <code>obj</code>, or <code>member</code> is not a <xref href="System.Reflection.FieldInfo"></xref> and <code>member</code> is not `null`.
+    description: 'The <code>objectID</code> has already been registered for an object other than <code>obj</code>, or <code>member</code> is not a <xref href="System.Reflection.FieldInfo"></xref> and <code>member</code> is not `null`.'
   attributes:
   - type: System.Security.SecurityCriticalAttribute
   version:
@@ -874,7 +874,7 @@ items:
   - netstandard
   - System.Runtime.Serialization.Formatters
   namespace: System.Runtime.Serialization
-  summary: Registers a member of an array contained in an object while it is deserialized, associating it with <code>objectID</code>, and recording the <xref href="System.Runtime.Serialization.SerializationInfo"></xref>.
+  summary: 'Registers a member of an array contained in an object while it is deserialized, associating it with <code>objectID</code>, and recording the <xref href="System.Runtime.Serialization.SerializationInfo"></xref>.'
   remarks: "You need to provide the `member` and `idOfContainingObj` parameters if `obj` is a <xref:System.ValueType> because of the way fixups are performed on <xref:System.ValueType> objects. The space to store the information for a <xref:System.ValueType> is allocated inline with its containing object. However, when the <xref:System.ValueType> is boxed to be registered with the <xref:System.Runtime.Serialization.ObjectManager>, it loses the connection with its containing object. To guarantee that fixups occur in the instance of the <xref:System.ValueType> stored in the containing object and not in the boxed instance, the <xref:System.Runtime.Serialization.ObjectManager> retains some additional information.  \n  \n <xref:System.Runtime.Serialization.ObjectManager> retains information about both the object and its ID. Later during deserialization, <xref:System.Runtime.Serialization.ObjectManager.GetObject%2A> can be used to discover whether a particular object ID has already been deserialized, or whether it is a forward reference to an object not yet deserialized."
   syntax:
     content: >-
@@ -899,7 +899,7 @@ items:
       description: The field in the containing object where <code>obj</code> exists. This parameter has meaning only if <code>obj</code> is a value type.
     - id: arrayIndex
       type: System.Int32[]
-      description: If <code>obj</code> is a <xref href="System.ValueType"></xref> and a member of an array, <code>arrayIndex</code> contains the index within that array where <code>obj</code> exists. <code>arrayIndex</code> is ignored if <code>obj</code> is not both a <xref href="System.ValueType"></xref> and a member of an array.
+      description: 'If <code>obj</code> is a <xref href="System.ValueType"></xref> and a member of an array, <code>arrayIndex</code> contains the index within that array where <code>obj</code> exists. <code>arrayIndex</code> is ignored if <code>obj</code> is not both a <xref href="System.ValueType"></xref> and a member of an array.'
   overload: System.Runtime.Serialization.ObjectManager.RegisterObject*
   exceptions:
   - type: System.ArgumentNullException
@@ -910,7 +910,7 @@ items:
     description: The <code>objectID</code> parameter is less than or equal to zero.
   - type: System.Runtime.Serialization.SerializationException
     commentId: T:System.Runtime.Serialization.SerializationException
-    description: The <code>objectID</code> has already been registered for an object other than <code>obj</code>, or <code>member</code> is not a <xref href="System.Reflection.FieldInfo"></xref> and <code>member</code> isn't `null`.
+    description: 'The <code>objectID</code> has already been registered for an object other than <code>obj</code>, or <code>member</code> is not a <xref href="System.Reflection.FieldInfo"></xref> and <code>member</code> isn''t `null`.'
   attributes:
   - type: System.Security.SecurityCriticalAttribute
   version:

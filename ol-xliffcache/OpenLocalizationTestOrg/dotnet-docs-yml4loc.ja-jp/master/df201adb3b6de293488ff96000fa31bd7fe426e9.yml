@@ -154,7 +154,7 @@ items:
     description: <code>host</code> is `null`.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: The designer is already loaded, or <xref href="System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad(System.ComponentModel.Design.Serialization.IDesignerLoaderHost)"></xref> has been called with a different designer loader host.
+    description: 'The designer is already loaded, or <xref href="System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad(System.ComponentModel.Design.Serialization.IDesignerLoaderHost)"></xref> has been called with a different designer loader host.'
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
     description: <code>host</code> has been disposed.
@@ -283,7 +283,7 @@ items:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
   summary: Flushes pending changes to the designer loader.
-  remarks: If the designer loader has not been loaded or has not been marked as modified, the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A> method returns immediately. Otherwise, <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A> asks the serialization manager to create a serialization session and then calls <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformFlush%2A>.
+  remarks: 'If the designer loader has not been loaded or has not been marked as modified, the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A> method returns immediately. Otherwise, <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A> asks the serialization manager to create a serialization session and then calls <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformFlush%2A>.'
   syntax:
     content: public override void Flush ();
     parameters: []
@@ -325,7 +325,7 @@ items:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
   summary: Gets the requested service.
-  remarks: <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.GetService%2A> is a helper method that allows classes deriving from <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> to access services offered by the designer loader host.
+  remarks: '<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.GetService%2A> is a helper method that allows classes deriving from <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> to access services offered by the designer loader host.'
   syntax:
     content: protected object GetService (Type serviceType);
     parameters:
@@ -334,7 +334,7 @@ items:
       description: The <xref href="System.Type"></xref> of the service.
     return:
       type: System.Object
-      description: The requested service, or `null` if the requested service cannot be found.
+      description: 'The requested service, or `null` if the requested service cannot be found.'
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.GetService*
   exceptions: []
   version:
@@ -373,7 +373,7 @@ items:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
   summary: Initializes services.
-  remarks: The <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Initialize%2A> method is called the first time <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A> is invoked. You can add any services necessary to the designer loader host at this time. The base implementation adds services that <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> provides, so after calling the base implementation you may replace existing services. You must remove any custom services you add here by overriding <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Dispose%2A>.
+  remarks: 'The <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Initialize%2A> method is called the first time <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A> is invoked. You can add any services necessary to the designer loader host at this time. The base implementation adds services that <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> provides, so after calling the base implementation you may replace existing services. You must remove any custom services you add here by overriding <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Dispose%2A>.'
   syntax:
     content: protected virtual void Initialize ();
     parameters: []
@@ -421,7 +421,7 @@ items:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
   summary: Indicates whether the designer should be reloaded.
-  remarks: The <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.IsReloadNeeded%2A> method is used by some designer loaders to optimize reloading. This method can be overridden if your designer loader supports intelligent reloading. Some designer loaders can detect changes made to their underlying document and determine if a reload of the designer is actually necessary. If not, they should return `false` from this method. The default implementation always returns `true`, indicating that any call to <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Reload%2A> will succeed.
+  remarks: 'The <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.IsReloadNeeded%2A> method is used by some designer loaders to optimize reloading. This method can be overridden if your designer loader supports intelligent reloading. Some designer loaders can detect changes made to their underlying document and determine if a reload of the designer is actually necessary. If not, they should return `false` from this method. The default implementation always returns `true`, indicating that any call to <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Reload%2A> will succeed.'
   syntax:
     content: protected virtual bool IsReloadNeeded ();
     parameters: []
@@ -466,7 +466,7 @@ items:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
   summary: Gets the loader host.
-  remarks: This method returns the loader host that was given to this designer loader. This can be `null` if <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A> has not been called yet, or if this designer loader has been disposed.
+  remarks: 'This method returns the loader host that was given to this designer loader. This can be `null` if <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A> has not been called yet, or if this designer loader has been disposed.'
   syntax:
     content: protected System.ComponentModel.Design.Serialization.IDesignerLoaderHost LoaderHost { get; }
     return:
@@ -516,7 +516,7 @@ items:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
   summary: Gets a value indicating whether the designer loader is loading the design surface.
-  remarks: The <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> class provides the <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>, which supports load dependencies. This property takes load dependencies into account and will return `true` if there are any outstanding load dependencies.
+  remarks: 'The <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> class provides the <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>, which supports load dependencies. This property takes load dependencies into account and will return `true` if there are any outstanding load dependencies.'
   syntax:
     content: public override bool Loading { get; }
     return:
@@ -560,7 +560,7 @@ items:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
   summary: Gets or sets a value indicating whether the designer has been modified.
-  remarks: Determines if the designer loader has detected that the designer has been modified. If this property is `true` when the designer loader’s <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A> method is called, the designer loader will call the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformFlush%2A> method.
+  remarks: 'Determines if the designer loader has detected that the designer has been modified. If this property is `true` when the designer loader’s <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A> method is called, the designer loader will call the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformFlush%2A> method.'
   syntax:
     content: protected virtual bool Modified { get; set; }
     return:
@@ -742,7 +742,7 @@ items:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
   summary: Notifies the designer loader that the state of the document is about to be modified.
-  remarks: The <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnModifying%2A> method is called in response to a component changing, adding, or removing event which indicates that the designer is about to be modified. You can implement source code control by overriding this method. A call to <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnModifying%2A> does not mean that the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Modified%2A> property will later be set to `true`; it merely indicates an intention to do so.
+  remarks: 'The <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnModifying%2A> method is called in response to a component changing, adding, or removing event which indicates that the designer is about to be modified. You can implement source code control by overriding this method. A call to <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnModifying%2A> does not mean that the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Modified%2A> property will later be set to `true`; it merely indicates an intention to do so.'
   syntax:
     content: protected virtual void OnModifying ();
     parameters: []
@@ -784,7 +784,7 @@ items:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
   summary: Flushes all changes to the designer.
-  remarks: The <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformFlush%2A> method is invoked when the designer loader needs to flush to persistence any changes made to the designers. It is invoked in response to a call to the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A> method.
+  remarks: 'The <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformFlush%2A> method is invoked when the designer loader needs to flush to persistence any changes made to the designers. It is invoked in response to a call to the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A> method.'
   syntax:
     content: protected abstract void PerformFlush (System.ComponentModel.Design.Serialization.IDesignerSerializationManager serializationManager);
     parameters:
@@ -829,7 +829,7 @@ items:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
   summary: Loads a designer from persistence.
-  remarks: The <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformLoad%2A> method is invoked when the designer loader needs to load its state. <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformLoad%2A> is called before the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnBeginLoad%2A> method. You must implement this method to load the designer contents.
+  remarks: 'The <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformLoad%2A> method is invoked when the designer loader needs to load its state. <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformLoad%2A> is called before the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnBeginLoad%2A> method. You must implement this method to load the designer contents.'
   syntax:
     content: protected abstract void PerformLoad (System.ComponentModel.Design.Serialization.IDesignerSerializationManager serializationManager);
     parameters:
@@ -921,7 +921,7 @@ items:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
   summary: Queues a reload of the designer.
-  remarks: The <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Reload%2A> method can be invoked by the designer loader to request a reload of the designer. Because reloads are performed at idle time, this method does not actually reload the designer; it just queues the reload.
+  remarks: 'The <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Reload%2A> method can be invoked by the designer loader to request a reload of the designer. Because reloads are performed at idle time, this method does not actually reload the designer; it just queues the reload.'
   syntax:
     content: protected void Reload (System.ComponentModel.Design.Serialization.BasicDesignerLoader.ReloadOptions flags);
     parameters:
@@ -1009,13 +1009,13 @@ items:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
   summary: Reports errors that occurred while flushing changes.
-  remarks: The <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.ReportFlushErrors%2A> method is called during <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A> if one or more errors occurred while flushing changes. The values in the `errors` collection can be exceptions or objects with <xref:System.Object.ToString%2A> values that describe the error. The default implementation of <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.ReportFlushErrors%2A> raises the last exception in the collection.
+  remarks: 'The <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.ReportFlushErrors%2A> method is called during <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A> if one or more errors occurred while flushing changes. The values in the `errors` collection can be exceptions or objects with <xref:System.Object.ToString%2A> values that describe the error. The default implementation of <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.ReportFlushErrors%2A> raises the last exception in the collection.'
   syntax:
     content: protected virtual void ReportFlushErrors (System.Collections.ICollection errors);
     parameters:
     - id: errors
       type: System.Collections.ICollection
-      description: An <xref href="System.Collections.ICollection"></xref> containing error objects, usually exceptions.
+      description: 'An <xref href="System.Collections.ICollection"></xref> containing error objects, usually exceptions.'
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.ReportFlushErrors*
   exceptions:
   - type: System.InvalidOperationException
@@ -1057,7 +1057,7 @@ items:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
   summary: Sets the full class name of the base component.
-  remarks: The <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.SetBaseComponentClassName%2A> method should be called during loading to establish the full name of the component a designer is designing.
+  remarks: 'The <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.SetBaseComponentClassName%2A> method should be called during loading to establish the full name of the component a designer is designing.'
   syntax:
     content: protected void SetBaseComponentClassName (string name);
     parameters:
@@ -1106,7 +1106,7 @@ items:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
   summary: Registers an external component as part of the load process managed by <xref href="System.ComponentModel.Design.Serialization.IDesignerLoaderService"></xref>.
-  remarks: Call the <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.AddLoadDependency%2A> method once for each external object participating in the load process. The <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.DependentLoadComplete%2A> method is called when the work of the load process is done.
+  remarks: 'Call the <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.AddLoadDependency%2A> method once for each external object participating in the load process. The <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.DependentLoadComplete%2A> method is called when the work of the load process is done.'
   syntax:
     content: void IDesignerLoaderService.AddLoadDependency ();
     parameters: []
@@ -1166,7 +1166,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: No load dependencies have been added by <xref href="System.ComponentModel.Design.Serialization.BasicDesignerLoader.System#ComponentModel#Design#Serialization#IDesignerLoaderService#AddLoadDependency"></xref>, or the <xref href="System.ComponentModel.Design.Serialization.IDesignerLoaderHost"></xref> has not been initialized.
+    description: 'No load dependencies have been added by <xref href="System.ComponentModel.Design.Serialization.BasicDesignerLoader.System#ComponentModel#Design#Serialization#IDesignerLoaderService#AddLoadDependency"></xref>, or the <xref href="System.ComponentModel.Design.Serialization.IDesignerLoaderHost"></xref> has not been initialized.'
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
     description: The <xref href="System.ComponentModel.Design.Serialization.IDesignerLoaderHost"></xref> has been disposed.

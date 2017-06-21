@@ -141,7 +141,7 @@ items:
   - System.Transactions.Local
   namespace: System.Transactions
   summary: Creates a clone of the transaction.
-  remarks: Clones are created to pass transactions.  For example, you might not want to pass a <xref:System.Transactions.CommittableTransaction> to other applications, because you do not want others to commit your transaction.  If you try to marshal or serialize a transaction, a clone is created for you automatically.
+  remarks: 'Clones are created to pass transactions.  For example, you might not want to pass a <xref:System.Transactions.CommittableTransaction> to other applications, because you do not want others to commit your transaction.  If you try to marshal or serialize a transaction, a clone is created for you automatically.'
   syntax:
     content: public System.Transactions.Transaction Clone ();
     parameters: []
@@ -316,7 +316,7 @@ items:
   - System.Transactions.Local
   namespace: System.Transactions
   summary: Releases the resources that are held by the object.
-  remarks: If you change the ambient transaction by setting <xref:System.Transactions.Transaction.Current%2A> inside a <xref:System.Transactions.TransactionScope> an <xref:System.InvalidOperationException> is thrown when <xref:System.Transactions.TransactionScope.Dispose%2A> is called, and the previous ambient transaction value is restored.
+  remarks: 'If you change the ambient transaction by setting <xref:System.Transactions.Transaction.Current%2A> inside a <xref:System.Transactions.TransactionScope> an <xref:System.InvalidOperationException> is thrown when <xref:System.Transactions.TransactionScope.Dispose%2A> is called, and the previous ambient transaction value is restored.'
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -888,14 +888,14 @@ items:
   - netstandard
   - System.Transactions.Local
   namespace: System.Transactions
-  summary: Gets the  <code>byte[]</code> returned by the <code>Promote</code> method when the transaction is promoted.
+  summary: 'Gets the  <code>byte[]</code> returned by the <code>Promote</code> method when the transaction is promoted.'
   remarks: "This method has the side effect of causing promotion of the transaction if it is not already promoted.  \n  \n The format of the returned `byte[]` is defined by the value of the `Transation.PromoterType` property. If the value of the `Transaction.PromoterType` property is `TransactionInterop.PromoterTypeDtc` or `Guid.Empty`, then the `byte[]` returned by this method is an MSDTC transmitter propagation token. Any other value for the `Transaction.PromoterType` property specifies a format that is defined by the caller of `Transaction.EnlistPromotableSinglePhase` that specified the property type value. In order to interpret the promoted token in this latter case, you will need to consult the documentation for the code that made the `EnlistPromotableSinglePhase` call."
   syntax:
     content: public byte[] GetPromotedToken ();
     parameters: []
     return:
       type: System.Byte[]
-      description: The  <code>byte[]</code> returned by the <code>Promote</code> method when the transaction is promoted.
+      description: 'The  <code>byte[]</code> returned by the <code>Promote</code> method when the transaction is promoted.'
   overload: System.Transactions.Transaction.GetPromotedToken*
   exceptions: []
   version:
@@ -937,7 +937,7 @@ items:
   - System.Transactions.Local
   namespace: System.Transactions
   summary: Gets the isolation level of the transaction.
-  remarks: The isolation level of a transaction determines what level of access other transactions have to volatile data before a transaction completes. For more information about isolation levels, see the documentation for the <xref:System.Transactions.IsolationLevel> enumeration.
+  remarks: 'The isolation level of a transaction determines what level of access other transactions have to volatile data before a transaction completes. For more information about isolation levels, see the documentation for the <xref:System.Transactions.IsolationLevel> enumeration.'
   syntax:
     content: public System.Transactions.IsolationLevel IsolationLevel { get; }
     return:
@@ -993,7 +993,7 @@ items:
   - System.Transactions.Local
   namespace: System.Transactions
   summary: Tests whether two specified <xref href="System.Transactions.Transaction"></xref> instances are equivalent.
-  remarks: The equivalent method for this operator is <xref:System.Transactions.Transaction.Equals%28System.Transactions.Transaction%2CSystem.Transactions.Transaction%29?displayProperty=fullName>
+  remarks: 'The equivalent method for this operator is <xref:System.Transactions.Transaction.Equals%28System.Transactions.Transaction%2CSystem.Transactions.Transaction%29?displayProperty=fullName>'
   syntax:
     content: public static bool op_Equality (System.Transactions.Transaction x, System.Transactions.Transaction y);
     parameters:
@@ -1056,7 +1056,7 @@ items:
   - System.Transactions.Local
   namespace: System.Transactions
   summary: Returns a value that indicates whether two <xref href="System.Transactions.Transaction"></xref> instances are not equal.
-  remarks: The equivalent method for this operator is <xref:System.Transactions.Transaction.Compare%28System.Transactions.Transaction%2CSystem.Transactions.Transaction%29?displayProperty=fullName>
+  remarks: 'The equivalent method for this operator is <xref:System.Transactions.Transaction.Compare%28System.Transactions.Transaction%2CSystem.Transactions.Transaction%29?displayProperty=fullName>'
   syntax:
     content: public static bool op_Inequality (System.Transactions.Transaction x, System.Transactions.Transaction y);
     parameters:
@@ -1182,13 +1182,13 @@ items:
   - netstandard
   - System.Transactions.Local
   namespace: System.Transactions
-  summary: Uniquely identifies the format of the <code>byte[]</code> returned by the Promote method when the transaction is promoted.
-  remarks: If the transaction has not yet been promoted and does not yet have a promotable single phase enlistment, the value of this property will be `Guid.Empty`. If the transaction has been or will be promoted to MSDTC, then the value of this property will be `TransactionInterop.PromoterTypeDtc`. If the transaction has been or will be promoted by a non-MSDTC promoter, the value of this property will be the value specified to an earlier call to `Transaction.EnlistPromotableSinglePhase`.
+  summary: 'Uniquely identifies the format of the <code>byte[]</code> returned by the Promote method when the transaction is promoted.'
+  remarks: 'If the transaction has not yet been promoted and does not yet have a promotable single phase enlistment, the value of this property will be `Guid.Empty`. If the transaction has been or will be promoted to MSDTC, then the value of this property will be `TransactionInterop.PromoterTypeDtc`. If the transaction has been or will be promoted by a non-MSDTC promoter, the value of this property will be the value specified to an earlier call to `Transaction.EnlistPromotableSinglePhase`.'
   syntax:
     content: public Guid PromoterType { get; }
     return:
       type: System.Guid
-      description: A guid that uniquely identifies the format of the <code>byte[]</code> returned by the Promote method when the transaction is promoted.
+      description: 'A guid that uniquely identifies the format of the <code>byte[]</code> returned by the Promote method when the transaction is promoted.'
   overload: System.Transactions.Transaction.PromoterType*
   exceptions: []
   version:
@@ -1230,7 +1230,7 @@ items:
   - System.Transactions.Local
   namespace: System.Transactions
   summary: Rolls back (aborts) the transaction.
-  remarks: Any copy of a transaction object can initiate the rollback of the transaction by calling this method. Only the original transaction object, which is a <xref:System.Transactions.CommittableTransaction> object, can be used to initiate an attempt to commit the transaction. An exception is thrown when this method is called after the outcome of the transaction has already been determined.
+  remarks: 'Any copy of a transaction object can initiate the rollback of the transaction by calling this method. Only the original transaction object, which is a <xref:System.Transactions.CommittableTransaction> object, can be used to initiate an attempt to commit the transaction. An exception is thrown when this method is called after the outcome of the transaction has already been determined.'
   syntax:
     content: public void Rollback ();
     parameters: []

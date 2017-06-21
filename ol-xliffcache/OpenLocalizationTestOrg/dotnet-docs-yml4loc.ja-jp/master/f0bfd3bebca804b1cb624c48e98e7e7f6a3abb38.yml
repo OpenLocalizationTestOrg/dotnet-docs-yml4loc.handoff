@@ -126,7 +126,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Initializes an <xref href="System.Web.HttpRequest"></xref> object.
-  remarks: You do not need to create your own instance of the <xref:System.Web.HttpRequest> class. The methods and properties of the <xref:System.Web.HttpRequest> class are exposed through the `Request` property of the <xref:System.Web.HttpApplication>, <xref:System.Web.HttpContext>, <xref:System.Web.UI.Page>, and <xref:System.Web.UI.UserControl> classes.
+  remarks: 'You do not need to create your own instance of the <xref:System.Web.HttpRequest> class. The methods and properties of the <xref:System.Web.HttpRequest> class are exposed through the `Request` property of the <xref:System.Web.HttpApplication>, <xref:System.Web.HttpContext>, <xref:System.Web.UI.Page>, and <xref:System.Web.UI.UserControl> classes.'
   syntax:
     content: public HttpRequest (string filename, string url, string queryString);
     parameters:
@@ -176,7 +176,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Forcibly terminates the underlying TCP connection, causing any outstanding I/O to fail. You might use this method in response to an attack by a malicious HTTP client.
+  summary: 'Forcibly terminates the underlying TCP connection, causing any outstanding I/O to fail. You might use this method in response to an attack by a malicious HTTP client.'
   remarks: "This method is thread-safe. Any thread may call it at any time.  \n  \n This method can only be used in integrated mode. If you invoke it in classic mode, an exception is thrown. To determine the pipeline mode, use <xref:System.Web.HttpRuntime.UsingIntegratedPipeline%2A>."
   syntax:
     content: public void Abort ();
@@ -264,7 +264,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Gets the anonymous identifier for the user, if present.
+  summary: 'Gets the anonymous identifier for the user, if present.'
   remarks: "The <xref:System.Web.HttpRequest.AnonymousID%2A> property assigns a long-lived unique identifier to a non-authenticated user, which can be used to track the user or assign profile properties to that user without storing data in a `Session` object. By default, the <xref:System.Web.HttpRequest.AnonymousID%2A> property is tracked using a cookie, but it can be set to use the URI when the <xref:System.Web.Configuration.SessionStateSection.Cookieless%2A> attribute in the anonymous identification configuration section is set to either the <xref:System.Web.HttpCookieMode.UseUri>, <xref:System.Web.HttpCookieMode.UseDeviceProfile>, or <xref:System.Web.HttpCookieMode.AutoDetect> value. You must explicitly clear the cookie if you no longer want it available, for example when an anonymous user is authenticated.  \n  \n Anonymous identification is used when there is a need to identify entities that are not authenticated and when authorization is required. For more information, see [anonymousIdentification Element (ASP.NET Settings Schema)](http://msdn.microsoft.com/en-us/2bd927ef-9057-4703-9c55-4cfb6d7d0929)"
   example:
   - "The following example shows how to use the <xref:System.Web.HttpRequest.AnonymousID%2A> property by handling the <xref:System.Web.Security.AnonymousIdentificationModule.Creating> event in the Global.asax file. This example has two parts:  \n  \n-   A method in the Global.asax file that handles the <xref:System.Web.Security.AnonymousIdentificationModule.Creating> event.  \n  \n-   A Web Forms page.  \n  \n The first part of the code example shows how to set the <xref:System.Web.HttpRequest.AnonymousID%2A> property by handling the <xref:System.Web.Security.AnonymousIdentificationModule.Creating> event in the Global.asax file. The method that is named `AnonymousIdentification_Creating` sets the <xref:System.Web.HttpRequest.AnonymousID%2A> property when an anonymous ID is created.  \n  \n [!code-csharp[System.Web.HttpRequest_AnonymousID#2](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.HttpRequest_AnonymousID/CS/global_asax.cs#2)]\n [!code-vb[System.Web.HttpRequest_AnonymousID#2](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.HttpRequest_AnonymousID/vb/global_asax.vb#2)]  \n  \n The second part of the code example shows how to display the new <xref:System.Web.HttpRequest.AnonymousID%2A> that is created by the `AnonymousIdentification_Creating` event handler in the preceding example.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.HttpRequest_AnonymousID#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.HttpRequest_AnonymousID/CS/anonid_cs.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.HttpRequest_AnonymousID#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.HttpRequest_AnonymousID/vb/anonid_vb.aspx#1)]  -->"
@@ -357,7 +357,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets the virtual path of the application root and makes it relative by using the tilde (~) notation for the application root (as in "~/page.aspx").
-  remarks: Use this property to provide URL information that will stay the same even if the application changes location. This allows the same URL-mapping code to be used in a test environment and in the final deployment environment, or to be used by copies of Web applications in different domains.
+  remarks: 'Use this property to provide URL information that will stay the same even if the application changes location. This allows the same URL-mapping code to be used in a test environment and in the final deployment environment, or to be used by copies of Web applications in different domains.'
   example:
   - "The following example uses the <xref:System.Web.HttpRequest.AppRelativeCurrentExecutionFilePath%2A> property to set the URL of an <xref:System.Web.UI.WebControls.Image> control to an image in the same directory as the page. Run this page at different levels of a directory structure to see the resulting <xref:System.Web.HttpRequest.AppRelativeCurrentExecutionFilePath%2A> property values.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.HttpRequest.AppRelativeCurrentExecutionPath#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.HttpRequest.AppRelativeCurrentExecutionPath/CS/AppRelativeCurrentExecutionPathCS.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.HttpRequest.AppRelativeCurrentExecutionPath#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.HttpRequest.AppRelativeCurrentExecutionPath/VB/AppRelativeCurrentExecutionPathVB.aspx#1)]  -->  \n  \n The following example uses the <xref:System.Web.HttpRequest.AppRelativeCurrentExecutionFilePath%2A> property to programmatically set the path to a resource, based on the current path of the page.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.HttpRequest.ApplicationPath#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.HttpRequest.ApplicationPath/CS/apprelativecurrentexecutionfilepath.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.HttpRequest.ApplicationPath#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.HttpRequest.ApplicationPath/VB/apprelativecurrentexecutionfilepath.aspx#1)]  -->"
   syntax:
@@ -403,7 +403,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Performs a binary read of a specified number of bytes from the current input stream.
-  remarks: The <xref:System.Web.HttpRequest.BinaryRead%2A> method is provided for compatibility with ASP.
+  remarks: 'The <xref:System.Web.HttpRequest.BinaryRead%2A> method is provided for compatibility with ASP.'
   syntax:
     content: public byte[] BinaryRead (int count);
     parameters:
@@ -546,7 +546,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets or sets the character set of the entity-body.
-  remarks: Default content encoding can be specified in the [globalization Element (ASP.NET Settings Schema)](http://msdn.microsoft.com/en-us/e2dffc8e-ebd2-439b-a2fd-e3ac5e620da7) of a configuration file. If content encoding is also specified by the client, the default configuration settings are overridden.
+  remarks: 'Default content encoding can be specified in the [globalization Element (ASP.NET Settings Schema)](http://msdn.microsoft.com/en-us/e2dffc8e-ebd2-439b-a2fd-e3ac5e620da7) of a configuration file. If content encoding is also specified by the client, the default configuration settings are overridden.'
   example:
   - "The following code example assigns a value representing the description of the current HTTP encoding to a string variable.  \n  \n [!code-csharp[Classic HttpRequest.ContentEncoding Example#1](~/samples/snippets/csharp/VS_Snippets_WebNet/Classic HttpRequest.ContentEncoding Example/CS/source.cs#1)]\n [!code-vb[Classic HttpRequest.ContentEncoding Example#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/Classic HttpRequest.ContentEncoding Example/VB/source.vb#1)]"
   syntax:
@@ -591,7 +591,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Specifies the length, in bytes, of content sent by the client.
+  summary: 'Specifies the length, in bytes, of content sent by the client.'
   remarks: ''
   example:
   - "The following code example assigns the value representing the content length of the incoming request to an integer variable.  \n  \n [!code-csharp[Classic HttpRequest.ContentLength Example#1](~/samples/snippets/csharp/VS_Snippets_WebNet/Classic HttpRequest.ContentLength Example/CS/source.cs#1)]\n [!code-vb[Classic HttpRequest.ContentLength Example#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/Classic HttpRequest.ContentLength Example/VB/source.vb#1)]"
@@ -599,7 +599,7 @@ items:
     content: public int ContentLength { get; }
     return:
       type: System.Int32
-      description: The length, in bytes, of content sent by the client.
+      description: 'The length, in bytes, of content sent by the client.'
   overload: System.Web.HttpRequest.ContentLength*
   exceptions: []
   version:
@@ -645,7 +645,7 @@ items:
     content: public string ContentType { get; set; }
     return:
       type: System.String
-      description: A string representing the MIME content type of the incoming request, for example, "text/html". Additional common MIME types include "audio.wav", "image/gif", and "application/pdf".
+      description: 'A string representing the MIME content type of the incoming request, for example, "text/html". Additional common MIME types include "audio.wav", "image/gif", and "application/pdf".'
   overload: System.Web.HttpRequest.ContentType*
   exceptions: []
   version:
@@ -730,7 +730,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets the virtual path of the current request.
-  remarks: <xref:System.Web.HttpRequest.CurrentExecutionFilePath%2A> returns the file path to the currently executing page handler. For redirect scenarios using <xref:System.Web.HttpServerUtility.Execute%2A> and <xref:System.Web.HttpServerUtility.Transfer%2A> methods this means that the <xref:System.Web.HttpRequest.CurrentExecutionFilePath%2A> property returns the path to the page redirected to (child page). However, when the client is redirected to another page, the <xref:System.Web.HttpRequest.FilePath%2A> property returns the path to the original page.
+  remarks: '<xref:System.Web.HttpRequest.CurrentExecutionFilePath%2A> returns the file path to the currently executing page handler. For redirect scenarios using <xref:System.Web.HttpServerUtility.Execute%2A> and <xref:System.Web.HttpServerUtility.Transfer%2A> methods this means that the <xref:System.Web.HttpRequest.CurrentExecutionFilePath%2A> property returns the path to the page redirected to (child page). However, when the client is redirected to another page, the <xref:System.Web.HttpRequest.FilePath%2A> property returns the path to the original page.'
   example:
   - "The following code example uses the <xref:System.Web.HttpUtility.HtmlEncode%2A> method to HTML-encode the value of the <xref:System.Web.HttpRequest.CurrentExecutionFilePath%2A> property and the <xref:System.IO.TextWriter.WriteLine%2A> method to write the encoded value to the file. This code example is part of a larger example provided for the <xref:System.Web.HttpRequest> class.  \n  \n [!code-csharp[System.Web.HttpRequest_Sample1#2](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.HttpRequest_Sample1/CS/requestdetailscs.aspx#2)]\n [!code-vb[System.Web.HttpRequest_Sample1#2](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.HttpRequest_Sample1/VB/requestdetailsvb.aspx#2)]"
   syntax:
@@ -819,7 +819,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets the virtual path of the current request.
-  remarks: The <xref:System.Web.HttpRequest.FilePath%2A> property does not include the <xref:System.Web.HttpRequest.PathInfo%2A> trailer. For example, for the URL http://www.contoso.com/virdir/page.html/tail, the <xref:System.Web.HttpRequest.FilePath%2A> value is /virdir/page.html.
+  remarks: 'The <xref:System.Web.HttpRequest.FilePath%2A> property does not include the <xref:System.Web.HttpRequest.PathInfo%2A> trailer. For example, for the URL http://www.contoso.com/virdir/page.html/tail, the <xref:System.Web.HttpRequest.FilePath%2A> value is /virdir/page.html.'
   example:
   - "The following code example uses the <xref:System.Web.HttpUtility.HtmlEncode%2A> method to HTML-encode the value of the <xref:System.Web.HttpRequest.FilePath%2A> property and the <xref:System.IO.TextWriter.WriteLine%2A> method to write the encoded value to the file. This code example is part of a larger example provided for the <xref:System.Web.HttpRequest> class.  \n  \n [!code-csharp[System.Web.HttpRequest_Sample1#2](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.HttpRequest_Sample1/CS/requestdetailscs.aspx#2)]\n [!code-vb[System.Web.HttpRequest_Sample1#2](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.HttpRequest_Sample1/VB/requestdetailsvb.aspx#2)]"
   syntax:
@@ -864,7 +864,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Gets the collection of files uploaded by the client, in multipart MIME format.
+  summary: 'Gets the collection of files uploaded by the client, in multipart MIME format.'
   remarks: The file collection is populated only when the HTTP request `Content-Type` value is "multipart/form-data".
   example:
   - "The following code example displays the names of all files in the <xref:System.Web.HttpRequest.Files%2A> collection.  \n  \n [!code-csharp[Classic HttpRequest.Files Example#1](~/samples/snippets/csharp/VS_Snippets_WebNet/Classic HttpRequest.Files Example/CS/source.cs#1)]\n [!code-vb[Classic HttpRequest.Files Example#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/Classic HttpRequest.Files Example/VB/source.vb#1)]"
@@ -960,7 +960,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets a collection of form variables.
-  remarks: The <xref:System.Web.HttpRequest.Form%2A> property is populated when the HTTP request `Content-Type` value is either "application/x-www-form-urlencoded" or "multipart/form-data".
+  remarks: 'The <xref:System.Web.HttpRequest.Form%2A> property is populated when the HTTP request `Content-Type` value is either "application/x-www-form-urlencoded" or "multipart/form-data".'
   example:
   - "The following example shows how to read the values in the form collection posted from a browser. Each name/value pair in the collection represents a control in the form and its value.  \n  \n [!code-csharp[Classic HttpRequest.Form Example#1](~/samples/snippets/csharp/VS_Snippets_WebNet/Classic HttpRequest.Form Example/CS/source.cs#1)]\n [!code-vb[Classic HttpRequest.Form Example#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/Classic HttpRequest.Form Example/VB/source.vb#1)]"
   syntax:
@@ -1006,7 +1006,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets a <xref href="System.IO.Stream"></xref> object that can be used to read the incoming HTTP entity body.
-  remarks: This method is identical to <xref:System.Web.HttpRequest.GetBufferlessInputStream%2A> except that it also copies the bytes that are read to the internal storage that is used by ASP.NET to populate the <xref:System.Web.HttpRequest.Form%2A>, <xref:System.Web.HttpRequest.Files%2A>, and <xref:System.Web.HttpRequest.InputStream%2A> properties. Because this information is preserved, downstream code such as ASP.NET Web Forms pages (.aspx files) will run successfully. This is not the case with the <xref:System.Web.HttpRequest.GetBufferlessInputStream%2A> method.
+  remarks: 'This method is identical to <xref:System.Web.HttpRequest.GetBufferlessInputStream%2A> except that it also copies the bytes that are read to the internal storage that is used by ASP.NET to populate the <xref:System.Web.HttpRequest.Form%2A>, <xref:System.Web.HttpRequest.Files%2A>, and <xref:System.Web.HttpRequest.InputStream%2A> properties. Because this information is preserved, downstream code such as ASP.NET Web Forms pages (.aspx files) will run successfully. This is not the case with the <xref:System.Web.HttpRequest.GetBufferlessInputStream%2A> method.'
   syntax:
     content: public System.IO.Stream GetBufferedInputStream ();
     parameters: []
@@ -1101,8 +1101,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Gets a <xref href="System.IO.Stream"></xref> object that can be used to read the incoming HTTP entity body, optionally disabling the request-length limit that is set in the <xref href="System.Web.Configuration.HttpRuntimeSection.MaxRequestLength"></xref> property.
-  remarks: For more information about this method, see the <xref:System.Web.HttpRequest.GetBufferlessInputStream> overload.
+  summary: 'Gets a <xref href="System.IO.Stream"></xref> object that can be used to read the incoming HTTP entity body, optionally disabling the request-length limit that is set in the <xref href="System.Web.Configuration.HttpRuntimeSection.MaxRequestLength"></xref> property.'
+  remarks: 'For more information about this method, see the <xref:System.Web.HttpRequest.GetBufferlessInputStream> overload.'
   syntax:
     content: public System.IO.Stream GetBufferlessInputStream (bool disableMaxRequestLength);
     parameters:
@@ -1153,7 +1153,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets a collection of HTTP headers.
-  remarks: For a listing of all possible headers, see [Request Header Fields](http://go.microsoft.com/fwlink/?LinkId=73147) on the W3C Web site.
+  remarks: 'For a listing of all possible headers, see [Request Header Fields](http://go.microsoft.com/fwlink/?LinkId=73147) on the W3C Web site.'
   example:
   - "The following code example displays the names and values of all headers in the HTTP request.  \n  \n [!code-csharp[Classic HttpRequest.Headers Example#1](~/samples/snippets/csharp/VS_Snippets_WebNet/Classic HttpRequest.Headers Example/CS/source.cs#1)]\n [!code-vb[Classic HttpRequest.Headers Example#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/Classic HttpRequest.Headers Example/VB/source.vb#1)]"
   syntax:
@@ -1244,7 +1244,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Gets the HTTP data transfer method (such as `GET`, `POST`, or `HEAD`) used by the client.
+  summary: 'Gets the HTTP data transfer method (such as `GET`, `POST`, or `HEAD`) used by the client.'
   remarks: ''
   example:
   - "The following code example uses the <xref:System.Web.HttpUtility.HtmlEncode%2A> method to HTML-encode the value of the <xref:System.Web.HttpRequest.HttpMethod%2A> property and the <xref:System.IO.TextWriter.WriteLine%2A> method to write the encoded value to the file. This code example is part of a larger example provided for the <xref:System.Web.HttpRequest> class.  \n  \n [!code-csharp[System.Web.HttpRequest_Sample1#7](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.HttpRequest_Sample1/CS/requestdetailscs.aspx#7)]\n [!code-vb[System.Web.HttpRequest_Sample1#7](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.HttpRequest_Sample1/VB/requestdetailsvb.aspx#7)]  \n  \n The following example shows output that is produced by this code.  \n  \n `GET`  \n  \n `127.0.0.1`  \n  \n `127.0.0.1`  \n  \n `GET`"
@@ -1408,7 +1408,7 @@ items:
     description: <code>offset</code> is a negative value.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: The number of items in <code>count</code> is larger than the available space in <code>buffer</code>, given the <code>offset</code> value.
+    description: 'The number of items in <code>count</code> is larger than the available space in <code>buffer</code>, given the <code>offset</code> value.'
   version:
   - netframework-4.5.1
   - netframework-4.5.2
@@ -1491,7 +1491,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets a value indicating whether the request is from the local computer.
-  remarks: The <xref:System.Web.HttpRequest.IsLocal%2A> property returns `true` if the IP address of the request originator is 127.0.0.1 or if the IP address of the request is the same as the server's IP address.
+  remarks: 'The <xref:System.Web.HttpRequest.IsLocal%2A> property returns `true` if the IP address of the request originator is 127.0.0.1 or if the IP address of the request is the same as the server''s IP address.'
   syntax:
     content: public bool IsLocal { get; }
     return:
@@ -1534,7 +1534,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Gets a value indicating whether the HTTP connection uses secure sockets (that is, HTTPS).
+  summary: 'Gets a value indicating whether the HTTP connection uses secure sockets (that is, HTTPS).'
   remarks: ''
   example:
   - "The following code example determines whether the <xref:System.Web.HttpRequest.IsSecureConnection%2A> property is set to false. If it is, the <xref:System.Web.HttpResponse.SuppressContent%2A> property is set to true to stop the response from being sent.  \n  \n [!code-csharp[System.Web.HttpResponse_Sample5#3](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.HttpResponse_Sample5/CS/httpresponsesuppresscontentcs.aspx#3)]\n [!code-vb[System.Web.HttpResponse_Sample5#3](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.HttpResponse_Sample5/VB/httpresponsesuppresscontentvb.aspx#3)]"
@@ -1580,7 +1580,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Gets the specified object from the <xref href="System.Web.HttpRequest.QueryString"></xref>, <xref href="System.Web.HttpRequest.Form"></xref>, <xref href="System.Web.HttpRequest.Cookies"></xref>, or <xref href="System.Web.HttpRequest.ServerVariables"></xref> collections.
+  summary: 'Gets the specified object from the <xref href="System.Web.HttpRequest.QueryString"></xref>, <xref href="System.Web.HttpRequest.Form"></xref>, <xref href="System.Web.HttpRequest.Cookies"></xref>, or <xref href="System.Web.HttpRequest.ServerVariables"></xref> collections.'
   syntax:
     content: public string this[string key] { get; }
     parameters:
@@ -1589,7 +1589,7 @@ items:
       description: The name of the collection member to get.
     return:
       type: System.String
-      description: The <xref href="System.Web.HttpRequest.QueryString"></xref>, <xref href="System.Web.HttpRequest.Form"></xref>, <xref href="System.Web.HttpRequest.Cookies"></xref>, or <xref href="System.Web.HttpRequest.ServerVariables"></xref> collection member specified in the <code>key</code> parameter. If the specified <code>key</code> is not found, then `null` is returned.
+      description: 'The <xref href="System.Web.HttpRequest.QueryString"></xref>, <xref href="System.Web.HttpRequest.Form"></xref>, <xref href="System.Web.HttpRequest.Cookies"></xref>, or <xref href="System.Web.HttpRequest.ServerVariables"></xref> collection member specified in the <code>key</code> parameter. If the specified <code>key</code> is not found, then `null` is returned.'
   overload: System.Web.HttpRequest.Item*
   exceptions: []
   version:
@@ -1628,7 +1628,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets the <xref href="System.Security.Principal.WindowsIdentity"></xref> type for the current user.
-  remarks: The <xref:System.Web.HttpRequest.LogonUserIdentity%2A> property exposes the properties and methods of the <xref:System.Security.Principal.WindowsIdentity> object for the currently connected user to Microsoft Internet Information Services (IIS). The instance of the <xref:System.Security.Principal.WindowsIdentity> class that is exposed by <xref:System.Web.HttpRequest.LogonUserIdentity%2A> tracks the IIS request token and provides easy access to this token for the current HTTP request being processed inside of ASP.NET. An instance of the <xref:System.Security.Principal.WindowsIdentity> class is automatically created so it does not need to be constructed to in order to gain access to its methods and properties.
+  remarks: 'The <xref:System.Web.HttpRequest.LogonUserIdentity%2A> property exposes the properties and methods of the <xref:System.Security.Principal.WindowsIdentity> object for the currently connected user to Microsoft Internet Information Services (IIS). The instance of the <xref:System.Security.Principal.WindowsIdentity> class that is exposed by <xref:System.Web.HttpRequest.LogonUserIdentity%2A> tracks the IIS request token and provides easy access to this token for the current HTTP request being processed inside of ASP.NET. An instance of the <xref:System.Security.Principal.WindowsIdentity> class is automatically created so it does not need to be constructed to in order to gain access to its methods and properties.'
   example:
   - "The following code example shows how to retrieve the <xref:System.Web.HttpRequest.LogonUserIdentity%2A> property for the current user and write out the values of each item in a text file. Place this code on the ASP.NET page referenced by the form's `ACTION` attribute.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.HttpRequest_LogonUserIdentity#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.HttpRequest_LogonUserIdentity/CS/logonuseridentity_cs.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.HttpRequest_LogonUserIdentity#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.HttpRequest_LogonUserIdentity/VB/logonuseridentity_vb.aspx#1)]  -->"
   syntax:
@@ -1724,10 +1724,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Maps the specified virtual path to a physical path.
-  remarks: >-
-    > [!CAUTION]
-
-    >  The <xref:System.Web.HttpRequest.MapPath%2A> property potentially contains sensitive information about the hosting environment. The return value should not be displayed to users.
+  remarks: "> [!CAUTION]\n>  The <xref:System.Web.HttpRequest.MapPath%2A> property potentially contains sensitive information about the hosting environment. The return value should not be displayed to users."
   example:
   - "The following code example uses the <xref:System.Web.HttpRequest.MapPath%2A> method to convert a virtual path to a fully qualified physical path on the server. This example has two parts:  \n  \n-   An .aspx page maps the path, reads the file, and displays results of the read operation.  \n  \n-   A class, `UpperCaseFilterStream`, that changes all characters passed through it to uppercase.  \n  \n The first part of the example shows how to convert a virtual path to a fully qualified physical path using the <xref:System.Web.HttpRequest.MapPath%2A> method. This physical path is then passed to a <xref:System.IO.StreamReader> object, which obtains the contents of the file. The <xref:System.Web.HttpResponse.Write%2A> method is then called to display the content of the file on the page. The <xref:System.Web.HttpResponse.Filter%2A> property is used to attach a filter to the response stream that makes the text displayed to the page all uppercase.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.HttpRequest_Samples2#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.HttpRequest_Samples2/CS/requestsamples2cs.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.HttpRequest_Samples2#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.HttpRequest_Samples2/VB/requestsamples2vb.aspx#1)]  -->  \n  \n The second part of the example shows a class that inherits from <xref:System.IO.Stream> and converts all characters in a stream to uppercase. Put this code in the `App_Code` folder for your application.  \n  \n [!code-csharp[System.Web.HttpRequest_Samples2#2](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.HttpRequest_Samples2/CS/responsefilter.cs#2)]\n [!code-vb[System.Web.HttpRequest_Samples2#2](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.HttpRequest_Samples2/VB/responsefilter.vb#2)]"
   syntax:
@@ -1780,10 +1777,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Maps the specified virtual path to a physical path.
-  remarks: >-
-    > [!CAUTION]
-
-    >  The <xref:System.Web.HttpRequest.MapPath%2A> property potentially contains sensitive information about the hosting environment. The return value should not be displayed to users.
+  remarks: "> [!CAUTION]\n>  The <xref:System.Web.HttpRequest.MapPath%2A> property potentially contains sensitive information about the hosting environment. The return value should not be displayed to users."
   syntax:
     content: public string MapPath (string virtualPath, string baseVirtualDir, bool allowCrossAppMapping);
     parameters:
@@ -1886,7 +1880,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Gets a combined collection of <xref href="System.Web.HttpRequest.QueryString"></xref>, <xref href="System.Web.HttpRequest.Form"></xref>, <xref href="System.Web.HttpRequest.Cookies"></xref>, and <xref href="System.Web.HttpRequest.ServerVariables"></xref> items.
+  summary: 'Gets a combined collection of <xref href="System.Web.HttpRequest.QueryString"></xref>, <xref href="System.Web.HttpRequest.Form"></xref>, <xref href="System.Web.HttpRequest.Cookies"></xref>, and <xref href="System.Web.HttpRequest.ServerVariables"></xref> items.'
   remarks: "Name-value pairs are added to the collection in the following order:  \n  \n1.  Query-string parameters.  \n  \n2.  Form fields.  \n  \n3.  Cookies.  \n  \n4.  Server variables."
   example:
   - "The following code example shows how to loop through the <xref:System.Web.HttpRequest.Params%2A> property for a page and how to display each key/value pair.  \n  \n <!-- TODO: review snippet reference [!code-csharp[System.Web.HttpRequest.Params#1](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.HttpRequest.Params/CS/requestparamscs.aspx#1)]  -->\n <!-- TODO: review snippet reference [!code-vb[System.Web.HttpRequest.Params#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.HttpRequest.Params/VB/requestparamsvb.aspx#1)]  -->"
@@ -1933,7 +1927,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets the virtual path of the current request.
-  remarks: The <xref:System.Web.HttpRequest.Path%2A> is the concatenation of the <xref:System.Web.HttpRequest.FilePath%2A> and the <xref:System.Web.HttpRequest.PathInfo%2A> trailer. For example, for the URL http://www.contoso.com/virdir/page.html/tail, the <xref:System.Web.HttpRequest.Path%2A> is /virdir/page.html/tail.
+  remarks: 'The <xref:System.Web.HttpRequest.Path%2A> is the concatenation of the <xref:System.Web.HttpRequest.FilePath%2A> and the <xref:System.Web.HttpRequest.PathInfo%2A> trailer. For example, for the URL http://www.contoso.com/virdir/page.html/tail, the <xref:System.Web.HttpRequest.Path%2A> is /virdir/page.html/tail.'
   example:
   - "The following code example uses the <xref:System.Web.HttpUtility.HtmlEncode%2A> method to HTML-encode the value of the <xref:System.Web.HttpRequest.Path%2A> property and the <xref:System.IO.TextWriter.WriteLine%2A> method to write the encoded value to the file. This code example is part of a larger example provided for the <xref:System.Web.HttpRequest> class.  \n  \n [!code-csharp[System.Web.HttpRequest_Sample1#2](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.HttpRequest_Sample1/CS/requestdetailscs.aspx#2)]\n [!code-vb[System.Web.HttpRequest_Sample1#2](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.HttpRequest_Sample1/VB/requestdetailsvb.aspx#2)]"
   syntax:
@@ -1979,7 +1973,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets the additional path information for a resource with a URL extension.
-  remarks: For the URL Http://www.contoso.com/virdir/page.html/tail, the <xref:System.Web.HttpRequest.PathInfo%2A> value is /tail.
+  remarks: 'For the URL Http://www.contoso.com/virdir/page.html/tail, the <xref:System.Web.HttpRequest.PathInfo%2A> value is /tail.'
   example:
   - "The following code example determines whether the <xref:System.Web.HttpRequest.PathInfo%2A> property contains an empty string. If it does, the <xref:System.IO.StreamWriter.Write%2A> method writes a string indicating this to a file. If it does not, the <xref:System.Web.HttpUtility.HtmlEncode%2A> method HTML-encodes the value of the <xref:System.Web.HttpRequest.PathInfo%2A> property and the <xref:System.IO.TextWriter.WriteLine%2A> method writes the encoded value to the file. This code example is part of a larger example provided for the <xref:System.Web.HttpRequest> class.  \n  \n [!code-csharp[System.Web.HttpRequest_Sample1#4](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.HttpRequest_Sample1/CS/requestdetailscs.aspx#4)]\n [!code-vb[System.Web.HttpRequest_Sample1#4](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.HttpRequest_Sample1/VB/requestdetailsvb.aspx#4)]"
   syntax:
@@ -2071,7 +2065,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets the physical file system path corresponding to the requested URL.
-  remarks: In redirect scenarios using <xref:System.Web.HttpServerUtility.Execute%2A> and <xref:System.Web.HttpServerUtility.Transfer%2A>, the <xref:System.Web.HttpRequest.PhysicalPath%2A> property returns the path to the original page. To find the physical path of the currently executing page use the <xref:System.Web.HttpRequest.MapPath%2A> method with the input argument set as the <xref:System.Web.HttpRequest.CurrentExecutionFilePath%2A> property.
+  remarks: 'In redirect scenarios using <xref:System.Web.HttpServerUtility.Execute%2A> and <xref:System.Web.HttpServerUtility.Transfer%2A>, the <xref:System.Web.HttpRequest.PhysicalPath%2A> property returns the path to the original page. To find the physical path of the currently executing page use the <xref:System.Web.HttpRequest.MapPath%2A> method with the input argument set as the <xref:System.Web.HttpRequest.CurrentExecutionFilePath%2A> property.'
   example:
   - "The following code example uses the <xref:System.Web.HttpUtility.HtmlEncode%2A> method to HTML-encode the value of the <xref:System.Web.HttpRequest.PhysicalPath%2A> property and the <xref:System.IO.TextWriter.WriteLine%2A> method to write the encoded value to the file. This code example is part of a larger example provided for the <xref:System.Web.HttpRequest> class.  \n  \n [!code-csharp[System.Web.HttpRequest_Sample1#5](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.HttpRequest_Sample1/CS/requestdetailscs.aspx#5)]\n [!code-vb[System.Web.HttpRequest_Sample1#5](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.HttpRequest_Sample1/VB/requestdetailsvb.aspx#5)]"
   syntax:
@@ -2163,7 +2157,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets the raw URL of the current request.
-  remarks: The raw URL is defined as the part of the URL following the domain information. In the URL string http://www.contoso.com/articles/recent.aspx, the raw URL is /articles/recent.aspx. The raw URL includes the query string, if present.
+  remarks: 'The raw URL is defined as the part of the URL following the domain information. In the URL string http://www.contoso.com/articles/recent.aspx, the raw URL is /articles/recent.aspx. The raw URL includes the query string, if present.'
   example:
   - "The following code example uses the <xref:System.Web.HttpUtility.HtmlEncode%2A> method to HTML-encode the value of the <xref:System.Web.HttpRequest.RawUrl%2A> property and the <xref:System.IO.TextWriter.WriteLine%2A> method to write the encoded value to the file. This code example is part of a larger example provided for the <xref:System.Web.HttpRequest> class.  \n  \n [!code-csharp[System.Web.HttpRequest_Sample1#5](~/samples/snippets/csharp/VS_Snippets_WebNet/System.Web.HttpRequest_Sample1/CS/requestdetailscs.aspx#5)]\n [!code-vb[System.Web.HttpRequest_Sample1#5](~/samples/snippets/visualbasic/VS_Snippets_WebNet/System.Web.HttpRequest_Sample1/VB/requestdetailsvb.aspx#5)]"
   syntax:
@@ -2208,13 +2202,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Gets a value that indicates whether the request entity body has been read, and if so, how it was read.
+  summary: 'Gets a value that indicates whether the request entity body has been read, and if so, how it was read.'
   remarks: "This method is used to avoid the exception that is thrown if the entity body has already been read and an attempt is made to read it by using an incompatible method. Methods and properties that read the entity body include the following:  \n  \n-   The <xref:System.Web.HttpRequest.Form%2A> property.  \n  \n-   The <xref:System.Web.HttpRequest.Files%2A> property.  \n  \n-   The <xref:System.Web.HttpRequest.InputStream%2A> property.  \n  \n-   The <xref:System.Web.HttpRequest.GetBufferedInputStream%2A> method.  \n  \n-   The <xref:System.Web.HttpRequest.GetBufferlessInputStream%2A> method."
   syntax:
     content: public System.Web.ReadEntityBodyMode ReadEntityBodyMode { get; }
     return:
       type: System.Web.ReadEntityBodyMode
-      description: The value that indicates how the request entity body was read, or that it has not been read.
+      description: 'The value that indicates how the request entity body was read, or that it has not been read.'
   overload: System.Web.HttpRequest.ReadEntityBodyMode*
   exceptions: []
   version:
@@ -2253,12 +2247,12 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets the <xref href="System.Web.Routing.RequestContext"></xref> instance of the current request.
-  remarks: This property provides access to the <xref:System.Web.Routing.RouteData> object for the current request. For more information about ASP.NET routing, see.[ASP.NET Routing](http://msdn.microsoft.com/library/892441af-8f1d-483e-ab5f-b82c23576f5a).
+  remarks: 'This property provides access to the <xref:System.Web.Routing.RouteData> object for the current request. For more information about ASP.NET routing, see.[ASP.NET Routing](http://msdn.microsoft.com/library/892441af-8f1d-483e-ab5f-b82c23576f5a).'
   syntax:
     content: public System.Web.Routing.RequestContext RequestContext { get; set; }
     return:
       type: System.Web.Routing.RequestContext
-      description: The <xref href="System.Web.Routing.RequestContext"></xref> instance of the current request. For non-routed requests, the <xref href="System.Web.Routing.RequestContext"></xref> object that is returned is empty.
+      description: 'The <xref href="System.Web.Routing.RequestContext"></xref> instance of the current request. For non-routed requests, the <xref href="System.Web.Routing.RequestContext"></xref> object that is returned is empty.'
   overload: System.Web.HttpRequest.RequestContext*
   exceptions: []
   version:
@@ -2396,7 +2390,7 @@ items:
   - System.Web
   namespace: System.Web
   summary: Gets a collection of Web server variables.
-  remarks: For a list of server variables supported by IIS, see [IIS Server Variables](http://go.microsoft.com/fwlink/?LinkId=52471).
+  remarks: 'For a list of server variables supported by IIS, see [IIS Server Variables](http://go.microsoft.com/fwlink/?LinkId=52471).'
   example:
   - "The following code example displays the names and values of all named server variables.  \n  \n [!code-csharp[Classic HttpRequest.ServerVariables Example#1](~/samples/snippets/csharp/VS_Snippets_WebNet/Classic HttpRequest.ServerVariables Example/CS/source.cs#1)]\n [!code-vb[Classic HttpRequest.ServerVariables Example#1](~/samples/snippets/visualbasic/VS_Snippets_WebNet/Classic HttpRequest.ServerVariables Example/VB/source.vb#1)]"
   syntax:
@@ -2854,7 +2848,7 @@ items:
     content: public string[] UserLanguages { get; }
     return:
       type: System.String[]
-      description: A sorted string array of client language preferences, or `null` if empty.
+      description: 'A sorted string array of client language preferences, or `null` if empty.'
   overload: System.Web.HttpRequest.UserLanguages*
   exceptions: []
   version:
@@ -2892,7 +2886,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: Causes validation to occur for the collections accessed through the <xref href="System.Web.HttpRequest.Cookies"></xref>, <xref href="System.Web.HttpRequest.Form"></xref>, and <xref href="System.Web.HttpRequest.QueryString"></xref> properties.
+  summary: 'Causes validation to occur for the collections accessed through the <xref href="System.Web.HttpRequest.Cookies"></xref>, <xref href="System.Web.HttpRequest.Form"></xref>, and <xref href="System.Web.HttpRequest.QueryString"></xref> properties.'
   remarks: "The <xref:System.Web.HttpRequest> class uses input validation flags to track whether to perform validation on the request collections accessed through the <xref:System.Web.HttpRequest.Cookies%2A>, <xref:System.Web.HttpRequest.Form%2A>, and <xref:System.Web.HttpRequest.QueryString%2A> properties. The <xref:System.Web.HttpRequest.ValidateInput%2A> method sets these flags so that when the get accessors for the <xref:System.Web.HttpRequest.Cookies%2A>, <xref:System.Web.HttpRequest.Form%2A>, or <xref:System.Web.HttpRequest.QueryString%2A> property are invoked, input validation is performed. Validation works by checking all input data against a hard-coded list of potentially dangerous data.  \n  \n If the validation feature is enabled by page directive or configuration, this method is called during the page's `ProcessRequest` processing phase. The <xref:System.Web.HttpRequest.ValidateInput%2A> method can be called by your code if the validation feature is not enabled."
   syntax:
     content: public void ValidateInput ();

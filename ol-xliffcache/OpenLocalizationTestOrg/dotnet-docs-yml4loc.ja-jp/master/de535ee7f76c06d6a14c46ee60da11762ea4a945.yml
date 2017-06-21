@@ -187,7 +187,7 @@ items:
   - netstandard
   namespace: System.IO.Compression
   summary: Initializes a new instance of the <xref href="System.IO.Compression.ZipArchive"></xref> class from the specified stream and with the specified mode.
-  remarks: If the `mode` parameter is set to <xref:System.IO.Compression.ZipArchiveMode.Read>, the stream must support reading. If the `mode` parameter is set to <xref:System.IO.Compression.ZipArchiveMode.Create>, the stream must support writing. If the `mode` parameter is set to <xref:System.IO.Compression.ZipArchiveMode.Update>, the stream must support reading, writing, and seeking.
+  remarks: 'If the `mode` parameter is set to <xref:System.IO.Compression.ZipArchiveMode.Read>, the stream must support reading. If the `mode` parameter is set to <xref:System.IO.Compression.ZipArchiveMode.Create>, the stream must support writing. If the `mode` parameter is set to <xref:System.IO.Compression.ZipArchiveMode.Update>, the stream must support reading, writing, and seeking.'
   syntax:
     content: public ZipArchive (System.IO.Stream stream, System.IO.Compression.ZipArchiveMode mode);
     parameters:
@@ -196,12 +196,12 @@ items:
       description: The input or output stream.
     - id: mode
       type: System.IO.Compression.ZipArchiveMode
-      description: One of the enumeration values that indicates whether the zip archive is used to read, create, or update entries.
+      description: 'One of the enumeration values that indicates whether the zip archive is used to read, create, or update entries.'
   overload: System.IO.Compression.ZipArchive.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: The stream is already closed, or the capabilities of the stream do not match the mode.
+    description: 'The stream is already closed, or the capabilities of the stream do not match the mode.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>stream</code> is `null`.
@@ -271,8 +271,8 @@ items:
   - System.IO.Compression
   - netstandard
   namespace: System.IO.Compression
-  summary: Initializes a new instance of the <xref href="System.IO.Compression.ZipArchive"></xref> class on the specified stream for the specified mode, and optionally leaves the stream open.
-  remarks: If the `mode` parameter is set to <xref:System.IO.Compression.ZipArchiveMode.Read>, the stream must support reading. If the `mode` parameter is set to <xref:System.IO.Compression.ZipArchiveMode.Create>, the stream must support writing. If the `mode` parameter is set to <xref:System.IO.Compression.ZipArchiveMode.Update>, the stream must support reading, writing, and seeking.
+  summary: 'Initializes a new instance of the <xref href="System.IO.Compression.ZipArchive"></xref> class on the specified stream for the specified mode, and optionally leaves the stream open.'
+  remarks: 'If the `mode` parameter is set to <xref:System.IO.Compression.ZipArchiveMode.Read>, the stream must support reading. If the `mode` parameter is set to <xref:System.IO.Compression.ZipArchiveMode.Create>, the stream must support writing. If the `mode` parameter is set to <xref:System.IO.Compression.ZipArchiveMode.Update>, the stream must support reading, writing, and seeking.'
   syntax:
     content: public ZipArchive (System.IO.Stream stream, System.IO.Compression.ZipArchiveMode mode, bool leaveOpen);
     parameters:
@@ -281,7 +281,7 @@ items:
       description: The input or output stream.
     - id: mode
       type: System.IO.Compression.ZipArchiveMode
-      description: One of the enumeration values that indicates whether the zip archive is used to read, create, or update entries.
+      description: 'One of the enumeration values that indicates whether the zip archive is used to read, create, or update entries.'
     - id: leaveOpen
       type: System.Boolean
       description: '`true` to leave the stream open after the <xref href="System.IO.Compression.ZipArchive"></xref> object is disposed; otherwise, `false`.'
@@ -289,7 +289,7 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: The stream is already closed, or the capabilities of the stream do not match the mode.
+    description: 'The stream is already closed, or the capabilities of the stream do not match the mode.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>stream</code> is `null`.
@@ -359,7 +359,7 @@ items:
   - System.IO.Compression
   - netstandard
   namespace: System.IO.Compression
-  summary: Initializes a new instance of the <xref href="System.IO.Compression.ZipArchive"></xref> class on the specified stream for the specified mode, uses the specified encoding for entry names, and optionally leaves the stream open.
+  summary: 'Initializes a new instance of the <xref href="System.IO.Compression.ZipArchive"></xref> class on the specified stream for the specified mode, uses the specified encoding for entry names, and optionally leaves the stream open.'
   remarks: "If the `mode` parameter is set to <xref:System.IO.Compression.ZipArchiveMode.Read>, the stream must support reading. If the `mode` parameter is set to <xref:System.IO.Compression.ZipArchiveMode.Create>, the stream must support writing. If the `mode` parameter is set to <xref:System.IO.Compression.ZipArchiveMode.Update>, the stream must support reading, writing, and seeking.  \n  \n When you open a zip archive file for reading and `entryNameEncoding` is set to `null`, entry names are decoded according to the following rules:  \n  \n-   When the language encoding flag (in the general-purpose bit flag of the local file header) is not set, the current system default code page is used to decode the entry name.  \n  \n-   When the language encoding flag is set, UTF-8 is used to decode the entry name.  \n  \n When you open a zip archive file for reading and `entryNameEncoding` is set to a value other than `null`, entry names are decoded according to the following rules:  \n  \n-   When the language encoding flag is not set, the specified `entryNameEncoding` is used to decode the entry name.  \n  \n-   When the language encoding flag is set, UTF-8 is used to decode the entry name.  \n  \n When you write to archive files and `entryNameEncoding` is set to `null`, entry names are encoded according to the following rules:  \n  \n-   For entry names that contain characters outside the ASCII range, the language encoding flag is set, and entry names are encoded by using UTF-8.  \n  \n-   For entry names that contain only ASCII characters, the language encoding flag is not set, and entry names are encoded by using the current system default code page.  \n  \n When you write to archive files and `entryNameEncoding` is set to a value other than `null`, the specified `entryNameEncoding` is used to encode the entry names into bytes. The language encoding flag (in the general-purpose bit flag of the local file header) is set only when the specified encoding is a UTF-8 encoding."
   syntax:
     content: public ZipArchive (System.IO.Stream stream, System.IO.Compression.ZipArchiveMode mode, bool leaveOpen, System.Text.Encoding entryNameEncoding);
@@ -369,7 +369,7 @@ items:
       description: The input or output stream.
     - id: mode
       type: System.IO.Compression.ZipArchiveMode
-      description: One of the enumeration values that indicates whether the zip archive is used to read, create, or update entries.
+      description: 'One of the enumeration values that indicates whether the zip archive is used to read, create, or update entries.'
     - id: leaveOpen
       type: System.Boolean
       description: '`true` to leave the stream open after the <xref href="System.IO.Compression.ZipArchive"></xref> object is disposed; otherwise, `false`.'
@@ -380,7 +380,7 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: The stream is already closed, or the capabilities of the stream do not match the mode.
+    description: 'The stream is already closed, or the capabilities of the stream do not match the mode.'
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: <code>stream</code> is `null`.
@@ -459,7 +459,7 @@ items:
     parameters:
     - id: entryName
       type: System.String
-      description: A path, relative to the root of the archive, that specifies the name of the entry to be created.
+      description: 'A path, relative to the root of the archive, that specifies the name of the entry to be created.'
     return:
       type: System.IO.Compression.ZipArchiveEntry
       description: An empty entry in the zip archive.
@@ -546,7 +546,7 @@ items:
     parameters:
     - id: entryName
       type: System.String
-      description: A path, relative to the root of the archive, that specifies the name of the entry to be created.
+      description: 'A path, relative to the root of the archive, that specifies the name of the entry to be created.'
     - id: compressionLevel
       type: System.IO.Compression.CompressionLevel
       description: One of the enumeration values that indicates whether to emphasize speed or compression effectiveness when creating the entry.
@@ -694,7 +694,7 @@ items:
   - System.IO.Compression
   - netstandard
   namespace: System.IO.Compression
-  summary: Called by the <xref href="System.IO.Compression.ZipArchive.Dispose"></xref> and <xref href="System.Object.Finalize"></xref> methods to release the unmanaged resources used by the current instance of the <xref href="System.IO.Compression.ZipArchive"></xref> class, and optionally finishes writing the archive and releases the managed resources.
+  summary: 'Called by the <xref href="System.IO.Compression.ZipArchive.Dispose"></xref> and <xref href="System.Object.Finalize"></xref> methods to release the unmanaged resources used by the current instance of the <xref href="System.IO.Compression.ZipArchive"></xref> class, and optionally finishes writing the archive and releases the managed resources.'
   remarks: "If `disposing` is set to `true`, all underlying streams are closed and no longer available for subsequent write operations, unless you construct the object by using the <xref:System.IO.Compression.ZipArchive.%23ctor%28System.IO.Stream%2CSystem.IO.Compression.ZipArchiveMode%2CSystem.Boolean%29> constructor overload and set its `leaveOpen` parameter to `true`.  \n  \n This method is called only by the public <xref:System.IO.Compression.ZipArchive.Dispose> and <xref:System.Object.Finalize> methods; do not call this method directly.  \n  \n When you implement the dispose pattern, the Boolean parameter of the <xref:System.IO.Compression.ZipArchive.Dispose%28System.Boolean%29> method should be used as follows:  \n  \n-   The <xref:System.IO.Compression.ZipArchive.Dispose> method of the current object should call <xref:System.IO.Compression.ZipArchive.Dispose%28System.Boolean%29> with the Boolean parameter set to `true` to release both managed and unmanaged resources.  \n  \n-   The <xref:System.Object.Finalize> method of the current object should call <xref:System.IO.Compression.ZipArchive.Dispose%28System.Boolean%29> with the Boolean parameter set to `false` to release only unmanaged resources.  \n  \n For more information, see ."
   syntax:
     content: protected virtual void Dispose (bool disposing);
@@ -765,7 +765,7 @@ items:
   - netstandard
   namespace: System.IO.Compression
   summary: Gets the collection of entries that are currently in the zip archive.
-  remarks: Use the <xref:System.IO.Compression.ZipArchive.Entries%2A> property to retrieve the entire collection of entries. Use the <xref:System.IO.Compression.ZipArchive.GetEntry%2A> method to retrieve a single entry by name.
+  remarks: 'Use the <xref:System.IO.Compression.ZipArchive.Entries%2A> property to retrieve the entire collection of entries. Use the <xref:System.IO.Compression.ZipArchive.GetEntry%2A> method to retrieve a single entry by name.'
   example:
   - "The following example shows how to open a zip archive and iterate through the collection of entries.  \n  \n [!code-csharp[System.IO.Compression.ZipArchive#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.io.compression.ziparchive/cs/program1.cs#1)]\n [!code-vb[System.IO.Compression.ZipArchive#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.io.compression.ziparchive/vb/program1.vb#1)]"
   syntax:
@@ -783,7 +783,7 @@ items:
     description: The zip archive has been disposed.
   - type: System.IO.InvalidDataException
     commentId: T:System.IO.InvalidDataException
-    description: The zip archive is corrupt, and its entries cannot be retrieved.
+    description: 'The zip archive is corrupt, and its entries cannot be retrieved.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -845,7 +845,7 @@ items:
   - netstandard
   namespace: System.IO.Compression
   summary: Retrieves a wrapper for the specified entry in the zip archive.
-  remarks: If multiple entries that have the specified name exist in the archive, the first one is returned. The name of the entry is compared to `entryName` using ordinal comparison.
+  remarks: 'If multiple entries that have the specified name exist in the archive, the first one is returned. The name of the entry is compared to `entryName` using ordinal comparison.'
   example:
   - "The following example shows how to use the <xref:System.IO.Compression.ZipArchive.GetEntry%2A> method to retrieve an entry.  \n  \n [!code-csharp[System.IO.Compression.ZipArchiveEntry#2](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.io.compression.ziparchiveentry/cs/program2.cs#2)]\n [!code-vb[System.IO.Compression.ZipArchiveEntry#2](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.io.compression.ziparchiveentry/vb/program2.vb#2)]"
   syntax:
@@ -853,7 +853,7 @@ items:
     parameters:
     - id: entryName
       type: System.String
-      description: A path, relative to the root of the archive, that identifies the entry to retrieve.
+      description: 'A path, relative to the root of the archive, that identifies the entry to retrieve.'
     return:
       type: System.IO.Compression.ZipArchiveEntry
       description: A wrapper for the specified entry in the archive; `null` if the entry does not exist in the archive.
@@ -873,7 +873,7 @@ items:
     description: The zip archive has been disposed.
   - type: System.IO.InvalidDataException
     commentId: T:System.IO.InvalidDataException
-    description: The zip archive is corrupt, and its entries cannot be retrieved.
+    description: 'The zip archive is corrupt, and its entries cannot be retrieved.'
   version:
   - netcore-1.0
   - netcore-1.1
@@ -935,12 +935,12 @@ items:
   - netstandard
   namespace: System.IO.Compression
   summary: Gets a value that describes the type of action the zip archive can perform on entries.
-  remarks: You specify a value for the <xref:System.IO.Compression.ZipArchive> property when you create an instance of the <xref:System.IO.Compression.ZipArchive> class. Use the <xref:System.IO.Compression.ZipArchive.%23ctor%28System.IO.Stream%2CSystem.IO.Compression.ZipArchiveMode%29> or <xref:System.IO.Compression.ZipArchive.%23ctor%28System.IO.Stream%2CSystem.IO.Compression.ZipArchiveMode%2CSystem.Boolean%29> constructor to provide a value for the <xref:System.IO.Compression.ZipArchive.Mode%2A> property.
+  remarks: 'You specify a value for the <xref:System.IO.Compression.ZipArchive> property when you create an instance of the <xref:System.IO.Compression.ZipArchive> class. Use the <xref:System.IO.Compression.ZipArchive.%23ctor%28System.IO.Stream%2CSystem.IO.Compression.ZipArchiveMode%29> or <xref:System.IO.Compression.ZipArchive.%23ctor%28System.IO.Stream%2CSystem.IO.Compression.ZipArchiveMode%2CSystem.Boolean%29> constructor to provide a value for the <xref:System.IO.Compression.ZipArchive.Mode%2A> property.'
   syntax:
     content: public System.IO.Compression.ZipArchiveMode Mode { get; }
     return:
       type: System.IO.Compression.ZipArchiveMode
-      description: One of the enumeration values that describes the type of action (read, create, or update) the zip archive can perform on entries.
+      description: 'One of the enumeration values that describes the type of action (read, create, or update) the zip archive can perform on entries.'
   overload: System.IO.Compression.ZipArchive.Mode*
   exceptions: []
   version:

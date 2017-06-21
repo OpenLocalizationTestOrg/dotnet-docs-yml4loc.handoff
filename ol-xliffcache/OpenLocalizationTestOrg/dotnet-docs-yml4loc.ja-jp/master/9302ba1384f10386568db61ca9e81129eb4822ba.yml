@@ -489,7 +489,7 @@ items:
     description: The resulting number of bytes is greater than the maximum number that can be returned as an integer.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: Error detection is enabled, and <code>chars</code> contains an invalid sequence of characters.
+    description: 'Error detection is enabled, and <code>chars</code> contains an invalid sequence of characters.'
   - type: System.Text.EncoderFallbackException
     commentId: T:System.Text.EncoderFallbackException
     description: "A fallback occurred (see [Character Encoding in the .NET Framework](~/docs/standard/base-types/character-encoding.md) for complete explanation)  \n  \n -and-  \n  \n <xref href=\"System.Text.Encoding.EncoderFallback\"></xref> is set to <xref href=\"System.Text.EncoderExceptionFallback\"></xref>."
@@ -588,7 +588,7 @@ items:
     description: "<code>count</code> is less than zero.  \n  \n -or-  \n  \n The resulting number of bytes is greater than the maximum number that can be returned as an integer."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: Error detection is enabled, and <code>chars</code> contains an invalid sequence of characters.
+    description: 'Error detection is enabled, and <code>chars</code> contains an invalid sequence of characters.'
   - type: System.Text.EncoderFallbackException
     commentId: T:System.Text.EncoderFallbackException
     description: "A fallback occurred (see [Character Encoding in the .NET Framework](~/docs/standard/base-types/character-encoding.md) for a complete explanation)  \n  \n -and-  \n  \n <xref href=\"System.Text.Encoding.EncoderFallback\"></xref> is set to <xref href=\"System.Text.EncoderExceptionFallback\"></xref>."
@@ -682,7 +682,7 @@ items:
     description: "<code>index</code> or <code>count</code> is less than zero.  \n  \n -or-  \n  \n <code>index</code> and <code>count</code> do not denote a valid range in <code>chars</code>.  \n  \n -or-  \n  \n The resulting number of bytes is greater than the maximum number that can be returned as an integer."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: Error detection is enabled, and <code>chars</code> contains an invalid sequence of characters.
+    description: 'Error detection is enabled, and <code>chars</code> contains an invalid sequence of characters.'
   - type: System.Text.EncoderFallbackException
     commentId: T:System.Text.EncoderFallbackException
     description: "A fallback occurred (see [Character Encoding in the .NET Framework](~/docs/standard/base-types/character-encoding.md) for complete explanation)  \n  \n -and-  \n  \n The <xref href=\"System.Text.Encoding.EncoderFallback\"></xref> property is set to <xref href=\"System.Text.EncoderExceptionFallback\"></xref>."
@@ -1087,7 +1087,7 @@ items:
     description: "<code>index</code> or <code>count</code> is less than zero.  \n  \n -or-  \n  \n <code>index</code> and <code>count</code> do not denote a valid range in <code>bytes</code>.  \n  \n -or-  \n  \n The resulting number of bytes is greater than the maximum number that can be returned as an integer."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: Error detection is enabled, and <code>bytes</code> contains an invalid sequence of bytes.
+    description: 'Error detection is enabled, and <code>bytes</code> contains an invalid sequence of bytes.'
   - type: System.Text.DecoderFallbackException
     commentId: T:System.Text.DecoderFallbackException
     description: "A fallback occurred (see [Character Encoding in the .NET Framework](~/docs/standard/base-types/character-encoding.md) for complete explanation)  \n  \n -and-  \n  \n <xref href=\"System.Text.Encoding.DecoderFallback\"></xref> is set to <xref href=\"System.Text.DecoderExceptionFallback\"></xref>."
@@ -1186,7 +1186,7 @@ items:
     description: "<code>count</code> is less than zero.  \n  \n -or-  \n  \n The resulting number of bytes is greater than the maximum number that can be returned as an integer."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: Error detection is enabled, and <code>bytes</code> contains an invalid sequence of bytes.
+    description: 'Error detection is enabled, and <code>bytes</code> contains an invalid sequence of bytes.'
   - type: System.Text.DecoderFallbackException
     commentId: T:System.Text.DecoderFallbackException
     description: "A fallback occurred (see [Character Encoding in the .NET Framework](~/docs/standard/base-types/character-encoding.md) for complete explanation)  \n  \n -and-  \n  \n <xref href=\"System.Text.Encoding.DecoderFallback\"></xref> is set to <xref href=\"System.Text.DecoderExceptionFallback\"></xref>."
@@ -1849,7 +1849,7 @@ items:
   - mscorlib
   - netstandard
   namespace: System.Text
-  summary: Returns a Unicode byte order mark encoded in UTF-8 format, if the <xref href="System.Text.UTF8Encoding"></xref> encoding object is configured to supply one.
+  summary: 'Returns a Unicode byte order mark encoded in UTF-8 format, if the <xref href="System.Text.UTF8Encoding"></xref> encoding object is configured to supply one.'
   remarks: "The <xref:System.Text.UTF8Encoding> object can provide a preamble, which is a byte array that can be prefixed to the sequence of bytes that result from the encoding process. Prefacing a sequence of encoded bytes with a byte order mark (code point U+FEFF) helps the decoder determine the byte order and the transformation format, or UTF. The Unicode byte order mark (BOM) is serialized as 0xEF 0xBB 0xBF. Note that the Unicode Standard neither requires nor recommends the use of a BOM for UTF-8 encoded streams.  \n  \n You can instantiate a <xref:System.Text.UTF8Encoding> object whose <xref:System.Text.UTF8Encoding.GetPreamble%2A> method returns a valid BOM in the following ways:  \n  \n-   By retrieving the <xref:System.Text.UTF8Encoding> object returned by the <xref:System.Text.Encoding.UTF8%2A?displayProperty=fullName> property.  \n  \n-   By calling a <xref:System.Text.UTF8Encoding> constructor with a `encoderShouldEmitUTF8Identifier` parameter and setting its value set to `true`.  \n  \n All other <xref:System.Text.UTF8Encoding> objects are configured to return an empty array rather than a valid BOM.  \n  \n The BOM provide nearly certain identification of an encoding for files that otherwise have lost a reference to their encoding, such as untagged or improperly tagged web data or random text files stored when a business did not have international concerns. Often user problems might be avoided if data is consistently and properly tagged.  \n  \n For standards that provide an encoding type, a BOM is somewhat redundant. However, it can be used to help a server send the correct encoding header. Alternatively, it can be used as a fallback in case the encoding is otherwise lost.  \n  \n There are some disadvantages to using a BOM. For example, knowing how to limit the database fields that use a BOM can be difficult. Concatenation of files can be a problem also, for example, when files are merged in such a way that an unnecessary character can end up in the middle of data. In spite of the few disadvantages, however, the use of a BOM is highly recommended.  \n  \n For more information on byte order and the byte order mark, see The Unicode Standard at the [Unicode home page](http://go.microsoft.com/fwlink/?LinkId=37123).  \n  \n> [!CAUTION]\n>  To ensure that the encoded bytes are decoded properly when they are saved as a file or as a stream, you can prefix the beginning of a stream of encoded bytes with a preamble. Note that the <xref:System.Text.UTF8Encoding.GetBytes%2A> method does not prepend a BOM to a sequence of encoded bytes; supplying a BOM at the beginning of an appropriate byte stream is the developer's responsibility."
   example:
   - "The following example uses the <xref:System.Text.UTF8Encoding.GetPreamble%2A> method to return the Unicode byte order mark encoded in UTF-8 format. Notice that the default constructor for <xref:System.Text.UTF8Encoding> does not provide a preamble.  \n  \n [!code-cpp[System.Text.UTF8Encoding.GetPreamble Example#1](~/samples/snippets/cpp/VS_Snippets_CLR_System/system.Text.UTF8Encoding.GetPreamble Example/CPP/getpreamble-.cpp#1)]\n [!code-csharp[System.Text.UTF8Encoding.GetPreamble Example#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.Text.UTF8Encoding.GetPreamble Example/CS/getpreamble-.cs#1)]\n [!code-vb[System.Text.UTF8Encoding.GetPreamble Example#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Text.UTF8Encoding.GetPreamble Example/VB/getpreamble-.vb#1)]  \n  \n The following example instantiates two <xref:System.Text.UTF8Encoding> objects, the first by calling the parameterless <xref:System.Text.UTF8Encoding.%23ctor> constructor, which does not provide a BOM, and the second by calling the <xref:System.Text.UTF8Encoding.%23ctor%28System.Boolean%29> constructor with its `encoderShouldEmitUTF8Identifier` argument set to `true`. It then calls the <xref:System.Text.UTF8Encoding.GetPreamble%2A> method to write the BOM to a file before writing a UF8-encoded string. As the console output from the example shows, the file that saves the bytes from the second encoder has three more bytes than the first.  \n  \n [!code-csharp[System.Text.UTF8Encoding.GetPreamble#1](~/samples/snippets/csharp/VS_Snippets_CLR_System/system.text.utf8encoding.getpreamble/cs/getpreamble1.cs#1)]\n [!code-vb[System.Text.UTF8Encoding.GetPreamble#1](~/samples/snippets/visualbasic/VS_Snippets_CLR_System/system.text.utf8encoding.getpreamble/vb/getpreamble1.vb#1)]  \n  \n You can also compare the files by using the `fc` command in a console window, or you can inspect the files in a text editor that includes a Hex View mode. Note that when the file is opened in an editor that supports UTF-8, the BOM is not displayed."
@@ -1858,7 +1858,7 @@ items:
     parameters: []
     return:
       type: System.Byte[]
-      description: A byte array containing the Unicode byte order mark, if the <xref href="System.Text.UTF8Encoding"></xref> encoding object is configured to supply one. Otherwise, this method returns a zero-length byte array.
+      description: 'A byte array containing the Unicode byte order mark, if the <xref href="System.Text.UTF8Encoding"></xref> encoding object is configured to supply one. Otherwise, this method returns a zero-length byte array.'
   overload: System.Text.UTF8Encoding.GetPreamble*
   exceptions: []
   version:
@@ -1956,7 +1956,7 @@ items:
     description: "<code>index</code> or <code>count</code> is less than zero.  \n  \n -or-  \n  \n <code>index</code> and <code>count</code> do not denote a valid range in <code>bytes</code>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: Error detection is enabled, and <code>bytes</code> contains an invalid sequence of bytes.
+    description: 'Error detection is enabled, and <code>bytes</code> contains an invalid sequence of bytes.'
   - type: System.Text.DecoderFallbackException
     commentId: T:System.Text.DecoderFallbackException
     description: "A fallback occurred (see [Character Encoding in the .NET Framework](~/docs/standard/base-types/character-encoding.md) for complete explanation)  \n  \n -and-  \n  \n <xref href=\"System.Text.Encoding.DecoderFallback\"></xref> is set to <xref href=\"System.Text.DecoderExceptionFallback\"></xref>."
